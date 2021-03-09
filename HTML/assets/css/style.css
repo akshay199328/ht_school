@@ -87,12 +87,13 @@ section {
 
 .breadcrumbs {
   padding: 15px 0 30px 0;
-  background: #fade3b;
+  background: transparent;
   min-height: 40px;
   margin-top: 82px;
   color: #fff;
 }
-.course-page{background: #fade3b;}
+.background-breadcrumbs{background: #fade3b;}
+.background-breadcrumbs li a{color: #0c5acc;}
 .header-space{margin-top:35px;}
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -127,7 +128,7 @@ section {
   list-style: none;
   padding: 0 0 10px 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 11px;
 }
 .breadcrumbs ol li{
     font-size: 11px;
@@ -137,11 +138,11 @@ section {
   line-height: 1.36;
   letter-spacing: normal;
   text-align: left;
-  color: #0c5acc;
+  color: #fff;
    transition: 0.3s;
 }
 .breadcrumbs ol a {
-  color: #0c5acc;
+  color: #fff;
   transition: 0.3s;
 }
 
@@ -303,13 +304,19 @@ section {
 
 .navbar li {
   position: relative;
+  margin-left: 20px;
 }
+.navbar li.active{
+  background: #000
+}
+.navbar li.active a, .navbar .active a i{color: #fff}
 
+.left-menu ul li.active span:after{border-color: #fff}
 .navbar a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 0 10px 30px;
+  padding: 7px 20px 10px 10px;
   font-family: "GTWalsheimPro", sans-serif;
   font-size: 15px;
   font-weight: bold;
@@ -327,7 +334,7 @@ section {
 .navbar a:hover, .navbar .active, .navbar li:hover > a {
   color: #000000;
 }
-
+.navbar li.active a:hover{color: #fff}
 .navbar .getstarted {
   background: #4154f1;
   padding: 8px 20px;
@@ -744,7 +751,93 @@ section {
 .about .btn-read-more:hover i {
   transform: translateX(5px);
 }
-
+/*#--------------------
+Course Details
+------------------------#*/
+.course-about{padding: 40px 0px;}
+.course-about .details-left{
+  background: url('../img/coursedetails-back.jpg') no-repeat;
+      padding: 0px 80px 50px 145px;
+}
+.course-about .details-left .breadcrumbs li a{
+  text-decoration: underline;
+}
+.course-about .details-left .breadcrumbs ol li + li::before{color: #fff;}
+.course-about .details-left .content{padding: 0px;}
+.course-about h2{
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+}
+.course-about p{
+  font-size: 17px!important;
+  font-weight: 300!important;
+  line-height: 1.29!important;
+  letter-spacing: normal!important;
+  color: #fff!important;
+  margin: 20px 0px!important;
+}
+.course-about ul li{
+  display: block;
+  border-top: solid 1px #707070;
+    padding: 15px 0px;
+    width: 100%;
+    float: left;
+}
+.course-about ul li:last-child{
+    border-bottom: solid 1px #707070;
+}
+.course-about ul li p{
+  font-size: 14px!important;
+  line-height: 1.36!important;
+  text-align: left;
+  margin: 0px;
+  margin: 0px 0px !important;
+  color: #fff!important;
+}
+.course-about ul li h6{
+   font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff!important;
+}
+.course-fees {
+    margin: 25px 0px;
+    float: left;
+    width: 100%;
+}
+.course-fees h4{
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fbca00;
+  margin-bottom: 15px;
+}
+.course-fees a.link{
+    padding: 12px 32px 16px 25px;
+  background-color: #fbca00;
+    font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #004135;
+}
 /*--------------------------------------------------------------
 # Values
 --------------------------------------------------------------*/

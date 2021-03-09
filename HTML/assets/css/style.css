@@ -16,6 +16,8 @@ body {
   font-family: 'GTWalsheimPro', sans-serif;
   font-weight: normal;
   color: #444444;
+  margin:0px!important;
+  padding: 0px!important;
 }
 
 a {
@@ -515,10 +517,10 @@ section {
 .hero-list li{
   display: inline-block;
   float: left;
-  width: 47%;
+  width: 46%;
   height: 266px;
-    margin-right: 25px;
-    margin-top: 25px;
+    margin-right: 38px;
+    margin-top: 38px;
     padding: 25px 30px;
     
 }
@@ -1109,12 +1111,15 @@ section {
 .latest-news .center {
     margin-top: 20px;
 }
-.infograph{
+.infograph, .testimonials{
     padding: 20px 0px;
     margin-top: 45.5px;
     border-top: solid 1px #b8b8b8;
 } 
-.infograph .heading h4{
+.testimonials {
+    margin-top: 0px;
+}
+.infograph .heading h4, .testimonials .heading h4{
     font-size: 25px;
     font-weight: bold;
     font-stretch: normal;
@@ -1130,7 +1135,7 @@ section {
 }
 .infograph .details .col-lg-4{float: left}
 .infograph .content {
-    padding: 28px 56px;
+    padding: 28px 56px 20px 56px;
 }
 .infograph .content p{
   font-size: 11px;
@@ -1788,10 +1793,10 @@ section {
 .testimonials .testimonial-item {
   box-sizing: content-box;
   padding: 30px;
-  margin: 40px 30px;
-  box-shadow: 0px 0 20px rgba(1, 41, 112, 0.1);
+  margin: 40px 15px;
+  /*box-shadow: 0px 0 20px rgba(1, 41, 112, 0.1);*/
   background: #fff;
-  min-height: 320px;
+  /*min-height: 320px;*/
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -1828,8 +1833,15 @@ section {
 }
 
 .testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 auto 15px auto;
+    margin: 0 auto 15px auto;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
 }
 
 .testimonials .swiper-pagination {
@@ -1850,7 +1862,7 @@ section {
 }
 
 .testimonials .swiper-slide {
-  opacity: .3;
+  /*opacity: .3;*/
 }
 
 @media (max-width: 1199px) {
@@ -1864,8 +1876,8 @@ section {
 
 @media (min-width: 1200px) {
   .testimonials .swiper-slide-next {
-    opacity: 1;
-    transform: scale(1.12);
+    /*opacity: 1;*/
+    /*transform: scale(1.12);*/
   }
 }
 

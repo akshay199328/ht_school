@@ -1,9 +1,4 @@
-/**
-* Template Name: FlexStart - v1.1.1
-* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
   "use strict";
 
@@ -220,13 +215,7 @@
 
   });
 
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfokio-lightbox'
-  });
-
+  
   /**
    * Portfolio details slider
    */
@@ -248,15 +237,15 @@
    */
   new Swiper('.testimonials-slider', {
     speed: 600,
-    loop: true,
+    
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
     },
     slidesPerView: 'auto',
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
+      // el: '.swiper-pagination',
+      // type: 'bullets',
       clickable: true
     },
     breakpoints: {

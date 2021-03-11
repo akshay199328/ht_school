@@ -45,6 +45,7 @@ function wp_bootstrap_starter_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'wp-bootstrap-starter' ),
+        'secondary' => esc_html__( 'Secondary', 'wp-bootstrap-starter' ),
 	) );
 
 	/*
@@ -210,8 +211,12 @@ function wp_bootstrap_starter_scripts() {
         wp_enqueue_style( 'wp-bootstrap-starter-default', get_template_directory_uri() . '/inc/assets/css/presets/color-scheme/blue.css', false, '' );
     }*/
     wp_enqueue_style( 'style-new', get_stylesheet_uri() );
+    wp_enqueue_style( 'aos', get_template_directory_uri(). '/vendor/aos/aos.css' );
+    wp_enqueue_style( 'swiper-bundle', get_template_directory_uri(). '/vendor/swiper/swiper-bundle.min.css' );
 
 	wp_enqueue_script('jquery');
+    wp_enqueue_script( 'aos', get_template_directory_uri(). '/vendor/aos/aos.js', '', '', true );
+    wp_enqueue_script( 'swiper-bundle', get_template_directory_uri(). '/vendor/swiper/swiper-bundle.min.js', '', '', true );
     wp_enqueue_script('main',get_template_directory_uri().'/js/main.js', '', '', true);
 
     // Internet Explorer HTML5 support

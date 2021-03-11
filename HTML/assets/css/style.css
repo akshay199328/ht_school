@@ -659,7 +659,7 @@ section {
   text-align: right;
 }
 .hero .adworks{
-  margin-top: 0px;
+  margin-top: 20px;
 }
 @media (min-width: 1024px) {
   .hero {
@@ -1011,6 +1011,9 @@ Course Details
 }
 .space {
     margin-bottom: 20px;
+}
+.space:last-child {
+    margin-bottom: 0px;
 }
 .course-box {
   padding:17.5px 15px 19.5px 15px;

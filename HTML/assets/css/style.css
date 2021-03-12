@@ -231,11 +231,22 @@ section {
     border: 1px solid #000;
     padding: 7px 15px;
     background: transparent!important;
+    margin-left: 0px;
 }
 .border-menu a, .border-menu.active a{
     margin-left: 0;
     color: #000000!important;
     font-size: 15px;
+        padding: 0px!important;
+}
+.custom-course-menu:after{
+      content: '';
+        border-bottom: 1px solid #707070;
+    width: 55%;
+    height: 1px;
+    position: absolute;
+    bottom: 6px;
+    left: 7px;
 }
 .left-menu a span{
     font-weight: bold;position: relative;
@@ -267,8 +278,8 @@ section {
     float: right;
     text-align: right;
 }
-.right-menu ul{
-  
+.right-menu .navbar{
+  float: right;
 }
 .right-menu ul li{
   display: inline-block;
@@ -276,6 +287,7 @@ section {
   font-size: 15px;
   font-weight: bold;
   margin-right: 25px;
+  margin-left: 0px;
   position: relative;
 }
 .right-menu ul li:last-child{
@@ -283,6 +295,7 @@ section {
 }
 .right-menu ul li a{
   color: #000000;
+  padding: 0px;
 }
 .right-menu ul li a:after, .left-menu ul li span:after{
     content:'';
@@ -1286,6 +1299,60 @@ Course Details
 }
 .all-session:hover{
   color: #fade3b;
+}
+.circle-wrap {
+  margin: 50px auto;
+  width: 150px;
+  height: 150px;
+  background: #e6e2e7;
+  border-radius: 50%;
+}
+
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+.circle-wrap .circle .mask .fill {
+  clip: rect(0px, 75px, 150px, 0px);
+  background-color: #9e00b1;
+}
+
+.circle-wrap .circle .mask.full,
+.circle-wrap .circle .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(126deg);
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(126deg);
+  }
+}
+
+.circle-wrap .inside-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #fff;
+  line-height: 130px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 2em;
 }
 /*--------------------------------------------------------------
 # Values

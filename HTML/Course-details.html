@@ -15,17 +15,17 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor FONT CSS Files -->
-  <link rel="stylesheet" href="assets/css/font.css" type="text/css">
+ <!--  <link rel="https://cdn.rawgit.com/mfd/7c7a915eb31474cc8c6a65066a4c4dc3/raw/f0f2fb94c21dea904812a53e0eb6cf0bc87f3754/GTWalsheimPro.css"> -->
+<link rel="https://cdn.rawgit.com/mfd/7c7a915eb31474cc8c6a65066a4c4dc3/raw/f0f2fb94c21dea904812a53e0eb6cf0bc87f3754/GTWalsheimPro.css">
   <!-- Vendor CSS Files -->
      <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <!-- Vendor FONT CSS Files -->
+  <link rel="stylesheet" href="assets/css/font.css" type="text/css">
+  <!-- <link rel="stylesheet" href="assets/css/jQuery-plugin-progressbar.css"> -->
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -44,7 +44,7 @@
           </a>
           <nav id="navbar" class="navbar">
             <ul>
-              <li class="dropdown active"><a href="#"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown active"><a href="Courses.html"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
                <!--  <ul>
                   <li><a href="#">Drop Down 1</a></li>
                   <li><a href="#">Drop Down 2</a></li>
@@ -65,8 +65,8 @@
       <div class="col-lg-4 mrg right-menu">
           <ul>
             <li class="search-icon"><a href="#"><i class="bi bi-search"></i></a></li>
-            <li><a href="#">Login</a></li>
             <li><a href="#">e-paper</a></li>
+            <li><a href="#">Login</a></li>
           </ul>
       </div>
 
@@ -75,8 +75,7 @@
 
   <main id="main">
     <div class="header-space"></div>
-    <section class="course-aboutDetails">
-        <div class="col-sm-12 col-lg-5 mrg details-left">
+    <div class="col-sm-12 col-lg-5 mrg details-left fixed_banner">
             <div class="container">
                 <div class="row">
                   <div class="breadcrumbs">
@@ -130,151 +129,304 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-lg-7 mrg details-right">
+    <section class="course-aboutDetails grey-background" id="course">
+         
+        <div class="col-sm-12 col-lg-12 mrg">
             <div class="container">
                 <div class="row">
-                  <div class="col-sm-12 content-about">
-                      <div class="tabs">
-                      <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="course-tab" data-toggle="tab" href="#course" role="tab" aria-controls="course" aria-selected="true">Course</a>
-                          </li>
-                          <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="benefits-tab" data-toggle="tab" href="#benefits" role="tab" aria-controls="benefits" aria-selected="false">Benefits</a>
-                          </li>
-                          <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="curriculum-tab" data-toggle="tab" href="#curriculum" role="tab" aria-controls="curriculum" aria-selected="false">Curriculum</a>
-                          </li>
-                          <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="instructor-tab" data-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">Instructor</a>
-                        </li>
-                        <div class="share-icon">
-                            <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-                              <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-                            </svg>
-                          </div>
-                      </ul>
-                      <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="course" role="tabpanel" aria-labelledby="course-tab">
-                            <div class="col-sm-12 about-details mrg">
-                                <h3>About The Course</h3>
-                                <div class="col-sm-12 col-lg-6 pull-left mrg">
-                                  <p>
-                                    We’re all using more devices and screens than ever before. Join web designer Ethan Marcotte for the perfect, practical introduction to demystify Responsive Web Design.
-                                  </p>
-
-                                  <p>
-                                    As websites moved off of desktops and onto phones, tablets, and beyond, web designer Ethan Marcotte saw the need for a new approach to how we build and think about websites.
-                                  </p>
-
+                  <div class="col-sm-12 col-lg-4 mrg pull-left"></div>
+                    <div class="col-sm-12 col-lg-8 mrg details-right pull-right">
+                      <div class="fixedmenu-tabs">
+                          <ul class="nav nav-tabs" id="">
+                              <li class="nav-item">
+                                <a class="nav-link scrollto active" href="#course">Course</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link scrollto" href="#benefits">Benefits</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link scrollto" href="#curriculum">Curriculum</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link scrollto" href="#instructor">Instructor</a>
+                            </li>
+                            <div class="share-icon">
+                                <a href="#"><svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                  <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                                </svg></a>
+                              </div>
+                          </ul>
+                        </div>
+                      <div class="col-sm-12 content-about">
+                        
+                        <div class="content tab-content left-spacing" id="">
+                          <div class="col-sm-12 about-details mrg">
+                                  <div class="heading">
+                                    <h3>About The Course</h3>
+                                  </div>
+                                  <div class="col-sm-12 col-lg-6 pull-left mrg">
                                     <p>
-                                      His solution? Responsive Web Design.
+                                      We’re all using more devices and screens than ever before. Join web designer Ethan Marcotte for the perfect, practical introduction to demystify Responsive Web Design.
                                     </p>
 
                                     <p>
-                                      Ethan’s concept of responsive design paved a path for designers all over the world to design a single, flexible experience instead of individual builds for every new device
+                                      As websites moved off of desktops and onto phones, tablets, and beyond, web designer Ethan Marcotte saw the need for a new approach to how we build and think about websites.
                                     </p>
 
-                                    <p>
-                                      This 60-minute class is a comprehensive, behind-the-scenes look into Ethan’s intuitive, timeless approach to responsive design.
-                                    </p>
-                                </div>
-                                <div class="col-sm-12 col-lg-6 mrg pull-right">
-                                  <div class="adworks">
-                                    <div class="col-sm-12 adworks-head mrg">
-                                        <a href="#">Adworks</a>
-                                        <img src="assets/img/adwork-2.jpg" class="img-fluid" alt="img-fluid">
+                                      <p>
+                                        His solution? Responsive Web Design.
+                                      </p>
+
+                                      <p>
+                                        Ethan’s concept of responsive design paved a path for designers all over the world to design a single, flexible experience instead of individual builds for every new device
+                                      </p>
+
+                                      <p>
+                                        This 60-minute class is a comprehensive, behind-the-scenes look into Ethan’s intuitive, timeless approach to responsive design.
+                                      </p>
+                                  </div>
+                                  <div class="col-sm-12 col-lg-6 mrg pull-right">
+                                    <div class="adworks">
+                                      <div class="col-sm-12 adworks-head mrg">
+                                          <a href="#">Adworks</a>
+                                          <img src="assets/img/adwork-2.jpg" class="img-fluid" alt="img-fluid">
                                       </div>
                                     </div>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="tab-pane fade" id="benefits" role="tabpanel" aria-labelledby="benefits-tab">
-                            <div class="col-sm-12 about-details mrg">
-                                <h3>About The Course</h3>
-                                <div class="col-sm-12 col-lg-6 mrg">
-                                  <p>
-                                    We’re all using more devices and screens than ever before. Join web designer Ethan Marcotte for the perfect, practical introduction to demystify Responsive Web Design.
-                                  </p>
+                                    <div class="col-sm-12 tab-video mrg">
+                                        <video width="100%" height="240" controls="" poster="assets/img/Intersection-video.jpg">
+                                            <source src="assets/img/videos/dummy.mp4" type="video/mp4">
+                                            <source src="assets/img/videos/dummy.ogg" type="video/ogg">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-12 course-for background-yellow">
+                                    <h5>Who This Course Is For</h5>
+                                    <p>Confidently share social media graphics that your audience loves and shares. Showcase your products and services using attractive custom graphics. Save time with templated techniques that are highly systemized. Have a recognizable brand that showcases your authority in your industry.</p>
+                                  </div>
+                                  <div class="col-sm-12 course-list mrg">
+                                    <h5>Who This Course Is For</h5>
+                                    <span><h6>CSS</h6></span>
+                                    <span><h6>CSS3</h6></span>
+                                    <span><h6>Javascript</h6></span>
+                                    <span><h6>HTML5</h6></span>
+                                    <span><h6>BootStrap</h6></span>
+                                    <span><h6>Front End</h6></span>
+                                    <span><h6>PHP</h6></span>
 
-                                  <p>
-                                    As websites moved off of desktops and onto phones, tablets, and beyond, web designer Ethan Marcotte saw the need for a new approach to how we build and think about websites.
-                                  </p>
-
-                                    <p>
-                                      His solution? Responsive Web Design.
-                                    </p>
-
-                                    <p>
-                                      Ethan’s concept of responsive design paved a path for designers all over the world to design a single, flexible experience instead of individual builds for every new device
-                                    </p>
-
-                                    <p>
-                                      This 60-minute class is a comprehensive, behind-the-scenes look into Ethan’s intuitive, timeless approach to responsive design.
-                                    </p>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
-                          <div class="col-sm-12 about-details mrg">
-                                <h3>About The Course</h3>
-                                <div class="col-sm-12 col-lg-6 mrg">
-                                  <p>
-                                    We’re all using more devices and screens than ever before. Join web designer Ethan Marcotte for the perfect, practical introduction to demystify Responsive Web Design.
-                                  </p>
-
-                                  <p>
-                                    As websites moved off of desktops and onto phones, tablets, and beyond, web designer Ethan Marcotte saw the need for a new approach to how we build and think about websites.
-                                  </p>
-
-                                    <p>
-                                      His solution? Responsive Web Design.
-                                    </p>
-
-                                    <p>
-                                      Ethan’s concept of responsive design paved a path for designers all over the world to design a single, flexible experience instead of individual builds for every new device
-                                    </p>
-
-                                    <p>
-                                      This 60-minute class is a comprehensive, behind-the-scenes look into Ethan’s intuitive, timeless approach to responsive design.
-                                    </p>
-                                </div>
-                            </div>
+                                  </div>
+                              </div>
                         </div>
-                        <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
-                          <div class="col-sm-12 about-details mrg">
-                                <h3>About The Course</h3>
-                                <div class="col-sm-12 col-lg-6 mrg">
-                                  <p>
-                                    We’re all using more devices and screens than ever before. Join web designer Ethan Marcotte for the perfect, practical introduction to demystify Responsive Web Design.
-                                  </p>
-
-                                  <p>
-                                    As websites moved off of desktops and onto phones, tablets, and beyond, web designer Ethan Marcotte saw the need for a new approach to how we build and think about websites.
-                                  </p>
-
-                                    <p>
-                                      His solution? Responsive Web Design.
-                                    </p>
-
-                                    <p>
-                                      Ethan’s concept of responsive design paved a path for designers all over the world to design a single, flexible experience instead of individual builds for every new device
-                                    </p>
-
-                                    <p>
-                                      This 60-minute class is a comprehensive, behind-the-scenes look into Ethan’s intuitive, timeless approach to responsive design.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <section class="learing-goals" id="benefits">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-4 mrg pull-right"></div>
+          <div class="col-sm-12 col-lg-8 pull-right left-spacing">
+            <div class="heading">
+              <h3>Learning goals</h3>
+              <p>The programme is designed for students of architecture, landscape architecture, engineering and related disciplines, who wish to enhance their academic, intellectual and professional skills.</p>
+            </div>
+            <div class="list">
+                <p>Learn to use Python professionally, learning both Python 2 and Python 3!</p>
+                <p>Create games with Python, like Tic Tac Toe and Blackjack!</p>
+                <p>Learn advanced Python features, like the collections module and how to work with timestamps!</p>
+                <p>Learn to use Object Oriented Programming with classes!</p>
+                <p>Understand complex topics, like decorators.</p>
+                <p>Understand how to use both the Jupyter Notebook and create .py files</p>
+                <p>Get an understanding of how to create GUIs in the Jupyter Notebook system!</p>
+            </div>
+            <div class="col-lg-12 mrg adworks-head">
+              <a href="#">Adworks</a>
+                <img src="assets/img/adwork-4.jpg" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="course-curriculum grey-background" id="curriculum">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-4 mrg pull-right"></div>
+          <div class="col-sm-12 col-lg-8 pull-right left-spacing">
+            <div class="col-sm-12 col-lg-3 mrg pull-left">
+              <div class="heading">
+                <h3>Curriculum</h3>
+              </div>
+            </div>
+            
+            <div class="col-sm-12 col-lg-9 mrg pull-left">
+              <div class="cv-detilslist">
+                <span><h6>24 Sessions</h6></span>
+                <span><h6> 48 lectures</h6></span>
+                <span><h6>22h 3m</h6></span>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-12 mrg list">
+              <div class="col-sm-12 col-lg-6 pull-left mrg">
+                <div class="card">
+                  <div class="col-sm-12 mrg">
+                    <div class="co-sm-6 mrg pull-left">
+                      <span class="Lpink default-background"><img src="assets/img/video-icon.png" class="img-fluid" /> Video</span>
+                    </div>
+                    <div class="co-sm-6 mrg pull-right">
+                      <h6>Session 1 / 24</h6>
+                    </div>
+                  </div>
+                  <h5>What are variables?</h5>
+                  <p>What are variables and why are they useful? Learn how to store values in your programs with variables by watching this video from Code.org’s series on CS Principles. (YouTube)</p>
+                  <!-- <div class="progressbar-circle">
+                    <div class="progress-bar position"></div>
+                  </div> -->
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6 pull-left mrg">
+                <div class="card">
+                  <div class="col-sm-12 mrg">
+                    <div class="co-sm-6 mrg pull-left">
+                      <span class="Lblue default-background"><img src="assets/img/video-icon.png" class="img-fluid" /> Video</span>
+                    </div>
+                    <div class="co-sm-6 mrg pull-right">
+                      <h6>Session 1 / 24</h6>
+                    </div>
+                  </div>
+                  <h5>What are variables?</h5>
+                  <p>What are variables and why are they useful? Learn how to store values in your programs with variables by watching this video from Code.org’s series on CS Principles. (YouTube)</p>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6 pull-left mrg">
+                <div class="card">
+                  <div class="col-sm-12 mrg">
+                    <div class="co-sm-6 mrg pull-left">
+                      <span class="Lorange default-background"><img src="assets/img/interactive.png" class="img-fluid" /> Interactive</span>
+                    </div>
+                    <div class="co-sm-6 mrg pull-right">
+                      <h6>Session 1 / 24</h6>
+                    </div>
+                  </div>
+                  <h5>Tutorial: Variables (Python)</h5>
+                  <p>Variables act as “storage locations” for data in a program. Practice using variables with this guided Python tutorial from the University of Waterloo. (CSCircles)</p>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6 pull-left mrg">
+                <div class="card">
+                  <div class="col-sm-12 mrg">
+                    <div class="co-sm-6 mrg pull-left">
+                      <span class="Lpink default-background"><img src="assets/img/coding.png" class="img-fluid" /> COding</span>
+                    </div>
+                    <div class="co-sm-6 mrg pull-right">
+                      <h6>Session 1 / 24</h6>
+                    </div>
+                  </div>
+                  <h5>Tutorial: Variables (Python)</h5>
+                  <p>Try this question to determine whether 3 given numbers are evenly spaced, or that the difference between the small and medium number equal the difference between the medium</p>
+                </div>
+              </div>
+              <div class="viewall-session">
+                <a href="#" class="all-session">View all Sessions</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="course-instructor" id="instructor">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-4 mrg pull-right"></div>
+          <div class="col-sm-12 col-lg-8 pull-right left-spacing">
+            <div class="heading">
+              <h3>Instructor</h3>
+            </div>
+            <div class="instructor-detailsMini">
+                <div class="col-sm-12 col-lg-7 pull-left mrg">
+                  <div class="profile mt-auto">
+                    <div class="col-lg-12 profile-content">
+                      <div class="profileimg-name">
+                        <div class="col-sm-12 col-lg-4 mrg profile-img pull-left">
+                          <img src="assets/img/instructor-profile.png" class="rounded-circle " alt="">
+                        </div>
+                        <div class="co-lg-3 pull-left">
+                          <h3 class="name">Changoo Doshi</h3>
+                          <h4>Riverdale High</h4>
+                          <div class="double-border"></div>
+                          <h6>2,192,534 <span>Students</span></h6>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="co-lg-12">
+                        <p>Jose Marcial Portilla has a BS and MS in Mechanical Engineering from Santa Clara University and years of experience as a professional instructor and trainer for Data Science and programming. He has publications and patents in various fields such as microfluidics, materials science, and data science technologies. Over the course of his career he</p>
+                        <span class="see-profilelink"><a href="#">See Profile</a></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-5 mrg pull-right">
+                  <div class="adworks">
+                    <div class="col-sm-12 adworks-head mrg">
+                        <a href="#">Adworks</a>
+                        <img src="assets/img/adwork-2.jpg" class="img-fluid" alt="img-fluid">
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="other-courses grey-background">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-4 mrg pull-right"></div>
+          <div class="col-sm-12 col-lg-8  pull-right left-spacing">
+            <div class="heading">
+              <h3>Other Courses</h3>
+            </div>
+            <div class="list">
+              <div class="col-sm-12 col-lg-4 mrg card">
+                <div class="details">
+                  <h4>Artificial Intelligence</h4>
+                  <img src="assets/img/artificial-ntelligence.png" class="img-fluid"/>
+                  <h3>Natural Language Processing</h3>
+                  <div class="col-sm-12 mrg session">
+                    <h6>24 Sessions <span>60 days</span></h6>
+                  </div>
+                  <a href="#" class="bookdemo-btn">Book Demo</a>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-4 mrg card">
+                <div class="details">
+                  <h4>Data Science</h4>
+                  <img src="assets/img/data-science.png" class="img-fluid"/>
+                  <h3>Data Science for Business Leaders</h3>
+                  <div class="col-sm-12 mrg session">
+                    <h6>24 Sessions <span>60 days</span></h6>
+                  </div>
+                  <a href="#" class="bookdemo-btn">Book Demo</a>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-4 mrg card">
+                <div class="details">
+                  <h4>Cloud Computing</h4>
+                  <img src="assets/img/cloud-computing.png" class="img-fluid"/>
+                  <h3>Cloud DevOP using MS Azure</h3>
+                  <div class="col-sm-12 mrg session">
+                    <h6>24 Sessions <span>60 days</span></h6>
+                  </div>
+                  <a href="#" class="bookdemo-btn">Book Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -298,12 +450,11 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <!-- <script src="assets/vendor/purecounter/purecounter.js"></script> -->
+  <script src="assets/js/jQuery-plugin-progressbar.js"></script>
   <!-- <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script> -->
   <!-- <script src="assets/vendor/glightbox/js/glightbox.min.js"></script> -->
   <!-- <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script> -->
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
 
 </body>
 

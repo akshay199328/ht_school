@@ -38,7 +38,7 @@ p{
     font-size: 14px;
   font-weight:normal;
 }
-dl, ol, ul, h1, h2, h3, h4, h5, h6, p, .mrg, section section{padding: 0px;margin: 0px;}
+dl, ol, ul, h1, h2, h3, h4, h5, h6, p, .mrg, section.widget {padding: 0px;margin: 0px;}
 .pull-left{ 
   float: left;
 }

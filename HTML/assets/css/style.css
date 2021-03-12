@@ -233,11 +233,32 @@ section {
     background: transparent!important;
     margin-left: 0px;
 }
+
+.border-menu:after{
+  content: '';
+  background:url('./img/home-toggle.png');
+      float: right;
+        width: 10px;
+    height: 9px;
+    display: block;
+    top: 8px;
+    position: relative;
+}
+.dropdown-toggle::after{
+  content: "\f282";
+   font-family: bootstrap-icons !important;
+    border: 0px !important;
+    position: relative;
+    top: -9px;
+    font-size: 12px;
+    margin-left: 5px;
+    color: #000;
+    font-weight: normal;
+}
 .border-menu a, .border-menu.active a{
     margin-left: 0;
     color: #000000!important;
-    font-size: 15px;
-        padding: 0px!important;
+    font-size: 15px;    padding: 0px !important;
 }
 .custom-course-menu:after{
       content: '';
@@ -1140,6 +1161,9 @@ Course Details
 .other-courses .list .card:first-child{
   padding-left: 0px;
 }
+.other-courses .list .card:last-child{
+  border-right: 0px;
+}
 .other-courses .list h4{
   font-size: 11px;
   font-weight: bold;
@@ -1778,6 +1802,9 @@ Course Details
 }
 .details-middle ul li .link a{
     color: #0c5acc;
+        min-height: 85px;
+    position: relative;
+    float: left;
 }
 .center{text-align: center;}
 .latest-news .center {

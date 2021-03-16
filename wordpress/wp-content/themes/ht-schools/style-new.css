@@ -1,19 +1,9 @@
-/**
-* Template Name: FlexStart - v1.1.1
-* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 :root {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'GTWalsheimPro', sans-serif;
+  font-family: 'GT-Walsheim-Pro';
   font-weight: normal;
   color: #444444;
   margin:0px!important;
@@ -31,18 +21,22 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro";
   font-weight: bold;
 }
 p{
     font-size: 14px;
-  font-weight: 300;
+  font-weight:normal;
 }
-dl, ol, ul, h1, h2, h3, h4, h5, h6, p, .mrg{padding: 0px;margin: 0px;}
+dl, ol, ul, h1, h2, h3, h4, h5, h6, p, .mrg, section.widget{padding: 0px;margin: 0px;}
 .pull-left{ 
   float: left;
 }
 .pull-right{float: right;}
+.grey-background{
+  background-color: #f7f7f7;
+}
+
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
@@ -59,7 +53,7 @@ section {
 .section-header h2 {
   font-size: 13px;
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: bold;
   margin: 0;
   color: #4154f1;
   text-transform: uppercase;
@@ -70,7 +64,7 @@ section {
   padding: 0;
   font-size: 38px;
   line-height: 42px;
-  font-weight: 700;
+  font-weight: bold;
   color: #012970;
 }
 
@@ -87,13 +81,14 @@ section {
 
 .breadcrumbs {
   padding: 15px 0 30px 0;
-  background: #fade3b;
+  background: transparent;
   min-height: 40px;
-  margin-top: 82px;
+  /*margin-top: 82px;*/
   color: #fff;
 }
-.course-page{background: #fade3b;}
-.header-space{margin-top:35px;}
+.background-breadcrumbs{background: #fade3b;}
+.background-breadcrumbs li, .background-breadcrumbs li a{color: #0c5acc!important;}
+.header-space{margin-top:116px;}
 @media (max-width: 992px) {
   .breadcrumbs {
     margin-top: 57px;
@@ -113,7 +108,7 @@ section {
 }
 .breadcrumbs p {
     font-size: 40px;
-    font-weight: 300;
+    font-weight:normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.33;
@@ -127,7 +122,7 @@ section {
   list-style: none;
   padding: 0 0 10px 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 11px;
 }
 .breadcrumbs ol li{
     font-size: 11px;
@@ -137,11 +132,11 @@ section {
   line-height: 1.36;
   letter-spacing: normal;
   text-align: left;
-  color: #0c5acc;
+  color: #fff;
    transition: 0.3s;
 }
 .breadcrumbs ol a {
-  color: #0c5acc;
+  color: #fff;
   transition: 0.3s;
 }
 
@@ -155,7 +150,7 @@ section {
 
 .breadcrumbs ol li + li::before {
   display: inline-block;
-  padding-right: 10px;
+  padding-right: 3px;
   color: #0c5acc;
   content: ">";
 }
@@ -222,9 +217,51 @@ section {
     color: #000000;
     font-size: 15px;
 }
-.border-menu {
+.border-menu, .border-menu.active {
     border: 1px solid #000;
     padding: 7px 15px;
+    background: transparent!important;
+    margin-left: 0px;
+    position: relative;
+    width: 121px;
+}
+.border-menu:after{
+  content: "\f456";
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  color: #000000;
+  font-size: 15px;
+  float: right;
+  display: block;
+  top: 2px;
+  position: relative;
+  right: 9px;
+}
+.dropdown-toggle::after{
+  content: "\f282";
+   font-family: bootstrap-icons !important;
+    border: 0px !important;
+    position: relative;
+    top: -9px;
+    font-size: 12px;
+    margin-left: 5px;
+    color: #000;
+    font-weight: normal;
+}
+.border-menu a, .border-menu.active a{
+    margin-left: 0;
+    color: #000000!important;
+    font-size: 15px;    padding: 0px !important;
+}
+.custom-course-menu:after{
+      content: '';
+        border-bottom: 1px solid #707070;
+    width: 61%;
+    height: 1px;
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
 }
 .left-menu a span{
     font-weight: bold;position: relative;
@@ -243,10 +280,10 @@ section {
 
 .header .logo span {
   font-size: 30px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 1px;
   color: #012970;
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif;
   margin-top: 3px;
 }
 .left-menu .navbar{
@@ -256,8 +293,8 @@ section {
     float: right;
     text-align: right;
 }
-.right-menu ul{
-  
+.right-menu .navbar {
+  float: right;
 }
 .right-menu ul li{
   display: inline-block;
@@ -266,12 +303,16 @@ section {
   font-weight: bold;
   margin-right: 25px;
   position: relative;
+  margin-left: 0px;
+  
 }
 .right-menu ul li:last-child{
-  padding-right: 0px;
+  padding-right: 0px;    margin-right: 0;
+
 }
 .right-menu ul li a{
   color: #000000;
+  padding: 0px;
 }
 .right-menu ul li a:after, .left-menu ul li span:after{
     content:'';
@@ -303,14 +344,23 @@ section {
 
 .navbar li {
   position: relative;
+  margin-left: 23px;
 }
+.navbar li.home_menu{
+  margin-left:0px;
+}
+.navbar li.active{
+  background: #000
+}
+.navbar li.active a, .navbar .active a i{color: #fff}
 
+.left-menu ul li.active span:after{border-color: #fff}
 .navbar a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 0 10px 30px;
-  font-family: "GTWalsheimPro", sans-serif;
+  padding: 7px 20px 10px 10px;
+  font-family: "GT-Walsheim-Pro", sans-serif;
   font-size: 15px;
   font-weight: bold;
   color: #000000;
@@ -327,7 +377,7 @@ section {
 .navbar a:hover, .navbar .active, .navbar li:hover > a {
   color: #000000;
 }
-
+.navbar li.active a:hover{color: #fff}
 .navbar .getstarted {
   background: #4154f1;
   padding: 8px 20px;
@@ -519,7 +569,7 @@ section {
 
 .hero h1 {
   margin: 0;
-    font-size: 100px;
+    font-size: 99px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -527,12 +577,13 @@ section {
     letter-spacing: normal;
     text-align: left;
     color: #000000;
+        text-transform: capitalize;
 }
 
 .hero p {
   margin: 15px 0 0 0;
   font-size: 50px;
-  font-weight: 300;
+  font-weight:normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.34;
@@ -546,37 +597,37 @@ section {
     width: 100%;
     margin-top: 50px;
 }
-.hero-list li{
+.hero-list .hero-card{
   display: inline-block;
   float: left;
-  width: 45%;
+  width: 370px;
   height: 266px;
-    margin-right: 38px;
-    margin-top: 38px;
-    padding: 25px 30px;
+  margin-right: 26px;
+  margin-top: 21px;
+  padding: 25px 30px;
     
 }
-.hero-list li:nth-child(1){
-  background: url("../img/Scholarship-Programme.png"), #0521c4;
+.hero-list .hero-card:nth-child(1){
+  background: url("./img/Scholarship-Programme.png"), #0521c4;
   background-repeat: no-repeat;
-    background-position:110% 100%;
+    background-position:113% 100%;
 }
-.hero-list li:nth-child(2){
-  background: url("../img/code.png"), #aa2061;
+.hero-list .hero-card:nth-child(2){
+  background: url("./img/code.png"), #aa2061;
   background-repeat: no-repeat;
-    background-position:103% 106%;
+    background-position:105% 106%;
 }
-.hero-list li:nth-child(3){
-  background: url("../img/career.png"), #12756f;
+.hero-list .hero-card:nth-child(3){
+  background: url("./img/career.png"), #12756f;
   background-repeat: no-repeat;
-  background-position:104% 135%;
+  background-position:105% 135%;
 }
-.hero-list li:nth-child(4){
-  background: url("../img/0lympiad.png"), #001e03;
+.hero-list .hero-card:nth-child(4){
+  background: url("./img/olympiad.png"), #001e03;
   background-repeat: no-repeat;
-  background-position:105% 112%;
+  background-position:106% 112%;
 }
-.hero-list li h6{
+.hero-list .hero-card h6{
   font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
@@ -586,7 +637,7 @@ section {
   text-align: left;
   color: #d5ebff;
 }
-.hero-list li h5{
+.hero-list .hero-card h5{
     font-size: 40px;
   font-weight: bold;
   font-stretch: normal;
@@ -596,9 +647,9 @@ section {
   text-align: left;
   color: #d5ebff;
 }
-.hero-list li p{
+.hero-list .hero-card p{
     font-size: 20px;
-  font-weight: 300;
+  font-weight:normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.35;
@@ -606,7 +657,7 @@ section {
   text-align: left;
   color: #aad5fa;
 }
-.hero-list li a {
+.hero-list .hero-card a {
     font-size: 20px;
     font-weight: bold;
     font-stretch: normal;
@@ -632,8 +683,8 @@ section {
 }
 
 .hero .btn-get-started span {
-  font-family: "GTWalsheimPro", sans-serif;
-  font-weight: 600;
+  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
 }
@@ -651,8 +702,8 @@ section {
 .hero .hero-img {
   text-align: right;
 }
-.adworks{
-  margin-top: 25px;
+.hero .adworks{
+  margin-top: 20px;
 }
 @media (min-width: 1024px) {
   .hero {
@@ -702,14 +753,14 @@ section {
 
 .about h3 {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: bold;
   color: #4154f1;
   text-transform: uppercase;
 }
 
 .about h2 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight:bold;
   color: #012970;
 }
 
@@ -729,7 +780,7 @@ section {
 }
 
 .about .btn-read-more span {
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
@@ -744,7 +795,528 @@ section {
 .about .btn-read-more:hover i {
   transform: translateX(5px);
 }
+/*#--------------------
+Course Details
+------------------------#*/
+.course-aboutDetails{padding:0px 0px;}
+.fixed_banner{
+  background: url('./img/coursedetails-back.png') no-repeat;
+  padding: 0px 80px 50px 265px;
+  float: left;
+  background-size: cover;
+  position: fixed;
+  width: 625px;
+  z-index: 999;
 
+}
+.fixed_banner .breadcrumbs li a{
+  text-decoration: underline;
+}
+.fixed_banner .breadcrumbs ol li + li::before{color: #fff;}
+.fixed_banner .content{padding: 0px;}
+.fixed_banner h2{
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+}
+.fixed_banner p{
+  font-size: 17px!important;
+  font-weight: normal!important;
+  line-height: 1.29!important;
+  letter-spacing: normal!important;
+  color: #fff!important;
+  margin: 20px 0px!important;
+}
+.fixed_banner ul li{
+  display: block;
+  border-top: solid 1px #a6a6a6;
+    padding: 15px 0px;
+    width: 100%;
+    float: left;
+}
+.fixed_banner ul li:last-child{
+    border-bottom: solid 1px #a6a6a6;
+}
+.fixed_banner ul li p{
+  font-size: 14px!important;
+  line-height: 1.36!important;
+  text-align: left;
+  margin: 0px;
+  margin: 0px 0px !important;
+  color: #fff!important;
+}
+.fixed_banner ul li h6{
+   font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff!important;
+}
+.course-fees {
+    margin: 25px 0px;
+    float: left;
+    width: 100%;
+}
+.course-fees h4{
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fbca00;
+  margin-bottom: 15px;
+}
+.course-fees a.link{
+    padding: 12px 32px 16px 25px;
+  background-color: #fbca00;
+    font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #004135;
+}
+.fixedmenu-tabs {
+    position: fixed;
+    background: #f7f7f7;
+    width: 61%;
+    z-index: 999;
+    padding: 20px 40px;
+    margin-left: 15px;
+}
+.course-aboutDetails .details-right{
+  float: left;
+  /*padding: 40px 0px;*/
+  padding-right:0px;
+}
+.course-aboutDetails .details-right .content-about {
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+.nav-tabs {
+    border-bottom: 1px solid transparent;
+}
+.fixedmenu-tabs .nav-tabs{
+  position: relative;
+    padding-right: 30px;
+}
+.fixedmenu-tabs .nav-tabs .share-icon {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+.fixedmenu-tabs .nav-tabs .nav-item a{
+    color: #939393;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 3px 0rem;
+    border-bottom: 2px solid transparent;
+    margin-right: 25px;
+    background: transparent;
+}
+.nav-tabs .nav-item.show .nav-item a, .nav-tabs .nav-item .active, .nav-tabs .nav-item:focus a, .nav-tabs .nav-item:hover a{
+    color: #000!important;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid #000!important;
+}
+.left-spacing{padding-left: 50px;padding-right: 0;}
+.about-details {
+    margin-top: 36px;
+}
+.heading h3{
+    font-size: 25px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+}
+.about-details p{
+    font-size: 17px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin: 10px 0px 20px;
+}
+.about-details .pull-right {
+    padding-left: 25px;
+}
+.background-yellow{
+  background-color: #fade3b;
+}
+.about-details .course-for{
+  float: left;
+  margin: 10px 0 26px;
+  padding: 16px 80px 24px 20px;
+  
+}
+.course-for h5{
+    font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+
+}
+.course-for p{
+    font-size: 15px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+
+}
+.course-list{
+  float: left;
+  margin: 10px 0px; 
+  padding: 0px;
+}
+.course-list h5{
+    font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+      margin-bottom: 15px;
+}
+.course-list span{
+  width:95px;
+    padding: 9px 0px 9px;
+  border: solid 3px #fade3b;
+  text-align: center;
+  float: left;
+  display: inline-block;
+  margin-right: 7px;
+  margin-bottom: 10px;
+}
+.course-list span:last-child{margin-right: 0px;}
+.course-list span h6{
+    font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+  text-align: center;
+  color: #000000;
+      word-break: break-word;
+  /*margin-bottom: 10px;*/
+}
+
+.learing-goals .heading{
+
+}
+
+.learing-goals  p{
+    font-size: 17px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.learing-goals .heading p{
+    margin-top: 10px;
+
+}
+.learing-goals .list{
+    margin-top: 30px;
+    padding-bottom: 25px;
+}
+.learing-goals .list p{
+    line-height: 25px;
+    position: relative;
+    padding-left: 20px;
+}
+.learing-goals .list p:before{
+    content: '';
+    background: url('./img/bullet.png');
+    width: 10px;
+    height: 7px;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 9px;
+}
+.instructor-detailsMini .profile-content  {
+    padding: 25px 25px 0px 0px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+}
+.profileimg-name{
+  height: 110px;
+}
+.profileimg-name .co-lg-3.pull-left {
+    padding: 29px 0px 0px 20px;
+}
+.instructor-detailsMini .profile-content h3{
+  font-size: 15px;
+}
+.instructor-detailsMini .profile-content h4{
+  font-size: 11px;    letter-spacing: 0.55px;
+  padding-top: 3.5px;
+}
+.instructor-detailsMini .profile-content h6{
+  font-size: 13px;padding: 7.5px 0px;
+}
+.instructor-detailsMini .profile-content h6 span{
+  font-weight: normal;
+  
+} 
+.double-border {
+    padding-top: 7.5px;
+    border-bottom: 2px solid #dee2e6!important;
+}
+.instructor-detailsMini .profile-content p{
+    font-size: 20px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-top: 15px;
+}
+.see-profilelink {
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    position: relative;
+        display: inline-block;
+}
+.see-profilelink:after{
+  content: '';
+  border-bottom: 2px solid #000;
+      display: block;
+    position: relative;
+    top: 5px;
+}
+/*.about-details.col-lg-6{float: left}*/
+.other-courses .heading h3{
+  color: #0c5acc;
+}
+.other-courses .list{
+  padding-top: 28.5px
+}
+.other-courses .list .card{
+  float: left;
+  position: relative;
+  background: transparent;
+  border: 0px;
+  border-right: 1px dotted #707070; 
+  border-radius: 0;
+  min-height: 365px;
+  margin: 0;
+}
+.details{
+    padding: 10px 0px;
+}
+.other-courses .list .card:first-child{
+  padding-left: 0px;
+}
+.other-courses .list h4{
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.other-courses .list h3{
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  padding: 10px 0px 15px 0px;
+}
+.other-courses .list h3:after{
+  content: '';
+      background: #707070;
+    width: 144px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    display: block;
+}
+.other-courses .list .session {
+    padding:15px 0px 25px 0px;
+}
+.other-courses .list .session h6{
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.other-courses .list .session h6 span{
+  font-weight: normal;
+}
+.other-courses .list .bookdemo-btn{
+  padding: 11px 16px 14px 15px;
+  background-color: #000000;
+   font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fade3b;
+}
+.cv-detilslist{
+
+}
+.cv-detilslist span{
+      width: auto;
+    margin: 0 10px 20px 12px;
+    padding: 9px 23px 9px 15px;
+    background-color: #fff;
+    display: inline-block;
+}
+.cv-detilslist span h6{
+    font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.course-curriculum .list {
+    margin-top: 10px;
+}
+
+.card {
+    border-color: #e8e8e8;
+    border-radius: 0;
+    padding: 24px;
+        margin: 0px 30px 30px 0px;
+}
+.course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) .card {
+  /*margin-right:0px;*/
+}
+.card .default-background{
+    padding: 2px 5px 4px;
+  background-color: #ffeaeb;
+    font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+      position: relative;
+    top: -5px;
+    text-transform: uppercase;
+}
+.Lpink{
+  background-color: #ffeaeb;
+}
+.Lblue{
+  background-color: rgba(0, 177, 255, 0.08)!important;
+}
+.Lorange{
+  background-color: rgba(255, 147, 0, 0.08)!important;
+}
+.card .default-background img {
+    width: 11px;
+        margin-right: 10.1px;
+}
+.card h6{
+  font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+  text-align: right;
+}
+.card h5{
+    font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  margin: 10px 0px;
+}
+.card p{
+    font-size: 15px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.viewall-session{
+  margin: 40px 0px 0px;    float: left;
+}
+.all-session{
+    padding: 11px 17px 14px 15px;
+  background-color: #000000;  
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fade3b;
+}
+.all-session:hover{
+  color: #fade3b;
+}
 /*--------------------------------------------------------------
 # Values
 --------------------------------------------------------------*/
@@ -765,7 +1337,7 @@ section {
 .values .box h3 {
   font-size: 24px;
   color: #012970;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 18px;
 }
 
@@ -803,14 +1375,14 @@ section {
 .counts .count-box span {
   font-size: 36px;
   display: block;
-  font-weight: 600;
+  font-weight: 500;
   color: #0b198f;
 }
 
 .counts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif;
   font-size: 14px;
 }
 
@@ -818,7 +1390,7 @@ section {
 # Features
 --------------------------------------------------------------*/
 .Popular-Courses{
-  background: url(../img/course-background.png) no-repeat;
+  background: url(./img/course-background.png) no-repeat;
 }
 .Popular-Courses .section-header {
     padding-bottom: 0px;    text-align: left;
@@ -835,7 +1407,7 @@ section {
 }
 .Popular-Courses .section-header p{
       font-size: 30px;
-    font-weight: 300;
+    font-weight:normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.33;
@@ -857,13 +1429,19 @@ section {
     margin: 40px 0px;
     display: inline-block;
 }
+.space {
+    margin-bottom: 20px;
+}
+.space:last-child {
+    margin-bottom: 0px;
+}
 .course-box {
-  padding:17.5px 20px 19.5px 19px;
+  padding:17.5px 15px 19.5px 15px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
   transition: 0.3s;
   height: 100%;
   background-color: #fff;
-  margin-left: 15px;
+  margin-left: 5px;
   position: relative;
 
 }
@@ -906,7 +1484,7 @@ section {
 }
 .course-box .middle-details p {
         font-size: 15px;
-    font-weight: 300;
+    font-weight:normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.33;
@@ -916,14 +1494,14 @@ section {
 
 }
 .text-ellipsis{
-    width: 26em;
+    width: 25.6em;
     white-space: nowrap;
     overflow: hidden;
 }
 .features .feature-box h3 {
   font-size: 18px;
   color: #012970;
-  font-weight: 700;
+  font-weight: bold;
   margin: 0;
 }
 .duration {
@@ -956,6 +1534,7 @@ section {
     font-size: 20px;
     text-align: right;
     float: right;
+    cursor:pointer;
     /*width: 100%;*/
 }
 .right-details .course-button h6 {
@@ -971,6 +1550,7 @@ section {
     /* width: 100%; */
     display: inline-block;
     margin-bottom: 10px;
+    padding-left: 30px;
 }
 .right-details .course-button a {
     padding: 11px 29px 14px 24px;
@@ -984,9 +1564,10 @@ section {
     text-align: left;
     color: #fade3b;
     float: left;
+    margin-left: 30px;
 }
 .competitive {
-    background: url(../img/Sci-fairBackground.jpg) no-repeat;
+    background: url(./img/Sci-fairBackground.jpg) no-repeat;
         height: 595px;
     background-size: cover;
 }
@@ -1022,7 +1603,7 @@ section {
 }
 .competitive .comp-para p{
     font-size: 30px;
-    font-weight: 300;
+    font-weight:normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.33;
@@ -1053,7 +1634,7 @@ section {
 }
 .adworks-head a {
     font-size: 11px;
-    font-weight: 300;
+    font-weight:normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.36;
@@ -1105,7 +1686,7 @@ section {
 .details-left p a{
     color: #000000;
 }
-.details-left .link{
+.details-left .link a{
     font-size: 40px;
     font-weight: normal;
     font-stretch: normal;
@@ -1113,12 +1694,12 @@ section {
     line-height: 1.33;
     letter-spacing: normal;
     text-align: left;
-    color: #0c5acc;
+    color: #0c5acc!important;
         margin-top: 26.9px;
     padding-right: 49px;
 }
 .details-middle{
-
+  padding-left: 25px;
 }
 .details-middle .popularNew-heading h5{
     font-size: 25px;
@@ -1161,6 +1742,9 @@ section {
 }
 .details-middle ul li .link a{
     color: #0c5acc;
+    min-height: 85px;
+    position: relative;
+    float: left;
 }
 .center{text-align: center;}
 .latest-news .center {
@@ -1234,7 +1818,7 @@ section {
 
 .features .feture-tabs h3 {
   color: #012970;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 32px;
   margin-bottom: 10px;
 }
@@ -1269,7 +1853,7 @@ section {
 .features .feture-tabs .tab-content h4 {
   font-size: 18px;
   margin: 0;
-  font-weight: 700;
+  font-weight: bold;
   color: #012970;
 }
 
@@ -1286,7 +1870,7 @@ section {
 
 .features .feature-icons h3 {
   color: #012970;
-  font-weight: 700;
+  font-weight:bold;
   font-size: 32px;
   margin-bottom: 20px;
   text-align: center;
@@ -1304,7 +1888,7 @@ section {
 
 .features .feature-icons .content .icon-box h4 {
   font-size: 20px;
-  font-weight: 700;
+  font-weight:bold;
   margin: 0 0 10px 0;
   color: #012970;
 }
@@ -1346,7 +1930,7 @@ section {
 
 .services .service-box h3 {
   color: #444444;
-  font-weight: 700;
+  font-weight:bold;
 }
 
 .services .service-box .read-more {
@@ -1494,7 +2078,7 @@ section {
 }
 
 .pricing h3 {
-  font-weight: 700;
+  font-weight:bold;
   font-size: 18px;
   margin-bottom: 15px;
 }
@@ -1503,7 +2087,7 @@ section {
   font-size: 36px;
   color: #444444;
   font-weight: 600;
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif;
 }
 
 .pricing .price sup {
@@ -1515,7 +2099,7 @@ section {
 .pricing .price span {
   color: #bababa;
   font-size: 16px;
-  font-weight: 300;
+  font-weight:normal;
 }
 
 .pricing img {
@@ -1549,7 +2133,7 @@ section {
   transition: none;
   font-size: 16px;
   font-weight: 400;
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif;
   font-weight: 600;
   transition: 0.3s;
   border: 1px solid #4154f1;
@@ -1712,7 +2296,7 @@ section {
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
   color: #012970;
-  font-weight: 700;
+  font-weight:bold;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
@@ -1812,7 +2396,7 @@ section {
 
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
-  font-weight: 700;
+  font-weight:bold;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #eee;
@@ -1834,7 +2418,7 @@ section {
 
 .portfolio-details .portfolio-description h2 {
   font-size: 26px;
-  font-weight: 700;
+  font-weight:bold;
   margin-bottom: 20px;
 }
 
@@ -1868,7 +2452,7 @@ section {
 }
 .testimonials .testimonial-item .col-lg-3, .testimonials .testimonial-item .col-lg-9{float: left;}
 .testimonials .testimonial-item .testimonial-img {
-  width: 75px;
+  width: 60px;
   border-radius: 50%;
   border: 4px solid #fff;
   margin: 0 auto;
@@ -1917,7 +2501,7 @@ section {
     position: absolute;
     height: 112px;
     width: 157px;
-    bottom: 75%;
+    bottom: 70%;
     left: 0;
     z-index: 9;
 }
@@ -1987,7 +2571,7 @@ section {
   bottom: 0;
   height: 100%;
   width: 100%;
-  background: url(../img/team-shape.svg) no-repeat center bottom;
+  background: url(./img/team-shape.svg) no-repeat center bottom;
   background-size: contain;
   z-index: 1;
 }
@@ -2025,7 +2609,7 @@ section {
 }
 
 .team .member .member-info h4 {
-  font-weight: 700;
+  font-weight:bold;
   margin-bottom: 5px;
   font-size: 20px;
   color: #012970;
@@ -2121,7 +2705,7 @@ section {
 .recent-blog-posts .post-box .post-title {
   font-size: 24px;
   color: #012970;
-  font-weight: 700;
+  font-weight:bold;
   margin-bottom: 18px;
   position: relative;
   transition: 0.3s;
@@ -2167,7 +2751,7 @@ section {
 .contact .info-box h3 {
   font-size: 20px;
   color: #012970;
-  font-weight: 700;
+  font-weight:bold;
   margin: 20px 0 10px 0;
 }
 
@@ -2640,7 +3224,7 @@ section {
 
 .blog .sidebar .sidebar-title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight:bold;
   padding: 0 0 0 0;
   margin: 0 0 15px 0;
   color: #012970;
@@ -2804,7 +3388,7 @@ section {
   margin: 0 0 10px 0;
   padding: 0;
   line-height: 1;
-  font-weight: 700;
+  font-weight:bold;
   color: #012970;
 }
 
@@ -2844,7 +3428,7 @@ section {
 }
 
 .footer .footer-top {
-  /*background: white url(../img/footer-bg.png) no-repeat right top;
+  /*background: white url(./img/footer-bg.png) no-repeat right top;
   background-size: contain;
   border-top: 1px solid #e1ecff;
   border-bottom: 1px solid #e1ecff;*/
@@ -2873,10 +3457,10 @@ section {
 
 .footer .footer-top .footer-info .logo span {
   font-size: 30px;
-  font-weight: 700;
+  font-weight:bold;
   letter-spacing: 1px;
   color: #012970;
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif;
   margin-top: 3px;
 }
 
@@ -2884,7 +3468,7 @@ section {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "GTWalsheimPro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif;
 }
 
 .footer .footer-top .social-links a {
@@ -2962,4 +3546,7 @@ section {
   text-align: center;
   font-size: 13px;
   color: #012970;
+}
+@media (min-width: 1200px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl {max-width: 1088px;}
 }

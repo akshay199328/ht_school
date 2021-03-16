@@ -154,6 +154,55 @@ function wp_bootstrap_starter_widgets_init() {
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
     ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Home Testimonial', 'wp-bootstrap-starter' ),
+        'id'            => 'home-testimonial',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Home News', 'wp-bootstrap-starter' ),
+        'id'            => 'home-news',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Popular Courses', 'wp-bootstrap-starter' ),
+        'id'            => 'popular-courses',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Home Hero Section', 'wp-bootstrap-starter' ),
+        'id'            => 'home-hero-section',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Home Competitive Section', 'wp-bootstrap-starter' ),
+        'id'            => 'home-competitive-section',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
 }
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 
@@ -210,9 +259,12 @@ function wp_bootstrap_starter_scripts() {
     }else {
         wp_enqueue_style( 'wp-bootstrap-starter-default', get_template_directory_uri() . '/inc/assets/css/presets/color-scheme/blue.css', false, '' );
     }*/
-    wp_enqueue_style( 'style-new', get_stylesheet_uri() );
-    wp_enqueue_style( 'aos', get_template_directory_uri(). '/vendor/aos/aos.css' );
+    wp_enqueue_style( 'wp-bootstrap-starter-bootstrap', get_template_directory_uri() . '/inc/assets/css/bootstrap.css' );
+    wp_enqueue_style( 'wp-bootstrap-starter-bootstrap-icon', get_template_directory_uri() . '/vendor/bootstrap-icons/bootstrap-icons.css' );
     wp_enqueue_style( 'swiper-bundle', get_template_directory_uri(). '/vendor/swiper/swiper-bundle.min.css' );
+    wp_enqueue_style( 'aos', get_template_directory_uri(). '/vendor/aos/aos.css' );
+    wp_enqueue_style( 'style-new', get_stylesheet_uri() );
+    wp_enqueue_style( 'font', get_template_directory_uri(). '/font.css' );
 
 	wp_enqueue_script('jquery');
     wp_enqueue_script( 'aos', get_template_directory_uri(). '/vendor/aos/aos.js', '', '', true );
@@ -274,7 +326,28 @@ function wp_bootstrap_starter_password_form() {
 }
 add_filter( 'the_password_form', 'wp_bootstrap_starter_password_form' );
 
+/**
+ * Add search box to primary menu
+ */
+// function wpgood_nav_search($items, $args) {
+//     // If this isn't the primary menu, do nothing
+//     if( !($args->theme_location == 'secondary') ) 
+//     return $items;
+//     // Otherwise, add search form
+//     $search_box = '<li class="search-icon"><a href="#"><i class="bi bi-search"></i></a></li>';
+//     return $search_box.$item;
+// }
+// add_filter('wp_nav_menu_items', 'wpgood_nav_search', 10, 2);
 
+add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
+function add_search_box( $items, $args ) {
+    if( !($args->theme_location == 'secondary') ) 
+    return $items;
+    $searchbox = '<li class="search-icon"><a href="#"><i class="bi bi-search"></i></a></li>';
+
+    return $searchbox.$items;
+
+}
 
 /**
  * Implement the Custom Header feature.
@@ -307,3 +380,4 @@ require get_template_directory() . '/inc/plugin-compatibility/plugin-compatibili
 if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
     require_once(get_template_directory() . '/inc/wp_bootstrap_navwalker.php');
 }
+

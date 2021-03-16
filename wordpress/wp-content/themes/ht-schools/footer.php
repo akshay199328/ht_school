@@ -16,7 +16,7 @@
 	</div><!-- #content -->
     <?php get_template_part( 'footer-widget' ); ?>
 	<footer id="colophon" class="footer site-footer <?php echo wp_bootstrap_starter_bg_class(); ?>" role="contentinfo">
-	    <div class="">
+	    <div class="footer-top">
 	      <div class="container">
 	        <div class="row gy-4">
 	          <div class="col-lg-5 col-md-12 footer-info">

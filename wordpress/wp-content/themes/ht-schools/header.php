@@ -70,9 +70,7 @@
                 'theme_location'    => 'secondary',
                 'container'       => 'div',
                 'container_id'    => 'main-nav',
-                'container_class' => 'collapse navbar-collapse justify-content-end',
                 'menu_id'         => false,
-                'menu_class'      => 'navbar-nav',
                 'depth'           => 3,
                 'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
                 'walker'          => new wp_bootstrap_navwalker()

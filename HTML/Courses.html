@@ -25,7 +25,7 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> -->
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -36,38 +36,31 @@
 
  <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top inner-header">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <div class="col-lg-4 mrg left-menu">
+    <div class="container container-xl d-flex align-items-center justify-content-between">
+      <div class="col-sm-1 col-lg-4 mrg left-menu">
           <a href="index.html" class="border-menu">
             <span>Home</span>
-            <i class="bi bi-list"></i>
-            <!-- <img src="assets/img/logo.png" alt=""> -->
           </a>
+          
           <nav id="navbar" class="navbar">
             <ul>
               <li class="dropdown active"><a href="Courses.html"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
-                <!-- <ul>
-                  <li><a href="#">Drop Down 1</a></li>
-                  <li><a href="#">Drop Down 2</a></li>
-                  <li><a href="#">Drop Down 3</a></li>
-                  <li><a href="#">Drop Down 4</a></li>
-                  <li><a href="#">Drop Down 5</a></li>
-                </ul> -->
               </li>
             </ul>
           </nav>
       </div>
-      <div id="" class="middle-menu col-lg-4">
+      <div id="" class="middle-menu col-sm-4 col-lg-4">
+        <i class="bi bi-list mobile-nav-toggle"></i>
         <a href="index.html" class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="">
         </a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        
       </div><!-- .navbar -->
-      <div class="col-lg-4 mrg right-menu">
+      <div class="col-sm-7 col-lg-4 mrg right-menu">
           <ul>
             <li class="search-icon"><a href="#"><i class="bi bi-search"></i></a></li>
-            <li><a href="#">e-paper</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="#"><span class="icon"><img src="assets/img/ePaper-icon.png"/></span><span class="text">e-paper</span></a></li>
+            <li><a href="#"><span class="icon"><img src="assets/img/profile-icon.png"/></span><span class="text">Login</span></a></li>
           </ul>
       </div>
 
@@ -78,7 +71,7 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs background-breadcrumbs">
-      <div class="header-space"></div>
+      <div class="innerheader-space"></div>
       <div class="container">
 
         <ol>
@@ -94,224 +87,277 @@
     <section id="Popular-Courses" class="">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
-          <div class="col-lg-4 mrg adworks">
-
-            <img src="assets/img/adworks.png" class="img-fluid" alt="">
-          </div>
           <div class="col-lg-8 mrg">
-            <div class="row align-self-center gy-4">
-                <div class="col-md-12 mrg space aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
-                  <div class="course-box d-flex align-items-center dotted-border">
-                    <div class="col-lg-2 col-sm-12 mrg">
+            <div class="">
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="course-box dotted-border">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         <img src="assets/img/data-science.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Business Analytics</h6>
-                        <h2>Data Science Masterclass for<br> Non-Programmers</h2>
-                        <p class="text-ellipsis">Master the skills to get computers to understand, process, and manipulate human language. Build models on real data, and get hands-on experience with sentiment analysis, machine translation, and</p>
-                        <div class="col-lg-7 duration  mrg mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 mrg space aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
-                  <div class="course-box d-flex align-items-center dotted-border">
-                    <div class="col-lg-2 col-sm-12 mrg">
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="course-box dotted-border">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         <img src="assets/img/data-science.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Business Analytics</h6>
-                        <h2>Data Science Masterclass for<br> Non-Programmers</h2>
-                        <p class="text-ellipsis">Master the skills to get computers to understand, process, and manipulate human language. Build models on real data, and get hands-on experience with sentiment analysis, machine translation, and</p>
-                        <div class="col-lg-7 duration  mrg mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 mrg space aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
-                  <div class="course-box d-flex align-items-center dotted-border">
-                    <div class="col-lg-2 col-sm-12 mrg">
+
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="course-box dotted-border">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         <img src="assets/img/data-science.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Business Analytics</h6>
-                        <h2>Data Science Masterclass for<br> Non-Programmers</h2>
-                        <p class="text-ellipsis">Master the skills to get computers to understand, process, and manipulate human language. Build models on real data, and get hands-on experience with sentiment analysis, machine translation, and</p>
-                        <div class="col-lg-7 duration  mrg mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-12 center">
-                    <div class="col-sm-8 adworks-head">
+                    <div class="col-sm-10 adworks-head">
                       <a href="#">Adworks</a>
                     
                     <img src="assets/img/adwork-4.jpg" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-md-12 mrg space aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
-                  <div class="course-box d-flex align-items-center dotted-border">
-                    <div class="col-lg-2 col-sm-12 mrg">
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="course-box dotted-border">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         <img src="assets/img/data-science.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Business Analytics</h6>
-                        <h2>Data Science Masterclass for<br> Non-Programmers</h2>
-                        <p class="text-ellipsis">Master the skills to get computers to understand, process, and manipulate human language. Build models on real data, and get hands-on experience with sentiment analysis, machine translation, and</p>
-                        <div class="col-lg-7 duration  mrg mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 mrg space aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
-                  <div class="course-box d-flex align-items-center dotted-border">
-                    <div class="col-lg-2 col-sm-12 mrg">
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="course-box dotted-border">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         <img src="assets/img/data-science.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Business Analytics</h6>
-                        <h2>Data Science Masterclass for<br> Non-Programmers</h2>
-                        <p class="text-ellipsis">Master the skills to get computers to understand, process, and manipulate human language. Build models on real data, and get hands-on experience with sentiment analysis, machine translation, and</p>
-                        <div class="col-lg-7 duration  mrg mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 mrg space aos-init aos-animate" data-aos="zoom-out" data-aos-delay="200">
-                  <div class="course-box d-flex align-items-center dotted-border">
-                    <div class="col-lg-2 col-sm-12 mrg">
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="course-box dotted-border">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         <img src="assets/img/data-science.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Business Analytics</h6>
-                        <h2>Data Science Masterclass for<br> Non-Programmers</h2>
-                        <p class="text-ellipsis">Master the skills to get computers to understand, process, and manipulate human language. Build models on real data, and get hands-on experience with sentiment analysis, machine translation, and</p>
-                        <div class="col-lg-7 duration  mrg mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
+                  </div>
+                </div>
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                  <div class="course-box dotted-border">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
+                        <img src="assets/img/data-science.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
+                          </div>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
+                      </div>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -319,7 +365,9 @@
                 </div>
             </div>
           </div>
-
+          <div class="col-lg-4 mrg adworks desktop-add right-adwork">
+              <img src="assets/img/adworks.png" class="img-fluid" alt="">
+          </div>
         </div> <!-- / row -->
 
       </div>
@@ -330,11 +378,11 @@
       <div class="container">
         <div class="row gx-0">
           <div class="col-lg-12 mrg">
-            <div class="col-sm-6 pull-left">
-                <img src="assets/img/vivo.png" class="img-fluid"/>
-                <img src="assets/img/atamnirbhar.png" class="img-fluid"/>
+            <div class="col-sm-8 col-lg-6 pull-left">
+                <img src="assets/img/competitive1.png" class="img-fluid"/>
+                <!-- <img src="assets/img/atamnirbhar.png" class="img-fluid"/> -->
             </div>
-            <div class="col-sm-6 pull-right">
+            <div class="col-sm-4 col-lg-6 pull-right">
                 <img src="assets/img/PowerdBy.png" class="img-fluid"/>
             </div>
           </div>
@@ -369,16 +417,15 @@
   </footer><!-- End Footer -->
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 

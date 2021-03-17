@@ -26,7 +26,8 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <!-- <link rel="stylesheet" href="assets/css/owl.theme.default.min.css"> -->
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -36,13 +37,15 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <div class="col-lg-4 mrg left-menu">
+    <div class="container container-xl d-flex align-items-center justify-content-between">
+      <div class="col-sm-1 col-lg-4 mrg left-menu">
           <a href="index.html" class="border-menu">
             <span>Home</span>
-            <i class="bi bi-list"></i>
+            <!-- <i class="bi bi-list"></i> -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
+
           </a>
+          
           <nav id="navbar" class="navbar">
             <ul>
               <li class="dropdown"><a href="Courses.html"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
@@ -57,17 +60,18 @@
             </ul>
           </nav>
       </div>
-      <div id="" class="middle-menu col-lg-4">
+      <div id="" class="middle-menu col-sm-4 col-lg-4">
+        <i class="bi bi-list mobile-nav-toggle"></i>
         <a href="index.html" class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="">
         </a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        
       </div><!-- .navbar -->
-      <div class="col-lg-4 mrg right-menu">
+      <div class="col-sm-7 col-lg-4 mrg right-menu">
           <ul>
             <li class="search-icon"><a href="#"><i class="bi bi-search"></i></a></li>
-            <li><a href="#">e-paper</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="#"><span class="icon"><img src="assets/img/ePaper-icon.png"/></span><span class="text">e-paper</span></a></li>
+            <li><a href="#"><span class="icon"><img src="assets/img/profile-icon.png"/></span><span class="text">Login</span></a></li>
           </ul>
       </div>
 
@@ -75,11 +79,14 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero d-flex align-items-center">
-
+  <section id="hero" class="hero">
+<div class="header-space"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 d-flex flex-column justify-content-center">
+        <div class="col-lg-12">
+          <div class="mobile-add adwork">
+            <img src="assets/img/adwork-5.jpg" class="img-fluid"/>
+          </div>
           <h1 data-aos="fade-up">Learning for everyone</h1>
           <p data-aos="fade-up" data-aos-delay="400">supporting education through our products,</p>
           <!-- <div data-aos="fade-up" data-aos-delay="600">
@@ -93,37 +100,35 @@
         </div>
         <div class="col-lg-12 " data-aos="zoom-out" data-aos-delay="200">
           <div class="col-lg-9 mrg">
-            <div class="hero-list">
-              <ul>
-                  <div class="col-sm-12 co-lg-6 hero-card">
-                    <h6>Hindustan Times</h>
-                    <h5>Scholarship Programme</h5>
-                    <p>We seek to recognise and reward</p>
-                    <a href="#">Get Started</a>
-                  </div>
-                  <div class="col-sm-12 co-lg-6 hero-card">
-                    <h6>Hindustan Times</h>
-                    <h5>CODE-A-THON</h5>
-                    <p>an ideal platform for the students to learn coding and showcase the</p>
-                    <a href="#">Get Started</a>
-                  </div>
-                  <div class="col-sm-12 co-lg-6 hero-card">
-                    <h6>Hindustan Times</h>
-                    <h5>CAREER MATE</h5>
-                    <p>An initiative to help students across the nation to make an </p>
-                    <a href="#">Get Started</a>
-                  </div>
-                  <div class="col-sm-12 co-lg-6 hero-card">
-                    <h6>Hindustan Times</h>
-                    <h5>Olympiad</h5>
-                    <p>Identified as one of the world’s biggest Olympiads with a legacy of </p>
-                    <a href="#">Get Started</a>
-                  </div>
-              </ul>
+            <div class="hero-list mobile-slider">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-card item">
+                <h6>Hindustan Times</h6>
+                <h5>Scholarship Programme</h5>
+                <p>We seek to recognise and reward</p>
+                <a href="#">Get Started</a>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-card item">
+                <h6>Hindustan Times</h6>
+                <h5>CODE-A-THON</h5>
+                <p>an ideal platform for the students to learn coding and showcase the</p>
+                <a href="#">Get Started</a>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-card item">
+                <h6>Hindustan Times</h6>
+                <h5>CAREER MATE</h5>
+                <p>An initiative to help students across the nation to make an </p>
+                <a href="#">Get Started</a>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hero-card item">
+                <h6>Hindustan Times</h6>
+                <h5>Olympiad</h5>
+                <p>Identified as one of the world’s biggest Olympiads with a legacy of </p>
+                <a href="#">Get Started</a>
+              </div>
             </div>
           </div>
-          <div class="col-lg-3 mrg adworks">
-
+          <div class="col-lg-3 mrg adworks adworks-head desktop-add">
+            <a href="#">Adworks</a>
             <img src="assets/img/adworks.png" class="img-fluid" alt="">
           </div>
           
@@ -138,142 +143,155 @@
   <section id="Popular-Courses" class="Popular-Courses">
       <div class="container" data-aos="fade-up">
         <div class="row">
-          <div class="col-sm-12 col-lg-4">
+          <div class="col-sm-12 col-lg-4 mrg">
              <header class="section-header">
                 <h2>Popular Courses</h2>
                 <p>We offer classes for all ages throughout the year.</p>
-                <a href="#" class="exlore-link">Explore all Courses</a>
+                <a href="#" class="exlore-link desktop-btn">Explore all Courses</a>
             </header>
             <div class="adworks">
               <img src="assets/img/adwork-2.jpg" class="img-fluid" alt="img-fluid">
             </div>
           </div>
           <div class="col-sm-12 col-lg-8 mrg">
-            <div class="row align-self-center gy-4">
+            <div class="align-self-center courses-slider gy-4">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
-                  <div class="course-box d-flex align-items-center">
-                    <div class="col-lg-2 col-sm-12 mrg">
+                  <div class="course-box">
+                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         <img src="assets/img/data-science.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Business Analytics</h6>
-                        <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
-                        <p class="text-ellipsis">Master the skills to get computers to understand, process, and manipulate human language. Build models on real data, and get hands-on experience with sentiment analysis, machine translation, and</p>
-                        <div class="col-lg-7 duration  mrg mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Business Analytics</h6>
+                          <h2>Data Science Masterclass for<br/> Non-Programmers</h2>
+                          <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Master the skills to get computers to understand, process, and manipulate human language.</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
+                      <div class="col-sm-12 col-lg-3 pull-left mrg">
+                        <div class="col-lg-12 right-details pull-left mrg">
+                          
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="300">
-                  <div class="course-box d-flex align-items-center">
-                    <div class="col-lg-2 col-sm-12 mrg">
+                <div class="col-md-12 mrg item space" data-aos="zoom-out" data-aos-delay="300">
+                  <div class="course-box">
+                    <div class="col-xs-2 col-lg-2 col-sm-2 pull-left mrg">
                         <img src="assets/img/freelance.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Freelance & Entrepreneurship</h6>
-                        <h2>Strategies for Launching Your<br>Creative Career</h2>
-                        <p class="text-ellipsis">In this class Martina Flor, lettering artist and designer, unravels the nooks and crannies of being self-employed, providing practical tools and useful tips to start your own studio</p>
-                        <div class="col-lg-7 duration mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-lg-10 col-sm-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Freelance & Entrepreneurship</h6>
+                          <h2>Strategies for Launching Your<br>Creative Career</h2>
+                           <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">In this class Martina Flor, lettering artist and designer, unravels the nooks and crannies</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-sm-12 pull-left mrg">
+                        <div class="col-lg-12 right-details mrg">
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
-                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="400">
-                  <div class="course-box d-flex align-items-center">
-                    <div class="col-lg-2 col-sm-12 mrg">
+                <div class="col-md-12 mrg item space" data-aos="zoom-out" data-aos-delay="400">
+                  <div class="course-box">
+                    <div class="col-xs-2 col-lg-2 col-sm-2 pull-left mrg">
                         <img src="assets/img/online-marketing.jpg" class="img-fluid">
                     </div>
-                    <div class="col-lg-7 col-sm-12 mrg">
-                      <div class="middle-details">
-                        <h6>Online Marketing</h6>
-                        <h2>E-Com Essentials: How to Start<br/>a Successful Online Business</h2>
-                        <p class="text-ellipsis">Join BigCommerce’s Tracey Wallace for this one-hour class where you’ll dive into all the essentials and explore how to identify marketable products, create a store, and build a successful marketing strategy to drive traffic and sales. Tracey breaks down the process of getting started into a manageable step-by-step process that you can easily follow. You’ll learn how to:</p>
-                        <div class="col-lg-7 duration  mrg">
-                          <div class="pull-left">
-                            <p>Duration</p>
-                            <h6>24 Sessions <span>60 days </span></h6>
+                    <div class="col-xs-10 col-lg-10 col-sm-10 pull-left mrg">
+                      <div class="col-sm-12 col-lg-9 pull-left mrg">
+                        <div class="middle-details">
+                          <h6>Online Marketing</h6>
+                          <h2>E-Com Essentials: How to Start<br>a Successful Online Business</h2>
+                           <div class="col-lg-12 share-icon mrg">
+                            <i class="bi bi-share"></i>
                           </div>
-                          <div class="pull-right">
-                            <p>Age Limit</p>
-                            <h6>7 - 12 yrs</h6>
+                          <p class="">Join BigCommerce’s Tracey Wallace for this one-hour class where you’ll dive into all the essentials</p>
+                          <div class="col-lg-7 duration mrg">
+                            <div class="pull-left">
+                              <p>Duration</p>
+                              <h6>24 Sessions <span>60 days </span></h6>
+                            </div>
+                            <div class="pull-right">
+                              <p>Age Limit</p>
+                              <h6>7 - 12 yrs</h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-sm-12 pull-left mrg">
+                        <div class="col-lg-12 right-details mrg">
+                          <div class="col-lg-12 course-button mrg">
+                              <h6>₹ 1,400</h6>
+                              <a href="Course-details.html" class="course-btn">Join Course</a>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-sm-12 mrg">
-                      <div class="col-lg-12 right-details mrg">
-                        <div class="col-lg-12 share-icon mrg">
-                          <i class="bi bi-share"></i>
-                        </div>
-                        <div class="col-lg-12 course-button mrg">
-                            <h6>₹ 1,400</h6>
-                            <a href="Course-details.html" class="course-btn">Join Course</a>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
+                    </div>
+                  
                 </div>
             </div>
+            <div class="col-lg-12 right-details mrg">
+              <header class="section-header mobile-btn">
+                  <a href="#" class="exlore-link">Explore all Courses</a>
+              </header>
+            </div>  
           </div>
 
         </div> <!-- / row -->
-
-      </div>
-
-    </section><!-- End Features Section -->
+  </section><!-- End Features Section -->
 
     <!-- ======= Competitors Section ======= -->
     <section id="" class="competitive">
       <div class="container">
         <div class="row gx-0">
           <div class="col-lg-12 mrg">
-            <div class="col-sm-6 pull-left">
-                <img src="assets/img/vivo.png" class="img-fluid"/>
-                <img src="assets/img/atamnirbhar.png" class="img-fluid"/>
+            <div class="col-sm-8 col-lg-6 pull-left">
+                <img src="assets/img/competitive1.png" class="img-fluid"/>
+                <!-- <img src="assets/img/atamnirbhar.png" class="img-fluid"/> -->
             </div>
-            <div class="col-sm-6 pull-right">
+            <div class="col-sm-4 col-lg-6 pull-right">
                 <img src="assets/img/PowerdBy.png" class="img-fluid"/>
             </div>
           </div>
@@ -310,11 +328,42 @@
                   </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-lg-8">
+            <div class="col-sm-12 col-lg-4">
               <div class="details-middle">
-                <!-- <div class="popularNew-heading">
+                  <ul>
+                    <li>
+                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
+                      <div class="link">
+                          <a href="#">Delhi school events: Delhi International School celebrates Founder’s Day</a>
+                      </div>
+                    </li>
+                    <li>
+                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
+                      <div class="link">
+                          <a href="#">Simrat of SMGS, Meera Bagh, shines in Fotografia contest</a>
+                      </div>
+                    </li>
+                    <li>
+                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
+                      <div class="link">
+                          <a href="#">Maharashtra: 600 teachers, non-teaching staff protest</a>
+                      </div>
+                    </li>
+                    <li>
+                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
+                      <div class="link">
+                          <a href="#">Delhi school events: Delhi International School celebrates Founder’s Day</a>
+                      </div>
+                    </li>
+                    
+                  </ul>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+              <div class="details-middle">
+                <div class="popularNew-heading">
                   <h5>Popular on<br/>HT School News</h5>
-                </div> -->
+                </div>
                 <ul>
                     <li>
                       <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
@@ -322,40 +371,16 @@
                           <a href="#">Delhi school events: Delhi International School celebrates Founder’s Day</a>
                       </div>
                     </li>
-                    <li>
-                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
-                      <div class="link">
-                          <a href="#">Delhi school events: Delhi International School celebrates Founder’s Day</a>
-                      </div>
-                    </li>
-                    <li>
-                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
+                    <li class="news_advertisment">
+                      <p><span class="pull-left">Advertisment</span><span class="pull-right"><a href="#">Adworks</a></span></strong></p>
                       <div class="link">
                           <a href="#">Simrat of SMGS, Meera Bagh, shines in Fotografia contest</a>
                       </div>
                     </li>
-                    <li>
-                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
-                      <div class="link">
-                          <a href="#">Simrat of SMGS, Meera Bagh, shines in Fotografia contest</a>
-                      </div>
-                    </li>
-                    <li>
+                   <li>
                       <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
                       <div class="link">
                           <a href="#">Maharashtra: 600 teachers, non-teaching staff protest</a>
-                      </div>
-                    </li>
-                    <li>
-                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
-                      <div class="link">
-                          <a href="#">Maharashtra: 600 teachers, non-teaching staff protest</a>
-                      </div>
-                    </li>
-                    <li>
-                      <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
-                      <div class="link">
-                          <a href="#">Delhi school events: Delhi International School celebrates Founder’s Day</a>
                       </div>
                     </li>
                     <li>
@@ -378,22 +403,22 @@
               <div class="heading">
                 <h4>Infographics</h4>
               </div>
-              <div class="details">
-                  <div class="co-sm-12 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+              <div class="details mobile-slider">
+                  <div class="co-sm-12 col-lg-4 item" data-aos="zoom-in" data-aos-delay="100">
                       <img src="assets/img/fun-fantasy.jpg" class="img-fluid" />
                       <div class="content">
                         <p>DELHI Oct 13, 2020 20:04 IST</p>
                         <h3>Riveting Tales Of Fun And Fantasy</h3>
                       </div>
                   </div>
-                  <div class="co-sm-12 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                  <div class="co-sm-12 col-lg-4 item" data-aos="zoom-in" data-aos-delay="200">
                       <img src="assets/img/activities.jpg" class="img-fluid" />
                       <div class="content">
                         <p>DELHI Oct 13, 2020 20:04 IST</p>
                         <h3>5 Activities To Teach Your Kids About Money</h3>
                       </div>
                   </div>
-                  <div class="co-sm-12 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="co-sm-12 col-lg-4 item" data-aos="zoom-in" data-aos-delay="300">
                       <img src="assets/img/heritage-sites.jpg" class="img-fluid" />
                       <div class="content">
                         <p>DELHI Oct 13, 2020 20:04 IST</p>
@@ -411,104 +436,89 @@
           <h4>Testimonials</h4>
         </div>
 
-        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="200">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="profile-content">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-                </div>
-                <div class="profile profile-name mt-auto">
-                  <div class="col-sm-12 col-lg-3 mrg">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  </div>
-                  <div class="col-sm-12 col-lg-9 mrg">
-                    <h3>Changoo Doshi</h3>
-                    <h4>Riverdale High</h4>
-                  </div>
-                </div>
+        <div class="testimonials-carousel owl-carousel" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-item item">
+            <div class="profile-content">
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              </p>
+            </div>
+            <div class="profile profile-name mt-auto">
+              <!-- <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              </div> -->
+              <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <span class="profile-cont">
+                  <h3>Changoo Doshi</h3>
+                <h4>Riverdale High</h4>
+                </span>
+                
               </div>
-            </div><!-- End testimonial item -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="profile-content">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-                </div>
-                <div class="profile profile-name mt-auto">
-                  <div class="col-sm-12 col-lg-3 mrg">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  </div>
-                  <div class="col-sm-12 col-lg-9 mrg">
-                    <h3>Changoo Doshi</h3>
-                    <h4>Riverdale High</h4>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="profile-content">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-                </div>
-                <div class="profile profile-name mt-auto">
-                  <div class="col-sm-12 col-lg-3 mrg">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  </div>
-                  <div class="col-sm-12 col-lg-9 mrg">
-                    <h3>Changoo Doshi</h3>
-                    <h4>Riverdale High</h4>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="profile-content">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-                </div>
-                <div class="profile profile-name mt-auto">
-                  <div class="col-sm-12 col-lg-3 mrg">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img " alt="">
-                  </div>
-                  <div class="col-sm-12 col-lg-9 mrg">
-                    <h3>Changoo Doshi</h3>
-                    <h4>Riverdale High</h4>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="profile-content">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-                </div>
-                <div class="profile profile-name mt-auto">
-                  <div class="col-sm-12 col-lg-3 mrg">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  </div>
-                  <div class="col-sm-12 col-lg-9 mrg">
-                    <h3>Changoo Doshi</h3>
-                    <h4>Riverdale High</h4>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
+            </div>
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="testimonial-item item">
+            <div class="profile-content">
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              </p>
+            </div>
+            <div class="profile profile-name mt-auto">
+              <!-- <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              </div> -->
+              <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <span class="profile-cont">
+                  <h3>Changoo Doshi</h3>
+                <h4>Riverdale High</h4>
+                </span>
+                
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item item">
+            <div class="profile-content">
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              </p>
+            </div>
+            <div class="profile profile-name mt-auto">
+              <!-- <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              </div> -->
+              <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <span class="profile-cont">
+                  <h3>Changoo Doshi</h3>
+                <h4>Riverdale High</h4>
+                </span>
+                
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item item">
+            <div class="profile-content">
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              </p>
+            </div>
+            <div class="profile profile-name mt-auto">
+              <!-- <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              </div> -->
+              <div class="pull-left mrg">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <span class="profile-cont">
+                  <h3>Changoo Doshi</h3>
+                <h4>Riverdale High</h4>
+                </span>
+                
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-12 center">
+        <div class="col-lg-12 center desktop-add">
             <img src="assets/img/adwork-4.jpg" />
         </div>
       </div>
@@ -536,14 +546,14 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
+
 
 </body>
 

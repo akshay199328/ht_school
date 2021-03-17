@@ -61,6 +61,7 @@
 
     if (!header.classList.contains('header-scrolled')) {
       offset -= 10
+     
     }
 
     let elementPos = select(el).offsetTop
@@ -244,7 +245,7 @@
   new Swiper('.testimonials-slider', {
     speed: 600,
     // loop: true,
-    slidesPerView: 3,
+    slidesPerView:2,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
@@ -257,11 +258,11 @@
     },
     breakpoints: {
       320: {
-        slidesPerView: 1,
+        slidesPerView:2,
         spaceBetween: 40
       },
 
-      1200: {
+      992: {
         slidesPerView: 3,
       }
     }

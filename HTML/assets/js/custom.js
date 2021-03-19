@@ -1,3 +1,12 @@
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 10) {
+        $(".innerheader-space").addClass("less_topmargin");
+    } else {
+        $(".innerheader-space").removeClass("less_topmargin");
+    }
+});
 $(document).ready(function() {
 
     if(jQuery(window).width() <= 992) {
@@ -116,7 +125,7 @@ $('.testimonials-carousel').owlCarousel({
             nav: false
           },
           1200: {
-            items:3,
+            items:2,
             nav: false,
             loop: false,
             margin: 20

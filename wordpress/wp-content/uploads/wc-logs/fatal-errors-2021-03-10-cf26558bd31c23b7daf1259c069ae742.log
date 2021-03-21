@@ -1,8 +1,0 @@
-2021-03-10T06:05:00+00:00 CRITICAL syntax error, unexpected 'endif' (T_ENDIF) in C:\xampp\htdocs\Htschools\wordpress\wp-content\themes\ht-schools\index.php on line 253
-
-2021-03-10T06:05:18+00:00 CRITICAL syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in C:\xampp\htdocs\Htschools\wordpress\wp-content\themes\ht-schools\index.php on line 253
-
-2021-03-10T06:05:59+00:00 CRITICAL syntax error, unexpected 'endif' (T_ENDIF), expecting end of file in C:\xampp\htdocs\Htschools\wordpress\wp-content\themes\ht-schools\index.php on line 253
-
-2021-03-10T06:24:08+00:00 CRITICAL syntax error, unexpected 'endif' (T_ENDIF) in C:\xampp\htdocs\Htschools\wordpress\wp-content\themes\ht-schools\index.php on line 280
-

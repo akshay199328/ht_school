@@ -382,7 +382,15 @@ $(document).ready(function() {
             margin: 20
           }
         }
-      })
+      });
+      var scroll = $(window).scrollTop();
+
+        if (scroll >= 10) {
+            alert("hello");
+            $(".innerheader-space").addClass("less_topmargin");
+        } else {
+            $(".innerheader-space").removeClass("less_topmargin");
+        }
 });
 $('.testimonials-carousel').owlCarousel({
         loop: false,

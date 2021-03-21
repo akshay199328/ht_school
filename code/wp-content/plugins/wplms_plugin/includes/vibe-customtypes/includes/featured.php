@@ -303,9 +303,9 @@ function thumbnail_generator($custom_post,$featured_style,$cols='medium',$n=100,
                         }
                     }
                     $return .= apply_filters('vibe_thumb_featured_image',featured_component($custom_post->ID,$cols),$featured_style);
-                    $return .= '<h4 class="block_title"><a href="'.get_permalink($custom_post->ID).'" title="'.$custom_post->post_title.'">'.$custom_post->post_title.'</a>';
+                    $return .= '<h3 class="block_title"><a href="'.get_permalink($custom_post->ID).'" title="'.$custom_post->post_title.'">'.$custom_post->post_title.'</a></h3>';
                     $return .= '<div class="col-sm-12 mrg session">
-                                 <h6>24 Sessions <span>60 days</span></h6>
+                                 <h6><span class="vicon vicon-user"></span>24 Sessions <span>60 days</span></h6>
                                 </div>';
                       $return .= '<div class=""> <a  class="bookdemo-btn" href="'.get_permalink($custom_post->ID).'" title="'.$custom_post->post_title.'">
                           Book Demo</a>
@@ -318,13 +318,13 @@ function thumbnail_generator($custom_post,$featured_style,$cols='medium',$n=100,
 //                    $return .= '<div class="block_content">';
     //                $return .= '<h4 class="block_title"><a href="'.get_permalink($custom_post->ID).'" title="'.$custom_post->post_title.'">'.$custom_post->post_title.'</a></h4>';
 
-                    $return .= '<div class="course_block_bottom">';
-                    $students = get_post_meta($custom_post->ID,'vibe_students',true);
-                    $return .='<span class="vicon vicon-user">'.$students.'</span> ';
+                    //$return .= '<div class="course_block_bottom">';
+                    //$students = get_post_meta($custom_post->ID,'vibe_students',true);
+                    //$return .=$students;
                    // $return .= '<div class="course_price">'.bp_course_get_course_credits(array('id' => $custom_post->ID)).'</div>';
-                    $return .= '</div>';
+                    //$return .= '</div>';
                     $return .=apply_filters('wplms_course_thumb_extras','');
-                    $return .= '</div></div>';
+                    $return .= '</div>';
 
 
                 break;  

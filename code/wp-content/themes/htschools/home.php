@@ -44,7 +44,7 @@ get_header(vibe_get_header());
                   $age_limit = $custom_fields['age_limit'][0];
                   $category_array = get_the_terms( $post->ID, 'course-cat');
               ?>
-                <div class="col-md-12 space" data-aos="zoom-out" data-aos-delay="200">
+                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                   <div class="course-box">
                     <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                       <?php 

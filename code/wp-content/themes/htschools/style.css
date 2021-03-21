@@ -605,6 +605,9 @@ section {
 .innerheader-space{
   margin-top: 110px;
 }
+.innerheader-space.less_topmargin {
+    margin-top: 95px;
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/

@@ -1,0 +1,21 @@
+2021-03-17T04:45:33+00:00 CRITICAL syntax error, unexpected '$course_post_id' (T_VARIABLE) in C:\xampp\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-template.php on line 804
+
+2021-03-17T07:35:23+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function the_course_time(), 0 passed in C:\xampp\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-template.php on line 839 and exactly 1 expected in C:\xampp\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-functions.php:1630
+Stack trace:
+#0 C:\xampp\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-template.php(839): the_course_time()
+#1 C:\xampp\htdocs\htschools\wp-content\themes\htschools\course\course-loop.php(57): bp_course_item_view()
+#2 C:\xampp\htdocs\htschools\wp-includes\template.php(730): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\htschools\wp-includes\template.php(676): load_template('C:\\xampp\\htdocs...', true, Array)
+#4 C:\xampp\htdocs\htschools\wp-content\themes\htschools\templates\directory\course\index.php(107): locate_template(Array, true)
+#5 C:\xampp\htdocs\htschools\wp-content\themes\htsch in C:\xampp\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-functions.php on line 1630
+
+2021-03-17T08:46:22+00:00 CRITICAL syntax error, unexpected 'print_r' (T_STRING) in C:\xampp\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-template.php on line 819
+
+2021-03-17T09:59:23+00:00 CRITICAL syntax error, unexpected ')' in C:\xampp\htdocs\htschools\wp-content\themes\htschools\functions.php on line 58
+
+2021-03-17T10:51:08+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW) in C:\xampp\htdocs\htschools\wp-content\themes\htschools\header-transparent.php on line 64
+
+2021-03-17T10:51:27+00:00 CRITICAL syntax error, unexpected '.' in C:\xampp\htdocs\htschools\wp-content\themes\htschools\header-transparent.php on line 64
+
+2021-03-17T10:51:40+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW) in C:\xampp\htdocs\htschools\wp-content\themes\htschools\header-transparent.php on line 64
+

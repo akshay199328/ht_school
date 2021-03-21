@@ -1,0 +1,72 @@
+2021-03-15T12:45:47+00:00 CRITICAL Uncaught Error: Call to undefined function vibe_get_header() in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php:15
+Stack trace:
+#0 D:\xampp3\htdocs\htschools\wp-includes\template.php(730): require_once()
+#1 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-catchuri.php(493): load_template('D:\\xampp3\\htdoc...')
+#2 D:\xampp3\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-screens.php(29): bp_core_load_template('course/index')
+#3 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_course_directory_setup('')
+#4 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp3\htdocs\htschools\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#6 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-dependency.php(373): do_action('bp_screens')
+#7 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_screens('')
+#8 D:\xam in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php on line 15
+
+2021-03-15T12:47:27+00:00 CRITICAL Uncaught Error: Call to undefined function vibe_get_header() in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php:15
+Stack trace:
+#0 D:\xampp3\htdocs\htschools\wp-includes\template.php(730): require_once()
+#1 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-catchuri.php(493): load_template('D:\\xampp3\\htdoc...')
+#2 D:\xampp3\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-screens.php(29): bp_core_load_template('course/index')
+#3 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_course_directory_setup('')
+#4 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp3\htdocs\htschools\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#6 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-dependency.php(373): do_action('bp_screens')
+#7 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_screens('')
+#8 D:\xam in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php on line 15
+
+2021-03-15T12:51:12+00:00 CRITICAL Uncaught Error: Call to undefined function vibe_get_customizer() in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php:16
+Stack trace:
+#0 D:\xampp3\htdocs\htschools\wp-includes\template.php(730): require_once()
+#1 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-catchuri.php(493): load_template('D:\\xampp3\\htdoc...')
+#2 D:\xampp3\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-screens.php(29): bp_core_load_template('course/index')
+#3 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_course_directory_setup('')
+#4 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp3\htdocs\htschools\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#6 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-dependency.php(373): do_action('bp_screens')
+#7 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_screens('')
+#8 D: in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php on line 16
+
+2021-03-15T12:51:37+00:00 CRITICAL Uncaught Error: Call to undefined function vibe_include_template() in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php:18
+Stack trace:
+#0 D:\xampp3\htdocs\htschools\wp-includes\template.php(730): require_once()
+#1 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-catchuri.php(493): load_template('D:\\xampp3\\htdoc...')
+#2 D:\xampp3\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-screens.php(29): bp_core_load_template('course/index')
+#3 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_course_directory_setup('')
+#4 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp3\htdocs\htschools\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#6 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-dependency.php(373): do_action('bp_screens')
+#7 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_screens('')
+#8  in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php on line 18
+
+2021-03-15T12:53:37+00:00 CRITICAL Uncaught Error: Call to undefined function vibe_get_customizer() in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php:16
+Stack trace:
+#0 D:\xampp3\htdocs\htschools\wp-includes\template.php(730): require_once()
+#1 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-catchuri.php(493): load_template('D:\\xampp3\\htdoc...')
+#2 D:\xampp3\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-screens.php(29): bp_core_load_template('course/index')
+#3 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_course_directory_setup('')
+#4 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp3\htdocs\htschools\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#6 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-dependency.php(373): do_action('bp_screens')
+#7 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_screens('')
+#8 D: in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php on line 16
+
+2021-03-15T12:54:23+00:00 CRITICAL Uncaught Error: Call to undefined function vibe_get_customizer() in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php:16
+Stack trace:
+#0 D:\xampp3\htdocs\htschools\wp-includes\template.php(730): require_once()
+#1 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-catchuri.php(493): load_template('D:\\xampp3\\htdoc...')
+#2 D:\xampp3\htdocs\htschools\wp-content\plugins\wplms_plugin\includes\vibe-course-module\includes\bp-course-screens.php(29): bp_core_load_template('course/index')
+#3 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_course_directory_setup('')
+#4 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#5 D:\xampp3\htdocs\htschools\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#6 D:\xampp3\htdocs\htschools\wp-content\plugins\buddypress\bp-core\bp-core-dependency.php(373): do_action('bp_screens')
+#7 D:\xampp3\htdocs\htschools\wp-includes\class-wp-hook.php(292): bp_screens('')
+#8 D: in D:\xampp3\htdocs\htschools\wp-content\themes\twentynineteen\course\index.php on line 16
+

@@ -825,7 +825,7 @@ if(!function_exists('bp_course_item_view')){
                 <div class="col-lg-7 duration mrg">
                   <div class="pull-left">
                     <p>Duration</p>
-                    <h6><?php echo get_post_meta($course_post_id,'vibe_duration',true);?></h6>
+                    <h6><?php echo get_post_meta($course_post_id,'vibe_duration',true);?> Days</h6>
                   </div>
                   <div class="pull-right">
                     <p>Age Limit</p>
@@ -838,7 +838,7 @@ if(!function_exists('bp_course_item_view')){
                 <div class="col-lg-12 right-details pull-left mrg">
                   
                   <div class="col-lg-12 course-button">
-                      <h6><?php 
+                      <h6 class="hide_button"><?php 
 						if(bp_is_my_profile()){
 							the_course_button($course_post_id);
 						}else{

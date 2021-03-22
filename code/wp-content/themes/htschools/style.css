@@ -3846,7 +3846,7 @@ Course Details
     .right-details .course-button {
       padding-left: 20px;
       float: left;
-      padding-top: 20px;}
+      padding-top: 20px!important;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: block!important;}
     .right-details .course-button a{margin-left: 10px;}

@@ -108,6 +108,9 @@ ol.breadcrumbs li {
     font-weight: bold!important;
     
 }
+.background-breadcrumbs ol.breadcrumbs li, .background-breadcrumbs ol.breadcrumbs li a {
+    color: #0c5acc!important;
+}
 .course-listing{
     background: #fade3b !important;
     padding-bottom: 30px !important;
@@ -245,7 +248,7 @@ padding: 15px 0;
 }
 .fixed_banner ul li h6, .course-list span h6, .cv-detilslist span h6, .card h6, .instructor-detailsMini .profile-content h4, .instructor-detailsMini .profile-content h6, 
 .course-box .middle-details p{margin: 0px!important;}
-.course-fees .course_sharing{display: none;}
+.course-fees .course_sharing, .right-details .course-button h6{display: none;}
 .course-fees .the_course_button .course_button{
         padding: 12px 32px 12px 25px!important;
     background-color: #fbca00;
@@ -286,7 +289,7 @@ padding: 15px 0;
 .right-details .course-button h6 .amount{font-size: 20px;}
 .course-box .middle-details{padding-right: 15px;}
 .right-details .course-button h6 .subs{display: block;}
-.right-details .course-button{padding-top: 65px!important;}
+
 .details-middle ul li .link:hover:after, #scrolltop.fix {
     display: none;
 }
@@ -307,8 +310,10 @@ padding: 15px 0;
 .other-courses .list .card{padding: 24px !important;}
 .other-courses .list .card:first-child {padding-left: 0px!important;}
 .fixedmenu-tabs .nav-tabs>li.active>a{    border-color: transparent;}
+.details-middle ul li .link a{    font-weight: bold;}
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}
+    .right-details .course-button{padding-top: 65px!important;}
 }
 @media (max-width: 991px){
 	header.sleek #trigger {display: none!important;}

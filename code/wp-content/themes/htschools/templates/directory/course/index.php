@@ -14,7 +14,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="">
              <div class="col-md-12 col-sm-12 mrg">
-                <div class="pagetitle breadcrumbs">
+                <div class="pagetitle breadcrumbs background-breadcrumbs">
                 	<?php 
                         $breadcrumbs=get_post_meta($id,'vibe_breadcrumbs',true);
                         if(!isset($breadcrumbs) || !$breadcrumbs || vibe_validate($breadcrumbs)){

@@ -20,7 +20,7 @@ get_header(vibe_get_header());
              <header class="section-header">
                 <h2>Popular Courses</h2>
                 <p>We offer classes for all ages throughout the year.</p>
-                <a href="#" class="exlore-link desktop-btn">Explore all Courses</a>
+                <a href="http://localhost/Htschools-git/code/all-courses/" class="exlore-link desktop-btn">Explore all Courses</a>
             </header>
             <div class="adworks">
               <?php
@@ -71,7 +71,7 @@ get_header(vibe_get_header());
                         <div class="col-lg-7 duration mrg">
                           <div class="pull-left">
                             <p>Duration</p>
-                            <h6><span><?php echo $duration;?></span></h6>
+                            <h6><span><?php echo $duration;?></span> Days</h6>
                           </div>
                           <div class="pull-right">
                             <p>Age Limit</p>
@@ -84,12 +84,8 @@ get_header(vibe_get_header());
                         <div class="col-lg-12 right-details pull-left mrg">
                           
                           <div class="col-lg-12 course-button mrg">
-                            <h6><?php 
-                                if(bp_is_my_profile()){
-                                    the_course_button($course_post_id);
-                                }else{
-                                    bp_course_credits();    
-                                }
+                            <h6 class="hide_button"><?php 
+                                the_course_price();
 
                             ?></h6>
                               <a href="<?php echo get_the_permalink();?>" class="course-btn">Join Course</a>
@@ -228,7 +224,7 @@ get_header(vibe_get_header());
               <div class="heading">
                 <h4>Infographics</h4>
               </div>
-              <div class="details">
+              <div class="details mobile-slider">
                 <?php
                   $args1 = array(
                       'post_type' => 'infographics',
@@ -243,7 +239,7 @@ get_header(vibe_get_header());
                       $image_url = wp_get_attachment_url($custom_fields['image'][0]);
                     
                 ?>
-                  <div class="co-sm-12 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="co-sm-12 col-lg-4 item" data-aos="zoom-in" data-aos-delay="100">
                       <img src="<?php echo $image_url; ?>" class="img-fluid" />
                       <div class="content">
                         <p><?php echo get_the_date('M d, Y H:i'); ?></p>

@@ -999,11 +999,18 @@ Course Details
     margin-right: 25px;
     background: transparent;
 }
-.nav-tabs .nav-item.show .nav-item a, .nav-tabs .nav-item .active, .nav-tabs .nav-item:focus a, .nav-tabs .nav-item:hover a{
+.fixedmenu-tabs .nav-tabs .nav-item.show .nav-item a, 
+.fixedmenu-tabs .nav-tabs .nav-item .active, 
+.fixedmenu-tabs .nav-tabs .nav-item:focus a, 
+.fixedmenu-tabs .nav-tabs .nav-item:hover a{
     color: #000!important;
     background-color: transparent!important;
     border-color: transparent!important;
     border-bottom: 2px solid #000!important;
+}
+.fixedmenu-tabs .nav-tabs .nav-link:hover, 
+.fixedmenu-tabs .nav-tabs .nav-link:focus {
+    border-color: transparent;
 }
 .left-spacing{padding-left: 25px;padding-right: 0;}
 .about-details {

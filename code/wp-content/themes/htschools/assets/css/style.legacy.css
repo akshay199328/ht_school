@@ -46,7 +46,29 @@ figure {
 pre {
 	word-wrap: break-word
 }
+a {
+  color: #000;
+  text-decoration: none;
+}
 
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "GT-Walsheim-Pro"!important;
+  font-weight: bold!important;
+}
+p{
+    font-size: 14px;
+  font-weight:normal;
+}
+b, strong {
+    font-weight: bold;
+}
+dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
+.mrg{padding: 0px!important;margin: 0px;}
 .btn-group>.btn-group,
 .btn-toolbar .btn,
 .btn-toolbar .btn-group,

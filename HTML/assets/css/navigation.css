@@ -22,7 +22,9 @@ body.hc-nav-open {
 .hc-offcanvas-nav.is-ios * {
     cursor: pointer !important
 }
-
+.hc-offcanvas-nav.hc-nav-1 .nav-container {
+    width: 400px!important;
+}
 .hc-offcanvas-nav .nav-container {
     position: fixed;
     z-index: 9998;
@@ -194,7 +196,8 @@ body.hc-nav-open {
 }
 
 .hc-offcanvas-nav.nav-levels-overlap .nav-wrapper {
-    max-height: 100vh
+    max-height: 100vh;
+    padding: 50px 50px 50px 115px;
 }
 
 .hc-offcanvas-nav.nav-levels-overlap ul .nav-wrapper {
@@ -321,12 +324,14 @@ body .hc-offcanvas-nav .nav-item-link,
 body .hc-offcanvas-nav li.nav-close a,
 body .hc-offcanvas-nav .nav-back a {
     padding: 14px 17px;
-    font-size: 14px;
+    font-size: 15px;
     color: #000;
+    font-weight: bold;
     z-index: 1;
     background: rgba(0, 0, 0, 0);
-    border-bottom: 1px solid #2c5d8f;
-    transition: background .1s ease
+    border-bottom: 1.5px dotted #000;
+    transition: background .1s ease;
+
 }
 
 body .hc-offcanvas-nav .nav-item-link:focus,
@@ -348,8 +353,9 @@ body .hc-offcanvas-nav div.nav-back+ul>li:first-child>.nav-item-wrapper>.nav-ite
     border-top: none !important
 }
 
-body .hc-offcanvas-nav:not(.touch-device) li:not(.nav-item-custom) a:not([disabled]):hover {
-    background: #31679e
+body .hc-offcanvas-nav:not(.touch-device) li:not(.nav-item-custom) a:not([disabled]):hover, .hc-offcanvas-nav li a.active {
+    background: #000000;
+    color: #fff;
 }
 
 body .hc-offcanvas-nav .nav-custom-content {
@@ -363,7 +369,7 @@ body .hc-offcanvas-nav .nav-highlight {
 }
 
 body .hc-offcanvas-nav .nav-wrapper>.nav-content>ul:first-of-type>li:first-child:not(.nav-back):not(.nav-close)>.nav-item-wrapper>.nav-item-link {
-    border-top: 1px solid #2c5d8f
+    border-top: 0px solid #2c5d8f
 }
 
 body .hc-offcanvas-nav .nav-wrapper>.nav-content>ul:first-of-type>li:first-child:not(.nav-back):not(.nav-close)>.nav-item-wrapper>.nav-item-link+a {
@@ -447,12 +453,12 @@ body .hc-offcanvas-nav .nav-close-button span::after {
     width: 6px;
     height: 6px;
     margin-top: -3px;
-    border-top: 2px solid #fff;
-    border-left: 2px solid #fff
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
 }
 
 body .hc-offcanvas-nav .nav-close-button span::before {
-    margin-left: -9px;
+    margin-left: -6px;
     transform: rotate(135deg)
 }
 
@@ -461,8 +467,9 @@ body .hc-offcanvas-nav .nav-close-button span::after {
 }
 
 body .hc-offcanvas-nav .nav-content>.nav-close {
-    position: relative;
-    z-index: 2
+    position: absolute;
+    z-index: 2;
+    right: 10%;
 }
 
 body .hc-offcanvas-nav .nav-content>.nav-close a {
@@ -572,8 +579,8 @@ body .hc-offcanvas-nav .nav-back span::before {
 }
 
 body .hc-offcanvas-nav.nav-position-left.nav-open.nav-levels-overlap .nav-wrapper {
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2)
-    padding: 30px 20px;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
+    padding: 50px 50px 30px 150px;
 }
 
 body .hc-offcanvas-nav.nav-position-right.nav-open.nav-levels-overlap .nav-wrapper {
@@ -718,7 +725,15 @@ body .hc-offcanvas-nav.rtl .nav-wrapper-4 li.nav-item .nav-item-link {
 body .hc-offcanvas-nav.rtl .nav-wrapper-5 li.nav-item .nav-item-link {
     padding-right: calc(17px + 20px * 5)
 }
+.bottom-nav ul{
+    border-bottom: 1px dotted #000;
+}
+.bottom-nav ul li{
 
+}
+.bottom-nav ul li a{
+    font-weight: normal;
+}
 
 .cf::before,
 .cf::after {

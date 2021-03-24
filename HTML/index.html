@@ -35,34 +35,65 @@
 </head>
 
 <body>
-  <nav id="main-nav">
-    <ul class="first-nav">
-      <li class="">
-        <a href="#" rel="noreferrer" target="_blank">Home</a>
-        <!-- <ul>
-          <li><a href="#">123</a></li>
-          <li><a href="#">123</a></li>
-          <li><a href="#">123</a></li>
-          <li><a href="#">123</a></li>
-          <li><a href="#">123</a></li>
-        </ul> -->
-      </li>
-      <li class="">
-         <a href="#" rel="noreferrer" target="_blank">Home</a>
-      </li>
-      <li class="">
-         <a href="#" rel="noreferrer" target="_blank">Home</a>
-      </li>
-      <li class="">
-         <a href="#" rel="noreferrer" target="_blank">Home</a>
-      </li>
-    </ul>
-  </nav>
+<div class="navegacion">
+          <div class="menu-back">
+            <ul class="menu">
+                <!--titular-->
+                <li class="title-menu">jQueryScript</li>
+                <!--titular-->
+
+                <li><a href="#"><span class="fa fa-home icon-menu"></span>Home</a><li>
+
+                <li class="item-submenu" menu="1">
+                    <a href="#"><span class="fa fa-suitcase icon-menu"></span>Services</a>
+                    <ul class="submenu">
+                        <li class="title-menu"><span class="fa fa-suitcase icon-menu"></span>Services</li>
+                        <li class="go-back">Back</li>
+
+                        <li><a href="#">Service 1</a></li>
+                        <li><a href="#">Service 2</a></li>
+                        <li><a href="#">Service 3</a></li>
+                    </ul>
+                </li>
+
+                <li class="item-submenu" menu="2">
+                <a href="#"><span class="fa fa-shopping-bag icon-menu"></span>Products</a>
+                <ul class="submenu">
+                <li class="title-menu"><span class="fa fa-shopping-bag icon-menu"></span>Products</li>
+                 <li class="go-back">Back</li>
+
+                 <li><a href="#">JavaScript</a><li>
+                 <li><a href="#">HTML5</a><li>
+                 <li><a href="#">CSS3</a><li>
+                 </ul>
+                 </li>
+
+
+
+                <li><a href="#"><span class="fa fa-envelope icon-menu"></span>Contact</a><li>
+                <li><a href="#"><span class="fa fa-tag icon-menu"></span>Blog</a></li>
+                <div class="bootom-link">
+                    <ul>
+                        <li><a href="#">Help & Support</a></li>
+                        <li><a href="#">Contact us</a><li>
+                    </ul>
+                    <ul class="border-bottom">
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a><li>
+                        <li><a href="#">Terms of Use</a><li>
+                        <li><a href="#">Code of Ethics</a><li>
+                        <li><a href="#">Disclaimer</a><li>
+                        <li><a href="#">Cancellation Policy</a><li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
     <div class="container container-xl d-flex align-items-center justify-content-between">
       <div class="col-sm-1 col-lg-4 mrg left-menu">
-          <a href="#" class="border-menu toggle">
+          <a href="#" class="border-menu button-menu">
             <span>Home</span>
             <!-- <i class="bi bi-list"></i> -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
@@ -543,21 +574,76 @@
     </section>
 
 </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="footer-top">
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+  <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <h1>Footer</h1>
-            </a>
+          <div class="col-lg-8 col-md-12 footer-info ">
+            <div class="col-lg-5 col-md-12 footer-info mrg">
+              <a href="index.html" class="logo d-flex align-items-center">
+                <img src="assets/img/footer-logo.png" class="img-fluid" alt="">
+                <!-- <span>FlexStart</span> -->
+              </a>
+            </div>
+            <div class="col-lg-12 col-md-12 footer-info mrg">
+              <p>Supporting education through our products,</p>
+            </div>
           </div>
-        </div>
+
+          <div class="col-sm-12 col-lg-4 social-links mrg">
+            <div class="col-sm-8 col-lg-8 col-md-8 pull-left mrg">
+              
+              <div class="socio-list">
+                <span class="social-heading">Follow us on</span>
+                <a href="#" class="twitter"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+              </div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-4 pull-right mrg">
+              
+              <div class="socio-list">
+                <span class="social-heading">RSS Feed</span>
+                <a href="#" class="twitter"><i class="bi bi-wifi bx bxl-wifi"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 middle-detils footer-links">
+            <div class="col-lg-12 col-12 mrg">
+              <ul>
+                  <li><a href="#">Our Courses</a></li>
+                  <li><a href="#">News</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-12 col-12 about-links mrg">
+              <ul>
+                <li><a href="#">About Ht School</a></li>
+                <li><a href="#">CareerMate</a></li>
+                <li><a href="#">Code-a-thon</a></li>
+                <li><a href="#">Scholarship</a></li>
+                <li><a href="#">Olympiad</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 bottom-detils">
+            <p class="copyright">Copyright © 2021 HTDSL. All rights reserved.</p>
+            <div class="col-lg-12 col-12 links mrg">
+              <ul>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Code of Ethics</a></li>
+                <li><a href="#">Cancellation Policy</a></li>
+                <li><a href="#">Disclaimer</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
       </div>
     </div>
-  </footer><!-- End Footer -->
+</footer><!-- End Footer -->
 
 
   <!-- Vendor JS Files -->
@@ -565,12 +651,13 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/owl.carousel.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- <script src="assets/js/jquery.min.js"></script> -->
   <script src="assets/js/hc-offcanvas-nav.js"></script>
   <!-- Template Main JS File -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="assets/js/navigation-custom.js"></script>
+  <script src="https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/custom.js"></script>
 

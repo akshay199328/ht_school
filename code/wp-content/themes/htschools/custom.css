@@ -55,7 +55,7 @@ nav .menu li:last-child a{padding-right: 0px!important;}
 }
 #buddypress .course.dir-list {padding: 0px;}
 #header .container{
-	    align-items: center!important;
+        align-items: center!important;
     display: flex;
 }
 #title .pagetitle {padding-top: 0!important;}
@@ -63,8 +63,8 @@ nav .menu li:last-child a{padding-right: 0px!important;}
     margin-right: 0!important;
 }
 .breadcrumbs li+li:before {
-	content: ""!important;
-	margin: 0px!important;
+    content: ""!important;
+    margin: 0px!important;
     padding-right: 7px!important;
     padding-left: 11px!important;
     color: #0c5acc!important;
@@ -248,7 +248,7 @@ padding: 15px 0;
 }
 .fixed_banner ul li h6, .course-list span h6, .cv-detilslist span h6, .card h6, .instructor-detailsMini .profile-content h4, .instructor-detailsMini .profile-content h6, 
 .course-box .middle-details p{margin: 0px!important;}
-/*.course-fees .course_sharing, .right-details .course-button h6{display: none;}*/
+.course-fees .course_sharing, .right-details .course-button h6{display: none;}
 .course-fees .the_course_button .course_button{
         padding: 12px 32px 12px 25px!important;
     background-color: #fbca00;
@@ -307,7 +307,7 @@ padding: 15px 0;
     padding-right: 15px;
     float: left;
 }
-.other-courses .list .card{padding: 24px !important;}
+.other-courses .list .card{padding: 24px !important;padding-top: 0px !important;}
 .other-courses .list .card:first-child {padding-left: 0px!important;}
 .fixedmenu-tabs .nav-tabs>li.active>a{    border-color: transparent;}
 .details-middle ul li .link a{    font-weight: bold;}
@@ -316,8 +316,8 @@ padding: 15px 0;
     .right-details .course-button{padding-top: 65px!important;}
 }
 @media (max-width: 991px){
-	header.sleek #trigger {display: none!important;}
-	.course-listing .pagetitle.breadcrumbs {padding-left: 15px !important;padding-right: 15px!important;}
-	.course-listing {margin-top: 73px;}
+    header.sleek #trigger {display: none!important;}
+    .course-listing .pagetitle.breadcrumbs {padding-left: 15px !important;padding-right: 15px!important;}
+    .course-listing {margin-top: 73px;}
     
 }

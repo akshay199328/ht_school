@@ -102,3 +102,43 @@ function bpcodex_remove_group_manager_subnav_tabs() {
     }   
 }
 add_action( 'bp_actions', 'bpcodex_remove_group_manager_subnav_tabs' );
+
+add_action('init',function(){
+
+  register_taxonomy( 'course-tag', array( 'course'),
+
+      array(
+
+        'labels' => array(
+
+          'name' => 'Tag',
+
+          'menu_name' => 'Tag',
+
+          'singular_name' => 'Tag',
+
+          'add_new_item' => 'Add New Tag',
+
+          'all_items' => 'All Tags'
+
+        ),
+
+        'public' => true,
+
+        'hierarchical' => false,
+
+        'show_in_menu' => 'lms',
+
+        'show_ui' => true,
+
+        'show_admin_column' => true,
+
+        'show_in_nav_menus' => true,
+
+        'rewrite' => array( 'slug' => 'course-tag', 'hierarchical' => true, 'with_front' => true ),
+
+      )
+
+    );
+
+});

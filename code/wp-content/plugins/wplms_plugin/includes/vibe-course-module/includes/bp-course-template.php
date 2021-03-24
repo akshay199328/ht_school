@@ -838,14 +838,8 @@ if(!function_exists('bp_course_item_view')){
                 <div class="col-lg-12 right-details pull-left mrg">
                   
                   <div class="col-lg-12 course-button">
-                      <h6 class="hide_button"><?php 
-						if(bp_is_my_profile()){
-							the_course_button($course_post_id);
-						}else{
-							bp_course_credits(); 	
-						}
-
-					?></h6>
+                      <h6 class="hide_button"><?php the_course_price(); ?>
+                     </h6>
                       <a href="<?php echo get_permalink();?>" class="course-btn">Join Course</a>
                   </div>
                 </div>

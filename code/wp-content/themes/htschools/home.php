@@ -52,7 +52,7 @@ get_header(vibe_get_header());
                           $image_url = get_the_post_thumbnail_url();
                         }
                       ?>
-                      <img src="<?php echo $image_url; ?>" class="img-fluid">
+                     <a href="<?php echo get_permalink($post->ID);?>"> <img src="<?php echo $image_url; ?>" class="img-fluid"></a>
                     </div>
                     <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
                         <div class="col-sm-12 col-lg-9 pull-left mrg">
@@ -93,7 +93,7 @@ get_header(vibe_get_header());
                             ?>
                             </h6>
                             <?php the_course_button(); ?>
-                              <a href="<?php echo get_the_permalink();?>" class="course-btn">Join Course</a>
+                              
                           </div>
                         </div>
                       </div>

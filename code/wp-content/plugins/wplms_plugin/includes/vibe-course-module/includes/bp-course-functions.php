@@ -686,7 +686,7 @@ function the_course_button($id=NULL){
         
         'security'=>function_exists('vibebp_get_setting')?vibebp_get_setting('client_id'):'',
           'translations'=>array(
-            'take_this_course'=>_x('Take this Course','course button status','wplms'),
+            'take_this_course'=>_x('Join Course','course button status','wplms'),
             'apply_to_course' => _x('Apply for course?','','wplms'),
             'ok' => _x('ok','','wplms'),
             'yes' => _x('Yes','','wplms'),
@@ -703,7 +703,7 @@ function the_course_button($id=NULL){
         'show_price'=>0,
         'security'=>function_exists('vibebp_get_setting')?vibebp_get_setting('client_id'):'',
           'translations'=>array(
-            'take_this_course'=>_x('Take this Course','course button status','wplms'),
+            'take_this_course'=>_x('Join Course','course button status','wplms'),
             
             'apply_to_course' => _x('Apply for course?','','wplms'),
             'ok' => _x('ok','','wplms'),
@@ -754,7 +754,7 @@ function the_course_button($id=NULL){
     if(function_exists('vibebp_get_setting') && !empty(vibebp_get_setting('bp_single_page'))){
       $default_link = get_permalink(vibebp_get_setting('bp_single_page'));
     }
-    echo '<span class="the_course_button" data-id="'.$course_id.'"><strong class="course_button  is-loading button full '.((function_exists('vibe_get_option') && vibe_get_option('enable_ajax_registration_login'))?'auto_trigger':'').'">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.(is_wplms_4_0()?(empty($init->is_block)?$default_link:get_permalink($course_id)):get_permalink($course_id).'?error=login').'">'.apply_filters('wplms_take_this_course_button_label',__('TAKE THIS COURSE','wplms'),$course_id).'</a>',$course_id).'</strong></span>'; 
+    echo '<span class="the_course_button" data-id="'.$course_id.'"><strong class="course_button  is-loading button full '.((function_exists('vibe_get_option') && vibe_get_option('enable_ajax_registration_login'))?'auto_trigger':'').'">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.(is_wplms_4_0()?(empty($init->is_block)?$default_link:get_permalink($course_id)):get_permalink($course_id).'?error=login').'">'.apply_filters('wplms_take_this_course_button_label',__('Join Course','wplms'),$course_id).'</a>',$course_id).'</strong></span>'; 
     
     return;
   }
@@ -869,7 +869,7 @@ function the_course_button($id=NULL){
           echo apply_filters('wplms_take_course_button_html','<a href="'.get_permalink($course_id).'?subscribe" class="course_button full button paid_course is-loading">'.apply_filters('wplms_take_this_course_button_label',__('SUBSCRIBE FOR FREE','wplms'),$course_id).apply_filters('wplms_course_button_extra',$extra,$course_id).'</a>',$course_id);
         }else{
          $extra = apply_filters('wplms_course_button_extra',$extra,$course_id);
-          echo apply_filters('wplms_take_course_button_html','<div class="the_course_button" data-id="'.$course_id.'"><div class="course_button full button paid_course is-loading">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.$pid.'">'.apply_filters('wplms_take_this_course_button_label',__('TAKE THIS COURSE','wplms'),$course_id).'</a>',$course_id).($extra?'<div class="extra_details">'.$extra.'</div>':'').'</div></div>',$course_id);
+          echo apply_filters('wplms_take_course_button_html','<div class="the_course_button" data-id="'.$course_id.'"><div class="course_button full button paid_course is-loading">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.$pid.'">'.apply_filters('wplms_take_this_course_button_label',__('Join Course','wplms'),$course_id).'</a>',$course_id).($extra?'<div class="extra_details">'.$extra.'</div>':'').'</div></div>',$course_id);
         }
       }else{
         echo apply_filters('wplms_private_course_button_html','<span class="the_course_button" data-id="'.$course_id.'"><a href="'.apply_filters('wplms_private_course_button','#',$course_id).'" class="course_button full button">'. apply_filters('wplms_private_course_button_label',__('PRIVATE COURSE','wplms'),$course_id).'</a></span>',$course_id); 

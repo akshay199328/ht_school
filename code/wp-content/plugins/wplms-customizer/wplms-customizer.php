@@ -142,3 +142,25 @@ add_action('init',function(){
     );
 
 });
+
+add_filter('wplms_course_metabox','custom_add_second_button_link');
+
+function custom_add_second_button_link($metabox){
+
+  $metabox['Custom_button_link'] = array(
+
+          'label' => __('Custom Button Link','vibe-customtypes'),
+
+          'desc'  => __('custom button link.','vibe-customtypes'),
+
+          'id'    => 'Custom_button_link',
+
+          'type'  => 'text',
+
+          'std'   => ""
+
+      );
+
+  return $metabox;
+
+}

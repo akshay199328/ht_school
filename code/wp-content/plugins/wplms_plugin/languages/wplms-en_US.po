@@ -4467,7 +4467,7 @@ msgstr ""
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/bp-course-functions.php:647
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/bp-course-functions.php:664
 msgctxt "course button status"
-msgid "Take this Course"
+msgid "Join Course"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/theme/class.course.component.php:619
@@ -5791,7 +5791,7 @@ msgstr ""
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/bp-course-functions.php:715
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/bp-course-functions.php:830
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/tips.php:2260
-msgid "TAKE THIS COURSE"
+msgid "Join Course"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/theme/reviews.php:68
@@ -5899,7 +5899,7 @@ msgid "MyCred Points"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/theme/wplms.filters.php:99
-msgid "MyCred Points required to take this course."
+msgid "MyCred Points required to Join Course."
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/theme/wplms.filters.php:105
@@ -8451,7 +8451,7 @@ msgstr ""
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/api/v4/class-api-student-controller.php:1195
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/api/v4/class-api-student-controller.php:1218
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/api/v4/class-api-student-controller.php:1232
-msgid "Take this course"
+msgid "Join Course"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/api/v4/class-api-student-controller.php:1253
@@ -15941,7 +15941,7 @@ msgid "Button Text"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/elementor/widgets/course/button.php:172
-msgid "Take this Course"
+msgid "Join Course"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/elementor/widgets/course/button.php:180
@@ -17667,25 +17667,25 @@ msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/musettings.php:660
 msgid ""
-"Open Login popup for non logged in users when they click on take this course "
+"Open Login popup for non logged in users when they click on Join Course "
 "button(For all courses)"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/musettings.php:663
 msgid ""
-"Open Login popup for non logged in users when they click on take this course "
+"Open Login popup for non logged in users when they click on Join Course "
 "button for paid courses also"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/musettings.php:666
 msgid ""
-"Open Login popup for non logged in users when they click on take this course "
+"Open Login popup for non logged in users when they click on Join Course "
 "button(For Free courses only)"
 msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/musettings.php:669
 msgid ""
-"Open Login popup for non logged in users when they click on take this course "
+"Open Login popup for non logged in users when they click on Join Course "
 "button for free courses"
 msgstr ""
 
@@ -17807,7 +17807,7 @@ msgstr ""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-customtypes/includes/musettings.php:750
 msgid ""
-"Connect \"Take this Course\" button with an external link, defined in Course "
+"Connect \"Join Course\" button with an external link, defined in Course "
 "Pricing section."
 msgstr ""
 

@@ -43,7 +43,6 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 				<?php
 				$field_type = bp_xprofile_create_field_type( bp_get_the_profile_field_type() );
 				$field_type->edit_field_html();
-
 				/**
 				 * Fires before the display of visibility options for the field.
 				 *

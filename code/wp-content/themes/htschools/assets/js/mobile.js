@@ -1,4 +1,7 @@
-$(document).ready(function() {
+(function($) {
+
+jQuery(document).ready(function($) {  
+  alert("test");
   $(window).scroll(function() {    
     var scroll = $(window).scrollTop();
 
@@ -131,4 +134,5 @@ $(document).ready(function() {
                   }
                 }
               })
+});
 });

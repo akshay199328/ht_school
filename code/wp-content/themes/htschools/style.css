@@ -373,7 +373,7 @@ section {
 * Desktop Navigation 
 */
 .navbar {
-  	padding: 0;
+    padding: 0;
     min-height: auto !important;
     margin-bottom: 0 !important;
 }
@@ -616,7 +616,7 @@ section {
   width: 100%;
   height: 100%;
   padding-bottom: 100px;
-  /*background: url(../img/hero-bg.png) top center no-repeat;
+  /*background: url(./assets/images/hero-bg.png) top center no-repeat;
   background-size: cover;*/
   background: #D5EBFF;
 }
@@ -1738,7 +1738,7 @@ Course Details
     margin-left: 4px;
 }
 .competitive {
-    background: url(../img/Sci-fairBackground.jpg) no-repeat;
+    background: url(./assets/images/Sci-fairBackground.jpg) no-repeat;
         height: 595px;
     background-size: cover;
 }
@@ -2699,7 +2699,7 @@ Course Details
 .testimonials .testimonial-item .profile-name{position: relative;}
 .testimonials .testimonial-item .profile-name:before{
     content: '';
-    background: url(../img/testimonial-after.png);
+    background: url(./assets/images/testimonial-after.png);
     position: absolute;
     height: 112px;
     width: 157px;
@@ -2773,7 +2773,7 @@ Course Details
   bottom: 0;
   height: 100%;
   width: 100%;
-  background: url(../img/team-shape.svg) no-repeat center bottom;
+  background: url(./assets/images/team-shape.svg) no-repeat center bottom;
   background-size: contain;
   z-index: 1;
 }
@@ -3891,130 +3891,58 @@ Course Details
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  /*background: #f6f9ff;
-  padding: 0 0 30px 0;
-  font-size: 14px;*/
   font-size: 14px;
-  padding:0px 10px;
-  background-color: #f7f7f7;
+  padding:0px;
+  background-color: #000000;
 }
+
+.footer .footer-top .footer-info .logo img {}
 .footer h1{color: #000;}
-.footer .footer-newsletter {
-  padding: 50px 0;
-  background: #f6f9ff;
-  border-top: 1px solid #e1ecff;
+.social-links{margin-top: 45px;}
+.socio-list{
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    display: flex;
 }
-
-.footer .footer-newsletter h4 {
-  font-size: 24px;
-  margin: 0 0 10px 0;
-  padding: 0;
-  line-height: 1;
-  font-weight:bold;
-  color: #012970;
+.social-links .pull-right .socio-list {
+    float: right;
 }
-
-.footer .footer-newsletter form {
-  margin-top: 20px;
-  background: #fff;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 4px;
-  border: 1px solid #e1ecff;
-}
-
-.footer .footer-newsletter form input[type="email"] {
-  border: 0;
-  padding: 8px;
-  width: calc(100% - 140px);
-}
-
-.footer .footer-newsletter form input[type="submit"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 30px;
-  margin: 3px;
-  background: #4154f1;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 4px;
-}
-
-.footer .footer-newsletter form input[type="submit"]:hover {
-  background: #5969f3;
+.social-heading {
+    font-size: 11px;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 10px;
 }
 
 .footer .footer-top {
-  /*background: white url(../img/footer-bg.png) no-repeat right top;
-  background-size: contain;
-  border-top: 1px solid #e1ecff;
-  border-bottom: 1px solid #e1ecff;*/
-  padding: 60px 0 30px 0;
-}
-
-@media (max-width: 992px) {
-  .footer .footer-top {
-    background-position: center bottom;
-  }
+  padding: 30px 0px;
 }
 
 .footer .footer-top .footer-info {
-  margin-bottom: 30px;
-}
-
-.footer .footer-top .footer-info .logo {
-  line-height: 0;
-  margin-bottom: 15px;
-}
-
-.footer .footer-top .footer-info .logo img {
-  max-height: 40px;
-  margin-right: 6px;
-}
-
-.footer .footer-top .footer-info .logo span {
-  font-size: 30px;
-  font-weight:bold;
-  letter-spacing: 1px;
-  color: #012970;
-  font-family: "GT-Walsheim-Pro", sans-serif !important;
-  margin-top: 3px;
+  margin-bottom: 20px;
 }
 
 .footer .footer-top .footer-info p {
-  font-size: 14px;
-  line-height: 24px;
-  margin-bottom: 0;
-  font-family: "GT-Walsheim-Pro", sans-serif !important;
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 0;
+    color: #D5EBFF;
+    font-weight: 300;
 }
 
 .footer .footer-top .social-links a {
-  font-size: 20px;
-  display: inline-block;
-  color: rgba(1, 41, 112, 0.5);
-  line-height: 0;
-  margin-right: 10px;
-  transition: 0.3s;
+      font-size: 22px;
+    display: inline-block;
+    line-height: 0;
+    margin-right: 10px;
+    transition: 0.3s;
+    color: #EFEFEF;
 }
 
 .footer .footer-top .social-links a:hover {
-  color: #012970;
+  color: #fade3b;
 }
-
-.footer .footer-top h4 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #012970;
-  text-transform: uppercase;
-  position: relative;
-  padding-bottom: 12px;
-}
-
 .footer .footer-top .footer-links {
   margin-bottom: 30px;
 }
@@ -4033,41 +3961,69 @@ Course Details
 }
 
 .footer .footer-top .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
+  padding: 0px 0;
+  display: inline-block;
   align-items: center;
+  margin-right: 40px;
 }
 
 .footer .footer-top .footer-links ul li:first-child {
   padding-top: 0;
 }
-
+.footer .footer-top .footer-links ul li:last-child{
+  margin-right: 0px;
+}
 .footer .footer-top .footer-links ul a {
-  color: #013289;
+  color: #D5EBFF;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 
 .footer .footer-top .footer-links ul a:hover {
-  color: #4154f1;
+  color: #fade3b;
 }
-
-.footer .footer-top .footer-contact p {
-  line-height: 26px;
+.footer .middle-detils ul li{
+    font-size: 34px;
+    font-weight: bold;line-height: 46px;
 }
-
-.footer .copyright {
-  text-align: center;
-  padding-top: 30px;
-  color: #012970;
+.footer .footer-links .about-links{padding-top: 10px;}
+.footer .footer-links .about-links ul li{
+    font-size: 24px;
 }
-
-.footer .credits {
-  padding-top: 10px;
-  text-align: center;
-  font-size: 13px;
-  color: #012970;
+.bottom-detils {
+    padding: 0px 15px;
+}
+.footer .bottom-detils p {
+  font-size: 15px;
+  line-height: 20px;
+  color: #D5EBFF;
+  font-weight: normal;
+}
+.footer .bottom-detils .links {
+  margin-top: 15px;
+}
+.footer .bottom-detils .links li{
+  font-size: 15px;
+  line-height: 20px;
+  color: #D5EBFF;
+  font-weight: normal;
+  display: inline-block;
+  margin-right: 20px;
+}
+.footer .bottom-detils .links li:last-child{
+    margin-right: 0px;
+}
+.footer .bottom-detils .links li a{
+  color: #D5EBFF;
+}
+.footer .bottom-detils .links li a:hover{
+  color: #fade3b;  
+}
+@media (max-width: 992px) {
+  .footer .footer-top {
+    background-position: center bottom;
+  }
 }
 @media (min-width: 1200px){
   .container, .container-lg, .container-md, .container-sm, .container-xl {max-width: 1088px!important;}
@@ -4136,22 +4092,22 @@ Course Details
       max-width: 100%;
     }
     .hero-list .owl-item:nth-child(1) .hero-card {
-      background: url(../img/Scholarship-Programme.png), #0521c4;
+      background: url(./assets/images/Scholarship-Programme.png), #0521c4;
       background-repeat: no-repeat;
       background-position: 114% 100%;
     }
     .hero-list .owl-item:nth-child(2) .hero-card{
-      background: url("../img/code.png"), #aa2061;
+      background: url("./assets/images/code.png"), #aa2061;
       background-repeat: no-repeat;
       background-position:105% 106%;
     }
     .hero-list .owl-item:nth-child(3) .hero-card{
-      background: url("../img/career.png"), #12756f;
+      background: url("./assets/images/career.png"), #12756f;
       background-repeat: no-repeat;
       background-position:105% 135%;
     }
     .hero-list .owl-item:nth-child(4) .hero-card{
-      background: url("../img/olympiad.png"), #001e03;
+      background: url("./assets/images/olympiad.png"), #001e03;
       background-repeat: no-repeat;
       background-position: 103% 108%;
     }
@@ -4215,6 +4171,14 @@ Course Details
     .news_advertisment .pull-left {display: none;}
     .news_advertisment .pull-right {float: left;padding: 0px 0px 14px 0px;display: block;width: 100%;}
     .news_advertisment .pull-right a {font-weight: bold;text-transform: uppercase;text-align: left;color: #000000;}
+    .footer .footer-top .footer-info p {font-size: 20px;}
+    .footer .footer-links li, .footer .bottom-detils .links li{display: block!important;}
+    .footer .middle-detils ul li {font-size: 24px;line-height: 32px;}
+    .footer .footer-links .about-links ul li {font-size: 15px;line-height: 24px;}
+    .footer .footer-top .footer-links{padding: 0px;margin-bottom: 0px;}
+    .footer .bottom-detils .links {margin-top: 20px;}
+    .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
+    .footer .footer-top .footer-info {margin-bottom: 10px;}
 }
 @media screen and (max-width:767px) and (min-width:320px){
     
@@ -4266,13 +4230,13 @@ Course Details
       flex: 0 0 83.333333%;
       max-width: 83.333333%;
   }
-  .competitive .col-sm-8 {
+  .competitive .col-sm-8, .social-links .col-sm-8 {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 66.666667%;
       flex: 0 0 66.666667%;
       max-width: 66.666667%;
   }
-  .competitive .col-sm-4, .profileimg-name .col-xs-4 {
+  .competitive .col-sm-4, .profileimg-name .col-xs-4, .social-links .col-sm-4 {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 33.333333%;
       flex: 0 0 33.333333%;

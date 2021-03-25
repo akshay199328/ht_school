@@ -67,7 +67,7 @@ get_header(vibe_get_header());
                         $content = $post->post_content; //contents saved in a variable
 
                         ?>
-                        <p class=""><?php echo substr(strip_tags($content), 0, $char_limit);  ?>...</p>
+                        <p class=""><?php echo substr(strip_tags($content), 0, $char_limit);  ?></p>
                         <div class="col-lg-7 duration mrg">
                           <div class="pull-left">
                             <p>Duration</p>
@@ -90,8 +90,9 @@ get_header(vibe_get_header());
                           <div class="col-lg-12 course-button mrg">
                             <h6 class="hide_button"><?php 
                                 the_course_price();
-
-                            ?></h6>
+                            ?>
+                            </h6>
+                            <?php the_course_button(); ?>
                               <a href="<?php echo get_the_permalink();?>" class="course-btn">Join Course</a>
                           </div>
                         </div>

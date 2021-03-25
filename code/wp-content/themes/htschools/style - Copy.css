@@ -1,3 +1,20 @@
+/*
+Theme Name: HTschools
+Theme URI: https://WPLMS.io/
+Description: WPLMS is a Learning Management System for WordPress. The theme is deep integrated with BuddyPress and comes packed with the Course Module plugin. 
+Theme has very powerful features which are essential for a full fledges LMS. Theme utilizes maximum of both WordPress and BuddyPress and can be run on a large scale platform as well.
+Author: Mr.Vibe
+Author URI: http://www.VibeThemes.com/
+Version: 4.097
+License: Themeforest 
+License URI: http://themeforest.net/licenses
+Text Domain: vibe
+Tags: Education, LMS, eLearning, BuddyPress, WPLMS
+Domain Path: /languages/
+*/
+
+/*=== ADD Your Custom Changes here ===*/
+
 
 /*--------------------------------------------------------------
 # General
@@ -7,8 +24,8 @@
 }
 
 body {
-  font-family: 'GT-Walsheim-Pro';
-  font-weight: normal;
+  font-family: 'GT-Walsheim-Pro'!important;
+  font-weight: normal!important;
   color: #444444;
   margin:0px!important;
   padding: 0px!important;
@@ -25,8 +42,8 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "GT-Walsheim-Pro";
-  font-weight: bold;
+  font-family: "GT-Walsheim-Pro"!important;
+  font-weight: bold!important;
 }
 p{
     font-size: 14px;
@@ -35,7 +52,8 @@ p{
 b, strong {
     font-weight: bold;
 }
-dl, ol, ul, h1, h2, h3, h4, h5, h6, p, .mrg, section.widget {padding: 0px;margin: 0px;}
+dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
+.mrg{padding: 0px!important;margin: 0px;}
 .pull-left{ 
   float: left;
 }
@@ -234,7 +252,7 @@ section {
 
 .header.header-scrolled {
   background: #fade3b!important;
-  padding: 5px 0;
+  padding: 5px 0!important;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
 }
 .left-menu a {
@@ -244,7 +262,7 @@ section {
 }
 .border-menu, .border-menu.active {
     border: 1px solid #000;
-    padding: 7px 15px;
+    padding: 7px 15px !important;
     background: transparent!important;
     margin-left: 0px;
     position: relative;
@@ -309,7 +327,7 @@ section {
   font-weight: bold;
   letter-spacing: 1px;
   color: #012970;
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
   margin-top: 3px;
 }
 .left-menu .navbar{
@@ -355,7 +373,9 @@ section {
 * Desktop Navigation 
 */
 .navbar {
-  padding: 0;
+  	padding: 0;
+    min-height: auto !important;
+    margin-bottom: 0 !important;
 }
 
 .navbar ul {
@@ -384,7 +404,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 7px 20px 10px 10px;
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
   font-size: 15px;
   font-weight: bold;
   color: #000000;
@@ -585,6 +605,9 @@ section {
 .innerheader-space{
   margin-top: 110px;
 }
+.innerheader-space.less_topmargin {
+    margin-top: 95px;
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -639,22 +662,22 @@ section {
     
 }
 .hero-list .hero-card:nth-child(1){
-  background: url("../img/Scholarship-Programme.png"), #0521c4;
+  background: url("./assets/images/Scholarship-Programme.png"), #0521c4;
   background-repeat: no-repeat;
     background-position:113% 100%;
 }
 .hero-list .hero-card:nth-child(2){
-  background: url("../img/code.png"), #aa2061;
+  background: url("./assets/images/code.png"), #aa2061;
   background-repeat: no-repeat;
     background-position:105% 106%;
 }
 .hero-list .hero-card:nth-child(3){
-  background: url("../img/career.png"), #12756f;
+  background: url("./assets/images/career.png"), #12756f;
   background-repeat: no-repeat;
   background-position:105% 135%;
 }
 .hero-list .hero-card:nth-child(4){
-  background: url("../img/olympiad.png"), #001e03;
+  background: url("./assets/images/olympiad.png"), #001e03;
   background-repeat: no-repeat;
   background-position:106% 112%;
 }
@@ -714,7 +737,7 @@ section {
 }
 
 .hero .btn-get-started span {
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -815,7 +838,7 @@ section {
 }
 
 .about .btn-read-more span {
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
@@ -853,6 +876,7 @@ Course Details
     position: fixed;
     width: 39.5%;
     z-index: 999;
+    height: 100%;
 
 }
 .fixed_banner .breadcrumbs li a{
@@ -959,6 +983,7 @@ Course Details
     position: relative;
     /*padding-right: 30px;*/
     width: 92%;
+    border-bottom: none;
 }
 .fixedmenu-tabs .nav-tabs .share-icon {
     position: absolute;
@@ -974,11 +999,18 @@ Course Details
     margin-right: 25px;
     background: transparent;
 }
-.nav-tabs .nav-item.show .nav-item a, .nav-tabs .nav-item .active, .nav-tabs .nav-item:focus a, .nav-tabs .nav-item:hover a{
+.fixedmenu-tabs .nav-tabs .nav-item.show .nav-item a, 
+.fixedmenu-tabs .nav-tabs .nav-item .active, 
+.fixedmenu-tabs .nav-tabs .nav-item:focus a, 
+.fixedmenu-tabs .nav-tabs .nav-item:hover a{
     color: #000!important;
-    background-color: transparent;
-    border-color: transparent;
+    background-color: transparent!important;
+    border-color: transparent!important;
     border-bottom: 2px solid #000!important;
+}
+.fixedmenu-tabs .nav-tabs .nav-link:hover, 
+.fixedmenu-tabs .nav-tabs .nav-link:focus {
+    border-color: transparent;
 }
 .left-spacing{padding-left: 25px;padding-right: 0;}
 .about-details {
@@ -1109,7 +1141,7 @@ Course Details
 }
 .learing-goals .list p:before{
     content: '';
-    background: url('../img/bullet.png');
+    background: url('./assets/images/bullet.png');
     width: 10px;
     height: 7px;
     position: absolute;
@@ -1200,7 +1232,7 @@ Course Details
   border: 0px;
   border-right: 1px dotted #707070; 
   border-radius: 0;
-  min-height: 365px;
+  min-height: 370px;
   margin: 0;
 }
 .details{
@@ -1220,6 +1252,9 @@ Course Details
   margin-bottom: 10px;
   text-transform: uppercase;
 }
+.other-courses .list a img{
+  height: 120px;
+}
 .other-courses .list h3{
   position: relative;
   font-size: 20px;
@@ -1229,6 +1264,7 @@ Course Details
   line-height: 1;
   letter-spacing: normal;
   padding: 10px 0px 15px 0px;
+  min-height: 107px;
 }
 .other-courses .list h3:after{
   content: '';
@@ -1494,7 +1530,7 @@ Course Details
 .counts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
   font-size: 14px;
 }
 
@@ -1502,7 +1538,7 @@ Course Details
 # Features
 --------------------------------------------------------------*/
 .Popular-Courses{
-  background: url(../img/course-background.png) no-repeat;
+  background: url(./assets/images/course-background.png) no-repeat;
 }
 .Popular-Courses .section-header {
     padding-bottom: 0px;    text-align: left;
@@ -1590,6 +1626,8 @@ Course Details
     letter-spacing: 0.55px;
     text-align: left;
     color: #000000;
+    margin: 0px;
+    padding: 0px;
 }
 .course-box .middle-details h2 {
     font-size: 20px;
@@ -1600,8 +1638,9 @@ Course Details
     letter-spacing: normal;
     text-align: left;
     color: #000000;
-    margin: 15px 0px;
+    margin: 10px 0px 15px;
 }
+.course-box .middle-details h2 a{color: #000000;font-weight: bold;}
 .course-box .middle-details p {
         font-size: 15px;
     font-weight:normal;
@@ -1643,6 +1682,7 @@ Course Details
   font-weight: normal!important;
 }
 .middle-details .share-icon {
+      display: none;
     position: absolute;
     top: 0px;
     right: -142px;
@@ -1660,6 +1700,7 @@ Course Details
 }
 .right-details .course-button{
     float: left;
+    padding: 0px;
     padding-top: 88px;
 }
 .right-details .course-button h6 {
@@ -1676,7 +1717,12 @@ Course Details
     display: inline-block;
     margin-bottom: 10px;
     padding-left: 4px;
+    margin-top: 0px;
 }
+.right-details .course-button h6 .amount{ color: #000000;font-weight: bold;}
+.right-details .course-button h6 del{ color: #000000;font-weight: bold;}
+.right-details .course-button h6 .subs{color: #000000;font-weight: normal;font-size: 14px;position: relative;top:-4px;}
+.woocommerce-Price-currencySymbol{margin-right: 5px;}
 .right-details .course-button a {
     padding: 11px 29px 14px 24px;
     background-color: #000000;
@@ -2242,7 +2288,7 @@ Course Details
   font-size: 36px;
   color: #444444;
   font-weight: 600;
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
 }
 
 .pricing .price sup {
@@ -2288,7 +2334,7 @@ Course Details
   transition: none;
   font-size: 16px;
   font-weight: 400;
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
   font-weight: 600;
   transition: 0.3s;
   border: 1px solid #4154f1;
@@ -3521,6 +3567,326 @@ Course Details
   font-size: 14px;
 }
 
+
+
+/*--------------------------------------------------------------
+# login css
+--------------------------------------------------------------*/
+.login {
+    background: #D5EBFF;
+    padding: 6px 0px 40px;
+}
+.login-box{
+    width: 740px;
+    margin: 0px auto;
+    background: #F8F8F8;
+}
+.login-left img{width: 100%;height: 640px;}
+.login-box .login-right {
+    float: left;
+    width: 100%;
+    padding: 65px 40px;
+}
+.login-box h4{
+  font-size: 25px;
+  color:#000000;
+      text-align: center;
+}
+.login-box form {
+    margin: 55px 0px;
+}
+.login-box.register-box form {
+    margin: 55px 0px 21px;
+}
+.login-box .form-group {
+    margin-bottom: 10px;
+        position: relative;
+}
+.login-box .btn{
+    width: 100%;
+    background: #fff;
+    border-radius: 0px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-color: transparent;
+}
+.login-box .btn.google_btn{
+    color: #000;
+}
+.login-box .btn.facebook_btn{
+    background: #1877F2;
+    color: #fff;
+}
+.login-box .btn.submit_btn{
+    background: #7b7b7b;
+    color: #cdbe69;
+}
+.login-box .btn.submit_btn a{color: #cdbe69;}
+.login-box .btn.submit_btn:hover{
+    background: #000;
+    color: #FADE3B;
+}
+.login-box .btn.submit_btn:hover a{color: #FADE3B;}
+.btn:focus, .btn.focus, .form-control:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgb(0 123 255 / 25%);
+    border-color: #BEBEBE;
+}
+.login-box .btn img{
+    margin-right: 15px;
+}
+.option_or{
+    position: relative;
+    text-align: center;
+    margin: 0px 0px 1rem;
+}
+.option_or:after{
+    content:'';
+    background: #AAAAAA;
+    width: 40%;
+    height: 1px;
+    position: absolute;
+    display: block;
+    top: 12px;
+    left: 0;
+}
+.option_or:before{
+    content:'';
+    background: #AAAAAA;
+    width: 40%;
+    height: 1px;
+    position: absolute;
+    display: block;
+    top: 12px;
+    right: 0;
+}
+.option_or span{
+  color: #989898;
+  font-size: 14px;
+  font-weight: normal;
+}
+.login-box input::placeholder{
+  color: #979797;
+}
+.login-box input {
+    background: #fff;
+    border-color: #BEBEBE;
+    color: #000000;
+    border-radius: 0px;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: normal;
+    height: 100%;
+}
+.form-footer {
+    text-align: center;
+}
+.form-footer a{
+  font-size: 16px;
+  font-weight: 300;
+  color:#000000;
+}
+.form-footer a.login-link{
+  color: #1877F2;
+  font-weight: bold;
+}
+.form-footer p{
+  font-size:15px;
+  font-weight: 300;
+  line-height: 21px;
+  color:#9E9E9E;
+  margin-top: 30px;
+}
+.otp-ontent {
+    text-align: center;
+}
+.otp-ontent img{
+  margin:30px 0px; 
+}
+.otp-ontent .content p{
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 23px;
+  color: #000000;
+}
+.otp-ontent .content p a{font-weight: bold;}
+#otp {
+    margin: 20px 0px;
+    float: left;
+}
+.otp-ontent #otp input{
+  width: 48.3px;
+    float: left;
+    padding: 15px 10px;
+    border: 1px solid #bebebe;
+    border-left: 0px;
+    color: #000000;
+}
+.otp-ontent #otp input:first-child{
+  border-left: 1px solid #bebebe;
+}
+.resend-info{
+    float: left;
+    width: 100%;
+    padding: 10px 0px 30px;
+}
+.resend-info p{
+  font-size: 14px;
+  font-weight: 300;
+  color: #767676;
+  line-height: 19px;
+}
+.resend-info a.resend-link{
+  font-size: 15px;
+  font-weight: normal;
+  color: #848484;
+  line-height: 20px;
+}
+.resend-info a.resend-link:hover{
+  color:#0C5ACC;
+}
+.otp_button .arrow_btn {
+    float: left;
+    width: 45px;
+    background: transparent;
+    border: 1px solid #000;
+    padding: 10px 0px;
+}
+.otp_button .submit_btn {
+    float: left;
+    width: 240px;
+    margin-left: 5px;
+}
+.from-countrynum input{padding-left: 55px;}
+
+.country-code{
+  position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-right: 1px solid #BEBEBE;
+    padding: 12px 12px;
+}
+.login-box .switch {
+        border-radius: 0;
+    display: inline-block;
+    transition: all 0.1s ease;
+    height: 100%;
+    position: relative;
+    background-color: #ffffff;
+    width: 150px;
+    border: 1px solid #BEBEBE;
+    border-radius: 0;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.login-box .switch-label{
+    direction: rtl;
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 72px;
+    height: 41px;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+    color: #BEBEBE;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.login-box .switch-input {
+    display: none;
+}
+
+.login-box .switch-input:checked + .switch-label {
+    color: #fff;
+    width: 50%;
+}
+
+.login-box .switch-input:checked + .switch-label-on ~ .slider2 {
+    left: 50%;
+    border-radius:0;
+}
+
+.login-box .switch-label-on{
+    border-radius:0;
+}
+
+.login-box .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2{
+    border-radius:0;
+}
+
+.login-box .switch-input:checked + .switch-label svg path{
+    fill: #ffffff;
+}
+
+.login-box .swith-row{
+    height: 45px;
+    direction: ltr;
+    width: 100%;
+}
+
+.login-box .slider2{
+    display: block;
+    position: absolute;
+    z-index: 1;
+    color: #ffffff;
+        top: 2px;
+    left: 2px;
+    width: 72px;
+    height: 37px;
+    background: #0C5ACC;
+    -webkit-transition:  500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    -moz-transition: 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    -ms-transition: 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    -o-transition: 500ms cubic-bezier(0.75, 0.820, 0.165, 1.000);
+    transition: 500ms cubic-bezier(0.75, 0.820, 0.165, 1.000);
+}
+
+
+.login-box .slide-right {
+    -webkit-animation: slide-right 0.5s infinite alternate-reverse both;
+    animation: slide-right 0.5s infinite alternate-reverse both;
+}
+.login-box .switch-label span{
+    position: relative;
+    top: 9px;
+}
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+}
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+}
+.register_btn{
+    margin: 50px 0px 0px;
+}
+.register_btn p{
+  font-size: 14px;
+  font-weight: 300;
+  color: #767676;
+  margin-bottom: 10px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -3616,7 +3982,7 @@ Course Details
   font-weight:bold;
   letter-spacing: 1px;
   color: #012970;
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
   margin-top: 3px;
 }
 
@@ -3624,7 +3990,7 @@ Course Details
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "GT-Walsheim-Pro", sans-serif;
+  font-family: "GT-Walsheim-Pro", sans-serif !important;
 }
 
 .footer .footer-top .social-links a {
@@ -3704,7 +4070,7 @@ Course Details
   color: #012970;
 }
 @media (min-width: 1200px){
-  .container, .container-lg, .container-md, .container-sm, .container-xl {max-width: 1088px;}
+  .container, .container-lg, .container-md, .container-sm, .container-xl {max-width: 1088px!important;}
 }
 @media screen and (max-width:1440px) and (min-width:1367px){
   .fixed_banner .container{    width: 375px;}
@@ -3813,7 +4179,7 @@ Course Details
     .right-details .course-button {
       padding-left: 20px;
       float: left;
-      padding-top: 20px;}
+      padding-top: 20px!important;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: block!important;}
     .right-details .course-button a{margin-left: 10px;}
@@ -3927,3 +4293,146 @@ Course Details
     margin: 20px 0px!important;
   }
 }
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+  font-size: 14px;
+  padding:0px;
+  background-color: #000000;
+}
+
+.footer .footer-top .footer-info .logo img {}
+.footer h1{color: #000;}
+.social-links{margin-top: 45px;}
+.socio-list{
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    display: flex;
+}
+.social-links .pull-right .socio-list {
+    float: right;
+}
+.social-heading {
+    font-size: 11px;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.footer .footer-top {
+  padding: 30px 0px;
+}
+
+.footer .footer-top .footer-info {
+  margin-bottom: 20px;
+}
+
+.footer .footer-top .footer-info p {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 0;
+    color: #D5EBFF;
+    font-weight: 300;
+}
+
+.footer .footer-top .social-links a {
+      font-size: 22px;
+    display: inline-block;
+    line-height: 0;
+    margin-right: 10px;
+    transition: 0.3s;
+    color: #EFEFEF;
+}
+
+.footer .footer-top .social-links a:hover {
+  color: #fade3b;
+}
+.footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+.footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: #d0d4fc;
+  font-size: 12px;
+  line-height: 0;
+}
+
+.footer .footer-top .footer-links ul li {
+  padding: 0px 0;
+  display: inline-block;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+.footer .footer-top .footer-links ul li:last-child{
+  margin-right: 0px;
+}
+.footer .footer-top .footer-links ul a {
+  color: #D5EBFF;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+.footer .footer-top .footer-links ul a:hover {
+  color: #fade3b;
+}
+.footer .middle-detils ul li{
+    font-size: 34px;
+    font-weight: bold;line-height: 46px;
+}
+.footer .footer-links .about-links{padding-top: 10px;}
+.footer .footer-links .about-links ul li{
+    font-size: 24px;
+}
+.bottom-detils {
+    padding: 0px 15px;
+}
+.footer .bottom-detils p {
+  font-size: 15px;
+  line-height: 20px;
+  color: #D5EBFF;
+  font-weight: normal;
+}
+.footer .bottom-detils .links {
+  margin-top: 15px;
+}
+.footer .bottom-detils .links li{
+  font-size: 15px;
+  line-height: 20px;
+  color: #D5EBFF;
+  font-weight: normal;
+  display: inline-block;
+  margin-right: 20px;
+}
+.footer .bottom-detils .links li:last-child{
+    margin-right: 0px;
+}
+.footer .bottom-detils .links li a{
+  color: #D5EBFF;
+}
+.footer .bottom-detils .links li a:hover{
+  color: #fade3b;  
+}
+@media (max-width: 992px) {
+  .footer .footer-top {
+    background-position: center bottom;
+  }
+}
+
+
+
+

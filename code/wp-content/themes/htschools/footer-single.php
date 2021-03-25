@@ -84,17 +84,17 @@ z
           <p class="copyright">Copyright © 2021 HTDSL. All rights reserved.</p>
             <div class="col-lg-12 col-12 links mrg">
               <div id="footermenu">
-                            <?php
-                                    $args = array(
-                                        'theme_location'  => 'footer-menu',
-                                        'container'       => '',
-                                        'depth'           => 1,
-                                        'menu_class'      => '',
-                                        'fallback_cb'     => 'vibe_set_menu',
-                                    );
-                                    wp_nav_menu( $args );
-                            ?>
-                        </div> 
+                  <?php
+                    $args = array(
+                        'theme_location'  => 'footer-menu',
+                        'container'       => '',
+                        'depth'           => 1,
+                        'menu_class'      => '',
+                        'fallback_cb'     => 'vibe_set_menu',
+                    );
+                    wp_nav_menu( $args );
+                  ?>
+              </div> 
             </div>
           </div>
       </div>

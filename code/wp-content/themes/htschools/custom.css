@@ -33,13 +33,15 @@ nav .menu li:last-child a{padding-right: 0px!important;}
 .border-menu:after{top: 1px!important}
 .custom-dropdown:before {
     content: "\f282";
-        display: inline-block;
+    display: inline-block;
     font-family: bootstrap-icons !important;
     font-style: normal;
-        font-size: 12px;
+    font-size: 12px;
     line-height: 0;
     margin-left: 5px;
     color: #fff;
+    top: 7px;
+    position: relative;
 }
 .left-menu ul li.custom-dropdown a:after {
     content: '';

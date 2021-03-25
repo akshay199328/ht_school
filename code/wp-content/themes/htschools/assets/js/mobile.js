@@ -1,5 +1,18 @@
 (function($) {
-
+$(window).on('scroll', function() { 
+    if ($(window).scrollTop() >= $( 
+      alert("Hello")
+    '.footer-check .heading').offset().top + $('.footer-check .heading'). 
+        outerHeight() - window.innerHeight) { 
+        // console.log('You reached the end of the DIV')
+      // console.log("remove Class");
+        $('.fixed_banner').addClass('static_banner');
+    } 
+    else{
+      // console.log("add Class");
+        $('.fixed_banner').removeClass('static_banner');
+    }
+}); 
 jQuery(document).ready(function($) {  
   alert("test");
   $(window).scroll(function() {    

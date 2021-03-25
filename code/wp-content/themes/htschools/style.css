@@ -188,15 +188,22 @@ section {
 
 .breadcrumbs ol li:after {
   padding-right: 6px;
+  top: 3px;
+    position: relative;
     padding-left: 11px;
     color: #0c5acc;
-    /* content: "\f282"; */
-    content: ">";
+    content: "\f285";
     display: inline-block;
     font-family: bootstrap-icons !important;
 }
 .breadcrumbs ol li:last-child::after{
   visibility: hidden;
+}
+.white-bread.breadcrumbs li a {
+    text-decoration: underline;
+}
+.white-bread.breadcrumbs ol li:after{
+  color: #fff!important;
 }
 /*--------------------------------------------------------------
 # Back to top button
@@ -243,14 +250,15 @@ section {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-.inner-header{background: #fade3b;}
 .header {
+  background: transparent!important;
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
 }
 
-.header.header-scrolled {
+.inner-header{background: #fade3b;}
+.header.header-scrolled, .header.fixed {
   background: #fade3b!important;
   padding: 5px 0!important;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
@@ -346,15 +354,18 @@ section {
   font-size: 15px;
   font-weight: bold;
   margin-right: 25px;
-  margin-left: 0px;
+  margin-left: 0px!important;
+  padding: 0px!important;
   position: relative;
 }
 .right-menu ul li:last-child{
   padding-right: 0px;    margin-right: 0;
 }
 .right-menu ul li a{
-  color: #000000;
+  color: #000000!important;
   padding: 0px;
+  font-weight: bold!important;
+  font-family: 'GT-Walsheim-Pro'!important;
 }
 .right-menu ul li a:after, .left-menu ul li span:after{
     content:'';
@@ -366,6 +377,12 @@ section {
     left: 0;
 }
 .search-icon a:after, .right-menu .icon{display: none;}
+.vibebp-login{
+  color: #000000!important;
+    padding: 0px;
+    font-weight: bold!important;
+    margin-left: 25px;
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -603,7 +620,7 @@ section {
   margin-top: 61px;
 }
 .innerheader-space{
-  margin-top: 110px;
+  margin-top: 116px;
 }
 .innerheader-space.less_topmargin {
     margin-top: 95px;
@@ -869,15 +886,20 @@ Course Details
     width: 100%;
 }
 .fixed_banner{
-  background: url('./assets/images/coursedetails-back.png') no-repeat;
-  /* margin: 0px 46px 50px 265px; */
-    float: left;
+  background: url('../img/coursedetails-back.png') no-repeat;
+  float: left;
     background-size: cover;
     position: fixed;
     width: 39.5%;
-    z-index: 999;
+    z-index: 99;
     height: 100%;
+    transition: all 0.5s ease;
 
+}
+.static_banner {
+    /*position: relative;*/
+    bottom: 60%;
+    transition: all 0.5s ease;
 }
 .fixed_banner .breadcrumbs li a{
   text-decoration: underline;
@@ -3888,12 +3910,91 @@ Course Details
   margin-bottom: 10px;
 }
 /*--------------------------------------------------------------
+# NEWS
+--------------------------------------------------------------*/
+.news-main{
+  background: #F8F8F8;
+  /*position: relative;*/
+}
+.category-news{
+  background: #000000;
+  position: relative;
+}
+.category-news:before{
+  content: '';
+  background: #000000;
+  position: absolute;
+  left: -264px;
+  display: block;
+  height: 100%;
+  top: 0;
+  width: 100%;
+}
+.category-news .content-left {
+    padding-right: 20px!important;
+}
+.category-news .content-left .pagetitle {
+    padding-right: 15px;
+}
+.category-news .content-left .pagetitle h1{
+    font-size: 42px;
+    line-height: 42px;
+    color: #fff;
+}
+.category-news .content-left .pagetitle h5{
+    font-size: 17px!important;
+    line-height: 22px!important;
+    color: #fff;
+    font-weight: 300!important;
+    margin-top: 25px;
+}
+.category-news .content-left .pagetitle h5:after{
+  content:'';
+  background: #808080;
+  height: 1px;
+  width: 100%;
+  display: block;
+  margin-top:4px;
+}
+.single .category-news .featured {
+    margin: 35px 0px 10px;
+}
+.news-main .content-right {
+    padding: 30px 0px;
+}
+.news-main .content-right .sidebar {
+    padding: 0;
+}
+.news-main .content-right h2{
+    font-size: 20px;
+    line-height: 25px;
+    color: #000;
+        
+}
+.news-main .content-right p{
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 300;
+    color: #000;
+}
+.news-main .content-right .details {
+    padding: 0px 0px;
+}
+.details h2{
+    margin-bottom: 30px;
+}
+.details p{
+    margin: 5px 0px 45px;
+}
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .footer {
   font-size: 14px;
   padding:0px;
   background-color: #000000;
+  float: left;
+  width: 100%;
 }
 
 .footer .footer-top .footer-info .logo img {}

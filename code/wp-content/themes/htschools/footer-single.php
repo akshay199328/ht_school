@@ -31,6 +31,9 @@ z
 <footer id="footer" class="footer">
   <div class="footer-top">
       <div class="container">
+        <div class="footer-check" style="padding:0px;float: left;">
+          <h1 class="heading"></h1>
+      </div>
         <div class="row gy-4">
           <div class="col-lg-8 col-md-12 footer-info ">
             <div class="col-lg-5 col-md-12 footer-info mrg">

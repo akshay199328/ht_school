@@ -12,7 +12,7 @@ $title=get_post_meta(get_the_ID(),'vibe_title',true);
 if(!isset($title) || !$title || (vibe_validate($title))){
 
 ?>
-<section id="title">
+<!-- <section id="title">
     <?php do_action('wplms_before_title'); ?>
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">
@@ -30,35 +30,51 @@ if(!isset($title) || !$title || (vibe_validate($title))){
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <?php
 }
 
 ?>
-<section id="content">
+<section id="content ">
+    <div class="news-main">
+                        
+                    
     <div class="<?php echo vibe_get_container(); ?>">
-        <?php wpfp_link(); ?>
+        
         <div class="row">
             <?php
                 $template = get_post_meta(get_the_ID(),'vibe_template',true);
                 if($template == 'right'){
-                    echo '<div class="col-md-9 col-sm-8 right">';
+                    echo '<div class="col-md-4 col-sm-12 right">';
                 }else if($template == 'full'){
                     echo '<div class="col-md-12">';
                 }else{
-                    echo '<div class="col-md-9 col-sm-8 ">';
+                    echo '<div class="col-md-4 col-sm-12 ">';
                 }
 
             ?>
                 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <div class="content">
+                <div class="content content-left">
+                    <?php do_action('wplms_before_title'); ?>
+                    <div class="pagetitle">
+                        <div class="breadcrumbs white-bread">
+                            <?php 
+                                $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
+                                if(!isset($breadcrumbs) || !$breadcrumbs || vibe_validate($breadcrumbs)){
+                                    vibe_breadcrumbs();
+                                }   
+                            ?>
+                        </div>
+                        <h1><?php the_title(); ?></h1>
+                        <?php the_sub_title(); ?>
+                    </div>
                     <?php if(has_post_thumbnail()){ ?>
                     <div class="featured">
                         <?php the_post_thumbnail(get_the_ID(),'full'); ?>
                     </div>
                     <?php
                     }
-                    the_content();
+                    
                      ?>
                      <div class="tags">
                     <?php echo '<div class="indate"><i class="icon-clock"></i> ';the_modified_date();echo '</div>';the_tags('<ul><li>','</li><li>','</li></ul>'); ?>
@@ -170,18 +186,24 @@ if(!isset($title) || !$title || (vibe_validate($title))){
             <?php
              if($template != 'full'){
             ?>
-            <div class="col-md-3 col-sm-3">
-                <div class="sidebar">
-                    <?php
-                    $sidebar = apply_filters('wplms_sidebar','mainsidebar',get_the_ID());
-                    if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
-                    <?php endif; ?>
+            <div class="col-md-8 col-sm-8">
+                <div class="content-right">
+                    <div class="sidebar">
+                        <?php
+                        $sidebar = apply_filters('wplms_sidebar','mainsidebar',get_the_ID());
+                        if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="details">
+                        <?php the_content(); ?>
+                    </div>
                 </div>
             </div>
             <?php
                 }
             ?>
         </div>
+    </div>
     </div>
 </section>
 <?php

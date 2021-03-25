@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <?php
             $fix=vibe_get_option('header_fix');
         ?>
-        <div id="headertop" class="header <?php if(isset($fix) && $fix){echo 'fix';} ?>">
+        <div id="headertop" class="header fixed-top <?php if(isset($fix) && $fix){echo 'fix';} ?>">
             <div class="fix-background">
   <div class="navegacion">
           <div class="menu-back">

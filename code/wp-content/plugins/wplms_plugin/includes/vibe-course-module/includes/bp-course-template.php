@@ -828,8 +828,12 @@ if(!function_exists('bp_course_item_view')){
                     <h6><?php echo get_post_meta($course_post_id,'vibe_duration',true);?> Days</h6>
                   </div>
                   <div class="pull-right">
-                    <p>Age Limit</p>
-                    <h6><?php echo get_post_meta($course_post_id,'age_limit',true);?></h6>
+                    <p>Age Group</p>
+                  <?php if(get_post_meta($post->ID,'course_age_group',true) == '') { ?>
+                  <h6>--</h6>
+                  <?php } else{ ?>
+                  <h6><?php echo get_post_meta($post->ID,'course_age_group',true);?></h6>
+                  <?php }?>
                   </div>
                 </div>
               </div>
@@ -841,7 +845,7 @@ if(!function_exists('bp_course_item_view')){
                       <h6><?php the_course_price(); ?>
                      </h6>
                       <?php the_course_button(); ?> 
-                      <a href="<?php echo get_permalink();?>" class="course-btn">Join Course</a>
+                      <!-- <a href="<?php echo get_permalink();?>" class="course-btn">Join Course</a> -->
                   </div>
                 </div>
               </div>

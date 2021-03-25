@@ -886,7 +886,7 @@ Course Details
     width: 100%;
 }
 .fixed_banner{
-  background: url('../img/coursedetails-back.png') no-repeat;
+  background: url('./assets/images/coursedetails-back.png') no-repeat;
   float: left;
     background-size: cover;
     position: fixed;

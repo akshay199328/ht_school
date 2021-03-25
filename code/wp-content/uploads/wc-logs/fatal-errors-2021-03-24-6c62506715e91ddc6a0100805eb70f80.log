@@ -1,0 +1,12 @@
+2021-03-24T07:00:41+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function bp_core_remove_subnav_item(), 1 passed in C:\xampp\htdocs\Htschools-git\code\wp-content\plugins\wplms-customizer\wplms-customizer.php on line 112 and at least 2 expected in C:\xampp\htdocs\Htschools-git\code\wp-content\plugins\buddypress\bp-core\bp-core-buddybar.php:862
+Stack trace:
+#0 C:\xampp\htdocs\Htschools-git\code\wp-content\plugins\wplms-customizer\wplms-customizer.php(112): bp_core_remove_subnav_item('change-avatar')
+#1 C:\xampp\htdocs\Htschools-git\code\wp-includes\class-wp-hook.php(292): bpfr_hide_visibility_tab('')
+#2 C:\xampp\htdocs\Htschools-git\code\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\Htschools-git\code\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\Htschools-git\code\wp-content\plugins\buddypress\bp-core\bp-core-dependency.php(350): do_action('bp_ready')
+#5 C:\xampp\htdocs\Htschools-git\code\wp-includes\class-wp-hook.php(292): bp_ready(Object(WP))
+#6 C:\xamp in C:\xampp\htdocs\Htschools-git\code\wp-content\plugins\buddypress\bp-core\bp-core-buddybar.php on line 862
+
+2021-03-24T07:01:36+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\Htschools-git\code\wp-content\plugins\wplms-customizer\wplms-customizer.php on line 117
+

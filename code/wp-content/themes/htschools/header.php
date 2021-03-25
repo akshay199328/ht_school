@@ -20,6 +20,41 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             $fix=vibe_get_option('header_fix');
         ?>
         <div id="headertop" class="header <?php if(isset($fix) && $fix){echo 'fix';} ?>">
+            <div class="fix-background">
+  <div class="navegacion">
+          <div class="menu-back">
+            <ul class="menu">
+                <!--titular-->
+                <?php
+                    $args = array(
+                        'theme_location'  => 'sidebar-menu',
+                    );
+
+                    wp_nav_menu( $args );
+                ?>
+                
+                <div class="bootom-link">
+                    <ul>
+                        <li><a href="#">Help & Support</a></li>
+                        <li><a href="#">Contact us</a><li>
+                    </ul>
+                    <ul class="border-link">
+                        <?php
+                            $args = array(
+                                'theme_location'  => 'footer-menu',
+                                'container'       => '',
+                                'depth'           => 1,
+                                'menu_class'      => '',
+                                'fallback_cb'     => 'vibe_set_menu',
+                            );
+                            wp_nav_menu( $args );
+                        ?>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
             <div class="<?php echo vibe_get_container(); ?>">
             
                 <div class="col-lg-4 mrg left-menu">
@@ -80,16 +115,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 ?>
                 </ul>
                 <?php
-                        $args = apply_filters('wplms-top-menu',array(
-                            'theme_location'  => 'top-menu',
-                            'container'       => '',
-                            'depth'           => 1,
-                            'menu_class'      => 'topmenu',
-                            'fallback_cb'     => 'vibe_set_menu',
-                        ));
+                    $args = apply_filters('wplms-top-menu',array(
+                        'theme_location'  => 'top-menu',
+                        'container'       => '',
+                        'depth'           => 1,
+                        'menu_class'      => 'topmenu',
+                        'fallback_cb'     => 'vibe_set_menu',
+                    ));
 
                     wp_nav_menu( $args );
-                    ?>
+                ?>
                 </div>
             </div>
         </div>

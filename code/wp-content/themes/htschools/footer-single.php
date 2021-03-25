@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
     </div>
 </div> -->
-
+z
 <footer id="footer" class="footer">
   <div class="footer-top">
       <div class="container">
@@ -54,7 +54,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <a href="#" class="linkedin"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
               </div>
-              
             </div>
             <div class="col-sm-4 col-lg-4 col-md-4 pull-right mrg">
               
@@ -82,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
           </div>
           <div class="col-sm-12 bottom-detils">
-           <?php $copyright=vibe_get_option('copyright'); echo (isset($copyright)?do_shortcode($copyright):'&copy; 2021, All rights reserved.'); ?>
+          <p class="copyright">Copyright © 2021 HTDSL. All rights reserved.</p>
             <div class="col-lg-12 col-12 links mrg">
               <div id="footermenu">
                             <?php

@@ -37,7 +37,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 ?>
 <section id="content">
     <div class="<?php echo vibe_get_container(); ?>">
-        
+        <?php wpfp_link(); ?>
         <div class="row">
             <?php
                 $template = get_post_meta(get_the_ID(),'vibe_template',true);

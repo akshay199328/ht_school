@@ -1,83 +1,45 @@
-(function($) {
-          'use strict';
+$(document).ready(function(){
+   // alert("HELLO")
+  // MOSTRANDO Y OCULTANDO MENU
+  $('#button-menu').click(function(){
+    // alert("CLICK")
+    if($('#button-menu').attr('class') == 'bi bi-bars' ){
 
-          // call our plugin
-          var Nav = new hcOffcanvasNav('#main-nav', {
-            disableAt: false,
-            customToggle: '.toggle',
-            levelSpacing: 40,
-            navTitle: 'All Categories',
-            levelTitles: true,
-            levelTitleAsBack: true,
-            pushContent: '#container',
-            labelClose: false
-          });
+      $('.navegacion').css({'width':'100%', 'background':'rgba(0,0,0,.5)'}); // Mostramos al fondo transparente
+      $('#button-menu').removeClass('bi bi-bars').addClass('bi bi-close'); // Agregamos el icono X
+      $('.navegacion .menu').css({'left':'-370px'}); // Mostramos el menu
 
-          // add new items to original nav
-          $('#main-nav').find('li.add').children('a').on('click', function() {
-            var $this = $(this);
-            var $li = $this.parent();
-            var items = eval('(' + $this.attr('data-add') + ')');
+    } else{
 
-            $li.before('<li class="new"><a href="#">'+items[0]+'</a></li>');
+      $('.navegacion').css({'width':'0%', 'background':'rgba(0,0,0,.0)'}); // Ocultamos el fonto transparente
+      $('#button-menu').removeClass('fa fa-close').addClass('bi bi-bars'); // Agregamos el icono del Menu
+      $('.navegacion .submenu').css({'left':'-370px'}); // Ocultamos los submenus
+      $('.navegacion .menu').css({'left':'0px'}); // Ocultamos el Menu
 
-            items.shift();
+    }
+  });
 
-            if (!items.length) {
-              $li.remove();
-            }
-            else {
-              $this.attr('data-add', JSON.stringify(items));
-            }
+  // MOSTRANDO SUBMENU
+  $('.navegacion .menu > .item-submenu a').click(function(){
+    
+    var positionMenu = $(this).parent().attr('menu'); // Buscamos el valor del atributo menu y lo guardamos en una variable
+    console.log(positionMenu); 
 
-            Nav.update(true); // update DOM
-          });
+    $('.item-submenu[menu='+positionMenu+'] .submenu').css({'left':'0px'}); // Mostramos El submenu correspondiente
 
-          // demo settings update
+  });
 
-          const update = function(settings) {
-            if (Nav.isOpen()) {
-              Nav.on('close.once', function() {
-                Nav.update(settings);
-                Nav.open();
-              });
+  // OCULTANDO SUBMENU
+  $('.navegacion .submenu li.go-back').click(function(){
 
-              Nav.close();
-            }
-            else {
-              Nav.update(settings);
-            }
-          };
+    $(this).parent().css({'left':'-370px'}); // Ocultamos el submenu
 
-          $('.actions').find('a').on('click', function(e) {
-            e.preventDefault();
+  });
 
-            var $this = $(this).addClass('active');
-            var $siblings = $this.parent().siblings().children('a').removeClass('active');
-            var settings = eval('(' + $this.data('demo') + ')');
+  $('.navegacion .menu li.title-menu svg').click(function(){
+    // alert("CLOSE");
+    $(this).parent().parent().css({'left':'-370px'}); // Ocultamos el submenu
 
-            if ('theme' in settings) {
-              $('body').removeClass().addClass('theme-' + settings['theme']);
-            }
-            else {
-              update(settings);
-            }
-          });
+  });
 
-          $('.actions').find('input').on('change', function() {
-            var $this = $(this);
-            var settings = eval('(' + $this.data('demo') + ')');
-
-            if ($this.is(':checked')) {
-              update(settings);
-            }
-            else {
-              var removeData = {};
-              $.each(settings, function(index, value) {
-                removeData[index] = false;
-              });
-
-              update(removeData);
-            }
-          });
-        })(jQuery);
+});

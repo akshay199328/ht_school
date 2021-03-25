@@ -35,49 +35,34 @@
 </head>
 
 <body>
-<div class="navegacion">
+<div class="fix-background">
+  <div class="navegacion">
           <div class="menu-back">
             <ul class="menu">
                 <!--titular-->
-                <li class="title-menu">jQueryScript</li>
+                <li class="title-menu">Home <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg></li>
                 <!--titular-->
-
-                <li><a href="#"><span class="fa fa-home icon-menu"></span>Home</a><li>
-
                 <li class="item-submenu" menu="1">
-                    <a href="#"><span class="fa fa-suitcase icon-menu"></span>Services</a>
-                    <ul class="submenu">
-                        <li class="title-menu"><span class="fa fa-suitcase icon-menu"></span>Services</li>
-                        <li class="go-back">Back</li>
+                  <a href="#">Courses</a>
+                  <ul class="submenu">
+                        <li class="title-menu">Courses</li>
+                        <li class="go-back"></li>
 
-                        <li><a href="#">Service 1</a></li>
-                        <li><a href="#">Service 2</a></li>
-                        <li><a href="#">Service 3</a></li>
+                        <li><a href="#">Course 1</a></li>
+                        <li><a href="#">Course 2</a></li>
+                        <li><a href="#">Course 3</a></li>
                     </ul>
                 </li>
-
-                <li class="item-submenu" menu="2">
-                <a href="#"><span class="fa fa-shopping-bag icon-menu"></span>Products</a>
-                <ul class="submenu">
-                <li class="title-menu"><span class="fa fa-shopping-bag icon-menu"></span>Products</li>
-                 <li class="go-back">Back</li>
-
-                 <li><a href="#">JavaScript</a><li>
-                 <li><a href="#">HTML5</a><li>
-                 <li><a href="#">CSS3</a><li>
-                 </ul>
-                 </li>
-
-
-
-                <li><a href="#"><span class="fa fa-envelope icon-menu"></span>Contact</a><li>
-                <li><a href="#"><span class="fa fa-tag icon-menu"></span>Blog</a></li>
+                <li><a href="#">Noticeboard</a><li>
+                <li><a href="#">News</a></li>
                 <div class="bootom-link">
                     <ul>
                         <li><a href="#">Help & Support</a></li>
                         <li><a href="#">Contact us</a><li>
                     </ul>
-                    <ul class="border-bottom">
+                    <ul class="border-link">
                         <li><a href="#">Terms and Conditions</a></li>
                         <li><a href="#">Privacy Policy</a><li>
                         <li><a href="#">Terms of Use</a><li>
@@ -89,11 +74,12 @@
             </ul>
         </div>
     </div>
+</div>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
     <div class="container container-xl d-flex align-items-center justify-content-between">
       <div class="col-sm-1 col-lg-4 mrg left-menu">
-          <a href="#" class="border-menu button-menu">
+          <a href="#" class="border-menu" id="button-menu">
             <span>Home</span>
             <!-- <i class="bi bi-list"></i> -->
             <!-- <img src="assets/img/logo.png" alt=""> -->

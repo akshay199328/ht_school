@@ -1,24 +1,24 @@
-$(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
+jQuery(window).scroll(function() {    
+    var scroll = jQuery(window).scrollTop();
 
     if (scroll >= 10) {
-        $(".innerheader-space").addClass("less_topmargin");
+        jQuery(".innerheader-space").addClass("less_topmargin");
     } else {
-        $(".innerheader-space").removeClass("less_topmargin");
+        jQuery(".innerheader-space").removeClass("less_topmargin");
     }
 });
-$(document).ready(function() {
+jQuery(document).ready(function() {
 
     if(jQuery(window).width() <= 992) {
         // alert("hello");
-      $('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-carousel');
-      $('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-theme');
-      $('.mobile-slider').addClass('responsive_slider');
-      $('.courses-slider').addClass('coursesmobile_slider');
-      $('.course-listslider').addClass('coursemobile_listslider');
+      jQuery('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-carousel');
+      jQuery('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-theme');
+      jQuery('.mobile-slider').addClass('responsive_slider');
+      jQuery('.courses-slider').addClass('coursesmobile_slider');
+      jQuery('.course-listslider').addClass('coursemobile_listslider');
 
     }
-    $('.responsive_slider').owlCarousel({
+    jQuery('.responsive_slider').owlCarousel({
         loop: true,
         margin: 20,
         responsiveClass: true,
@@ -44,7 +44,7 @@ $(document).ready(function() {
           }
         }
       });
-      $('.coursesmobile_slider').owlCarousel({
+      jQuery('.coursesmobile_slider').owlCarousel({
         loop: true,
         margin: 20,
         responsiveClass: true,
@@ -70,7 +70,7 @@ $(document).ready(function() {
           }
         }
       })
-      $('.coursemobile_listslider').owlCarousel({
+      jQuery('.coursemobile_listslider').owlCarousel({
         loop: true,
         margin: 20,
         responsiveClass: true,
@@ -106,7 +106,7 @@ $(document).ready(function() {
         }
       })
 });
-$('.testimonials-carousel').owlCarousel({
+jQuery('.testimonials-carousel').owlCarousel({
         loop: false,
         margin: 20,
         responsiveClass: true,

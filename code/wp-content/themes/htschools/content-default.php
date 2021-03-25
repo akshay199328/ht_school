@@ -1,6 +1,6 @@
 <?php
 /**
- * BLOG 1 Style Content Block
+ * news Style Content Block
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

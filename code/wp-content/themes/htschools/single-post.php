@@ -56,6 +56,7 @@ $topics = wp_get_post_tags(get_the_ID());
 
 
 // Main Content of the post 
+$location =  echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
     the_content();
 //End Main content of the post
     ?>
@@ -100,7 +101,7 @@ $topics = wp_get_post_tags(get_the_ID());
                       // if( $Query->current_post != 0 ) { 
           ?>
           <li>
-              <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
               <div class="link">
                   <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>

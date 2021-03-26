@@ -30,11 +30,18 @@ if(vibe_validate($title) || empty($title)){
 <?php
 }
 ?>
-<ul>
-  <li><a href="http://localhost/Htschools/code/category/featured/"> Featured</a></li>
-  <li><a href="http://localhost/Htschools/code/category/expert/"> Expert</a> </li>
-  <li><a href="http://localhost/Htschools/code/category/interview/"> Interview</a> </li>
-</ul>
+<?php
+$menu_name = 'news-menu'; //menu slug
+$locations = get_nav_menu_locations();
+$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+
+foreach ($menuitems as $menu) {  
+  ?>
+  <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a></li>
+  <?php 
+}
+?>
 
     <!-- ======= Featured ======= -->
 
@@ -55,7 +62,7 @@ if(vibe_validate($title) || empty($title)){
         ?>
           <div class="col-sm-12 col-lg-4">
             <div class="details-left">
-              <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
               <?php if ( has_post_thumbnail() ) { 
                 $featured_image = get_the_post_thumbnail_url();
               }
@@ -74,7 +81,7 @@ if(vibe_validate($title) || empty($title)){
                       // if( $Query->current_post != 0 ) { 
                   ?>
                     <li>
-                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                      <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                       <div class="link">
                           <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                       </div>
@@ -114,6 +121,7 @@ if(vibe_validate($title) || empty($title)){
                 'orderby'=>'meta_value_num'*/
             );
             $Query = new WP_Query( $args ); 
+            
         ?>
           <div class="col-sm-12 col-lg-4">
             <div class="details-middle">
@@ -121,7 +129,7 @@ if(vibe_validate($title) || empty($title)){
                       // if( $Query->current_post != 0 ) { 
                   ?>
                   <div class="col-sm-4">
-                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                      <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                       <div class="link">
                           <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                       </div>
@@ -150,7 +158,7 @@ if(vibe_validate($title) || empty($title)){
     <section id="" class="latest-news">
       <div class="container">
         <div class="row gx-0">
-        <h1>Featured News</h1>
+        <h1>Interview News</h1>
           <?php
             $args = array(
                 'post_type' => 'post',
@@ -164,7 +172,7 @@ if(vibe_validate($title) || empty($title)){
         ?>
           <div class="col-sm-12 col-lg-4">
             <div class="details-left">
-              <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
               <?php if ( has_post_thumbnail() ) { 
                 $featured_image = get_the_post_thumbnail_url();
               }
@@ -183,7 +191,7 @@ if(vibe_validate($title) || empty($title)){
                       // if( $Query->current_post != 0 ) { 
                   ?>
                     <li>
-                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                      <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                       <div class="link">
                           <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                       </div>

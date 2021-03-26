@@ -33,11 +33,18 @@ get_header(vibe_get_header());
 </section>
 <section id="content">
 	<div class="<?php echo vibe_get_container(); ?>">
-           <ul>
-  <li><a href="http://localhost/Htschools/code/category/featured/"> Featured</a></li>
-  <li><a href="http://localhost/Htschools/code/category/expert/"> Expert</a> </li>
-  <li><a href="http://localhost/Htschools/code/category/interview/"> Interview</a> </li>
-</ul>
+        <?php
+            $menu_name = 'news-menu'; //menu slug
+            $locations = get_nav_menu_locations();
+            $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+            $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+
+            foreach ($menuitems as $menu) {  
+                ?>
+                <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a></li>
+                <?php 
+            }
+        ?>
         <div class="row">
     		<div class="col-md-9 col-sm-8">
     			<div class="content">
@@ -79,7 +86,7 @@ get_header(vibe_get_header());
             if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
                       // if( $Query->current_post != 0 ) { 
               ?>
-                  <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                  <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                   <div class="link">
                       <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                   </div>
@@ -121,7 +128,7 @@ get_header(vibe_get_header());
 
                   ?>
                     <li>
-                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                      <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                       <div class="link">
                           <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                       </div>

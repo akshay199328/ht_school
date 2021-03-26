@@ -42,7 +42,7 @@ if(!empty($instructors)){
             <div class="blogpost">
                 <div class="meta">
                  <div class="date">
-                    <?php echo $postDate; ?>
+                    <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo $postDate; ?>
                 </div>
             </div>
 

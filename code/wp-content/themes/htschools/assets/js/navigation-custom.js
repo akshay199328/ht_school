@@ -45,5 +45,11 @@ $(document).ready(function(){
     $(this).parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
 
   });
+  $('.menu #menu-sidebar-menu li:first-child::after').click(function(){
+    alert("CLOSE");
+    $(this).parent().parent().parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
+    $(this).parent().parent().parent().parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
+
+  });
 
 });

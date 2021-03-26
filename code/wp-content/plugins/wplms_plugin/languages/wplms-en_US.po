@@ -4467,8 +4467,8 @@ msgstr ""
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/bp-course-functions.php:647
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/vibe-course-module/includes/bp-course-functions.php:664
 msgctxt "course button status"
-msgid "Join Course"
-msgstr ""
+msgid "Take this course"
+msgstr "Join Course""
 
 #: /Applications/MAMP/htdocs/wplms/wp-content/plugins/wplms_plugin/includes/theme/class.course.component.php:619
 msgctxt "course button"

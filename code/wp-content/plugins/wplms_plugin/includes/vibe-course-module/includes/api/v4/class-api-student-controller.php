@@ -1212,7 +1212,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							
 							$return['link'] = $links;
 				            $return['course_status']=-1;
-				            $return['text'] = __('Take this course','wplms');
+				            $return['text'] = __('Join course','wplms');
 						}else{
 							if(empty($pid)){
 								$pid=get_post_meta($course_id,'vibe_product',true);
@@ -1235,7 +1235,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 					            }
 					            $return['link'] = $pid;
 					            $return['course_status']=-1;
-					            $return['text'] = __('Take this course','wplms');	
+					            $return['text'] = __('Join Course','wplms');	
 					            
 							}else{
 								if ( in_array( 'paid-memberships-pro/paid-memberships-pro.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
@@ -1249,7 +1249,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 												$link = get_option('pmpro_levels_page_id');
 												$link = get_permalink($link).'#'.$level->id;
 												$return['link'] = $link;$return['course_status']=-1;
-					            				$return['text'] = __('Take this course','wplms');
+					            				$return['text'] = __('Join course','wplms');
 					            				break;
 											}
 										}

@@ -56,7 +56,7 @@ $topics = wp_get_post_tags(get_the_ID());
 
 
 // Main Content of the post 
-$location =  echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
+$location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
     the_content();
 //End Main content of the post
     ?>

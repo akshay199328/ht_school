@@ -1104,7 +1104,7 @@ Course Details
   color: #000000;
       margin-bottom: 15px;
 }
-.course-list span{
+.course-list span, .course-list .item{
   width:95px;
     padding: 9px 0px 9px;
   border: solid 3px #fade3b;
@@ -1347,11 +1347,12 @@ Course Details
     margin-top: 10px;
 }
 
-.card {
-    border-color: #e8e8e8;
-    border-radius: 0;
+.course-curriculum .card {
+    border-color: #e8e8e8!important;
+    border-radius: 0!important;
     padding: 24px;
-        margin: 0px 30px 30px 0px;
+    margin: 0px 30px 30px 0px;
+        min-height: 320px;
 }
 .course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) .card {
   /*margin-right:0px;*/

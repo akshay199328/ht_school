@@ -12,8 +12,10 @@ $(window).on('scroll', function() {
         $('.fixed_banner').removeClass('static_banner');
     }
 }); 
-jQuery(document).ready(function($) {  
-  alert("test");
+jQuery(document).ready(function($) { 
+  alert("Hello");
+  $(".course-listslider a").addClass('item');
+  // alert("test");
   $(window).scroll(function() {    
     var scroll = $(window).scrollTop();
 

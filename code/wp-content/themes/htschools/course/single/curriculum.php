@@ -35,7 +35,7 @@ if(!empty($course_curriculum)){
 	//print_r($course_curriculum);exit;
 		//echo "<pre>";print_r($course_curriculum);exit;
 	$countlesson=count($course_curriculum);
-	$counter=1;
+	$counter=0;
 	foreach($course_curriculum as $lesson){
 		
 

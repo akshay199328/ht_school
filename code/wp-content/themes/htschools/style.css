@@ -1019,7 +1019,8 @@ Course Details
 .fixedmenu-tabs .nav-tabs .nav-item.show .nav-item a, 
 .fixedmenu-tabs .nav-tabs .nav-item .active, 
 .fixedmenu-tabs .nav-tabs .nav-item:focus a, 
-.fixedmenu-tabs .nav-tabs .nav-item:hover a{
+.fixedmenu-tabs .nav-tabs .nav-item:hover a,
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{
     color: #000!important;
     background-color: transparent!important;
     border-color: transparent!important;
@@ -1113,6 +1114,8 @@ Course Details
   display: inline-block;
   margin-right: 7px;
   margin-bottom: 10px;
+  color:#000!important;
+  font-weight: bold!important;
 }
 .course-list span:last-child{margin-right: 0px;}
 .course-list span h6{

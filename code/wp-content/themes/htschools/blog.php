@@ -30,17 +30,23 @@ if(vibe_validate($title) || empty($title)){
 <?php
 }
 ?>
+<ul>
+  <li><a href="http://localhost/Htschools/code/category/featured/"> Featured</a></li>
+  <li><a href="http://localhost/Htschools/code/category/expert/"> Expert</a> </li>
+  <li><a href="http://localhost/Htschools/code/category/interview/"> Interview</a> </li>
+</ul>
 
-    <!-- ======= Latest News Section ======= -->
+    <!-- ======= Featured ======= -->
+
     <section id="" class="latest-news">
       <div class="container">
         <div class="row gx-0">
-        
+        <h1>Featured News</h1>
           <?php
             $args = array(
                 'post_type' => 'post',
                 'post_status' => 'publish',
-                'category_name' => 'News',
+                'category_name' => 'Featured',
                 'posts_per_page' => 6,
             );
             $Query = new WP_Query( $args );
@@ -93,19 +99,64 @@ if(vibe_validate($title) || empty($title)){
         </div>
       </div>
     </section>
-  <!-- ======= Latest News Section ======= -->
+  <!-- ======= Featured ======= -->
     <section id="" class="latest-news">
       <div class="container">
         <div class="row gx-0">
-        
+        <h1>Expert News</h1><br/>
           <?php
             $args = array(
                 'post_type' => 'post',
                 'post_status' => 'publish',
-                'category_name' => 'News',
+                'category_name' => 'Expert',
                 'posts_per_page' => 6,
-                'meta_key'=>'post_views_count',
-                'orderby'=>'meta_value_num'
+/*                'meta_key'=>'post_views_count',
+                'orderby'=>'meta_value_num'*/
+            );
+            $Query = new WP_Query( $args ); 
+        ?>
+          <div class="col-sm-12 col-lg-4">
+            <div class="details-middle">
+                <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                      // if( $Query->current_post != 0 ) { 
+                  ?>
+                  <div class="col-sm-4">
+                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                      <div class="link">
+                          <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                      </div>
+                  </div>
+                  <?php 
+                  // }
+                  endwhile; endif; ?>
+            </div>
+          </div>
+            <div class="col-sm-12 col-lg-4">
+              <div class="details-middle">
+                
+              </div>
+            </div>
+          <div class="col-lg-12 center">
+            <?php
+              if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
+              <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- End Most Experts -->
+
+    <section id="" class="latest-news">
+      <div class="container">
+        <div class="row gx-0">
+        <h1>Featured News</h1>
+          <?php
+            $args = array(
+                'post_type' => 'post',
+                'post_status' => 'publish',
+                'category_name' => 'Interview',
+                'posts_per_page' => 6,
             );
             $Query = new WP_Query( $args );
             if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
@@ -118,9 +169,9 @@ if(vibe_validate($title) || empty($title)){
                 $featured_image = get_the_post_thumbnail_url();
               }
               ?>
-              <img src="<?php echo $featured_image; ?>" class="img-fluid">
+              <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
               <div class="link">
-                <a href="#"><?php echo get_the_title() ?></a>
+                <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
             </div>
           </div>
@@ -158,7 +209,8 @@ if(vibe_validate($title) || empty($title)){
       </div>
     </section>
 
-      <div class="container">
+  <!-- End Most Interview -->
+      <!-- <div class="container">
         <div class="row">
             <div class="col-lg-12 infograph">
               <div class="heading">
@@ -190,7 +242,7 @@ if(vibe_validate($title) || empty($title)){
               </div>
             </div>
           </div>
-      </div>
+      </div> -->
 <?php
 get_footer(vibe_get_footer());
 ?>

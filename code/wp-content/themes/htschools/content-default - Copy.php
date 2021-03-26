@@ -22,12 +22,8 @@ if ( function_exists('get_coauthors')) {
 
 
 $post_id = get_the_ID();
-if ( has_post_thumbnail() ) { 
-    $featured_image = get_the_post_thumbnail_url();
-}
-$topics = wp_get_post_tags(get_the_ID());
-$categoryList = get_the_category_list('','');
-$postDate = get_the_date('M d, Y H:i');
+
+
 if(!empty($instructors)){
     $instructor = implode(',', $instructors);
 }else{
@@ -37,33 +33,7 @@ if(!empty($instructors)){
     $instructor = '<a href="'.$author_posts_url.'">'.$displayname.'</a>';
 }
 
-?>
 
-            <div class="blogpost">
-                <div class="meta">
-                 <div class="date">
-                    <?php echo $postDate; ?>
-                </div>
-            </div>
-
-            <div class="featured">
-                <a href="http://localhost/Htschools/code/simrat-of-smgs-meera-bagh-shines-in-fotografia-contest-5/"><img src="<?php echo $featured_image; ?>"> </a>
-            </div>
-            <div class="excerpt thumb">
-                <h3><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
-                <div class="cats">
-                    <ul class="post-categories">
-                        <?php echo $categoryList; 
-                            echo $instructor;
-                        ?>
-                    </div>
-                    <p><?php echo wp_trim_words( get_the_content(), 30); ?></p>
-                    <a href="<?php echo get_permalink(); ?>" class="link">Read More</a>
-                </div>
-            </div>
-          
-
-<!-- <?php
 
 echo ' <div class="blogpost">
         <div class="meta">
@@ -88,4 +58,3 @@ echo ' <div class="blogpost">
             <a href="'.get_permalink().'" class="link">'.__('Read More','vibe').'</a>
         </div>
     </div>';
-?> -->

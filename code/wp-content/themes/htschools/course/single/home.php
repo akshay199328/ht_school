@@ -51,22 +51,38 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       <li>
                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                               <p>Duration</p>
+                              <?php if(get_post_meta($post->ID,'vibe_duration',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
                               <h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6>
+                              <?php }?>
                           </div>
                            <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
                               <p>Frequency</p>
+                              <?php if(get_post_meta($post->ID,'frequency',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
                               <h6><?php echo get_post_meta($post->ID,'frequency',true);?></h6>
+                              <?php }?>
                           </div>
                       </li>
                       <li>
                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                               <p>Sessions</p>
+                              <?php if(get_post_meta($post->ID,'sessions',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
                              <!-- <h6><?php echo $courselesson;?></h6> -->
                              <h6><?php echo get_post_meta($post->ID,'sessions',true);?></h6>
+                             <?php }?>
                           </div>
                            <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
                               <p>Session Length</p>
+                              <?php if(get_post_meta($post->ID,'session_length',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
                               <h6><?php echo get_post_meta($post->ID,'session_length',true); ?></h6>
+                              <?php }?>
                           </div>
                       </li>
                     </ul>
@@ -264,7 +280,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                               <div class="clearfix"></div>
                               <div class="co-lg-12">
                                 <p><?php echo $author_biographical_info; ?></p>
-                                <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span>
+                                <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>
                           </div>

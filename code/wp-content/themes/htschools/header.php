@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <?php
             $fix=vibe_get_option('header_fix');
         ?>
-        <div id="headertop" class="header fixed-top <?php if(isset($fix) && $fix){echo 'fix';} ?>">
+        <div id="" class="header fixed-top <?php if(isset($fix) && $fix){echo 'fix';} ?>">
             <div class="fix-background">
   <div class="navegacion">
           <div class="menu-back">
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         $url = apply_filters('wplms_logo_url',VIBE_URL.'/assets/images/logo.png','header');
                         if(!empty($url)){
                     ?>
-                        <a href="<?php echo vibe_site_url(); ?>"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                        <a href="<?php echo vibe_site_url(); ?>" class="logo d-flex align-items-center"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" /></a>
                     <?php
                         }
                     ?>

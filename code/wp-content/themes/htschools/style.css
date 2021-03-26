@@ -1612,6 +1612,10 @@ Course Details
   margin-left: 5px;
   position: relative;
   margin-bottom: 20px;
+  -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    display: flex;
 }
 .course-box:after{
     content:'';
@@ -1741,7 +1745,8 @@ Course Details
 .right-details .course-button h6 .subs{color: #000000;font-weight: normal;font-size: 14px;position: relative;top:-4px;}
 .woocommerce-Price-currencySymbol{margin-right: 5px;}
 .right-details .course-button a {
-    padding: 11px 29px 14px 24px;
+    padding: 14px 5px 14px 5px;
+    width: 135px;
     background-color: #000000;
     font-size: 15px;
     font-weight: bold;
@@ -1749,7 +1754,7 @@ Course Details
     font-style: normal;
     line-height: 1.33;
     letter-spacing: normal;
-    text-align: left;
+    text-align: center;
     color: #fade3b;
     float: left;
     margin-left: 4px;
@@ -4074,6 +4079,7 @@ Course Details
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
+  font-weight: bold;
 }
 
 .footer .footer-top .footer-links ul a:hover {
@@ -4173,9 +4179,10 @@ Course Details
   
 }
 @media screen and (max-width:991px) and (min-width:320px){
+
     .header-space {margin-top: 15px;}
-    #header .middle-menu{padding: 0;}
-    #header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}
+    .header .middle-menu{padding: 0;}
+    .header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}
     .mobile-nav-toggle{float: left;margin-top: 9px;}
     .right-menu .icon{display: block}
     .right-menu ul li{margin-right: 15px;}
@@ -4271,10 +4278,12 @@ Course Details
     .footer .footer-links li, .footer .bottom-detils .links li{display: block!important;}
     .footer .middle-detils ul li {font-size: 24px;line-height: 32px;}
     .footer .footer-links .about-links ul li {font-size: 15px;line-height: 24px;}
-    .footer .footer-top .footer-links{padding: 0px;margin-bottom: 0px;}
+    .footer .footer-top .footer-links, .footer .socio-list {padding: 0px 15px;margin-bottom: 0px;}
     .footer .bottom-detils .links {margin-top: 20px;}
+    .footer .social-links{margin: 0px 0px 40px;}
     .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
     .footer .footer-top .footer-info {margin-bottom: 10px;}
+    .footer .footer-top .footer-info .logo img {width: 150px;}
 }
 @media screen and (max-width:767px) and (min-width:320px){
     

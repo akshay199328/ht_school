@@ -13,6 +13,7 @@ p{font-family: 'GT-Walsheim-Pro'!important;}
     color: #000!important;
 }
 .home-page .custom-dropdown:before{color: #000!important }
+.middle-menu { text-align: center;}
 nav li {margin-left: 0!important;}
 .left-menu nav li {margin-right: 23px!important;padding: 7px 20px 10px 10px;}
 .left-menu nav li:last-child {margin-right: 0px!important;}
@@ -40,7 +41,7 @@ nav .menu li:last-child a{padding-right: 0px!important;}
     line-height: 0;
     margin-left: 5px;
     color: #fff;
-    top: 7px;
+    top: 4px;
     position: relative;
 }
 .left-menu ul li.custom-dropdown a:after {

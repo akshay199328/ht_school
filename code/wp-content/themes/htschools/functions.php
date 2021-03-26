@@ -289,6 +289,16 @@ if(!function_exists('ht_course_get_full_course_curriculum')){
   }
 }
 
+if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
+    add_filter('login_redirect', 'my_login_redirect', 10, 3);
+    function my_login_redirect() {
+        $location = $_SERVER['HTTP_REFERER'];
+        wp_safe_redirect($location);
+        exit();
+    }
+}
+
+
 function wpb_custom_new_menu() {
   // register_nav_menu('sidebar-menu',__( 'Sidebar Menu' ));
   register_nav_menus( array(
@@ -299,3 +309,20 @@ add_action( 'init', 'wpb_custom_new_menu' );
 
 // Options Panel
 get_template_part('vibe','options');
+
+if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
+    add_filter('login_redirect', 'my_login_redirect', 10, 3);
+    function my_login_redirect() {
+        $location = $_SERVER['HTTP_REFERER'];
+        wp_safe_redirect($location);
+        exit();
+    }
+}
+
+  if(is_user_logged_in()){
+add_filter('wplms_take_this_course_button_label',function($credits){
+
+  return '<strong><span class="coming_soon">Join Course</span></strong>';
+
+});
+}

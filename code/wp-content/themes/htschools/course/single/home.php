@@ -19,8 +19,6 @@ do_action('wplms_course_curriculum_section',$id);
 
 $course_curriculum = ht_course_get_full_course_curriculum($id); 
 
-
- 
 ?>
 <main id="main">
       <div class="innerheader-space course-space"></div>
@@ -223,8 +221,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     
                     <div class="col-sm-12 col-lg-9 mrg pull-left">
                       <div class="cv-detilslist">
+                        <?php $lectures = bp_course_get_curriculum_units(get_the_ID()); ?>
                         <span><h6>24 Sessions</h6></span>
-                        <span><h6> 48 lectures</h6></span>
+                        <span><h6><?php echo count($lectures);?> lectures</h6></span>
                         <span><h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6></span>
                       </div>
                     </div>

@@ -326,3 +326,26 @@ add_filter('wplms_take_this_course_button_label',function($credits){
 
 });
 }
+
+
+// add_filter('wplms_course_details_widget','wplms_show_unit_count_and_time');
+// function wplms_show_unit_count_and_time($course_details){
+//     $course_id = get_the_ID();
+//     $units=bp_course_get_curriculum_units($course_id);
+//     $course_details['units'] = '<li><i class="icon-grid-alt"></i>'.count($units).' Units</li>';
+//     $duration = $total_duration = 0;
+//     foreach($units as $unit){
+//         $duration = get_post_meta($unit,'vibe_duration',true);
+//         if(get_post_type($unit)=='unit'){
+//            $unit_duration_parameter = apply_filters('vibe_unit_duration_parameter',60,$unit);
+//         }elseif(get_post_type($unit)=='quiz'){
+//            $unit_duration_parameter = apply_filters('vibe_quiz_duration_parameter',60,$unit);
+//         }
+        
+//         $total_duration =  $total_duration + $duration*$unit_duration_parameter;
+//      }
+            
+//      $course_details['units_duration'] = '<li><i class="icon-clock-1"></i>'.tofriendlytime(( $total_duration)).'</li>';
+//      print_r($course_details);
+//      return $course_details;
+// }

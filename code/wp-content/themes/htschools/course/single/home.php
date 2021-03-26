@@ -37,10 +37,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       <li>
                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                               <p>Age Group</p>
-                              <?php if(get_post_meta($post->ID,'age_limit',true) == '') { ?>
+                              <?php if(get_post_meta($post->ID,'course_age_group',true) == '') { ?>
                               <h6>--</h6>
                               <?php } else{ ?>
-                              <h6><?php echo get_post_meta($post->ID,'age_limit',true);?></h6>
+                              <h6><?php echo get_post_meta($post->ID,'course_age_group',true);?></h6>
                               <?php }?>
                           </div>
                            <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
@@ -51,21 +51,38 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       <li>
                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                               <p>Duration</p>
+                              <?php if(get_post_meta($post->ID,'vibe_duration',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
                               <h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6>
+                              <?php }?>
                           </div>
                            <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
                               <p>Frequency</p>
-                              <h6></h6>
+                              <?php if(get_post_meta($post->ID,'frequency',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
+                              <h6><?php echo get_post_meta($post->ID,'frequency',true);?></h6>
+                              <?php }?>
                           </div>
                       </li>
                       <li>
                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                               <p>Sessions</p>
-                             <h6><?php echo $courselesson;?></h6>
+                              <?php if(get_post_meta($post->ID,'sessions',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
+                             <!-- <h6><?php echo $courselesson;?></h6> -->
+                             <h6><?php echo get_post_meta($post->ID,'sessions',true);?></h6>
+                             <?php }?>
                           </div>
                            <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
                               <p>Session Length</p>
-                              <h6>45 Mins</h6>
+                              <?php if(get_post_meta($post->ID,'session_length',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
+                              <h6><?php echo get_post_meta($post->ID,'session_length',true); ?></h6>
+                              <?php }?>
                           </div>
                       </li>
                     </ul>
@@ -146,13 +163,14 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   <div class="col-sm-12 course-list mrg">
                                     <h5>Who This Course Is For</h5>
                                     <div class="col-sm-12 course-listslider mrg">
-                                      <span class="item"><a href="#"><h6>CSS</h6></a></span>
+                                      <?php echo get_the_term_list(get_the_ID(),'course-tag'); ?>
+                                      <!-- <span class="item"><a href="#"><h6>CSS</h6></a></span>
                                       <span class="item"><a href="#"><h6>CSS3</h6></a></span>
                                       <span class="item"><a href="#"><h6>Javascript</h6></a></span>
                                       <span class="item"><a href="#"><h6>HTML5</h6></a></span>
                                       <span class="item"><a href="#"><h6>BootStrap</h6></a></span>
                                       <span class="item"><a href="#"><h6>Front End</h6></a></span>
-                                      <span class="item"><a href="#"><h6>PHP</h6></a></span>
+                                      <span class="item"><a href="#"><h6>PHP</h6></a></span> -->
                                     </div>  
                                   </div>
                               </div>
@@ -185,10 +203,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <div class="list">
                       <?php echo get_post_meta($post->ID,'learning_goals_list',true); ?>
                     </div>
-                    <div class="col-lg-12 mrg adworks-head">
+                    <!-- <div class="col-lg-12 mrg adworks-head">
                       <a href="#">Adworks</a>
                       <img src="assets/img/adwork-4.jpg" class="img-fluid">
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -207,7 +225,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       <div class="cv-detilslist">
                         <span><h6>24 Sessions</h6></span>
                         <span><h6> 48 lectures</h6></span>
-                        <span><h6>22h 3m</h6></span>
+                        <span><h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6></span>
                       </div>
                     </div>
                     <div class="clearfix"></div>
@@ -262,7 +280,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                               <div class="clearfix"></div>
                               <div class="co-lg-12">
                                 <p><?php echo $author_biographical_info; ?></p>
-                                <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span>
+                                <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>
                           </div>
@@ -270,8 +288,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         <div class="col-sm-12 col-lg-5 mrg pull-right">
                           <div class="adworks">
                             <div class="col-sm-12 adworks-head mrg">
-                                <a href="#">Adworks</a>
-                                <img src="assets/img/adwork-2.jpg" class="img-fluid" alt="img-fluid">
+                                <a href="https://www.vivo.com/in" target="_blank">Adworks
+                                  <img src="http://testourcode.com/ads/adwork-2.jpg" class="img-fluid"/>
+                                </a>
                             </div>
                           </div>
                         </div>

@@ -250,7 +250,7 @@ padding: 15px 0;
 }
 .fixed_banner ul li h6, .course-list span h6, .cv-detilslist span h6, .card h6, .instructor-detailsMini .profile-content h4, .instructor-detailsMini .profile-content h6, 
 .course-box .middle-details p{margin: 0px!important;}
-.course-fees .course_sharing, .right-details .course-button h6{display: none;}
+.course-fees .course_sharing, .right-details .course-button h6, .course-button  .extra_details{display: none;}
 .course-fees .the_course_button .course_button{
         padding: 12px 32px 12px 25px!important;
     background-color: #fbca00;

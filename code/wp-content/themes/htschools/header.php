@@ -19,42 +19,46 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <?php
             $fix=vibe_get_option('header_fix');
         ?>
-        <div id="headertop" class="header fixed-top <?php if(isset($fix) && $fix){echo 'fix';} ?>">
-            <div class="fix-background">
-  <div class="navegacion">
-          <div class="menu-back">
-            <ul class="menu">
-                <!--titular-->
-                <?php
-                    $args = array(
-                        'theme_location'  => 'sidebar-menu',
-                    );
-
-                    wp_nav_menu( $args );
-                ?>
-                
-                <div class="bootom-link">
-                    <ul>
-                        <li><a href="#">Help & Support</a></li>
-                        <li><a href="#">Contact us</a><li>
-                    </ul>
-                    <ul class="border-link">
+        <div class="fix-background">
+          <div class="navegacion">
+                  <div class="menu-back">
+                    <ul class="menu">
+                        <!--titular-->
+ <!--                        <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg> -->
                         <?php
                             $args = array(
-                                'theme_location'  => 'footer-menu',
-                                'container'       => '',
-                                'depth'           => 1,
-                                'menu_class'      => '',
-                                'fallback_cb'     => 'vibe_set_menu',
+                                'theme_location'  => 'sidebar-menu',
                             );
+
                             wp_nav_menu( $args );
                         ?>
+                        
+                        <div class="bootom-link">
+                            <ul>
+                                <li><a href="#">Help & Support</a></li>
+                                <li><a href="#">Contact us</a><li>
+                            </ul>
+                            <ul class="border-link">
+                                <?php
+                                    $args = array(
+                                        'theme_location'  => 'footer-menu',
+                                        'container'       => '',
+                                        'depth'           => 1,
+                                        'menu_class'      => '',
+                                        'fallback_cb'     => 'vibe_set_menu',
+                                    );
+                                    wp_nav_menu( $args );
+                                ?>
+                            </ul>
+                        </div>
                     </ul>
                 </div>
-            </ul>
-        </div>
-    </div>
+            </div>
 </div>
+        <div id="headertop" class="header fixed-top <?php if(isset($fix) && $fix){echo 'fix';} ?>">
+            
             <div class="<?php echo vibe_get_container(); ?>">
             
                 <div class="col-lg-4 mrg left-menu">

@@ -23,10 +23,9 @@ get_header(vibe_get_header());
                 <a href="http://localhost/Htschools-git/code/all-courses/" class="exlore-link desktop-btn">Explore all Courses</a>
             </header>
             <div class="adworks">
-              <?php
-              if ( is_active_sidebar( 'popular-courses' ) ) : ?>
-                <?php dynamic_sidebar( 'popular-courses' ); ?>      
-              <?php endif; ?>
+              <a href="https://www.vivo.com/in" target="_blank">
+              <img src="http://testourcode.com/ads/adwork-2.jpg" />
+              </a>
             </div>
           </div>
           <div class="col-sm-12 col-lg-8 mrg">
@@ -41,7 +40,7 @@ get_header(vibe_get_header());
                 if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
                   $custom_fields = get_post_custom();
                   $duration = $custom_fields['vibe_duration'][0];
-                  $age_limit = $custom_fields['age_limit'][0];
+                  $age_limit = $custom_fields['course_age_group'][0];
                   $category_array = get_the_terms( $post->ID, 'course-cat');
               ?>
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
@@ -223,7 +222,7 @@ get_header(vibe_get_header());
         </div>
       </div>
        
-      <div class="container">
+<!--       <div class="container">
         <div class="row">
             <div class="col-lg-12 infograph">
               <div class="heading">
@@ -255,7 +254,7 @@ get_header(vibe_get_header());
               </div>
             </div>
           </div>
-      </div>
+      </div> -->
       <!-- ======= Testimonials Section ======= -->
       <div class="container testimonials" data-aos="fade-up">
         
@@ -267,15 +266,15 @@ get_header(vibe_get_header());
           <div class="swiper-wrapper">
             <?php
           $args1 = array(
-              'post_type' => 'testimonial',
+              'post_type' => 'testimonials',
               'post_status' => 'publish',
               
           );
           $Query1 = new WP_Query( $args1 );
-          // print_r($Query1);
           
           // print_r(get_post_custom());
           if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post(); 
+            print_r(get_post_custom());
               $custom_fields = get_post_custom();
               $url = wp_get_attachment_url($custom_fields['image'][0]);
         ?>
@@ -288,11 +287,11 @@ get_header(vibe_get_header());
                 </div>
                 <div class="profile profile-name mt-auto">
                   <div class="col-sm-12 col-lg-3 mrg">
-                    <img src="<?php echo $url; ?>" class="testimonial-img img-fluid" alt="" >
+                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="testimonial-img img-fluid" alt="" >
                   </div>
                   <div class="col-sm-12 col-lg-9 mrg">
-                    <h3><?php echo $custom_fields['profile_name'][0] ?></h3>
-                    <h4><?php echo $custom_fields['designation'][0] ?></h4>
+                    <h3><?php echo $custom_fields['vibe_testimonial_author_name'][0] ?></h3>
+                    <h4><?php echo $custom_fields['vibe_testimonial_author_designation'][0] ?></h4>
                   </div>
                 </div>
               </div>

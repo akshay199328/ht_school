@@ -1,3 +1,17 @@
+jQuery(window).on('scroll', function() { 
+    if (jQuery(window).scrollTop() >= jQuery( 
+    '.footer-check .heading').offset().top + jQuery('.footer-check .heading'). 
+        outerHeight() - window.innerHeight) { 
+        // console.log('You reached the end of the DIV')
+      // console.log("remove Class");
+        jQuery('.fixed_banner').addClass('static_banner');
+    } 
+    else{
+      // console.log("add Class");
+        jQuery('.fixed_banner').removeClass('static_banner');
+    }
+}); 
+
 jQuery(window).scroll(function() {    
     var scroll = jQuery(window).scrollTop();
 
@@ -107,28 +121,28 @@ jQuery(document).ready(function() {
       })
 });
 jQuery('.testimonials-carousel').owlCarousel({
-        loop: false,
-        margin: 20,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayTimeout:2000,
-        autoplayHoverPause: true,
-        nav: false,
-        dots:false,
-        responsive: {
-          0: {
-            items: 1,
-            nav: false
-          },
-          767: {
-            items:1,
-            nav: false
-          },
-          1200: {
-            items:2,
-            nav: false,
-            loop: false,
-            margin: 20
-          }
-        }
-      })
+  loop: false,
+  margin: 20,
+  responsiveClass: true,
+  autoplay: true,
+  autoplayTimeout:2000,
+  autoplayHoverPause: true,
+  nav: false,
+  dots:false,
+  responsive: {
+    0: {
+      items: 1,
+      nav: false
+    },
+    767: {
+      items:1,
+      nav: false
+    },
+    1200: {
+      items:2,
+      nav: false,
+      loop: false,
+      margin: 20
+    }
+  }
+})

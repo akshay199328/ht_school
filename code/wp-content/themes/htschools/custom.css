@@ -13,11 +13,11 @@ p{font-family: 'GT-Walsheim-Pro'!important;}
     color: #000!important;
 }
 .home-page .custom-dropdown:before{color: #000!important }
-.navbar li {margin-left: 0!important;}
-.left-menu .navbar li {margin-right: 23px!important;padding: 7px 20px 10px 10px;}
-.left-menu .navbar li:last-child {margin-right: 0px!important;}
-.left-menu .navbar li.current_page_item{background: #000;}
-.left-menu .navbar li.current_page_item a{color: #fff!important;}
+nav li {margin-left: 0!important;}
+.left-menu nav li {margin-right: 23px!important;padding: 7px 20px 10px 10px;}
+.left-menu nav li:last-child {margin-right: 0px!important;}
+.left-menu nav li.current_page_item{background: #000;}
+.course .left-menu nav li.current_page_item a{color: #fff!important;}
 .sleek nav>.menu>li>a {color:#000!important;padding: 0px 6px 0px 0px!important;margin: 0 0px !important;text-transform: initial!important;font-size: 15px!important;
     font-weight: bold!important;}
 nav .menu li:last-child a{padding-right: 0px!important;}

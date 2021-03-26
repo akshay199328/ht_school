@@ -188,10 +188,11 @@ section {
 
 .breadcrumbs ol li:after {
   padding-right: 6px;
+  top: 3px;
+    position: relative;
     padding-left: 11px;
     color: #0c5acc;
-    /* content: "\f282"; */
-    content: ">";
+    content: "\f285";
     display: inline-block;
     font-family: bootstrap-icons !important;
 }
@@ -603,7 +604,7 @@ section {
   margin-top: 61px;
 }
 .innerheader-space{
-  margin-top: 110px;
+  margin-top: 116px;
 }
 .innerheader-space.less_topmargin {
     margin-top: 95px;
@@ -870,14 +871,19 @@ Course Details
 }
 .fixed_banner{
   background: url('../img/coursedetails-back.png') no-repeat;
-  /* margin: 0px 46px 50px 265px; */
-    float: left;
+  float: left;
     background-size: cover;
     position: fixed;
     width: 39.5%;
-    z-index: 999;
+    z-index: 99;
     height: 100%;
+    transition: all 0.5s ease;
 
+}
+.static_banner {
+    /*position: relative;*/
+    bottom: 60%;
+    transition: all 0.5s ease;
 }
 .fixed_banner .breadcrumbs li a{
   text-decoration: underline;
@@ -3894,6 +3900,8 @@ Course Details
   font-size: 14px;
   padding:0px;
   background-color: #000000;
+  float: left;
+  width: 100%;
 }
 
 .footer .footer-top .footer-info .logo img {}

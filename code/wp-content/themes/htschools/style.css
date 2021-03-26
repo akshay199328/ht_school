@@ -377,12 +377,7 @@ section {
     left: 0;
 }
 .search-icon a:after, .right-menu .icon{display: none;}
-.vibebp-login{
-  color: #000000!important;
-    padding: 0px;
-    font-weight: bold!important;
-    margin-left: 25px;
-}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/

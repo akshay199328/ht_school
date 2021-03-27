@@ -46,7 +46,7 @@ $(document).ready(function(){
 
   });
   $('.close-navigation').click(function(){
-    alert("CLOSE");
+    // alert("CLOSE");
     $(this).parent().parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
     $(this).parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
 

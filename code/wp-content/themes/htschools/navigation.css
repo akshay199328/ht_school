@@ -85,6 +85,7 @@
     position: absolute;
     right: 30px;
     top: 17px;
+    cursor: pointer;
 }
 .menu .close-navigation:after{
     content: "\f5ee";
@@ -178,7 +179,7 @@
 .bootom-link{
     display: block;
     position: relative;
-    margin-top: 200px;
+    margin-top: 190px;
 }
 .bootom-link ul{
     left: 0;

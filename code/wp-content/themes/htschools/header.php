@@ -69,6 +69,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             wp_nav_menu( $args );
                         ?>
                     </ul>
+                    <ul class="border-link">
+                        <li><a href="#">© HT Media Limited All rights reserved.</a></li>
+                    </ul>
                 </div>
             </ul>
         </div>

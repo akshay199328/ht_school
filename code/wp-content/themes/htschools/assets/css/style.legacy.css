@@ -35321,7 +35321,7 @@ section#title{padding: 30px 0!important;background: #fff}
 .custom_topmenu{
 	margin-left: 25px!important;
 }
-.vibebp-login{
+.vibebp-login .loggedin_user_div{
   	color: #000000!important;
     padding: 0px;
     font-weight: bold!important;
@@ -35330,7 +35330,7 @@ section#title{padding: 30px 0!important;background: #fff}
     border: 1px solid #000!important;
 }
 .vibebp-login .vibebp_name{position: relative;padding: 0px !important;margin-left: 10px;    display: none;}
-.custom_topmenu li a:after{display: none!important;}
+.custom_topmenu li a.loggedin_user:after{display: none!important;}
 .right-menu ul li .vibebp_name:after{
     content: '';
     border-bottom: 1px solid #707070;
@@ -35341,8 +35341,8 @@ section#title{padding: 30px 0!important;background: #fff}
     left: 0;
 }
 a.loggedin_user {padding: 5px 5px!important;cursor: pointer;}
-a.loggedin_user img {width: 35px!important;margin-right: 30px;}
-.custom_topmenu a a:last-child::before{
+a.loggedin_user img {width: 27px!important;margin-right: 30px;}
+.custom_topmenu .loggedin_user:before{
 	content: "\f282";
 	display: inline-block!;
 	position: absolute;
@@ -35363,7 +35363,7 @@ a.loggedin_user img {width: 35px!important;margin-right: 30px;}
 .custom_topmenu .user_menu a{text-align: left;float: left;justify-content: left!important;}
 .user_menu span{margin-right: 10px!important;}
 #menu-secondary-menu {
-    margin-top: 15px;
+    /*margin-top: 15px;*/
 }
 .course_button.is-loading {
     opacity: 1!important;

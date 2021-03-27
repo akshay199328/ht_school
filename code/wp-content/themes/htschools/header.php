@@ -54,23 +54,31 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 
                 <div class="bootom-link">
                     <ul>
-                        <li><a href="#">Help & Support</a></li>
-                        <li><a href="#">Contact us</a><li>
+                        <?php
+                            $args = array(
+                                'theme_location'  => 'contact-menu',
+                            );
+
+                            wp_nav_menu( $args );
+                        ?> 
                     </ul>
                     <ul class="border-link">
                         <?php
-                            $args = array(
-                                'theme_location'  => 'footer-menu',
-                                'container'       => '',
-                                'depth'           => 1,
-                                'menu_class'      => '',
-                                'fallback_cb'     => 'vibe_set_menu',
-                            );
-                            wp_nav_menu( $args );
-                        ?>
+                           $menu_name = 'footer-menu'; //menu slug
+                           $locations = get_nav_menu_locations();
+                           $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                           $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+                           //print_r($menuitems);
+                           foreach ($menuitems as $menu) {  
+                            if($menu->title != 'Contact Us'){
+                               echo '<li><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
+                            }
+                           }
+                       ?>
+
                     </ul>
                     <ul class="border-link">
-                        <li><a href="#">© HT Media Limited All rights reserved.</a></li>
+                        <p>© HT Media Limited All rights reserved.</p>
                     </ul>
                 </div>
             </ul>

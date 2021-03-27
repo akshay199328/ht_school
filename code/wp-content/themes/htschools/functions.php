@@ -303,6 +303,7 @@ function wpb_custom_new_menu() {
   // register_nav_menu('sidebar-menu',__( 'Sidebar Menu' ));
   register_nav_menus( array(
     'sidebar-menu' => esc_html__( 'Sidebar Menu'),
+    'contact-menu' => esc_html__( 'Contact Menu'),
   ) );
 }
 add_action( 'init', 'wpb_custom_new_menu' );

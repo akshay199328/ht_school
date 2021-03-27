@@ -6,7 +6,7 @@ $page_id = get_the_ID();
 $title=get_post_meta(get_the_ID(),'vibe_title',true);
 if(vibe_validate($title) || empty($title)){
 ?>
-<section id="title">
+<!-- <section id="title">
     <?php do_action('wplms_before_title'); ?>
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">
@@ -23,11 +23,41 @@ if(vibe_validate($title) || empty($title)){
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <?php
 }
 ?>
-
+<section id="content ">
+  <div class="news-main">
+    <div class="<?php echo vibe_get_container(); ?>">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 category-news">
+          <div class="content content-left">
+            <?php do_action('wplms_before_title'); ?>
+            <div class="pagetitle">
+              <div class="breadcrumbs white-bread">
+                <?php
+                    $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
+                    if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
+                        vibe_breadcrumbs(); 
+                ?>
+                <h1><?php the_title(); ?></h1>
+                <?php the_sub_title(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-8">
+          <div class="content-right">
+            <div class="details">
+                <?php the_content(); ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <?php
 $page_for_posts = get_option('page_for_posts');
 $blog = get_post($page_for_posts);   
@@ -57,7 +87,7 @@ $topics = wp_get_post_tags(get_the_ID());
 
 // Main Content of the post 
 $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
-    the_content();
+    // the_content();
 //End Main content of the post
     ?>
     <img src="<?php echo $featured_image; ?>">

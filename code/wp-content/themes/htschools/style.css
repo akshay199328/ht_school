@@ -3920,39 +3920,39 @@ Course Details
   background: #F8F8F8;
   /*position: relative;*/
 }
-.category-news{
+.news-main .category-news .content-left{
   background: #000000;
   position: relative;
 }
-.category-news:before{
+.news-main .category-news .content-left:before{
   content: '';
   background: #000000;
   position: absolute;
-  left: -264px;
+  left: -332px;
   display: block;
   height: 100%;
   top: 0;
   width: 100%;
 }
-.category-news .content-left {
+.news-main .category-news .content-left {
     padding-right: 20px!important;
 }
-.category-news .content-left .pagetitle {
+.news-main .category-news .content-left .pagetitle {
     padding-right: 15px;
 }
-.category-news .content-left .pagetitle h1{
+.news-main .category-news .content-left .pagetitle h1{
     font-size: 42px;
     line-height: 42px;
     color: #fff;
 }
-.category-news .content-left .pagetitle h5{
+.news-main .category-news .content-left .pagetitle h5{
     font-size: 17px!important;
     line-height: 22px!important;
     color: #fff;
     font-weight: 300!important;
     margin-top: 25px;
 }
-.category-news .content-left .pagetitle h5:after{
+.news-main .category-news .content-left .pagetitle h5:after{
   content:'';
   background: #808080;
   height: 1px;

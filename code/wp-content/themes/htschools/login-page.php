@@ -19,495 +19,469 @@ if(empty($id)){
 }
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
 ?>
-<style>header,footer,#headertop,#footerbottom{display:none;}</style>
-<div class="row">
-    <div class="col-md-6 col-sm-6 hidden-xs">
-        <div class="login_featured_wrap" style="background-image:url(<?php echo vibe_sanitizer($thumb['0'],'url'); ?>);">
-            <div class="login_page_featured">
-                <h1><?php echo get_the_title($id); ?></h1>
-                <?php the_sub_title($id); ?>
+<!-- <style>header,footer,#headertop,#footerbottom{display:none;}</style> -->
+<style type="text/css">
+    .otp-ontent #otp input {
+        margin-top: 10px;
+    }
+    input[type=number], input[type=search], input[type=time], input[type=text], input[type=password], input[type=email], input[type=url], input[type=image], textarea {
+      border: 1px solid rgba(0, 0, 0, .08);
+      /* padding: 5px; */
+    }
+    .login-box-1{
+      width: 740px;
+      margin: 0px auto;
+      background: #F8F8F8;
+    }
+</style>
+<main id="main">
+  <section class="login">
+    <div class="innerheader-space"></div>
+    <div class="container">
+
+
+      <div class="row">
+        <div class="login-box">
+          <div class="col-sm-12 col-md-6 mrg pull-left">
+            <div class="login-left">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/login-back.jpg" class="img-fluid"/>
             </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-        <div class="login_page_content">
-            <?php the_content(); ?>
+          </div>
 
-             <ul class="nav nav-tabs">
-                <li class="active"><a href="#login_page_login" data-toggle="tab"><?php echo _x('Login','Login page template login','vibe')?></a></li>
-                <?php if(get_option( 'users_can_register' )){ ?>
-                <li><a href="#login_page_register" id="login_page_register_tab" data-toggle="tab"><?php echo _x('Register','Login page template - Register','vibe')?></a></li>
-                <?php } ?>
-                <?php do_action('wplms_login_page_tabs'); ?>
-            </ul>
 
-          <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="login_page_login">
-                    <form name="login-form" id="vbp-login-form" class="standard-form" action="<?php echo apply_filters('wplms_login_widget_action',site_url( 'wp-login.php', 'login_post' )); ?>" method="post">
-                        <div class="list-group list-group-sm">
-                            <div class="list-group-item">
-                              <label><?php _e('USERNAME','vibe'); ?></label>  
-                              <input type="text" name="log" placeholder="<?php _e('Enter Username','vibe'); ?>" class="form-control no-border" required="" tabindex="0" aria-required="true" aria-invalid="true">
-                            </div>
-                            <div class="list-group-item">
-                               <label><?php _e('PASSWORD','vibe'); ?></label>  
-                               <input type="password" name="pwd" placeholder="<?php _e('Enter Password','vibe'); ?>" class="form-control no-border" required="" tabindex="0" aria-required="true" aria-invalid="true">
-                            </div>
-                      </div>
-                      <div>
-                      <a id="forgot_password_trigger" class="pull-right" href="<?php echo wp_lostpassword_url(); ?>"><?php _e('Forgot Password?','vibe'); ?></a>
-                      </div>
-                      <div class="checkbox" style="display:inline-block;margin-top:0;">
-                        <input type="checkbox" id="rememberme" name="rememberme" value="forever">
-                        <label for="rememberme"><?php _e('Remember me','vibe'); ?></label>
-                      </div>
 
-                        <input type="submit" name="user-submit" id="sidebar-wp-submit" value="<?php _e( 'Log In','vibe' ); ?>" tabindex="100" />
-                        <input type="hidden" name="user-cookie" value="1" />
-                        <?php do_action( 'login_form' ); //BruteProtect FIX ?>
-                        <div class="line line-dashed"></div>
-                        <?php do_action( 'bp_after_sidebar_login_form' ); ?>
-                    </form>
-                </div>
+          <div class="col-sm-12 col-md-6 mrg pull-right">
 
-                <?php if(get_option( 'users_can_register' )){ ?>
-                <div role="tabpanel" class="tab-pane" id="login_page_register">
 
-                    <?php //REGISTRATION page ?>
-                    <?php
 
-                /**
-                 * Fires at the top of the BuddyPress member registration page template.
-                 *
-                 * @since 1.1.0
-                 */
-                do_action( 'bp_before_register_page' ); ?>
 
-                <div class="page" id="register-page">
-
-                    <form action="" name="signup_form" id="signup_form" class="standard-form" method="post" enctype="multipart/form-data">
-
-                    <?php if ( 'registration-disabled' == bp_get_current_signup_step() ) : ?>
-                        <?php
-
-                        /** This action is documented in bp-templates/bp-legacy/buddypress/activity/index.php */
-                        do_action( 'template_notices' ); ?>
-                        <?php
-
-                        /**
-                         * Fires before the display of the registration disabled message.
-                         *
-                         * @since 1.5.0
-                         */
-                        do_action( 'bp_before_registration_disabled' ); ?>
-
-                            <p><?php _e( 'User registration is currently not allowed.', 'vibe' ); ?></p>
-
-                        <?php
-
-                        /**
-                         * Fires after the display of the registration disabled message.
-                         *
-                         * @since 1.5.0
-                         */
-                        do_action( 'bp_after_registration_disabled' ); ?>
-                    <?php endif; // registration-disabled signup step ?>
-
-                    <?php if ( 'request-details' == bp_get_current_signup_step() ) : ?>
-
-                        <?php
-
-                        /** This action is documented in bp-templates/bp-legacy/buddypress/activity/index.php */
-                        do_action( 'template_notices' ); ?>
-
-                        <p><?php _e( 'Registering for this site is easy. Just fill in the fields below, and we\'ll get a new account set up for you in no time.', 'vibe' ); ?></p>
-
-                        <?php
-
-                        /**
-                         * Fires before the display of member registration account details fields.
-                         *
-                         * @since 1.1.0
-                         */
-                        do_action( 'bp_before_account_details_fields' ); ?>
-
-                        <div class="register-section" id="basic-details-section">
-
-                            <?php /***** Basic Account Details ******/ ?>
-
-                            <h4><?php _e( 'Account Details', 'vibe' ); ?></h4>
-                            <div<?php bp_field_css_class( 'editfield' ); ?>>
-                            <label for="signup_username"><?php _e( 'Username', 'vibe' ); ?> <?php _e( '(required)', 'vibe' ); ?></label>
-                            <?php
-
-                            /**
-                             * Fires and displays any member registration username errors.
-                             *
-                             * @since 1.1.0
-                             */
-                            do_action( 'bp_signup_username_errors' ); ?>
-                            <input type="text" name="signup_username" id="signup_username" value="<?php bp_signup_username_value(); ?>" <?php bp_form_field_attributes( 'username' ); ?>/>
-                            </div>
-                            <div<?php bp_field_css_class( 'editfield' ); ?>>
-                            <label for="signup_email"><?php _e( 'Email Address', 'vibe' ); ?> <?php _e( '(required)', 'vibe' ); ?></label>
-                            <?php
-
-                            /**
-                             * Fires and displays any member registration email errors.
-                             *
-                             * @since 1.1.0
-                             */
-                            do_action( 'bp_signup_email_errors' ); ?>
-                            <input type="email" name="signup_email" id="signup_email" value="<?php bp_signup_email_value(); ?>" <?php bp_form_field_attributes( 'email' ); ?>/>
-                            </div>
-                            <div<?php bp_field_css_class( 'editfield' ); ?>>
-                            <label for="signup_password"><?php _e( 'Choose a Password', 'vibe' ); ?> <?php _e( '(required)', 'vibe' ); ?></label>
-                            <?php
-
-                            /**
-                             * Fires and displays any member registration password errors.
-                             *
-                             * @since 1.1.0
-                             */
-                            do_action( 'bp_signup_password_errors' ); ?>
-                            <input type="password" name="signup_password" id="signup_password" value="" class="password-entry form_field" <?php bp_form_field_attributes( 'password' ); ?>/>
-                            <div id="pass-strength-result"></div>
-                            </div>
-                            <div<?php bp_field_css_class( 'editfield' ); ?>>
-                            <label for="signup_password_confirm"><?php _e( 'Confirm Password', 'vibe' ); ?> <?php _e( '(required)', 'vibe' ); ?></label>
-                            <?php
-
-                            /**
-                             * Fires and displays any member registration password confirmation errors.
-                             *
-                             * @since 1.1.0
-                             */
-                            do_action( 'bp_signup_password_confirm_errors' ); ?>
-                            <input type="password" name="signup_password_confirm" id="signup_password_confirm" value="" class="password-entry-confirm" <?php bp_form_field_attributes( 'password' ); ?>/>
-                            </div>
-                            <?php
-
-                            /**
-                             * Fires and displays any extra member registration details fields.
-                             *
-                             * @since 1.9.0
-                             */
-                            do_action( 'bp_account_details_fields' ); ?>
-
-                        </div><!-- #basic-details-section -->
-
-                        <?php
-
-                        /**
-                         * Fires after the display of member registration account details fields.
-                         *
-                         * @since 1.1.0
-                         */
-                        do_action( 'bp_after_account_details_fields' ); ?>
-
-                        <?php /***** Extra Profile Details ******/ ?>
-
-                        <?php if ( bp_is_active( 'xprofile' ) ) : ?>
-
-                            <?php
-
-                            /**
-                             * Fires before the display of member registration xprofile fields.
-                             *
-                             * @since 1.2.4
-                             */
-                            do_action( 'bp_before_signup_profile_fields' ); ?>
-
-                            <div class="register-section" id="profile-details-section">
-
-                                <h4><?php _e( 'Profile Details', 'vibe' ); ?></h4>
-
-                                <?php /* Use the profile field loop to render input fields for the 'base' profile field group */ ?>
-                                <?php if ( bp_is_active( 'xprofile' ) ) : if ( bp_has_profile( array( 'profile_group_id' => 1, 'fetch_field_data' => false ) ) ) : while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
-
-                                <?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
-
-                                    <div<?php bp_field_css_class( 'editfield' ); ?>>
-
-                                        <?php
-                                        $field_type = bp_xprofile_create_field_type( bp_get_the_profile_field_type() );
-                                        $field_type->edit_field_html();
-
-                                        /**
-                                         * Fires before the display of the visibility options for xprofile fields.
-                                         *
-                                         * @since 1.7.0
-                                         */
-                                        do_action( 'bp_custom_profile_edit_fields_pre_visibility' );
-
-                                        if ( bp_current_user_can( 'bp_xprofile_change_field_visibility' ) ) : ?>
-                                            <p class="field-visibility-settings-toggle" id="field-visibility-settings-toggle-<?php bp_the_profile_field_id() ?>">
-                                                <?php
-                                                printf(
-                                                    __( 'This field can be seen by: %s', 'vibe' ),
-                                                    '<span class="current-visibility-level">' . bp_get_the_profile_field_visibility_level_label() . '</span>'
-                                                );
-                                                ?>
-                                                <a href="#" class="visibility-toggle-link"><?php _ex( 'Change', 'Change profile field visibility level', 'vibe' ); ?></a>
-                                            </p>
-
-                                            <div class="field-visibility-settings" id="field-visibility-settings-<?php bp_the_profile_field_id() ?>">
-                                                <fieldset>
-                                                    <legend><?php _e( 'Who can see this field?', 'vibe' ) ?></legend>
-
-                                                    <?php bp_profile_visibility_radio_buttons() ?>
-
-                                                </fieldset>
-                                                <a class="field-visibility-settings-close" href="#"><?php _e( 'Close', 'vibe' ) ?></a>
-
-                                            </div>
-                                        <?php else : ?>
-                                            <p class="field-visibility-settings-notoggle" id="field-visibility-settings-toggle-<?php bp_the_profile_field_id() ?>">
-                                                <?php
-                                                printf(
-                                                    __( 'This field can be seen by: %s', 'vibe' ),
-                                                    '<span class="current-visibility-level">' . bp_get_the_profile_field_visibility_level_label() . '</span>'
-                                                );
-                                                ?>
-                                            </p>
-                                        <?php endif ?>
-
-                                        <?php
-
-                                        /**
-                                         * Fires after the display of the visibility options for xprofile fields.
-                                         *
-                                         * @since 1.1.0
-                                         */
-                                        do_action( 'bp_custom_profile_edit_fields' ); ?>
-
-                                        <?php
-                                         //now buddypress already show descption below the field since 2.9 
-                                        if(function_exists('version_compare') && !empty($bp->version) && !version_compare($bp->version, '2.9.0')){
-
-                                        }else{
-                                            ?>
-                                            <p class="description"><?php bp_the_profile_field_description(); ?></p> 
-                                            <?php
-                                        }
-                                        
-                                        ?>
-
-                                    </div>
-
-                                <?php endwhile; ?>
-
-                                <input type="hidden" name="signup_profile_field_ids" id="signup_profile_field_ids" value="<?php bp_the_profile_field_ids(); ?>" />
-
-                                <?php endwhile; endif; endif; ?>
-
-                                <?php
-
-                                /**
-                                 * Fires and displays any extra member registration xprofile fields.
-                                 *
-                                 * @since 1.9.0
-                                 */
-                                do_action( 'bp_signup_profile_fields' ); ?>
-
-                            </div><!-- #profile-details-section -->
-
-                            <?php
-
-                            /**
-                             * Fires after the display of member registration xprofile fields.
-                             *
-                             * @since 1.1.0
-                             */
-                            do_action( 'bp_after_signup_profile_fields' ); ?>
-
-                        <?php endif; ?>
-
-                        <?php if ( bp_get_blog_signup_allowed() ) : ?>
-
-                            <?php
-
-                            /**
-                             * Fires before the display of member registration blog details fields.
-                             *
-                             * @since 1.1.0
-                             */
-                            do_action( 'bp_before_blog_details_fields' ); ?>
-
-                            <?php /***** Blog Creation Details ******/ ?>
-
-                            <div class="register-section" id="blog-details-section">
-
-                                <h4><?php _e( 'Blog Details', 'vibe' ); ?></h4>
-
-                                <p><label for="signup_with_blog"><input type="checkbox" name="signup_with_blog" id="signup_with_blog" value="1"<?php if ( (int) bp_get_signup_with_blog_value() ) : ?> checked="checked"<?php endif; ?> /> <?php _e( 'Yes, I\'d like to create a new site', 'vibe' ); ?></label></p>
-
-                                <div id="blog-details"<?php if ( (int) bp_get_signup_with_blog_value() ) : ?>class="show"<?php endif; ?>>
-
-                                    <label for="signup_blog_url"><?php _e( 'Blog URL', 'vibe' ); ?> <?php _e( '(required)', 'vibe' ); ?></label>
-                                    <?php
-
-                                    /**
-                                     * Fires and displays any member registration blog URL errors.
-                                     *
-                                     * @since 1.1.0
-                                     */
-                                    do_action( 'bp_signup_blog_url_errors' ); ?>
-
-                                    <?php if ( is_subdomain_install() ) : ?>
-                                        http:// <input type="text" name="signup_blog_url" id="signup_blog_url" value="<?php bp_signup_blog_url_value(); ?>" /> .<?php bp_signup_subdomain_base(); ?>
-                                    <?php else : ?>
-                                        <?php echo home_url( '/' ); ?> <input type="text" name="signup_blog_url" id="signup_blog_url" value="<?php bp_signup_blog_url_value(); ?>" />
-                                    <?php endif; ?>
-
-                                    <label for="signup_blog_title"><?php _e( 'Site Title', 'vibe' ); ?> <?php _e( '(required)', 'vibe' ); ?></label>
-                                    <?php
-
-                                    /**
-                                     * Fires and displays any member registration blog title errors.
-                                     *
-                                     * @since 1.1.0
-                                     */
-                                    do_action( 'bp_signup_blog_title_errors' ); ?>
-                                    <input type="text" name="signup_blog_title" id="signup_blog_title" value="<?php bp_signup_blog_title_value(); ?>" />
-
-                                    <span class="label"><?php _e( 'I would like my site to appear in search engines, and in public listings around this network.', 'vibe' ); ?></span>
-                                    <?php
-
-                                    /**
-                                     * Fires and displays any member registration blog privacy errors.
-                                     *
-                                     * @since 1.1.0
-                                     */
-                                    do_action( 'bp_signup_blog_privacy_errors' ); ?>
-
-                                    <label for="signup_blog_privacy_public"><input type="radio" name="signup_blog_privacy" id="signup_blog_privacy_public" value="public"<?php if ( 'public' == bp_get_signup_blog_privacy_value() || !bp_get_signup_blog_privacy_value() ) : ?> checked="checked"<?php endif; ?> /> <?php _e( 'Yes', 'vibe' ); ?></label>
-                                    <label for="signup_blog_privacy_private"><input type="radio" name="signup_blog_privacy" id="signup_blog_privacy_private" value="private"<?php if ( 'private' == bp_get_signup_blog_privacy_value() ) : ?> checked="checked"<?php endif; ?> /> <?php _e( 'No', 'vibe' ); ?></label>
-
-                                    <?php
-
-                                    /**
-                                     * Fires and displays any extra member registration blog details fields.
-                                     *
-                                     * @since 1.9.0
-                                     */
-                                    do_action( 'bp_blog_details_fields' ); ?>
-
-                                </div>
-
-                            </div><!-- #blog-details-section -->
-
-                            <?php
-
-                            /**
-                             * Fires after the display of member registration blog details fields.
-                             *
-                             * @since 1.1.0
-                             */
-                            do_action( 'bp_after_blog_details_fields' ); ?>
-
-                        <?php endif; ?>
-
-                        <?php
-
-                        /**
-                         * Fires before the display of the registration submit buttons.
-                         *
-                         * @since 1.1.0
-                         */
-                        do_action( 'bp_before_registration_submit_buttons' ); ?>
-
-                        <div class="submit">
-                            <input type="submit" name="signup_submit" id="signup_submit" value="<?php _ex( 'Complete Sign Up','sign up button on site lock', 'vibe' ); ?>" />
-                        </div>
-
-                        <?php
-
-                        /**
-                         * Fires after the display of the registration submit buttons.
-                         *
-                         * @since 1.1.0
-                         */
-                        do_action( 'bp_after_registration_submit_buttons' ); ?>
-
-                        <?php wp_nonce_field( 'bp_new_signup' ); ?>
-
-                    <?php endif; // request-details signup step ?>
-
-                    <?php if ( 'completed-confirmation' == bp_get_current_signup_step() ) : ?>
-
-                        <?php
-
-                        /** This action is documented in bp-templates/bp-legacy/buddypress/activity/index.php */
-                        do_action( 'template_notices' ); ?>
-                        <?php
-
-                        /**
-                         * Fires before the display of the registration confirmed messages.
-                         *
-                         * @since 1.5.0
-                         */
-                        do_action( 'bp_before_registration_confirmed' ); ?>
-
-                        <?php if ( bp_registration_needs_activation() ) : ?>
-                            <h3 class="heading"><span><?php _e('Activate your account','vibe'); ?></span></h3>
-                            <p><?php _e( 'You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address.', 'vibe' ); ?></p>
-                        <?php else : ?>
-                            <h3 class="heading"><span><?php _e('Account creatd, login to your account','vibe'); ?></span></h3>
-                            <p><?php _e( 'You have successfully created your account! Please log in using the username and password you have just created.', 'vibe' ); ?></p>
-                        <?php endif; ?>
-
-                        <?php
-
-                        /**
-                         * Fires after the display of the registration confirmed messages.
-                         *
-                         * @since 1.5.0
-                         */
-                        do_action( 'bp_after_registration_confirmed' ); ?>
-
-                    <?php endif; // completed-confirmation signup step ?>
-
-                    <?php
-
-                    /**
-                     * Fires and displays any custom signup steps.
-                     *
-                     * @since 1.1.0
-                     */
-                    do_action( 'bp_custom_signup_steps' ); ?>
-
-                    </form>
-
-                </div>
-
+            <div class="login-right" id="login-step-1">
+              <h4>Login or Register</h4>
+              <form method="POST" id="ht_reg_email">
+                <input type="hidden" name="action" value="reg_send_otp">
                 <?php
-
-                /**
-                 * Fires at the bottom of the BuddyPress member registration page template.
-                 *
-                 * @since 1.1.0
-                 */
-                do_action( 'bp_after_register_page' ); ?>
-                    <?php //REGISTRATION page ?>
+                if(class_exists('NextendSocialLogin', false)){
+                  echo NextendSocialLogin::renderButtonsWithContainer();
+                }
+                ?>
+                <div class="option_or">
+                  <span>OR</span>
                 </div>
-                <?php } ?>
-                <?php do_action('wplms_login_page_tab_content'); ?>
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control" placeholder="Enter email">
+                  <p class="error" style="display: none;" id="ht_otp_error"></p>
+                </div>
+                <button  id="ht_reg_email_btn" type="button" class="btn submit_btn">
+                  Next
+                </button>
+              </form>
+              <div class="form-footer">
+                <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a>
+                <p>By logging in, you agree to our Terms of Service and Privacy Policy</p>
+              </div>
             </div>
+
+            <div class="login-right otp-ontent" id="login-step-2" style="display: none;">
+              <form id="otp-verification-form">
+                    <input type="hidden" name="action" value="reg_verify_otp">
+                  <h4>OTP Verification</h4>
+                  
+                  <div class="content">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/otp-verification.png" class="img-fluid">
+                    <p id="email-otp-message"></p>
+                  </div>
+                  <div id="otp" class="flex justify-center">
+                    <input class="text-center form-control to_next" type="text" name="num_1" maxlength="1" />
+                    <input class="text-center form-control to_next" type="text" name="num_2" maxlength="1" />
+                    <input class="text-center form-control to_next" type="text" name="num_3" maxlength="1" />
+                    <input class="text-center form-control to_next" type="text" name="num_4" maxlength="1" />
+                    <input class="text-center form-control to_next" type="text" name="num_5" maxlength="1" />
+                    <input class="text-center form-control to_next" type="text" name="num_6" maxlength="1" />
+                  </div>
+                  <p class="error" style="display: none;" id="ht_resend_error"></p>
+                  <div class="resend-info">
+                    <div class="pull-left">
+                      <p>Resend In: <span class="timer" id="reg-otp-timer">00:30</span></p>
+                    </div>
+                    <div class="pull-right">
+                      <a href="javascript:void(0)" class="resend-link" id="resend-otp-link" style="display: none;">Resend OTP</a>
+                    </div>
+                  </div>
+                  <div class="otp_button">
+                    <button type="submit" class="btn arrow_btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                      </svg>
+                    </button>
+                    <button type="button" class="btn submit_btn" id="verify-otp-btn">Verify OTP</button>
+                  </div>
+                  
+                  <!-- <div class="form-footer">
+                    <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a>
+                    <p>By logging in, you agree to our Terms of Service and Privacy Policy</p>
+                  </div> -->
+                </form>
+            </div>
+
+            <div class="login-right otp-ontent" id="login-step-3" style="display: none;">
+                <h4>Register</h4>
+                <div class="content">
+                  <p>Please provide all information for <a href="javascript:void(0);" id="reg-email-wrap" style="color: #000;"></a></p>
+                </div>
+                <form id="reg_form">
+                    <input type="hidden" name="action" value="reg_new_user">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="first_name" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                    </div>
+                    <div class="form-group from-countrynum">
+                        <input type="text" class="form-control" name="mobile" placeholder="Mobile Number">
+                        <span class="country-code">+91</span>
+                    </div>
+                    <div class="switch">
+                        <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="female" id="gen_female" checked>
+                        <label for="gen_female" class="switch-label switch-label-off">
+                            <span>Female</span>
+                        </label>
+                        <input type="radio" class="switch-input admin_radio_btn" name="user_gender" value="male" id="gen_male">
+                        <label for="gen_male" class="switch-label switch-label-on">
+                            <span>Male</span>
+                        </label>
+                        <span class="slider2"></span>
+                    </div>
+                    <p class="error" style="display: none;" id="ht_reg_error"></p>
+                    <div class="register_btn">
+                        <p>Fill all Information to proceed</p>
+                        <button type="button" class="btn submit_btn" id="reg_submit">
+                            Next
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+
+
+            <div class="login-right otp-ontent" id="login-step-4" style="display: none;">
+                <form id="mobile-otp-verification-form">
+                    <input type="hidden" name="action" value="reg_verify_mob_otp">
+                    <h4>OTP Verification</h4>
+                    
+                    <div class="content">
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/otp-verification.png" class="img-fluid">
+                      <p id="mobile-otp-message"></p>
+                    </div>
+                    <div id="otp" class="flex justify-center">
+                      <input class="text-center form-control to_next" type="text" name="num_1" maxlength="1" />
+                      <input class="text-center form-control to_next" type="text" name="num_2" maxlength="1" />
+                      <input class="text-center form-control to_next" type="text" name="num_3" maxlength="1" />
+                      <input class="text-center form-control to_next" type="text" name="num_4" maxlength="1" />
+                      <input class="text-center form-control to_next" type="text" name="num_5" maxlength="1" />
+                      <input class="text-center form-control to_next" type="text" name="num_6" maxlength="1" />
+                    </div>
+                    <p class="error" style="display: none;" id="mobile_resend_error"></p>
+                    <div class="resend-info">
+                      <div class="pull-left">
+                        <p>Resend In: <span class="timer" id="mob-otp-timer">00:30</span></p>
+                      </div>
+                      <div class="pull-right">
+                        <a href="javascript:void(0)" class="resend-link" id="resend-mob-link" style="display: none;">Resend OTP</a>
+                      </div>
+                    </div>
+
+                    <div class="otp_button">
+                      <button type="submit" class="btn arrow_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                      </button>
+                      <button type="submit" class="btn submit_btn" id="verify-mob-otp-btn">Verify OTP</button>
+                    </div>
+
+                    
+                    <!-- <div class="form-footer">
+                      <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a>
+                      <p>By logging in, you agree to our Terms of Service and Privacy Policy</p>
+                    </div> -->
+                </form>
+            </div>
+
+
+<!--             <div class="login-box register-box" id="login-step-5" style="display: none;">
+                <div class="col-sm-12 col-md-6 mrg pull-left">
+                    <div class="login-left">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/login-back.jpg" class="img-fluid"/>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 mrg pull-right">
+                    <div class="login-right message-content">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thank-you.svg" class="img-fluid"/>
+                    </div>
+                </div>
+
+                <button type="button" class="btn submit_btn" id="reloadpage">My Account</button>
+            </div> -->
+
+            <div class="login-box-1 register-box" id="login-step-5" style="display: none;">
+              <div class="col-sm-12 col-md-6 mrg pull-left">
+                  <div class="login-left">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thank-you.svg" class="img-fluid"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button type="button" class="btn submit_btn" id="reloadpage" style="display: none;">My Account</button>
+
+
+
+          </div>
+
+
         </div>
-    </div>    
-</div>
+      </div>      
+    </div>
+  </section><!-- End login -->
+</main>
 <?php
 endwhile;
 endif; 
-if(!empty($_POST['signup_submit'])){ 
+/*if(!empty($_POST['signup_submit'])){ */
 ?>
-<script>
+<!-- <script>
 jQuery(window).load(function(){
    jQuery('#login_page_register_tab').tab('show');
 });
+</script> -->
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        jQuery("#reloadpage").click(function(){
+            window.location.reload();
+        });
+        jQuery("#verify-mob-otp-btn").click(function(){
+            jQuery("#verify-mob-otp-btn").html("Please wait...");
+            jQuery("#verify-mob-otp-btn").attr("disabled", "disabled");
+
+            jQuery.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                data : jQuery("#mobile-otp-verification-form").serialize(),
+                success: function(response) {
+                    jQuery("#verify-mob-otp-btn").html("Verify OTP");
+                    jQuery("#verify-mob-otp-btn").removeAttr("disabled");
+
+                    if(response.status == 1){
+                        jQuery("#login-step-4").hide();
+                        jQuery("#login-step-5").show();
+                        jQuery("#reloadpage").show();
+                    }else{
+                        jQuery("#mobile_resend_error").html(response.message);
+                        jQuery("#mobile_resend_error").show();
+                        setTimeout(function(){
+                            jQuery("#mobile_resend_error").html('');
+                            jQuery("#mobile_resend_error").hide();
+                        }, 5000);
+                    }
+                }
+            });
+        });
+
+        jQuery("#reg_submit").click(function(){
+            jQuery("#reg_submit").html("Please wait...");
+            jQuery("#reg_submit").attr("disabled", "disabled");
+
+            jQuery.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                data : jQuery("#reg_form").serialize(),
+                success: function(response) {
+                    jQuery("#reg_submit").html("Next");
+                    jQuery("#reg_submit").removeAttr("disabled");
+
+                    if(response.status == 1){
+                        jQuery("#login-step-3").hide();
+                        jQuery("#login-step-4").show();
+                        startTimer2();
+                    }else{
+                        jQuery("#ht_reg_error").html(response.message);
+                        jQuery("#ht_reg_error").show();
+                        setTimeout(function(){
+                            jQuery("#ht_reg_error").html('');
+                            jQuery("#ht_reg_error").hide();
+                        }, 5000);
+                    }
+                }
+            });
+        });
+            
+        jQuery("#ht_reg_email_btn").click(function(e){
+            jQuery("#ht_reg_email_btn").html("Please wait...");
+            jQuery("#ht_reg_email_btn").attr("disabled", "disabled");
+
+            jQuery.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                data : jQuery("#ht_reg_email").serialize(),
+                success: function(response) {
+                    jQuery("#ht_reg_email_btn").html("Next");
+                    jQuery("#ht_reg_email_btn").removeAttr("disabled");
+                    
+                    if(response.status == 1){
+
+                        jQuery("#email-otp-message").html(response.message);
+                        jQuery("#login-step-1").hide();
+                        jQuery("#login-step-2").show();
+                        startTimer();
+
+                    }else{
+                        jQuery("#ht_otp_error").html(response.message);
+                        jQuery("#ht_otp_error").show();
+                        setTimeout(function(){
+                            jQuery("#ht_otp_error").html('');
+                            jQuery("#ht_otp_error").hide();
+                        }, 5000);
+                    }
+                }
+            });               
+        });
+
+        jQuery(".to_next").keyup(function(){
+            jQuery(this).next().focus();
+        });
+
+        jQuery(".to_next").keydown(function(){
+            jQuery(this).val('');
+        });
+
+        jQuery("#resend-otp-link").click(function(){
+          jQuery.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                data : jQuery("#ht_reg_email").serialize(),
+                success: function(response) {
+                    if(response.status == 1){
+                      document.getElementById('reg-otp-timer').innerHTML = "00:30";
+                jQuery("#resend-otp-link").hide();
+                        startTimer();
+                    }else{
+                        jQuery("#ht_resend_error").html(response.message);
+                        jQuery("#ht_resend_error").show();
+                        setTimeout(function(){
+                            jQuery("#ht_resend_error").html('');
+                            jQuery("#ht_resend_error").hide();
+                        }, 5000);
+                    }
+                }
+            });
+        });
+
+        jQuery("#resend-mob-link").click(function(){
+            jQuery.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                data : jQuery("#reg_form").serialize(),
+                success: function(response) {
+                    if(response.status == 1){
+                        document.getElementById('mob-otp-timer').innerHTML = "00:30";
+                        jQuery("#resend-mob-link").hide();
+                        startTimer2();
+                    }else{
+                        jQuery("#mobile_resend_error").html(response.message);
+                        jQuery("#mobile_resend_error").show();
+                        setTimeout(function(){
+                            jQuery("#mobile_resend_error").html('');
+                            jQuery("#mobile_resend_error").hide();
+                        }, 5000);
+                    }
+                }
+            });
+        });
+
+        jQuery("#verify-otp-btn").click(function(){
+          jQuery("#verify-otp-btn").html("Please wait...");
+            jQuery("#verify-otp-btn").attr("disabled", "disabled");
+
+          jQuery.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                data : jQuery("#otp-verification-form").serialize(),
+                success: function(response) {
+                  jQuery("#verify-otp-btn").html("Verify OTP");
+                    jQuery("#verify-otp-btn").removeAttr("disabled");
+
+                    if(response.status == 1){
+                      if(response.is_registered == 1){
+                        window.location.reload();
+                      }else{
+                            jQuery("#reg-email-wrap").html(response.email);
+                            jQuery("#login-step-2").hide();
+                            jQuery("#login-step-3").show();
+                        }
+                    }else{
+                        jQuery("#ht_resend_error").html(response.message);
+                        jQuery("#ht_resend_error").show();
+                        setTimeout(function(){
+                            jQuery("#ht_resend_error").html('');
+                            jQuery("#ht_resend_error").hide();
+                        }, 5000);
+                    }
+                }
+            });
+        });
+
+    });
+
+
+    function startTimer() {
+        var presentTime = document.getElementById('reg-otp-timer').innerHTML;
+        var timeArray = presentTime.split(/[:]+/);
+        var m = timeArray[0];
+        var s = checkSecond((timeArray[1] - 1));
+
+        if(m == 0 && s == 0){
+          jQuery("#resend-otp-link").show();
+            return;
+        }
+
+        if(s == 59){
+            m = m - 1;
+        }
+        document.getElementById('reg-otp-timer').innerHTML = m + ":" + s;
+        setTimeout(startTimer, 1000);
+    }
+
+    function startTimer2() {
+        var presentTime = document.getElementById('mob-otp-timer').innerHTML;
+        var timeArray = presentTime.split(/[:]+/);
+        var m = timeArray[0];
+        var s = checkSecond((timeArray[1] - 1));
+
+        if(m == 0 && s == 0){
+            jQuery("#resend-mob-link").show();
+            return;
+        }
+
+        if(s == 59){
+            m = m - 1;
+        }
+        document.getElementById('mob-otp-timer').innerHTML = m + ":" + s;
+        setTimeout(startTimer2, 1000);
+    }
+
+    function checkSecond(sec) {
+        if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+        if (sec < 0) {sec = "59"};
+        return sec;
+    }
 </script>
 <?php
-}
+/*}*/
 get_footer( vibe_get_footer() );

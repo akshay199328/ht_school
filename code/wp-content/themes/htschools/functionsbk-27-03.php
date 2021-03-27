@@ -110,7 +110,7 @@ wp_enqueue_style( 'wplms-font', get_template_directory_uri(). '/assets/css/font.
 wp_enqueue_style( 'wplms-owl-carousel', get_template_directory_uri(). '/assets/css/owl.carousel.min.css' );
 wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css' );
 // wp_enqueue_script( 'wplms-aos-js', get_template_directory_uri(). '/assets/vendor/aos/aos.js', '', '', true );
-wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
+/*wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );*/
 wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
 // wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
 wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
@@ -327,13 +327,13 @@ if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['l
     }
 }
 
-//   if(is_user_logged_in()){
-// add_filter('wplms_take_this_course_button_label',function($credits){
+  if(is_user_logged_in()){
+add_filter('wplms_take_this_course_button_label',function($credits){
 
-//   return '<strong><span class="coming_soon">Join Course</span></strong>';
+  return '<strong><span class="coming_soon">Join Course</span></strong>';
 
-// });
-// }
+});
+}
 
 // Login Functionality
 add_action("wp_ajax_reg_send_otp", "reg_send_otp");
@@ -567,27 +567,6 @@ function reg_verify_mob_otp(){
 
 }
 
-// add_filter('wplms_course_details_widget','wplms_show_unit_count_and_time');
-// function wplms_show_unit_count_and_time($course_details){
-//     $course_id = get_the_ID();
-//     $units=bp_course_get_curriculum_units($course_id);
-//     $course_details['units'] = '<li><i class="icon-grid-alt"></i>'.count($units).' Units</li>';
-//     $duration = $total_duration = 0;
-//     foreach($units as $unit){
-//         $duration = get_post_meta($unit,'vibe_duration',true);
-//         if(get_post_type($unit)=='unit'){
-//            $unit_duration_parameter = apply_filters('vibe_unit_duration_parameter',60,$unit);
-//         }elseif(get_post_type($unit)=='quiz'){
-//            $unit_duration_parameter = apply_filters('vibe_quiz_duration_parameter',60,$unit);
-//         }
-        
-//         $total_duration =  $total_duration + $duration*$unit_duration_parameter;
-//      }
-            
-//      $course_details['units_duration'] = '<li><i class="icon-clock-1"></i>'.tofriendlytime(( $total_duration)).'</li>';
-//      print_r($course_details);
-//      return $course_details;
-// }
 // add_filter('wplms_course_details_widget','wplms_show_unit_count_and_time');
 // function wplms_show_unit_count_and_time($course_details){
 //     $course_id = get_the_ID();

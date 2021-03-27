@@ -1020,7 +1020,7 @@ Course Details
 .fixedmenu-tabs .nav-tabs .nav-item .active, 
 .fixedmenu-tabs .nav-tabs .nav-item:focus a, 
 .fixedmenu-tabs .nav-tabs .nav-item:hover a,
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus{
+.nav-tabs>li.active>a:focus{
     color: #000!important;
     background-color: transparent!important;
     border-color: transparent!important;
@@ -1273,7 +1273,7 @@ Course Details
   text-transform: uppercase;
 }
 .other-courses .list a img{
-  height: 120px;
+  /*height: 120px;*/
 }
 .other-courses .list h3{
   position: relative;

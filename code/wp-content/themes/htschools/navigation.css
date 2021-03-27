@@ -81,7 +81,7 @@
 }
 .menu #menu-sidebar-menu li:first-child::after{
     content: "\f5ee";
-        display: inline-block;
+    display: inline-block;
     font-family: bootstrap-icons !important;
     font-style: normal;
     font-weight: normal !important;
@@ -90,9 +90,10 @@
     line-height: 1;
     vertical-align: text-bottom;
     -webkit-font-smoothing: antialiased;
-        position: absolute;
+    position: absolute;
     right: 17px;
-    top: 20px;
+    top: 16px;
+    font-size: 20px;
 }
 .navegacion .menu a{
     display: block;
@@ -113,7 +114,8 @@
     background: #000000;
     color: #fff;
 }
-
+.navegacion .menu li:hover a, .navegacion .menu li.current_page_item a{background:#000;color: #fff}
+.menu #menu-sidebar-menu li.current_page_item:first-child::after, .navegacion .menu li:hover:first-child::after a{color: #fff}
 .navegacion .menu li span.icon-menu{
     margin-right: 12px;
 }

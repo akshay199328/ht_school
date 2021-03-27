@@ -12,6 +12,9 @@ $(window).on('scroll', function() {
     }
 }); 
 $(document).ready(function($) { 
+
+  $('.button full.course_button span:contains("Continue Course")').css('color', 'red');
+
   $(".course-listslider a").addClass('item');
   // alert("test");
   $(window).scroll(function() {    

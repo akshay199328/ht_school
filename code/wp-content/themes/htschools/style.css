@@ -1055,6 +1055,9 @@ Course Details
   color: #000000;
   margin: 10px 0px 20px;
 }
+.about-details p br{
+  
+}
 .about-details .pull-right {
     padding-left: 25px;
 }

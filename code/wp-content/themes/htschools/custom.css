@@ -253,7 +253,8 @@ padding: 15px 0;
 .course-box .middle-details p{margin: 0px!important;}
 .course-fees .course_sharing, 
 .right-details .course-button h6 .subs, 
-.course_button .extra_details{display: none;}
+.course_button .extra_details,
+.course-fees span.amount+.subs{display: none;}
 
 .course-fees .the_course_button .course_button{
         padding: 12px 32px 12px 25px!important;

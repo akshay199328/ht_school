@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    foreach ($menuitems as $menu) {  
                         if($menu->title == 'Home'){
                        ?>
-                       <span><li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a></li></span>
+                       <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a><span class="close-navigation"></span></li>
                        <?php
                         }else{
                             ?>

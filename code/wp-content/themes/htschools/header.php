@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <div class="menu-back">
             <ul class="menu">
                 <!--titular-->
-                <!-- <?php
+              <!--   <?php
                     $args = array(
                         'theme_location'  => 'sidebar-menu',
                     );
@@ -38,17 +38,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    $locations = get_nav_menu_locations();
                    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-                   
+                   //print_r($menuitems);
                    foreach ($menuitems as $menu) {  
-                        if($menu->title == 'Home'){
-                       ?>
-                       <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a><span class="close-navigation"></span></li>
-                       <?php
+                   $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
+                    if($menu->title == 'Home'){
+                       echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a><span class="close-navigation"></span></li>';
+                       
                         }else{
-                            ?>
-                            <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a></li>
-                        <?php }
-                   }
+                          // Print menu item
+                          echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
+                        } 
+                    }
                    
                ?>
                 

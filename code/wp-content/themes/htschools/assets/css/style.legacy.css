@@ -35279,7 +35279,29 @@ div.mce-panel {
     padding-right: 0;
 }
 
-section#title{padding: 30px 0!important; background:#fade3b}
+section#title{padding: 30px 0!important;background: #fff}
+
+.woocommerce-page .pusher{background: #F8F8F8!important}
+.woocommerce-page .cart-collaterals{background: #fff; padding: 20px;}
+.woocommerce-page .checkout-button {background: #000!important; padding: 10px 0!important;}
+.woocommerce-page .woocommerce-Price-currencySymbol,
+.woocommerce-page .woocommerce-Price-amount,.cart_item td.product-name a{font-size: 18px; color: #000}
+.woocommerce-page .woocommerce-Price-currencySymbol span{font-size: 18px; color: #000}
+.shop_table_responsive{background: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*------Added by bhavna-------*/

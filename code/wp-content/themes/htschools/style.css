@@ -1358,7 +1358,9 @@ Course Details
     border-radius: 0!important;
     padding: 24px;
     margin: 0px 30px 30px 0px;
-        min-height: 320px;
+    height: 300px;
+    float: left;
+    display: block;
 }
 .course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) .card {
   /*margin-right:0px;*/
@@ -1406,6 +1408,8 @@ Course Details
   line-height: 1;
   letter-spacing: normal;
   margin: 10px 0px;
+      display: block;
+    float: left;
 }
 .card p{
     font-size: 15px;

@@ -24485,8 +24485,8 @@ ul.tags>li:before {
 
 .course_button>span {
 	display: block;
-	opacity: .8;
-	font-weight: 400
+    opacity: 1;
+    font-weight: bold;
 }
 
 .active .unit span {

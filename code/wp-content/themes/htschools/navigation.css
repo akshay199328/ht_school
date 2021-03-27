@@ -84,7 +84,7 @@
     float: right;
     position: absolute;
     right: 30px;
-    top: 17px;
+    top: 16px;
     cursor: pointer;
 }
 .menu .close-navigation:after{
@@ -120,8 +120,8 @@
     background: #000000;
     color: #fff;
 }
-.navegacion .menu li:hover a, .navegacion .menu li.current_page_item a{background:#000;color: #fff}
-.menu li.current_page_item .close-navigation{color: #fff}
+.navegacion .menu li:hover a, .navegacion .menu li.active a{background:#000;color: #fff}
+.menu li.active .close-navigation{color: #fff}
 .navegacion .menu li span.icon-menu{
     margin-right: 12px;
 }

@@ -610,3 +610,39 @@ function reg_verify_mob_otp(){
 //      print_r($course_details);
 //      return $course_details;
 // }
+
+
+
+add_filter('wplms_course_credits','wplms_hide_course_credits_for_course_students',10,2);
+function wplms_hide_course_credits_for_course_students($credits,$course_id){
+  if(!is_user_logged_in()){
+    return $credits;
+  }
+  $user_id = get_current_user_id();
+  if(wplms_user_course_check($user_id,$course_id)){
+    $credits = 'Subscribed'; //hide credits for course students and display "Subscribed" message
+  }
+  return $credits;
+}
+
+
+/**
+ * Ensure cart contents update when products are added to the cart via AJAX
+ */
+function my_header_add_to_cart_fragment( $fragments ) {
+ 
+    ob_start();
+    $count = WC()->cart->cart_contents_count;
+    ?><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php
+    if ( $count > 0 ) {
+        ?>
+        <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
+        <?php            
+    }
+        ?></a><?php
+ 
+    //$fragments['a.cart-contents'] = ob_get_clean();
+     
+  //  return $fragments;
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );

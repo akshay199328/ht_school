@@ -1,3 +1,4 @@
+
 jQuery(window).on('scroll', function() { 
     if (jQuery(window).scrollTop() >= jQuery( 
     '.footer-check .heading').offset().top + jQuery('.footer-check .heading'). 
@@ -21,8 +22,12 @@ jQuery(window).scroll(function() {
         jQuery(".innerheader-space").removeClass("less_topmargin");
     }
 });
+$(document).ready(function(){
+  alert("Hello");
+  $(".course-fees a:contains(Join this course)").parent().addClass('gfghfgh');
+});
 jQuery(document).ready(function() {
-
+    
     if(jQuery(window).width() <= 992) {
         // alert("hello");
       jQuery('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-carousel');

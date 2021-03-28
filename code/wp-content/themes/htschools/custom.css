@@ -253,7 +253,8 @@ padding: 15px 0;
 .course-box .middle-details p{margin: 0px!important;}
 .course-fees .course_sharing, 
 .right-details .course-button h6 .subs, 
-.course_button .extra_details{display: none;}
+.course_button .extra_details,
+.course-fees span.amount+.subs{display: none;}
 
 .course-fees .the_course_button .course_button{
         padding: 12px 32px 12px 25px!important;
@@ -269,6 +270,7 @@ padding: 15px 0;
     width: auto;
     border-radius: 0;
     margin: 5px 0px 0px;
+    float: left;
 }
 .course-fees .the_course_button .course_button a{color: #004135!important;font-weight: bold;text-transform: initial;}
 .learing-goals .heading p, .heading h3,.infograph .heading h4, .testimonials .heading h4{ text-transform: initial;}
@@ -320,6 +322,12 @@ padding: 15px 0;
 .course_home_progress{
     display: none;
 }
+.the_course_button .button  {
+    /*background: transparent!important;
+    box-shadow: none!important;
+    padding: 0!important;*/
+}
+.progress_key_1, .progress_key_2{background: #00D98E!important;}
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}
     .right-details .course-button{padding-top: 65px!important;}

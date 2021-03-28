@@ -845,7 +845,6 @@ if(!function_exists('bp_course_item_view')){
                       <h6><?php the_course_price(); ?>
                      </h6>
                       <?php the_course_button(); ?> 
-                      <!-- <a href="<?php echo get_permalink();?>" class="course-btn">Join Course</a> -->
                   </div>
                 </div>
               </div>

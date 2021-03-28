@@ -76,10 +76,18 @@
     position: relative;
     cursor: pointer;
 }
-.menu #menu-sidebar-menu li{
+.menu li{
     position:relative;
 }
-.menu #menu-sidebar-menu li:first-child::after{
+.menu .close-navigation{
+    display: inline-block;
+    float: right;
+    position: absolute;
+    right: 30px;
+    top: 16px;
+    cursor: pointer;
+}
+.menu .close-navigation:after{
     content: "\f5ee";
     display: inline-block;
     font-family: bootstrap-icons !important;
@@ -91,8 +99,6 @@
     vertical-align: text-bottom;
     -webkit-font-smoothing: antialiased;
     position: absolute;
-    right: 17px;
-    top: 16px;
     font-size: 20px;
 }
 .navegacion .menu a{
@@ -114,8 +120,8 @@
     background: #000000;
     color: #fff;
 }
-.navegacion .menu li:hover a, .navegacion .menu li.current_page_item a{background:#000;color: #fff}
-.menu #menu-sidebar-menu li.current_page_item:first-child::after, .navegacion .menu li:hover:first-child::after a{color: #fff}
+.navegacion .menu li:hover a, .navegacion .menu li.active a{background:#000;color: #fff}
+.menu li.active .close-navigation{color: #fff}
 .navegacion .menu li span.icon-menu{
     margin-right: 12px;
 }
@@ -173,7 +179,7 @@
 .bootom-link{
     display: block;
     position: relative;
-    margin-top: 420px;
+    margin-top: 190px;
 }
 .bootom-link ul{
     left: 0;

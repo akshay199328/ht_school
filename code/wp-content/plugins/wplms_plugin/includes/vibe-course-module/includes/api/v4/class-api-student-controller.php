@@ -1270,10 +1270,10 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$seats = bp_course_get_max_students($course_id,$this->user->id);
 			if(!empty($starts) && strtotime($starts) > time()){
 				$return['course_status']=-1;
-				$return ['extras'][]= sprintf(_x('Starts %s','button','wplms'),date_i18n( get_option('date_format'), strtotime($starts) ));
+				$return ['extras'][]= '';//sprintf(_x('Starts %s','button','wplms'),date_i18n( get_option('date_format'), strtotime($starts) ));
 			}
 			if(!empty($seats) && $seats < 9999 ){
-				$return ['extras'][]= sprintf(_x('Seats %d','button','wplms'),$seats);
+				$return ['extras'][]= '';//sprintf(_x('Seats %d','button','wplms'),$seats);
 			}
 			
 			

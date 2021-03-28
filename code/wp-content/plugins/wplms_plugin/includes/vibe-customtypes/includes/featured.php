@@ -302,13 +302,23 @@ function thumbnail_generator($custom_post,$featured_style,$cols='medium',$n=100,
                              $return .='</h4>';
                         }
                     }
+                    $pid=get_post_meta($custom_post->ID,'vibe_product',true);
+                    $pid=apply_filters('wplms_course_product_id',$pid,$custom_post->ID,-1); // $id checks for Single Course page or Course page in the my courses section
+                    if(is_numeric($pid)){
+                      $pid=get_permalink($pid);
+                      $check=vibe_get_option('direct_checkout');
+                      $check =intval($check);
+                      if(isset($check) &&  $check){
+                        $pid .= '?redirect';
+                      }
+                    }
                     $return .= apply_filters('vibe_thumb_featured_image',featured_component($custom_post->ID,$cols),$featured_style);
                     $return .= '<h3 class="block_title"><a href="'.get_permalink($custom_post->ID).'" title="'.$custom_post->post_title.'">'.$custom_post->post_title.'</a></h3>';
                     $return .= '<div class="col-sm-12 mrg session">
                                  <h6><span class="vicon vicon-user"></span>24 Sessions <span>60 days</span></h6>
                                 </div>';
-                      $return .= '<div class=""> <a  class="bookdemo-btn" href="'.get_permalink($custom_post->ID).'" title="'.$custom_post->post_title.'">
-                          Book Demo</a>
+                      $return .= '<div class=""> <a  class="bookdemo-btn" href="'.$pid.'" title="'.$custom_post->post_title.'">
+                          Join Course</a>
                         </div>';
                     
                    // $return .='<div class="block courseitem course4"  data-id="'.$custom_post->ID.'">';

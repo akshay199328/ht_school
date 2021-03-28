@@ -87,7 +87,7 @@ get_header(vibe_get_header());
                         <div class="col-lg-12 right-details pull-left mrg">
                           
                           <div class="col-lg-12 course-button mrg">
-                            <h6 class="hide_button"><?php 
+                            <h6 ><?php 
                                 the_course_price();
                             ?>
                             </h6>

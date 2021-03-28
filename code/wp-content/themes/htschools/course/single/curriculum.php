@@ -39,7 +39,7 @@ if(!empty($course_curriculum)){
 	foreach($course_curriculum as $lesson){
 		
 
-	if($counter<=6) {
+	// if($counter<=6) {
 
 		switch($lesson['type']){
 			case 'unit':
@@ -50,7 +50,9 @@ if(!empty($course_curriculum)){
 
                       <div class="col-sm-12 mrg">
                             <div class="co-sm-6 mrg pull-left">
-                            <?php if($lesson['vibe_type'] == 'play'){ ?>
+                            <?php 
+
+                            if($lesson['vibe_type'] == 'play'){ ?>
                               <span class="Lpink default-background"><i class="<?php echo vibe_sanitizer($lesson['icon'],'text'); ?>"></i> Video</span>
                               <?php }?>
                             </div>
@@ -91,7 +93,8 @@ if(!empty($course_curriculum)){
 				do_action('wplms_curriculum_course_lesson_line_html',$lesson,$id);
 			break;
 		} 
-	}$counter++;
+	// }$counter++;
+	$counter++;
 
 	}
 	

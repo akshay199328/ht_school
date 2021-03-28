@@ -319,8 +319,8 @@ padding: 15px 0;
 .other-courses .list .card:first-child {padding-left: 0px!important;}
 .fixedmenu-tabs .nav-tabs>li.active>a{    border-color: transparent;}
 .details-middle ul li .link a{    font-weight: bold;}
-.course_home_progress{
-    display: none;
+.course_home_progress, .hide-search, .top-pagination #pag-top{
+    display: none!important;
 }
 .the_course_button .button  {
     /*background: transparent!important;
@@ -328,6 +328,7 @@ padding: 15px 0;
     padding: 0!important;*/
 }
 .progress_key_1, .progress_key_2{background: #00D98E!important;}
+
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}
     .right-details .course-button{padding-top: 65px!important;}

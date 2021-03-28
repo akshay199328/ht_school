@@ -40,26 +40,43 @@ if(!empty($instructors)){
 ?>
 
             <div class="blogpost">
-                <div class="meta">
-                 <div class="date">
-                    <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo $postDate; ?>
-                </div>
-            </div>
-
-            <div class="featured">
-                <a href="http://localhost/Htschools/code/simrat-of-smgs-meera-bagh-shines-in-fotografia-contest-5/"><img src="<?php echo $featured_image; ?>"> </a>
-            </div>
-            <div class="excerpt thumb">
-                <h3><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
-                <div class="cats">
-                    <ul class="post-categories">
-                        <?php echo $categoryList; 
-                            echo $instructor;
-                        ?>
+                <div class="col-sm-12 col-md-2 mrg">
+                    <div class="featured">
+                        <a href="http://localhost/Htschools/code/simrat-of-smgs-meera-bagh-shines-in-fotografia-contest-5/"><img src="<?php echo $featured_image; ?>"> </a>
                     </div>
-                    <p><?php echo wp_trim_words( get_the_content(), 30); ?></p>
-                    <a href="<?php echo get_permalink(); ?>" class="link">Read More</a>
                 </div>
+                <div class="col-sm-12 col-md-8 mrg">
+                    
+                    <div class="excerpt thumb">
+                        <div class="meta">
+                         <div class="date">
+                            <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo $postDate; ?>
+                        </div>
+                    </div>
+                        <h3>
+                            <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                        </h3>
+                        <div class="cats">
+                            <ul class="post-categories">
+                                <?php echo $categoryList; 
+                                    echo $instructor;
+                                ?>
+                            </ul>
+                        </div>
+                        <p><?php echo wp_trim_words( get_the_content(), 30); ?></p>
+                        <a href="<?php echo get_permalink(); ?>" class="link">Read More</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-2 mrg">
+                    <div class="top-icon">
+                        <li><a href=""><i class="bi bi-bookmark"></i></a></li>
+                        <li><a href=""><i class="bi bi-share"></i></a></li>
+                    </div>
+                </div>
+                
+
+            
+
             </div>
           
 

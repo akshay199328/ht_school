@@ -27,7 +27,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
                 			echo '</h1>';
                 			echo do_shortcode(category_description());
                 		}else{
-	                		echo '<h1>'.vibe_get_title($id).'</h1>';
+	                		echo '<h2>'.vibe_get_title($id).'</h2>';
 	                		the_sub_title($id);
                 		} 
                 	?>
@@ -54,8 +54,8 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 
 		<?php do_action( 'bp_before_directory_course' ); ?>
 		<div class="row">
-			<div class="col-md-12 col-sm-8 mrg">
-				<form action="" method="post" id="course-directory-form" class="dir-form">
+			<div class="col-md-12 col-sm-12 mrg  top-pagination">
+				<form action="" method="post" id="course-directory-form" class="hide-search dir-form">
 
 					<?php do_action( 'bp_before_directory_course_content' ); ?>
 
@@ -74,6 +74,37 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 						</ul>
 					</div> -->
 					<!-- .item-list-tabs -->
+					<div class="item-list-tabs" id="subnav" role="navigation">
+						<ul>
+							<?php do_action( 'bp_course_directory_course_types' ); ?>
+							<li>
+								<div class="dir-search" role="search">
+									<?php bp_directory_course_search_form(); ?>
+								</div>
+							</li>
+							<li class="switch_view">
+								<div class="grid_list_wrapper">
+									<a id="list_view" class="active"><i class="icon-list-1"></i></a>
+									<a id="grid_view"><i class="icon-grid"></i></a>
+								</div>
+							</li>
+							<li id="course-order-select" class="last filter">
+
+								<label for="course-order-by"><?php _e( 'Order By:', 'vibe' ); ?></label>
+								<select id="course-order-by">
+									<?php
+									?>
+										<option value=""><?php _e( 'Select Order', 'vibe' ); ?></option>
+										<option value="newest"><?php _e( 'Newly Published', 'vibe' ); ?></option>
+										<option value="alphabetical"><?php _e( 'Alphabetical', 'vibe' ); ?></option>
+										<option value="popular"><?php _e( 'Most Members', 'vibe' ); ?></option>
+										<option value="rated"><?php _e( 'Highest Rated', 'vibe' ); ?></option>
+										<option value="start_date"><?php _e( 'Start Date', 'vibe' ); ?></option>
+									<?php do_action( 'bp_course_directory_order_options' ); ?>
+								</select>
+							</li>
+						</ul>
+					</div>
 					<div id="course-dir-list" class="course dir-list">
 					<?php locate_template( array( 'course/course-loop.php' ), true ); ?>
 					</div><!-- #courses-dir-list -->

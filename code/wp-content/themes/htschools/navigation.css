@@ -180,6 +180,9 @@
     display: block;
     position: relative;
     margin-top: 190px;
+    height: 300px;
+    overflow-y: scroll;
+
 }
 .bootom-link ul{
     left: 0;

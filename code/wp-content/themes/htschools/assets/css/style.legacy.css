@@ -22452,42 +22452,54 @@ h4.block_title+.date {
 	width: 100%;
 	margin: 20px 0;
 	font-size: 14px;
-	color: #444
+	color: #444;
+	text-align: center;
 }
 
 .pagination .page-numbers.current,
 .pagination label,
 .pagination span {
-	padding: 2px 6px;
-	border-radius: 2px;
-	margin-right: 5px;
-	font-size: 11px;
-	text-transform: uppercase;
-	font-weight: 600;
-	color: #444;
-	border: 2px solid rgba(0, 0, 0, .08);
-	background: rgba(0, 0, 0, .08)
+	    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 100%;
+    margin-right: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #000;
+    border: 2px solid transparent;
+    background: transparent;
+    text-align: center;
+    line-height: 37px;
 }
-
+.pagination span:first-child{/*display: none;*/width: auto;}
 .pagination .page-numbers.current,
 .pagination span.current {
-	background: #78C8Ce;
-	border-color: #78C8Ce;
-	color: #FFF;
-	font-weight: 600
+	background: #D5EBFF!important;
+	border-color: #D5EBFF!important;
+	color: #000;
 }
 
 .pagination a,
 .pagination a.page-numbers {
-	padding: 2px 6px;
-	border-radius: 2px;
-	margin-right: 5px;
-	font-size: 11px;
-	color: #444;
-	background: rgba(0, 0, 0, .08);
-	border: 2px solid rgba(0, 0, 0, .08);
-	text-transform: uppercase;
-	font-weight: 600
+	    padding: 0;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #000;
+    background: rgba(0, 0, 0, .08);
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-weight: 300;
+    background: transparent;
+    text-align: center;
+    line-height: 37px;
 }
 
 .content .pagination {
@@ -22514,7 +22526,9 @@ section#title {
 .pagetitle h1 {
 	margin: 0;
 	padding: 0;
-	font-weight: 600
+	font-weight: bold;
+	font-size: 30px;
+	color: #000;
 }
 
 .pagetitle h5 {
@@ -35373,6 +35387,30 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 }
 
 
+
+.cart-contents:before {
+    font-family:WooCommerce;
+    content: "\e01d";
+    font-size:28px;
+    margin-top:10px;
+    font-style:normal;
+    font-weight:400;
+    padding-right:5px;
+    vertical-align: bottom;
+}
+.cart-contents:hover {
+    text-decoration: none;
+}
+.cart-contents-count {
+    color: #fff;
+    background-color: #2ecc71;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 1px 6px;
+    line-height: 1;
+    vertical-align: top;
+}
+
 /*added by satish*/
 
 .woocommerce .quantity .qty{
@@ -35636,5 +35674,3 @@ a.button.wc-backward:hover {
 
 	.payment-succes .order_details li strong
 }
-
-

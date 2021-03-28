@@ -1,7 +1,7 @@
 $(document).ready(function(){
    // alert("HELLO")
   // MOSTRANDO Y OCULTANDO MENU
-  $('.border-menu').click(function(){
+  $('.border-menu, .mobile-nav-toggle').click(function(){
     // alert("CLICK")
     if($('.border-menu').attr('class') == 'bi bi-bars' ){
 

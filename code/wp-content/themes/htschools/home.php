@@ -40,7 +40,7 @@ get_header(vibe_get_header());
                 if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
                   $custom_fields = get_post_custom();
                   $duration = $custom_fields['vibe_duration'][0];
-                  $age_limit = $custom_fields['course_age_group'][0];
+                  $age_limit = $custom_fields['vibe_course_age_group'][0];
                   $category_array = get_the_terms( $post->ID, 'course-cat');
               ?>
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
@@ -73,7 +73,7 @@ get_header(vibe_get_header());
                             <h6><span><?php echo $duration;?></span> Days</h6>
                           </div>
                           <div class="pull-right">
-                            <p>Age Limit</p>
+                            <p>Age Group</p>
                             <?php if($age_limit == '') { ?>
                             <h6>--</h6>
                             <?php } else{ ?>

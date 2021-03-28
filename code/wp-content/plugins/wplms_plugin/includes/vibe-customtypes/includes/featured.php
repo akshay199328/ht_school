@@ -315,7 +315,7 @@ function thumbnail_generator($custom_post,$featured_style,$cols='medium',$n=100,
                     $return .= apply_filters('vibe_thumb_featured_image',featured_component($custom_post->ID,$cols),$featured_style);
                     $return .= '<h3 class="block_title"><a href="'.get_permalink($custom_post->ID).'" title="'.$custom_post->post_title.'">'.$custom_post->post_title.'</a></h3>';
                     $return .= '<div class="col-sm-12 mrg session">
-                                 <h6><span class="vicon vicon-user"></span>24 Sessions <span>60 days</span></h6>
+                                 <h6><span class="vicon vicon-user"></span>'.get_post_meta($custom_post->ID,'vibe_course_sessions',true).' Sessions <span>'.get_post_meta($custom_post->ID,'vibe_duration',true).' days</span></h6>
                                 </div>';
                       $return .= '<div class=""> <a  class="bookdemo-btn" href="'.$pid.'" title="'.$custom_post->post_title.'">
                           Join Course</a>

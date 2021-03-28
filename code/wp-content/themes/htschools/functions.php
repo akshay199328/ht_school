@@ -2,6 +2,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+if (!session_id()) {
+    session_start();
+}
+
 if(!defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
 	define('WPLMS_THEME_FILE_INCLUDE_PATH',get_template_directory());
 	//use this if you want to overwrite core functions from includes directory with your child theme
@@ -116,15 +120,15 @@ wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/
 wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
 wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
 wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
-add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
-function add_search_box( $items, $args ) {
-    if( !($args->theme_location == 'top-menu') ) 
-    return $items;
-    $searchbox = '<li class="search-icon"><a id="new_searchicon"><i class="bi bi-search"></i></a></li>';
+// add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
+// function add_search_box( $items, $args ) {
+//     if( !($args->theme_location == 'top-menu') ) 
+//     return $items;
+//     $searchbox = '<li class="search-icon"><a id="new_searchicon"><i class="bi bi-search"></i></a></li>';
 
-    return $searchbox.$items;
+//     return $searchbox.$items;
 
-}
+// }
 
 /*
  * Set post views count using post meta
@@ -417,6 +421,10 @@ function reg_verify_otp(){
                 $user_id = $user->ID;
                 wp_set_current_user( $user_id, $user->user_login );
                 wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+                $response['user'] = json_encode($userData);
             }else{
                 $reg = true;
             }
@@ -556,6 +564,10 @@ function reg_verify_mob_otp(){
             $response['is_registered'] = 1;
             wp_set_current_user( $user_id, $user->user_login );
             wp_set_auth_cookie( $user_id );
+            do_action( 'wp_login', $user->user_login, $user);
+            $userData = $user->data;
+            $userData->avatar =  get_avatar_url( $user->ID );
+            $response['user'] = json_encode($userData);
         }
 
         $response['status'] = 1;

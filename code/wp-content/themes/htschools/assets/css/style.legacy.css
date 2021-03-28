@@ -35288,7 +35288,7 @@ div.mce-panel {
 }
 
 .left-spacing {
-    padding-left: 25px!important;
+    padding-left: 25px;
     padding-right: 0;
 }
 
@@ -35388,15 +35388,19 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 
 
 
-.cart-contents:before {
-    font-family:WooCommerce;
-    content: "\e01d";
-    font-size:28px;
-    margin-top:10px;
-    font-style:normal;
-    font-weight:400;
-    padding-right:5px;
-    vertical-align: bottom;
+.cart-contents:after {
+    content: "\f242";
+    display: inline-block;
+    font-family: bootstrap-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: text-bottom;
+    -webkit-font-smoothing: antialiased;
+    /*position: absolute;*/
+    font-size: 28px;
 }
 .cart-contents:hover {
     text-decoration: none;

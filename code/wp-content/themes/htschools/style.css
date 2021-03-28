@@ -98,6 +98,10 @@ section {
     font-size: 28px;
     line-height: 32px;
   }
+  .fixedmenu-tabs .nav-tabs .nav-item {
+    width: auto !important;
+    border-bottom: 0px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -127,6 +131,7 @@ section {
     width: 683px;
     float: left;
   }
+  .left-spacing {padding-left: 25px!important;}
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -4428,7 +4433,8 @@ border-color: transparent;
     .right-details .course-button h6{padding-left: 0px;padding-top: 15px;}
     .right-details .course-button {padding-left: 20px;float: left;padding-top: 20px!important;}
     .course-box .right-details .course-button{margin-left: 20px !important;margin-top: 20px;width: 94%;}
-    .course-curriculum .card{height: 100%;}
+    .course-curriculum .card{height: 100%;    margin: 0px 0px 15px 0px;}
+    .cv-detilslist span { margin: 0px 10px 10px 12px;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: block!important;}
     .right-details .course-button a{margin-left: 10px;}
@@ -4444,7 +4450,7 @@ border-color: transparent;
     .course-curriculum, .learing-goals, .course-instructor, .other-courses{padding:30px 0px;}
     .cv-detilslist {margin-top: 20px;}
     .cv-detilslist span:first-child{margin-left: 0px;}
-    .viewall-session {margin: 0px 0px 0px;}
+    .viewall-session {margin: 10px 0px 0px;}
     .course-fees h4 {
     font-size: 20px;
     float: left;
@@ -4516,6 +4522,9 @@ border-color: transparent;
     .profileimg-name .co-lg-3.pull-left {padding: 10px 0px 0px 20px;}
     .breadcrumbs h5 {font-size: 18px;}
     section {padding: 30px 0;}
+    .instructor-detailsMini .profile-content p {font-size: 15px;}
+    .other-courses .list h3{min-height: 100%;}
+    .right-menu ul li #new_searchicon{display: block!important}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

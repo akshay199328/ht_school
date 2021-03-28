@@ -118,6 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 </div>
                 <div class="col-lg-4 mrg right-menu">
                 <ul class="topmenu custom_topmenu">
+
                     <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
                         echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a href="#login" rel="nofollow" ><span>'.__('Login','vibe').'</span></a>').'</li>';
@@ -158,7 +159,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
                    //print_r($menuitems);
-                   echo "<ul>";
+                   echo "<ul><li class='search-icon'><a id='new_searchicon'><i class='bi bi-search'></i></a></li>";
                    foreach ($menuitems as $menu) {  ?>
                        <li><a href="<?php echo $menu->url; ?>"></a><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.png"/></span><span class="text"><?php echo $menu->title; ?></span></span></li>
                    <?php }

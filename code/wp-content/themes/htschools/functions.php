@@ -116,15 +116,15 @@ wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/
 wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
 wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
 wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
-add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
-function add_search_box( $items, $args ) {
-    if( !($args->theme_location == 'top-menu') ) 
-    return $items;
-    $searchbox = '<li class="search-icon"><a id="new_searchicon"><i class="bi bi-search"></i></a></li>';
+// add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
+// function add_search_box( $items, $args ) {
+//     if( !($args->theme_location == 'top-menu') ) 
+//     return $items;
+//     $searchbox = '<li class="search-icon"><a id="new_searchicon"><i class="bi bi-search"></i></a></li>';
 
-    return $searchbox.$items;
+//     return $searchbox.$items;
 
-}
+// }
 
 /*
  * Set post views count using post meta

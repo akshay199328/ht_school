@@ -225,14 +225,21 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
 
             <div class="login-box-1 register-box" id="login-step-5" style="display: none;">
               <div class="col-sm-12 col-md-6 mrg pull-left">
-                  <div class="login-left">
+                <div class="congrts_section">
+                  <p class="congrat_small">congratulations!</p>
+                  <p>You are now registered</p>
+                </div>
+                  <div class="login-right">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thank-you.svg" class="img-fluid"/>
                   </div>
                 </div>
               </div>
+              <div class="explore_btn">
+                <button type="button" class="btn submit_btn" id="reloadpage" style="display: none;">Explore Courses & Workshops</button>
+                </div>
             </div>
             
-            <button type="button" class="btn submit_btn" id="reloadpage" style="display: none;">My Account</button>
+            
 
 
 

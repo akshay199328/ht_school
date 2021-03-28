@@ -35544,3 +35544,42 @@ form.checkout_coupon.woocommerce-form-coupon button:hover{
 	transform: perspective(400px) translateY(0px);
 	color: #fff;
 }
+
+/*responsive added css by satish*/
+
+@media screen and (max-width:1024px) {
+
+	.woocommerce-cart table.cart td.actions .coupon{
+		width: 100%;
+		display: flex;
+	}
+	.woocommerce-page .woocommerce-Price-currencySymbol,
+	 .woocommerce-page .woocommerce-Price-amount,
+	  .cart_item td.product-name a{
+		font-size: 13px;
+	}
+	.woocommerce table.shop_table td{
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width:480px) {
+
+	.woocommerce-cart table.cart td.actions .coupon{
+		width: 100%;
+		display: flex;
+	}
+	.woocommerce-billing-fields{
+		margin-bottom: 30px;
+	}
+	.woocommerce table.shop_table tbody th,
+	 .woocommerce table.shop_table tfoot td,
+	  .woocommerce table.shop_table tfoot th{
+		font-size: 10px;
+	}
+	.login-left img{
+		display: none;
+	}
+}
+
+

@@ -24630,7 +24630,8 @@ ul.tags>li:before {
 }
 
 #buddypress div.pagination .pagination-links {
-	float: right
+	    float: initial;
+    margin-top: -17px;
 }
 
 #buddypress ul.item-list li div.pagination {
@@ -35386,9 +35387,9 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     box-shadow: none!important;
 }
 
+.cart-contents:after{display: none!important;}
 
-
-.cart-contents:after {
+.cart-contents:before {
     content: "\f242";
     display: inline-block;
     font-family: bootstrap-icons !important;

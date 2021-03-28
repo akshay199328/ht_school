@@ -148,11 +148,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 ?>
                 </ul>
 
-                <?php 
-                   if (is_user_logged_in()){
-                       do_action('woocommerce_add_to_cart_fragments'); 
-                    }
-                ?>
                 <?php
                    $menu_name = 'top-menu'; //menu slug
                    $locations = get_nav_menu_locations();
@@ -160,6 +155,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
                    //print_r($menuitems);
                    echo "<ul><li class='search-icon'><a id='new_searchicon'><i class='bi bi-search'></i></a></li>";
+                   if (is_user_logged_in()){
+                       do_action('woocommerce_add_to_cart_fragments'); 
+                    }
                    foreach ($menuitems as $menu) {  ?>
                        <li><a href="<?php echo $menu->url; ?>"></a><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.png"/></span><span class="text"><?php echo $menu->title; ?></span></span></li>
                    <?php }

@@ -85,6 +85,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
     </div>
 </div>
+
+
             <div class="<?php echo vibe_get_container(); ?> d-flex align-items-center justify-content-between" >
             
                 <div class="col-lg-4 mrg left-menu">
@@ -144,6 +146,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 }
                 ?>
                 </ul>
+
+                <?php 
+                   if (is_user_logged_in()){
+                       do_action('woocommerce_add_to_cart_fragments'); 
+                    }
+                ?>
                 <?php
                     $args = apply_filters('wplms-top-menu',array(
                         'theme_location'  => 'top-menu',

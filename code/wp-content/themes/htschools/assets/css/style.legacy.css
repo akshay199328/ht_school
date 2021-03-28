@@ -35371,3 +35371,28 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     background: transparent!important;
     box-shadow: none!important;
 }
+
+
+
+.cart-contents:before {
+    font-family:WooCommerce;
+    content: "\e01d";
+    font-size:28px;
+    margin-top:10px;
+    font-style:normal;
+    font-weight:400;
+    padding-right:5px;
+    vertical-align: bottom;
+}
+.cart-contents:hover {
+    text-decoration: none;
+}
+.cart-contents-count {
+    color: #fff;
+    background-color: #2ecc71;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 1px 6px;
+    line-height: 1;
+    vertical-align: top;
+}

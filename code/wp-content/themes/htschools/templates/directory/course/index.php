@@ -27,7 +27,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
                 			echo '</h1>';
                 			echo do_shortcode(category_description());
                 		}else{
-	                		echo '<h1>'.vibe_get_title($id).'</h1>';
+	                		echo '<h2>'.vibe_get_title($id).'</h2>';
 	                		the_sub_title($id);
                 		} 
                 	?>
@@ -54,8 +54,8 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 
 		<?php do_action( 'bp_before_directory_course' ); ?>
 		<div class="row">
-			<div class="col-md-12 col-sm-8 mrg">
-				<form action="" method="post" id="course-directory-form" class="dir-form">
+			<div class="col-md-12 col-sm-12 mrg  top-pagination">
+				<form action="" method="post" id="course-directory-form" class="hide-search dir-form">
 
 					<?php do_action( 'bp_before_directory_course_content' ); ?>
 

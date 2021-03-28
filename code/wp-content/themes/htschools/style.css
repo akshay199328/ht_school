@@ -1410,6 +1410,7 @@ Course Details
   margin: 10px 0px;
       display: block;
     float: left;
+    width: 100%;
 }
 .card p{
     font-size: 15px;
@@ -4170,8 +4171,8 @@ border-color: transparent;
 .material .pagination .page-numbers.current:hover, .material .pagination a.page-numbers:hover, .material .pagination a:hover, .material .pagination label:hover, .material .pagination span.current:hover, .material .pagination span:hover {
     -webkit-transform: perspective(400px) translateY(-1px);
     transform: perspective(400px) translateY(-1px);
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
     color: #000!important;
 }
 /*--------------------------------------------------------------
@@ -4369,6 +4370,8 @@ border-color: transparent;
 @media screen and (max-width:991px) and (min-width:320px){
 
     .header-space {margin-top: 15px;}
+    .innerheader-space {margin-top: 75px!important;}
+    .left-spacing {padding-left: 0px!important;}
     .header .middle-menu{padding: 0;}
     .header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}
     .mobile-nav-toggle{float: left;margin-top: 9px;}
@@ -4423,10 +4426,9 @@ border-color: transparent;
     .details-middle {padding-left: 0;}
     .infograph .owl-carousel .owl-item img{width: auto;text-align: center;margin: 0px auto;}
     .right-details .course-button h6{padding-left: 0px;padding-top: 15px;}
-    .right-details .course-button {
-      padding-left: 20px;
-      float: left;
-      padding-top: 20px!important;}
+    .right-details .course-button {padding-left: 20px;float: left;padding-top: 20px!important;}
+    .course-box .right-details .course-button{margin-left: 20px !important;margin-top: 20px;width: 94%;}
+    .course-curriculum .card{height: 100%;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: block!important;}
     .right-details .course-button a{margin-left: 10px;}
@@ -4472,20 +4474,24 @@ border-color: transparent;
     .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
     .footer .footer-top .footer-info {margin-bottom: 10px;}
     .footer .footer-top .footer-info .logo img {width: 150px;}
+    .competitive{padding-left: 15px;padding-right: 15px;}
+    .latest-news .header-heading .news-btn{    top: 0;}
 }
 @media screen and (max-width:767px) and (min-width:320px){
-    
+    .header-space {margin-top: 61px;}
     .hero .hero-list{margin-top: 10px;}
     .hero-list .hero-card h6 {font-size: 12px;}
     .hero-list .hero-card h5 {font-size: 23px;}
     .hero-list .hero-card p {font-size: 12px;}
     .hero-list .hero-card a {font-size: 10px;}
+    #Popular-Courses{padding-left: 15px;padding-right: 15px;}
     .Popular-Courses .section-header p{margin-bottom: 25px;    }
     .Popular-Courses .section-header h2, .latest-news .header-heading h2, .breadcrumbs h2 {font-size: 35px;}
     .Popular-Courses .section-header p, .latest-news .details-left .link a, .details-middle ul li .link,.breadcrumbs p{font-size: 18px;}
     .Popular-Courses .section-header .exlore-link{font-size: 12px;}
     .Popular-Courses .section-header .exlore-link {padding: 12px 32px 12px 25px;}
-    .course-box{margin-top: 30px;margin-bottom: 0;}
+    .course-box{display: block;margin-top: 30px;margin-bottom: 0;    margin-left: 0px;}
+    .course_single_item:first-child .course-box{margin-top: 0px;}
     .course-button {
         border-top: 1px solid #707070;
         padding: 15px 0px 0px;
@@ -4493,6 +4499,9 @@ border-color: transparent;
         float: left;
         width: 100%;
     }
+    /*.right-details .course-button { padding-left: 0px!important;}*/
+    .course-box:after{width: 49%;}
+    .middle-details .duration  {padding-top: 20px !important;}
     .competitive .comp-heading h1{font-size: 35px;}
     .competitive .comp-para p, .latest-news .header-heading .news-btn{font-size: 14px;}
     .competitive .comp-para .find-btn{font-size: 12px;}
@@ -4505,6 +4514,8 @@ border-color: transparent;
     .course-fees {background: #fff;padding: 15px 0px;}
     .course-fees h4, .course-fees a.link{color: #000!important;}
     .profileimg-name .co-lg-3.pull-left {padding: 10px 0px 0px 20px;}
+    .breadcrumbs h5 {font-size: 18px;}
+    section {padding: 30px 0;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -4549,6 +4560,7 @@ border-color: transparent;
     clear: both;
     margin: 20px 0px!important;
   }
+  .navegacion ul, .menu-back, .navegacion{width: 100%;}
 }
 
 

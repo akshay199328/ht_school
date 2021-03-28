@@ -35,8 +35,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 							<th class="product-remove">&nbsp;</th>
 							<th class="product-thumbnail">&nbsp;</th>
 							<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-							<th class="product-price"><?php _e( 'Price', 'woocommerce' ); ?></th>
-							<th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
+							<!-- <th class="product-price"><?php _e( 'Price', 'woocommerce' ); ?></th> -->
+							<!-- <th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th> -->
 							<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
 						</tr>
 					</thead>
@@ -98,13 +98,13 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 										?>
 									</td>
 
-									<td class="product-price" data-title="<?php _e( 'Price', 'woocommerce' ); ?>">
+									<!-- <td class="product-price" data-title="<?php _e( 'Price', 'woocommerce' ); ?>">
 										<?php
 											echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 										?>
-									</td>
+									</td> -->
 
-									<td class="product-quantity" data-title="<?php _e( 'Quantity', 'woocommerce' ); ?>">
+									<!-- <td class="product-quantity" data-title="<?php _e( 'Quantity', 'woocommerce' ); ?>">
 										<?php
 											if ( $_product->is_sold_individually() ) {
 												$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
@@ -120,7 +120,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 											echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
 										?>
-									</td>
+									</td> -->
 
 									<td class="product-subtotal" data-title="<?php _e( 'Total', 'woocommerce' ); ?>">
 										<?php

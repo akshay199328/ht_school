@@ -4525,6 +4525,7 @@ border-color: transparent;
     .instructor-detailsMini .profile-content p {font-size: 15px;}
     .other-courses .list h3{min-height: 100%;}
     .right-menu ul li #new_searchicon{display: block!important}
+    .bootom-link{margin-top: 100px!important;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -4569,8 +4570,15 @@ border-color: transparent;
     clear: both;
     margin: 20px 0px!important;
   }
-  .navegacion ul, .menu-back, .navegacion{width: 100%;}
+  .add-width{width: 100%!important;}
+  .navegacion ul, .menu-back{width: 100%!important;padding: 50px 50px 30px 50px!important;}
+  .right-menu ul li {margin-right: 10px;}
+  .custom_topmenu {margin-left: 10px!important;}
+  .custom_topmenu li {margin-right: 0px!important;}
+  .header .logo img{    margin-left: 10px!important;}
+
 }
+.paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}
 
 
 

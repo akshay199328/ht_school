@@ -4,14 +4,14 @@ $(document).ready(function(){
   $('.border-menu, .mobile-nav-toggle').click(function(){
     // alert("CLICK")
     if($('.border-menu').attr('class') == 'bi bi-bars' ){
-
+      $('.navegacion').removeClass('add-width'); 
       $('.navegacion').css({'width':'100%', 'background':'rgba(0,0,0,.5)'}); // Mostramos al fondo transparente
       $('.border-menu').removeClass('bi bi-bars').addClass('bi bi-close'); // Agregamos el icono X
       $('.navegacion .menu-back').css({'left':'-445px'}); // Ocultamos el Menu
       $('.navegacion .menu').css({'left':'-445px'}); // Mostramos el menu
 
     } else{
-
+      $('.navegacion').addClass('add-width'); 
       $('.navegacion').css({'width':'0%', 'background':'rgba(0,0,0,.0)'}); // Ocultamos el fonto transparente
       $('.border-menu').removeClass('fa fa-close').addClass('bi bi-bars'); // Agregamos el icono del Menu
       $('.navegacion .submenu').css({'left':'-445px'}); // Ocultamos los submenus
@@ -49,6 +49,7 @@ $(document).ready(function(){
     // alert("CLOSE");
     $(this).parent().parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
     $(this).parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
+    $('.navegacion').removeClass('add-width'); 
 
   });
 

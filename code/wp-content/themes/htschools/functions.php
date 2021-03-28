@@ -516,18 +516,16 @@ function send_sms($mobile, $message){
     fwrite($myfile, $txt);
     fclose($myfile);
     
-    $url = 'http://admagister.net/api/mt/SendSMS?channel=Trans&DCS=0&flashsms=0&number=91' . $mobile . '&text=' . $message . '&route=30&APIKey=' . ADMAGISTER_API_KEY . '&senderid=' . ADMAGISTER_SENDER_ID;
-    $crl = curl_init();
+    $url = 'http://admagister.net/api/mt/SendSMS?channel=Trans&DCS=0&flashsms=0&number=91' . $mobile . '&text=' . urlencode($message) . '&route=30&APIKey=' . ADMAGISTER_API_KEY . '&senderid=' . ADMAGISTER_SENDER_ID;
     
-    curl_setopt($crl, CURLOPT_URL, $url);
-    curl_setopt($crl, CURLOPT_FRESH_CONNECT, true);
-    curl_setopt($crl, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($crl);
-    
+    $ch = curl_init(); 
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    $response = curl_exec($ch);
     if(!$response){
         return false;
     }
-    curl_close($crl);
+    curl_close($ch);
     return true;
 }
 

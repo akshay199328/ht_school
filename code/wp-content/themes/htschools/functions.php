@@ -646,3 +646,20 @@ function my_header_add_to_cart_fragment( $fragments ) {
   //  return $fragments;
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );
+
+
+add_action('template_redirect','check_if_logged_in');
+function check_if_logged_in()
+{
+    $pageid = 25; // your checkout page id
+    if(!is_user_logged_in() && is_page($pageid))
+    {
+        $url = add_query_arg(
+            'redirect_to',
+            get_permalink($pagid),
+            site_url('/login-register/') // your my acount url
+        );
+        wp_redirect($url);
+        exit;
+    }
+}

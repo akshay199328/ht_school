@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
                     <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
-                        echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a href="#login" rel="nofollow" ><span>'.__('Login','vibe').'</span></a>').'</li>';
+                        echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a href="'.get_bloginfo('url').'/login-register" rel="nofollow" ><span>'.__('Login','vibe').'</span></a>').'</li>';
                         do_action('wp_head_wplms_login');
                     }else{
 
@@ -134,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <?php
                     else :
                         ?>
-                            <li><a href="#login" class="vbplogin"><?php _e('Login','vibe'); ?></a></li>
+                            <li><a href="<?php get_bloginfo('url')?>/login-register" class="vbplogin"><?php _e('Login','vibe'); ?></a></li>
                             <li><?php 
                                 $enable_signup = apply_filters('wplms_enable_signup',0);
                                 if ( $enable_signup ) : 
@@ -159,7 +159,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                        do_action('woocommerce_add_to_cart_fragments'); 
                     }
                    foreach ($menuitems as $menu) {  ?>
-                       <li><a href="<?php echo $menu->url; ?>"></a><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.png"/></span><span class="text"><?php echo $menu->title; ?></span></span></li>
+                       <li><a href="<?php echo $menu->url; ?>"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.png"/></span><span class="text"><?php echo $menu->title; ?></span></span></a></li>
                    <?php }
                    echo "</ul>";
                    ?>

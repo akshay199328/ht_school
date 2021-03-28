@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # Custom Css
 --------------------------------------------------------------*/
-
+#vibebp_login_wrapper{display: none;}
 p{font-family: 'GT-Walsheim-Pro'!important;}
 .ahref, .error, .link, .reply a{text-transform: initial!important;}
 .home-page #header { background: #d5ebff!important;}

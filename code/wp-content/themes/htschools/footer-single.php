@@ -27,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
     </div>
 </div> -->
-z
 <footer id="footer" class="footer">
   <div class="footer-top">
       <div class="container">

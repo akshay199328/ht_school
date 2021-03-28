@@ -35721,14 +35721,6 @@ p.return-to-shops {
     margin: 0 auto;
 }
 
-.woocommerce-cart table.cart .product-thumbnail{
-	max-width: 100px !important;
-}
-.woocommerce-cart table.cart img{
-	width: 80px !important;
-	margin-right: 10px !important;
-}
-
 /*responsive added css by satish*/
 
 @media screen and (max-width:1024px) {

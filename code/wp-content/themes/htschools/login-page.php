@@ -196,7 +196,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                           <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                         </svg>
                       </button>
-                      <button type="submit" class="btn submit_btn" id="verify-mob-otp-btn">Verify OTP</button>
+                      <button type="button" class="btn submit_btn" id="verify-mob-otp-btn">Verify OTP</button>
                     </div>
 
                     
@@ -274,6 +274,7 @@ jQuery(window).load(function(){
                     jQuery("#verify-mob-otp-btn").removeAttr("disabled");
 
                     if(response.status == 1){
+                        sessionStorage.setItem('bp_user',response.user);
                         jQuery("#login-step-4").hide();
                         jQuery("#login-step-5").show();
                         jQuery("#reloadpage").show();
@@ -419,6 +420,7 @@ jQuery(window).load(function(){
 
                     if(response.status == 1){
                       if(response.is_registered == 1){
+                        sessionStorage.setItem('bp_user',response.user);
                         window.location.reload();
                       }else{
                             jQuery("#reg-email-wrap").html(response.email);

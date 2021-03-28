@@ -2,6 +2,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+if (!session_id()) {
+    session_start();
+}
+
 if(!defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
 	define('WPLMS_THEME_FILE_INCLUDE_PATH',get_template_directory());
 	//use this if you want to overwrite core functions from includes directory with your child theme
@@ -417,6 +421,10 @@ function reg_verify_otp(){
                 $user_id = $user->ID;
                 wp_set_current_user( $user_id, $user->user_login );
                 wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+                $response['user'] = json_encode($userData);
             }else{
                 $reg = true;
             }
@@ -556,6 +564,10 @@ function reg_verify_mob_otp(){
             $response['is_registered'] = 1;
             wp_set_current_user( $user_id, $user->user_login );
             wp_set_auth_cookie( $user_id );
+            do_action( 'wp_login', $user->user_login, $user);
+            $userData = $user->data;
+            $userData->avatar =  get_avatar_url( $user->ID );
+            $response['user'] = json_encode($userData);
         }
 
         $response['status'] = 1;

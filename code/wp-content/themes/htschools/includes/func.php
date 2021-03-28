@@ -1457,7 +1457,8 @@ function wplms_redirect_to_course($order_id){
       }
 
       if(isset($order_courses) && is_array($order_courses) && count($order_courses)){
-          echo '<h3 class="heading">'.__('Courses Subscribed','vibe').'</h3>
+          echo 
+          '<h3 class="heading">'.__('Courses Subscribed','vibe').'</h3>
           <ul class="course_order_details">
             <li><a>'.__('COURSE','vibe').'</a>
             <strong>'.__('SUBSCRIPTION','vibe').'</strong></li>';

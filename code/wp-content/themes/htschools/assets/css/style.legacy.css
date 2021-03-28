@@ -35545,6 +35545,56 @@ form.checkout_coupon.woocommerce-form-coupon button:hover{
 	color: #fff;
 }
 
+.payment-succes {
+    background: #fff;
+    padding: 20px;
+}
+
+.woocommerce table.shop_table{
+	background-color: #fff;
+}
+
+h2.woocommerce-order-details__title {
+    background-color: #fff;
+    padding: 20px 20px;
+}
+section.woocommerce-customer-details {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+td.woocommerce-table__product-name.product-name a{
+	color: #000000;
+}
+
+.course_order_details a.button{
+	background-color: #000 !important;
+}
+.course_order_details a.button{
+	color: #fff !important;
+}
+
+.course_order_details{
+	margin: 0px;
+	border: 0px;
+	padding: 20px;
+	background-color: #fff;
+}
+
+.woocommerce-order h3{
+	background-color: #fff;
+	padding: 20px !important;
+}
+
+a.button.wc-backward {
+    background-color: #000 !important;
+}
+a.button.wc-backward:hover {
+	background-color: #000 !important;
+	color: #fff !important;
+}
+
 /*responsive added css by satish*/
 
 @media screen and (max-width:1024px) {
@@ -35580,6 +35630,11 @@ form.checkout_coupon.woocommerce-form-coupon button:hover{
 	.login-left img{
 		display: none;
 	}
+	.payment-succes .order_details li{
+		float: none !important;
+	}
+
+	.payment-succes .order_details li strong
 }
 
 

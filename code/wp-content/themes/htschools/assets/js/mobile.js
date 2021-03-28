@@ -17,6 +17,8 @@ $(document).ready(function($) {
   $('.loggedin_user_div').parent().parent().next().addClass('margin-ul');
   $('.course-button').removeClass('button');
   $(".course-listslider a").addClass('item');
+  $('.progress_key_1, .progress_key_2').parents().parents().parents().parents().addClass("hide-price");
+    
   // alert("test");
   $(window).scroll(function() {    
     var scroll = $(window).scrollTop();

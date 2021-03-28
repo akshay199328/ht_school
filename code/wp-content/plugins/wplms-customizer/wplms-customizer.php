@@ -164,3 +164,66 @@ function custom_add_second_button_link($metabox){
   return $metabox;
 
 }
+add_filter('wplms_course_metabox','custom_learning_goals');
+
+function custom_learning_goals($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Learning Goals','vibe-learninggoals'), // <label>
+  'desc'  => __('Learning Goals','vibe-learninggoals'), // description
+  'id'    => $prefix.'learning_goals', // field id and name
+  'type'  => 'editor' // type of field
+                       );
+  return $field1;
+   
+}
+add_filter('wplms_course_metabox','custom_age_group');
+function custom_age_group($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Course Age Group','vibe-courseagegroup'), // <label>
+  'desc'  => __('Course Age Group','vibe-courseagegroup'), // description
+  'id'    => $prefix.'course_age_group', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}
+
+add_filter('wplms_course_metabox','custom_frequency');
+function custom_frequency($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Frequency','vibe-frequency'), // <label>
+  'desc'  => __('Frequency','vibe-frequency'), // description
+  'id'    => $prefix.'course_frequency', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}
+add_filter('wplms_course_metabox','custom_sessions');
+function custom_sessions($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Sessions','vibe-sessions'), // <label>
+  'desc'  => __('Sessions','vibe-sessions'), // description
+  'id'    => $prefix.'course_sessions', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}
+
+add_filter('wplms_course_metabox','custom_session_length');
+function custom_session_length($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Session Length','vibe-session_length'), // <label>
+  'desc'  => __('Session Length','vibe-session_length'), // description
+  'id'    => $prefix.'course_session_length', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}

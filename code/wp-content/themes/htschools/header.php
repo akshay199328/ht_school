@@ -153,16 +153,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     }
                 ?>
                 <?php
-                    $args = apply_filters('wplms-top-menu',array(
-                        'theme_location'  => 'top-menu',
-                        'container'       => '',
-                        'depth'           => 1,
-                        'menu_class'      => 'topmenu',
-                        'fallback_cb'     => 'vibe_set_menu',
-                    ));
-
-                    wp_nav_menu( $args );
-                ?>
+                   $menu_name = 'top-menu'; //menu slug
+                   $locations = get_nav_menu_locations();
+                   $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                   $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+                   //print_r($menuitems);
+                   echo "<ul>";
+                   foreach ($menuitems as $menu) {  ?>
+                       <li><a href="<?php echo $menu->url; ?>"></a><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.png"/></span><span class="text"><?php echo $menu->title; ?></span></span></li>
+                   <?php }
+                   echo "</ul>";
+                   ?>
                 </div>
             </div>
         </div>

@@ -617,7 +617,7 @@ class WPLMS_Course_Component_Init{
                 'enter_time_amount' =>  _x('Enter time amount','','wplms'),
                 'refresh' => _x('Refresh','','wplms'),
                 'upload_csv_to_add_students' => _x('Upload csv file to add students to this course','','wplms'),
-                'take_this_course'=>_x('Take this Course','course button status','wplms'),
+                'take_this_course'=>_x('Join Course','course button status','wplms'),
                 'apply_to_course' => _x('Apply for course?','course button','wplms'),
                 'ok' => _x('ok','course button','wplms'),
                 'yes' => _x('Yes','course button','wplms'),

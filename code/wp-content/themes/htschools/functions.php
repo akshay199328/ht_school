@@ -509,11 +509,25 @@ function reg_new_user(){
     echo json_encode($response); exit;
 
 }
+
 function send_sms($mobile, $message){
     $myfile = fopen(__DIR__ . "/../../../otp.txt", "a") or die("Unable to open file!");
     $txt = $mobile . " : " . $message . "\n";
     fwrite($myfile, $txt);
     fclose($myfile);
+    
+    $url = 'http://admagister.net/api/mt/SendSMS?channel=Trans&DCS=0&flashsms=0&number=91' . $mobile . '&text=' . $message . '&route=30&APIKey=' . ADMAGISTER_API_KEY . '&senderid=' . ADMAGISTER_SENDER_ID;
+    $crl = curl_init();
+    
+    curl_setopt($crl, CURLOPT_URL, $url);
+    curl_setopt($crl, CURLOPT_FRESH_CONNECT, true);
+    curl_setopt($crl, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($crl);
+    
+    if(!$response){
+        return false;
+    }
+    curl_close($crl);
     return true;
 }
 

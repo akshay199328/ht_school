@@ -1519,6 +1519,8 @@ class BP_Course_Action{
 		        $credits =apply_filters('wplms_course_status_display','<a href="'.get_permalink($course_id).'"><strong>'.sprintf(__('COURSE %s ENABLED','wplms'),'<span class="subs">').'</span></strong></a>',$course_id);
 		        break;
 		      }
+
+               $credits ='';
 	      }else{
 	      		switch($check_course){
 		        case 0:

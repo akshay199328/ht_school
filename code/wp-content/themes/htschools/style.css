@@ -53,6 +53,8 @@ b, strong {
     font-weight: bold;
 }
 dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
+.btn:focus, .btn.focus{outline: 0;
+    box-shadow: none;}
 .mrg{padding: 0px!important;margin: 0px;}
 .pull-left{ 
   float: left;
@@ -3617,6 +3619,7 @@ Course Details
 /*--------------------------------------------------------------
 # login css
 --------------------------------------------------------------*/
+.login .form-control:focus {border-color: #000;}
 .login {
     background: #D5EBFF;
     padding: 6px 0px 40px;
@@ -3748,6 +3751,7 @@ Course Details
   margin-top: 30px;
 }
 #login-step-2 form{margin: 0px;}
+#login-step-3 form{    margin: 55px 0px 21px;}
 .otp-ontent {
     text-align: center;
 }

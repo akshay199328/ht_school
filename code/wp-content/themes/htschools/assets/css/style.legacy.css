@@ -35406,18 +35406,12 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 .cart-contents:after{display: none!important;}
 
 .cart-contents:before {
-    content: "\f242";
-    display: inline-block;
-    font-family: bootstrap-icons !important;
-    font-style: normal;
-    font-weight: normal !important;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: text-bottom;
-    -webkit-font-smoothing: antialiased;
-    /*position: absolute;*/
-    font-size: 28px;
+    content: '';
+    background: url('../images/cart.svg');
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 25px;
 }
 .cart-contents:hover {
     text-decoration: none;
@@ -35430,6 +35424,11 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     padding: 1px 6px;
     line-height: 1;
     vertical-align: top;
+    text-align: right;
+    float: right;
+    position: relative;
+    display: block;
+    left: 17px;
 }
 
 /*added by satish*/

@@ -79,8 +79,10 @@ $topics = wp_get_post_tags(get_the_ID());
         <div class="col-md-8 col-sm-8">
           <div class="content-right">
             <div class="details">
-                <h4>By, <?php echo $postCreatorName; ?></h4>
-                <h5><?php echo $postDate; ?></h5>
+              <div class="post-creator">
+                <p>By, <?php echo $postCreatorName; ?> <?php echo $postDate; ?></p>
+              <!--   <p><?php echo $postDate; ?></p> -->
+              </div>
                 <?php the_content(); ?>
             </div>
             <div class="topic_details">
@@ -101,12 +103,26 @@ $topics = wp_get_post_tags(get_the_ID());
                 ?>
               </ul>
             </div>
-            <div class="related_post">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <div class="<?php echo vibe_get_container(); ?>">
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <div class="atwork_img">
+          <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+        </div>
+        </div>
+        <div class="col-sm-12 col-md-8">
+                      <div class="related_post details">
               <?php
                 // Related Posts
                 $tags = wp_get_post_tags(get_the_ID());
                 if ($tags) {
-                    echo '<h2>Related Posts</h2>';
+                    echo '<h2>Related News</h2>';
                     $first_tag = $tags[0]->term_id;
 
                     $args=array(
@@ -121,12 +137,16 @@ $topics = wp_get_post_tags(get_the_ID());
                     if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
                                   // if( $Query->current_post != 0 ) { 
                       ?>
+                      <div class="details-middle devide">
+                        <ul>
                       <li>
                           <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                           <div class="link">
                               <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                           </div>
                       </li>
+                    </ul>
+                  </div>
                       <?php 
                               // }
                   endwhile; endif;
@@ -135,11 +155,14 @@ $topics = wp_get_post_tags(get_the_ID());
               }
             ?>
             </div>
-          </div>
         </div>
-
       </div>
     </div>
+
+
+
+
+
   </div>
 </section>
 <?php

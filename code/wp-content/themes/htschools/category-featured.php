@@ -7,7 +7,7 @@ get_header(vibe_get_header());
 </section>
 <section class="news-listing grey-background">
   <div class="<?php echo vibe_get_container(); ?>">
-    <div class="row">
+    <div class="">
     <div class="breadcrumbs background-breadcrumbs">
       <?php vibe_breadcrumbs(); ?>  
     </div>

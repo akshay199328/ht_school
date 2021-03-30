@@ -48,6 +48,8 @@ if ( has_post_thumbnail() ) {
     $featured_image = get_the_post_thumbnail_url();
 }
 
+$postCreatorName = strtoupper(get_post_meta(get_the_ID(), 'post_creator_name', true));
+
 // Current Post Tags List.
 $topics = wp_get_post_tags(get_the_ID());
 
@@ -77,6 +79,8 @@ $topics = wp_get_post_tags(get_the_ID());
         <div class="col-md-8 col-sm-8">
           <div class="content-right">
             <div class="details">
+                <h4>By, <?php echo $postCreatorName; ?></h4>
+                <h5><?php echo $postDate; ?></h5>
                 <?php the_content(); ?>
             </div>
             <div class="topic_details">

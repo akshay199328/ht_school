@@ -35418,8 +35418,8 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     text-decoration: none;
 }
 .cart-contents-count {
-        color: #fff;
-    background-color: #2ecc71;
+    color: #fff;
+    background-color: #FF0510;
     font-weight: bold;
     border-radius: 10px;
     padding: 0;
@@ -35431,7 +35431,7 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     right: -4px;
     top: -4px;
     font-size: 10px;
-    line-height: 19px;
+    line-height: 20px;
     height: 20px;
     width: 20px;
 }

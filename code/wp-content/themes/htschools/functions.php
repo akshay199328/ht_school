@@ -509,7 +509,6 @@ function reg_new_user(){
     echo json_encode($response); exit;
 
 }
-
 function send_sms($mobile, $message){
     $myfile = fopen(__DIR__ . "/../../../otp.txt", "a") or die("Unable to open file!");
     $txt = $mobile . " : " . $message . "\n";
@@ -644,7 +643,7 @@ function wplms_hide_course_credits_for_course_students($credits,$course_id){
   }
   $user_id = get_current_user_id();
   if(wplms_user_course_check($user_id,$course_id)){
-    $credits = ''; //'Subscribed'; //hide credits for course students and display "Subscribed" message
+    $credits = '';//'Subscribed'; //hide credits for course students and display "Subscribed" message
   }
   return $credits;
 }

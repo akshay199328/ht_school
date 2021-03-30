@@ -20,11 +20,11 @@ get_header(vibe_get_header());
              <header class="section-header">
                 <h2>Popular Courses</h2>
                 <p>We offer classes for all ages throughout the year.</p>
-                <a href="http://localhost/Htschools-git/code/all-courses/" class="exlore-link desktop-btn">Explore all Courses</a>
+                <a href="<?php echo get_home_url();?>/all-courses/" class="exlore-link desktop-btn">Explore all Courses</a>
             </header>
             <div class="adworks">
               <a href="https://www.vivo.com/in" target="_blank">
-              <img src="http://testourcode.com/ads/adwork-2.jpg" />
+              <img src="https://testourcode.com/ads/adwork-2.jpg" />
               </a>
             </div>
           </div>
@@ -144,7 +144,7 @@ get_header(vibe_get_header());
           <div class="col-sm-12">
               <div class="header-heading">
                 <h2>Latest News</h2>
-                <a href="#" class="news-btn">All News</a>
+                <a href="<?php echo get_home_url();?>/news" class="news-btn">All News</a>
               </div>
           </div>
           <?php
@@ -167,7 +167,7 @@ get_header(vibe_get_header());
               ?>
               <img src="<?php echo $featured_image; ?>" class="img-fluid">
               <div class="link">
-                <a href="#"><?php echo get_the_title() ?></a>
+                <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
             </div>
           </div>

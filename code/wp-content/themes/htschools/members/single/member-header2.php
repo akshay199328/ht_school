@@ -8,7 +8,7 @@
  */
 if ( !defined( 'ABSPATH' ) ) exit;
 ?>
-
+<style type="text/css">.material #content{margin-top:100px;}</style>
 <?php do_action( 'bp_before_member_header' ); ?>
 <div class="<?php echo vibe_get_container(); ?>">
 	<div class="row">
@@ -24,6 +24,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 				<h3>
 					<a href="<?php bp_displayed_user_link(); ?>"><?php bp_displayed_user_fullname(); ?></a>
 				</h3>
+
+				<?php bp_displayed_user_email(); ?>
 				<div class="location">
 				<?php
 					$user_id=bp_displayed_user_id();

@@ -46,13 +46,12 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 							$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 							$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
-						$courseinfo= get_post_meta( $product_id, $key = 'vibe_courses', $single = false ) ;
+							$courseinfo= get_post_meta( $product_id, $key = 'vibe_courses', $single = false ) ;
 
-						$course_id=$courseinfo[0][0];
+							$course_id=$courseinfo[0][0];
 
-						$coursearray = get_post($course_id,ARRAY_A);
-						
-						$courseslug= $coursearray['guid'];
+							$courseslug=get_site_url().'/?p='.$course_id;
+
 
 
 							if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {

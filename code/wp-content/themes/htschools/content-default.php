@@ -69,7 +69,7 @@ if(!empty($instructors)){
                 </div>
                 <div class="col-sm-12 col-md-2 mrg">
                     <div class="top-icon">
-                        <li><a href=""><i class="bi bi-bookmark"></i></a></li>
+                        <li> <?php wpfp_link(); ?></li>
                         <li><a href=""><i class="bi bi-share"></i></a></li>
                     </div>
                 </div>

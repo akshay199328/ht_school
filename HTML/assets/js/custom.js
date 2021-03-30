@@ -23,7 +23,7 @@ jQuery(window).scroll(function() {
     }
 });
 $(document).ready(function(){
-  alert("Hello");
+  // alert("Hello");
   $(".course-fees a:contains(Join this course)").parent().addClass('gfghfgh');
 });
 jQuery(document).ready(function() {

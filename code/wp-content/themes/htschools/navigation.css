@@ -121,6 +121,7 @@
     color: #fff;
 }
 .navegacion .menu li:hover a, .navegacion .menu li.active a{background:#000;color: #fff}
+.navegacion .menu li:hover .close-navigation:after, .navegacion .menu li a:hover .close-navigation:after{color: #fff}
 .menu li.active .close-navigation{color: #fff}
 .navegacion .menu li span.icon-menu{
     margin-right: 12px;

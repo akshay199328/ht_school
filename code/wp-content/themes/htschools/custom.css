@@ -154,9 +154,7 @@ padding: 15px 0;
     border-bottom: 0px solid var(--border)!important;
 }
 .Popular-Courses .section-header{z-index: 9;background-color: transparent!important;box-shadow: none;}
-section#title{
-        margin-top: 45px;
-}
+
 
 .course-listing{
         margin-top: 0;
@@ -263,7 +261,7 @@ section#title{
 
 .course-fees .the_course_button .course_button{
         padding: 12px 0px 12px 0px!important;
-    background-color: #fbca00;
+    background-color: #fbca00!important;
     width: 203px !important;
     font-size: 20px!important;
     font-weight: bold;
@@ -278,6 +276,7 @@ section#title{
     margin: 5px 0px 0px;
     float: left;
 }
+.progress_key_1, .progress_key_2{background: #00D98E!important;}
 .course-fees .the_course_button .course_button a{
     color: #004135!important;
     font-weight: bold;
@@ -340,7 +339,7 @@ section#title{
     box-shadow: none!important;
     padding: 0!important;*/
 }
-.progress_key_1, .progress_key_2{background: #00D98E!important;}
+
 
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}

@@ -35319,22 +35319,10 @@ section#title{padding: 30px 0!important;background: #fff}
 .woocommerce-page .woocommerce-Price-currencySymbol span{font-size: 18px; color: #000}
 .shop_table_responsive{background: #fff;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*------Added by bhavna-------*/
+section#title{
+        padding-top: 76px!important;
+}
 .left-menu nav {
     float: left;
 }
@@ -35825,10 +35813,10 @@ section.latest-news{
 	}
 
 	section#title{
-		padding: 0px 0!important;
+		padding: 0px 0;
 	}
 	.breadcrumbs{
-		margin-top: 20px !important;
+		margin-top: 0px !important;
 	}
 
 /*responsive added css by satish*/

@@ -40,8 +40,8 @@ nav .menu li:last-child a{padding-right: 0px!important;}
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
-    color: #fff;
-    top: 4px;
+    color: #000;
+    top: 0px;
     position: relative;
 }
 .left-menu ul li.custom-dropdown a:after {
@@ -264,13 +264,14 @@ section#title{
 .course-fees .the_course_button .course_button{
         padding: 12px 0px 12px 0px!important;
     background-color: #fbca00;
+    width: 203px !important;
     font-size: 20px!important;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.35;
     letter-spacing: normal;
-    text-align: left;
+    text-align: center;
     color: #004135!important;
     width: auto;
     border-radius: 0;
@@ -281,9 +282,9 @@ section#title{
     color: #004135!important;
     font-weight: bold;
     text-transform: initial;    
-    padding: 12px 32px 12px 25px!important;
-    width: 100%;
-    background: #fade3b;
+    /*padding: 12px 32px 12px 25px!important;*/
+    /*width: 100%;*/
+    /*background: #fade3b;*/
 }
 .learing-goals .heading p, .heading h3,.infograph .heading h4, .testimonials .heading h4{ text-transform: initial;}
 .share-icon a, .nav-tabs .nav-link.active{color: #000!important;}

@@ -240,3 +240,15 @@ function custom_lectures($field1){
   return $field1;
    
 }
+
+add_filter('wplms_course_metabox','custom_background_image');
+function custom_background_image($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Background Image','vibe-background-image'), // <label>
+  'desc'  => __('Background Image','vibe-background-image'), // description
+  'id'    => $prefix.'course_background_image', // field id and name
+  'type'  => 'image' // type of field
+  );
+  return $field1;
+}

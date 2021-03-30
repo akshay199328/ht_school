@@ -35406,30 +35406,34 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 
 .cart-contents:after{display: none!important;}
 
-.cart-contents:before {
+/*.cart-contents:before {
     content: '';
     background: url('../images/cart.svg');
     display: block;
     position: absolute;
     width: 30px;
     height: 25px;
-}
+}*/
 .cart-contents:hover {
     text-decoration: none;
 }
 .cart-contents-count {
-    color: #fff;
+        color: #fff;
     background-color: #2ecc71;
     font-weight: bold;
     border-radius: 10px;
-    padding: 1px 6px;
-    line-height: 1;
+    padding: 0;
     vertical-align: top;
-    text-align: right;
+    text-align: center;
     float: right;
-    position: relative;
+    position: absolute;
     display: block;
-    left: 17px;
+    right: -4px;
+    top: -4px;
+    font-size: 10px;
+    line-height: 19px;
+    height: 20px;
+    width: 20px;
 }
 
 /*added by satish*/

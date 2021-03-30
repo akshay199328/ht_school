@@ -134,6 +134,7 @@ section {
     float: left;
   }
   .left-spacing {padding-left: 25px!important;}
+
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -901,6 +902,12 @@ Course Details
     height: 100%;
     transition: all 0.5s ease;
 
+}
+.course_background_img{
+      width: 100%;
+    position: absolute;
+    left: 0;
+    height: 100%;
 }
 .static_banner {
     /*position: relative;*/

@@ -1520,7 +1520,7 @@ class BP_Course_Action{
 		        break;
 		      }
 
-               $credits ='';
+              $credits ='';
 	      }else{
 	      		switch($check_course){
 		        case 0:

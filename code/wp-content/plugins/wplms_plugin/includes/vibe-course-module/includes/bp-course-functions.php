@@ -686,7 +686,7 @@ function the_course_button($id=NULL){
         
         'security'=>function_exists('vibebp_get_setting')?vibebp_get_setting('client_id'):'',
           'translations'=>array(
-            'take_this_course'=>_x('Join Course','course status','wplms'),
+            'take_this_course'=>_x('Join Course','course button status','wplms'),
             'apply_to_course' => _x('Apply for course?','','wplms'),
             'ok' => _x('ok','','wplms'),
             'yes' => _x('Yes','','wplms'),
@@ -703,7 +703,7 @@ function the_course_button($id=NULL){
         'show_price'=>0,
         'security'=>function_exists('vibebp_get_setting')?vibebp_get_setting('client_id'):'',
           'translations'=>array(
-            'take_this_course'=>_x('Join Course','course status','wplms'),
+            'take_this_course'=>_x('Join Course','course button status','wplms'),
             
             'apply_to_course' => _x('Apply for course?','','wplms'),
             'ok' => _x('ok','','wplms'),
@@ -754,7 +754,7 @@ function the_course_button($id=NULL){
     if(function_exists('vibebp_get_setting') && !empty(vibebp_get_setting('bp_single_page'))){
       $default_link = get_permalink(vibebp_get_setting('bp_single_page'));
     }
-    echo '<span class="the_course_button" data-id="'.$course_id.'"><strong class="course_button  is-loading full '.((function_exists('vibe_get_option') && vibe_get_option('enable_ajax_registration_login'))?'auto_trigger':'').'">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.(is_wplms_4_0()?(empty($init->is_block)?$default_link:get_permalink($course_id)):get_permalink($course_id).'?error=login').'">'.apply_filters('wplms_take_this_course_button_label',__('Join Course','wplms'),$course_id).'</a>',$course_id).'</strong></span>'; 
+    echo '<span class="the_course_button" data-id="'.$course_id.'"><strong class="course_button  is-loading button full '.((function_exists('vibe_get_option') && vibe_get_option('enable_ajax_registration_login'))?'auto_trigger':'').'">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.(is_wplms_4_0()?(empty($init->is_block)?$default_link:get_permalink($course_id)):get_permalink($course_id).'?error=login').'">'.apply_filters('wplms_take_this_course_button_label',__('Join Course','wplms'),$course_id).'</a>',$course_id).'</strong></span>'; 
     
     return;
   }
@@ -800,11 +800,11 @@ function the_course_button($id=NULL){
 
                     switch($course_user){
                     case 1:
-                      echo  apply_filters('wplms_start_course_button','<input type="submit" class="'.((isset($id) && $id )?'':'course_button full ').'" value="'.__('START COURSE','wplms').'"  data-id="'.$course_id.'">',$course_id); 
+                      echo  apply_filters('wplms_start_course_button','<input type="submit" class="'.((isset($id) && $id )?'':'course_button full ').'button" value="'.__('START COURSE','wplms').'"  data-id="'.$course_id.'">',$course_id); 
                       wp_nonce_field('start_course'.$user_id,'start_course');
                     break;
                     case 2:  
-                      echo  apply_filters('wplms_continue_course_button','<input type="submit" class="'.((isset($id) && $id )?'':'course_button full ').'" value="'.__('CONTINUE COURSE','wplms').'">',$course_id);
+                      echo  apply_filters('wplms_continue_course_button','<input type="submit" class="'.((isset($id) && $id )?'':'course_button full ').'button" value="'.__('CONTINUE COURSE','wplms').'">',$course_id);
                       wp_nonce_field('continue_course'.$user_id,'continue_course');
                     break;
                     case 3:
@@ -814,14 +814,14 @@ function the_course_button($id=NULL){
 
                       $finished_course_access = vibe_get_option('finished_course_access');
                       if(isset($finished_course_access) && $finished_course_access){
-                        echo apply_filters('finish_course_button_access_html','<input type="submit" class="'.((isset($id) && $id )?'':'course_button full ').'" value="'.__('FINISHED COURSE','wplms').'" data-id="'.$course_id.'">',$user_id,$course_id,$course_user);
+                        echo apply_filters('finish_course_button_access_html','<input type="submit" class="'.((isset($id) && $id )?'':'course_button full ').'button" value="'.__('FINISHED COURSE','wplms').'" data-id="'.$course_id.'">',$user_id,$course_id,$course_user);
                         wp_nonce_field('continue_course'.$user_id,'continue_course');
                       }else{
                         echo apply_filters('finish_course_button_html','<a href="'.apply_filters('wplms_finished_course_link','#',$course_id).'" class="full course_button"  data-id="'.$course_id.'">'.__('COURSE FINISHED','wplms').'</a>',$user_id,$course_id,$course_user);
                       }
                     break;
                     default:
-                      $course_button_html = '<a class="course_button" data-id="'.$course_id.'">'.__('COURSE ENABLED','wplms').'<span>'.__('CONTACT ADMIN TO ENABLE','wplms').'</span></a>';
+                      $course_button_html = '<a class="course_button button" data-id="'.$course_id.'">'.__('COURSE ENABLED','wplms').'<span>'.__('CONTACT ADMIN TO ENABLE','wplms').'</span></a>';
                       echo apply_filters('wplms_default_course_button',$course_button_html,$user_id,$course_id,$course_user);
                     break;
                   }  
@@ -845,7 +845,7 @@ function the_course_button($id=NULL){
                 $pid .= '?redirect';
               }
             }
-            echo apply_filters('wplms_expired_course_button','<div class="the_course_button" data-id="'.$course_id.'"><a href="'.$pid.'" class="'.((isset($id) && $id )?'course_button':'course_button full  is-loading paid_course').'">'.__('Course Expired','wplms').'&nbsp;<span>'.__('Click to renew','wplms').'</span></a></div>',$course_id);   
+            echo apply_filters('wplms_expired_course_button','<div class="the_course_button" data-id="'.$course_id.'"><a href="'.$pid.'" class="'.((isset($id) && $id )?'course_button':'course_button full  is-loading paid_course').' button">'.__('Course Expired','wplms').'&nbsp;<span>'.__('Click to renew','wplms').'</span></a></div>',$course_id);   
       }
     
    }else{
@@ -866,13 +866,13 @@ function the_course_button($id=NULL){
         //Check Partial free course setting.
         $partial_free_course = get_post_meta($course_id,'vibe_partial_free_course',true);
         if( vibe_validate($partial_free_course) && is_user_logged_in() ){
-          echo apply_filters('wplms_take_course_button_html','<a href="'.get_permalink($course_id).'?subscribe" class="course_button full paid_course is-loading">'.apply_filters('wplms_take_this_course_button_label',__('SUBSCRIBE FOR FREE','wplms'),$course_id).apply_filters('wplms_course_button_extra',$extra,$course_id).'</a>',$course_id);
+          echo apply_filters('wplms_take_course_button_html','<a href="'.get_permalink($course_id).'?subscribe" class="course_button full button paid_course is-loading">'.apply_filters('wplms_take_this_course_button_label',__('SUBSCRIBE FOR FREE','wplms'),$course_id).apply_filters('wplms_course_button_extra',$extra,$course_id).'</a>',$course_id);
         }else{
          $extra = apply_filters('wplms_course_button_extra',$extra,$course_id);
-          echo apply_filters('wplms_take_course_button_html','<div class="the_course_button" data-id="'.$course_id.'"><div class="course_button full paid_course is-loading">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.$pid.'">'.apply_filters('wplms_take_this_course_button_label',__('Join Course','wplms'),$course_id).'</a>',$course_id).($extra?'<div class="extra_details">'.$extra.'</div>':'').'</div></div>',$course_id);
+          echo apply_filters('wplms_take_course_button_html','<div class="the_course_button" data-id="'.$course_id.'"><div class="course_button full button paid_course is-loading">'.apply_filters('wplms_course_non_loggedin_user','<a href="'.$pid.'">'.apply_filters('wplms_take_this_course_button_label',__('Join Course','wplms'),$course_id).'</a>',$course_id).($extra?'<div class="extra_details">'.$extra.'</div>':'').'</div></div>',$course_id);
         }
       }else{
-        echo apply_filters('wplms_private_course_button_html','<span class="the_course_button" data-id="'.$course_id.'"><a href="'.apply_filters('wplms_private_course_button','#',$course_id).'" class="course_button full ">'. apply_filters('wplms_private_course_button_label',__('PRIVATE COURSE','wplms'),$course_id).'</a></span>',$course_id); 
+        echo apply_filters('wplms_private_course_button_html','<span class="the_course_button" data-id="'.$course_id.'"><a href="'.apply_filters('wplms_private_course_button','#',$course_id).'" class="course_button full button">'. apply_filters('wplms_private_course_button_label',__('PRIVATE COURSE','wplms'),$course_id).'</a></span>',$course_id); 
       }
    }
 }

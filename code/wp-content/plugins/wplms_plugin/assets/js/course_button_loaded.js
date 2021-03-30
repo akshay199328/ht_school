@@ -7083,7 +7083,7 @@
         }),
          mr("button", {
             type: "submit",
-            className: "button full course_button progress_key_" + l.user_status
+            className: "full course_button progress_key_" + l.user_status
         }, mr("span", {
             dangerouslySetInnerHTML: {
                 __html: a

@@ -469,6 +469,7 @@ class bp_course_filters{
 	?>
 
 	<?php do_action( 'bp_before_course_loop' ); ?>
+
 	<?php 
 	if ( bp_course_has_items( $args ) ) : ?>
 
@@ -525,22 +526,6 @@ class bp_course_filters{
 </div>
 </div>
 </section>
-  	<?php do_action( 'bp_after_directory_course_list' ); ?>
-  	<div id="pag-bottom" class="pagination">
-
-			<div class="pag-count" id="course-dir-count-bottom">
-
-				<?php bp_course_pagination_count(); ?>
-
-			</div>
-
-			<div class="pagination-links" id="course-dir-pag-bottom">
-
-				<?php bp_course_item_pagination(); ?>
-
-			</div>
-
-		</div>
 
 	<?php else: ?>
 

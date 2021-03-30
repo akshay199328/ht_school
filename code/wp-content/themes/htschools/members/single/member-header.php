@@ -8,7 +8,7 @@
  */
 if ( !defined( 'ABSPATH' ) ) exit;
 ?>
-
+<style type="text/css">.material #content{margin-top:100px;}</style>
 <?php do_action( 'bp_before_member_header' ); ?>
 <div id="item-header-avatar">
 	<a href="<?php bp_displayed_user_link(); ?>">

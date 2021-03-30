@@ -8,7 +8,7 @@
  */
 if ( !defined( 'ABSPATH' ) ) exit;
 ?>
-
+<style type="text/css">.material #content{margin-top:60px;}</style>
 <?php do_action( 'bp_before_member_header' ); ?>
 <div class="<?php echo vibe_get_container(); ?>">
 	<div class="row">

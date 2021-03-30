@@ -692,3 +692,14 @@ function check_if_logged_in()
         exit;
     }
 }
+
+add_filter( 'woocommerce_checkout_fields', 'custom_override_default_address_fields' );
+function custom_override_default_address_fields($fields){
+    global $woocommerce;
+    $country = $woocommerce->customer->get_country();
+    if($country == 'US'){
+        $fields['billing']['billing_city']['required'] = false;
+        $fields['shipping']['billing_city']['required'] = false;
+    }
+    return $fields;
+}

@@ -224,7 +224,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       <div class="cv-detilslist">
                         <?php $lectures = bp_course_get_curriculum_units(get_the_ID()); ?>
                         <span><h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true)?> Sessions</h6></span>
-                        <span><h6><?php echo count($lectures);?> lectures</h6></span>
+                        <span><h6><?php echo get_post_meta($post->ID,'vibe_course_lectures',true);?> lectures</h6></span>
                         <span><h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6></span>
                       </div>
                     </div>
@@ -233,7 +233,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                      
                       <?php locate_template( array( 'course/single/curriculum.php'  ), true );?>
                       <div class="viewall-session">
-                        <a href="#" class="all-session" id="view_all_session">View all Sessions</a>
+                        <a href="#" class="all-session" id="view_all_sessions">View all Sessions</a>
                       </div>
                     </div>
                   </div>

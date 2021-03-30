@@ -43,7 +43,7 @@ if(!empty($course_curriculum)){
 		}
 	}
 	$countunit=count($course_units);
-	$course_units_array = array_slice($course_units, 0, 2);
+	$course_units_array = array_slice($course_units, 0, 4);
 	$counter=0;
 	?>
 	<div class="only-4" id="only-4">

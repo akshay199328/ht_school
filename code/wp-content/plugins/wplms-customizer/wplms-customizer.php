@@ -227,3 +227,16 @@ function custom_session_length($field1){
   return $field1;
    
 }
+
+add_filter('wplms_course_metabox','custom_lectures');
+function custom_lectures($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Lectures','vibe-session_length'), // <label>
+  'desc'  => __('Lectures','vibe-session_length'), // description
+  'id'    => $prefix.'course_lectures', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}

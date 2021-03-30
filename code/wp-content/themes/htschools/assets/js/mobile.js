@@ -12,13 +12,16 @@ $(window).on('scroll', function() {
     }
 }); 
 $(document).ready(function($) { 
-  alert(1234);
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');
   $('.loggedin_user_div').parent().parent().next().addClass('margin-ul');
   $('.course-button').removeClass('button');
   $(".course-listslider a").addClass('item');
   $('.progress_key_1, .progress_key_2').parents().parents().parents().parents().addClass("hide-price");
-
+  $('#all').hide();
+  $('#view_all_sessions').click(function(){
+    $('#all').show();
+    $('#only-4').hide();
+  })
   // alert("test");
   $(window).scroll(function() {    
     var scroll = $(window).scrollTop();

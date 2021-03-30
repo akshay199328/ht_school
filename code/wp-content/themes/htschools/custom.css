@@ -154,8 +154,13 @@ padding: 15px 0;
     border-bottom: 0px solid var(--border)!important;
 }
 .Popular-Courses .section-header{z-index: 9;background-color: transparent!important;box-shadow: none;}
+section#title{
+        margin-top: 45px;
+}
+
 .course-listing{
-    margin-top: 15px;
+        margin-top: 0;
+    padding: 0;
 }
 .align-items-center {
     -ms-flex-align: center!important;
@@ -257,7 +262,7 @@ padding: 15px 0;
 .course-fees span.amount+.subs{display: none;}
 
 .course-fees .the_course_button .course_button{
-        padding: 12px 32px 12px 25px!important;
+        padding: 12px 0px 12px 0px!important;
     background-color: #fbca00;
     font-size: 20px!important;
     font-weight: bold;
@@ -272,7 +277,14 @@ padding: 15px 0;
     margin: 5px 0px 0px;
     float: left;
 }
-.course-fees .the_course_button .course_button a{color: #004135!important;font-weight: bold;text-transform: initial;}
+.course-fees .the_course_button .course_button a{
+    color: #004135!important;
+    font-weight: bold;
+    text-transform: initial;    
+    padding: 12px 32px 12px 25px!important;
+    width: 100%;
+    background: #fade3b;
+}
 .learing-goals .heading p, .heading h3,.infograph .heading h4, .testimonials .heading h4{ text-transform: initial;}
 .share-icon a, .nav-tabs .nav-link.active{color: #000!important;}
 .cv-detilslist span h6{    font-weight: normal !important;}

@@ -8,7 +8,7 @@ $title=get_post_meta($id,'vibe_title',true);
 if(!isset($title) || !$title || (vibe_validate($title))){
 
 ?>
-<section class="course-listing" id="title">
+<section class="course-listing">
 	<div class="innerheader-space"></div>
 	<?php do_action('wplms_before_title'); ?>
     <div class="<?php echo vibe_get_container(); ?>">

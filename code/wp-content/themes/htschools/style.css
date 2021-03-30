@@ -366,6 +366,9 @@ section {
 .right-menu ul li:last-child{
   padding-right: 0px;    margin-right: 0;
 }
+.right-menu ul li a img{
+
+}
 .right-menu ul li a{
   color: #000000!important;
   padding: 0px;
@@ -4410,7 +4413,7 @@ border-color: transparent;
     .header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}
     .mobile-nav-toggle{float: left;margin-top: 9px;}
     .right-menu .icon{display: block}
-    .right-menu ul li{margin-right: 15px;}
+    /*.right-menu ul li{margin-right: 15px;}*/
     .header .logo img{max-width: 100px;margin: 0;margin-left: 25px;}
     .mobile-add{display:block;margin-bottom: 30px;}
     
@@ -4603,10 +4606,16 @@ border-color: transparent;
   }
   .add-width{width: 100%!important;}
   .navegacion ul, .menu-back{width: 100%!important;padding: 50px 50px 30px 50px!important;}
-  .right-menu ul li {margin-right: 10px;}
+  /*.right-menu ul li {margin-right: 10px;}*/
   .custom_topmenu {margin-left: 10px!important;}
-  .custom_topmenu li {margin-right: 0px!important;}
+  .vibebp-login {margin-right: 0px!important;}
   .header .logo img{    margin-left: 10px!important;}
+  .right-menu ul li{margin-right: 11px;}
+  .cart-contents:before{background-size: 70% 70%!important;background-repeat: no-repeat!important;}
+  .right-menu ul li a img {width: 70%;}
+  a.loggedin_user img{margin-right: 0px!important;}
+  .custom_topmenu .loggedin_user:before{display: none!important;}
+  .cart-contents:before{    height: 40px!important;}
 
 }
 .paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}

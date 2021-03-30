@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         <span class="lines"></span>
                     </a> 
                 </div>
-                <div class="middle-menu col-lg-4">
+                <div class="middle-menu col-sm-2 col-lg-4">
                     <i class="bi bi-list mobile-nav-toggle"></i>
                     <?php
                         $url = apply_filters('wplms_logo_url',VIBE_URL.'/assets/images/logo.png','header');
@@ -116,12 +116,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         }
                     ?>
                 </div>
-                <div class="col-lg-4 mrg right-menu">
+                <div class="col-sm-10 col-lg-4 mrg right-menu">
                 <ul class="topmenu custom_topmenu">
 
                     <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
-                        echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a href="'.get_bloginfo('url').'/login-register" rel="nofollow" ><span>'.__('Login','vibe').'</span></a>').'</li>';
+                        echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a href="'.get_bloginfo('url').'/login-register" rel="nofollow" >
+                          <span class="icon"><img src="'.get_bloginfo('template_url').'/assets/images/login-profile.svg"/></span>
+                          <span class="text">'.__('Login','vibe').'</span>
+                          </a>').'</li>';
                         do_action('wp_head_wplms_login');
                     }else{
 
@@ -159,11 +162,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                        do_action('woocommerce_add_to_cart_fragments'); 
                     }
                    foreach ($menuitems as $menu) {  ?>
-                       <li><a href="<?php echo $menu->url; ?>"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.png"/></span><span class="text"><?php echo $menu->title; ?></span></span></a></li>
+                       <li><a href="<?php echo $menu->url; ?>"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
                    <?php }
                    echo "</ul>";
                    ?>
                 </div>
             </div>
         </div>
+
+
         

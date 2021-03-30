@@ -180,8 +180,8 @@
     display: block;
     position: relative;
     margin-top: 190px;
-    height: 300px;
-    overflow-y: scroll;
+    /*height: 300px;*/
+    /*overflow-y: scroll;*/
 
 }
 .bootom-link ul{
@@ -189,7 +189,8 @@
     position: relative;
      padding: 20px 0px 0px!important;
      width: 100%;
-         background: transparent!important;
+background: transparent!important;
+height: auto!important;
 }
 .bootom-link ul ul{
     padding: 0px!important;
@@ -201,6 +202,12 @@
     line-height: 20px!important;
     padding: 0px 17px !important;
     border-bottom: 0px!important;
+}
+.bootom-link p{
+font-size: 12px!important;
+    font-weight: normal!important;
+    line-height: 20px!important;
+    padding: 0px 17px !important;
 }
 .border-link{
     border-top:1px dotted #707070;

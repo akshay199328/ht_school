@@ -7828,7 +7828,7 @@ body {
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 html {
-	font-family: sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
 }
@@ -14569,7 +14569,7 @@ button.list-group-item-danger.active:hover {
 
 .popover,
 .tooltip {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	font-style: normal;
 	line-height: 1.428571429;
 	line-break: auto;
@@ -16639,7 +16639,7 @@ body {
 	background-color: #F9F9F9;
 	color: #313b3d;
 	font-weight: 400;
-	font-family: "Open Sans", "Helvetica Neue", sans-serif
+	font-family: "GT-Walsheim-Pro";
 }
 
 *,
@@ -16667,7 +16667,7 @@ h4,
 h5,
 h6 {
 	line-height: 1.35em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	color: #282828
 }
 
@@ -21021,7 +21021,7 @@ nav .menu li a {
     align-items: center;
     justify-content: space-between;
     padding: 0px;
-    font-family: "GT-Walsheim-Pro", sans-serif !important;
+    font-family: "GT-Walsheim-Pro"!important;
     font-size: 15px;
     font-weight: bold;
     color: #000000 !important;
@@ -23763,7 +23763,7 @@ ul.tags>li:before {
 }
 
 .countdown {
-	font-family: Oswald, sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	font-size: 50px;
 	top: 65px;
 	letter-spacing: 2px
@@ -24382,7 +24382,7 @@ ul.tags>li:before {
 
 .course_time {
 	margin-top: 30px;
-	font-family: sans-serif;
+	/*font-family: sans-serif;*/
 	text-transform: uppercase
 }
 
@@ -29393,7 +29393,7 @@ label.strong span {
 .credits>strong>span {
 	display: block;
 	font-size: 11px;
-	font-family: sans-serif;
+	/*font-family: sans-serif;*/
 	font-weight: 600;
 	line-height: 1
 }

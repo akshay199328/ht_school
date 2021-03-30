@@ -8,7 +8,7 @@ p{font-family: 'GT-Walsheim-Pro'!important;}
 .home-page #header.header-scrolled{background: #fade3b!important;}
 .elementor-section.elementor-section-boxed > .elementor-container {max-width: 1088px!important;}
 /*.home-page .hero{padding-top: 29px;}*/
-.hero-list .hero-card h6, .hero-list .hero-card h5{margin: 0px!important;}
+/*.hero-list .hero-card h6, .hero-list .hero-card h5{margin: 0px!important;}*/
 .home-page .left-menu .navbar li.current_page_item a {
     color: #000!important;
 }

@@ -18,6 +18,10 @@ $(document).ready(function($) {
   $('.course-button').removeClass('button');
   $(".course-listslider a").addClass('item');
   $('.progress_key_1, .progress_key_2').parents().parents().parents().parents().addClass("hide-price");
+    $('#all').hide();
+  if('#viewall_session').click(function(){
+    alert("test");
+  })
     
   // alert("test");
   $(window).scroll(function() {    

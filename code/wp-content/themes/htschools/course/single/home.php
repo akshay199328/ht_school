@@ -233,7 +233,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                      
                       <?php locate_template( array( 'course/single/curriculum.php'  ), true );?>
                       <div class="viewall-session">
-                        <a href="#" class="all-session">View all Sessions</a>
+                        <a href="#" class="all-session" id="view_all_session">View all Sessions</a>
                       </div>
                     </div>
                   </div>

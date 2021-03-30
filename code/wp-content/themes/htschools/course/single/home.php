@@ -30,7 +30,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             //echo $attachment_element = wp_get_attachment_image( $gallery_data);
              $attachment_element = wp_get_attachment_url( $gallery_data);
           ?>
-          <img class="course_background_img" src="<?php echo $attachment_element;?>">
+          <img class="course_background_img" src="<?php echo $attachment_element;?>" onerror="this.style.display='none'">
             <div class="container">
                 <div class="">
                   <div class="breadcrumbs">

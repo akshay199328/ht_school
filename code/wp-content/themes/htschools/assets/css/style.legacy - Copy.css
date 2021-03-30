@@ -7828,7 +7828,7 @@ body {
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 html {
-	font-family: sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
 }
@@ -14569,7 +14569,7 @@ button.list-group-item-danger.active:hover {
 
 .popover,
 .tooltip {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	font-style: normal;
 	line-height: 1.428571429;
 	line-break: auto;
@@ -16639,7 +16639,7 @@ body {
 	background-color: #F9F9F9;
 	color: #313b3d;
 	font-weight: 400;
-	font-family: "Open Sans", "Helvetica Neue", sans-serif
+	font-family: "GT-Walsheim-Pro";
 }
 
 *,
@@ -16667,7 +16667,7 @@ h4,
 h5,
 h6 {
 	line-height: 1.35em;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	color: #282828
 }
 
@@ -16840,7 +16840,6 @@ input[type=url],
 input[type=image],
 textarea {
 	border: 1px solid rgba(0, 0, 0, .08);
-	padding: 5px
 }
 
 textarea {
@@ -21022,7 +21021,7 @@ nav .menu li a {
     align-items: center;
     justify-content: space-between;
     padding: 0px;
-    font-family: "GT-Walsheim-Pro", sans-serif !important;
+    font-family: "GT-Walsheim-Pro"!important;
     font-size: 15px;
     font-weight: bold;
     color: #000000 !important;
@@ -22453,42 +22452,54 @@ h4.block_title+.date {
 	width: 100%;
 	margin: 20px 0;
 	font-size: 14px;
-	color: #444
+	color: #444;
+	text-align: center;
 }
 
 .pagination .page-numbers.current,
 .pagination label,
 .pagination span {
-	padding: 2px 6px;
-	border-radius: 2px;
-	margin-right: 5px;
-	font-size: 11px;
-	text-transform: uppercase;
-	font-weight: 600;
-	color: #444;
-	border: 2px solid rgba(0, 0, 0, .08);
-	background: rgba(0, 0, 0, .08)
+	    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 100%;
+    margin-right: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #000;
+    border: 2px solid transparent;
+    background: transparent;
+    text-align: center;
+    line-height: 37px;
 }
-
+.pagination span:first-child{/*display: none;*/width: auto;}
 .pagination .page-numbers.current,
 .pagination span.current {
-	background: #78C8Ce;
-	border-color: #78C8Ce;
-	color: #FFF;
-	font-weight: 600
+	background: #D5EBFF!important;
+	border-color: #D5EBFF!important;
+	color: #000;
 }
 
 .pagination a,
 .pagination a.page-numbers {
-	padding: 2px 6px;
-	border-radius: 2px;
-	margin-right: 5px;
-	font-size: 11px;
-	color: #444;
-	background: rgba(0, 0, 0, .08);
-	border: 2px solid rgba(0, 0, 0, .08);
-	text-transform: uppercase;
-	font-weight: 600
+	    padding: 0;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #000;
+    background: rgba(0, 0, 0, .08);
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-weight: 300;
+    background: transparent;
+    text-align: center;
+    line-height: 37px;
 }
 
 .content .pagination {
@@ -22515,7 +22526,9 @@ section#title {
 .pagetitle h1 {
 	margin: 0;
 	padding: 0;
-	font-weight: 600
+	font-weight: bold;
+	font-size: 30px;
+	color: #000;
 }
 
 .pagetitle h5 {
@@ -22793,19 +22806,28 @@ section#title {
 }
 
 .course_pursue_panel {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 400px;
-	padding: 0;
-	z-index: 98;
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
-	overflow-y: scroll;
-	-webkit-transition: -webkit-transform .5s;
-	transition: -webkit-transform .5s;
-	transition: transform .5s;
-	transition: transform .5s, -webkit-transform .5s
+	    /* position: fixed; */
+    /* float: left; */
+    top: 0;
+    left: 0;
+    /* width: 400px; */
+    position: relative;
+    transition: 0.2s all;
+    flex: 1 0 220px;
+    margin: 0;
+    background: var(--highlight) !important;
+    border-right: 1px solid var(--border) !important;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 98;
+    -webkit-box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+    /* overflow-y: scroll; */
+    /* -webkit-transition: -webkit-transform .5s; */
+    transition: -webkit-transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
 }
 
 .course_pursue_panel .course_action_points {
@@ -22934,20 +22956,27 @@ section#title {
 }
 
 .course_content_panel {
-	float: right;
-	width: calc(100% - 460px);
-	background: #fff;
-	margin-right: 30px;
-	padding-bottom: 60px;
-	min-height: 100vh;
-	-webkit-transition: -webkit-transform .5s;
-	transition: -webkit-transform .5s;
-	transition: transform .5s;
-	transition: transform .5s, -webkit-transform .5s
+	    float: right;
+    /* width: calc(100% - 460px); */
+    background: #fff;
+    margin-right: 30px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
+    flex: 5 0 220px;
+    display: flex;
+    order: 2;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
 }
 
 .course_content_panel .unit_wrap {
-	width: 80%;
+	width: 100%;
+	padding:0px 30px;
 	margin: auto
 }
 
@@ -22966,16 +22995,16 @@ section#title {
 
 #hideshow_course_pursue_panel {
 	position: fixed;
-	left: 420px;
-	top: 30px;
-	height: 48px;
-	width: 48px;
-	z-index: 999;
-	background: rgba(0, 0, 0, .05);
-	-webkit-transition: -webkit-transform .5s;
-	transition: -webkit-transform .5s;
-	transition: transform .5s;
-	transition: transform .5s, -webkit-transform .5s
+    left: 0px;
+    top: 30px;
+    height: 48px;
+    width: 100%;
+    z-index: 999;
+    background: rgb(255 255 255);
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
 }
 
 #hideshow_course_pursue_panel span {
@@ -22993,7 +23022,7 @@ section#title {
 	content: '';
 	position: absolute;
 	top: 6px;
-	left: 6px;
+	left: 26px;
 	width: 16px;
 	height: 2px;
 	background: #444;
@@ -23014,7 +23043,7 @@ section#title {
 	height: 2px;
 	width: 24px;
 	position: absolute;
-	left: 11px;
+	left: 30px;
 	top: 23px;
 	display: block;
 	background: #444
@@ -23750,7 +23779,7 @@ ul.tags>li:before {
 }
 
 .countdown {
-	font-family: Oswald, sans-serif;
+	font-family: "GT-Walsheim-Pro";
 	font-size: 50px;
 	top: 65px;
 	letter-spacing: 2px
@@ -24369,7 +24398,7 @@ ul.tags>li:before {
 
 .course_time {
 	margin-top: 30px;
-	font-family: sans-serif;
+	/*font-family: sans-serif;*/
 	text-transform: uppercase
 }
 
@@ -24486,8 +24515,8 @@ ul.tags>li:before {
 
 .course_button>span {
 	display: block;
-	opacity: .8;
-	font-weight: 400
+    opacity: 1;
+    font-weight: bold;
 }
 
 .active .unit span {
@@ -24617,7 +24646,8 @@ ul.tags>li:before {
 }
 
 #buddypress div.pagination .pagination-links {
-	float: right
+	    float: initial;
+    margin-top: -17px;
 }
 
 #buddypress ul.item-list li div.pagination {
@@ -29379,7 +29409,7 @@ label.strong span {
 .credits>strong>span {
 	display: block;
 	font-size: 11px;
-	font-family: sans-serif;
+	/*font-family: sans-serif;*/
 	font-weight: 600;
 	line-height: 1
 }
@@ -35275,11 +35305,33 @@ div.mce-panel {
 }
 
 .left-spacing {
-    padding-left: 25px!important;
+    padding-left: 25px;
     padding-right: 0;
 }
 
-section#title{padding: 30px 0!important; background:#fade3b}
+section#title{padding: 30px 0!important;background: #fff}
+
+.woocommerce-page .pusher{background: #F8F8F8!important}
+.woocommerce-page .cart-collaterals{background: #fff; padding: 20px;}
+.woocommerce-page .checkout-button {background: #000!important; padding: 10px 0!important;}
+.woocommerce-page .woocommerce-Price-currencySymbol,
+.woocommerce-page .woocommerce-Price-amount,.cart_item td.product-name a{font-size: 18px; color: #000}
+.woocommerce-page .woocommerce-Price-currencySymbol span{font-size: 18px; color: #000}
+.shop_table_responsive{background: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*------Added by bhavna-------*/
@@ -35298,9 +35350,9 @@ section#title{padding: 30px 0!important; background:#fade3b}
 	    background: #fade3b!important;
 }
 .custom_topmenu{
-	margin-left: 25px!important;
+	margin-left: 25px;
 }
-.vibebp-login{
+.vibebp-login .loggedin_user_div{
   	color: #000000!important;
     padding: 0px;
     font-weight: bold!important;
@@ -35309,7 +35361,7 @@ section#title{padding: 30px 0!important; background:#fade3b}
     border: 1px solid #000!important;
 }
 .vibebp-login .vibebp_name{position: relative;padding: 0px !important;margin-left: 10px;    display: none;}
-.custom_topmenu li a:after{display: none!important;}
+.custom_topmenu li a.loggedin_user:after{display: none!important;}
 .right-menu ul li .vibebp_name:after{
     content: '';
     border-bottom: 1px solid #707070;
@@ -35320,8 +35372,8 @@ section#title{padding: 30px 0!important; background:#fade3b}
     left: 0;
 }
 a.loggedin_user {padding: 5px 5px!important;cursor: pointer;}
-a.loggedin_user img {width: 35px!important;margin-right: 30px;}
-.custom_topmenu a a:last-child::before{
+a.loggedin_user img {width: 27px!important;margin-right: 30px;}
+.custom_topmenu .loggedin_user:before{
 	content: "\f282";
 	display: inline-block!;
 	position: absolute;
@@ -35342,7 +35394,7 @@ a.loggedin_user img {width: 35px!important;margin-right: 30px;}
 .custom_topmenu .user_menu a{text-align: left;float: left;justify-content: left!important;}
 .user_menu span{margin-right: 10px!important;}
 #menu-secondary-menu {
-    margin-top: 15px;
+    /*margin-top: 15px;*/
 }
 .course_button.is-loading {
     opacity: 1!important;
@@ -35350,6 +35402,397 @@ a.loggedin_user img {width: 35px!important;margin-right: 30px;}
     background: transparent!important;
     box-shadow: none!important;
 }
-.course_button>span:nth-child(2), .course-fees strong .subs{
-	display: none;
+
+.cart-contents:after{display: none!important;}
+
+.cart-contents:before {
+    content: "\f242";
+    display: inline-block;
+    font-family: bootstrap-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: text-bottom;
+    -webkit-font-smoothing: antialiased;
+    /*position: absolute;*/
+    font-size: 28px;
+}
+.cart-contents:hover {
+    text-decoration: none;
+}
+.cart-contents-count {
+    color: #fff;
+    background-color: #2ecc71;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 1px 6px;
+    line-height: 1;
+    vertical-align: top;
+}
+
+/*added by satish*/
+
+.woocommerce .quantity .qty{
+	border: 0px;
+	color: #000000;
+}
+
+.cart_item td.product-name a{
+	font: normal normal medium 18px/22px;
+}
+
+.quantity {
+    text-align: center;
+}
+/*.woocommerce table.shop_table{
+	padding: 20px;
+}*/
+
+.woocommerce-cart table.cart td.actions .coupon .input-text{
+	padding: 7px 14px;
+	height: 45px;
+	border: 1px solid #000000;
+	margin: 0px;
+}
+
+.woocommerce-cart table.cart td.actions .coupon button{
+	height: 45px;
+    border-radius: 0px !important;
+    background-color: #000000 !important;
+    font-size: 15px;
+    font: normal normal bold 15px/20px;
+}
+.woocommerce-cart table.cart td.actions .coupon button:hover{
+	transform: perspective(400px) translateY(0px);
+	color: #fff;
+}
+
+.woocommerce-cart table.cart input{
+	font-size: 18px;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button{
+	border-radius: 0px;
+}
+.woocommerce-page .checkout-button{
+	padding: 15px;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals tr td, .woocommerce-cart .cart-collaterals .cart_totals tr th{
+	color: #000000;
+}
+
+.woocommerce-billing-fields{
+	background-color: #fff;
+	padding: 20px;
+}
+div#order_review{
+	background-color: #fff;
+	padding: 20px;
+}
+.woocommerce-billing-fields__field-wrapper .form-row label{
+	width: 100%;
+}
+.woocommerce-billing-fields h3{
+	font-size: 25px;
+	color: #000000;
+}
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea{
+	border-bottom: 1px solid #262626 !important;
+	border-top: 0px !important;
+	border-right: 0px !important;
+	border-left: 0px !important;
+	color: #000;
+}
+.woocommerce-billing-fields span.woocommerce-input-wrapper{
+	width: 100%;
+}
+.woocommerce-billing-fields .select2-container--default .select2-selection--single{
+	border-bottom: 1px solid #000 !important;
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+}
+.woocommerce-checkout #payment div.form-row button {
+    width: 100%;
+    background-color: #000;
+    border-radius: 0px;
+}
+.woocommerce-checkout #payment div.form-row button:hover {
+	transform: perspective(400px) translateY(0px);
+}
+
+.woocommerce-checkout-review-order .woocommerce table.shop_table td{
+	color: #000;
+	font-weight: 700;
+	font-size: 14px;
+}
+.woocommerce table.shop_table{
+padding: 20px !important;
+}
+
+.order_details_page table.shop_table{
+	padding: 0px
+}
+.order_details_page table{
+	margin-bottom: 0px !important;
+}
+
+.order_details_button {
+    background-color: #fff;
+    padding: 0px 20px 20px;
+}
+
+.order_details_page table th{
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.woocommerce-privacy-policy-text a{
+	color: #000 !important;
+}
+
+.order_details_button #btn-razorpay{
+    text-decoration: none;
+    overflow: visible;
+    padding: 10px 40px;
+    font-weight: 700;
+    border-radius: 0px;
+    left: auto;
+    color: #fff;
+    background-color: #000;
+    border: 0;
+    white-space: nowrap;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    text-shadow: none;
+}
+
+.order_details_button #btn-razorpay-cancel{
+    text-decoration: none;
+    overflow: visible;
+    padding: 10px 40px;
+    font-weight: 700;
+    border-radius: 0px;
+    left: auto;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000000;
+    white-space: nowrap;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    text-shadow: none;
+}
+
+.woocommerce-info .showcoupon{
+	color: #000;
+	font-weight: bold;
+}
+
+form.checkout_coupon.woocommerce-form-coupon button{
+	background-color: #000;
+	border-radius: 0px;
+}
+form.checkout_coupon.woocommerce-form-coupon button:hover{
+	background-color: #000;
+	transform: perspective(400px) translateY(0px);
+	color: #fff;
+}
+
+.payment-succes {
+    background: #fff;
+    padding: 20px;
+}
+
+.woocommerce table.shop_table{
+	background-color: #fff;
+}
+
+h2.woocommerce-order-details__title {
+    background-color: #fff;
+    padding: 20px 20px;
+}
+section.woocommerce-customer-details {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+td.woocommerce-table__product-name.product-name a{
+	color: #000000;
+}
+
+.course_order_details a.button{
+	background-color: #000 !important;
+}
+.course_order_details a.button{
+	color: #fff !important;
+}
+
+.course_order_details{
+	margin: 0px;
+	border: 0px;
+	padding: 20px;
+	background-color: #fff;
+}
+
+.woocommerce-order h3{
+	background-color: #fff;
+	padding: 20px !important;
+}
+
+a.button.wc-backward {
+    background-color: #000 !important;
+}
+a.button.wc-backward:hover {
+	background-color: #000 !important;
+	color: #fff !important;
+}
+
+button.btn.arrow_btn {
+    border: 1px solid #7b7b7b !important;
+}
+svg.bi.bi-chevron-left{
+	color: #7b7b7b !important;
+}
+
+.otp_button .submit_btn{
+	width: 230px !important;
+	margin-left: 0px !important;
+}
+.otp_button .arrow_btn{
+	padding: 9px 0px !important;
+}
+.login-box .btn.submit_btn{
+	background-color: #000 !important;
+}
+
+.resend-info{
+    float: left;
+    width: 100%;
+    padding: 10px 0px 10px !important;
+}
+
+.explore_btn {
+    margin: 0px 40px 0px;
+	}
+
+div#login-step-5 {
+    position: relative;
+}
+
+.explore_btn  {
+    position: absolute;
+    bottom: 15%;
+    left: 0%;
+}
+
+.congrts_section {
+    text-align: center;
+}
+
+.congrts_section {
+    position: absolute;
+    left: 20%;
+    top: 12%;
+    text-align: center;
+}
+
+p.congrat_small {
+    font-size: 13px;
+}
+
+.congrts_section p {
+    font-size: 20px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+p.return-to-shops {
+    text-align: center;
+}
+
+.empty_cart_div h4{
+	text-align: center;
+	color: #0c5acc;
+}
+
+.empty_cart_div p{
+	text-align: center;
+}
+
+.empty_cart_image{
+	background-image: url("../images/empty_cart.png");
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+/*responsive added css by satish*/
+
+@media screen and (max-width:1024px) {
+
+	.woocommerce-cart table.cart td.actions .coupon{
+		width: 100%;
+		display: flex;
+	}
+	.woocommerce-page .woocommerce-Price-currencySymbol,
+	 .woocommerce-page .woocommerce-Price-amount,
+	  .cart_item td.product-name a{
+		font-size: 13px;
+	}
+	.woocommerce table.shop_table td{
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width:480px) {
+
+	.woocommerce-cart table.cart td.actions .coupon{
+		width: 100%;
+		display: flex;
+	}
+	.woocommerce-billing-fields{
+		margin-bottom: 30px;
+	}
+	.woocommerce table.shop_table tbody th,
+	 .woocommerce table.shop_table tfoot td,
+	  .woocommerce table.shop_table tfoot th{
+		font-size: 10px;
+	}
+	.login-left img{
+		display: none;
+	}
+	.payment-succes .order_details li{
+		float: none !important;
+	}
+	.login-box-1{
+		width: 100% !important;
+	}
+	.explore_btn {
+    margin: 0px 40px 0px;
+	}
+	.congrts_section {
+    position: absolute;
+    left: 20%;
+    top: 12%;
+    text-align: center;
+	}
+	.explore_btn {
+    position: absolute;
+    bottom: 15%;
+    left: 0%;
+    width: 78%;
+	}
+
 }

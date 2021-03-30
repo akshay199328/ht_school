@@ -11,6 +11,9 @@ $(window).on('scroll', function() {
         $('.fixed_banner').removeClass('static_banner');
     }
 }); 
+$(document).ready(function(){
+  $(".fixed_banner .course-fees strong:contains(FREE)").hide();
+});
 $(document).ready(function($) { 
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');
   $('.loggedin_user_div').parent().parent().next().addClass('margin-ul');

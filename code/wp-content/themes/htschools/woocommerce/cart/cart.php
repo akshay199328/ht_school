@@ -35,8 +35,6 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 							<th class="product-remove">&nbsp;</th>
 							<th class="product-thumbnail">&nbsp;</th>
 							<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-							<!-- <th class="product-price"><?php _e( 'Price', 'woocommerce' ); ?></th> -->
-							<!-- <th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th> -->
 							<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
 						</tr>
 					</thead>
@@ -47,6 +45,15 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 							$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 							$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+						$courseinfo= get_post_meta( $product_id, $key = 'vibe_courses', $single = false ) ;
+
+						$course_id=$courseinfo[0][0];
+
+						$coursearray = get_post($course_id,ARRAY_A);
+						
+						$courseslug= $coursearray['guid'];
+
 
 							if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 								$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
@@ -72,7 +79,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 										if ( ! $product_permalink ) {
 											echo  $thumbnail ;// PHPCS: XSS ok.
 										} else {
-											printf( '<a href="%s">%s</a>', esc_url( $product_permalink ),  $thumbnail  );
+											printf( '<a href="%s">%s</a>', esc_url( $courseslug ),  $thumbnail  );
 											// PHPCS: XSS ok.
 										}
 										?>
@@ -83,7 +90,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 										if ( ! $product_permalink ) {
 											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
 										} else {
-											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
+											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $courseslug ), $_product->get_name() ), $cart_item, $cart_item_key ) );
 										}
 
 										do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );

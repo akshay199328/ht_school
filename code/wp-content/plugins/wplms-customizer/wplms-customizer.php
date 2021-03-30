@@ -77,6 +77,22 @@ function rt_change_profile_tab_order() {
 }
 add_action( 'bp_init', 'rt_change_profile_tab_order', 999 );
 
+function bp_remove_nav_item() {
+    global $bp;
+    bp_core_remove_subnav_item( $bp->course->slug, 'course-stats' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'quiz_results' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'assignment_results' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'notes_reviews' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'instructor_controls' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'manage_courses' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'manage_quizzes' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'manage_assignments' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'manage_students' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'manage_questions' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'qna' );
+}
+add_action( 'wp', 'bp_remove_nav_item' );
+
 function bpcodex_remove_group_manager_subnav_tabs() {   
     // site admin will see all tabs
     if ( ! bp_is_group() || ! ( bp_is_current_action( 'admin' ) && bp_action_variable( 0 ) ) || is_super_admin() ) {

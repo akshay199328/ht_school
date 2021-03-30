@@ -1427,6 +1427,8 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+      float: left;
+    word-break: break-word;
 }
 .viewall-session{
   margin: 40px 0px 0px;    float: left;

@@ -35817,7 +35817,7 @@ section.latest-news{
 	}
 
 	section#title{
-		padding: 20px 0 !important;
+		/*padding: 20px 0 !important;*/
 	}
 	.breadcrumbs{
 		margin-top: 0px !important;

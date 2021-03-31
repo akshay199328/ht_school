@@ -42,7 +42,7 @@ if(!empty($instructors)){
             <div class="blogpost">
                 <div class="col-sm-12 col-md-2 mrg">
                     <div class="featured">
-                        <a href="http://localhost/Htschools/code/simrat-of-smgs-meera-bagh-shines-in-fotografia-contest-5/"><img src="<?php echo $featured_image; ?>"> </a>
+                        <a href=""><img src="<?php echo $featured_image; ?>"> </a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-8 mrg">
@@ -56,15 +56,16 @@ if(!empty($instructors)){
                         <h3>
                             <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
                         </h3>
-                        <div class="cats">
+                       <div class="cats">
                             <ul class="post-categories">
                                 <?php echo $categoryList; 
                                     echo $instructor;
                                 ?>
                             </ul>
                         </div>
+
                         <p><?php echo wp_trim_words( get_the_content(), 30); ?></p>
-                        <a href="<?php echo get_permalink(); ?>" class="link">Read More</a>
+                        
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-2 mrg">

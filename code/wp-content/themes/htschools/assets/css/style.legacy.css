@@ -35759,13 +35759,12 @@ section#media_image-3 img{
     color: #939393;
     font-weight: bold;
     color: #000!important;
-    border-bottom: 2px solid #000 !important;
     padding: 3px 0rem;
 }
 
 .featured_tablist li a.active, .featured_tablist li:hover a, .featured_tablist li:hover a.active {
     border-color: transparent;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #000 !important;
 }
 
 .details-left .link a{
@@ -35813,11 +35812,24 @@ section.latest-news{
 	}
 
 	section#title{
-		padding: 0px 0;
+		padding: 20px 0 !important;
 	}
 	.breadcrumbs{
 		margin-top: 0px !important;
 	}
+
+	.featured_tablist li.active {
+    border-bottom: 2px solid #000 !important;
+    padding: 3px 0px !important;
+}
+
+
+
+
+/*#title .pagetitle .breadcrumbs{
+	display: none !important;
+}*/
+
 
 /*responsive added css by satish*/
 

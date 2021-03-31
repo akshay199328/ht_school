@@ -35359,6 +35359,7 @@ section#title{
     margin-left: 0px!important;
     border: 1px solid #000!important;
 }
+.right-menu .user_menu a:after{display: none!important;}
 .vibebp-login .vibebp_name{position: relative;padding: 0px !important;margin-left: 10px;    display: none;}
 .custom_topmenu li a.loggedin_user:after{display: none!important;}
 .right-menu ul li .vibebp_name:after{

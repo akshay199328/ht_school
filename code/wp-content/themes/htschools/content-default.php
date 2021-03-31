@@ -42,7 +42,7 @@ if(!empty($instructors)){
             <div class="blogpost">
                 <div class="col-sm-12 col-md-2 mrg">
                     <div class="featured">
-                        <a href=""><img src="<?php echo $featured_image; ?>"> </a>
+                        <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_image; ?>"> </a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-8 mrg">
@@ -58,19 +58,19 @@ if(!empty($instructors)){
                         </h3>
                        <div class="cats">
                             <ul class="post-categories">
-                                <?php echo $categoryList; 
-                                    echo $instructor;
+                                <?php //echo $categoryList; 
+                                    //echo $instructor;
                                 ?>
                             </ul>
                         </div>
 
-                        <p><?php echo wp_trim_words( get_the_content(), 30); ?></p>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 30); ?></p>
                         
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-2 mrg">
                     <div class="top-icon">
-                        <li> <?php wpfp_link(); ?></li>
+                        <li> <?php //wpfp_link(); ?></li>
                         <li><a href=""><i class="bi bi-share"></i></a></li>
                     </div>
                 </div>

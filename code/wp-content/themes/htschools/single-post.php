@@ -54,8 +54,9 @@ $postCreatorName = strtoupper(get_post_meta(get_the_ID(), 'post_creator_name', t
 $topics = wp_get_post_tags(get_the_ID());
 
 ?>
-<section id="content ">
-  <div class="news-main">
+<div id="content ">
+    <div class="innerheader-space"></div>
+  <div class="news-main grey-background">
     <div class="<?php echo vibe_get_container(); ?>">
       <div class="row">
         <div class="col-md-4 col-sm-12 category-news">
@@ -104,13 +105,23 @@ $topics = wp_get_post_tags(get_the_ID());
                 ?>
               </ul>
             </div>
-
+            <div class="col-lg-12 center mrg">
+              <br/><br/>
+            <?php
+              if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
+                <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
+            <?php endif; ?>
+        </div>
           </div>
         </div>
 
       </div>
+
     </div>
-  <div class="<?php echo vibe_get_container(); ?>">
+</div>
+</div>
+<section class="">
+    <div class="<?php echo vibe_get_container(); ?>">
       <div class="row">
         <div class="col-sm-12 col-md-4">
           <div class="atwork_img">
@@ -157,15 +168,10 @@ $topics = wp_get_post_tags(get_the_ID());
             ?>
             </div>
         </div>
+        
       </div>
     </div>
-
-
-
-
-
-  </div>
-</section>
+    </section>
 <?php
 $page_for_posts = get_option('page_for_posts');
 $blog = get_post($page_for_posts);   
@@ -200,12 +206,7 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
     ?>
   
     
-    <div class="col-lg-12 center">
-        <?php
-        if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
-          <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
-      <?php endif; ?>
-  </div>
+    
     
 
 <?php

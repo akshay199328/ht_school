@@ -3953,8 +3953,9 @@ Course Details
 # NEWS
 --------------------------------------------------------------*/
 .news-main{
-  background: #F8F8F8;
+  /*background: #F8F8F8;*/
   /*position: relative;*/
+  padding-bottom: 40px;
 }
 .news-main .category-news .content-left{
   background: #000000;
@@ -4054,7 +4055,7 @@ Course Details
   padding:30px 0px;
 }
 .news-listing  {padding: 10px 0 60px;}
-.news-listing .background-breadcrumbs {
+.news-listing .background-breadcrumbs, .news_heading .background-breadcrumbs{
     background: transparent;
 }
 .course-tablist {
@@ -4203,6 +4204,12 @@ border-color: transparent;
     box-shadow: none!important;
     color: #000!important;
 }
+
+
+
+
+
+.news_heading{padding:0px 0px;}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

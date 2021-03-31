@@ -35780,7 +35780,7 @@ section#media_image-3 img{
 }
 
 section.latest-news{
-	padding: 20px 0 !important;
+	padding: 20px 0 40px !important;
 }
 
 .details-middle {
@@ -35804,9 +35804,14 @@ section.latest-news{
 }
 
 .atwork_img {
-    padding: 30px 0px;
+    /*padding: 30px 0px;*/
 }
-
+.related_post.details{
+	    padding: 0;
+}
+.related_post.details .details h2 {
+    margin-bottom: 0px;
+}
 	body.bp-nouveau.post-template-default.single.single-post.postid-813.single-format-standard.logged-in.admin-bar.theme-htschools.woocommerce-js.blank.c5.material.pageloader2.wpb-js-composer.js-comp-ver-6\.6\.0.vc_responsive.customize-support section#media_image-3 img{
 		display: none !important;
 	}

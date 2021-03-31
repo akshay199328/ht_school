@@ -2,9 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
-<section id="title">
-    
-</section>
+  <div class="innerheader-space"></div>
 <section class="news-listing grey-background">
   <div class="<?php echo vibe_get_container(); ?>">
     <div class="">

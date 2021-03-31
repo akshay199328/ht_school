@@ -9,18 +9,19 @@ $page_id = get_the_ID();
 $title=get_post_meta(get_the_ID(),'vibe_title',true);
 if(vibe_validate($title) || empty($title)){
   ?>
-  <section id="title">
+  <section class="news_heading">
+    <div class="innerheader-space"></div>
     <?php do_action('wplms_before_title'); ?>
     <div class="<?php echo vibe_get_container(); ?>">
       <div class="row">
         <div class="col-md-12">
-          <div class="pagetitle">
+          <div class="pagetitle breadcrumbs background-breadcrumbs">
             <?php
             $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
             if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
               vibe_breadcrumbs(); 
             ?>
-            <h1><?php the_title(); ?></h1>
+            <h2><?php the_title(); ?></h2>
             <?php the_sub_title(); ?>
           </div>
         </div>
@@ -40,7 +41,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
 <!-- ======= Featured ======= -->
 
-<section id="" class="latest-news">
+<section id="" class="latest-news grey-background">
   <div class="container">
     <div class="row gx-0">
      <div class="featured_tablist">
@@ -116,7 +117,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   </div>
 </section>
 <!-- ======= Featured ======= -->
-<section id="" class="latest-news">
+<section id="" class="latest-news  grey-background">
   <div class="container">
     <div class="row gx-0">
       <div class="featured_headeing">
@@ -188,12 +189,15 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
           ?>
           <div class="col-sm-12 col-lg-4">
             <div class="details-left">
-              <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              
               <?php if ( has_post_thumbnail() ) { 
                 $featured_image = get_the_post_thumbnail_url();
               }
               ?>
+
               <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+              <br/><br/>
+              <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>

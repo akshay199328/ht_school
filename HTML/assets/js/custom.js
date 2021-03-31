@@ -151,3 +151,30 @@ jQuery('.testimonials-carousel').owlCarousel({
     }
   }
 })
+
+jQuery('.news-carousel').owlCarousel({
+  loop: false,
+  margin: 0,
+  responsiveClass: true,
+  autoplay: true,
+  autoplayTimeout:2000,
+  autoplayHoverPause: true,
+  nav: true,
+  dots:false,
+  responsive: {
+    0: {
+      items: 1,
+      nav: true
+    },
+    767: {
+      items:1,
+      nav: true
+    },
+    1200: {
+      items:2,
+      nav: true,
+      loop: false,
+      margin: 20
+    }
+  }
+})

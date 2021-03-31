@@ -88,6 +88,11 @@ $topics = wp_get_post_tags(get_the_ID());
                 <?php the_content(); ?>
             </div>
             <div class="topic_details">
+              <?php
+              if ( is_active_sidebar( 'banner-4' ) ) : ?>
+                <?php dynamic_sidebar( 'banner-4' ); ?>      
+              <?php endif; ?>
+              <br>
               <?php $tagsCount = count($topics);
                 if($tagsCount > 0 ){
               ?>
@@ -107,10 +112,10 @@ $topics = wp_get_post_tags(get_the_ID());
             </div>
             <div class="col-lg-12 center mrg">
               <br/><br/>
-            <?php
-              if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
-                <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
-            <?php endif; ?>
+<!--             <?php
+            if ( is_active_sidebar( 'banner-3' ) ) : ?>
+              <?php dynamic_sidebar( 'banner-3' ); ?>      
+            <?php endif; ?> -->
         </div>
           </div>
         </div>
@@ -125,7 +130,10 @@ $topics = wp_get_post_tags(get_the_ID());
       <div class="row">
         <div class="col-sm-12 col-md-4">
           <div class="atwork_img">
-          <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+            <?php
+            if ( is_active_sidebar( 'banner-2' ) ) : ?>
+              <?php dynamic_sidebar( 'banner-2' ); ?>      
+            <?php endif; ?>
         </div>
         </div>
         <div class="col-sm-12 col-md-8">

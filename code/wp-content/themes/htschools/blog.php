@@ -104,15 +104,18 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
       <div class="col-sm-12 col-lg-4">
         <div class="details-middle">
-          <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+          <?php
+          if ( is_active_sidebar( 'banner-2' ) ) : ?>
+           <?php dynamic_sidebar( 'banner-2' ); ?>      
+         <?php endif; ?>
         </div>
       </div>
       <div class="col-lg-12 center">
         <?php
-        if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
-          <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
-        <?php endif; ?>
-      </div>
+        if ( is_active_sidebar( 'banner-4' ) ) : ?>
+         <?php dynamic_sidebar( 'banner-4' ); ?>      
+       <?php endif; ?>
+     </div>
     </div>
   </div>
 </section>
@@ -160,10 +163,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         </div>
       </div>
       <div class="col-lg-12 center">
-        <?php
-        if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
-          <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
-        <?php endif; ?>
+          <?php
+          if ( is_active_sidebar( 'banner-4' ) ) : ?>
+           <?php dynamic_sidebar( 'banner-4' ); ?>      
+         <?php endif; ?>
       </div>
     </div>
   </div>
@@ -224,9 +227,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         </div>
         <div class="col-lg-12 center">
           <?php
-          if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
-            <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
-          <?php endif; ?>
+          if ( is_active_sidebar( 'banner-3' ) ) : ?>
+           <?php dynamic_sidebar( 'banner-3' ); ?>      
+         <?php endif; ?>
         </div>
       </div>
     </div>

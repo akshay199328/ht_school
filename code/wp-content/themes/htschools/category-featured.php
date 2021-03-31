@@ -76,8 +76,8 @@ get_header(vibe_get_header());
       <div class="col-sm-12 col-md-3 content-right mrg">
         <div class="sidebar">
                     <?php
-                    if ( is_active_sidebar( 'latest-news-bottom' ) ) :
-                        dynamic_sidebar( 'latest-news-bottom' );      
+                    if ( is_active_sidebar( 'banner-2' ) ) :
+                        dynamic_sidebar( 'banner-2' );      
                     endif;
 
             echo "<h3>"."Expert News"."<h3>";
@@ -102,8 +102,8 @@ get_header(vibe_get_header());
                   // }
           endwhile; endif;
 
-                    if ( is_active_sidebar( 'latest-news-bottom' ) ) :
-                        dynamic_sidebar( 'latest-news-bottom' );      
+                    if ( is_active_sidebar( 'banner-2' ) ) :
+                        dynamic_sidebar( 'banner-2' );      
                     endif;
                     $sidebar = apply_filters('wplms_sidebar','mainsidebar');
                     if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>

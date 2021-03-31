@@ -519,8 +519,8 @@ class bp_course_filters{
 	</div>
 	<div class="col-lg-4 mrg adworks desktop-add right-adwork">
 		<?php
-			$sidebar = apply_filters('wplms_sidebar','all-courses-sidebar');
-            if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
+            if ( is_active_sidebar( 'banner-1' ) ) : ?>
+              <?php dynamic_sidebar( 'banner-1' ); ?>      
        	<?php endif; ?>
   	</div>
 </div>

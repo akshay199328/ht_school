@@ -95,8 +95,48 @@ function wp_bootstrap_starter_widgets_init() {
     ) );
 
     register_sidebar( array(
-        'name'          => esc_html__( 'Latest News Bottom', 'wp-bootstrap-starter' ),
-        'id'            => 'latest-news-bottom',
+        'name'          => esc_html__( 'Banner1', 'wp-bootstrap-starter' ),
+        'id'            => 'banner-1',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Banner2', 'wp-bootstrap-starter' ),
+        'id'            => 'banner-2',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Banner3', 'wp-bootstrap-starter' ),
+        'id'            => 'banner-3',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Banner4', 'wp-bootstrap-starter' ),
+        'id'            => 'banner-4',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Banner5', 'wp-bootstrap-starter' ),
+        'id'            => 'banner-5',
         'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
@@ -119,7 +159,7 @@ wp_enqueue_style( 'wplms-button', get_template_directory_uri(). '/assets/css/but
 function no_more_jquery(){
     wp_deregister_script('jquery');
 }*/
-//wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
+wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
 wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
 // wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
 wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
@@ -707,4 +747,41 @@ function custom_override_checkout_fields( $fields ) {
     unset($fields['billing']['billing_state']);
     unset($fields['order']['order_comments']);
     return $fields;
+}
+function get_the_term_list_search( $post_id, $taxonomy, $before = '', $sep = '', $after = '' ) {
+  $terms = get_the_terms( $post_id, $taxonomy );
+
+  if ( is_wp_error( $terms ) ) {
+    return $terms;
+  }
+
+  if ( empty( $terms ) ) {
+    return false;
+  }
+
+  $links = array();
+
+  foreach ( $terms as $term ) {
+    $link = get_term_link( $term, $taxonomy );
+
+    $homeurl=get_home_url().'/?s='.$term->name;
+    if ( is_wp_error( $link ) ) {
+      return $link;
+    }
+    $links[] = '<a href="' . $homeurl . '" rel="tag">' . $term->name . '</a>';
+  }
+
+  /**
+   * Filters the term links for a given taxonomy.
+   *
+   * The dynamic portion of the filter name, `$taxonomy`, refers
+   * to the taxonomy slug.
+   *
+   * @since 2.5.0
+   *
+   * @param string[] $links An array of term links.
+   */
+  $term_links = apply_filters( "term_links-{$taxonomy}", $links );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+
+  return $before . implode( $sep, $term_links ) . $after;
 }

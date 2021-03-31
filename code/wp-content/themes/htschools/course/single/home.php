@@ -170,7 +170,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   <div class="col-sm-12 course-list mrg">
                                     <h5>Who This Course Is For</h5>
                                     <div class="col-sm-12 course-listslider mrg">
-                                      <?php echo get_the_term_list(get_the_ID(),'course-tag'); ?>
+                                      <?php echo get_the_term_list_search(get_the_ID(),'course-tag'); ?>
                                       <!-- <span class="item"><a href="#"><h6>CSS</h6></a></span>
                                       <span class="item"><a href="#"><h6>CSS3</h6></a></span>
                                       <span class="item"><a href="#"><h6>Javascript</h6></a></span>
@@ -300,9 +300,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         <div class="col-sm-12 col-lg-5 mrg pull-right">
                           <div class="adworks">
                             <div class="col-sm-12 adworks-head mrg">
-                                <a href="https://www.vivo.com/in" target="_blank">Adworks
-                                  <img src="http://testourcode.com/ads/adwork-2.jpg" class="img-fluid"/>
-                                </a>
+                                <?php
+                                  if ( is_active_sidebar( 'banner-2' ) ) : ?>
+                                  <?php dynamic_sidebar( 'banner-2' ); ?>      
+                                <?php endif; ?>
                             </div>
                           </div>
                         </div>

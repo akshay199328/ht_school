@@ -23,9 +23,10 @@ get_header(vibe_get_header());
                 <a href="<?php echo get_home_url();?>/all-courses/" class="exlore-link desktop-btn">Explore all Courses</a>
             </header>
             <div class="adworks">
-              <a href="https://www.vivo.com/in" target="_blank">
-              <img src="https://testourcode.com/ads/adwork-2.jpg" />
-              </a>
+              <?php
+              if ( is_active_sidebar( 'banner-2' ) ) : ?>
+              <?php dynamic_sidebar( 'banner-2' ); ?>      
+            <?php endif; ?>
             </div>
           </div>
           <div class="col-sm-12 col-lg-8 mrg">
@@ -176,7 +177,7 @@ get_header(vibe_get_header());
             <div class="details-middle">
               <ul>
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                      // if( $Query->current_post != 0 ) { 
+                      if( $Query->current_post != 0 ) { 
                   ?>
                     <li>
                       <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -185,7 +186,7 @@ get_header(vibe_get_header());
                       </div>
                     </li>
                   <?php 
-                  // }
+                  }
                   endwhile; endif; ?>
               </ul>
             </div>
@@ -215,8 +216,8 @@ get_header(vibe_get_header());
             </div>
           <div class="col-lg-12 center">
             <?php
-              if ( is_active_sidebar( 'latest-news-bottom' ) ) : ?>
-              <?php dynamic_sidebar( 'latest-news-bottom' ); ?>      
+              if ( is_active_sidebar( 'banner-3' ) ) : ?>
+              <?php dynamic_sidebar( 'banner-3' ); ?>      
             <?php endif; ?>
           </div>
         </div>

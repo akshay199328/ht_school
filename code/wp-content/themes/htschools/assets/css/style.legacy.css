@@ -35312,7 +35312,7 @@ div.mce-panel {
 section#title{padding: 30px 0!important;background: #fff}
 
 .woocommerce-page .pusher{background: #F8F8F8!important}
-.woocommerce-page .cart-collaterals{background: #fff; padding: 20px;}
+.woocommerce-page .cart-collaterals{background: #fff; padding: 20px;border: 1px solid #BEBEBE;}
 .woocommerce-page .checkout-button {
 	background: #000!important;     
 	padding: 15px 10px!important;
@@ -35647,8 +35647,9 @@ form.checkout_coupon.woocommerce-form-coupon button:hover{
     padding: 20px;
 }
 
-.woocommerce table.shop_table{
+.woocommerce-cart-form table.shop_table{
 	background-color: #fff;
+	border: 1px solid #BEBEBE;
 }
 
 h2.woocommerce-order-details__title {

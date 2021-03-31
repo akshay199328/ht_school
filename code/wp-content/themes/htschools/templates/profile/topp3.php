@@ -1,6 +1,9 @@
-<section id="content">
+
+<section id="content" class="dashboard_content">
+
 	<div id="buddypress">
-		<div class="member_header main">
+		<div class="member_header main dashboard_header">
+
 			<?php
 
 			/**
@@ -21,7 +24,8 @@
 		</div><!-- #item-header -->
 	
 	    <div class="<?php echo vibe_get_container(); ?>">
+	    	
 	        <div class="row">	
 				<div class="col-md-12">
-					<div class="padder">
+					<div class="padder dashboard_accountinfo">
 						

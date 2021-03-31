@@ -119,7 +119,7 @@ wp_enqueue_style( 'wplms-button', get_template_directory_uri(). '/assets/css/but
 function no_more_jquery(){
     wp_deregister_script('jquery');
 }*/
-wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
+//wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
 wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
 // wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
 wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
@@ -694,13 +694,17 @@ function check_if_logged_in()
     }
 }
 
-add_filter( 'woocommerce_checkout_fields', 'custom_override_default_address_fields' );
-function custom_override_default_address_fields($fields){
-    global $woocommerce;
-    $country = $woocommerce->customer->get_country();
-    if($country == 'US'){
-        $fields['billing']['billing_city']['required'] = false;
-        $fields['shipping']['billing_city']['required'] = false;
-    }
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+function custom_override_checkout_fields( $fields ) {
+
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['order']['order_comments']);
     return $fields;
 }

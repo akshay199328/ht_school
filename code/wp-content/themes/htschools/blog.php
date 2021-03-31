@@ -60,7 +60,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       'post_type' => 'post',
       'post_status' => 'publish',
       'category_name' => 'Featured',
-      'posts_per_page' => 6,
+      'posts_per_page' => 3,
     );
     $Query = new WP_Query( $args );
     if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();

@@ -3658,20 +3658,30 @@ Course Details
     margin-bottom: 10px;
         position: relative;
 }
-.login-box .btn{
+.login-box .nsl-button{
     width: 100%;
     background: #fff;
-    border-radius: 0px;
+    border-radius: 0px!important;
     padding: 10px 20px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
     border-color: transparent;
 }
-.login-box .btn.google_btn{
+.login-box div.nsl-container .nsl-button-svg-container {
+    flex: 0 0 auto;
+    padding: 0!important;
+}
+.login-box div.nsl-container .nsl-button-default div.nsl-button-label-container {
+    margin: 0 0px 0 0px!important;
+    padding: 0px 0!important;
+    font-family: "GT-Walsheim-Pro"!important;
+    letter-spacing: normal!important;
+  }
+.login-box .nsl-button.google_btn{
     color: #000;
 }
-.login-box .btn.facebook_btn{
+.login-box .nsl-button.facebook_btn{
     background: #1877F2;
     color: #fff;
 }

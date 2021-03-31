@@ -122,7 +122,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <!-- ======= Featured ======= -->
 <section id="" class="latest-news  grey-background">
   <div class="container">
-    <div class="row gx-0">
+    <div class="">
       <div class="featured_headeing">
         <h1>Popular On HT school News</h1><br/>
       </div>
@@ -139,11 +139,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
       ?>
       <div class="details-middle">
+          <ul class="news_three_data">
         <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
                       // if( $Query->current_post != 0 ) { 
           ?>
-          <div class="col-sm-4">
-            <ul>
               <li>
                 <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
 
@@ -151,11 +150,11 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                   <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                 </div>
               </li>
-            </ul>
-          </div>
+           
           <?php 
                   // }
         endwhile; endif; ?>
+         </ul>
       </div>
       <div class="col-sm-12 col-lg-4">
         <div class="details-middle">
@@ -175,9 +174,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
 <section id="" class="latest-news">
   <div class="container">
-    <div class="row gx-0">
+    <div class="">
       <div class="featured_headeing">
         <h1>Interview News</h1>
+        <br/>
       </div>
       <?php
       $args = array(
@@ -190,7 +190,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
         if( $Query->current_post == 0 ) { 
           ?>
-          <div class="col-sm-12 col-lg-4">
+          <div class="col-sm-12 col-lg-4 mrg">
             <div class="details-left">
               
               <?php if ( has_post_thumbnail() ) { 

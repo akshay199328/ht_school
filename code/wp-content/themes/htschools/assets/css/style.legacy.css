@@ -35313,12 +35313,23 @@ section#title{padding: 30px 0!important;background: #fff}
 
 .woocommerce-page .pusher{background: #F8F8F8!important}
 .woocommerce-page .cart-collaterals{background: #fff; padding: 20px;}
-.woocommerce-page .checkout-button {background: #000!important; padding: 10px 0!important;}
+.woocommerce-page .checkout-button {
+	background: #000!important;     
+	padding: 15px 10px!important;
+    font-size: 15px !important;
+    margin: 0 !important;
+    line-height: 20px !important;
+}
 .woocommerce-page .woocommerce-Price-currencySymbol,
-.woocommerce-page .woocommerce-Price-amount,.cart_item td.product-name a{font-size: 18px; color: #000}
+.woocommerce-page .woocommerce-Price-amount, .cart_item td.product-name a{font-weight: 500;font-size: 18px; color: #000}
 .woocommerce-page .woocommerce-Price-currencySymbol span{font-size: 18px; color: #000}
 .shop_table_responsive{background: #fff;}
-
+.woocommerce table.shop_table td {border-top: 1px dotted #707070;padding: 16px 0;}
+.woocommerce table.shop_table th {
+    font-weight: 500!important;
+    font-size: 15px!important;
+    padding: 15px 0px!important;
+}
 /*------Added by bhavna-------*/
 section#title{
         padding-top: 76px!important;
@@ -35441,20 +35452,30 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 /*.woocommerce table.shop_table{
 	padding: 20px;
 }*/
-
+.woocommerce-cart table.cart td.actions .coupon {
+    display: inline-block;
+    width: 100%;
+}
 .woocommerce-cart table.cart td.actions .coupon .input-text{
-	padding: 7px 14px;
+	padding: 7px 14px 7px 30px;
+	max-width: 240px;
 	height: 45px;
 	border: 1px solid #000000;
 	margin: 0px;
+	color: #000;
 }
-
+.woocommerce-cart table.cart td.actions .coupon input::placeholder{
+	color: #A2A0A0;
+}
 .woocommerce-cart table.cart td.actions .coupon button{
 	height: 45px;
     border-radius: 0px !important;
     background-color: #000000 !important;
     font-size: 15px;
-    font: normal normal bold 15px/20px;
+    font-weight: bold;
+    color: #D5EBFF;
+    line-height: 22px;
+    text-transform: capitalize;
 }
 .woocommerce-cart table.cart td.actions .coupon button:hover{
 	transform: perspective(400px) translateY(0px);
@@ -35462,11 +35483,11 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 }
 
 .woocommerce-cart table.cart input{
-	font-size: 18px;
+	font-size: 18px;font-weight: 500;
 }
 
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button{
-	border-radius: 0px;
+	border-radius: 0px;text-transform: capitalize;
 }
 .woocommerce-page .checkout-button{
 	padding: 15px;
@@ -35536,7 +35557,32 @@ padding: 20px !important;
     background-color: #fff;
     padding: 0px 20px 20px;
 }
-
+.woocommerce-cart .cart-collaterals .cart_totals h2 {
+    margin: 0;
+    padding: 0 0 10px;
+    font-size: 25px;
+    text-transform: capitalize;
+    line-height: 33px;
+    border-bottom: 0;
+    padding-bottom: 25px;
+}
+.woocommerce-cart .cart-collaterals .cart_totals table {
+        padding: 10px 0px 10px!important;
+    margin: 0px 0 25px;
+    border-top: 1px dotted #707070;
+    border-bottom: 1px dotted #707070;
+}
+.cart_totals table tr th, .cart_totals table tr td, .cart_totals table .woocommerce-Price-amount {
+    font-size: 16px;
+    font-weight: 300!important;
+    line-height: 22px!important;
+    padding: 0!important;
+    margin: 0px;
+}
+.woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td{
+	border:0px!important;
+	padding: 15px 0px 15px !important;
+}
 .order_details_page table th{
 	border-bottom: 1px solid rgba(0,0,0,.1);
 }
@@ -35733,7 +35779,7 @@ p.return-to-shops {
 /*news page*/
 .featured_headeing {
     width: 100%;
-    padding: 0px 15px;
+    padding: 0px 0px;
 }
 .featured_headeing h1 {
     font-size: 25px;
@@ -35741,7 +35787,9 @@ p.return-to-shops {
 section#media_image-3 img{
 	width: 100%;
 }
-
+.news_three_data li {width: 30.27%!important;}
+.news_three_data li:nth-last-child(2){border-bottom: 0px;}
+.news_three_data li:nth-last-child(3){border-bottom: 0px;}
 .featured_tablist {
     margin: 0px 0px 30px 0px;
     padding: 0px 15px;

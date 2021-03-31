@@ -35735,7 +35735,9 @@ p.return-to-shops {
     width: 100%;
     padding: 0px 15px;
 }
-
+.featured_headeing h1 {
+    font-size: 25px;
+}
 section#media_image-3 img{
 	width: 100%;
 }
@@ -35809,8 +35811,9 @@ section.latest-news{
 .related_post.details{
 	    padding: 0;
 }
-.related_post.details .details h2 {
+.related_post.details h2 {
     margin-bottom: 0px;
+    font-size: 25px;
 }
 	body.bp-nouveau.post-template-default.single.single-post.postid-813.single-format-standard.logged-in.admin-bar.theme-htschools.woocommerce-js.blank.c5.material.pageloader2.wpb-js-composer.js-comp-ver-6\.6\.0.vc_responsive.customize-support section#media_image-3 img{
 		display: none !important;

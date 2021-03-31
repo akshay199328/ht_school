@@ -35435,7 +35435,6 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     height: 20px;
     width: 20px;
 }
-
 /*added by satish*/
 
 .woocommerce .quantity .qty{
@@ -35453,30 +35452,20 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 /*.woocommerce table.shop_table{
 	padding: 20px;
 }*/
-.woocommerce-cart table.cart td.actions .coupon {
-    display: inline-block;
-    width: 100%;
-}
+
 .woocommerce-cart table.cart td.actions .coupon .input-text{
-	padding: 7px 14px 7px 30px;
-	max-width: 240px;
+	padding: 7px 14px;
 	height: 45px;
 	border: 1px solid #000000;
 	margin: 0px;
-	color: #000;
 }
-.woocommerce-cart table.cart td.actions .coupon input::placeholder{
-	color: #A2A0A0;
-}
+
 .woocommerce-cart table.cart td.actions .coupon button{
 	height: 45px;
     border-radius: 0px !important;
     background-color: #000000 !important;
     font-size: 15px;
-    font-weight: bold;
-    color: #D5EBFF;
-    line-height: 22px;
-    text-transform: capitalize;
+    font: normal normal bold 15px/20px;
 }
 .woocommerce-cart table.cart td.actions .coupon button:hover{
 	transform: perspective(400px) translateY(0px);
@@ -35484,11 +35473,11 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
 }
 
 .woocommerce-cart table.cart input{
-	font-size: 18px;font-weight: 500;
+	font-size: 18px;
 }
 
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button{
-	border-radius: 0px;text-transform: capitalize;
+	border-radius: 0px;
 }
 .woocommerce-page .checkout-button{
 	padding: 15px;
@@ -35558,32 +35547,7 @@ padding: 20px !important;
     background-color: #fff;
     padding: 0px 20px 20px;
 }
-.woocommerce-cart .cart-collaterals .cart_totals h2 {
-    margin: 0;
-    padding: 0 0 10px;
-    font-size: 25px;
-    text-transform: capitalize;
-    line-height: 33px;
-    border-bottom: 0;
-    padding-bottom: 25px;
-}
-.woocommerce-cart .cart-collaterals .cart_totals table {
-        padding: 10px 0px 10px!important;
-    margin: 0px 0 25px;
-    border-top: 1px dotted #707070;
-    border-bottom: 1px dotted #707070;
-}
-.cart_totals table tr th, .cart_totals table tr td, .cart_totals table .woocommerce-Price-amount {
-    font-size: 16px;
-    font-weight: 300!important;
-    line-height: 22px!important;
-    padding: 0!important;
-    margin: 0px;
-}
-.woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td{
-	border:0px!important;
-	padding: 15px 0px 15px !important;
-}
+
 .order_details_page table th{
 	border-bottom: 1px solid rgba(0,0,0,.1);
 }
@@ -35648,9 +35612,8 @@ form.checkout_coupon.woocommerce-form-coupon button:hover{
     padding: 20px;
 }
 
-.woocommerce-cart-form table.shop_table{
+.woocommerce table.shop_table{
 	background-color: #fff;
-	border: 1px solid #BEBEBE;
 }
 
 h2.woocommerce-order-details__title {
@@ -35781,17 +35744,13 @@ p.return-to-shops {
 /*news page*/
 .featured_headeing {
     width: 100%;
-    padding: 0px 0px;
+    padding: 0px 15px;
 }
-.featured_headeing h1 {
-    font-size: 25px;
-}
+
 section#media_image-3 img{
 	width: 100%;
 }
-.news_three_data li {width: 30.27%!important;}
-.news_three_data li:nth-last-child(2){border-bottom: 0px;}
-.news_three_data li:nth-last-child(3){border-bottom: 0px;}
+
 .featured_tablist {
     margin: 0px 0px 30px 0px;
     padding: 0px 15px;
@@ -35832,7 +35791,7 @@ section#media_image-3 img{
 }
 
 section.latest-news{
-	padding: 20px 0 40px !important;
+	padding: 20px 0 !important;
 }
 
 .details-middle {
@@ -35856,21 +35815,15 @@ section.latest-news{
 }
 
 .atwork_img {
-    /*padding: 30px 0px;*/
+    padding: 30px 0px;
 }
-.related_post.details{
-	    padding: 0;
-}
-.related_post.details h2 {
-    margin-bottom: 0px;
-    font-size: 25px;
-}
+
 	body.bp-nouveau.post-template-default.single.single-post.postid-813.single-format-standard.logged-in.admin-bar.theme-htschools.woocommerce-js.blank.c5.material.pageloader2.wpb-js-composer.js-comp-ver-6\.6\.0.vc_responsive.customize-support section#media_image-3 img{
 		display: none !important;
 	}
 
 	section#title{
-		/*padding: 20px 0 !important;*/
+		padding: 20px 0 !important;
 	}
 	.breadcrumbs{
 		margin-top: 0px !important;
@@ -35879,6 +35832,47 @@ section.latest-news{
 	.featured_tablist li.active {
     border-bottom: 2px solid #000 !important;
     padding: 3px 0px !important;
+}
+
+/*search*/
+
+.search_section input::placeholder{
+		color: #EFEFEF;
+}
+
+.search_section input{
+	border-bottom: 3px dotted rgb(0 0 0)!important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	border-top:0px !important;
+	width: 100%;
+	padding: 0px 60px 10px;
+	height: 60px;
+	color: #000;
+	line-height: 60px;
+	font-size: 60px;
+	font-weight: bold;
+}
+.search_section {
+    position: relative;
+    padding-top: 70px;
+}
+
+.wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward {
+    width: 85%;
+    margin-left: 20px !important;
+}
+
+.search_icon{
+	background-image: url("../images/search-search.jpg");
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
 }
 
 
@@ -35987,6 +35981,15 @@ section.latest-news{
 	}
 	.news-listing .blogpost .excerpt.thumb{
 		padding: 0px !important;
+	}
+	.details-middle.devide ul li{
+		width: 100% !important;
+	}
+	.news-main .category-news .content-left .pagetitle h1{
+		font-size: 32px;
+	}
+	.news-main .category-news .content-left{
+		padding: 20px 0px 20px 0px !important;
 	}
 
 }

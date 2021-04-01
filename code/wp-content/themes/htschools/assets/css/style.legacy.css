@@ -35856,11 +35856,12 @@ section.latest-news{
 .search_section {
     position: relative;
     padding-top: 70px;
+    padding-bottom: 300px;
 }
 
 .wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward {
     width: 85%;
-    margin-left: 20px !important;
+    margin-left: 20px;
 }
 
 .search_icon{

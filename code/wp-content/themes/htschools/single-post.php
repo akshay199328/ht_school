@@ -82,7 +82,7 @@ $topics = wp_get_post_tags(get_the_ID());
           <div class="content-right">
             <div class="details">
               <div class="post-creator">
-                <p>By <?php echo $author_name; ?>, <?php echo $postDate; ?></p>
+                <p>By <strong><?php echo $author_name; ?>,</strong> <br><?php echo $postDate; ?></p>
               <!--   <p><?php echo $postDate; ?></p> -->
               </div>
                 <?php the_content(); ?>

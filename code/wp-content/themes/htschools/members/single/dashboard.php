@@ -20,13 +20,127 @@ vibe_include_template("profile/top$profile_layout.php");
 <div class="wplms-dashboard row">
 	<div class="col-sm-12 dashboard-info">
 		<div class="col-sm-12 col-md-3 mrg">
-			
+			<div class="left-listing">
+				<ul>
+					<li class="active">
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="assets/images/dashboard-1.svg"/>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<h4>Natural Language Processing</h4>
+						</div>
+					</li>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="/assets/images/dashboard-1.svg"/>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<h4>Strategies for Launching Your Creative Career</h4>
+						</div>
+					</li>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="/assets/images/dashboard-1.svg"/>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<h4>Data Science for Business Leaders</h4>
+						</div>
+					</li>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="/assets/images/dashboard-1.svg"/>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<h4>Strategies for Launching Your Creative Career</h4>
+						</div>
+					</li>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="/assets/images/dashboard-1.svg"/>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<h4>Data Science for Business Leaders</h4>
+						</div>
+					</li>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="/assets/images/dashboard-1.svg"/>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<h4>Strategies for Launching Your Creative Career</h4>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class="col-sm-12 col-md-6 mrg">
-			
+			<div class="middle-table">
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Participant</th>
+							<th>Points</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+					      	<td scope="row"><span class="circle">15</span></td>
+					      	<td>You</td>
+					      	<td>400</td>
+					    </tr>
+					    <tr>
+					      	<td scope="row"><span class="circle">16</span></td>
+					      	<td>Deccan Chargers</td>
+					      	<td>300</td>
+					    </tr>
+					    <tr>
+					      	<td scope="row"><span class="circle">17</span></td>
+					      	<td>Chennai Super Kings</td>
+					      	<td>299</td>
+					    </tr>
+					    <tr>
+					      	<td scope="row"><span class="circle">18</span></td>
+					      	<td>Chennai Super Kings</td>
+					      	<td>400</td>
+					    </tr>
+					    <tr>
+					      	<td scope="row"><span class="circle">19</span></td>
+					      	<td>Kolkata Knight Riders</td>
+					      	<td>500</td>
+					    </tr>
+					    <tr>
+					      	<td scope="row"><span class="circle">20</span></td>
+					      	<td>Mumbai Indians</td>
+					      	<td>400</td>
+					    </tr>
+					    <tr>
+					      	<td scope="row"><span class="circle">21</span></td>
+					      	<td>Kolkata Knight Riders</td>
+					      	<td>400</td>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<div class="col-sm-12 col-md-3 mrg">
-			
+			<div class="right-details">
+				<h2>Top Rankers</h2>
+				<ul>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<div class="content">
+								<p>Rank 1</p>
+								<h5>Sarthak Tushar Malankar</h5>
+								<span class="light">300 Pts</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="assets/images/gold.svg"/>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<?php do_action( 'bp_before_dashboard_body' ); ?>

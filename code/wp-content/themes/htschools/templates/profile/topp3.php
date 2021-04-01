@@ -22,6 +22,13 @@
 				</div><!-- #item-header -->
 
 		</div><!-- #item-header -->
+		<div class="profile-heading">
+			<div class="<?php echo vibe_get_container(); ?>">
+	    		<div class="row">
+	    			<h3>Dashboard</h3>
+	    		</div>
+	    	</div>
+		</div>
 		<div class="grey-background">
 	    <div class="<?php echo vibe_get_container(); ?>">
 	    	

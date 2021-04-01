@@ -4258,6 +4258,15 @@ border-color: transparent;
 }
 .news_three_data li:nth-last-child(2), .news_three_data li:nth-last-child(3){border-bottom: 0px}
 /*-------DASHBOARD CSS:START-------*/
+.profile-heading {
+    padding: 20px 0px;
+}
+.profile-heading h3 {
+    font-size: 15px;
+    line-height: 20px;
+    color: #000000;
+     padding: 0px 15px;
+}
 .dashboard_header{
     background: url('./assets/images/dashboard-background.jpg') no-repeat top center;!important; 
     background-size: cover;
@@ -4438,6 +4447,126 @@ border-color: transparent;
   font-weight: 300;
   color: #000000;
   line-height: 20px;
+}
+.left-listing li{
+  display: block;
+  float: left;
+  width: 100%;
+  border-bottom: 1px dotted #707070;
+  padding: 20px 8px 20px 20px;
+  background: transparent;
+}
+.left-listing li:hover, .left-listing li.active{
+  background: #FADE3B;
+  border-color: transparent;
+}
+.left-listing li h4{
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #000;
+}
+.middle-table {
+    padding: 0px 30px;
+}
+.middle-table table {
+    background-color: transparent;
+}
+.middle-table table thead {
+  border-bottom: 2px solid #000;
+}
+.middle-table table thead th{
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #000000;
+  border:0px!important;
+}
+.middle-table table tr {
+    border-bottom: 1px dotted #d3d3d3;
+    position: relative;
+}
+.middle-table table tbody tr:after{
+      content: '';
+    /* border-bottom: 2px solid #000; */
+    display: block;
+    width: 150px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 2px;
+    /*background: #000;*/
+
+}
+.middle-table table tr:hover{
+  background: #D5EBFF
+}
+.middle-table table tbody td:nth-child(1), .middle-table table th:nth-child(1){
+  width: 15%;
+}
+.middle-table table tbody td:nth-child(2), .middle-table table th:nth-child(2){
+  width: 80%;
+}
+.middle-table table tbody td:nth-child(3), .middle-table table th:nth-child(3){
+  width: 25%;
+}
+.middle-table table tbody td{
+  font-size: 17px;
+    font-weight: bold;
+    line-height: 45px!important;
+    color: #000000;
+    border: 0px!important;
+    padding: 15px 10px!important;
+}
+.middle-table table .circle {
+    width: 46px;
+    height: 46px;
+    background: #fff;
+    color: #000;
+    border-radius: 100px;
+    text-align: center;
+    display: block;
+    vertical-align: middle;
+    line-height: 46px
+}
+.right-details{
+
+}
+.right-details h2{
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+  line-height: 33px;
+      border-bottom: 1px dotted #000;
+    padding-bottom: 10px;
+}
+.right-details li{
+      border-bottom: 1px dotted #000;
+    display: block;
+    width: 100%;
+    padding: 15px 0px;
+    float: left;
+}
+.right-details li:after{
+  
+}
+.right-details li .content p{
+ font-size: 11px;
+ font-weight: bold;
+ letter-spacing: 1px;
+ line-height: 15px;
+ text-transform: uppercase;
+}
+.right-details li .content h5{
+ font-size: 20px;
+    letter-spacing: normal;
+    line-height: 20px;
+    margin: 10px 0px 1px;
+}
+.right-details li .content span.light{
+font-size: 15;
+ font-weight: 300;
+ line-height: 20px;
 }
 /*-------Dashboard css:END-------*/
 

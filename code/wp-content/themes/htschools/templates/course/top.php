@@ -23,7 +23,7 @@ if($header == 'transparent' || $header == 'generic'){
 					</div><!-- #item-header -->
 			
 				<div id="item-nav">
-					<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
+					<div class="item-list-tabs no-ajax" id="object-nav" role="navigation22">
 						<ul>
 							<?php bp_get_options_nav(); ?>
 							<?php

@@ -153,7 +153,7 @@ get_header(vibe_get_header());
                 'post_type' => 'post',
                 'post_status' => 'publish',
                 'category_name' => 'News',
-                'posts_per_page' => 5,
+                'posts_per_page' => 4,
             );
             $Query = new WP_Query( $args );
             if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();

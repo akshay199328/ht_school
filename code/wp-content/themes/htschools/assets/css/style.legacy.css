@@ -35438,6 +35438,7 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     height: 20px;
     width: 20px;
 }
+
 /*added by satish*/
 
 .woocommerce .quantity .qty{
@@ -35826,7 +35827,7 @@ section.latest-news{
 	}
 
 	section#title{
-		/*padding: 20px 0 !important;*/
+		padding: 20px 0 !important;
 	}
 	.breadcrumbs{
 		margin-top: 0px !important;
@@ -35862,7 +35863,7 @@ section.latest-news{
 .search_section {
     position: relative;
     padding-top: 70px;
-    padding-bottom: 0px;
+    padding-bottom: 300px;
 }
 
 .wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward {
@@ -35883,13 +35884,34 @@ section.latest-news{
     top: 64px;
 }
 
+/*news details*/
 
+.image_background {
+    background: #000!important;
+}
 
+.about-details.mrg.right_content {
+    padding: 10px 0px 20px 20px !important;
+}
 
-/*#title .pagetitle .breadcrumbs{
-	display: none !important;
-}*/
+.right_content .content-right{
+	padding: 0px 0px !important;
+}
+.news-main .category-news .content-left {
+    padding: 20px 20px 20px 20px!important;
+}
 
+.news-main .category-news .content-left .pagetitle h1{
+	font-size: 30px !important;
+}
+
+.news-main .post-creator {
+    padding-bottom: 20px;
+}
+
+.news-main .details h2{
+	margin-bottom: 20px;
+}
 
 /*responsive added css by satish*/
 
@@ -35906,6 +35928,14 @@ section.latest-news{
 	}
 	.woocommerce table.shop_table td{
 		font-size: 12px;
+	}
+
+
+	.news-main .category-news .content-left:before{
+		background-color: transparent !important;
+	}
+	.about-details.mrg.right_content {
+    padding: 10px 0px 20px 0px !important;
 	}
 }
 
@@ -35998,6 +36028,9 @@ section.latest-news{
 	}
 	.news-main .category-news .content-left{
 		padding: 20px 0px 20px 0px !important;
+	}
+	.about-details.mrg.right_content {
+    padding: 10px 0px 0px 0px !important;
 	}
 
 }

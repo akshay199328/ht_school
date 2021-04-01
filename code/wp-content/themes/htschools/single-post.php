@@ -5,7 +5,7 @@ $page_id = get_the_ID();
 
 $title=get_post_meta(get_the_ID(),'vibe_title',true);
 if(vibe_validate($title) || empty($title)){
-?>
+  ?>
 <!-- <section id="title">
     <?php do_action('wplms_before_title'); ?>
     <div class="<?php echo vibe_get_container(); ?>">
@@ -23,8 +23,8 @@ if(vibe_validate($title) || empty($title)){
             </div>
         </div>
     </div>
-</section> -->
-<?php
+  </section> -->
+  <?php
 }
 ?>
 <?php 
@@ -45,7 +45,7 @@ $author_company = get_the_author_meta( 'last_name', $author_id );
 
 // Post Thumbnail
 if ( has_post_thumbnail() ) { 
-    $featured_image = get_the_post_thumbnail_url();
+  $featured_image = get_the_post_thumbnail_url();
 }
 
 $postCreatorName = strtoupper(get_post_meta(get_the_ID(), 'post_creator_name', true));
@@ -55,131 +55,140 @@ $topics = wp_get_post_tags(get_the_ID());
 
 ?>
 <div id="content ">
-    <div class="innerheader-space"></div>
+  <div class="innerheader-space"></div>
   <div class="news-main grey-background">
-    <div class="<?php echo vibe_get_container(); ?>">
-      <div class="row">
-        <div class="col-md-4 col-sm-12 category-news">
-          <div class="content content-left">
-            <?php do_action('wplms_before_title'); ?>
-            <div class="pagetitle">
-              <div class="breadcrumbs white-bread">
-                <?php
-                    $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
-                    if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
-                        vibe_breadcrumbs(); 
-                ?>
-                <h1><?php the_title(); ?></h1>
+    <div class="details-left fixed_banner image_background">
+      <div class="<?php echo vibe_get_container(); ?>">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 category-news">
+            <div class="content content-left">
+              <?php do_action('wplms_before_title'); ?>
+              <div class="pagetitle">
+                <div class="breadcrumbs white-bread">
+                  <?php
+                  $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
+                  if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
+                    vibe_breadcrumbs(); 
+                  ?>
+                  <h1><?php the_title(); ?></h1>
 
-                <?php the_sub_title(); ?>
-                <h5><?php echo wp_trim_words( get_the_excerpt(), 30); ?></h5>
+                  <?php the_sub_title(); ?>
+                  <h5><?php echo wp_trim_words( get_the_excerpt(), 30); ?></h5>
+                </div>
               </div>
+              <img src="<?php echo $featured_image; ?>">
             </div>
-            <img src="<?php echo $featured_image; ?>">
           </div>
         </div>
-        <div class="col-md-8 col-sm-8">
-          <div class="content-right">
-            <div class="details">
-              <div class="post-creator">
-                <p>By <?php echo $author_name; ?>, <?php echo $postDate; ?></p>
-              <!--   <p><?php echo $postDate; ?></p> -->
-              </div>
-                <?php the_content(); ?>
-            </div>
-            <div class="topic_details">
-              <?php
-              if ( is_active_sidebar( 'banner-4' ) ) : ?>
-                <?php dynamic_sidebar( 'banner-4' ); ?>      
-              <?php endif; ?>
-              <br>
-              <?php $tagsCount = count($topics);
-                if($tagsCount > 0 ){
+      </div>
+    </div>
+    <div class="pull-right right-section grey-background">
+         <div class="<?php echo vibe_get_container(); ?>">
+          <div class="row">
+    <div class="col-md-12 col-sm-12 details-right pull-right">
+      <div class="about-details mrg right_content">
+      <div class="content-right">
+        <div class="details">
+          <div class="post-creator">
+            <p>By <strong><?php echo $author_name; ?>,</strong> <br><?php echo $postDate; ?></p>
+            <!--   <p><?php echo $postDate; ?></p> -->
+          </div>
+          <?php the_content(); ?>
+        </div>
+        <div class="topic_details">
+          <?php
+          if ( is_active_sidebar( 'banner-4' ) ) : ?>
+            <?php dynamic_sidebar( 'banner-4' ); ?>      
+          <?php endif; ?>
+          <br>
+          <?php $tagsCount = count($topics);
+          if($tagsCount > 0 ){
+            ?>
+            <h2>Topics</h2>
+            <?php
+          }
+          ?>
+          <ul>
+            <?php
+            foreach ($topics as $tag) {
               ?>
-              <h2>Topics</h2>
+              <li><a href="/?s=<?php echo $tag->name; ?>"><?php echo $tag->name; ?></a></li>
               <?php
-              }
-              ?>
-              <ul>
-                <?php
-                foreach ($topics as $tag) {
-                ?>
-                <li><a href="/?s=<?php echo $tag->name; ?>"><?php echo $tag->name; ?></a></li>
-                <?php
-                }
-                ?>
-              </ul>
-            </div>
-            <div class="col-lg-12 center mrg">
-              <br/><br/>
+            }
+            ?>
+          </ul>
+        </div>
+        <div class="col-lg-12 center mrg">
+          <br/><br/>
 <!--             <?php
             if ( is_active_sidebar( 'banner-3' ) ) : ?>
               <?php dynamic_sidebar( 'banner-3' ); ?>      
-            <?php endif; ?> -->
-        </div>
+              <?php endif; ?> -->
+            </div>
           </div>
+
+           <!-- releted news -->
+          <div class="releted_news_section">
+             <div class="atwork_img">
+          <?php
+          if ( is_active_sidebar( 'banner-2' ) ) : ?>
+            <?php dynamic_sidebar( 'banner-2' ); ?>      
+          <?php endif; ?>
         </div>
 
-      </div>
-
-    </div>
-</div>
-</div>
-<section class="">
-    <div class="<?php echo vibe_get_container(); ?>">
-      <div class="row">
-        <div class="col-sm-12 col-md-4">
-          <div class="atwork_img">
-            <?php
-            if ( is_active_sidebar( 'banner-2' ) ) : ?>
-              <?php dynamic_sidebar( 'banner-2' ); ?>      
-            <?php endif; ?>
-        </div>
-        </div>
-        <div class="col-sm-12 col-md-8">
-                      <div class="related_post details">
-              <?php
+        <div class="related_post details">
+          <?php
                 // Related Posts
-                $tags = wp_get_post_tags(get_the_ID());
-                if ($tags) {
-                    echo '<h2>Related News</h2>';
-                    $first_tag = $tags[0]->term_id;
+          $tags = wp_get_post_tags(get_the_ID());
+          if ($tags) {
+            echo '<h2>Related News</h2>';
+            $first_tag = $tags[0]->term_id;
 
-                    $args=array(
-                        'tag__in' => array($first_tag),
-                        'post__not_in' => array(get_the_ID()),
-                        'posts_per_page'=>5,
-                    );
-                    $my_query = new WP_Query($args);
+            $args=array(
+              'tag__in' => array($first_tag),
+              'post__not_in' => array(get_the_ID()),
+              'posts_per_page'=>5,
+            );
+            $my_query = new WP_Query($args);
                      // print_r($my_query);
             //echo "<pre>";print_r($my_query);exit;
 
-                    if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
+            if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
                                   // if( $Query->current_post != 0 ) { 
-                      ?>
-                      <div class="details-middle devide">
-                        <ul>
-                      <li>
-                          <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                          <div class="link">
-                              <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                          </div>
-                      </li>
-                    </ul>
-                  </div>
-                      <?php 
+              ?>
+              <div class="details-middle devide">
+                <ul>
+                  <li>
+                    <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                    <div class="link">
+                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <?php 
                               // }
-                  endwhile; endif;
+            endwhile; endif;
 
-                  wp_reset_query();
-              }
-            ?>
-            </div>
+            wp_reset_query();
+          }
+          ?>
         </div>
-        
+      </div>
+          <!-- releted news -->
+
+        </div>
+        </div>
       </div>
     </div>
-    </section>
+  </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <?php
 $page_for_posts = get_option('page_for_posts');
 $blog = get_post($page_for_posts);   
@@ -198,7 +207,7 @@ $author_company = get_the_author_meta( 'last_name', $author_id );
 
 // Post Thumbnail
 if ( has_post_thumbnail() ) { 
-    $featured_image = get_the_post_thumbnail_url();
+  $featured_image = get_the_post_thumbnail_url();
 }
 
 // Current Post Tags List.
@@ -211,12 +220,12 @@ $topics = wp_get_post_tags(get_the_ID());
 $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
     // the_content();
 //End Main content of the post
-    ?>
-  
-    
-    
-    
+?>
+
+
+
+
 
 <?php
-    get_footer(vibe_get_footer());
+get_footer(vibe_get_footer());
 ?>

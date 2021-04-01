@@ -53,6 +53,9 @@ b, strong {
     font-weight: bold;
 }
 dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
+:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
 .btn:focus, .btn.focus{outline: 0;
     box-shadow: none;}
 .mrg{padding: 0px!important;margin: 0px;}
@@ -3846,7 +3849,7 @@ Course Details
     border-right: 1px solid #BEBEBE;
     padding: 12px 12px;
 }
-.login-box .switch {
+.login-box .switch, .radio .switch {
         border-radius: 0;
     display: inline-block;
     transition: all 0.1s ease;
@@ -3860,7 +3863,7 @@ Course Details
     padding: 0px;
 }
 
-.login-box .switch-label{
+.login-box .switch-label, .radio .switch-label {
     direction: rtl;
     position: relative;
     z-index: 2;
@@ -3876,39 +3879,51 @@ Course Details
     font-weight: 500;
 }
 
-.login-box .switch-input {
+.login-box .switch-input,  .radio .switch-input{
     display: none;
 }
 
-.login-box .switch-input:checked + .switch-label {
-    color: #fff;
+.login-box .switch-input:checked + .switch-label, 
+.radio .switch-input:checked + .switch-label {
+    color: #fff!important;
     width: 50%;
 }
 
-.login-box .switch-input:checked + .switch-label-on ~ .slider2 {
+.login-box .switch-input:checked + .switch-label-on ~ .slider2, 
+.radio .switch-input:checked + .switch-label-on ~ .slider2 {
     left: 50%;
     border-radius:0;
 }
 
-.login-box .switch-label-on{
+.login-box .switch-label-on,
+.radio .switch-label-on
+{
     border-radius:0;
 }
 
-.login-box .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2{
+.login-box .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2,
+.radio .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2
+{
     border-radius:0;
 }
 
-.login-box .switch-input:checked + .switch-label svg path{
+.login-box .switch-input:checked + .switch-label svg path,
+.radio .switch-input:checked + .switch-label svg path
+{
     fill: #ffffff;
 }
 
-.login-box .swith-row{
+.login-box .swith-row,
+.radio .swith-row
+{
     height: 45px;
     direction: ltr;
     width: 100%;
 }
 
-.login-box .slider2{
+.login-box .slider2,
+.radio .slider2
+{
     display: block;
     position: absolute;
     z-index: 1;
@@ -3926,13 +3941,20 @@ Course Details
 }
 
 
-.login-box .slide-right {
+.login-box .slide-right,
+.radio .slide-right
+ {
     -webkit-animation: slide-right 0.5s infinite alternate-reverse both;
     animation: slide-right 0.5s infinite alternate-reverse both;
 }
 .login-box .switch-label span{
     position: relative;
     top: 9px;
+}
+.radio .switch-label span
+{
+    position: relative;
+    top: 12px;
 }
 @-webkit-keyframes slide-right {
     0% {
@@ -4205,7 +4227,7 @@ border-color: transparent;
 .news_latest-news .details-middle ul li {
     display: inline-block;
     width: 33.33%;
-  }
+}
 .link:after, .link:hover:after {
   content: ""!important;
   display: none;
@@ -4224,8 +4246,11 @@ border-color: transparent;
 
 
 .news_heading{padding:0px 0px;}
-
-
+.news_three_data li{
+      width: 30.27%!important;
+}
+.news_three_data li:nth-last-child(2), .news_three_data li:nth-last-child(3){border-bottom: 0px}
+/*-------DASHBOARD CSS:START-------*/
 .dashboard_header{
     background: url('./assets/images/dashboard-background.jpg') no-repeat top center;!important; 
     background-size: cover;
@@ -4326,11 +4351,77 @@ border-color: transparent;
 }
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li:hover a, 
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:hover,
-.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current.selected a{
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current,
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current.selected a,
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current a{
   background: #000!important;
   color: #fff!important;
   font-weight: bold!important;
 }
+.dashboard_accountinfo .profile-card{
+  padding:25px;
+  background: #fff;
+  border:1px solid #BEBEBE;
+  margin-right: 20px;
+}
+.dashboard_accountinfo .profile-card .standard-form  {
+    width: 70%;
+}
+.dashboard_accountinfo .profile-card h1, .info-card h1 {
+    font-size: 25px;
+    color: #000;
+    line-height: 33px;
+    margin-bottom: 25px;
+}
+
+.dashboard_accountinfo .form-control:focus {
+    color: red;
+    border:3px solid red;
+}
+
+.edit_DOB, .profile_search{
+  position: relative;
+}
+.edit_DOB:after{
+  content:'';
+     background: url('./assets/images/profile-calendar.svg') no-repeat bottom right;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    bottom: 15px;
+    display: block;
+    /* height: 17px; */
+    width: 19px;
+}
+.profile_search:after{
+    content:'';
+    background: url('./assets/images/profile-search.svg') no-repeat bottom right;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    bottom: 15px;
+    display: block;
+    /* height: 17px; */
+    width: 19px;
+}
+.standard-form .btn {
+    font-size: 18px;
+    line-height: normal;
+    font-weight: normal;
+    padding: 12px 30px;
+    background: #000000;
+    border: 1px solid var(--primary);
+    margin: 0;
+    border-radius: 0px;
+}
+.standard-form .form-group:last-child {
+    margin-bottom: 0px;
+}
+.dashboard_accountinfo .info-card {
+    padding-left: 30px;
+}
+/*-------Dashboard css:END-------*/
+
 /*-------Search css-------*/
 .search.search-results #content {padding: 0px;}
 .search.search-results .cats ul li{    margin-top: 4px;}

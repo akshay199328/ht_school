@@ -10909,7 +10909,7 @@ output {
 	width: 100%;
 	height: 34px;
 	padding: 6px 12px;
-	background-color: #fff;
+	background-color: transparent;
 	background-image: none;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -24763,14 +24763,34 @@ input[type=submit].loading {
 #buddypress .standard-form input[type=week],
 #buddypress .standard-form select,
 #buddypress .standard-form textarea {
-	border: 1px solid rgba(0, 0, 0, .08);
-	border-radius: 2px;
-	color: #313b3d;
-	font: inherit;
-	font-size: 100%;
-	padding: 6px 12px
+	border: 0px;
+    border-bottom: 1px solid #a8a6a6;
+    border-radius: 0px;
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 0px 18px;
+    box-shadow: none;
+    height: 100%;
 }
 
+#buddypress .standard-form input::placeholder { 
+  	color: #A2A0A0;
+	font-weight: 500;
+	font-size: 18px;
+}
+
+#buddypress .standard-form input:-ms-input-placeholder {
+  	color: #A2A0A0;
+	font-weight: 500;
+	font-size: 18px;
+}
+
+#buddypress .standard-form input::-ms-input-placeholder {
+  	color: #A2A0A0;
+	font-weight: 500;
+	font-size: 18px;
+}
 #buddypress .standard-form select {
 	padding: 3px
 }
@@ -24782,8 +24802,10 @@ input[type=submit].loading {
 #buddypress .standard-form label,
 #buddypress .standard-form span.label {
 	display: block;
-	font-weight: 700;
-	margin: 15px 0 5px
+	font-weight: 500;
+    margin: 0px 0 0px;
+    font-size: 14px;
+    color: #A2A0A0;
 }
 
 #buddypress .standard-form .checkbox label,
@@ -35406,17 +35428,7 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     background: transparent!important;
     box-shadow: none!important;
 }
-
 .cart-contents:after{display: none!important;}
-
-/*.cart-contents:before {
-    content: '';
-    background: url('../images/cart.svg');
-    display: block;
-    position: absolute;
-    width: 30px;
-    height: 25px;
-}*/
 .cart-contents:hover {
     text-decoration: none;
 }
@@ -35438,6 +35450,8 @@ a.loggedin_user img {width: 27px!important;margin-right: 30px;}
     height: 20px;
     width: 20px;
 }
+
+
 
 /*added by satish*/
 
@@ -35748,9 +35762,11 @@ p.return-to-shops {
 /*news page*/
 .featured_headeing {
     width: 100%;
-    padding: 0px 15px;
+    padding: 0px 0px;
 }
-
+.featured_headeing h1{
+	color: #000000;
+}
 section#media_image-3 img{
 	width: 100%;
 }

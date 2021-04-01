@@ -4332,6 +4332,21 @@ border-color: transparent;
   font-weight: bold!important;
 }
 /*-------Search css-------*/
+.search.search-results #content {padding: 0px;}
+.search.search-results .cats ul li{    margin-top: 4px;}
+.blogpost-search {
+   position: relative;
+    padding: 10px 0px;
+    margin: 10px 0px;
+}
+.blogpost-search:after{
+  content:'';
+       border-bottom: 1px dotted #707070;
+    display: block;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+}
 .blogpost-search .excerpt h3{
   font-size: 20px!important;
   font-weight: bold!important;
@@ -4340,6 +4355,7 @@ border-color: transparent;
 }
 .blogpost-search .excerpt h3 a{
   color: #000;
+  font-weight: bold!important;
 }
 .post-categories li, .post-categories p{
   font-size: 11px;

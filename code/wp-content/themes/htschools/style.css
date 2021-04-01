@@ -54,10 +54,10 @@ b, strong {
 }
 dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
 :focus {
-    outline: -webkit-focus-ring-color auto 0px;
+    outline: -webkit-focus-ring-color auto 0px!important;
 }
-.btn:focus, .btn.focus{outline: 0;
-    box-shadow: none;}
+.btn:focus, .btn.focus{outline: 0!important;
+    box-shadow: none!important;}
 .mrg{padding: 0px!important;margin: 0px;}
 .pull-left{ 
   float: left;
@@ -395,7 +395,9 @@ section {
     left: 0;
 }
 .search-icon a:after, .right-menu .icon{display: none;}
-
+.logged-in .right-menu ul.after_loginspace{
+      margin-top: 7px;
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -3695,7 +3697,10 @@ Course Details
 .login-box .btn.submit_btn{
     background: #7b7b7b;
     color: #cdbe69;
-    margin: 0px;
+        margin: 0px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
 }
 .login-box .btn.submit_btn a{color: #cdbe69;}
 .login-box .btn.submit_btn:hover{
@@ -4197,6 +4202,8 @@ border-color: transparent;
 .news-listing .content-right .sidebar{
       padding: 20px;
     background: #fff;
+    float: left;
+    width: 100%;
 }
 .sidebar h3 {
     font-size: 25px;
@@ -4376,7 +4383,8 @@ border-color: transparent;
 
 .dashboard_accountinfo .form-control:focus {
     color: red;
-    border:3px solid red;
+    border-bottom: 3px solid red;
+    background: transparent;
 }
 
 .edit_DOB, .profile_search{
@@ -4405,20 +4413,31 @@ border-color: transparent;
     width: 19px;
 }
 .standard-form .btn {
-    font-size: 18px;
-    line-height: normal;
-    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
     padding: 12px 30px;
     background: #000000;
-    border: 1px solid var(--primary);
+    color: #D5EBFF;
+    border: 1px solid transparent;
     margin: 0;
     border-radius: 0px;
+}
+.standard-form .btn:hover{
+  background: #000000;
+    color: #D5EBFF;
 }
 .standard-form .form-group:last-child {
     margin-bottom: 0px;
 }
 .dashboard_accountinfo .info-card {
-    padding-left: 30px;
+    padding-left: 20px;
+}
+.info-card .content p{
+  font-size: 15px;
+  font-weight: 300;
+  color: #000000;
+  line-height: 20px;
 }
 /*-------Dashboard css:END-------*/
 

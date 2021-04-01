@@ -24769,7 +24769,7 @@ input[type=submit].loading {
     color: #000;
     font-weight: 500;
     font-size: 18px;
-    padding: 10px 0px 18px;
+    padding: 10px 0px 12px;
     box-shadow: none;
     height: 100%;
 }
@@ -24792,7 +24792,8 @@ input[type=submit].loading {
 	font-size: 18px;
 }
 #buddypress .standard-form select {
-	padding: 3px
+	/*padding: 3px*/
+	background-image: url('../images/profile-dropdown.svg');
 }
 
 #buddypress .standard-form input[type=password] {
@@ -24813,7 +24814,7 @@ input[type=submit].loading {
 	color: #444;
 	font-size: 100%;
 	font-weight: 400;
-	margin: 5px 0 0
+	margin: 0px 0 0
 }
 
 #buddypress .standard-form#sidebar-login-form label {
@@ -35691,6 +35692,7 @@ svg.bi.bi-chevron-left{
 }
 .login-box .btn.submit_btn{
 	background-color: #000 !important;
+	    width: 100%;
 }
 
 .resend-info{

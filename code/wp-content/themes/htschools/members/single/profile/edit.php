@@ -86,8 +86,12 @@ global $bp;
 
 <div class="col-md-4 mrg">
 	<div class="info-card">
-		<h1>Add your Childrens</h1>
 		<form action="" method="post" id="profile-edit-form" class="standard-form">
+			<h1>Add your Childrens</h1>
+			<div class="content">
+				<p>Please add your child/ren’s detail by clicking the <strong>add a child</strong> button below</p>
+				<button class="btn">Add a Child</button>
+			</div>
 			<div class="form-group profile_search">
 				<label for="">Name of your School</label>
 				<input type="text" class="form-control" id="" placeholder="Find your School">

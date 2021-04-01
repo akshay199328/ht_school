@@ -16,7 +16,19 @@ $profile_layout = vibe_get_customizer('profile_layout');
 
 vibe_include_template("profile/top$profile_layout.php");  
 ?>
+
 <div class="wplms-dashboard row">
+	<div class="col-sm-12 dashboard-info">
+		<div class="col-sm-12 col-md-3 mrg">
+			
+		</div>
+		<div class="col-sm-12 col-md-6 mrg">
+			
+		</div>
+		<div class="col-sm-12 col-md-3 mrg">
+			
+		</div>
+	</div>
 	<?php do_action( 'bp_before_dashboard_body' ); ?>
 	<?php
 		if(current_user_can('edit_posts')){

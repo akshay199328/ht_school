@@ -1,3 +1,16 @@
+<style type="text/css">
+  .countColor h6{
+    color: #fff!important;
+  }
+  .countColor{
+    border-top: solid 1px #a6a6a6;
+    padding: 15px 0px;
+    border-bottom: solid 1px #a6a6a6;
+  }
+  .countColor p{
+    font-family: 'GT-Walsheim-Pro'!important;
+  }
+</style>
 <?php 
 /**
  * The template for displaying Course home
@@ -40,58 +53,58 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <h2><?php bp_course_name(); ?></h2>
                     <?php the_excerpt(); ?>
                     <ul>
-                      <li>
-                          <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
-                              <p>Age Group</p>
-                              <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
-                              <h6>--</h6>
-                              <?php } else{ ?>
-                              <h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
-                              <?php }?>
-                          </div>
-                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
-                              <p>Total Students</p>
-                              <h6><?php echo get_post_meta($post->ID,'vibe_students',true);?></h6>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
-                              <p>Duration</p>
-                              <?php if(get_post_meta($post->ID,'vibe_duration',true) == '') { ?>
-                                <h6>--</h6>
-                              <?php } else{ ?>
-                              <h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6>
-                              <?php }?>
-                          </div>
-                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
-                              <p>Frequency</p>
-                              <?php if(get_post_meta($post->ID,'vibe_course_frequency',true) == '') { ?>
-                                <h6>--</h6>
-                              <?php } else{ ?>
-                              <h6><?php echo get_post_meta($post->ID,'vibe_course_frequency',true);?></h6>
-                              <?php }?>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
-                              <p>Sessions</p>
-                              <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) == '') { ?>
-                                <h6>--</h6>
-                              <?php } else{ ?>
-                             <!-- <h6><?php echo $courselesson;?></h6> -->
-                             <h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true);?></h6>
-                             <?php }?>
-                          </div>
-                           <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
-                              <p>Session Length</p>
-                              <?php if(get_post_meta($post->ID,'vibe_course_session_length',true) == '') { ?>
-                                <h6>--</h6>
-                              <?php } else{ ?>
-                              <h6><?php echo get_post_meta($post->ID,'vibe_course_session_length',true); ?></h6>
-                              <?php }?>
-                          </div>
-                      </li>
-                    </ul>
+                      <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) != '') { ?>
+
+                        <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
+                          <p style="font-size: 14px!important;">Age Group</p>
+                          <h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
+                        </div>
+
+                      <?php }?>
+                      <?php if(get_post_meta($post->ID,'vibe_students',true) != '') { ?>
+
+                       <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
+                        <p style="font-size: 14px!important;">Total Students</p>
+                        <h6><?php echo get_post_meta($post->ID,'vibe_students',true);?></h6>
+                      </div>
+
+                    <?php }?>
+
+
+                    <?php if(get_post_meta($post->ID,'vibe_duration',true) != '') { ?>
+
+                      <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
+                        <p style="font-size: 14px!important;">Duration</p>
+                        <h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?></h6>
+                      </div>
+
+                    <?php }?>
+                    <?php if(get_post_meta($post->ID,'vibe_course_frequency',true) != '') { ?>
+
+                     <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
+                      <p style="font-size: 14px!important;">Frequency</p>
+                      <h6><?php echo get_post_meta($post->ID,'vibe_course_frequency',true);?></h6>
+                    </div>
+
+                  <?php }?>
+
+                  <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) != '') { ?>
+
+                    <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
+                      <p style="font-size: 14px!important;">Sessions</p>
+                      <h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true);?></h6>
+                    </div>
+
+                  <?php }?>
+                  <?php if(get_post_meta($post->ID,'vibe_course_session_length',true) != '') { ?>
+
+                   <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
+                    <p style="font-size: 14px!important;">Session Length</p>
+                    <h6><?php echo get_post_meta($post->ID,'vibe_course_session_length',true);?></h6>
+                  </div>
+
+                <?php }?>
+              </ul>
                     
                   </div>
                 </div>

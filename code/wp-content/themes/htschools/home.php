@@ -20,7 +20,7 @@ get_header(vibe_get_header());
              <header class="section-header">
                 <h2>Popular Courses</h2>
                 <p>We offer classes for all ages throughout the year.</p>
-                <a href="<?php echo get_home_url();?>/all-courses/" class="exlore-link desktop-btn">Explore all Courses</a>
+                <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Explore all Courses</a>
             </header>
             <div class="adworks">
               <?php

@@ -29,7 +29,7 @@ if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 		<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
 	</div>
 	<p class="return-to-shops">
-		<a class="button wc-backward" href="<?php echo get_site_url();?>/all-courses">
+		<a class="button wc-backward" href="<?php echo get_site_url();?>/courses">
 			Add Courses
 		</a>
 	</p>

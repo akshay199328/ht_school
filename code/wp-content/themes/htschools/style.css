@@ -3997,7 +3997,7 @@ Course Details
   background: #000000;
   position: relative;
 }
-.news-main .category-news .content-left:before{
+/*.news-main .category-news .content-left:before{
   content: '';
   background: #000000;
   position: absolute;
@@ -4006,7 +4006,7 @@ Course Details
   height: 100%;
   top: 0;
   width: 100%;
-}
+}*/
 .news-main .category-news .content-left {
     padding: 20px 20px 20px 0px!important;
 }

@@ -35836,19 +35836,22 @@ section.latest-news{
 
 /*search*/
 
-.search_section input::placeholder{
+/*.search_section input::placeholder{
 		color: #EFEFEF;
-}
+}*/
 
+.search_section input::placeholder{
+  color: #EFEFEF!important;
+}
 .search_section input{
 	border-bottom: 3px dotted rgb(0 0 0)!important;
 	border-left: 0px !important;
 	border-right: 0px !important;
 	border-top:0px !important;
-	width: 100%;
-	padding: 0px 60px 10px!important;
+	width: 100% !important;
+	padding: 0px 80px 10px !important;
 	height: 60px;
-	color: #000;
+	color: #000!important;
 	line-height: 60px;
 	font-size: 60px;
 	font-weight: bold;
@@ -35856,6 +35859,7 @@ section.latest-news{
 .search_section {
     position: relative;
     padding-top: 70px;
+    padding-bottom: 300px;
 }
 
 .wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward {
@@ -35873,6 +35877,7 @@ section.latest-news{
     display: inline-block;
     position: absolute;
     left: 0px;
+    top: 64px;
 }
 
 

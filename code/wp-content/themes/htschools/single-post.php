@@ -57,6 +57,7 @@ $topics = wp_get_post_tags(get_the_ID());
 <div id="content ">
     <div class="innerheader-space"></div>
   <div class="news-main grey-background">
+    <div class="details-left fixed_banner">
     <div class="<?php echo vibe_get_container(); ?>">
       <div class="row">
         <div class="col-md-4 col-sm-12 category-news">
@@ -77,6 +78,7 @@ $topics = wp_get_post_tags(get_the_ID());
             </div>
             <img src="<?php echo $featured_image; ?>">
           </div>
+        </div>
         </div>
         <div class="col-md-8 col-sm-8">
           <div class="content-right">

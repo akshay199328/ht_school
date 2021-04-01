@@ -79,6 +79,10 @@ add_action( 'bp_init', 'rt_change_profile_tab_order', 999 );
 
 function bp_remove_nav_item() {
     global $bp;
+    $current_user   = wp_get_current_user();
+    $role_name      = $current_user->roles[0];
+    if($role_name==='administrator' || $role_name==='admin' || $role_name==='student'){
+    
     bp_core_remove_subnav_item( $bp->course->slug, 'course-stats' );
     bp_core_remove_subnav_item( $bp->course->slug, 'quiz_results' );
     bp_core_remove_subnav_item( $bp->course->slug, 'assignment_results' );
@@ -91,10 +95,11 @@ function bp_remove_nav_item() {
     bp_core_remove_subnav_item( $bp->course->slug, 'manage_questions' );
     bp_core_remove_subnav_item( $bp->course->slug, 'qna' );
     bp_core_remove_subnav_item( $bp->course->slug, 'course_search' );
+  }
 }
 add_action( 'wp', 'bp_remove_nav_item' );
 
-function bpcodex_remove_group_manager_subnav_tabs() {   
+/*function bpcodex_remove_group_manager_subnav_tabs() {   
     // site admin will see all tabs
     if ( ! bp_is_group() || ! ( bp_is_current_action( 'admin' ) && bp_action_variable( 0 ) ) || is_super_admin() ) {
         return;
@@ -118,7 +123,7 @@ function bpcodex_remove_group_manager_subnav_tabs() {
         bp_core_remove_subnav_item( $parent_nav_slug, $tab, 'groups' );
     }   
 }
-add_action( 'bp_actions', 'bpcodex_remove_group_manager_subnav_tabs' );
+add_action( 'bp_actions', 'bpcodex_remove_group_manager_subnav_tabs' );*/
 
 add_action('init',function(){
 

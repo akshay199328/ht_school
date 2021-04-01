@@ -14,7 +14,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
 		//do_action('bp_course_get_options_sub_nav');
 		?>
-		<li><a class="">Upcoming Courses</a></li>
+		<li><a class="">Recommended Courses</a></li>
 		<li><a class="">Past Courses</a></li>
 	</ul>
 </div><!-- .item-list-tabs -->

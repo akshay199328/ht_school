@@ -356,6 +356,7 @@ section {
 .right-menu .navbar{
   float: right;
 }
+
 .right-menu ul li{
   display: inline-block;
   color: #000000;
@@ -368,6 +369,9 @@ section {
 }
 .right-menu ul li:last-child{
   padding-right: 0px;    margin-right: 0;
+}
+.vibebp-login {
+    margin-right: 0!important;
 }
 .right-menu ul li a img{
 
@@ -4301,21 +4305,52 @@ border-color: transparent;
       background: #000!important;
 }
 .dashboard_accountinfo{    padding: 30px 0px;}
+.dashboard_accountinfo #item-body, .dashboard_accountinfo #subnav{ background: transparent!important;}
 .dashboard_accountinfo .item-list-tabs#subnav {padding: 0!important;}
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li{
+    margin:0px!important;    
+    transform: none!important;
+    text-shadow: none!important;
+}
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a{
   color: #000!important;
   font-size: 15px!important;
   font-weight: 300!important;
   background: transparent!important;
   text-transform: capitalize!important;
-      border-radius: 0px!important;
-    padding: 13px 20px!important;
-    border-bottom: 1px dotted #707070!important;
+  border-radius: 0px!important;
+  padding: 13px 20px!important;
+  border-bottom: 1px dotted #707070!important;
+  letter-spacing: normal!important;
+      line-height: 20px!important;
 }
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li:hover a, 
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:hover,
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current.selected a{
   background: #000!important;
   color: #fff!important;
   font-weight: bold!important;
+}
+/*-------Search css-------*/
+.blogpost-search .excerpt h3{
+  font-size: 20px!important;
+  font-weight: bold!important;
+  color: #000!important;
+  line-height: 20px!important;
+}
+.blogpost-search .excerpt h3 a{
+  color: #000;
+}
+.post-categories li, .post-categories p{
+  font-size: 11px;
+  color: #000!important;
+  font-weight: bold!important;
+}
+.post-categories li a{
+  color: #000!important;
+}
+.search.search-results .content .pagination{
+  display: none;
 }
 /*--------------------------------------------------------------
 # Footer

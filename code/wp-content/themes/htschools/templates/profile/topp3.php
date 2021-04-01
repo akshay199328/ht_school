@@ -22,7 +22,7 @@
 				</div><!-- #item-header -->
 
 		</div><!-- #item-header -->
-	
+		<div class="grey-background">
 	    <div class="<?php echo vibe_get_container(); ?>">
 	    	
 	        <div class="row">	

@@ -12,111 +12,65 @@ global $bp;
  *
  * @since 1.1.0
  */
-do_action( 'bp_before_profile_edit_content' );
 
-if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) ) :
-	while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
+?>
+<div class="col-md-8">
+	<form action="" method="post" id="profile-edit-form" class="standard-form">
+		<h1>Personal Details</h1>
+		<div class="form-group">
+			<label for="exampleInputEmail1">First Name</label>
+			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Last Name</label>
+			<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Email</label>
+			<input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email Id">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Mobile Number</label>
+			<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number" maxlength="10">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Date of Birth</label>
+			<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Date of Birth">
+		</div>
+		<div class="radio">
+			<label> Gender <br/>
+				<input type="radio" name="gender"> Male<br/>
+				<input type="radio" name="gender"> Female<br/>
+			</label>
+		</div>
 
-<form action="<?php bp_the_profile_group_edit_form_action(); ?>" method="post" id="profile-edit-form" class="standard-form <?php bp_the_profile_group_slug(); ?>">
+		<div class="form-group">
+			<label for="exampleInputPassword1">Country</label>
+			<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Select Country">
+		</div>
 
-	<?php
 
-		/** This action is documented in bp-templates/bp-legacy/buddypress/members/single/profile/profile-wp.php */
-		do_action( 'bp_before_profile_field_content' ); ?>
+		<div class="form-group">
+			<label for="exampleInputPassword1">State</label>
+			<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Select State">
+		</div>
 
-		<h4><?php printf( __( "Editing '%s' Profile Group", "vibe" ), bp_get_the_profile_group_name() ); ?></h4>
 
-		<?php if ( bp_profile_has_multiple_groups() ) : ?>
-			<ul class="button-nav">
+		<div class="form-group">
+			<label for="exampleInputPassword1">City</label>
+			<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Select City">
+		</div>
 
-				<?php bp_profile_group_tabs(); ?>
+		<div class="form-group">
+			<button type="submit" class="btn btn-default">Submit</button>
+		</div>
 
-			</ul>
-		<?php endif ;?>
+	</form>
+</div>
 
-		<div class="clear"></div>
-
-		<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
-
-			<div<?php bp_field_css_class( 'editfield' ); ?>>
-
-				<?php
-				$field_type = bp_xprofile_create_field_type( bp_get_the_profile_field_type() );
-				$field_type->edit_field_html();
-				/**
-				 * Fires before the display of visibility options for the field.
-				 *
-				 * @since 1.7.0
-				 */
-				do_action( 'bp_custom_profile_edit_fields_pre_visibility' );
-				?>
-
-				<?php if ( bp_current_user_can( 'bp_xprofile_change_field_visibility' ) ) : ?>
-					<p class="field-visibility-settings-toggle" id="field-visibility-settings-toggle-<?php bp_the_profile_field_id() ?>">
-						<?php
-						printf(
-							__( 'This field can be seen by: %s', 'vibe' ),
-							'<span class="current-visibility-level">' . bp_get_the_profile_field_visibility_level_label() . '</span>'
-						);
-						?>
-						<a href="#" class="visibility-toggle-link"><?php _e( 'Change', 'vibe' ); ?></a>
-					</p>
-
-					<div class="field-visibility-settings" id="field-visibility-settings-<?php bp_the_profile_field_id() ?>">
-						<fieldset>
-							<legend><?php _e( 'Who can see this field?', 'vibe' ) ?></legend>
-
-							<?php bp_profile_visibility_radio_buttons() ?>
-
-						</fieldset>
-						<a class="field-visibility-settings-close" href="#"><?php _e( 'Close', 'vibe' ) ?></a>
-					</div>
-				<?php else : ?>
-					<div class="field-visibility-settings-notoggle" id="field-visibility-settings-toggle-<?php bp_the_profile_field_id() ?>">
-						<?php
-						printf(
-							__( 'This field can be seen by: %s', 'vibe' ),
-							'<span class="current-visibility-level">' . bp_get_the_profile_field_visibility_level_label() . '</span>'
-						);
-						?>
-					</div>
-				<?php endif ?>
-
-				<?php
-
-				/**
-				 * Fires after the visibility options for a field.
-				 *
-				 * @since 1.1.0
-				 */
-				do_action( 'bp_custom_profile_edit_fields' ); ?>
-
-				<?php
-				 //now buddypress already show descption below the field since 2.9 
-				if(function_exists('version_compare') && !empty($bp->version) && version_compare($bp->version, '2.9.0','<')){
-					
-					echo '<p class="description">'.bp_the_profile_field_description().'</p>';
-				}?>
-			</div>
-
-		<?php endwhile; ?>
-
-	<?php
-
-	/** This action is documented in bp-templates/bp-legacy/buddypress/members/single/profile/profile-wp.php */
-	do_action( 'bp_after_profile_field_content' ); ?>
-
-	<div class="submit">
-		<input type="submit" name="profile-group-edit-submit" id="profile-group-edit-submit" value="<?php _e( 'Save Changes', 'vibe' ); ?> " />
-	</div>
-
-	<input type="hidden" name="field_ids" id="field_ids" value="<?php bp_the_profile_field_ids(); ?>" />
-
-	<?php wp_nonce_field( 'bp_xprofile_edit' ); ?>
-
-</form>
-
-<?php endwhile; endif; ?>
+<div class="col-md-4">
+	<h1>Add your Childrens</h1>
+</div>
 
 <?php
 

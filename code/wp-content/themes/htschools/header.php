@@ -157,7 +157,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
                    //print_r($menuitems);
-                   echo "<ul><li class='search-icon'><a id='new_searchicon'><img src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
+                   echo "<ul><li class='search-icon'><a href='/?s'><img src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
                    if (is_user_logged_in()){
                        do_action('woocommerce_add_to_cart_fragments'); 
                     }

@@ -57,7 +57,6 @@ $topics = wp_get_post_tags(get_the_ID());
 <div id="content ">
     <div class="innerheader-space"></div>
   <div class="news-main grey-background">
-    <div class="details-left fixed_banner">
     <div class="<?php echo vibe_get_container(); ?>">
       <div class="row">
         <div class="col-md-4 col-sm-12 category-news">
@@ -79,12 +78,11 @@ $topics = wp_get_post_tags(get_the_ID());
             <img src="<?php echo $featured_image; ?>">
           </div>
         </div>
-        </div>
         <div class="col-md-8 col-sm-8">
           <div class="content-right">
             <div class="details">
               <div class="post-creator">
-                <p>By <strong><?php echo $author_name; ?>,</strong> <br><?php echo $postDate; ?></p>
+                <p>By <?php echo $author_name; ?>, <?php echo $postDate; ?></p>
               <!--   <p><?php echo $postDate; ?></p> -->
               </div>
                 <?php the_content(); ?>
@@ -106,7 +104,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 <?php
                 foreach ($topics as $tag) {
                 ?>
-                <li><?php echo $tag->name; ?></li>
+                <li><a href="/?s=<?php echo $tag->name; ?>"><?php echo $tag->name; ?></a></li>
                 <?php
                 }
                 ?>

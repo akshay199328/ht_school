@@ -821,11 +821,11 @@ class WPLMS_Actions{
     	<div class="item-list-tabs" id="subnav" role="navigation">
 		<ul>
 			<?php do_action( 'bp_course_directory_course_types' ); ?>
-			<li>
+			<!-- <li>
 				<div class="dir-search" role="search">
 					<?php bp_directory_course_search_form(); ?>
-				</div><!-- #group-dir-search -->
-			</li>
+				</div>
+			</li> -->
 			<li class="switch_view">
 				<div class="grid_list_wrapper">
 					<a id="list_view" class="active"><i class="icon-list-1"></i></a>

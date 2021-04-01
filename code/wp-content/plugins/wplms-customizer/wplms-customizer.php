@@ -90,6 +90,7 @@ function bp_remove_nav_item() {
     bp_core_remove_subnav_item( $bp->course->slug, 'manage_students' );
     bp_core_remove_subnav_item( $bp->course->slug, 'manage_questions' );
     bp_core_remove_subnav_item( $bp->course->slug, 'qna' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'course_search' );
 }
 add_action( 'wp', 'bp_remove_nav_item' );
 
@@ -267,4 +268,25 @@ function custom_background_image($field1){
   'type'  => 'image' // type of field
   );
   return $field1;
+}
+
+// Set up Cutsom BP navigation
+function my_setup_nav() {
+      global $bp;
+
+      bp_core_new_nav_item( array( 
+            'name' => __( 'Preferences', 'buddypress' ), 
+            'slug' => 'my-item-one', 
+            'position' => 30,
+            'screen_function' => 'my_item_one_template', 
+      ) );
+
+}
+
+add_action( 'bp_setup_nav', 'my_setup_nav' );
+
+
+// Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
+function my_item_one_template() {
+      bp_core_load_template( 'item-one-template' );
 }

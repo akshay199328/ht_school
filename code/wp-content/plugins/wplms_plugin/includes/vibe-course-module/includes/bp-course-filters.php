@@ -473,6 +473,22 @@ class bp_course_filters{
 	<?php 
 	if ( bp_course_has_items( $args ) ) : ?>
 
+		<div id="pag-top" class="pagination ">
+
+			<div class="pag-count" id="course-dir-count-top">
+
+				<?php bp_course_pagination_count(); ?>
+
+			</div>
+
+			<div class="pagination-links" id="course-dir-pag-top">
+
+				<?php bp_course_item_pagination(); ?>
+
+			</div>
+
+		</div>
+
 		<?php do_action( 'bp_before_directory_course_list' );
 			$class = '';
 			$cookie=urldecode($_POST['cookie']);
@@ -480,17 +496,13 @@ class bp_course_filters{
 				$class='grid';
 			}
 		?>
-		<section id="Popular-Courses" class="">
-      <div class="aos-init aos-animate" data-aos="fade-up">
-          
-          <div class="col-lg-8 mrg">
-            <div class="align-self-center gy-4" id="course-list" class="item-list <?php echo apply_filters('wplms_course_directory_list',$class); ?>" role="main">
-             
+		<ul id="course-list" class="item-list <?php echo apply_filters('wplms_course_directory_list',$class); ?>" role="main">
+
 		<?php while ( bp_course_has_items() ) : bp_course_the_item(); ?>
 
 				<?php 
 				global $post;
-				$cache_duration = vibe_get_option('cache_duration'); if(!isset($cache_duration)) $cache_duration=86400;
+				$cache_duration = vibe_get_option('cache_duration'); if(!isset($cache_duration)) $cache_duration=0;
 				if($cache_duration){
 					$course_key= 'course_'.$post->ID;
 					if(is_user_logged_in()){
@@ -515,17 +527,25 @@ class bp_course_filters{
 
 		<?php endwhile; ?>
 
-	</div>
-	</div>
-	<div class="col-lg-4 mrg adworks desktop-add right-adwork">
-		<?php
-            if ( is_active_sidebar( 'banner-1' ) ) : ?>
-              <?php dynamic_sidebar( 'banner-1' ); ?>      
-       	<?php endif; ?>
-  	</div>
-</div>
-</div>
-</section>
+		</ul>
+
+		<?php do_action( 'bp_after_directory_course_list' ); ?>
+
+		<div id="pag-bottom" class="pagination">
+
+			<div class="pag-count" id="course-dir-count-bottom">
+
+				<?php bp_course_pagination_count(); ?>
+
+			</div>
+
+			<div class="pagination-links" id="course-dir-pag-bottom">
+
+				<?php bp_course_item_pagination(); ?>
+
+			</div>
+
+		</div>
 
 	<?php else: ?>
 

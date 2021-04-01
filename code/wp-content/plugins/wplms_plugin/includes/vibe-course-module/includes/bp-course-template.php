@@ -818,24 +818,9 @@ if(!function_exists('bp_course_item_view')){
                 ?>
                 <h6><?php echo $category_array[0]->name; ?></h6>
                 <h2><?php bp_course_title(); ?></h2>
-                <div class="col-lg-12 share-icon mrg">
-                    <i class="bi bi-share"></i>
-                </div>
+           
                 <?php bp_course_desc(); ?>
-                <div class="col-lg-7 duration mrg">
-                  <div class="pull-left">
-                    <p>Duration</p>
-                    <h6><?php echo get_post_meta($course_post_id,'vibe_duration',true);?> Days</h6>
-                  </div>
-                  <div class="pull-right">
-                    <p>Age Group</p>
-                  <?php if(get_post_meta($post->ID,'course_age_group',true) == '') { ?>
-                  <h6>--</h6>
-                  <?php } else{ ?>
-                  <h6><?php echo get_post_meta($post->ID,'course_age_group',true);?></h6>
-                  <?php }?>
-                  </div>
-                </div>
+
               </div>
             </div>
             <div class="col-sm-12 col-lg-3 pull-left mrg">
@@ -1197,10 +1182,9 @@ function bp_course_desc() {
 
 function bp_course_get_course_desc() {
 	global $post;
-	$limit = apply_filters('excerpt_length',55);
 	$desc = wp_trim_words(get_the_excerpt(), $limit);
 	
-	return apply_filters('the_content',$desc);
+	return the_content();
 }	
 
 function bp_course_action() {

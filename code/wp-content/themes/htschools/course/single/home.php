@@ -51,7 +51,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           </div>
                            <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
                               <p>Total Students</p>
-                              <h6><?php echo get_post_meta($post->ID,'vibe_max_students',true);?></h6>
+                              <h6><?php echo get_post_meta($post->ID,'vibe_students',true);?></h6>
                           </div>
                       </li>
                       <li>

@@ -22070,7 +22070,7 @@ header.univ .header_univ .header_top_main ul.topmenu:last-child {
 .vibebp-login .fa-user {
 	font-size: 32px
 }
-
+section.breadcrumbs{width: 100%;}
 .breadcrumbs li,
 .indate {
 	font-size: 11px;
@@ -35344,6 +35344,9 @@ section#title{
     margin-left: 0px;
     position: relative;
     width: 121px;
+}
+nav .menu li.custom-dropdown a, nav .menu li.custom-dropdown.current-menu-item a{
+	color: #fff!important;
 }
 .single-course .header{
 	    background: #fade3b!important;

@@ -105,6 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                               }
                               else{
                                 if(is_user_logged_in()){
+                                  $user = wp_get_current_user();
                                   $username = $user->user_login;
                                   echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/members-directory/'.$username.'/course/">My Courses</a></li>';
                                 }
@@ -174,7 +175,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
                    if (is_user_logged_in()){
                        do_action('woocommerce_add_to_cart_fragments'); 
-                       do_action('notification_fragments'); 
+                       /*do_action('notification_fragments'); */
                     }
                    foreach ($menuitems as $menu) {  ?>
                        <li><a href="<?php echo $menu->url; ?>"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>

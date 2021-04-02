@@ -81,7 +81,7 @@ function bp_remove_nav_item() {
     global $bp;
     $current_user   = wp_get_current_user();
     $role_name      = $current_user->roles[0];
-    if($role_name==='administrator' || $role_name==='admin' || $role_name==='student'){
+    if($role_name==='administrator' || $role_name==='admin' || $role_name==='student' || $role_name==='instructor'){
     
     bp_core_remove_subnav_item( $bp->course->slug, 'course-stats' );
     bp_core_remove_subnav_item( $bp->course->slug, 'quiz_results' );
@@ -275,6 +275,24 @@ function custom_background_image($field1){
   return $field1;
 }
 
+add_filter('wplms_course_metabox','custom_course_recommended');
+function custom_course_recommended($field1){
+  $prefix = 'vibe_';
+  $field1[]=array(
+    'label'=> __('Recommended Course','vibe-recommended-course' ),
+    'text'=>__('Recommended Course','vibe-recommended-course' ),
+    'type'=> 'select',
+    'options'  => array('H'=>__('Yes','vibe-recommended-course' ),'S'=>__('No','vibe-recommended-course' )),
+    'style'=>'',
+    'id' => $prefix.'recommended_course',
+    'from'=> 'meta',
+    'default'=>'H',
+    'is_child'=>true,
+    'desc'=> __('Recommended Course.','vibe-recommended-course' )
+  );
+  return $field1;
+}
+
 // Set up Cutsom BP navigation
 function my_setup_nav() {
       global $bp;
@@ -294,4 +312,55 @@ add_action( 'bp_setup_nav', 'my_setup_nav' );
 // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
 function my_item_one_template() {
       bp_core_load_template( 'item-one-template' );
+}
+
+
+function bp_page_nav(){
+    global $bp;
+ 
+    $user_domain = bp_displayed_user_domain() ? bp_displayed_user_domain() : bp_loggedin_user_domain();
+    $course_link = trailingslashit( $user_domain . $bp->course->slug );
+
+    bp_core_new_subnav_item( array(
+    'name' => __( 'Active Courses', 'buddypress' ), 
+    'slug' => 'active-course',
+    'parent_url' => $course_link,
+    'parent_slug' => $bp->course->slug,
+    'screen_function' => 'active_course_template',
+    'position' => 20
+ 
+    ) );
+
+    bp_core_new_subnav_item( array(
+    'name' => __( 'Recommended Courses', 'buddypress' ), 
+    'slug' => 'recommended-course',
+    'parent_url' => $course_link,
+    'parent_slug' => $bp->course->slug,
+    'screen_function' => 'recommended_course_template',
+    'position' => 20
+ 
+    ) );
+
+     bp_core_new_subnav_item( array(
+    'name' => __( 'Past Courses', 'buddypress' ), 
+    'slug' => 'past-course',
+    'parent_url' => $course_link,
+    'parent_slug' => $bp->course->slug,
+    'screen_function' => 'past_course_template',
+    'position' => 20
+ 
+    ) );
+}
+add_action('bp_setup_nav', 'bp_page_nav', 10 );
+
+function active_course_template() {
+      bp_core_load_template( 'active-course' );
+}
+ 
+function recommended_course_template() {
+      bp_core_load_template( 'recommended-course' );
+}
+
+function past_course_template() {
+      bp_core_load_template( 'past-course' );
 }

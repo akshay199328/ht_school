@@ -460,9 +460,8 @@ class bp_course_filters{
 
 	$loop_number=vibe_get_option('loop_number');
 	isset($loop_number)?$loop_number:$loop_number=5;
-
-	$args['per_page'] = $loop_number;
 	if(in_array($filter,array('pursuing','finished','expired','active')) && empty($args['post__in'])){
+	$args['per_page'] = $loop_number;
 		echo '<div class="message">'._x('No courses found !','No courses in current filter','wplms').'</div>';
 		die();
 	}

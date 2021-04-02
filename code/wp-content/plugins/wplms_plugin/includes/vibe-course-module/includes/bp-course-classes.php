@@ -239,7 +239,7 @@ class BP_COURSE {
 				$cache_key=str_replace('draft_pending_future_private','dpfp',$cache_key);
 
 				if ( false === $this->query) {
-
+					print_r($this->query);
 					$this->query = new WP_Query( $query_args );
 					if($cache_duration)
 						set_transient($cache_key,$this->query,$cache_duration);

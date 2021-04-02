@@ -826,12 +826,12 @@ class WPLMS_Actions{
 					<?php bp_directory_course_search_form(); ?>
 				</div>
 			</li> -->
-			<li class="switch_view">
+			<!-- <li class="switch_view">
 				<div class="grid_list_wrapper">
 					<a id="list_view" class="active"><i class="icon-list-1"></i></a>
 					<a id="grid_view"><i class="icon-grid"></i></a>
 				</div>
-			</li>
+			</li> -->
 			<li id="course-order-select" class="last filter">
 
 				<label for="course-order-by"><?php _e( 'Order By:', 'vibe' ); ?></label>

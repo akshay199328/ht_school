@@ -12,10 +12,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <div class="item-list-tabs no-ajax <?php if ( !bp_is_my_profile() ) echo 'notmyprofile'; ?>" id="subnav" role="navigation">
 	<ul>
 		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
-		//do_action('bp_course_get_options_sub_nav');
+		do_action('bp_course_get_options_sub_nav');
 		?>
-		<li><a class="">Recommended Courses</a></li>
-		<li><a class="">Past Courses</a></li>
 	</ul>
 </div><!-- .item-list-tabs -->
 

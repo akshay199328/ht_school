@@ -58,7 +58,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 global $bp,$wpdb;
 
 
-                /*if($course_query->have_posts()){
+               /*if($course_query->have_posts()){
                     $return['status']=1;
                     $courses = array();
                     while($course_query->have_posts()){
@@ -129,6 +129,8 @@ vibe_include_template("profile/top$profile_layout.php");
                 <?php while($course_query->have_posts()){
                         $course_query->the_post();
                         global $post;
+                        $progress = bp_course_get_user_progress($user->id,$post->ID);
+                        if($statuses[$post->ID]>2){$progress = 100;}
           ?>
             <div class="course-box dotted-border">
             <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
@@ -170,6 +172,11 @@ vibe_include_template("profile/top$profile_layout.php");
                 <div class="col-lg-12 right-details pull-left mrg">
                   
                   <div class="col-lg-12 course-button">
+                    <?php
+                        $course_progress = empty($progress)?0:intval($progress);
+                    ?>
+                    <?php  
+                    echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span>'.$course_progress.'</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'%; background: var(--primary);"></div></div></div>'; ?>
                       <h6><?php the_course_price(); ?>
                      </h6>
                       <?php the_course_button(); ?> 

@@ -153,7 +153,7 @@ get_header(vibe_get_header());
             $args = array(
                 'post_type' => 'post',
                 'post_status' => 'publish',
-                'category_name' => 'News',
+                'category_name' => 'Expert',
                 'posts_per_page' => 4,
             );
             $Query = new WP_Query( $args );
@@ -199,7 +199,7 @@ get_header(vibe_get_header());
                 </div>
                 <ul>
                     <?php
-                        query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&category_name=News&posts_per_page=4');
+                        query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&category_name=Expert&posts_per_page=4');
                         if (have_posts()) : while (have_posts()) : the_post();
                         ?>
                             <li>

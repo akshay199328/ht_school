@@ -27,18 +27,35 @@ vibe_include_template("profile/top$profile_layout.php");
 <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
           <div class="course-box dotted-border">
           	<?php
+
+                        $args_course_count = array(
+                            'post_type' => 'course',
+                            'post_status' => 'publish',
+                        );
+                        $Query_course_count = new WP_Query( $args_course_count );
+                        $reCount = 0;
+                        if ($Query_course_count->have_posts()) : while ($Query_course_count->have_posts()) : $Query_course_count->the_post();
+                          $custom_fields_count = get_post_custom();
+                          $recommended_courses_count = $custom_fields_count['vibe_recommended_course'][0];
+                          if($recommended_courses_count == 'Y') {
+                            $reCount++;
+                          }
+                        endwhile; endif;
+
+
 		                $args_course = array(
 		                    'post_type' => 'course',
 		                    'post_status' => 'publish',
 		                );
 		                $Query_course = new WP_Query( $args_course );
+                        if($reCount > 0){
 		                if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
 		                  $custom_fields = get_post_custom();
 		                  $duration = $custom_fields['vibe_duration'][0];
 		                  $age_limit = $custom_fields['vibe_course_age_group'][0];
 		                  $category_array = get_the_terms( $post->ID, 'course-cat');
 		                  $recommended_courses = $custom_fields['vibe_recommended_course'][0];
-		                  if($recommended_courses == 'Y') {
+                          if($recommended_courses == 'Y') {
                   ?>
             <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                 <?php bp_course_avatar(); ?>
@@ -116,7 +133,11 @@ vibe_include_template("profile/top$profile_layout.php");
 
               </div>
             </div>
-            <?php } endwhile; endif; ?>
+            <?php } endwhile; endif;}else{
+                ?>
+                <h1>Course Not Found</h1>
+                <?php
+            } ?>
           </div>
         </div>
 </section>

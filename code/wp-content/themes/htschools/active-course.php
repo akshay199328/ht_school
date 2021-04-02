@@ -167,7 +167,23 @@ vibe_include_template("profile/top$profile_layout.php");
                             </div>
                             <br/>
                             <br/>
-                            <?php bp_course_desc(); ?>
+                            <?php wp_trim_words(bp_course_desc(), 30); ?>
+                            <br/>
+
+                            <div class="learing-goals" id="benefits">
+                                <div class="container">
+                                    <div class="">
+                                        <div class="col-sm-12 col-lg-12 pull-right left-spacing">
+                                            <?php if(get_post_meta($post->ID,'vibe_learning_goals',true) > 0){ ?>
+                                                <div class="heading">
+                                                    <h3>Objective</h3>
+                                                    <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-3 pull-left mrg">
@@ -180,6 +196,36 @@ vibe_include_template("profile/top$profile_layout.php");
                                 echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span>'.$course_progress.'</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'%; background: var(--primary);"></div></div></div>'; ?>
                                 <h6><?php the_course_price(); ?></h6>
                                 <?php the_course_button(); ?> 
+                            </div>
+                            <div class="heading">
+                                <h3>Instructor</h3>
+                            </div>
+                            <?php
+                            
+                            $course_id=get_the_ID();
+                            $post_tmp = get_post($course_id);
+                            $author_id = $post_tmp->post_author;
+                            $author_info = get_userdata($author_id);
+                            $author_name = get_the_author_meta( 'display_name', $author_id );
+                            $author_url = get_the_author_meta( 'user_url', $author_id );
+                            $author_user_profile = get_avatar_url($author_id);
+                            $author_company = get_the_author_meta( 'last_name', $author_id );
+                            ?>
+                            <div class="col-sm-12 col-lg-7 pull-left mrg">
+                                <div class="profile mt-auto">
+                                    <div class="col-lg-12 profile-content">
+                                        <div class="profileimg-name">
+                                            <div class="col-xs-4 col-sm-2 col-lg-4 mrg profile-img pull-left">
+                                                <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
+                                            </div>
+                                            <div class="col-xs-6 col-sm-4 co-lg-3 pull-left">
+                                                <h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
+                                                <h4><?php echo $author_company; ?></h4>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

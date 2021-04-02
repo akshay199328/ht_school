@@ -4588,6 +4588,9 @@ font-size: 15px;
     position: relative;
     top: -11px;
 }
+.dashboard_accountinfo #Popular-Courses {
+    padding: 0px;
+}
 /*-------Dashboard css:END-------*/
 
 /*-------Search css-------*/

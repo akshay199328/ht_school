@@ -149,7 +149,8 @@ function wpfp_check_favorited($cid) {
 function wpfp_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
     global $post;
     //print_r($post);
-    $post_id = &$post->ID;
+    $post_id = $post->ID;
+    //$post_id = &$post->ID;
     extract($args);
     $str = "";
     if ($show_span)
@@ -375,7 +376,7 @@ function wpfp_update_post_meta($post_id, $val) {
 	if ($val == -1 && $oldval == 0) {
     	$val = 0;
 	} else {
-		$val = $oldval + $val;
+		$val = intval($oldval) + intval($val);
 	}
     return add_post_meta($post_id, WPFP_META_KEY, $val, true) or update_post_meta($post_id, WPFP_META_KEY, $val);
 }

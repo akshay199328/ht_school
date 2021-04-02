@@ -3,8 +3,8 @@
 		@media screen and (max-width:1024px) {
 
 			.woocommerce-cart table.cart td.actions .coupon{
-				width: 100%;
-				display: flex;
+				width: 100% !important;
+				display: flex !important;
 			}
 			.woocommerce-page .woocommerce-Price-currencySymbol,
 			.woocommerce-page .woocommerce-Price-amount,
@@ -88,8 +88,8 @@
 	@media screen and (max-width:767px) {
 
 		.woocommerce-cart table.cart td.actions .coupon{
-			width: 100%;
-			display: flex;
+			width: 100% !important;
+			display: flex !important;
 		}
 		.woocommerce-billing-fields{
 			margin-bottom: 30px;
@@ -204,5 +204,14 @@
 		.course-curriculum .card{
 			height: auto;
 		}
+		.other-courses .list .card:last-child{
+			border: 0px;
+		}
+		.related_courses2 .owl-nav button span{
+			top: -20px;
+		}
+
 
 	}
+
+/*close css*/

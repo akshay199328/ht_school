@@ -734,23 +734,51 @@ function check_if_logged_in()
     }
 }
 
-// Billing and shipping addresses fields
-add_filter( 'woocommerce_default_address_fields' , 'filter_default_address_fields', 20, 1 );
-function filter_default_address_fields( $address_fields ) {
-    // Only on checkout page
-    if( ! is_checkout() ) return $address_fields;
-
-    // All field keys in this array
-    $key_fields = array('country','company','address_1','address_2','city','state','postcode');
-
-    // Loop through each address fields (billing and shipping)
-    foreach( $key_fields as $key_field )
-        $address_fields[$key_field]['required'] = false;
-
+add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 
+);
+function wc_npr_filter_phone( $address_fields ) {
+    $address_fields['billing_phone']['required'] = true;
+    $address_fields['billing_country']['required'] = false;
+    $address_fields['billing_last_name']['required'] = true;
+    $address_fields['billing_city']['required'] = false;
+    $address_fields['billing_postcode']['required'] = false;
+    $address_fields['billing_email']['required'] = true;
+    $address_fields['billing_state']['required'] = false;
+    $address_fields['billing_address_1']['required'] = false;
+    $address_fields['billing_address_2']['required'] = false;
     return $address_fields;
+
 }
 
+// Filter will do its magic before the fields are passed to the template.
+add_filter('woocommerce_checkout_fields', function($fields) {
 
+  // Do things with your fields like setting the
+  // priority, label, required, etc.
+  // or removing them
+
+  // Example: Set the priorities straight
+  // Probably not meant for this since priority is something
+  // totally different than order.
+  $fields['billing']['billing_first_name']['priority'] = 0;
+  $fields['billing']['billing_last_name']['priority'] = 5;
+  $fields['billing']['billing_email']['priority'] = 10;
+  $fields['billing']['billing_phone']['priority'] = 15;
+  $fields['billing']['billing_country']['priority'] = 20;
+  $fields['billing']['billing_state']['priority'] = 25;
+  $fields['billing']['billing_address_1']['priority'] = 30;
+  $fields['billing']['billing_address_2']['priority'] = 35;
+  $fields['billing']['billing_postcode']['priority'] = 40;
+  $fields['billing']['billing_city']['priority'] = 45;
+
+  // Sort the fields based on their 'priority'
+  usort($fields['billing'], function($a, $b) {
+    return $a['priority'] <=> $b['priority'];
+  });
+
+  // Send the fields to the function that receives the fields data
+  return $fields;
+});
 function get_the_term_list_search( $post_id, $taxonomy, $before = '', $sep = '', $after = '' ) {
   $terms = get_the_terms( $post_id, $taxonomy );
 

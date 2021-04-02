@@ -1653,10 +1653,10 @@ Course Details
   margin-left: 5px;
   position: relative;
   margin-bottom: 20px;
-  -webkit-box-align: center !important;
+  /*-webkit-box-align: center !important;
     -ms-flex-align: center !important;
     align-items: center !important;
-    display: flex;
+    display: flex;*/
 }
 .course-box:after{
     content:'';
@@ -4590,6 +4590,20 @@ font-size: 15px;
 }
 .dashboard_accountinfo #Popular-Courses {
     padding: 0px;
+}
+.dashboard_accountinfo .course-box {
+        border: 1px solid #E8E8E8;
+}
+.progress {
+    background: #D5EBFF!important;
+    border-radius: 6px;
+}
+.dashboard_accountinfo .progress{top: -5px;}
+.progress .bar{    padding: 4px 0px!important;}
+.progress_value {
+    font-size: 11px;
+    font-weight: 300;
+    font-family: "GT-Walsheim-Pro";
 }
 /*-------Dashboard css:END-------*/
 

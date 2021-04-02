@@ -25,117 +25,54 @@ vibe_include_template("profile/top$profile_layout.php");
     </div>
 
     <div class="col-md-9">      
-          	<?php
-                $user = wp_get_current_user();
-                //print_r($user->ID);
-                
-                global $wpdb;    
-                $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("
-                SELECT posts.ID as id
-                FROM {$wpdb->posts} AS posts
-                LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key
-                WHERE   posts.post_type   = %s
-                AND   posts.post_status   = %s
-                AND   meta.user_id   = %d
-                AND   meta.meta_value > %d
-                ",'course','publish',$user->ID,time()));
-                $result = $wpdb->get_results($courses_with_types);
+      	<?php
+            $user = wp_get_current_user();
+            //print_r($user->ID);
+            
+            global $wpdb;    
+            $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("
+            SELECT posts.ID as id
+            FROM {$wpdb->posts} AS posts
+            LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key
+            WHERE   posts.post_type   = %s
+            AND   posts.post_status   = %s
+            AND   meta.user_id   = %d
+            AND   meta.meta_value > %d
+            ",'course','publish',$user->ID,time()));
+            $result = $wpdb->get_results($courses_with_types);
 
-                foreach($result as $course){
-                        
-                    $args['post__in'][]=$course->id;
-                    $type = bp_course_get_user_course_status($user->ID,$course->id);
+            foreach($result as $course){
                     
-                    $statuses[$course->id]= intval($type);
-                }
-
-                $query_args = apply_filters('wplms_mycourses',array(
-                    'post_type'=>'course',
-                    'posts_per_page'=>12,
-                    'paged'=>$args['paged'],
-                    's'=>$args['s'],
-                    'post__in'=>$args['post__in']
-                ),2);
-
-                $course_query = new WP_Query($query_args);
-                global $bp,$wpdb;
-
-
-               /*if($course_query->have_posts()){
-                    $return['status']=1;
-                    $courses = array();
-                    while($course_query->have_posts()){
-                        $course_query->the_post();
-                        global $post;
-
-
-                        $retakes = bp_course_get_course_retakes($post->ID);
-
-                        
-                        $course_retakes = bp_course_get_course_retakes($post->ID,2);
-
-
-
-                        $authors=array($post->post_author);
-                        $authors = apply_filters('wplms_course_instructors',$authors,$post->ID);
-                        $progress = bp_course_get_user_progress(2,$post->ID);
-                        if($statuses[$post->ID]>2){$progress = 100;}
-                        
-                        $start_date = bp_course_get_start_date($post->ID,2);
-                        if(strpos($start_date,'-') !== false){
-                            $start_date = strtotime($start_date);
-                        }
-
-
-                        $_course_data = array(
-                            'id'                    => $post->ID,
-                            'name'                  => $post->post_title,
-                            'excerpt'               => $post->post_excerpt,
-                            'description'           => do_shortcode($post->post_content),
-                            'user_progress'         => empty($progress)?0:intval($progress),
-                            'user_status'           => $statuses[$post->ID],
-                            'duration'              => bp_course_get_course_duration($post->ID,2),
-                            'user_expiry'           => bp_course_get_user_expiry_time(2,$post->ID),
-                            'start_date'            => $start_date,
-                            'display_start_date'    => $start_date?date(get_option('date_format'),$start_date):'',
-                            'instructor'            => $authors,    
-                            'menu_order'            => $post->menu_order,
-                            'link'                  => get_permalink($post->ID),
-                            'course_retakes'        => bp_course_get_course_retakes($post->ID,2),
-                            'user_retakes'          => bp_course_get_user_course_retakes($post->ID,2),
-                        );
-
-
-
-                        $stop_course_status = apply_filters('wplms_before_course_status_api',false,$post->ID,2);
-
-                        if($stop_course_status && is_array($stop_course_status) && !empty($stop_course_status['error_code'])){
-                            $_course_data['error'] = $stop_course_status;
-
-                        }
-
-
-                        $courses[]=$_course_data;
-
-                    }
-                    unset($return['message']);
-                    $return['courses']=$courses;
-                    $return['total']=$course_query->found_posts;
-                }*/
+                $args['post__in'][]=$course->id;
+                $type = bp_course_get_user_course_status($user->ID,$course->id);
                 
-                ?>
-                
-                    <section id="Popular-Courses" class="">
-                 
+                $statuses[$course->id]= intval($type);
+            }
 
-                    <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
-                <?php while($course_query->have_posts()){
-                        $course_query->the_post();
-                        global $post;
-                        $progress = bp_course_get_user_progress($user->id,$post->ID);
-                        if($statuses[$post->ID]>2){$progress = 100;}
-          ?>
-            <div class="course-box dotted-border">
+            $query_args = apply_filters('wplms_mycourses',array(
+                'post_type'=>'course',
+                'posts_per_page'=>12,
+                'paged'=>$args['paged'],
+                's'=>$args['s'],
+                'post__in'=>$args['post__in']
+            ),2);
+
+            $course_query = new WP_Query($query_args);
+            global $bp,$wpdb;
+            
+            ?>
+            
+                <section id="Popular-Courses" class="">
+             
+
+                <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
+            <?php while($course_query->have_posts()){
+                    $course_query->the_post();
+                    global $post;
+                    $progress = bp_course_get_user_progress($user->id,$post->ID);
+                    if($statuses[$post->ID]>2){$progress = 100;}
+        ?>
+        <div class="course-box">
             <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                 <?php bp_course_avatar(); ?>
             </div>
@@ -169,21 +106,6 @@ vibe_include_template("profile/top$profile_layout.php");
                             <br/>
                             <?php wp_trim_words(bp_course_desc(), 30); ?>
                             <br/>
-
-                            <div class="learing-goals" id="benefits">
-                                <div class="container">
-                                    <div class="">
-                                        <div class="col-sm-12 col-lg-12 pull-right left-spacing">
-                                            <?php if(get_post_meta($post->ID,'vibe_learning_goals',true) > 0){ ?>
-                                                <div class="heading">
-                                                    <h3>Objective</h3>
-                                                    <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
-                                                </div>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-3 pull-left mrg">
@@ -193,7 +115,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                     $course_progress = empty($progress)?0:intval($progress);
                                 ?>
                                 <?php  
-                                echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span>'.$course_progress.'</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'%; background: var(--primary);"></div></div></div>'; ?>
+                                echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span class="progress_value">'.$course_progress.' % Complete</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'; background: #00D98E;"></div></div></div>'; ?>
                                 <h6><?php the_course_price(); ?></h6>
                                 <?php the_course_button(); ?> 
                             </div>

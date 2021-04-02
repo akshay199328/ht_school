@@ -28,7 +28,6 @@ vibe_include_template("profile/top$profile_layout.php");
      
 
 <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
-          <div class="course-box dotted-border">
           	<?php
 
                         $args_course_count = array(
@@ -60,6 +59,7 @@ vibe_include_template("profile/top$profile_layout.php");
 		                  $recommended_courses = $custom_fields['vibe_recommended_course'][0];
                           if($recommended_courses == 'Y') {
                   ?>
+          <div class="course-box dotted-border">
             <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                 <?php bp_course_avatar(); ?>
             </div>
@@ -71,7 +71,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 ?>
                 <h6><?php echo $category_array[0]->name; ?></h6>
                 <h2><?php bp_course_title(); ?></h2>
-
+                <p><?php bp_course_desc(); ?></p>
                 <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                 <p>Sessions</p>
                 <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) == '') { ?>
@@ -89,59 +89,72 @@ vibe_include_template("profile/top$profile_layout.php");
                 		<h6><?php echo $age_limit;?></h6>
                 	<?php }?>
                 </div>
-                <br/>
-                <br/>
-                <?php bp_course_desc(); ?>
-
+                
+                <div class="learing-goals">
+                    <div class="">
+                        <div class="">
+                            <div class="col-sm-12 col-lg-12 mrg">
+                                <div class="heading">
+                                    <h3>Objective</h3>
+                                    <div class="list">
+                                        <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </div>
             </div>
             <div class="col-sm-12 col-lg-3 pull-left mrg">
-                <div class="col-lg-12 right-details pull-left mrg">
-                  
-                  <div class="col-lg-12 course-button">
-                      <h6><?php the_course_price(); ?>
-                     </h6>
-                      <?php the_course_button(); ?> 
-                  </div>
-                </div>
-                <div class="heading">
-                	<h3>Instructor</h3>
-                </div>
-                <?php
-                $course_id=get_the_ID();
-                $post_tmp = get_post($course_id);
-                $author_id = $post_tmp->post_author;
-                $author_info = get_userdata($author_id);
-                $author_name = get_the_author_meta( 'display_name', $author_id );
-                $author_url = get_the_author_meta( 'user_url', $author_id );
-                $author_user_profile = get_avatar_url($author_id);
-                $author_company = get_the_author_meta( 'last_name', $author_id );
-                ?>
-                <div class="col-sm-12 col-lg-7 pull-left mrg">
-                	<div class="profile mt-auto">
-                		<div class="col-lg-12 profile-content">
-                			<div class="profileimg-name">
-                				<div class="col-xs-4 col-sm-2 col-lg-4 mrg profile-img pull-left">
-                					<img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
-                				</div>
-                				<div class="col-xs-6 col-sm-4 co-lg-3 pull-left">
-                					<h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
-                					<h4><?php echo $author_company; ?></h4>
-                				</div>
-                			</div>
-                			<div class="clearfix"></div>
-                		</div>
-                	</div>
-                </div>
-
-              </div>
+                        <div class="col-lg-12 right-details pull-left mrg">
+                            <div class="col-lg-12 course-button">
+                                
+                                <h6><?php the_course_price(); ?></h6>
+                                <?php the_course_button(); ?> 
+                            </div>
+                            <div class="profilecou-instructor">
+                                <div class="heading">
+                                    <h3>Instructor</h3>
+                                </div>
+                                <?php
+                                
+                                $course_id=get_the_ID();
+                                $post_tmp = get_post($course_id);
+                                $author_id = $post_tmp->post_author;
+                                $author_info = get_userdata($author_id);
+                                $author_name = get_the_author_meta( 'display_name', $author_id );
+                                $author_url = get_the_author_meta( 'user_url', $author_id );
+                                $author_user_profile = get_avatar_url($author_id);
+                                $author_company = get_the_author_meta( 'last_name', $author_id );
+                                ?>
+                                <div class="col-sm-12 col-lg-12 mrg">
+                                    <div class="profile-content mt-auto">
+                                        <div class="profile-img">
+                                            <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="profile-heading">
+                                            <h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
+                                            <h4><?php echo $author_company; ?></h4>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                     </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+            </div>
             </div>
             <?php } endwhile; endif;}else{
                 ?>
-                <h1>Course Not Found</h1>
+                <div class="course_nofound">
+                    <h1>No Courses Found</h1>
+                </div>
                 <?php
             } ?>
-          </div>
         </div>
     </div>
 </section>

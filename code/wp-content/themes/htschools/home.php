@@ -101,8 +101,9 @@ get_header(vibe_get_header());
                   </div>
                 </div>
               <?php endwhile; endif; ?>
-              <a href="<?php echo get_home_url();?>/courses/" class="exlore-link mobile-btn">Explore all Courses</a>
+              
             </div>
+            <a href="<?php echo get_home_url();?>/courses/" class="exlore-link mobile-btn">Explore all Courses</a>
           </div>
 
         </div> <!-- / row -->

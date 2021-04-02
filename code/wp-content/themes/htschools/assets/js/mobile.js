@@ -14,6 +14,8 @@ $(window).on('scroll', function() {
 $(document).ready(function(){
   $(".fixed_banner .course-fees strong:contains(FREE)").hide();
   $('.progress_key_2').removeClass('button');
+  
+  $(".course_button").removeClass("button")
 });
 $(document).ready(function($) { 
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');

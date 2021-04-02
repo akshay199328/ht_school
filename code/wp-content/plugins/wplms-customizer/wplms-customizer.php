@@ -95,6 +95,7 @@ function bp_remove_nav_item() {
     bp_core_remove_subnav_item( $bp->course->slug, 'manage_questions' );
     bp_core_remove_subnav_item( $bp->course->slug, 'qna' );
     bp_core_remove_subnav_item( $bp->course->slug, 'course_search' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'manage_reports' );
   }
 }
 add_action( 'wp', 'bp_remove_nav_item' );
@@ -268,7 +269,7 @@ function custom_background_image($field1){
   $prefix = 'vibe_';
   $field1[]=array( // Text Input
   'label' => __('Background Image','vibe-background-image'), // <label>
-  'desc'  => __('Background Image','vibe-background-image'), // description
+  'desc'  => __('Background Image for Course Details','vibe-background-image'), // description
   'id'    => $prefix.'course_background_image', // field id and name
   'type'  => 'image' // type of field
   );
@@ -286,7 +287,7 @@ function custom_course_recommended($field1){
     'style'=>'',
     'id' => $prefix.'recommended_course',
     'from'=> 'meta',
-    'default'=>'H',
+    'default'=>'S',
     'is_child'=>true,
     'desc'=> __('Recommended Course.','vibe-recommended-course' )
   );
@@ -299,9 +300,9 @@ function my_setup_nav() {
 
       bp_core_new_nav_item( array( 
             'name' => __( 'Preferences', 'buddypress' ), 
-            'slug' => 'my-item-one', 
+            'slug' => '#', 
             'position' => 30,
-            'screen_function' => 'my_item_one_template', 
+            'screen_function' => 'preferences', 
       ) );
 
 }
@@ -310,8 +311,8 @@ add_action( 'bp_setup_nav', 'my_setup_nav' );
 
 
 // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
-function my_item_one_template() {
-      bp_core_load_template( 'item-one-template' );
+function preferences() {
+      bp_core_load_template( 'preferences.php' );
 }
 
 

@@ -91,15 +91,28 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             
                 <div class="col-lg-4 mrg left-menu">
                     <?php
-                        $args = apply_filters('wplms-main-menu',array(
-                             'theme_location'  => 'main-menu',
-                             'container'       => 'nav',
-                             'menu_class'      => 'menu',
-                             // 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s<li><a id="new_searchicon"><i class="vicon vicon-search"></i></a></li></ul>',
-                             'walker'          => new vibe_walker,
-                             'fallback_cb'     => 'vibe_set_menu'
-                         ));
-                        wp_nav_menu( $args ); 
+                        
+
+                           $menu_name = 'main-menu'; //menu slug
+                           $locations = get_nav_menu_locations();
+                           $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                           $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+                           //print_r($menuitems);
+                           echo "<nav class='menu-primary-menu-container'><ul id='menu-primary-menu' class='menu'>";
+                           foreach ($menuitems as $menu) {  
+                              if($menu->title == 'Home'){ 
+                                echo '<li class="border-menu ' . $current . ' "><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
+                              }
+                              else{
+                                if(is_user_logged_in()){
+                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/members-directory/user/course/">My Courses</a></li>';
+                                }
+                                else{
+                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . $menu->url . '">Courses</a></li>';
+                                }
+                              }
+                           }
+                          echo "</ul></nav>";
                     ?>
                     <a id="trigger">
                         <span class="lines"></span>
@@ -160,6 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
                    if (is_user_logged_in()){
                        do_action('woocommerce_add_to_cart_fragments'); 
+                       do_action('notification_fragments'); 
                     }
                    foreach ($menuitems as $menu) {  ?>
                        <li><a href="<?php echo $menu->url; ?>"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>

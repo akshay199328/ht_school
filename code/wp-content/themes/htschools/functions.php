@@ -717,6 +717,25 @@ function my_header_add_to_cart_fragment( $fragments ) {
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );
 
+function my_header_notification_fragment( $fragments ) {
+ 
+    ob_start();
+    $count = WC()->cart->cart_contents_count;
+    ?><li><a class="cart-contents" title="<?php _e( 'View your notification' ); ?>">
+      <img src="<?php echo get_bloginfo('template_url');?>/assets/images/notification.svg">
+      <?php
+    if ( $count > 0 ) {
+        ?>
+        <span class="notification-contents-count"></span>
+        <?php            
+    }
+        ?></a></li><?php
+ 
+    //$fragments['a.cart-contents'] = ob_get_clean();
+     
+  //  return $fragments;
+}
+add_filter( 'notification_fragments', 'my_header_notification_fragment' );
 
 add_action('template_redirect','check_if_logged_in');
 function check_if_logged_in()

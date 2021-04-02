@@ -25,6 +25,7 @@ $(document).ready(function($) {
   $('#view_all_sessions').click(function(){
     $('#all').show();
     $('#only-4').hide();
+    $('#view_all_sessions').hide();
   })
   // alert("test");
   $(window).scroll(function() {    
@@ -57,15 +58,15 @@ $(document).ready(function($) {
         responsive: {
           0: {
             items: 1,
-            nav: false
+            nav: true
           },
           767: {
             items:1,
-            nav: false
+            nav: true
           },
           991: {
             items:2,
-            nav: false,
+            nav: true,
             loop: true,
             margin: 20
           }

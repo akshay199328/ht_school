@@ -24,7 +24,8 @@ vibe_include_template("profile/top$profile_layout.php");
 				<ul>
 					<li class="active">
 						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="assets/images/dashboard-1.svg"/>
+							<!-- <img src="assets/images/dashboard-1.svg"/> -->
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
 						</div>
 						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
 							<h4>Natural Language Processing</h4>
@@ -32,7 +33,7 @@ vibe_include_template("profile/top$profile_layout.php");
 					</li>
 					<li>
 						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="/assets/images/dashboard-1.svg"/>
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
 						</div>
 						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
 							<h4>Strategies for Launching Your Creative Career</h4>
@@ -40,7 +41,7 @@ vibe_include_template("profile/top$profile_layout.php");
 					</li>
 					<li>
 						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="/assets/images/dashboard-1.svg"/>
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
 						</div>
 						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
 							<h4>Data Science for Business Leaders</h4>
@@ -48,7 +49,7 @@ vibe_include_template("profile/top$profile_layout.php");
 					</li>
 					<li>
 						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="/assets/images/dashboard-1.svg"/>
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
 						</div>
 						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
 							<h4>Strategies for Launching Your Creative Career</h4>
@@ -56,7 +57,7 @@ vibe_include_template("profile/top$profile_layout.php");
 					</li>
 					<li>
 						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="/assets/images/dashboard-1.svg"/>
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
 						</div>
 						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
 							<h4>Data Science for Business Leaders</h4>
@@ -64,7 +65,7 @@ vibe_include_template("profile/top$profile_layout.php");
 					</li>
 					<li>
 						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="/assets/images/dashboard-1.svg"/>
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
 						</div>
 						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
 							<h4>Strategies for Launching Your Creative Career</h4>
@@ -136,7 +137,31 @@ vibe_include_template("profile/top$profile_layout.php");
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="assets/images/gold.svg"/>
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
+						</div>
+					</li>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<div class="content">
+								<p>Rank 1</p>
+								<h5>Sarthak Tushar Malankar</h5>
+								<span class="light">300 Pts</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
+						</div>
+					</li>
+					<li>
+						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+							<div class="content">
+								<p>Rank 1</p>
+								<h5>Sarthak Tushar Malankar</h5>
+								<span class="light">300 Pts</span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
 						</div>
 					</li>
 				</ul>
@@ -145,13 +170,13 @@ vibe_include_template("profile/top$profile_layout.php");
 	</div>
 	<?php do_action( 'bp_before_dashboard_body' ); ?>
 	<?php
-		if(current_user_can('edit_posts')){
+		/*if(current_user_can('edit_posts')){
 			$sidebar = apply_filters('wplms_instructor_sidebar','instructor_sidebar');
             if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : endif; 
 		}else{
             $sidebar = apply_filters('wplms_student_sidebar','student_sidebar');
             if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : endif; 
-		}
+		}*/
 	?>
 	<?php do_action( 'bp_after_dashboard_body' ); ?>
 </div>	<!-- .wplms-dashbaord -->

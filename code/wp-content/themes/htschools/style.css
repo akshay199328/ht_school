@@ -1621,7 +1621,7 @@ Course Details
     text-align: left;
     color: #0c5acc;
 }
-.Popular-Courses .section-header .exlore-link {
+.Popular-Courses .section-header .exlore-link, .exlore-link.mobile-btn {
     padding: 12px 32px 16px 25px;
     background-color: #0c5acc;
     font-size: 20px;
@@ -1635,7 +1635,7 @@ Course Details
     margin: 40px 0px;
     display: inline-block;
 }
-.mobile-btn{display: none;}
+.mobile-btn{display: none!important;}
 .space {
     margin-bottom: 20px;
 }
@@ -4537,18 +4537,25 @@ border-color: transparent;
   font-weight: bold;
   color: #000;
   line-height: 33px;
-      border-bottom: 1px dotted #000;
+      border-bottom: 1px dotted #707070;
     padding-bottom: 10px;
 }
 .right-details li{
-      border-bottom: 1px dotted #000;
+      border-bottom: 1px dotted #707070;
     display: block;
     width: 100%;
-    padding: 15px 0px;
+    padding: 10px 0px;
     float: left;
+    position: relative;
 }
 .right-details li:after{
-  
+  content: '';    background: #000;
+    height: 2px;
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    width: 52.27px;
+    right: 0;
 }
 .right-details li .content p{
  font-size: 11px;
@@ -4556,17 +4563,22 @@ border-color: transparent;
  letter-spacing: 1px;
  line-height: 15px;
  text-transform: uppercase;
+     margin: 0px;
 }
 .right-details li .content h5{
  font-size: 20px;
     letter-spacing: normal;
     line-height: 20px;
-    margin: 10px 0px 1px;
+        margin: 5px 0px 1px;
 }
 .right-details li .content span.light{
-font-size: 15;
+font-size: 15px;
  font-weight: 300;
  line-height: 20px;
+}
+.right-details li .img-gold{
+    position: relative;
+    top: -11px;
 }
 /*-------Dashboard css:END-------*/
 
@@ -4864,7 +4876,7 @@ font-size: 15;
     .course-curriculum .card{height: 100%;    margin: 0px 0px 15px 0px;}
     .cv-detilslist span { margin: 0px 10px 10px 12px;}
     .desktop-btn{display: none!important;}
-    .mobile-btn{display: block!important;}
+    .mobile-btn{display: inline-block!important;}
     .right-details .course-button a{margin-left: 10px;}
     .middle-details .share-icon{right: 0;}
     .fixed_banner, .right-section{width: 100%;margin:0px;position: relative;padding:0px 0px;z-index: 9;}

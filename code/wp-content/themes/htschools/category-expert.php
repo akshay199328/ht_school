@@ -117,7 +117,7 @@ get_header(vibe_get_header());
     </div>
   </div>
 </section>
-<section id="" class="latest-news news_latest-news">
+<section id="" class="latest-news news_latest-news lts_news">
   <div class="container">
     <div class="row gx-0">
       <div class="pagetitle">

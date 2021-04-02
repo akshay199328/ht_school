@@ -3705,6 +3705,7 @@ Course Details
     text-align: center;
     font-size: 16px;
     font-weight: bold;
+    width: 100%;
 }
 .login-box .btn.submit_btn a{color: #cdbe69;}
 .login-box .btn.submit_btn:hover{

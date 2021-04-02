@@ -119,7 +119,6 @@ $topics = wp_get_post_tags(get_the_ID());
           </ul>
         </div>
         <div class="col-lg-12 center mrg">
-          <br/><br/>
 <!--             <?php
             if ( is_active_sidebar( 'banner-3' ) ) : ?>
               <?php dynamic_sidebar( 'banner-3' ); ?>      

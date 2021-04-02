@@ -27,7 +27,7 @@ vibe_include_template("profile/top$profile_layout.php");
     <div class="col-md-9">      
       	<?php
             $user = wp_get_current_user();
-            //print_r($user->ID);
+            // print_r($user->user_login);
             
             global $wpdb;    
             $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("

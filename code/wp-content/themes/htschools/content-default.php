@@ -69,15 +69,12 @@ if(!empty($instructors)){
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-2 mrg">
-                    <div class="top-icon">
-                      <!--   <li> <?php //wpfp_link(); ?></li> -->
-                        <li><a href=""><i class="bi bi-share"></i></a></li>
-                    </div>
+                     <div class="top-icon">
+                       <li style="list-style-type: none;"><?php wpfp_link(); ?></li>
+                       <!-- <li id="savePosts"> <a href="?wpfpaction=add&postid=<?php echo get_the_ID(); ?>" class="savePosts"><i class="bi bi-bookmark"></i></a> </li>
+                       <li id="removePosts" class="d-none"> <a href="?wpfpaction=remove&postid=<?php echo get_the_ID(); ?>" class="removePosts"><i class="bi-bookmark-check-fill"></i></a> </li> -->
+                   </div>
                 </div>
-                
-
-            
-
             </div>
           
 

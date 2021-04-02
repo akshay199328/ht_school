@@ -105,7 +105,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                               }
                               else{
                                 if(is_user_logged_in()){
-                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/members-directory/user/course/">My Courses</a></li>';
+                                  $username = $user->user_login;
+                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/members-directory/'.$username.'/course/">My Courses</a></li>';
                                 }
                                 else{
                                   echo '<li class="custom-dropdown ' . $current . '"><a href="' . $menu->url . '">Courses</a></li>';

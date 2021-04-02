@@ -14,7 +14,7 @@ $profile_layout = vibe_get_customizer('profile_layout');
 vibe_include_template("profile/top$profile_layout.php");  
 ?>
 <div id="item-body">
-    <div class="col-md-3">
+    <div class="col-md-3 left_tabs">
         <div class="item-list-tabs no-ajax <?php if ( !bp_is_my_profile() ) echo 'notmyprofile'; ?>" id="subnav" role="navigation">
         	<ul>
         		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
@@ -119,12 +119,14 @@ vibe_include_template("profile/top$profile_layout.php");
                     </div>
                     <div class="col-sm-12 col-lg-3 pull-left mrg">
                         <div class="col-lg-12 right-details pull-left mrg">
-                            <div class="col-lg-12 course-button">
+                            <div class="col-lg-12 mrg">
                                 <?php
                                     $course_progress = empty($progress)?0:intval($progress);
                                 ?>
                                 <?php  
                                 echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span class="progress_value">'.$course_progress.' % Complete</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'; background: #00D98E;"></div></div></div>'; ?>
+                            </div>
+                            <div class="col-lg-12 course-button">
                                 <h6><?php the_course_price(); ?></h6>
                                 <?php the_course_button(); ?> 
                             </div>

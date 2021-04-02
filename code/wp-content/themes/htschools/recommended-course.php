@@ -14,7 +14,7 @@ $profile_layout = vibe_get_customizer('profile_layout');
 vibe_include_template("profile/top$profile_layout.php");  
 ?>
 <div id="item-body">
-    <div class="col-md-3">
+    <div class="col-md-3 left_tabs">
         <div class="item-list-tabs no-ajax <?php if ( !bp_is_my_profile() ) echo 'notmyprofile'; ?>" id="subnav" role="navigation">
         	<ul>
         		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); 

@@ -1790,7 +1790,7 @@ Course Details
 .right-details .course-button a {
     padding: 14px 5px 14px 5px;
     width: 135px;
-    background-color: #000000;
+    background-color: #000000!important;
     font-size: 15px;
     font-weight: bold;
     font-stretch: normal;
@@ -1801,6 +1801,8 @@ Course Details
     color: #fade3b;
     float: left;
     margin-left: 4px;
+    border-radius: 0px !important;
+    display: inline-table;
 }
 .competitive {
     background: url(./assets/images/Sci-fairBackground.jpg) no-repeat;
@@ -3847,7 +3849,7 @@ Course Details
     margin-left: 5px;
 }
 .from-countrynum input{padding-left: 55px;}
-
+.arrow_btn svg{top: 3px;position: relative;}
 .country-code{
   position: absolute;
     left: 0;
@@ -4313,6 +4315,7 @@ border-color: transparent;
     line-height: 33px;
     color: #000;
 }
+.left_tabs{padding-left: 0px;}
 .myprofile_content .item-list-tabs{
   background: transparent !important;
 }
@@ -4956,8 +4959,8 @@ p:empty{display: none;}
     .details-middle {padding-left: 0;}
     .infograph .owl-carousel .owl-item img{width: auto;text-align: center;margin: 0px auto;}
     .right-details .course-button h6{padding-left: 0px;padding-top: 15px;padding-right: 10px;margin-bottom:0px;}
-    .right-details .course-button {padding-left: 20px;float: left;padding-top: 20px!important;}
-    .course-box .right-details .course-button{margin-left: 20px !important;margin-top: 20px;width: 94%;}
+    .right-details .course-button {padding-left: 20px;float: left;padding-top: 10px!important;}
+    .course-box .right-details .course-button{margin-left: 20px !important;margin-top: 10px;width: 94%;}
     .course-curriculum .card{height: auto;    margin: 0px 0px 15px 0px;}
     .cv-detilslist span { margin: 0px 10px 10px 12px;}
     .desktop-btn{display: none!important;}
@@ -5043,12 +5046,12 @@ p:empty{display: none;}
     .hero-list .hero-card p {font-size: 12px;}
     .hero-list .hero-card a {font-size: 10px;}
     #Popular-Courses{padding-left: 15px;padding-right: 15px;}
-    .Popular-Courses .section-header p{margin-bottom: 25px;    }
+    .Popular-Courses .section-header p{margin-bottom: 10px;    }
     .Popular-Courses .section-header h2, .latest-news .header-heading h2, .breadcrumbs h2 {font-size: 35px;}
     .Popular-Courses .section-header p, .latest-news .details-left .link a, .details-middle ul li .link,.breadcrumbs p{font-size: 18px;}
     .Popular-Courses .section-header .exlore-link{font-size: 12px;}
     .Popular-Courses .section-header .exlore-link {padding: 12px 32px 12px 25px;}
-    .course-box{display: block;margin-top: 30px;margin-bottom: 0;    margin-left: 0px;}
+    .course-box{display: block;margin-top: 15px;margin-bottom: 0;    margin-left: 0px;}
     .course_single_item:first-child .course-box{margin-top: 0px;}
     .course-button {
         border-top: 1px solid #707070;
@@ -5059,7 +5062,7 @@ p:empty{display: none;}
     }
     /*.right-details .course-button { padding-left: 0px!important;}*/
     .course-box:after{width: 49%;}
-    .middle-details .duration  {padding-top: 20px !important;}
+    .middle-details .duration  {padding-top: 0px !important;}
     .competitive .comp-heading h1{font-size: 35px;}
     .competitive .comp-para p, .latest-news .header-heading .news-btn{font-size: 14px;}
     .competitive .comp-para .find-btn{font-size: 12px;}

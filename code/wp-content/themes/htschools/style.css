@@ -4100,7 +4100,7 @@ Course Details
 .related_post{
   padding:30px 0px;
 }
-.news-listing  {padding: 10px 0 60px;}
+.news-listing  {padding: 0px 0 60px;}
 .news-listing .background-breadcrumbs, .news_heading .background-breadcrumbs{
     background: transparent;
 }

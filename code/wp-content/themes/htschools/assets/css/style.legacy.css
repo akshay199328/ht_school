@@ -21022,7 +21022,7 @@ body {
  	justify-content: space-between;
  	padding: 0px;
  	font-family: "GT-Walsheim-Pro"!important;
- 	font-size: 15px;
+ 	font-size: 15px!important;
  	font-weight: bold;
  	color: #000000 !important;
  	white-space: nowrap;

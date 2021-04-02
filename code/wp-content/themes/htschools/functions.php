@@ -156,25 +156,32 @@ function wp_bootstrap_starter_widgets_init() {
 }
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 // wp_enqueue_style( 'wplms-aos', get_template_directory_uri(). '/assets/vendor/aos/aos.css' );
-wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
-wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css' );
-wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css' );
-wp_enqueue_style( 'wplms-bootstrap', get_template_directory_uri(). '/assets/vendor/bootstrap/css/bootstrap.css' );
-wp_enqueue_style( 'wplms-font', get_template_directory_uri(). '/assets/css/font.css' );
-wp_enqueue_style( 'wplms-owl-carousel', get_template_directory_uri(). '/assets/css/owl.carousel.min.css' );
-wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css' );
-wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css' );
-// wp_enqueue_script( 'wplms-aos-js', get_template_directory_uri(). '/assets/vendor/aos/aos.js', '', '', true );
-/*add_action('wp_enqueue_scripts', 'no_more_jquery');
-function no_more_jquery(){
-    wp_deregister_script('jquery');
-}*/
-wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
-wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
-// wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
-wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
-wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
-wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
+//wp_enqueue_style( 'library-jui-main', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.min.css' );
+//wp_enqueue_style( 'library-jui-structure', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.structure.min.css' );
+//wp_enqueue_style( 'library-jui-theme', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.theme.min.css' );
+if(!is_admin()){
+  wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
+  wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css' );
+  wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css' );
+  wp_enqueue_style( 'wplms-bootstrap', get_template_directory_uri(). '/assets/vendor/bootstrap/css/bootstrap.css' );
+  wp_enqueue_style( 'wplms-font', get_template_directory_uri(). '/assets/css/font.css' );
+  wp_enqueue_style( 'wplms-owl-carousel', get_template_directory_uri(). '/assets/css/owl.carousel.min.css' );
+  wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css' );
+  wp_enqueue_style( 'wplms-button', get_template_directory_uri(). '/assets/css/button.css' );
+
+  // wp_enqueue_script( 'wplms-aos-js', get_template_directory_uri(). '/assets/vendor/aos/aos.js', '', '', true );
+  /*add_action('wp_enqueue_scripts', 'no_more_jquery');
+  function no_more_jquery(){
+      wp_deregister_script('jquery');
+  }*/
+  wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
+  wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
+  // wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
+  wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
+  wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
+  wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
+}
+//wp_enqueue_script( 'library-jui-js', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.min.js', '', '', true );
 // add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
 // function add_search_box( $items, $args ) {
 //     if( !($args->theme_location == 'top-menu') ) 
@@ -184,6 +191,16 @@ wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js
 //     return $searchbox.$items;
 
 // }
+
+function wpse_enqueue_datepicker() {
+    // Load the datepicker script (pre-registered in WordPress).
+    wp_enqueue_script( 'jquery-ui-datepicker' );
+    wp_enqueue_script( 'jquery-ui-autocomplete' );
+    // You need styling for the datepicker. For simplicity I've linked to the jQuery UI CSS on a CDN.
+    wp_register_style( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css' );
+    wp_enqueue_style( 'jquery-ui' );  
+}
+add_action( 'wp_enqueue_scripts', 'wpse_enqueue_datepicker' );
 
 /*
  * Set post views count using post meta
@@ -624,6 +641,8 @@ function reg_verify_mob_otp(){
 
         add_user_meta( $user_id, 'gender', $userGender);
         add_user_meta( $user_id, 'mobile', $userMobile);
+        xprofile_set_field_data('Gender', $user_id, trim($userGender));
+        xprofile_set_field_data('Phone', $user_id, trim($userMobile));
 
         $user = get_user_by( 'ID', $user_id ); 
         if( $user ) {
@@ -857,4 +876,192 @@ function add_extra_item_to_nav_menu( $items, $args ) {
         $items .= '<li><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Sign in  /  Register</a></li>';
     }
     return $items;
+}
+
+
+function get_profile_data( $field, $user_id = 0, $multi_format = 'array' ) {
+
+  if ( empty( $user_id ) ) {
+    $user_id = bp_displayed_user_id();
+  }
+
+  if ( empty( $user_id ) ) {
+    return false;
+  }
+
+  if ( is_numeric( $field ) ) {
+    $field_id = $field;
+  } else {
+    $field_id = xprofile_get_field_id_from_name( $field );
+  }
+
+  if ( empty( $field_id ) ) {
+    return false;
+  }
+
+  $values = maybe_unserialize( BP_XProfile_ProfileData::get_value_byid( $field_id, $user_id ) );
+
+  if ( is_array( $values ) ) {
+    $data = array();
+    foreach( (array) $values as $value ) {
+
+      /**
+       * Filters the field data value for a specific field for the user.
+       *
+       * @since 1.0.0
+       *
+       * @param string $value    Value saved for the field.
+       * @param int    $field_id ID of the field being displayed.
+       * @param int    $user_id  ID of the user being displayed.
+       */
+      $data[] = $value;
+    }
+
+    if ( 'comma' == $multi_format ) {
+      $data = implode( ', ', $data );
+    }
+  } else {
+    /** This filter is documented in bp-xprofile/bp-xprofile-functions.php */
+    $data = $values;
+  }
+
+  return $data;
+}
+
+add_action("wp_ajax_save_custom_profile", "save_custom_profile");
+add_action( 'wp_ajax_nopriv_save_custom_profile', 'save_custom_profile' ); 
+
+function save_custom_profile(){
+    
+    $response = array(
+        'status' => 0,
+        'message' => 'Unable to save profile, please try again'
+    );
+
+    $user_id = bp_loggedin_user_id();
+
+    try{
+        $args = array(
+            'ID'         => $user_id,
+            'first_name' => esc_attr( $_POST['first_name'] ),
+            'last_name' => esc_attr( $_POST['last_name'] )
+        );
+        wp_update_user( $args );
+
+        xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
+        xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
+        xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
+        xprofile_set_field_data('State', $user_id, trim($_REQUEST['user_state']));
+        xprofile_set_field_data('City', $user_id, trim($_REQUEST['user_city']));
+
+        $response = array(
+            'status' => 1,
+            'message' => 'Profile updated successfully.'
+        );
+    }catch(Exception $e){
+
+    }
+
+    echo json_encode($response); exit;
+}
+
+add_action("wp_ajax_save_child_entry", "save_child_entry");
+add_action( 'wp_ajax_nopriv_save_child_entry', 'save_child_entry' ); 
+
+function save_child_entry(){
+    global $wpdb;
+
+    $response = array(
+        'status' => 0,
+        'message' => 'Unable to add child entry, please try again'
+    );
+
+    $user_id = bp_loggedin_user_id();
+
+    try{
+        
+        $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
+            'parent_id' => $user_id,
+            'child_id' => 0,
+            'child_name' => esc_attr($_REQUEST['child_name']),
+            'school_id' => esc_attr($_REQUEST['child_school_id']),
+            'school_name' => esc_attr($_REQUEST['child_school']),
+            'grade' => esc_attr($_REQUEST['grade']),
+            'division' => esc_attr($_REQUEST['division'])
+        ));
+
+        xprofile_set_field_data('Profile Type', $user_id, "Parent");
+
+        $response = array(
+            'status' => 1,
+            'message' => 'Child added successfully.'
+        );
+    }catch(Exception $e){
+
+    }
+
+    echo json_encode($response); exit;
+}
+
+add_action("wp_ajax_get_countries", "get_countries");
+add_action( 'wp_ajax_nopriv_get_countries', 'get_countries' ); 
+
+function get_countries(){
+    global $wpdb;
+    
+    $response = array();
+
+    $results = $wpdb->get_results( "SELECT country_id, country_name FROM " . $wpdb->prefix . "country_master WHERE country_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
+
+    foreach ($results as $data) {
+        $row = array();
+        $row['label'] = $data->country_name;
+        $row['value'] = $data->country_id;
+
+        $response[] = $row;
+    }
+
+    echo json_encode($response); exit;
+}
+
+add_action("wp_ajax_get_schools", "get_schools");
+add_action( 'wp_ajax_nopriv_get_schools', 'get_schools' ); 
+
+function get_schools(){
+    global $wpdb;
+    
+    $response = array();
+
+    $results = $wpdb->get_results( "SELECT school_id, school_name FROM " . $wpdb->prefix . "school_master WHERE school_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
+
+    foreach ($results as $data) {
+        $row = array();
+        $row['label'] = $data->school_name;
+        $row['value'] = $data->school_id;
+
+        $response[] = $row;
+    }
+
+    echo json_encode($response); exit;
+}
+
+add_action("wp_ajax_get_states", "get_states");
+add_action( 'wp_ajax_nopriv_get_states', 'get_states' ); 
+
+function get_states(){
+    global $wpdb;
+    
+    $response = array();
+
+    $results = $wpdb->get_results( "SELECT state_id, state_name FROM " . $wpdb->prefix . "state_master WHERE country_id in(select country_id from " . $wpdb->prefix . "country_master where country_name = '" . esc_attr($_REQUEST['country']) . "') AND state_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
+
+    foreach ($results as $data) {
+        $row = array();
+       /* $row['label'] = $data->state_name;
+        $row['value'] = $data->state_id;*/
+
+        $response[] = $data->state_name;
+    }
+
+    echo json_encode($response); exit;
 }

@@ -8,9 +8,18 @@
  */
 if ( !defined( 'ABSPATH' ) ) exit;
 ?>
+<?php
+	$profileType = get_profile_data('Profile Type');
+?>
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 	<ul>
-		<?php bp_get_options_nav(); ?>
+		<?php //bp_get_options_nav(); ?>
+		<li id="public-personal-li" class="<?php if($profileType != 'Parent'){ echo "current selected"; } ?>">
+			<a id="profile-type-student" href="javascript:void(0);">I am a Student</a>
+		</li>
+		<li id="edit-personal-li" class="<?php if($profileType == 'Parent'){ echo "current selected"; } ?>">
+			<a id="profile-type-parent" href="javascript:void(0);">I am a Parent</a>
+		</li>
 	</ul>
 </div><!-- .item-list-tabs -->
 
@@ -21,7 +30,12 @@ do_action('wplms_after_single_item_list_tabs');
  *
  * @since 1.1.0
  */
-do_action( 'bp_before_profile_content' ); ?>
+
+if (bp_current_action() != 'public') {
+	do_action( 'bp_before_profile_content' ); 
+}
+
+?>
 
 <div class="profile">
 

@@ -1,10 +1,22 @@
-
+<style type="text/css">
+	.edit-profile-link {
+		float: right;
+		color: #000;
+		border: 1px solid #000;
+		padding: 0px 15px;
+	}
+	.profile-heading h3 {
+		float: left;
+	}
+</style>
 <section id="content" class="dashboard_content">
 
 	<div id="buddypress">
 		<div class="member_header main dashboard_header">
 
 			<?php
+
+			$current_user = wp_get_current_user();
 
 			/**
 			 * Fires before the display of member home content.
@@ -25,7 +37,10 @@
 		<div class="profile-heading">
 			<div class="<?php echo vibe_get_container(); ?>">
 	    		<div class="row">
-	    			<h3>Dashboard</h3>
+	    			<div class="col-md-12">
+		    			<h3>Dashboard</h3>
+		    			<a href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/edit" class="edit-profile-link">Edit</a>
+	    			</div>
 	    		</div>
 	    	</div>
 		</div>

@@ -7,7 +7,17 @@
  * @subpackage bp-default
  */
 if ( !defined( 'ABSPATH' ) ) exit;
+
+$current_user = wp_get_current_user();
+
 ?>
+<style type="text/css">
+	.simple-link{
+		color: #000;
+		text-decoration: underline;
+		font-size: 10px;
+	}
+</style>
 <style type="text/css">.material #content{margin-top:0px;}</style>
 <?php do_action( 'bp_before_member_header' ); ?>
 <div class="<?php echo vibe_get_container(); ?>">
@@ -28,6 +38,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 							<a href="<?php bp_displayed_user_link(); ?>"><?php bp_displayed_user_fullname(); ?></a>
 						</h3>
 						<p><?php bp_displayed_user_email(); ?></p>
+						<a class="simple-link" href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/change-avatar">Change Profile Picture</a>
 					</div>
 				</div>
 			</div>

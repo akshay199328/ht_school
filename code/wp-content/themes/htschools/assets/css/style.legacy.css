@@ -35342,17 +35342,30 @@ body {
  	font-size: 15px !important;
  	margin: 0 !important;
  	line-height: 20px !important;
+ 	    width: 100%!important;
  }
  .woocommerce-page .woocommerce-Price-currencySymbol,
  .woocommerce-page .woocommerce-Price-amount, .cart_item td.product-name a{font-weight: 500;font-size: 18px; color: #000}
  .woocommerce-page .woocommerce-Price-currencySymbol span{font-size: 18px; color: #000}
  .shop_table_responsive{background: #fff;}
- .woocommerce table.shop_table td {border-top: 1px dotted #707070;padding: 16px 0;}
- .woocommerce table.shop_table th {
+ .woocommerce-cart .cart-collaterals .cart_totals table{padding:0px!important;    border: 0px;}
+ .woocommerce table.shop_table td, .woocommerce table.shop_table th {
+ 	/*border-top: 1px dotted #707070;*/
+ 	padding: 16px 0!important;
  	font-weight: 500!important;
- 	font-size: 15px!important;
- 	padding: 15px 0px!important;
  }
+ .woocommerce-cart .cart-collaterals .cart_totals table th,  .woocommerce-cart .cart-collaterals .cart_totals table td {
+ 	border: 0px!important
+ }
+ .woocommerce-cart .cart-collaterals .cart_totals h2 {
+    margin: 0;
+    padding: 0 0 20px!important;
+    font-size: 25px!important;
+    text-transform: capitalize!important;
+    font-weight: bold!important;
+    color: #000!important;
+    border-bottom: 1px dotted rgba(0,0,0,.08)!important;
+}
  /*------Added by bhavna-------*/
  section#title{
  	padding-top: 76px!important;
@@ -35483,7 +35496,8 @@ body {
 		border-radius: 0px !important;
 		background-color: #000000 !important;
 		font-size: 15px;
-		font: normal normal bold 15px/20px;
+		font-weight: bold;
+		letter-spacing: normal;
 	}
 	.woocommerce-cart table.cart td.actions .coupon button:hover{
 		transform: perspective(400px) translateY(0px);
@@ -35496,6 +35510,7 @@ body {
 
 	.woocommerce-cart .wc-proceed-to-checkout a.checkout-button{
 		border-radius: 0px;
+		letter-spacing: normal;
 	}
 	.woocommerce-page .checkout-button{
 		padding: 15px;
@@ -35632,6 +35647,7 @@ body {
 
 	.woocommerce table.shop_table{
 		background-color: #fff;
+		border: 1px solid #BEBEBE;
 	}
 
 	h2.woocommerce-order-details__title {

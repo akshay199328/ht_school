@@ -5091,6 +5091,10 @@ p:empty{display: none;}
       margin-right: 0px;
       padding-right: 30px;
     }
+    .login-left{display: none;}
+    .login-box .div.nsl-container-block .nsl-container-buttons a{
+        margin: 0px auto 20px;
+    }
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

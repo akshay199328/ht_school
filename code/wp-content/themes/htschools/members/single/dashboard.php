@@ -90,31 +90,43 @@ vibe_include_template("profile/top$profile_layout.php");
 					      	<td>You</td>
 					      	<td>400</td>
 					    </tr>
+					</tbody>
+					<tbody>
 					    <tr>
 					      	<td scope="row"><span class="circle">16</span></td>
 					      	<td>Deccan Chargers</td>
 					      	<td>300</td>
 					    </tr>
+					</tbody>
+					<tbody>
 					    <tr>
 					      	<td scope="row"><span class="circle">17</span></td>
 					      	<td>Chennai Super Kings</td>
 					      	<td>299</td>
 					    </tr>
+					</tbody>
+					<tbody>
 					    <tr>
 					      	<td scope="row"><span class="circle">18</span></td>
 					      	<td>Chennai Super Kings</td>
 					      	<td>400</td>
 					    </tr>
+					</tbody>
+					<tbody>
 					    <tr>
 					      	<td scope="row"><span class="circle">19</span></td>
 					      	<td>Kolkata Knight Riders</td>
 					      	<td>500</td>
 					    </tr>
+					</tbody>
+					<tbody>
 					    <tr>
 					      	<td scope="row"><span class="circle">20</span></td>
 					      	<td>Mumbai Indians</td>
 					      	<td>400</td>
 					    </tr>
+					</tbody>
+					<tbody>
 					    <tr>
 					      	<td scope="row"><span class="circle">21</span></td>
 					      	<td>Kolkata Knight Riders</td>

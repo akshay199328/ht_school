@@ -4483,19 +4483,27 @@ border-color: transparent;
   border:0px!important;
 }
 .middle-table table tr {
+    border: 0px;
     border-bottom: 1px dotted #d3d3d3;
     position: relative;
+    box-shadow: none;
 }
-.middle-table table tbody tr:after{
-      content: '';
-    /* border-bottom: 2px solid #000; */
+.middle-table table tbody{
+      position: relative;
     display: block;
-    width: 150px;
+    box-shadow: none;
+    border: 0px!important;
+}
+.middle-table table tbody:after{
+      content: '';
+    display: inline-block;
+    width: 130.12px;
     position: absolute;
     right: 0px;
     bottom: 0px;
     height: 2px;
-    /*background: #000;*/
+    margin-bottom: 0;
+    background: #000;
 
 }
 .middle-table table tr:hover{
@@ -4848,6 +4856,7 @@ font-size: 15px;
     .right-menu .icon{display: block}
     /*.right-menu ul li{margin-right: 15px;}*/
     .header .logo img{max-width: 100px;margin: 0;margin-left: 25px;}
+    .cart-contents-count{line-height: 16px;height: 15px;width: 15px;}
     .mobile-add{display:block;margin-bottom: 30px;}
     
     .hero .adworks{text-align: left}
@@ -4873,13 +4882,13 @@ font-size: 15px;
     .right-details .course-button h6{padding-left: 0px;padding-top: 15px;}
     .right-details .course-button {padding-left: 20px;float: left;padding-top: 20px!important;}
     .course-box .right-details .course-button{margin-left: 20px !important;margin-top: 20px;width: 94%;}
-    .course-curriculum .card{height: 100%;    margin: 0px 0px 15px 0px;}
+    .course-curriculum .card{height: auto;    margin: 0px 0px 15px 0px;}
     .cv-detilslist span { margin: 0px 10px 10px 12px;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: inline-block!important;}
     .right-details .course-button a{margin-left: 10px;}
     .middle-details .share-icon{right: 0;}
-    .fixed_banner, .right-section{width: 100%;margin:0px;position: relative;padding:0px 0px;z-index: 9;}
+    .fixed_banner, .right-section{width: 100%;margin:0px;position: relative;padding:0px 0px;z-index: 9;height: auto;}
     .fixed_banner ul li{border-top: solid 0px #a6a6a6;padding: 8px 0px;}
     .fixed_banner ul li:last-child {border-bottom: solid 0px #a6a6a6;}
     .fixed_banner ul li:first-child {border-top: solid 1px #707070;}

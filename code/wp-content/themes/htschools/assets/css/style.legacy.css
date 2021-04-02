@@ -35845,7 +35845,7 @@ section.latest-news{
 	}*/
 
 	section#title{
-		padding: 20px 0 !important;
+		/*padding: 20px 0 !important;*/
 	}
 	.breadcrumbs{
 		margin-top: 0px !important;
@@ -35881,7 +35881,7 @@ section.latest-news{
 .search_section {
     position: relative;
     padding-top: 70px;
-    padding-bottom: 300px;
+    padding-bottom: 0px;
 }
 
 .wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward {

@@ -734,20 +734,23 @@ function check_if_logged_in()
     }
 }
 
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+// Billing and shipping addresses fields
+add_filter( 'woocommerce_default_address_fields' , 'filter_default_address_fields', 20, 1 );
+function filter_default_address_fields( $address_fields ) {
+    // Only on checkout page
+    if( ! is_checkout() ) return $address_fields;
 
-function custom_override_checkout_fields( $fields ) {
+    // All field keys in this array
+    $key_fields = array('country','company','address_1','address_2','city','state','postcode');
 
-    unset($fields['billing']['billing_company']);
-    unset($fields['billing']['billing_address_1']);
-    unset($fields['billing']['billing_address_2']);
-    unset($fields['billing']['billing_city']);
-    unset($fields['billing']['billing_postcode']);
-    unset($fields['billing']['billing_country']);
-    unset($fields['billing']['billing_state']);
-    unset($fields['order']['order_comments']);
-    return $fields;
+    // Loop through each address fields (billing and shipping)
+    foreach( $key_fields as $key_field )
+        $address_fields[$key_field]['required'] = false;
+
+    return $address_fields;
 }
+
+
 function get_the_term_list_search( $post_id, $taxonomy, $before = '', $sep = '', $after = '' ) {
   $terms = get_the_terms( $post_id, $taxonomy );
 

@@ -175,7 +175,7 @@ if(!is_admin()){
   function no_more_jquery(){
       wp_deregister_script('jquery');
   }*/
-  wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
+/*  wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );*/
   wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
   // wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
   wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
@@ -366,14 +366,14 @@ if(!function_exists('ht_course_get_full_course_curriculum')){
   }
 }
 
-// if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
-//     add_filter('login_redirect', 'my_login_redirect', 10, 3);
-//     function my_login_redirect() {
-//         $location = $_SERVER['HTTP_REFERER'];
-//         wp_safe_redirect($location);
-//         exit();
-//     }
-// }
+ /*if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
+     add_filter('login_redirect', 'my_login_redirect', 10, 3);
+     function my_login_redirect() {
+         $location = $_SERVER['HTTP_REFERER'];
+         wp_safe_redirect($location);
+         exit();
+     }
+}*/
 
 
 function wpb_custom_new_menu() {

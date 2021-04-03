@@ -70,7 +70,17 @@ if(!empty($instructors)){
                 </div>
                 <div class="col-sm-12 col-md-2 mrg">
                      <div class="top-icon">
-                       <li style="list-style-type: none;"><?php wpfp_link(); ?></li>
+                        <?php
+                            if(is_user_logged_in()){
+                                ?>
+                                <li style="list-style-type: none;"><?php wpfp_link(); ?></li>
+                            <?php }else{
+                                $url = "/login-register";
+                                ?>
+                                   <li><a href="<?php echo get_site_url().$url; ?>"><i class="bi bi-bookmark"></i></a></li> 
+                                <?php
+                            }
+                        ?>
                        <!-- <li id="savePosts"> <a href="?wpfpaction=add&postid=<?php echo get_the_ID(); ?>" class="savePosts"><i class="bi bi-bookmark"></i></a> </li>
                        <li id="removePosts" class="d-none"> <a href="?wpfpaction=remove&postid=<?php echo get_the_ID(); ?>" class="removePosts"><i class="bi-bookmark-check-fill"></i></a> </li> -->
                    </div>

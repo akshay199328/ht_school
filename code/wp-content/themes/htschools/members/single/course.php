@@ -38,7 +38,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 				locate_template( array( 'course/instructor-courses.php' ), true );
 			else:
 			?>
-				<?php locate_template( array( 'course/my-courses.php' ), true ); 
+				<?php locate_template( array( 'my-courses.php' ), true ); 
 			endif;
 		?>
 		</div>

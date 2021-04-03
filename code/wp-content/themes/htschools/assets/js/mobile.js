@@ -15,7 +15,15 @@ $(document).ready(function(){
   $(".fixed_banner .course-fees strong:contains(FREE)").hide();
   $('.progress_key_2').removeClass('button');
   
-  $(".course_button").removeClass("button")
+  $(".course_button").removeClass("button");
+  var profile_menu = $("#dashboard_menu").find("li.selected > a").text();
+  $('#profile_current_menu').text(profile_menu);
+  if(profile_menu == 'Account Info'){
+    $('.edit-profile-link').show();
+  }
+  else{
+    $('.edit-profile-link').hide();
+  }
 });
 $(document).ready(function($) { 
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');

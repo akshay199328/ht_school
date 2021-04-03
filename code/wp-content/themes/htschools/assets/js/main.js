@@ -187,5 +187,18 @@
 
 })();
 
+// let listItems = document.querySelectorAll('#dashboard_menu li');
+
+// listItems.forEach((item, index) => {
+//   item.addEventListener('click', (event) => {
+//      alert(`${event.currentTarget.innerHTML} item was click`);
+//   });
+//   // if (item.innerHTML.indexOf('Last 30 days') != -1) {
+//   //     item.click();
+//   // }
+// });
+
+
+
 $ = jQuery.noConflict(true);
 

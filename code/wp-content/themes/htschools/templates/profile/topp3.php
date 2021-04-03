@@ -38,7 +38,7 @@
 			<div class="<?php echo vibe_get_container(); ?>">
 	    		<div class="row">
 	    			<div class="col-md-12">
-		    			<h3>Dashboard</h3>
+		    			<h3 id="profile_current_menu"></h3>
 		    			<a href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/edit" class="edit-profile-link">Edit</a>
 	    			</div>
 	    		</div>

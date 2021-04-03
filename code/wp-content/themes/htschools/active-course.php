@@ -55,7 +55,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 'paged'=>$args['paged'],
                 's'=>$args['s'],
                 'post__in'=>$args['post__in']
-            ),2);
+            ),$user->ID);
 
             $course_query = new WP_Query($query_args);
             global $bp,$wpdb;

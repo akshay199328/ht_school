@@ -41,7 +41,7 @@
 		padding: 20px 20px !important;
 		}*/
 		.col-sm-12.col-lg-8.Interview_blog {
-			padding-left: 0px;
+			padding: 0px;
 		}
 		.news-listing .content-right .sidebar{
 			padding: 0px;
@@ -137,6 +137,7 @@
 		}
 		.tablist {
 			padding: 0px 0px;
+			margin: 15px 0px 15px 0px;
 		}	
 		.news-listing .background-breadcrumbs{
 			padding: 0px 0px;

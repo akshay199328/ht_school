@@ -4305,7 +4305,9 @@ border-color: transparent;
  .woocommerce-cart #content , .woocommerce-checkout #content{
   padding:0px;
  }
-
+.woocommerce-cart .pagetitle h1, .woocommerce-checkout .pagetitle h1{
+  display: none;
+}
 /*-------DASHBOARD CSS:START-------*/
 .profile-heading {
     padding: 20px 0px;

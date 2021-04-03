@@ -236,6 +236,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                 </div>
               </div>
               <div class="explore_btn">
+                <input type="hidden" name="preUrl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" data-preUrl="<?php echo $_SERVER['HTTP_REFERER']; ?>" id="preUrl">
                 <button type="button" class="btn submit_btn" id="reloadpage" style="display: none;">Explore Courses & Workshops</button>
                 </div>
             </div>
@@ -267,11 +268,8 @@ jQuery(window).load(function(){
 
         jQuery("#reloadpage").click(function(){
             //window.location.reload();
-            if(response.previous_page_url != ''){
-              window.location.replace(response.previous_page_url);
-            }else{
-              jQuery("#reloadpage").show();
-            }
+            let preUrl = jQuery("#preUrl").attr("data-preUrl");
+            window.location.replace(preUrl);
         });
         jQuery("#verify-mob-otp-btn").click(function(){
             jQuery("#verify-mob-otp-btn").html("Please wait...");
@@ -291,7 +289,11 @@ jQuery(window).load(function(){
                         console.log("user login success");
                         jQuery("#login-step-4").hide();
                         jQuery("#login-step-5").show();
-
+/*            if(response.previous_page_url != ''){
+              window.location.replace(response.previous_page_url);
+            }else{
+              jQuery("#reloadpage").show();
+            }*/
                        jQuery("#reloadpage").show();
                     }else{
                         jQuery("#mobile_resend_error").html(response.message);

@@ -1788,7 +1788,11 @@ Course Details
 .right-details .course-button h6 del{ color: #000000;font-weight: bold;}
 .right-details .course-button h6 .subs{color: #000000;font-weight: normal;font-size: 14px;position: relative;top:-4px;}
 .woocommerce-Price-currencySymbol{margin-right: 5px;}
-.right-details .course-button a {
+.right-details .course-button a, 
+.right-details .course-button input,
+.right-details .course-button button,
+
+ {
     padding: 14px 5px 14px 5px;
     width: 135px;
     background-color: #000000!important;
@@ -4432,7 +4436,7 @@ border-color: transparent;
 .edit_DOB, .profile_search{
   position: relative;
 }
-.edit_DOB:after, #user_dob_display:after{
+.edit_DOB:after{
   content:'';
      background: url('./assets/images/profile-calendar.svg') no-repeat bottom right;
     position: absolute;
@@ -4443,7 +4447,7 @@ border-color: transparent;
     /* height: 17px; */
     width: 19px;
 }
-.profile_search:after, #user_state:after, #user_country_data:after {
+.profile_search:after{
     content:'';
     background: url('./assets/images/profile-search.svg') no-repeat bottom right;
     position: absolute;

@@ -266,7 +266,12 @@ jQuery(window).load(function(){
     jQuery(document).ready(function(){
 
         jQuery("#reloadpage").click(function(){
-            window.location.reload();
+            //window.location.reload();
+            if(response.previous_page_url != ''){
+              window.location.replace(response.previous_page_url);
+            }else{
+              jQuery("#reloadpage").show();
+            }
         });
         jQuery("#verify-mob-otp-btn").click(function(){
             jQuery("#verify-mob-otp-btn").html("Please wait...");
@@ -283,9 +288,11 @@ jQuery(window).load(function(){
 
                     if(response.status == 1){
                         sessionStorage.setItem('bp_user',response.user);
+                        console.log("user login success");
                         jQuery("#login-step-4").hide();
                         jQuery("#login-step-5").show();
-                        jQuery("#reloadpage").show();
+
+                       jQuery("#reloadpage").show();
                     }else{
                         jQuery("#mobile_resend_error").html(response.message);
                         jQuery("#mobile_resend_error").show();
@@ -428,7 +435,7 @@ jQuery(window).load(function(){
                     if(response.status == 1){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
-                        
+
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);
                         }else{

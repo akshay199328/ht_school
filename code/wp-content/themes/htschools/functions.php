@@ -663,6 +663,7 @@ function reg_verify_mob_otp(){
             $userData = $user->data;
             $userData->avatar =  get_avatar_url( $user->ID );
             $response['user'] = json_encode($userData);
+            $response['previous_page_url'] = $_SESSION['previousPageUrl'];
         }
 
         $response['status'] = 1;
@@ -671,6 +672,7 @@ function reg_verify_mob_otp(){
         $response['message'] = 'Invalid OTP entered.';
     }
 
+    //echo "<pre>";print_r($response);exit;
     echo json_encode($response); exit;
 
 }

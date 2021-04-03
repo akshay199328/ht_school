@@ -152,6 +152,10 @@
 		}*/
 		.news-listing .blogpost .featured{
 			max-width: 100% !important;
+			    width: 100%;
+		}
+		.blogpost .featured img {
+		    width: 100%;
 		}
 		.news-listing .content-right .sidebar{
 			display: none !important;
@@ -167,6 +171,7 @@
 		}*/
 		.news-listing .blogpost .excerpt.thumb{
 			padding: 0px !important;
+			    margin-top: 5px;
 		}
 		/*.details-middle.devide ul li{
 			width: 100% !important;
@@ -188,6 +193,7 @@
 		}
 		.news-listing .blogpost{
 			width: 100%;
+			padding: 0px 0px 15px;
 		}
 		.blogpost .excerpt.thumb{
 			margin-top: 10px;

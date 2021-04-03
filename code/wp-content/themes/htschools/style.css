@@ -4943,7 +4943,7 @@ p:empty{display: none;}
     .competitive .comp-heading{margin-top:30px;}
     .competitive .pull-left, .competitive .pull-right{padding: 0px}
     .competitive .pull-left img:first-child{margin-right: 15px}
-    .details-middle ul li{width: 100%;margin-right: 0px;padding: 20px 0px 35px 0px;border-bottom: 1px dashed #b8b8b8;}
+    .details-middle ul li{width: 100%!important;margin-right: 0px;padding: 20px 0px 35px 0px;border-bottom: 1px dashed #b8b8b8;}
     .details-middle ul li:last-child{padding-bottom: 0px;}
     .details-middle .popularNew-heading h5 {margin: 15px 0px 5px;}
     .details-middle ul li .link a{height: 100%;min-height: 100%;   }
@@ -5048,7 +5048,7 @@ p:empty{display: none;}
     .hero-list .hero-card h6 {font-size: 12px;}
     .hero-list .hero-card h5 {font-size: 23px;margin:10px 0px!important;}
     .hero-list .hero-card p {font-size: 12px;}
-    .hero-list .hero-card a {font-size: 10px;}
+    .hero-list .hero-card a {/*font-size: 10px;*/}
     #Popular-Courses{padding-left: 15px;padding-right: 15px;}
     .Popular-Courses .section-header p{margin-bottom: 10px;    }
     .Popular-Courses .section-header h2, .latest-news .header-heading h2, .breadcrumbs h2 {font-size: 35px;}
@@ -5095,6 +5095,7 @@ p:empty{display: none;}
     .login-box .div.nsl-container-block .nsl-container-buttons a{
         margin: 0px auto 20px;
     }
+    .latest-news .details-left img{width: 100%;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

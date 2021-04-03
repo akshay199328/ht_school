@@ -93,12 +93,12 @@ ol.breadcrumbs li+li:before {
     margin: 0px!important;
     padding-right: 7px!important;
     padding-left: 11px!important;
-    color: #fff!important;
+    color: #3a79d5!important;
     font-size: 11px!important;
     display: none;
 }
 ol.breadcrumbs li a {
-    color: #fff!important;
+    color: #3a79d5!important;
     font-size: 11px;
     text-transform: capitalize!important;
     line-height: 1.36;
@@ -108,7 +108,7 @@ ol.breadcrumbs li a {
 }
 
 ol.breadcrumbs li {
-    color: #fff!important;
+    color: #3a79d5!important;
     font-size: 11px;
     text-transform: capitalize!important;
     line-height: 1.36;
@@ -116,6 +116,7 @@ ol.breadcrumbs li {
     font-weight: bold!important;
     
 }
+.fixed_banner ol.breadcrumbs li, .fixed_banner ol.breadcrumbs li a{color: #fff!important}
 .background-breadcrumbs ol.breadcrumbs li, 
 .background-breadcrumbs ol.breadcrumbs li a,
 .woocommerce-cart ol.breadcrumbs li,
@@ -273,10 +274,9 @@ padding: 15px 0;
 .course-box .course_sharing
 {display: none;}
 
-.course-fees .the_course_button .course_button{
-    
-}
-.course-fees .course_button
+
+
+.course-fees .course_button,
 .course-fees a.course_button , 
 .course-fees input.course_button,
 .course-fees button.course_button 
@@ -299,6 +299,7 @@ padding: 15px 0;
     float: left;
         border: 0px;
 }
+.course-fees .course_button a{color: #004135;}
 .course-fees .course_button.progress_key_1,
 .course-fees a.course_button.progress_key_1, 
 .course-fees input.course_button.progress_key_1,

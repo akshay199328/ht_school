@@ -1820,6 +1820,9 @@ Course Details
     background: #00D98E!important;
     color: #fff;
 }
+.course-button a:focus.progress_key_3,
+.course-button input:focus.progress_key_3,
+.course-button button:focus.progress_key_3,
 .course-button a.progress_key_3, 
 .course-button input.progress_key_3,
 .course-button button.progress_key_3
@@ -1827,6 +1830,7 @@ Course Details
     background: #FADE3B!important;
     color: #000;
 }
+
 .competitive {
     background: url(./assets/images/Sci-fairBackground.jpg) no-repeat;
         height: 595px;
@@ -3881,6 +3885,7 @@ Course Details
     height: 100%;
     border-right: 1px solid #BEBEBE;
     padding: 12px 12px;
+    line-height: 28px;
 }
 .login-box .switch, .radio .switch {
         border-radius: 0;
@@ -5147,6 +5152,9 @@ p:empty{display: none;}
         margin: 0px auto 20px;
     }
     .latest-news .details-left img{width: 100%;}
+    .news-main .image_background .content.content-left{    padding-bottom: 20px!important;}
+    .news-main .image_background .content.content-left img{width: 100%;}
+
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

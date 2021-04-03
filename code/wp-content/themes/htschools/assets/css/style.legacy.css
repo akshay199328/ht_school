@@ -24776,7 +24776,7 @@ body {
  	padding: 10px 0px 12px;
  	box-shadow: none;
  	height: 100%;
- 	
+
  }
 
  #buddypress .standard-form input::placeholder { 
@@ -35110,6 +35110,7 @@ body {
  	#buddypress div.pagination .pagination-links {
  		margin-top: 10px
  	}
+
  }
 
  @media (max-width:440px) {
@@ -35398,7 +35399,7 @@ body {
 	border-bottom: 0px!important;
 }
  section#title{
- 	padding-top: 76px!important;
+ 	padding-top: 116px!important;
  }
  .left-menu nav {
  	float: left;
@@ -36003,9 +36004,7 @@ body {
 			background: #000!important;
 		}
 
-		.about-details.mrg.right_content {
-			padding: 10px 0px 20px 20px !important;
-		}
+		
 
 		.right_content .content-right{
 			padding: 0px 0px !important;
@@ -36025,8 +36024,19 @@ body {
 		.news-main .details h2{
 			margin-bottom: 20px;
 		}
-
-
+@media screen and (min-width: 767px){
+	.about-details.mrg.right_content {
+			padding: 10px 0px 20px 20px !important;
+		}
+}
+@media screen and (max-width: 767px){
+	.news-main .right_content {padding: 10px 0px 20px 0px !important;}
+    .news-main .right_content .top-icon{width: auto;}
+    .news-main .releted_news_section .related_post {padding: 15px 0px 0px;}
+    .news-main .details h2 {margin-bottom: 20px;}
+    .news-main .releted_news_section {float: left;width: 100%;padding-bottom: 20px;}
+    .news-main .releted_news_section .related_post h2 {margin-bottom: 0px;}
+}
 
 		
 

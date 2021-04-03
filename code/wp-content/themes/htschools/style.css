@@ -4985,7 +4985,7 @@ p:empty{display: none;}
 @media screen and (max-width:991px) and (min-width:320px){
 
     .header-space {margin-top: 15px;}
-    .innerheader-space {margin-top: 75px!important;}
+    .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher {margin-top: 75px!important;}
     .left-spacing {padding-left: 0px!important;}
     .header .middle-menu{padding: 0;}
     .header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}

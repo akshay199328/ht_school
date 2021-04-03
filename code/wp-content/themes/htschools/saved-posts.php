@@ -35,7 +35,12 @@ if(vibe_validate($title) || empty($title)){
     if ( is_active_sidebar( 'saved-posts' ) ) : ?>
         <?php dynamic_sidebar( 'saved-posts' ); ?>      
     <?php endif; ?> -->
-    <?php the_content(); ?>
+    <?php the_content();
+
+        global $wp;
+        $current_url = home_url(add_query_arg(array(), $wp->request));
+        echo "<pre>";print_r($current_url);exit;
+     ?>
 <?php
 get_footer(vibe_get_footer());
 ?>

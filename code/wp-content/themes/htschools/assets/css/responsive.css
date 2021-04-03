@@ -1,4 +1,4 @@
-		/*responsive added css by satish*/
+/*responsive added css by satish*/
 
 		@media screen and (max-width:1024px) {
 
@@ -167,9 +167,9 @@
 		.news-listing .blogpost .excerpt.thumb{
 			padding: 0px !important;
 		}
-		.details-middle.devide ul li{
+		/*.details-middle.devide ul li{
 			width: 100% !important;
-		}
+		}*/
 		.news-main .category-news .content-left .pagetitle h1{
 			font-size: 32px;
 		}
@@ -209,6 +209,9 @@
 		}
 		.related_courses2 .owl-nav button span{
 			top: -20px;
+		}
+		.details-middle.devide ul li{
+			width: 100%;
 		}
 
 

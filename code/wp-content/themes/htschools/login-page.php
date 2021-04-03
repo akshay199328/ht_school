@@ -59,6 +59,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
               <h4>Login or Register</h4>
               <form method="POST" id="ht_reg_email">
                 <input type="hidden" name="action" value="reg_send_otp">
+                <input type="hidden" name="prevPageurl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
                 <?php
                 if(class_exists('NextendSocialLogin', false)){
                   echo NextendSocialLogin::renderButtonsWithContainer();
@@ -345,7 +346,6 @@ jQuery(window).load(function(){
                         jQuery("#login-step-1").hide();
                         jQuery("#login-step-2").show();
                         startTimer();
-
                     }else{
                         jQuery("#ht_otp_error").html(response.message);
                         jQuery("#ht_otp_error").show();
@@ -428,7 +428,12 @@ jQuery(window).load(function(){
                     if(response.status == 1){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
-                        window.location.reload();
+                        
+                        if(response.previous_page_url != ''){
+                          window.location.replace(response.previous_page_url);
+                        }else{
+                          window.location.reload();
+                        }
                       }else{
                             jQuery("#reg-email-wrap").html(response.email);
                             jQuery("#login-step-2").hide();

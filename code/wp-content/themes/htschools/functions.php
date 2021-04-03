@@ -175,7 +175,7 @@ if(!is_admin()){
   function no_more_jquery(){
       wp_deregister_script('jquery');
   }*/
-/*  wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );*/
+  wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
   wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
   // wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
   wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
@@ -366,14 +366,14 @@ if(!function_exists('ht_course_get_full_course_curriculum')){
   }
 }
 
- /*if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
-     add_filter('login_redirect', 'my_login_redirect', 10, 3);
-     function my_login_redirect() {
-         $location = $_SERVER['HTTP_REFERER'];
-         wp_safe_redirect($location);
-         exit();
-     }
-}*/
+// if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
+//     add_filter('login_redirect', 'my_login_redirect', 10, 3);
+//     function my_login_redirect() {
+//         $location = $_SERVER['HTTP_REFERER'];
+//         wp_safe_redirect($location);
+//         exit();
+//     }
+// }
 
 
 function wpb_custom_new_menu() {
@@ -399,9 +399,17 @@ get_template_part('vibe','options');
 if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
     add_filter('login_redirect', 'my_login_redirect', 10, 3);
     function my_login_redirect() {
-        $location = $_SERVER['HTTP_REFERER'];
+/*        $location = $_SERVER['HTTP_REFERER'];
         wp_safe_redirect($location);
-        exit();
+        exit();*/
+        $t = 1005;
+        $url = add_query_arg(
+          'redirect_to',
+          get_permalink($pagid),
+            site_url($t) // your my acount url
+          );
+        wp_redirect($url);
+        exit;
     }
 }
 
@@ -431,6 +439,7 @@ function reg_send_otp(){
     $_SESSION['user_otp'] = $newOTP;
     $_SESSION['user_otp_email'] = $requestEmail;
     $_SESSION['user_email_verified'] = 0;
+    $_SESSION['previousPageUrl'] = $_REQUEST['prevPageurl'];
 
     $name = 'HT School';
     $fromEmail = get_option('admin_email');
@@ -454,7 +463,6 @@ function reg_send_otp(){
   } else {
     $response['message'] = 'Invalid email address entered.';
   }
-
 
   echo json_encode($response); exit;
 }
@@ -484,7 +492,8 @@ function reg_verify_otp(){
         unset($_SESSION['user_otp']);
         $userEmail = $_SESSION['user_otp_email'];
         $_SESSION['user_email_verified'] = 1;
-
+        $response['previous_page_url'] = $_SESSION['previousPageUrl'];
+    
         $reg = false;
 
         if(email_exists($userEmail)){
@@ -771,6 +780,7 @@ add_action('template_redirect','check_if_logged_in');
 function check_if_logged_in()
 {
     $pageid = 25; // your checkout page id
+    $savePageId = 1005; // your checkout page id
     if(!is_user_logged_in() && is_page($pageid))
     {
         $url = add_query_arg(
@@ -780,6 +790,14 @@ function check_if_logged_in()
         );
         wp_redirect($url);
         exit;
+    }elseif(!is_user_logged_in() && is_page($savePageId)){
+      $url = add_query_arg(
+        'redirect_to',
+        get_permalink($pagid),
+            site_url('/login-register/') // your my acount url
+          );
+      wp_redirect($url);
+      exit;
     }
 }
 

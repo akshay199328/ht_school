@@ -472,7 +472,7 @@ class bp_course_filters{
 	<?php 
 	if ( bp_course_has_items( $args ) ) : ?>
 
-		<div id="pag-top" class="pagination ">
+		<!-- <div id="pag-top" class="pagination ">
 
 			<div class="pag-count" id="course-dir-count-top">
 
@@ -486,7 +486,7 @@ class bp_course_filters{
 
 			</div>
 
-		</div>
+		</div> -->
 
 		<?php do_action( 'bp_before_directory_course_list' );
 			$class = '';
@@ -530,7 +530,7 @@ class bp_course_filters{
 
 		<?php do_action( 'bp_after_directory_course_list' ); ?>
 
-		<div id="pag-bottom" class="pagination">
+		<!-- <div id="pag-bottom" class="pagination">
 
 			<div class="pag-count" id="course-dir-count-bottom">
 
@@ -544,7 +544,7 @@ class bp_course_filters{
 
 			</div>
 
-		</div>
+		</div> -->
 
 	<?php else: ?>
 

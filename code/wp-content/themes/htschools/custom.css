@@ -274,8 +274,16 @@ padding: 15px 0;
 {display: none;}
 
 .course-fees .the_course_button .course_button{
-        padding: 12px 0px 12px 0px!important;
-    background-color: #fbca00!important;
+    
+}
+.course-fees .course_button
+.course-fees a.course_button , 
+.course-fees input.course_button,
+.course-fees button.course_button 
+
+ {
+        padding: 12px 0px 12px 0px;
+    background-color: #fbca00;
     width: 203px !important;
     font-size: 20px!important;
     font-weight: bold;
@@ -284,21 +292,34 @@ padding: 15px 0;
     line-height: 1.35;
     letter-spacing: normal;
     text-align: center;
-    color: #004135!important;
+    color: #004135;
     width: auto;
     border-radius: 0;
     margin: 5px 0px 0px;
     float: left;
+        border: 0px;
 }
-.progress_key_1, .progress_key_2{background: #00D98E!important;}
-.course-fees .the_course_button .course_button a{
-    color: #004135!important;
-    font-weight: bold;
-    text-transform: initial;    
-    /*padding: 12px 32px 12px 25px!important;*/
-    /*width: 100%;*/
-    /*background: #fade3b;*/
+.course-fees .course_button.progress_key_1,
+.course-fees a.course_button.progress_key_1, 
+.course-fees input.course_button.progress_key_1,
+.course-fees button.course_button.progress_key_1,
+.course-fees .course_button.progress_key_2,
+.course-fees a.course_button.progress_key_2, 
+.course-fees input.course_button.progress_key_2,
+.course-fees button.course_button.progress_key_2
+{
+    background: #00D98E!important;
+    color: #fff;
 }
+.course-fees .course_button.progress_key_3,
+.course-fees a.course_button.progress_key_3, 
+.course-fees input.course_button.progress_key_3,
+.course-fees button.course_button.progress_key_3
+{
+    background: #FADE3B!important;
+    color: #000;
+}
+
 .learing-goals .heading p, .heading h3,.infograph .heading h4, .testimonials .heading h4{ text-transform: initial;}
 .share-icon a, .nav-tabs .nav-link.active{color: #000!important;}
 .cv-detilslist span h6{    font-weight: normal !important;}

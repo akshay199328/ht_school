@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: All Courses page
+ * Template Name: My Courses page
  */
 if ( !defined( 'ABSPATH' ) ) exit;
 
@@ -27,25 +27,52 @@ get_header(vibe_get_header());
             <div class="">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                 	<?php
-		                $args_course = array(
-		                    'post_type' => 'course',
-		                    'post_status' => 'publish',
-		                );
-		                $Query_course = new WP_Query( $args_course );
-		                if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
-		                  $custom_fields = get_post_custom();
-		                  $duration = $custom_fields['vibe_duration'][0];
-		                  $age_limit = $custom_fields['vibe_course_age_group'][0];
-		                  $category_array = get_the_terms( $post->ID, 'course-cat');
+		                $user = wp_get_current_user();
+                    // print_r($user->user_login);
+                    // print_r($user->ID);
+                    
+                    global $wpdb;    
+                    $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("
+                    SELECT posts.ID as id
+                    FROM {$wpdb->posts} AS posts
+                    LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key
+                    WHERE   posts.post_type   = %s
+                    AND   posts.post_status   = %s
+                    AND   meta.user_id   = %d
+                    AND   meta.meta_value > %d
+                    ",'course','publish',$user->ID,time()));
+                    $result = $wpdb->get_results($courses_with_types);
+
+                    foreach($result as $course){
+                            
+                        $args['post__in'][]=$course->id;
+                        $type = bp_course_get_user_course_status($user->ID,$course->id);
+                        
+                        $statuses[$course->id]= intval($type);
+                    }
+
+                    $query_args = apply_filters('wplms_mycourses',array(
+                        'post_type'=>'course',
+                        'posts_per_page'=>12,
+                        'paged'=>$args['paged'],
+                        's'=>$args['s'],
+                        'post__in'=>$args['post__in']
+                    ),$user->ID);
+
+                    $course_query = new WP_Query($query_args);
+                    global $bp,$wpdb;
+                    while($course_query->have_posts()){
+                    $course_query->the_post();
+                    global $post;
+                    $progress = bp_course_get_user_progress($user->id,$post->ID);
+                    if($statuses[$post->ID]>2){$progress = 100;}
                   ?>
                   <div class="course-box dotted-border">
                     <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
-                        <?php 
-                        if ( has_post_thumbnail() ) { 
-                          $image_url = get_the_post_thumbnail_url();
-                        }
-                      ?>
-                     <a href="<?php echo get_permalink($post->ID);?>"> <img src="<?php echo $image_url; ?>" class="img-fluid"></a>
+                        
+                     <?php bp_course_avatar(); 
+                      $category_array = get_the_terms( $post->ID, 'course-cat');
+                     ?>
                     </div>
                     <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
                       <div class="col-sm-12 col-lg-9 pull-left mrg">
@@ -67,11 +94,11 @@ get_header(vibe_get_header());
                             </div>
                             <div class="pull-right">
 	                            <p>Age Group</p>
-	                            <?php if($age_limit == '') { ?>
-	                            <h6>--</h6>
-	                            <?php } else{ ?>
-	                            <h6><?php echo $age_limit;?></h6>
-	                            <?php }?>
+                              <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
+                                <h6>--</h6>
+                              <?php } else{ ?>
+                                <h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
+                              <?php }?>
                             </div>
                           </div>
                         </div>
@@ -90,7 +117,7 @@ get_header(vibe_get_header());
                       </div>
                     </div>
                   </div>
-                <?php endwhile; endif; ?>
+                <?php } ?>
                 </div>
             </div>
         </div>

@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 if(is_user_logged_in()){
                                   $user = wp_get_current_user();
                                   $username = $user->user_login;
-                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/members-directory/'.$username.'/course/">My Courses</a></li>';
+                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/my-courses">My Courses</a></li>';
                                 }
                                 else{
                                   echo '<li class="custom-dropdown ' . $current . '"><a href="' . $menu->url . '">Courses</a></li>';

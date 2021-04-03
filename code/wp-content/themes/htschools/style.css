@@ -1788,9 +1788,9 @@ Course Details
 .right-details .course-button h6 del{ color: #000000;font-weight: bold;}
 .right-details .course-button h6 .subs{color: #000000;font-weight: normal;font-size: 14px;position: relative;top:-4px;}
 .woocommerce-Price-currencySymbol{margin-right: 5px;}
-.right-details .course-button a, 
-.right-details .course-button input,
-.right-details .course-button button,
+.course-button a, 
+.course-button input,
+.course-button button
 
  {
     padding: 14px 5px 14px 5px;
@@ -1808,6 +1808,24 @@ Course Details
     margin-left: 4px;
     border-radius: 0px !important;
     display: inline-table;
+        border: 0px;
+}
+.course-button a.progress_key_1, 
+.course-button input.progress_key_1,
+.course-button button.progress_key_1,
+.course-button a.progress_key_2, 
+.course-button input.progress_key_2,
+.course-button button.progress_key_2
+{
+    background: #00D98E!important;
+    color: #fff;
+}
+.course-button a.progress_key_3, 
+.course-button input.progress_key_3,
+.course-button button.progress_key_3
+{
+    background: #FADE3B!important;
+    color: #000;
 }
 .competitive {
     background: url(./assets/images/Sci-fairBackground.jpg) no-repeat;
@@ -3972,7 +3990,7 @@ Course Details
     top: 12px;
 }
 .switch-label-off span{
-  color: #fff;
+/*  color: #fff;*/
 }
 @-webkit-keyframes slide-right {
     0% {

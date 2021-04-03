@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 <?php
 	do_action('wplms_after_single_item_list_tabs');
-	do_action( 'bp_before_member_course_content' ); 
+	/*do_action( 'bp_before_member_course_content' ); */
 
 	if ( bp_is_current_action( BP_COURSE_RESULTS_SLUG ) ) :
 	

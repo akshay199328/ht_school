@@ -27,7 +27,7 @@ vibe_include_template("profile/top$profile_layout.php");
 <?php do_action( 'bp_after_member_settings_template' ); ?>
 	<div class="col-md-9"> 
         <div class="course_nofound">
-            <h1>No Courses Found</h1>
+            <h1>You have not completed any course till now</h1>
         </div>
     </div>
 </div>

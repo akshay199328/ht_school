@@ -9,7 +9,7 @@
 			.woocommerce-page .woocommerce-Price-currencySymbol,
 			.woocommerce-page .woocommerce-Price-amount,
 			.cart_item td.product-name a{
-				font-size: 13px;
+				font-size: 13px ;
 			}
 			.woocommerce table.shop_table td{
 				font-size: 12px;
@@ -97,7 +97,8 @@
 		.woocommerce table.shop_table tbody th,
 		.woocommerce table.shop_table tfoot td,
 		.woocommerce table.shop_table tfoot th{
-			font-size: 10px;
+			font-size: 12px;
+			font-weight: 500;
 		}
 		.login-left img{
 			display: none;
@@ -203,7 +204,7 @@
 		}
 		.search_section input{
 			padding: 0px 60px 10px !important;
-			font-size: 20px;
+			font-size: 20px !important;
 		}
 		.other-courses .list{
 			padding-top: 0px;
@@ -220,8 +221,51 @@
 		.details-middle.devide ul li{
 			width: 100%;
 		}
+		.woocommerce-page,
+			.woocommerce-page,
+			.cart_item td.product-name a{
+				font-size: 12px !important;
+				font-weight: 500 !important;
+		}
+		.woocommerce-Price-currencySymbol,
+		.woocommerce-Price-amount{
+			font-size: 12px !important;
+			font-weight: 600 !important;
+		}
+		th.product-name,th.product-subtotal{
+			font-size: 12px !important;
+			color: #000 !important;
+		}
+		.wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward{
+			width: 90% !important;
+			margin-left: 15px !important;
+		}
+		.woocommerce-cart .cart_totals h2{
+			font-size:24px;
+		}
+		.woocommerce-cart table.cart td.actions .coupon .input-text{
+			max-width: 100% !important;
+			margin-bottom: 5px !important;
+		}
+		.pagetitle h1{
+			font-size: 24px !important;
+			font-weight: 600 !important;
+		}
+		.woocommerce table.shop_table{
+			padding: 0px 20px!important;
+		}
 
 
+	}
+
+	@media screen and (max-width:375px) {
+		.woocommerce-cart table.cart td.actions .coupon{
+			width: 100% !important;
+			display: block !important;
+		}
+		.woocommerce-cart table.cart td.actions .coupon button{
+			width: 100%;
+		}
 	}
 
 /*close css*/

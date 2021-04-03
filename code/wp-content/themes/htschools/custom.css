@@ -15,7 +15,7 @@ p{font-family: 'GT-Walsheim-Pro'!important;}
 
 .middle-menu { text-align: center;}
 nav li {margin-left: 0!important;}
-.left-menu nav li {margin-right: 23px!important;padding: 7px 20px 8px 10px;    cursor: pointer;}
+.left-menu nav li {margin-right: 23px!important;padding: 7px 20px 9px 10px;    cursor: pointer;}
 .left-menu nav li:last-child {margin-right: 0px!important;}
 .left-menu nav li.current_page_item{background: #000;}
 .course .left-menu nav li.current_page_item a{color: #fff!important;}
@@ -116,7 +116,13 @@ ol.breadcrumbs li {
     font-weight: bold!important;
     
 }
-.background-breadcrumbs ol.breadcrumbs li, .background-breadcrumbs ol.breadcrumbs li a {
+.background-breadcrumbs ol.breadcrumbs li, 
+.background-breadcrumbs ol.breadcrumbs li a,
+.woocommerce-cart ol.breadcrumbs li,
+.woocommerce-cart ol.breadcrumbs li a,
+.woocommerce-checkout ol.breadcrumbs li,
+.woocommerce-checkout ol.breadcrumbs li a
+ {
     color: #0c5acc!important;
 }
 .course-listing{

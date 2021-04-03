@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	
 </tbody></table>
-<div class="order_details_button">
+<div class="order_details_button customOrder_details">
 	<?php do_action( 'woocommerce_receipt_' . $order->get_payment_method(), $order->get_id() ); ?>
 </div>
 </div>

@@ -165,7 +165,7 @@ section {
     text-align: left;
     color: #0c5acc;
 }
-.breadcrumbs ol {
+ol.breadcrumbs  {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -173,7 +173,7 @@ section {
   margin: 0;
   font-size: 11px;
 }
-.breadcrumbs ol li{
+.breadcrumbs  li{
     font-size: 11px;
   font-weight: bold;
   font-stretch: normal;
@@ -184,20 +184,20 @@ section {
   color: #fff;
    transition: 0.3s;
 }
-.breadcrumbs ol a {
+.breadcrumbs a {
   color: #fff;
   transition: 0.3s;
 }
 
-.breadcrumbs ol a:hover {
+.breadcrumbs a:hover {
   text-decoration: underline;
 }
 
-.breadcrumbs ol li + li {
+.breadcrumbs li + li {
   padding-left: 0px;
 }
 
-.breadcrumbs ol li:after {
+.breadcrumbs li:after {
   padding-right: 6px;
   top: 3px;
     position: relative;
@@ -207,7 +207,7 @@ section {
     display: inline-block;
     font-family: bootstrap-icons !important;
 }
-.breadcrumbs ol li:last-child::after{
+.breadcrumbs li:last-child::after{
   visibility: hidden;
 }
 .white-bread.breadcrumbs li a {
@@ -399,6 +399,7 @@ section {
 .logged-in .right-menu ul.after_loginspace{
       margin-top: 7px;
 }
+.logged-in .left-menu nav li{    padding: 7px 20px 7px 10px;}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -3966,6 +3967,9 @@ Course Details
     position: relative;
     top: 12px;
 }
+.switch-label-off span{
+  color: #fff;
+}
 @-webkit-keyframes slide-right {
     0% {
         -webkit-transform: translateX(0);
@@ -4262,6 +4266,19 @@ border-color: transparent;
       width: 30.27%!important;
 }
 .news_three_data li:nth-last-child(2), .news_three_data li:nth-last-child(3){border-bottom: 0px}
+
+/*------------CART CSS : START-------------*/
+
+
+ .woocommerce-cart section#title , .woocommerce-checkout section#title {
+    background: #f7f7f7;
+    padding: 15px 0 15px 0!important;
+    
+}
+ .woocommerce-cart #content , .woocommerce-checkout #content{
+  padding:0px;
+ }
+
 /*-------DASHBOARD CSS:START-------*/
 .profile-heading {
     padding: 20px 0px;
@@ -4277,6 +4294,13 @@ border-color: transparent;
     background-size: cover;
 }
 .dashboard_content{margin-top: 0;padding: 0px;}
+.edit-profile-link {
+    width: 114px!important;
+    padding: 8px 13px!important;
+        font-size: 15px;
+    line-height: 20px;
+    font-weight: 300;
+}
 .details_align{
     -webkit-box-align: center !important;
     -ms-flex-align: center !important;
@@ -4309,6 +4333,9 @@ border-color: transparent;
     font-weight: 300;
     line-height: 20px;
         margin-top: 5px;
+}
+.dashboard_content #item-header .Profile_details .simple-link:hover{
+  color: #000;    text-decoration: underline;
 }
 .myprofile_content{padding-left: 45px;}
 .myprofile_content h2{
@@ -4405,7 +4432,7 @@ border-color: transparent;
 .edit_DOB, .profile_search{
   position: relative;
 }
-.edit_DOB:after{
+.edit_DOB:after, #user_dob_display:after{
   content:'';
      background: url('./assets/images/profile-calendar.svg') no-repeat bottom right;
     position: absolute;
@@ -4416,7 +4443,7 @@ border-color: transparent;
     /* height: 17px; */
     width: 19px;
 }
-.profile_search:after{
+.profile_search:after, #user_state:after, #user_country_data:after {
     content:'';
     background: url('./assets/images/profile-search.svg') no-repeat bottom right;
     position: absolute;
@@ -4512,6 +4539,8 @@ border-color: transparent;
     background: #000;
 
 }
+.middle-table table thead tr:hover{background: transparent;}
+
 .middle-table table tr:hover{
   background: #D5EBFF
 }

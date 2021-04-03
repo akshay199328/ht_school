@@ -43,7 +43,7 @@ if(vibe_validate($title)){
     $v_add_content = get_post_meta( $post->ID, '_add_content', true );
  
 ?>
-<section id="content">
+<section id="content gdfg">
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">
             <div class="col-md-9 col-sm-8">

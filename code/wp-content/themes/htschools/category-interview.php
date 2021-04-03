@@ -74,7 +74,7 @@ get_header(vibe_get_header());
         ?>
       </div>
       </div>
-      <div class="col-sm-12 col-md-3 content-right right_count">
+      <div class="col-sm-12 col-md-3 content-right right_count mrg">
         <div class="sidebar">
                     <?php
                     if ( is_active_sidebar( 'banner-2' ) ) :

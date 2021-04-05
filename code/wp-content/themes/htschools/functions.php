@@ -1082,3 +1082,8 @@ function get_states(){
 
     echo json_encode($response); exit;
 }
+
+function cart_script_disabled(){
+   wp_dequeue_script( 'wc-cart' );
+}
+add_action( 'wp_enqueue_scripts', 'cart_script_disabled' );

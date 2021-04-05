@@ -224,7 +224,6 @@ function the_course_price($args=NULL){
   echo get_the_course_price($args);
 }
 
-
 function get_the_course_price($args=NULL){
   $defaults=array(
     'course_id' =>get_the_ID(),

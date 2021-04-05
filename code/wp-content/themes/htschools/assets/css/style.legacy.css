@@ -35682,7 +35682,7 @@ body {
 	.woocommerce .woocommerce-error {
 	    border-top-color: #ff0510;
 	}
-	.woocommerce-checkout #payment div.payment_box:before{margin: -16px 0 0 2em!important;}
+	.woocommerce-checkout #payment div.payment_box:before{margin: -20px 0 0 2em!important;}
 	.order_details_page table th{
 		border-bottom: 1px solid rgba(0,0,0,.1);
 	}
@@ -36180,6 +36180,8 @@ body {
 	    font-size: 13px;
 	}
 	.cart-contents-count {line-height: 16px; height: 15px; width: 15px;}
+	.woocommerce-checkout-review-order.custom_checkoutTable{margin-top: 20px;}
+	.woocommerce-checkout #payment div.payment_box:before {margin: -19px 0 0 2em!important;}
 }
 @media screen and (max-width: 437px){
 	.myprofile_content ul li{width: 83px!important;    margin-top: 2px!important;}

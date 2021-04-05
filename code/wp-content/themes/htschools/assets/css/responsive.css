@@ -80,7 +80,9 @@
 			border: 1px solid #000;
 			top: 10px;
 		}
-		/*home slider*/
+		.woocommerce-checkout #payment div.payment_box:before{
+			top: -6px !important;
+		}
 
 	}
 
@@ -99,6 +101,7 @@
 		.woocommerce table.shop_table tfoot th{
 			font-size: 12px;
 			font-weight: 500;
+			padding-right: 10px !important;
 		}
 		.login-left img{
 			display: none;
@@ -211,6 +214,7 @@
 		}
 		.course-curriculum .card{
 			height: auto;
+			width: 100%;
 		}
 		.other-courses .list .card:last-child{
 			border: 0px;
@@ -251,9 +255,6 @@
 			font-size: 24px !important;
 			font-weight: 600 !important;
 		}
-		.woocommerce table.shop_table{
-			padding: 0px 20px!important;
-		}
 		.search_section input::placeholder{
 			color: #D8D8D8 !important;
 		}
@@ -269,6 +270,54 @@
 		section#title.search_page{
 			padding-bottom: 10px !important;
 		}
+		.woocommerce table.shop_table {
+    		padding: 0px 20px!important;
+		}
+		.adworks {
+    		margin: 5px 0px;
+		}
+		.logged-in .vibebp-login .loggedin_user_div{
+			border: 0px !important;
+		}
+		.logged-in a.loggedin_user{
+			padding: 0px !important
+		}
+		.cart-contents-count{
+			line-height: 15px !important;
+    		height: 15px !important;
+    		width: 15px !important;
+    		border-radius:50% !important;
+		}
+		.order_details_button.customOrder_details p{
+			font-size: 13px !important;
+		}
+		.order_details_button #btn-razorpay{
+			width: 100% !important;
+			margin-bottom: 5px !important;
+		}
+		.order_details_button #btn-razorpay-cancel{
+			width: 100% !important;
+		}
+		.featured_tablist{
+			margin: 0px 0px 15px 0px !important;
+		}
+		.details-middle.adwork {
+    		margin: 5px 0px !important;
+		}
+		/*.course-box{
+			padding: 0px 15px 19.5px 15px !important;
+			margin-top: 0px;
+		}*/
+		.course-button a, .course-button input, .course-button button{
+			width: 100%;
+		}
+		.right-details .course-button h6{
+			margin-bottom: 5px !important;
+		}
+		.right-details .course-button{
+			padding-left: 0px !important;
+		}
+		
 
 
 	}
@@ -284,6 +333,9 @@
 		.search_section input{
 			padding: 0px 20px 10px 60px!important;
 			font-size: 20px !important;
+		}
+		.woocommerce-checkout #payment div.payment_box:before{
+			top: -6px !important;
 		}
 	}
 

@@ -109,10 +109,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 if(is_user_logged_in()){
                                   $user = wp_get_current_user();
                                   $username = $user->user_login;
-                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/my-courses">My Courses</a></li>';
+                                  echo '<a href="' . get_bloginfo('url') . '/my-courses"><li class="custom-dropdown ' . $current . '">My Courses</li></a>';
                                 }
                                 else{
-                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . $menu->url . '">Courses</a></li>';
+                                  echo '<a href="' . $menu->url . '"><li class="custom-dropdown ' . $current . '">Courses</li></a>';
                                 }
                               }
                            }

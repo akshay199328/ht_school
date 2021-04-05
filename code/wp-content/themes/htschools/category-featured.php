@@ -18,7 +18,9 @@ get_header(vibe_get_header());
           $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
           global $wp;
           $current_url = home_url(add_query_arg(array(), $wp->request));
-
+          ?>
+          <li><a href="<?php echo get_site_url(); ?>/news">All News</a></li>
+          <?php
           foreach ($menuitems as $menu) {  
             if($current_url."/" == $menu->url){    
               ?>

@@ -19,7 +19,9 @@ get_header(vibe_get_header());
 
           global $wp;
           $current_url = home_url(add_query_arg(array(), $wp->request));
-
+          ?>
+          <li><a href="<?php echo get_site_url(); ?>/news">All News</a></li>
+          <?php
           foreach ($menuitems as $menu) {  
             if($current_url."/" == $menu->url){    
               ?>

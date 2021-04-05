@@ -46,6 +46,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     <div class="row gx-0">
      <div class="featured_tablist">
       <?php
+      ?>
+        <li class="active"><a href="#">All News</a></li>
+      <?php
       foreach ($menuitems as $menu) {  
         ?>
         <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a></li>

@@ -1087,3 +1087,23 @@ function cart_script_disabled(){
    wp_dequeue_script( 'wc-cart' );
 }
 add_action( 'wp_enqueue_scripts', 'cart_script_disabled' );
+
+/**
+ * AUTO COMPLETE PAID ORDERS IN WOOCOMMERCE
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_paid_order', 10, 1 );
+function custom_woocommerce_auto_complete_paid_order( $order_id ) {
+    if ( ! $order_id )
+    return;
+
+    $order = wc_get_order( $order_id );
+
+    // No updated status for orders delivered with Bank wire, Cash on delivery and Cheque payment methods.
+    if ( ( 'bacs' == get_post_meta($order_id, '_payment_method', true) ) || ( 'cod' == get_post_meta($order_id, '_payment_method', true) ) || ( 'cheque' == get_post_meta($order_id, '_payment_method', true) ) ) {
+        return;
+    } 
+    // For paid Orders with all others payment methods (with paid status "processing")
+    elseif( $order->get_status()  === 'processing' ) {
+        $order->update_status( 'completed' );
+    }
+}

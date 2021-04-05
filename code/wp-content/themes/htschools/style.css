@@ -1809,7 +1809,7 @@ button.course-button .button
     padding: 14px 5px 14px 5px;
     width: 135px;
     background-color: #000000!important;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -5214,6 +5214,7 @@ p:empty{display: none;}
     .clearfix{display: none;}
     .edit-profile-link img {display: block;float: left;padding-right: 12px;top: 4px;position: relative;}
     .dashboard_accountinfo .info-card {padding-left: 0px;margin-top: 20px;}
+    .item-body .col-md-9{padding: 0px;}
 
 }
 @media screen and (max-width:575px) and (min-width:320px){

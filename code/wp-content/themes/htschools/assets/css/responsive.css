@@ -69,17 +69,28 @@
 			padding-bottom: 0px;
 		}
 		/*home slider*/
-		.owl-nav button span {
+		.hero-list .owl-nav button span {
+			padding: 4px 7px;
+    		color: #000;
+   			font-size: 14px;
+    		line-height: 0px;
+    		font-weight: 600;
+		}
+		}
+		.hero-list .owl-nav button{
 			display: inline-block;
 			margin-right: 10px;
-			color: #000;
-			font-size: 40px;
 			position: relative;
-			padding: 15px 10px;
-			line-height: 0px;
-			border: 1px solid #000;
+			border: 1px solid #000 !important;
 			top: 10px;
 		}
+		.hero-list button.owl-next {
+    		margin-right: 0px;
+		}
+		.hero-list .owl-nav {
+    		float: right;
+		}
+
 		.woocommerce-checkout #payment div.payment_box:before{
 			top: -6px !important;
 		}
@@ -312,14 +323,12 @@
 		.course-button a, .course-button input, .course-button button{
 			width: 100%;
 		}
-		.right-details .course-button h6{
-			margin-bottom: 5px !important;
-		}
+		
 		.right-details .course-button{
 			padding-left: 0px !important;
 		}
-		.Popular-Courses, .competitive, .latest-news, #Popular-Courses{
-			padding-top: 0px !important;
+		section#Popular-Courses.all_course_page {
+    		padding-top: 0px;
 		}
 		.course-aboutDetails .details-right .content-about .about-details{
 			margin-top: 0px;
@@ -329,6 +338,9 @@
 		}
 		.order_details_button.customOrder_details{
 			padding: 0px 40px 10px !important;
+		}
+		.right-details .course-button h6{
+			padding-top: 5px !important;
 		}
 		
 

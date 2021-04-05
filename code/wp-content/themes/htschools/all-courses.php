@@ -20,7 +20,7 @@ get_header(vibe_get_header());
         ?>
       </div>
     </section>
-    <section id="Popular-Courses" class="">
+    <section id="Popular-Courses" class="all_course_page">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-8 mrg">

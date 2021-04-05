@@ -45,6 +45,7 @@ nav .menu li:last-child a{padding-right: 0px!important;}
     color: #fff;
     top: 0px;
     position: relative;
+    display: none;
 }
 .home-page nav .menu li.custom-dropdown a, .home-page .custom-dropdown:before{
     color: #000!important;

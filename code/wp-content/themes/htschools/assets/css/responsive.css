@@ -259,7 +259,7 @@
 			font-size:24px;
 		}
 		.woocommerce-cart table.cart td.actions .coupon .input-text{
-			max-width: 100% !important;
+			max-width: 60% !important;
 			margin-bottom: 5px !important;
 		}
 		.pagetitle h1{
@@ -342,6 +342,9 @@
 		.right-details .course-button h6{
 			padding-top: 5px !important;
 		}
+		.exlore-link.mobile-btn{
+			font-size: 12px !important;
+		}
 		
 
 	}
@@ -352,7 +355,7 @@
 			display: block !important;
 		}
 		.woocommerce-cart table.cart td.actions .coupon button{
-			width: 100%;
+			width: 40%;
 		}
 		.search_section input{
 			padding: 0px 20px 10px 60px!important;

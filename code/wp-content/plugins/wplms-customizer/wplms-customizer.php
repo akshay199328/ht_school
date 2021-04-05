@@ -96,6 +96,7 @@ function bp_remove_nav_item() {
     bp_core_remove_subnav_item( $bp->course->slug, 'qna' );
     bp_core_remove_subnav_item( $bp->course->slug, 'course_search' );
     bp_core_remove_subnav_item( $bp->course->slug, 'manage_reports' );
+    bp_core_remove_subnav_item( $bp->course->slug, 'enrolled_course' );
   }
 }
 add_action( 'wp', 'bp_remove_nav_item' );
@@ -295,25 +296,25 @@ function custom_course_recommended($field1){
 }
 
 // Set up Cutsom BP navigation
-function my_setup_nav() {
-      global $bp;
+// function my_setup_nav() {
+//       global $bp;
 
-      bp_core_new_nav_item( array( 
-            'name' => __( 'Preferences', 'buddypress' ), 
-            'slug' => '#', 
-            'position' => 30,
-            'screen_function' => 'preferences', 
-      ) );
+//       bp_core_new_nav_item( array( 
+//             'name' => __( 'Preferences', 'buddypress' ), 
+//             'slug' => '#', 
+//             'position' => 30,
+//             'screen_function' => 'preferences', 
+//       ) );
 
-}
+// }
 
-add_action( 'bp_setup_nav', 'my_setup_nav' );
+// add_action( 'bp_setup_nav', 'my_setup_nav' );
 
 
-// Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
-function preferences() {
-      bp_core_load_template( 'preferences.php' );
-}
+// // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
+// function preferences() {
+//       bp_core_load_template( 'preferences.php' );
+// }
 
 
 function bp_page_nav(){
@@ -321,11 +322,12 @@ function bp_page_nav(){
  
     $user_domain = bp_displayed_user_domain() ? bp_displayed_user_domain() : bp_loggedin_user_domain();
     $course_link = trailingslashit( $user_domain . $bp->course->slug );
-
+    // print_r($bp->course->slug);
+    // print_r( $course_link);
     bp_core_new_subnav_item( array(
-    'name' => __( 'Active Courses', 'buddypress' ), 
-    'slug' => 'active-course',
-    'parent_url' => $course_link,
+    'name' => __( 'Active Courses', 'buddypress navigation' ), 
+    'slug' => 'course',
+    'parent_url' => $user_domain,
     'parent_slug' => $bp->course->slug,
     'screen_function' => 'active_course_template',
     'position' => 20
@@ -365,3 +367,4 @@ function recommended_course_template() {
 function past_course_template() {
       bp_core_load_template( 'past-course' );
 }
+

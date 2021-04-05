@@ -211,7 +211,7 @@ class BP_Course_Component extends BP_Component {
 			'name'            => __( 'Courses', 'wplms' ),
 			'slug' 		      => BP_COURSE_SLUG,
 			'position' 	      => 5,
-			'screen_function'     => 'bp_course_my_courses',
+			'screen_function'     => 'active_course_template',
 			'show_for_displayed_user' => $show_for_displayed_user, //Change for admin
 			'default_subnav_slug' => BP_COURSE_SLUG,
 		);
@@ -238,9 +238,10 @@ class BP_Course_Component extends BP_Component {
 		if ( !empty( $user_domain ) ) {
 			$user_access = 1;
 			$user_access = apply_filters('wplms_user_profile_courses',$user_access);
+			
 			$sub_nav[] = array(
-				'name'            =>  _x('Enrolled Courses','buddypress navigation', 'wplms' ),
-				'slug'            => BP_COURSE_SLUG,
+				'name'            =>  _x('Enrolled Courses','wplms' ),
+				'slug'            => 'enrolled_course',
 				'parent_url'      => $course_link,
 				'parent_slug'     => BP_COURSE_SLUG,
 				'screen_function' => 'bp_course_my_courses',

@@ -7089,11 +7089,11 @@
             }
         }), h.length ? h.map(e => mr("span", null, e)) : ""))) : mr(wr, null, mr("span", {
             className: "the_course_button"
-        }, i && i.length ? c > -1 ? mr("span", null, mr("a", {
+        }, i && i.length ? c > -1 ? mr("span", null, mr("button", {
             onClick: () => {
                 f(!0)
             },
-            className: "course_button button full"
+            className: "course_button button full progress_key_" + l.user_status
         }, a)) : Array.isArray(i) ? mr("strong", {
             className: "course_button button full"
         }, mr("a", {

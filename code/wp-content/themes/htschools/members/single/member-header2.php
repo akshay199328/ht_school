@@ -25,14 +25,12 @@ $current_user = wp_get_current_user();
 	<div class="">
 		<div class="col-xs-12 col-md-4 mrg">
 			<div class="details_align">
-				<div class="col-xs-12 col-md-3 mrg">
+				<div class="mrg">
 					<div id="item-header-avatar">
 						<a href="<?php bp_displayed_user_link(); ?>">
 							<?php bp_displayed_user_avatar( 'type=full' ); ?>
 						</a>
 					</div><!-- #item-header-avatar -->
-				</div>
-				<div class="co-xs-12 col-md-9 mrg">
 					<div class="Profile_details">
 						<h3>
 							<a href="<?php bp_displayed_user_link(); ?>"><?php bp_displayed_user_fullname(); ?></a>

@@ -38,8 +38,12 @@
 			<div class="<?php echo vibe_get_container(); ?>">
 	    		<div class="row">
 	    			<div class="col-md-12">
-		    			<h3 id="profile_current_menu"></h3>
-		    			<a href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/edit" class="edit-profile-link">Edit</a>
+		    			<div class="pull-left">
+		    				<h3 id="profile_current_menu"></h3>
+		    			</div>
+		    			<div class="pull-right">
+		    				<a href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/edit" class="edit-profile-link"><img src="/assets/images/profile-edit.svg"/>Edit</a>
+		    			</div>
 	    			</div>
 	    		</div>
 	    	</div>

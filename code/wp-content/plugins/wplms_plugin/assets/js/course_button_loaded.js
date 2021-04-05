@@ -7093,9 +7093,9 @@
             onClick: () => {
                 f(!0)
             },
-            className: "course_button button full progress_key_" + l.user_status
+            className: "course_button full progress_key_" + l.user_status
         }, a)) : Array.isArray(i) ? mr("strong", {
-            className: "course_button button full"
+            className: "course_button full"
         }, mr("a", {
             href: i[0].link,
             onClick: e => {

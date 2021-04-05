@@ -51,7 +51,16 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                   </div>
                   <div class="content">
                     <h2><?php bp_course_name(); ?></h2>
-                    <?php the_excerpt(); ?>
+                    <?php
+                      $excerpt = get_post_field('post_excerpt', $post->ID);
+                      if ( $excerpt != '' ) {
+                        echo "<p>".$excerpt."</p>";
+                      }
+                      else{
+                        $content = wp_trim_words( $post->post_content, 40 );
+                        echo "<p>".esc_html( $content )."</p>";
+                      }
+                    ?>
                     <ul>
                       <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) != '') { ?>
 
@@ -154,7 +163,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <h3>About The Course</h3>
                                   </div>
                                   <div class="col-sm-12 col-lg-6 pull-left mrg">
-                                      <?php the_content(); ?>
+                                      <?php 
+                                      $post_content = get_post_field('post_content', $post->ID);
+                                      if ( $post_content != '' ) {
+                                        echo $post_content;
+                                      }
+                                      ?>
                                   </div>
                                   <div class="col-sm-12 col-lg-6 mrg pull-right">
                                     <div class="adworks">

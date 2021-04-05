@@ -106,7 +106,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         </div>
       </div>
       <div class="col-sm-12 col-lg-4">
-        <div class="details-middle">
+        <div class="details-middle adwork">
           <?php
           if ( is_active_sidebar( 'banner-2' ) ) : ?>
            <?php dynamic_sidebar( 'banner-2' ); ?>      

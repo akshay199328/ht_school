@@ -287,6 +287,7 @@
     		height: 15px !important;
     		width: 15px !important;
     		border-radius:50% !important;
+    		font-size: 8px !important;
 		}
 		.order_details_button.customOrder_details p{
 			font-size: 13px !important;
@@ -317,8 +318,19 @@
 		.right-details .course-button{
 			padding-left: 0px !important;
 		}
+		.Popular-Courses, .competitive, .latest-news, #Popular-Courses{
+			padding-top: 0px !important;
+		}
+		.course-aboutDetails .details-right .content-about .about-details{
+			margin-top: 0px;
+		}
+		.order_details_button.customOrder_details p{
+			padding: 10px 0px 0px !important;
+		}
+		.order_details_button.customOrder_details{
+			padding: 0px 40px 10px !important;
+		}
 		
-
 
 	}
 

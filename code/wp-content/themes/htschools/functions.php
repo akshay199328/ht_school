@@ -671,7 +671,6 @@ function reg_verify_mob_otp(){
         $response['message'] = 'Invalid OTP entered.';
     }
 
-    //echo "<pre>";print_r($response);exit;
     echo json_encode($response); exit;
 
 }

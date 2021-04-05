@@ -24,6 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   <div class="navegacion">
           <div class="menu-back">
             <ul class="menu">
+              <span class="close-navigation"></span>
                 <!--titular-->
               <!--   <?php
                     $args = array(
@@ -42,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    foreach ($menuitems as $menu) {  
                    $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
                     if($menu->title == 'Home'){
-                       echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a><span class="close-navigation"></span></li>';
+                       echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
                        
                         }else{
                           // Print menu item
@@ -100,6 +101,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                            //print_r($menuitems);
                            echo "<nav class='menu-primary-menu-container'><ul id='menu-primary-menu' class='menu'>";
                            foreach ($menuitems as $menu) {  
+                            $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
                               if($menu->title == 'Home'){ 
                                 echo '<li class="border-menu ' . $current . ' "><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
                               }
@@ -185,6 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 </div>
             </div>
         </div>
+        <div id="close-navigation-header">
 
 
         

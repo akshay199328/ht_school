@@ -1,2 +1,4 @@
 2021-03-27T13:06:21+00:00 CRITICAL syntax error, unexpected ')', expecting ';' or ',' in D:\xampp3\htdocs\Htschools-git\code\wp-content\themes\htschools\header.php on line 121
 
+2021-03-27T15:25:13+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\Htschools-git\code\wp-includes\wp-db.php on line 2056
+

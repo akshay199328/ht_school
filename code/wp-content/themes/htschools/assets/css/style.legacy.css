@@ -36060,6 +36060,7 @@ body {
 }
 @media screen and (max-width: 991px) and (min-width: 768px){
 	.myprofile_content ul li{margin-bottom: 2px!important;}
+	.cart-contents-count {line-height: 16px; height: 15px; width: 15px;}
 }
 @media screen and (max-width: 767px){
 	.news-main .right_content {padding: 10px 0px 20px 0px !important;}
@@ -36164,7 +36165,21 @@ body {
     .middle-table table tbody:after{width: 47.5px;}
     .right-details li:after{width: 63.79px;}
     .dashboard-info .left-listing .owl-nav{display: none;}
-    
+    .woocommerce table.shop_table td, 
+    .woocommerce table.shop_table th{    padding-right: 10px !important;}
+    .woocommerce table.shop_table td:last-child, 
+    .woocommerce table.shop_table th:last-child{
+    	padding-right: 0px !important;
+    }
+    .woocommerce-cart table.cart td.actions .coupon button{
+    	font-size: 12px;
+    	line-height: 16px;
+    	padding: 10px 5px;
+    }
+    .woocommerce-cart table.cart input {
+	    font-size: 13px;
+	}
+	.cart-contents-count {line-height: 16px; height: 15px; width: 15px;}
 }
 @media screen and (max-width: 437px){
 	.myprofile_content ul li{width: 83px!important;    margin-top: 2px!important;}

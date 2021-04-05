@@ -71,7 +71,16 @@ vibe_include_template("profile/top$profile_layout.php");
                 ?>
                 <h6><?php echo $category_array[0]->name; ?></h6>
                 <h2><?php bp_course_title(); ?></h2>
-                <p><?php bp_course_desc(); ?></p>
+                <?php
+                  $excerpt = get_post_field('post_excerpt', $post->ID);
+                  if ( $excerpt != '' ) {
+                    echo "<p>".$excerpt."</p>";
+                  }
+                  else{
+                    $content = wp_trim_words( $post->post_content, 20 );
+                    echo "<p>".esc_html( $content )."</p>";
+                  }
+                ?>
                 <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                 <p>Sessions</p>
                 <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) == '') { ?>

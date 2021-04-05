@@ -670,9 +670,7 @@ function reg_verify_mob_otp(){
     } else {
         $response['message'] = 'Invalid OTP entered.';
     }
-
     echo json_encode($response); exit;
-
 }
 
 // add_filter('wplms_course_details_widget','wplms_show_unit_count_and_time');

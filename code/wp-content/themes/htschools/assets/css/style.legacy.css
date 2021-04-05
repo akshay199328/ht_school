@@ -35414,6 +35414,7 @@ body {
  }
  nav .menu li.custom-dropdown a, nav .menu li.custom-dropdown.current-menu-item a{
  	color: #fff!important;
+ 	    padding: 7px 20px 9px 10px;
  }
  .single-course .header{
  	background: #fade3b!important;

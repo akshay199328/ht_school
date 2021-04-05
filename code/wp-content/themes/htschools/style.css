@@ -399,7 +399,7 @@ ol.breadcrumbs  {
 .logged-in .right-menu ul.after_loginspace{
       margin-top: 7px;
 }
-.logged-in .left-menu nav li{    padding: 7px 20px 7px 10px;}
+.logged-in .left-menu nav li{    padding:0px;}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -4337,7 +4337,7 @@ border-color: transparent;
     font-weight: 300;
 }
 .edit-profile-link:hover{color: #000!important;}
-
+.edit-profile-link img{display: none;}
 .details_align{
     -webkit-box-align: center !important;
     -ms-flex-align: center !important;

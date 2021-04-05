@@ -1801,7 +1801,9 @@ Course Details
 .woocommerce-Price-currencySymbol{margin-right: 5px;}
 .course-button a, 
 .course-button input,
-.course-button button
+.course-button button,
+button.course-button,
+button.course-button .button 
 
  {
     padding: 14px 5px 14px 5px;

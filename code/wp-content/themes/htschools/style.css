@@ -948,17 +948,23 @@ Course Details
   color: #fff!important;
   margin: 20px 0px!important;
 }
-.fixed_banner ul li{
+.fixed_banner .courseDetail_border{
   display: block;
   border-top: solid 1px #a6a6a6;
-    padding: 15px 0px;
+  border-bottom: solid 1px #a6a6a6;
+  
     width: 100%;
     float: left;
 }
-.fixed_banner ul li:last-child{
-    border-bottom: solid 1px #a6a6a6;
+.fixed_banner .countColor{border-bottom: 1px solid #a6a6a6;    padding: 15px 0px!important;}
+.fixed_banner .countColor:nth-child(1),
+.fixed_banner .countColor:nth-child(2),
+.fixed_banner .countColor:nth-last-child(1),
+.fixed_banner .countColor:nth-last-child(2)
+{
+    border: 0px!important;
 }
-.fixed_banner ul li p{
+.fixed_banner .courseDetail_border p{
   font-size: 14px!important;
   line-height: 1.36!important;
   text-align: left;
@@ -966,7 +972,7 @@ Course Details
   margin: 0px 0px !important;
   color: #fff!important;
 }
-.fixed_banner ul li h6{
+.fixed_banner .courseDetail_border h6{
    font-size: 15px;
   font-weight: bold;
   font-stretch: normal;
@@ -975,6 +981,7 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #fff!important;
+      margin: 0px;
 }
 .course-fees {
     margin: 25px 0px;
@@ -1695,6 +1702,7 @@ Course Details
     color: #000000;
     margin: 0px;
     padding: 0px;
+    text-transform: uppercase;
 }
 .course-box .middle-details h2 {
     font-size: 20px;
@@ -4528,7 +4536,9 @@ border-color: transparent;
   padding: 20px 8px 20px 20px;
   background: transparent;
 }
-.left-listing li:hover, .left-listing li.active{
+.left-listing li:hover, .left-listing li.active,
+.dashboard-info .left-listing .active li
+{
   background: #FADE3B;
   border-color: transparent;
 }
@@ -4540,6 +4550,8 @@ border-color: transparent;
 }
 .middle-table {
     padding: 0px 30px;
+    float: left;
+    width: 100%;
 }
 .middle-table table {
     background-color: transparent;
@@ -4611,8 +4623,9 @@ border-color: transparent;
     vertical-align: middle;
     line-height: 46px
 }
-.right-details{
-
+.dashboard-info .right-details{
+    float: left;
+    width: 100%;
 }
 .right-details h2{
   font-size: 25px;
@@ -5134,7 +5147,7 @@ p:empty{display: none;}
         width: 100%;
     }
     /*.right-details .course-button { padding-left: 0px!important;}*/
-    .course-box:after{width: 49%;}
+    .course-box:after{width: 230.5px;}
     .middle-details .duration  {padding-top: 0px !important;}
     .competitive .comp-heading h1{font-size: 35px;}
     .competitive .comp-para p, .latest-news .header-heading .news-btn{font-size: 14px;}
@@ -5175,7 +5188,28 @@ p:empty{display: none;}
     .dashboard_content #item-header h3{font-size: 20px;line-height: 20px;}
     .dashboard_content #item-header p{font-size: 11px;line-height: 15px;}
     .Profile_details{float: left;padding-left: 15px;}
-    .dashboard-info .middle-table {padding: 0px 0px;}
+    .logged-in .right-menu ul.after_loginspace {margin-top: 3px;}
+    .course-box .middle-details h2 {font-size: 15px;line-height: 15px;}
+    .course-box .middle-details h6 {letter-spacing: 1px;}
+    .course-box .middle-details p{font-size: 12px;line-height: 16px;}
+    .dashboard_accountinfo .course-box .middle-details {padding: 0;padding-left: 10px;padding-right: 0px !important;}
+    .course_home_progress{padding-left: 10px;}
+    .dashboard_accountinfo .course-box .right-details .course-button {
+      margin-left: 10px !important;
+      border: 0px;
+      padding: 0px!important;
+      margin-top: 0px;
+    }
+    .dashboard_accountinfo .right-details .course-button h6{padding: 0px!important;}
+    .dashboard_accountinfo .course-box .learing-goals {padding: 10px 0px!important;}
+    .dashboard_accountinfo .profilecou-instructor{
+      padding-top: 30px;
+      padding-left: 10px;
+    }
+    .profile-content {-webkit-box-align: center !important;-ms-flex-align: center !important;align-items: center !important;display: flex;}
+    .profilecou-instructor .profile-heading{padding-left: 20px;}
+    .profile-content .profile-img, .profile-content .profile-heading{float: left}
+    .clearfix{display: none;}
 
 }
 @media screen and (max-width:575px) and (min-width:320px){

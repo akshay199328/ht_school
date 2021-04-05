@@ -21,53 +21,53 @@ vibe_include_template("profile/top$profile_layout.php");
 	<div class="col-sm-12 dashboard-info">
 		<div class="col-sm-12 col-md-3 mrg">
 			<div class="left-listing">
-				<ul>
-					<li class="active">
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+				<ul class="mobile-slider">
+					<li class="active item">
+						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
 							<!-- <img src="assets/images/dashboard-1.svg"/> -->
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
 							<h4>Natural Language Processing</h4>
 						</div>
 					</li>
-					<li>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
+					<li class="item">
+						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
 							<h4>Strategies for Launching Your Creative Career</h4>
 						</div>
 					</li>
-					<li>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
+					<li class="item">
+						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
 							<h4>Data Science for Business Leaders</h4>
 						</div>
 					</li>
-					<li>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
+					<li class="item">
+						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
 							<h4>Strategies for Launching Your Creative Career</h4>
 						</div>
 					</li>
-					<li>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
+					<li class="item">
+						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
 							<h4>Data Science for Business Leaders</h4>
 						</div>
 					</li>
-					<li>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg"/>
+					<li class="item">
+						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
 							<h4>Strategies for Launching Your Creative Career</h4>
 						</div>
 					</li>
@@ -141,38 +141,38 @@ vibe_include_template("profile/top$profile_layout.php");
 				<h2>Top Rankers</h2>
 				<ul>
 					<li>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-8 col-sm-9 col-md-9 mrg">
 							<div class="content">
 								<p>Rank 1</p>
 								<h5>Sarthak Tushar Malankar</h5>
 								<span class="light">300 Pts</span>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+						<div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">
 							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
 						</div>
 					</li>
 					<li>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-8 col-sm-9 col-md-9 mrg">
 							<div class="content">
 								<p>Rank 1</p>
 								<h5>Sarthak Tushar Malankar</h5>
 								<span class="light">300 Pts</span>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+						<div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">
 							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
 						</div>
 					</li>
 					<li>
-						<div class="col-xs-12 col-sm-3 col-md-9 mrg">
+						<div class="col-xs-8 col-sm-9 col-md-9 mrg">
 							<div class="content">
 								<p>Rank 1</p>
 								<h5>Sarthak Tushar Malankar</h5>
 								<span class="light">300 Pts</span>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-3 col-md-3 mrg">
+						<div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">
 							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
 						</div>
 					</li>

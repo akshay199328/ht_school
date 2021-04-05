@@ -1,12 +1,4 @@
 <style type="text/css">
-  .countColor h6{
-    color: #fff!important;
-  }
-  .countColor{
-    border-top: solid 1px #a6a6a6;
-    padding: 15px 0px;
-    border-bottom: solid 1px #a6a6a6;
-  }
   .countColor p{
     font-family: 'GT-Walsheim-Pro'!important;
   }
@@ -61,7 +53,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         echo "<p>".esc_html( $content )."</p>";
                       }
                     ?>
-                    <ul>
+                    <div class="courseDetail_border">
                       <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) != '') { ?>
 
                         <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
@@ -113,7 +105,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                   </div>
 
                 <?php }?>
-              </ul>
+              </div>
                     
                   </div>
                 </div>

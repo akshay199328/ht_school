@@ -36142,9 +36142,31 @@ body {
 	#buddypress .standard-form #buddypress .standard-form input[type=datetime], #buddypress .standard-form #buddypress .standard-form input[type=month], #buddypress .standard-form input[type=color], #buddypress .standard-form input[type=date], #buddypress .standard-form input[type=datetime-local], #buddypress .standard-form input[type=email], #buddypress .standard-form input[type=number], #buddypress .standard-form input[type=password], #buddypress .standard-form input[type=range], #buddypress .standard-form input[type=search], #buddypress .standard-form input[type=tel], #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=time], #buddypress .standard-form input[type=url], #buddypress .standard-form input[type=week], #buddypress .standard-form select, #buddypress .standard-form textarea{
 		font-size: 14px
 	}
+	.dashboard-info .middle-table, .dashboard-info .right-details {padding: 0px 0px;margin-top: 20px;}
+    .middle-table table {border: 0px;float: left;width: 100%;}
+    .middle-table table tbody td{    font-size: 12px;}
+    .left-listing li{    
+    	-webkit-box-align: center !important;
+	    -ms-flex-align: center !important;
+	    align-items: center !important;
+	    display: flex;
+	    padding: 10px 8px 10px 20px;
+	}
+    .right-details li .img-gold, .right-details li .right_img{float: right;}
+    .left-listing li h4 {font-size: 12px;line-height: 16px;margin-left: 25px;}
+    .left-listing li img{width: 100%;}
+    .right-details h2 {font-size: 18px;}
+    .right-details li .content h5, 
+    .right-details li .content span.light{
+    	font-size: 14px;line-height: 19px;
+    }
+    .right-details li .content p{font-size: 12px;line-height: 16px;}
+    .middle-table table tbody:after{width: 47.5px;}
+    .right-details li:after{width: 63.79px;}
+    .dashboard-info .left-listing .owl-nav{display: none;}
 }
 @media screen and (max-width: 437px){
-	.myprofile_content ul li{    width: 70px!important;}
+	.myprofile_content ul li{width: 70px!important;}
 }
 
 		

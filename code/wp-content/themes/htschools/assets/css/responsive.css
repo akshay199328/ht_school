@@ -254,6 +254,21 @@
 		.woocommerce table.shop_table{
 			padding: 0px 20px!important;
 		}
+		.search_section input::placeholder{
+			color: #D8D8D8 !important;
+		}
+		.search_section{
+			padding-top: 20px !important;
+		}
+		.search_icon{
+			top: 18px !important;
+		}
+		.blogpost-search .excerpt h3 a{
+			font-size: 18px;
+		}
+		section#title.search_page{
+			padding-bottom: 10px !important;
+		}
 
 
 	}
@@ -265,6 +280,10 @@
 		}
 		.woocommerce-cart table.cart td.actions .coupon button{
 			width: 100%;
+		}
+		.search_section input{
+			padding: 0px 20px 10px 60px!important;
+			font-size: 20px !important;
 		}
 	}
 

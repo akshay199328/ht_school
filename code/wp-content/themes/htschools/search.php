@@ -15,7 +15,7 @@ get_header(vibe_get_header());
 global $wp_query;
 $total_results = $wp_query->found_posts;
 ?>
-<section id="title">
+<section id="title" class="search_page">
     <?php do_action('wplms_before_title'); ?>
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">

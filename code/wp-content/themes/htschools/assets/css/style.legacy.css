@@ -35808,9 +35808,11 @@ body {
 		padding: 9px 0px !important;
 	}
 	.login-box .btn.submit_btn{
+		background-color: #707070 !important;
+	}
+	.login-box .btn.submit_btn:hover{
 		background-color: #000 !important;
 	}
-
 	.resend-info{
 		float: left;
 		width: 100%;
@@ -36047,6 +36049,19 @@ body {
     .news-main .details h2 {margin-bottom: 20px;}
     .news-main .releted_news_section {float: left;width: 100%;padding-bottom: 20px;}
     .news-main .releted_news_section .related_post h2 {margin-bottom: 0px;}
+    .search_section input{
+		padding: 0px 45px 10px !important;
+		font-size: 20px;
+		height: 100%;
+	}
+	.search_icon{
+		height: 22px;
+	    width: 22px;
+	    left: 10px;
+	    top: 67px
+	}
+	.blogpost-search .excerpt h3 a{font-weight: 18px;}
+	.blogpost-search:after{width: 100%;}
 }
 
 		

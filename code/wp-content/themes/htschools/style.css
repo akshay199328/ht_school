@@ -3708,6 +3708,8 @@ Course Details
     font-weight: bold;
     border-color: transparent;
 }
+.login-box .nsl-button a{width: 290px!important;}
+
 .login-box div.nsl-container .nsl-button-svg-container {
     flex: 0 0 auto;
     padding: 0!important;
@@ -5149,10 +5151,13 @@ p:empty{display: none;}
       margin-right: 0px;
       padding-right: 30px;
     }
+    .login-box .login-right{    padding: 30px 25px;}
+    .login-box h4{    margin-top: 15px;}
     .login-left{display: none;}
     .login-box .div.nsl-container-block .nsl-container-buttons a{
-        margin: 0px auto 20px;
+        width: 290px!important;margin: 0px auto 20px;
     }
+    .login-box form {margin: 25px 0px;}
     .latest-news .details-left img{width: 100%;}
     .news-main .image_background .content.content-left{    padding-bottom: 20px!important;}
     .news-main .image_background .content.content-left img{width: 100%;}

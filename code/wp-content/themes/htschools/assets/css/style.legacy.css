@@ -36164,9 +36164,12 @@ body {
     .middle-table table tbody:after{width: 47.5px;}
     .right-details li:after{width: 63.79px;}
     .dashboard-info .left-listing .owl-nav{display: none;}
+    
 }
 @media screen and (max-width: 437px){
-	.myprofile_content ul li{width: 70px!important;}
+	.myprofile_content ul li{width: 83px!important;    margin-top: 2px!important;}
+	.myprofile_content .item-list-tabs li a{padding: 15px 6px!important;}
+
 }
 
 		

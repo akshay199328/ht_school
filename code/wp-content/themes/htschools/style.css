@@ -956,7 +956,7 @@ Course Details
     width: 100%;
     float: left;
 }
-.fixed_banner .countColor{border-bottom: 1px solid #a6a6a6;    padding: 15px 0px!important;}
+.fixed_banner .countColor{border-top: 1px solid #a6a6a6;    padding: 15px 0px!important;}
 .fixed_banner .countColor:nth-child(1),
 .fixed_banner .countColor:nth-child(2),
 .fixed_banner .countColor:nth-last-child(1),
@@ -5210,6 +5210,8 @@ p:empty{display: none;}
     .profilecou-instructor .profile-heading{padding-left: 20px;}
     .profile-content .profile-img, .profile-content .profile-heading{float: left}
     .clearfix{display: none;}
+    .edit-profile-link img {display: block;float: left;padding-right: 12px;top: 4px;position: relative;}
+    .dashboard_accountinfo .info-card {padding-left: 0px;margin-top: 20px;}
 
 }
 @media screen and (max-width:575px) and (min-width:320px){

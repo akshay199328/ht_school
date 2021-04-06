@@ -769,8 +769,9 @@ ol.breadcrumbs  {
   letter-spacing: normal;
   text-align: left;
   color: #d5ebff;
-  margin: 1px 0px 0px;
+  margin: 1px 0px 0px;color: #d5ebff;
 }
+.hero-list .hero-card h5 a{margin: 0px!important;color: #d5ebff;}
 .hero-list .hero-card p{
     font-size: 20px;
   font-weight:normal;

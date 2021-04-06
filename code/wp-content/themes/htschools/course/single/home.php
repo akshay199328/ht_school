@@ -181,7 +181,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   <div class="col-sm-12 col-lg-6 mrg pull-right">
                                     <div class="adworks">
                                       <div class="col-sm-12 adworks-head mrg">
-                                        
+                                        <?php
+                                          if ( is_active_sidebar( 'banner-2' ) ) : ?>
+                                          <?php dynamic_sidebar( 'banner-2' ); ?>      
+                                        <?php endif; ?>
                                       </div>
                                     </div>
                                     <div class="col-sm-12 tab-video mrg">

@@ -35962,6 +35962,7 @@ body {
 		section#title{
 			/*padding: 20px 0 !important;*/
 		}
+		section#title.search_page .pagetitle h1{padding-top: 20px;}
 		.breadcrumbs{
 			margin-top: 0px !important;
 		}
@@ -35990,7 +35991,7 @@ body {
 		}
 		.search_section {
 			position: relative;
-			padding-top: 70px;
+			padding-top: 30px;
 			padding-bottom: 0px;
 		}
 
@@ -36009,7 +36010,7 @@ body {
 			display: inline-block;
 			position: absolute;
 			left: 0px;
-			top: 64px;
+			top: 25px;
 		}
 
 		/*news details*/
@@ -36061,6 +36062,7 @@ body {
 @media screen and (max-width: 991px) and (min-width: 768px){
 	.myprofile_content ul li{margin-bottom: 2px!important;}
 	.cart-contents-count {line-height: 16px; height: 15px; width: 15px;}
+	section#title{    padding-top: 75px!important;}
 }
 @media screen and (max-width: 767px){
 	.news-main .right_content {padding: 10px 0px 20px 0px !important;}
@@ -36078,7 +36080,7 @@ body {
 		height: 22px;
 	    width: 22px;
 	    left: 10px;
-	    top: 67px
+	    top: 27px
 	}
 	.blogpost-search .excerpt h3 a{font-weight: 18px;}
 	.blogpost-search:after{width: 100%;}
@@ -36182,6 +36184,10 @@ body {
 	.cart-contents-count {line-height: 16px; height: 15px; width: 15px;}
 	.woocommerce-checkout-review-order.custom_checkoutTable{margin-top: 20px;}
 	.woocommerce-checkout #payment div.payment_box:before {margin: -19px 0 0 2em!important;}
+	.vibebp-login .loggedin_user_div{border: 0px solid #000!important;}
+	a.loggedin_user {padding: 0px 0px!important;}
+	section#title{    padding-top: 0px!important;}
+	section#title.search_page{    padding-bottom: 15px!important;}
 }
 @media screen and (max-width: 437px){
 	.myprofile_content ul li{width: 83px!important;    margin-top: 2px!important;}

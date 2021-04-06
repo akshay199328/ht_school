@@ -5011,7 +5011,7 @@ p:empty{display: none;}
 @media screen and (max-width:991px) and (min-width:320px){
 
     .header-space {margin-top: 15px;}
-    .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher {margin-top: 75px!important;}
+    .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher, section#title {margin-top: 75px!important;}
     .left-spacing {padding-left: 0px!important;}
     .header .middle-menu{padding: 0;}
     .header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}
@@ -5047,8 +5047,8 @@ p:empty{display: none;}
     .infograph .owl-carousel .owl-item img{width: auto;text-align: center;margin: 0px auto;}
     .right-details .course-button h6{padding-left: 0px;padding-top: 15px;padding-right: 10px;margin-bottom:0px;}
     .right-details .course-button {padding-left: 20px;float: left;padding-top: 10px!important;}
-    .course-box .right-details .course-button{margin-left: 20px !important;margin-top: 10px;width: 94%;}
-    .course-curriculum .card{height: auto;    margin: 0px 0px 15px 0px;}
+    .course-box .right-details .course-button{margin-left: 20px !important;padding-left: 0px;margin-top: 10px;width: 94%;}
+    .course-curriculum .card{height: auto;width: 100%;margin: 0px 0px 15px 0px;word-break: break-word;}
     .cv-detilslist span { margin: 0px 10px 10px 12px;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: inline-block!important;}
@@ -5079,7 +5079,7 @@ p:empty{display: none;}
     margin-left: 20px;
   }
     .other-courses .owl-carousel .owl-item img{width: auto;}
-    .other-courses .list .card:last-child {border-right: 1px dotted #707070; }
+    .other-courses .list .card:last-child {border-right: 0px dotted #707070; }
     .course-curriculum .card{margin-right: 0px;margin-left: 0px;}
     .news_advertisment {background-color: #F8F8F8;}
     .news_advertisment .pull-left {display: none;}
@@ -5098,6 +5098,31 @@ p:empty{display: none;}
     .competitive{padding-left: 15px;padding-right: 15px;}
     .latest-news .header-heading .news-btn{    top: 0;}
     .Popular-Courses .adworks{text-align: center;}
+    .course-aboutDetails .details-right .content-about .about-details {margin-top: 0px;}
+    .other-courses .list .owl-nav{display: none;}
+    .other-courses .list h3, .other-courses .list .session h6 .vicon, .other-courses .list .session h6,
+    .other-courses .owl-carousel .owl-item img,
+    .other-courses .list h4
+    {
+      text-align: center;float: none!important;margin: 0px auto;
+    }
+    .other-courses .list h3:after{
+          position: relative;
+        top: 9px;
+        display: block;
+        text-align: center;
+        margin: 0px auto;
+    }
+    .other-courses .list .card div{text-align: center;}
+    .other-courses .list h4{padding-bottom: 10px;}
+    .search_section{padding-top: 0px}
+    .fixedmenu-tabs .nav-tabs .share-icon{
+      position: relative;
+      width: 100%;
+      display: block;
+    }
+    .share-icon a, .top-icon{float: left;}
+    .other-courses .heading h3{font-size: 25px;}
 }
 @media screen and (max-width:767px) and (min-width:320px){
     .header-space {margin-top: 61px;}
@@ -5148,6 +5173,7 @@ p:empty{display: none;}
         float: left;
         width: 100%;
     }
+    .course-button .the_course_button{float: left;width: auto;}
     /*.right-details .course-button { padding-left: 0px!important;}*/
     .course-box:after{width: 230.5px;}
     .middle-details .duration  {padding-top: 0px !important;}
@@ -5164,6 +5190,7 @@ p:empty{display: none;}
     .course-fees h4, .course-fees a.link{color: #000!important;}
     .profileimg-name .co-lg-3.pull-left {padding: 10px 0px 0px 20px;}
     .breadcrumbs h5 {font-size: 18px;}
+    .heading h3{font-size: 18px;line-height: 16px;}
     section {padding: 30px 0;}
     .instructor-detailsMini .profile-content p {font-size: 15px;}
     .other-courses .list h3{min-height: 100%;}
@@ -5208,14 +5235,21 @@ p:empty{display: none;}
       padding-top: 30px;
       padding-left: 10px;
     }
-    .profile-content {-webkit-box-align: center !important;-ms-flex-align: center !important;align-items: center !important;display: flex;}
-    .profilecou-instructor .profile-heading{padding-left: 20px;}
-    .profile-content .profile-img, .profile-content .profile-heading{float: left}
-    .clearfix{display: none;}
+    .dashboard_accountinfo .profile-content {-webkit-box-align: center !important;-ms-flex-align: center !important;align-items: center !important;display: flex;}
+    .dashboard_accountinfo .profilecou-instructor .profile-heading{padding-left: 20px;}
+    .dashboard_accountinfo .profile-content .profile-img, .profile-content .profile-heading{float: left}
+    .dashboard_accountinfo .clearfix{display: none;}
     .edit-profile-link img {display: block;float: left;padding-right: 12px;top: 4px;position: relative;}
     .dashboard_accountinfo .info-card {padding-left: 0px;margin-top: 20px;}
     .item-body .col-md-9{padding: 0px;}
     .exlore-link.mobile-btn {margin: 10px 0px;font-size: 12px;line-height: 16px;}
+    #otp { margin: 20px auto; float: none;display: table;}
+    .otp_button{margin: 0px auto;display: table;}
+    .news_icons { display: block; float: left;    margin-top: 15px!important;}
+    .news_icons .top-icon, .news_icons .share-icon{float: left;padding: 0px;}
+    .news_icons .share-icon{margin-top: 6px;margin-left: 10px;}
+    .news-listing .content-right .sidebar{margin-top: 15px;}
+
 
 }
 @media screen and (max-width:575px) and (min-width:320px){
@@ -5274,6 +5308,9 @@ p:empty{display: none;}
   .custom_topmenu .loggedin_user:before{display: none!important;}
   .cart-contents:before{    height: 40px!important;}
 
+}
+@media screen and (max-width: 358px) and (min-width: 320px){
+  .right-details .course-button h6{    padding-top: 0px;}
 }
 .paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}
 

@@ -68,7 +68,7 @@ if(!empty($instructors)){
                         
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-2 mrg">
+                <div class="col-sm-12 col-md-2 mrg news_icons">
                      <div class="top-icon">
                         <?php
                             if(is_user_logged_in()){

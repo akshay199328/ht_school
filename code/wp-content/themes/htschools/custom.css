@@ -387,7 +387,7 @@ padding: 15px 0;
 }
 @media (max-width: 991px){
     header.sleek #trigger {display: none!important;}
-    .course-listing .pagetitle.breadcrumbs {padding-left: 15px !important;padding-right: 15px!important;}
-    .course-listing {margin-top: 73px;}
+    .course-listing .pagetitle.breadcrumbs {padding-left: 0px !important;padding-right: 0px!important;}
+    .course-listing {margin-top: 0px;}
     
 }

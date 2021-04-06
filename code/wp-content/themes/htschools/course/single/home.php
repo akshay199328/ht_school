@@ -144,9 +144,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                       <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
                                     </svg></a>
                                      <script async src="https://static.addtoany.com/menu/page.js"></script>
-                                  </div>
-                              </ul>
-                              <div class="top-icon">
+                                     <div class="top-icon">
                                <?php
                                if(is_user_logged_in()){
                                 ?>
@@ -159,6 +157,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                               }
                               ?>
                             </div>
+                                  </div>
+
+                              </ul>
+                              
                           </div>
                         </div>
                       </div>
@@ -169,12 +171,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <h3>About The Course</h3>
                                   </div>
                                   <div class="col-sm-12 col-lg-6 pull-left mrg">
-                                      <?php 
+                                      <p><?php 
                                       $post_content = get_post_field('post_content', $post->ID);
                                       if ( $post_content != '' ) {
                                         echo $post_content;
                                       }
-                                      ?>
+                                      ?></p>
                                   </div>
                                   <div class="col-sm-12 col-lg-6 mrg pull-right">
                                     <div class="adworks">

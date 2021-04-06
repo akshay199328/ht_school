@@ -33,7 +33,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
 if(!empty($course_curriculum)){
 	//print_r($course_curriculum);
-		//echo "<pre>";print_r($course_curriculum);exit;
+		// echo "<pre>";print_r($course_curriculum);exit;
 	$countlesson=count($course_curriculum);
 	//$counter=0;
 	$course_units = [];
@@ -49,6 +49,7 @@ if(!empty($course_curriculum)){
 	<div class="only-4" id="only-4">
 	<?php foreach($course_units_array as $lesson_units){ 
 		$lessonId = get_post($lesson['id']);
+		// print_r($lessonId);
 	?>
 	<div class="col-sm-12 col-lg-6 pull-left mrg">
         <div class="card">
@@ -66,7 +67,7 @@ if(!empty($course_curriculum)){
                 </div>
             </div>
             <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5>
-            <p><?php echo wp_trim_words( $lessonId->post_content, 30, '..'); ?></p>
+            <p><?php the_sub_title($lessonId->ID); ?></p>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>

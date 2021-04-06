@@ -270,9 +270,12 @@ ol.breadcrumbs  {
 
 .inner-header{background: #fade3b;}
 .header.header-scrolled, .header.fixed {
-  background: #fade3b!important;
+  background: #D5EBFF!important;
   padding: 5px 0!important;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+}
+.course-template-default .header-scrolled{
+  background:#fade3b!important;
 }
 .left-menu a {
     float: left;
@@ -1140,7 +1143,7 @@ Course Details
   font-style: normal;
   line-height: 1.29;
   letter-spacing: normal;
-  text-align: left;
+  text-align: justify;
   color: #000000;
   margin: 10px 0px 20px;
 }
@@ -4176,6 +4179,8 @@ button.course-button .button
 .news-main .content-right .details .share-icon .top-icon {
     float: left;
 }
+
+
 .details h2{
     margin-bottom: 30px;
 }
@@ -4320,8 +4325,16 @@ border-color: transparent;
     float: none;
     padding-right: 20px;
     display: inline-block;
+    padding-left: 0px;
 }
-
+.course-tablist .news_icons li:hover a {
+    border-color: transparent;
+    border-bottom: 0px solid #000!important;
+}
+.course-tablist .news_icons .a2a_dd{
+  position: relative;
+    top: 6px;
+}
 .news-listing .content-right .sidebar{
       padding: 20px;
     background: #fff;

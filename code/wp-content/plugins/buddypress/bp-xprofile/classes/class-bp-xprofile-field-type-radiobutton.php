@@ -1,4 +1,9 @@
 <?php
+//<style type="text/css">
+	#buddypress .standard-form label, #buddypress .standard-form span.label {
+		 //margin: 0px; 
+//	}
+//</style>
 /**
  * BuddyPress XProfile Classes.
  *
@@ -84,7 +89,7 @@ class BP_XProfile_Field_Type_Radiobutton extends BP_XProfile_Field_Type {
 			if ( ! bp_get_the_profile_field_is_required() ) : ?>
 
 				<a class="clear-value" href="javascript:clear( '<?php echo esc_js( bp_get_the_profile_field_input_name() ); ?>' );">
-					<?php esc_html_e( 'Clear', 'buddypress' ); ?>
+					<?php //esc_html_e( 'Clear', 'buddypress' ); ?>
 				</a>
 
 			<?php endif; ?>
@@ -112,7 +117,7 @@ class BP_XProfile_Field_Type_Radiobutton extends BP_XProfile_Field_Type {
 		$options      = $this->field_obj->get_children();
 
 		$html = '';
-
+		$classChange = 1;
 		for ( $k = 0, $count = count( $options ); $k < $count; ++$k ) {
 
 			// Check for updated posted values, but errors preventing them from
@@ -131,14 +136,21 @@ class BP_XProfile_Field_Type_Radiobutton extends BP_XProfile_Field_Type {
 			if ( $option_value === $allowed_options || ( empty( $option_value ) && ! empty( $options[$k]->is_default_option ) ) ) {
 				$selected = ' checked="checked"';
 			}
+			if($classChange == 1 ){
+				$onOffClass = 'switch-label-off';
+			}else{
+				$onOffClass = 'switch-label-on';
+			}
 
-			$new_html = sprintf( '<label for="%3$s" class="option-label"><input %1$s type="radio" name="%2$s" id="%3$s" value="%4$s">%5$s</label>',
+			$new_html = sprintf( '<input %1$s type="radio" name="%2$s" id="%3$s" value="%4$s" class="switch-input user_radio_btn"><label for="%3$s" class="switch-label '.$onOffClass.'"><span>%5$s</span></label>',
 				$selected,
 				esc_attr( bp_get_the_profile_field_input_name() ),
 				esc_attr( "option_{$options[$k]->id}" ),
 				esc_attr( stripslashes( $options[$k]->name ) ),
 				esc_html( stripslashes( $options[$k]->name ) )
 			);
+
+			$classChange ++;
 
 			/**
 			 * Filters the HTML output for an individual field options radio button.
@@ -154,7 +166,7 @@ class BP_XProfile_Field_Type_Radiobutton extends BP_XProfile_Field_Type {
 			$html .= apply_filters( 'bp_get_the_profile_field_options_radio', $new_html, $options[$k], $this->field_obj->id, $selected, $k );
 		}
 
-		printf( '<div id="%1$s" class="input-options radio-button-options">%2$s</div>',
+		printf( '<div id="%1$s" class="switch">%2$s<span class="slider2"></span></div>',
 			esc_attr( 'field_' . $this->field_obj->id ),
 			$html
 		);
@@ -177,7 +189,7 @@ class BP_XProfile_Field_Type_Radiobutton extends BP_XProfile_Field_Type {
 		} ?>
 
 		<a class="clear-value" href="javascript:clear( '<?php echo esc_js( bp_get_the_profile_field_input_name() ); ?>' );">
-			<?php esc_html_e( 'Clear', 'buddypress' ); ?>
+			<?php //esc_html_e( 'Clear', 'buddypress' ); ?>
 		</a>
 
 		<?php

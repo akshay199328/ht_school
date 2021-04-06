@@ -66,7 +66,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<label for="user_mobile">Mobile Number</label>
 				<input type="text" class="form-control" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" readonly>
 			</div>
-			<div class="form-group edit_DOB">
+			<div class="form-group">
 				<label for="user_dob">Date of Birth</label>
 				<input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
 				<input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>" readonly>
@@ -92,20 +92,20 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	            </div>
 			</div>
 
-			<div class="form-group profile_search">
+			<div class="form-group">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>" readonly>
 				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>" readonly>
 			</div>
 
 
-			<div class="form-group profile_search">
+			<div class="form-group">
 				<label for="user_state">State</label>
 				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="Select State" value="<?php echo $user_state; ?>" readonly>
 			</div>
 
 
-			<div class="form-group profile_search">
+			<div class="form-group">
 				<label for="user_city">City</label>
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" readonly>
 			</div>

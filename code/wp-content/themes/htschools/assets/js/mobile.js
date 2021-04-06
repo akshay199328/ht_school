@@ -47,6 +47,36 @@ $(document).ready(function($) {
         $(".innerheader-space").removeClass("less_topmargin");
     }
 });
+
+$(document).ready(function() {
+  $('.home_slider').owlCarousel({
+    loop: false,
+    margin: 0,
+    items: 1,
+    responsiveClass: true,
+    autoplay: true,
+    autoplayTimeout:2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: true
+      },
+      600: {
+        items:1,
+        nav: false
+      },
+      1000: {
+        items: 1,
+        nav: true,
+        loop: false,
+        margin: 0
+      }
+    }
+  })
+})
+
+
     if($(window).width() <= 992) {
         // alert("hello");
       $('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-carousel');

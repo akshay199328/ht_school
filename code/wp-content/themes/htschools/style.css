@@ -645,6 +645,10 @@ ol.breadcrumbs  {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+.home_slider img {
+    width: auto!important;
+    margin: 0px auto;
+}
 .mobile-add{display:none;}
 .hero {
   width: 100%;
@@ -655,9 +659,12 @@ ol.breadcrumbs  {
   background: #D5EBFF;
 }
 
-.hero h1 {
+.learing_card{
+  background: #d5ebff;
+}
+.learing_card h1 {
   margin: 0;
-    font-size: 99px;
+    font-size: 60px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -668,9 +675,9 @@ ol.breadcrumbs  {
         text-transform: capitalize;
 }
 
-.hero p {
+.learing_card p {
   margin: 15px 0 0 0;
-  font-size: 50px;
+  font-size: 30px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -680,40 +687,42 @@ ol.breadcrumbs  {
   color: #000000;
 }
 .hero .col-lg-9, .hero .col-lg-3{float: left}
-.hero .hero-list  {
+.learing_card .hero-list  {
     float: left;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 .hero-list .hero-card{
-  display: inline-block;
-  float: left;
-  width: 370px;
-  height: 266px;
-  margin-right: 26px;
-  margin-top: 21px;
-  padding: 25px 30px;
+ display: inline-block;
+    float: left;
+    width: 250px;
+    height: 210.6px;
+    margin-right: 19px;
+    margin-top: 21px;
+    padding: 15px 20px;
+        word-break: break-word;
     
 }
 .hero-list .hero-card:nth-child(1){
   background: url("./assets/images/Scholarship-Programme.png"), #0521c4;
   background-repeat: no-repeat;
-    background-position:113% 100%;
+    background-position:23% 100%;
 }
 .hero-list .hero-card:nth-child(2){
   background: url("./assets/images/code.png"), #aa2061;
   background-repeat: no-repeat;
-    background-position:105% 106%;
+    background-position:23% 106%;
 }
 .hero-list .hero-card:nth-child(3){
   background: url("./assets/images/career.png"), #12756f;
   background-repeat: no-repeat;
-  background-position:105% 135%;
+  background-position:23% 160%;
 }
 .hero-list .hero-card:nth-child(4){
   background: url("./assets/images/olympiad.png"), #001e03;
   background-repeat: no-repeat;
-  background-position:106% 112%;
+  background-position:23% 111%;
+  margin-right: 0px;
 }
 .hero-list .hero-card h6{
   font-size: 20px;
@@ -724,16 +733,18 @@ ol.breadcrumbs  {
   letter-spacing: normal;
   text-align: left;
   color: #d5ebff;
+  margin: 0px;
 }
 .hero-list .hero-card h5{
-    font-size: 40px;
+    font-size: 30px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1;
+  line-height: 30px;
   letter-spacing: normal;
   text-align: left;
   color: #d5ebff;
+  margin: 1px 0px 0px;
 }
 .hero-list .hero-card p{
     font-size: 20px;
@@ -745,7 +756,6 @@ ol.breadcrumbs  {
   text-align: left;
   color: #aad5fa;
 }
-.hero-list .hero-card h6, .hero-list .hero-card h5, .hero-list .hero-card p{margin: 0px!important;}
 .hero-list .hero-card a {
     font-size: 20px;
     font-weight: bold;
@@ -4078,7 +4088,7 @@ button.course-button .button
 }
 .news-main .category-news .content-left .pagetitle h1{
     font-size: 42px;
-    line-height: 42px;
+    line-height: 34px;
     color: #fff;
         margin: 15px 0px;
 }

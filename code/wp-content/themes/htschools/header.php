@@ -102,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                            echo "<nav class='menu-primary-menu-container'><ul id='menu-primary-menu' class='menu'>";
                            foreach ($menuitems as $menu) {  
                             $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
-                              if($menu->title == 'Home'){ 
+                              if($menu->title == 'Menu'){ 
                                 echo '<li class="border-menu ' . $current . ' "><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
                               }
                               else{

@@ -134,7 +134,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                     $course_progress = empty($progress)?0:intval($progress);
                                 ?>
                                 <?php  
-                                echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span class="progress_value">'.$course_progress.' % Complete</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'px; background: #00D98E;"></div></div></div>'; ?>
+                                echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span class="progress_value">'.$course_progress.' % Complete</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'%; background: #00D98E;"></div></div></div>'; ?>
                             </div>
                             <div class="col-lg-12 course-button">
                                 <h6><?php the_course_price(); ?></h6>

@@ -55,9 +55,11 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       if(get_post_meta($post->ID,'vibe_course_age_group',true) != '') {
                         $ageGroup = get_post_meta($post->ID,'vibe_course_age_group',true);
                       }
-                      if(get_post_meta($post->ID,'vibe_students',true) != '') {
-                        $totalStudent = get_post_meta($post->ID,'vibe_students',true);
-                      }
+                      if(get_post_meta($post->ID,'vibe_course_certificate',true) == 'H'){
+                          $totalStudent =  "No";
+                        }else{
+                          $totalStudent = "Yes";
+                        }
                       if(get_post_meta($post->ID,'vibe_duration',true) != '') {
                         $duration = get_post_meta($post->ID,'vibe_duration',true);
                       }
@@ -74,11 +76,11 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
                       $courseDetails[] = array(
                         'Age Group' => $ageGroup,
-                        'Total Students' => $totalStudent,
-                        'Duration' => $duration,
+                        'Certification' => $totalStudent,
+                        'Course Duration' => $duration,
                         'Frequency' => $frequency,
-                        'Sessions' => $session ,
-                        'Sessions Lenght' => $sessionLength,
+                        'Number of Sessions' => $session ,
+                        'Session Duration' => $sessionLength,
 
                       );
 
@@ -123,7 +125,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             </div>
         </div>
         <div class="pull-right right-section">
-            <div class="course-aboutDetails grey-background" id="course">
+            <div class="course-aboutDetails grey-background" id="overview">
               <div class="container">
                 <div class="">
                     <div class="col-sm-12 col-lg-12 mrg details-right pull-right">
@@ -132,10 +134,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           <div class="row">
                               <ul class="nav nav-tabs" id="">
                                   <li class="nav-item">
-                                    <a class="nav-link scrollto active" href="#course">Course</a>
+                                    <a class="nav-link scrollto active" href="#overview">Overview</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#benefits">Benefits</a>
+                                    <a class="nav-link scrollto" href="#objective">Objective</a>
                                   </li>
                                   <li class="nav-item">
                                     <a class="nav-link scrollto" href="#curriculum">Curriculum</a>
@@ -206,12 +208,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   <?php if(get_post_meta($post->ID,'who_this_course_Is_for_first_block',true))
                                   {?>
                                   <div class="col-sm-12 course-for background-yellow">
-                                    <h5>Who This Course Is For</h5>
+                                    <h5>Who Is This Course For?</h5>
                                     <p><?php echo get_post_meta($post->ID,'who_this_course_Is_for_first_block',true); ?></p>
                                   </div>
                                 <?php }?>
                                   <div class="col-sm-12 course-list mrg">
-                                    <h5>Who This Course Is For</h5>
+                                    <h5>Who Is This Course For?</h5>
                                     <div class="col-sm-12 course-listslider mrg">
                                       <?php echo get_the_term_list_search(get_the_ID(),'course-tag'); ?>
                                       <!-- <span class="item"><a href="#"><h6>CSS</h6></a></span>
@@ -242,12 +244,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div> -->
-            <div class="learing-goals" id="benefits">
+            <div class="learing-goals" id="objective">
               <div class="container">
                 <div class="">
                   <div class="col-sm-12 col-lg-12 pull-right left-spacing">
                     <div class="heading">
-                      <h3>Learning goals</h3>
+                      <h3>Course Objectives</h3>
                       <p><?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?></p>
                     </div>
                     <div class="list">
@@ -272,12 +274,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     </div>
                     
                     <div class="col-sm-12 col-lg-9 mrg pull-left">
-                      <div class="cv-detilslist">
+                      <!-- <div class="cv-detilslist">
                         <?php $lectures = bp_course_get_curriculum_units(get_the_ID()); ?>
                         <span><h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true)?> Sessions</h6></span>
                         <span><h6><?php echo get_post_meta($post->ID,'vibe_course_lectures',true);?> lectures</h6></span>
                         <span><h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6></span>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-sm-12 mrg list">

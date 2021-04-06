@@ -296,25 +296,23 @@ function custom_course_recommended($field1){
 }
 
 // Set up Cutsom BP navigation
-// function my_setup_nav() {
-//       global $bp;
+add_action( 'bp_setup_nav', 'my_setup_nav' );
+function my_setup_nav() {
+      global $bp;
 
-//       bp_core_new_nav_item( array( 
-//             'name' => __( 'Preferences', 'buddypress' ), 
-//             'slug' => '#', 
-//             'position' => 30,
-//             'screen_function' => 'preferences', 
-//       ) );
+      bp_core_new_nav_item( array( 
+            'name' => __( 'Preferences', 'buddypress' ), 
+            'slug' => 'preference', 
+            'position' => 30,
+            'screen_function' => 'preferences', 
+      ) );
 
-// }
+}
 
-// add_action( 'bp_setup_nav', 'my_setup_nav' );
-
-
-// // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
-// function preferences() {
-//       bp_core_load_template( 'preferences.php' );
-// }
+// Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
+function preferences() {
+      bp_core_load_template( 'preferences' );
+}
 
 
 function bp_page_nav(){

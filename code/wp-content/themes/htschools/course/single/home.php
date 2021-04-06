@@ -30,7 +30,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 </style>
 <main id="main">
       <div class="innerheader-space course-space"></div>
-    <div class="details-left fixed_banner">
+    <div class="details-left fixed_banner course_fixedBanner">
           <?php $gallery_data = get_post_meta($post->ID,'vibe_course_background_image',true); 
             //echo $attachment_element = wp_get_attachment_image( $gallery_data);
              $attachment_element = wp_get_attachment_url( $gallery_data);

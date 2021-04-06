@@ -771,7 +771,15 @@ ol.breadcrumbs  {
   color: #d5ebff;
   margin: 1px 0px 0px;color: #d5ebff;
 }
-.hero-list .hero-card h5 a{margin: 0px!important;color: #d5ebff;}
+.hero-list .hero-card h5 a{
+  margin: 0px!important;
+  color: #d5ebff;  
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  text-decoration: none;
+}
+.hero-list .hero-card h5 a:hover{text-decoration: none;color: #d5ebff;  }
 .hero-list .hero-card p{
     font-size: 20px;
   font-weight:normal;
@@ -984,28 +992,28 @@ Course Details
   color: #fff!important;
   margin: 20px 0px!important;
 }
-.fixed_banner .courseDetail_border{
+/*.fixed_banner .courseDetail_border{
   display: block;
   border-top: solid 1px #a6a6a6;
   border-bottom: solid 1px #a6a6a6;
   
     width: 100%;
     float: left;
-}
-.fixed_banner ul {
+}*/
+.fixed_banner.course_fixedBanner ul {
     
     display: block;
     float: left;
     width: 100%;
 }
-.fixed_banner .content li{
+.fixed_banner.course_fixedBanner .content li{
     display: block;
     border-bottom: solid 1px #a6a6a6;
     padding: 15px 0px;
     width: 100%;
     float: left;
 }
-.fixed_banner .content li:nth-child(1)
+.fixed_banner.course_fixedBanner .content li:nth-child(1)
 {
     border-top: solid 1px #a6a6a6;
     
@@ -4154,6 +4162,7 @@ button.course-button .button
   display: block;
   margin-top:4px;
 }
+.category-news
 .single .category-news .featured {
     margin: 35px 0px 10px;
 }
@@ -5341,11 +5350,20 @@ p:empty{display: none;}
     .exlore-link.mobile-btn {margin: 10px 0px;font-size: 12px;line-height: 16px;}
     #otp { margin: 20px auto; float: none;display: table;}
     .otp_button{margin: 0px auto;display: table;}
-    .news_icons { display: block; float: left;    margin-top: 15px!important;}
+    .news_icons { 
+        display: block;
+        float: left;
+        margin-top: 5px!important;
+      }
     .news_icons .top-icon, .news_icons .share-icon{float: left;padding: 0px;}
-    .news_icons .share-icon{margin-top: 6px;margin-left: 10px;}
+    .news_icons .share-icon{margin-top: 6px;margin-left: 0px;}
+    .news_icons .share-icon .top-icon{    padding-left: 20px;}
     .news-listing .content-right .sidebar{margin-top: 15px;}
     .news-main .content-right .details .share-icon{width: 100%;}
+    .news-listing .content-right .sidebar{    margin-top: 10px;}
+    .home_slider .owl-dots, .home_slider .owl-nav{display: none;}
+    .content-left .content {padding-right: 0px !important;}
+    .news-listing .blogpost{width: 100%;}
 
 }
 @media screen and (max-width:575px) and (min-width:320px){

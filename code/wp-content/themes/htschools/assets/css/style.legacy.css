@@ -36190,6 +36190,8 @@ body {
 	a.loggedin_user {padding: 0px 0px!important;}
 	section#title{    padding-top: 0px!important;}
 	section#title.search_page{    padding-bottom: 15px!important;}
+	.adwork{margin: 5px 0px!important}
+	.latest-news .center {margin-top: 5px;}
 }
 @media screen and (max-width: 437px){
 	.myprofile_content ul li{width: 83px!important;    margin-top: 2px!important;}

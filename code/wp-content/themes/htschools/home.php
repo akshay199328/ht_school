@@ -20,7 +20,7 @@ get_header(vibe_get_header());
           <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider2.jpg'?>">
         </div>
         <div class="col-lg-12 mrg item">
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider2.jpg'?>">
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3.jpg'?>">
         </div>
     </div>
 

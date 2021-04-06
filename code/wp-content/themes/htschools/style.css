@@ -947,7 +947,7 @@ Course Details
     float: left;
     width: 100%;
 }
-.course-template-default .pusher {
+.course-template-default .pusher, .post-template-default .pusher{
     overflow: inherit;
 }
 .content-holder {
@@ -4135,7 +4135,7 @@ button.course-button .button
 .news-main{
   /*background: #F8F8F8;*/
   /*position: relative;*/
-  padding-bottom: 40px;
+  padding-bottom: 0px;
 }
 .news-main .category-news .content-left{
   background: #000000;

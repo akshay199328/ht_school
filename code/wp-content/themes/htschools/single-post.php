@@ -56,7 +56,9 @@ $topics = wp_get_post_tags(get_the_ID());
 ?>
 <div id="content ">
   <div class="innerheader-space"></div>
+
   <div class="news-main grey-background">
+    <div class="sticky_content">
     <div class="details-left fixed_banner image_background">
       <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">
@@ -208,7 +210,8 @@ $topics = wp_get_post_tags(get_the_ID());
 
     </div>
   </div>
-</div>
+  
+
 
 <?php
 $page_for_posts = get_option('page_for_posts');

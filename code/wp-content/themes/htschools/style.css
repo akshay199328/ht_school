@@ -988,15 +988,26 @@ Course Details
     width: 100%;
     float: left;
 }
-.fixed_banner .countColor{border-top: 1px solid #a6a6a6;    padding: 15px 0px!important;}
-.fixed_banner .countColor:nth-child(1),
-.fixed_banner .countColor:nth-child(2),
-.fixed_banner .countColor:nth-last-child(1),
-.fixed_banner .countColor:nth-last-child(2)
-{
-    border: 0px!important;
+.fixed_banner ul {
+    
+    display: block;
+    float: left;
+    width: 100%;
 }
-.fixed_banner .courseDetail_border p{
+.fixed_banner .content li{
+    display: block;
+    border-bottom: solid 1px #a6a6a6;
+    padding: 15px 0px;
+    width: 100%;
+    float: left;
+}
+.fixed_banner .content li:nth-child(1)
+{
+    border-top: solid 1px #a6a6a6;
+    
+}
+
+.fixed_banner li p{
   font-size: 14px!important;
   line-height: 1.36!important;
   text-align: left;
@@ -1004,7 +1015,7 @@ Course Details
   margin: 0px 0px !important;
   color: #fff!important;
 }
-.fixed_banner .courseDetail_border h6{
+.fixed_banner .content li h6{
    font-size: 15px;
   font-weight: bold;
   font-stretch: normal;
@@ -4296,6 +4307,7 @@ border-color: transparent;
 .top-icon li a{
   color: #000
 }
+
 .news_icons {
     float: right;
     display: block;

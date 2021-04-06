@@ -1046,6 +1046,13 @@ Course Details
     right: 0;
     top: 5px;
 }
+.fixedmenu-tabs .share-icon .top-icon, .news-main .content-right .details .share-icon .top-icon{
+      position: relative;
+    top: -6px;
+}
+.news-main .content-right .details .share-icon{
+  float: right;
+}
 .fixedmenu-tabs .nav-tabs .nav-item a{
     color: #939393;
     font-size: 15px;
@@ -5256,7 +5263,7 @@ p:empty{display: none;}
     .news_icons .top-icon, .news_icons .share-icon{float: left;padding: 0px;}
     .news_icons .share-icon{margin-top: 6px;margin-left: 10px;}
     .news-listing .content-right .sidebar{margin-top: 15px;}
-
+    .news-main .content-right .details .share-icon{width: 100%;}
 
 }
 @media screen and (max-width:575px) and (min-width:320px){

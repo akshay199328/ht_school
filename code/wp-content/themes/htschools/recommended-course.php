@@ -74,7 +74,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 <?php
                   $excerpt = get_post_field('post_excerpt', $post->ID);
                   if ( $excerpt != '' ) {
-                    echo "<p>".$excerpt."</p>";
+                    echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
                   }
                   else{
                     $content = wp_trim_words( $post->post_content, 20 );

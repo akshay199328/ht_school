@@ -76,12 +76,10 @@ get_header(vibe_get_header());
                             <i class="bi bi-share"></i>
                         </div>
                         <?php
-                        $char_limit = 50; //character limit
                         $excerpt = get_post_field('post_excerpt', $post->ID);
-                        
                         ?>
                         <?php if ( $excerpt != '' ) {
-                            echo "<p>".$excerpt."</p>";
+                            echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
                           }  ?>
                         <div class="col-lg-7 duration mrg">
                           <div class="pull-left">

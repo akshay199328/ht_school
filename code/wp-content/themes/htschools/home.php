@@ -77,10 +77,12 @@ get_header(vibe_get_header());
                         </div>
                         <?php
                         $char_limit = 50; //character limit
-                        $content = $post->post_content; //contents saved in a variable
-
+                        $excerpt = get_post_field('post_excerpt', $post->ID);
+                        
                         ?>
-                        <p class=""><?php echo substr(strip_tags($content), 0, $char_limit);  ?></p>
+                        <?php if ( $excerpt != '' ) {
+                            echo "<p>".$excerpt."</p>";
+                          }  ?>
                         <div class="col-lg-7 duration mrg">
                           <div class="pull-left">
                             <p>Duration</p>

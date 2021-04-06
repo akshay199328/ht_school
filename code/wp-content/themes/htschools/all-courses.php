@@ -37,6 +37,7 @@ get_header(vibe_get_header());
 		                  $duration = $custom_fields['vibe_duration'][0];
 		                  $age_limit = $custom_fields['vibe_course_age_group'][0];
 		                  $category_array = get_the_terms( $post->ID, 'course-cat');
+                      $excerpt = get_post_field('post_excerpt', $post->ID);
                   ?>
                   <div class="course-box dotted-border">
                     <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
@@ -55,7 +56,9 @@ get_header(vibe_get_header());
                           <div class="col-lg-12 share-icon mrg">
                             <i class="bi bi-share"></i>
                           </div>
-                          <p class=""><?php echo substr(strip_tags($content), 0, $char_limit);  ?></p>
+                          <?php if ( $excerpt != '' ) {
+                            echo "<p>".$excerpt."</p>";
+                          }  ?>
                           <div class="col-lg-7 duration mrg">
                             <div class="pull-left">
                               <p>Duration</p>

@@ -1107,3 +1107,4 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
         $order->update_status( 'completed' );
     }
 }
+

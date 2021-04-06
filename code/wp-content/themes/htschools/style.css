@@ -4119,6 +4119,13 @@ button.course-button .button
 .news-main .content-right .details {
     padding: 0px 0px;
 }
+.news-main .content-right .details .share-icon{
+  margin-top: 15px;
+}
+.news-main .content-right .details .share-icon a, 
+.news-main .content-right .details .share-icon .top-icon {
+    float: left;
+}
 .details h2{
     margin-bottom: 30px;
 }

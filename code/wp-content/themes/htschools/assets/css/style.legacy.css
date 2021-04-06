@@ -36034,6 +36034,8 @@ body {
 
 		.news-main .post-creator {
 			padding-bottom: 20px;
+			float: left;
+    		width: 100%;
 		}
 
 		.news-main .details h2{

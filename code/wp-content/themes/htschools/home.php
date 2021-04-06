@@ -12,16 +12,16 @@ get_header(vibe_get_header());
     <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
     <div class="header-space"></div>
-    <div class="">
-      <div class="">
-        <div class="col-lg-12 mrg ">
-          <div class="col-lg-12 mrg home_slider owl-carousel owl-theme">
-            <div class="col-lg-12 mrg item">
-              <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider1.jpg'?>">
-            </div>
-          </div>
+    <div class="col-lg-12 mrg home_slider owl-carousel owl-theme">
+        <div class="col-lg-12 mrg item">
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider1.jpg'?>">
         </div>
-      </div>
+        <div class="col-lg-12 mrg item">
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider2.jpg'?>">
+        </div>
+        <div class="col-lg-12 mrg item">
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider2.jpg'?>">
+        </div>
     </div>
 
   </section><!-- End Hero -->

@@ -57,6 +57,7 @@ $(document).ready(function() {
     autoplay: true,
     autoplayTimeout:2000,
     autoplayHoverPause: true,
+    dots:true,
     responsive: {
       0: {
         items: 1,
@@ -68,7 +69,7 @@ $(document).ready(function() {
       },
       1000: {
         items: 1,
-        nav: true,
+        nav: false,
         loop: false,
         margin: 0
       }

@@ -331,7 +331,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   <h3 class="name"><?php echo $author_name; ?></h3>
                                   <h4><?php echo $author_company; ?></h4>
                                   <div class="double-border"></div>
-                                  <h6>2,192,534 <span>Students</span></h6>
+                                  <!-- <h6>2,192,534 <span>Students</span></h6> -->
                                 </div>
                               </div>
                               <div class="clearfix"></div>

@@ -113,7 +113,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 	<?php }?>
                 </div>
                             
-                            <div class="learing-goals">
+                            <!-- <div class="learing-goals">
                                 <div class="">
                                     <div class="">
                                         <div class="col-sm-12 col-lg-12 mrg">
@@ -124,7 +124,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-3 pull-left mrg">

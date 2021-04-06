@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
             <div class="col-lg-12 col-12 about-links mrg">
               <ul>
-                <li><a href="#">About Ht School</a></li>
+                <li><a href="#">About HT School</a></li>
                 <li><a href="https://www.hindustancareermate.com/" target="_blank">CareerMate</a></li>
                 <li><a href="https://www.htcodeathon.com/" target="_blank">Code-a-thon</a></li>
                 <li><a href="https://www.htscholarship.in/" target="_blank">Scholarship</a></li>

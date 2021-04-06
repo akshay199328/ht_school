@@ -24,6 +24,10 @@ $(document).ready(function(){
   else{
     $('.edit-profile-link').hide();
   }
+
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = 'http://localhost/Htschools/code/thank-you';
+  }, false );
 });
 $(document).ready(function($) { 
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');

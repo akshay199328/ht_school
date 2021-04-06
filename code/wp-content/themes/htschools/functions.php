@@ -799,7 +799,7 @@ function check_if_logged_in()
     }
 }
 
-add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 
+add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1
 );
 function wc_npr_filter_phone( $address_fields ) {
     $address_fields['billing_phone']['required'] = true;
@@ -1107,4 +1107,18 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
         $order->update_status( 'completed' );
     }
 }
+// Social Login Redirect
+add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
+    //Set the redirect URL here in $redirectUrl
 
+    $redirectUrl = $_SERVER['HTTP_REFERER'];
+    return $redirectUrl;
+}, 10, 2);
+
+
+add_filter('google_login_redirect_url', function($redirectUrl, $provider){
+    //Set the redirect URL here in $redirectUrl
+    $redirectUrl = $_SESSION['previousPageUrl'];
+    //$redirectUrl = $_SESSION['previousPageUrl'];
+    return $redirectUrl;
+}, 10, 2);

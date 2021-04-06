@@ -947,15 +947,31 @@ Course Details
     float: left;
     width: 100%;
 }
+.course-template-default .pusher {
+    overflow: inherit;
+}
+.content-holder {
+  margin-top: -1em;
+  padding-left: 1em;
+}
+.sticky_content {
+  display: flex;
+  padding-bottom: 0px;
+}
 .fixed_banner{
   background: url('./assets/images/coursedetails-back.png') no-repeat;
-  float: left;
+      float: left;
     background-size: cover;
-    position: fixed;
     width: 39.5%;
-    z-index: 99;
-    height: 100%;
     transition: all 0.5s ease;
+    padding: 0.5ex;
+    min-width: 200px;
+    height: 765px;
+    background-color: #333;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
 
 }
 .course_background_img{
@@ -5159,7 +5175,17 @@ p:empty{display: none;}
     .mobile-btn{display: inline-block!important;}
     .right-details .course-button a{margin-left: 0px;}
     .middle-details .share-icon{right: 0;}
-    .fixed_banner, .right-section{width: 100%;margin:0px;position: relative;padding:0px 0px;z-index: 9;height: auto;}
+    .sticky_content { display: block;}
+    .fixed_banner, .right-section{
+          width: 100%;
+    margin: 0px;
+    position: relative;
+    padding: 0px 0px;
+    /* z-index: 9; */
+    height: auto;
+    min-width: 100%;
+    height: auto;
+    }
     .fixed_banner ul li{border-top: solid 0px #a6a6a6;padding: 8px 0px;}
     .fixed_banner ul li:last-child {border-bottom: solid 0px #a6a6a6;}
     .fixed_banner ul li:first-child {border-top: solid 1px #707070;}

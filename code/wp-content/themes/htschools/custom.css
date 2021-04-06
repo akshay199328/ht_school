@@ -301,7 +301,7 @@ padding: 15px 0;
     float: left;
         border: 0px;
 }
-.course-fees .course_button a{color: #004135;}
+.course-fees .course_button a{color: #004135;font-weight: bold;}
 .course-fees .course_button.progress_key_1,
 .course-fees a.course_button.progress_key_1, 
 .course-fees input.course_button.progress_key_1,

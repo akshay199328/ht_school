@@ -154,8 +154,9 @@ get_header(vibe_get_header());
             $args = array(
                 'post_type' => 'post',
                 'post_status' => 'publish',
-                'category_name' => 'Expert',
+                //'category_name' => 'Expert','Interview','Featured',
                 'posts_per_page' => 4,
+                'order'=>'DESC',
             );
             $Query = new WP_Query( $args );
             if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
@@ -200,7 +201,8 @@ get_header(vibe_get_header());
                 </div>
                 <ul>
                     <?php
-                        query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&category_name=Expert&posts_per_page=4');
+                        //query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&category_name=Expert&posts_per_page=4');
+                        query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=3');
                         if (have_posts()) : while (have_posts()) : the_post();
                         ?>
                             <li>

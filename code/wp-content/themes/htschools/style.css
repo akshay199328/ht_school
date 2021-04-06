@@ -4296,6 +4296,20 @@ border-color: transparent;
 .top-icon li a{
   color: #000
 }
+.news_icons {
+    float: right;
+    display: block;
+    text-align: right;
+}
+.news_icons .share-icon {
+    padding-left: 20px;
+}
+.news_icons .share-icon .top-icon {
+    float: none;
+    padding-right: 20px;
+    display: inline-block;
+}
+
 .news-listing .content-right .sidebar{
       padding: 20px;
     background: #fff;

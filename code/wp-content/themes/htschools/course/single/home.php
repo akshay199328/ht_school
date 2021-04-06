@@ -250,9 +250,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                   <div class="col-sm-12 col-lg-12 pull-right left-spacing">
                     <div class="heading">
                       <h3>Course Objectives</h3>
-                      <p><?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?></p>
                     </div>
                     <div class="list">
+                      <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
+                      
                       <?php echo get_post_meta($post->ID,'learning_goals_list',true); ?>
                     </div>
                     <!-- <div class="col-lg-12 mrg adworks-head">

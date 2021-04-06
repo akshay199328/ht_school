@@ -1246,14 +1246,23 @@ Course Details
 
 }
 .learing-goals .list{
-    margin-top: 30px;
+    margin-top: 10px;
     padding-bottom: 25px;
+}
+.learing-goals .list ul{
+      margin-top: 30px;
 }
 .learing-goals .list ul li{
     display: block;
     line-height: 25px;
     position: relative;
     padding-left: 20px;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
 }
 .learing-goals .list ul li:before{
     content: '';

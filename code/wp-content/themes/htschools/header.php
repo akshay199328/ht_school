@@ -175,8 +175,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
                    //print_r($menuitems);
                    echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
+                   do_action('woocommerce_add_to_cart_fragments'); 
                    if (is_user_logged_in()){
-                       do_action('woocommerce_add_to_cart_fragments'); 
                        /*do_action('notification_fragments');*/
                     }
                    foreach ($menuitems as $menu) {  ?>

@@ -52,60 +52,65 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $content = wp_trim_words( $post->post_content, 40 );
                         echo "<p>".esc_html( $content )."</p>";
                       }
+                      if(get_post_meta($post->ID,'vibe_course_age_group',true) != '') {
+                        $ageGroup = get_post_meta($post->ID,'vibe_course_age_group',true);
+                      }
+                      if(get_post_meta($post->ID,'vibe_students',true) != '') {
+                        $totalStudent = get_post_meta($post->ID,'vibe_students',true);
+                      }
+                      if(get_post_meta($post->ID,'vibe_duration',true) != '') {
+                        $duration = get_post_meta($post->ID,'vibe_duration',true);
+                      }
+                      if(get_post_meta($post->ID,'vibe_course_frequency',true) != '') {
+                        $frequency = get_post_meta($post->ID,'vibe_course_frequency',true);
+                      }
+                      if(get_post_meta($post->ID,'vibe_course_sessions',true) != '') {
+                        $session = get_post_meta($post->ID,'vibe_course_sessions',true);
+                      }
+                      if(get_post_meta($post->ID,'vibe_course_session_length',true) != '') {
+                        $sessionLength = get_post_meta($post->ID,'vibe_course_session_length',true);
+                      }
+                      $courseDetails = array();
+
+                      $courseDetails[] = array(
+                        'Age Group' => $ageGroup,
+                        'Total Students' => $totalStudent,
+                        'Duration' => $duration,
+                        'Frequency' => $frequency,
+                        'Sessions' => $session ,
+                        'Sessions Lenght' => $sessionLength,
+
+                      );
+
                     ?>
-                    <div class="courseDetail_border">
-                      <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) != '') { ?>
 
-                        <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
-                          <p style="font-size: 14px!important;">Age Group</p>
-                          <h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
-                        </div>
+                    <ul>
+                        <?php 
+                        $temp = 2;
+                        foreach ($courseDetails[0] as $key => $value) {
+                          if($value != ''){
+                            if($temp%2 == 0){
+                              ?>
+                              <li>
+                              <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
+                                <p><?php echo $key; ?></p>
+                                <h6><?php echo $value; ?></h6>
+                              </div>
+                              <?php
+                            }else{
+                              ?>
+                              <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
+                                <p><?php echo $key; ?></p>
+                                <h6><?php echo $value; ?></h6>
+                              </div>
+                            </li>
+                              <?php
+                            } 
+                          $temp++;
+                          } 
+                        } ?>
 
-                      <?php }?>
-                      <?php if(get_post_meta($post->ID,'vibe_students',true) != '') { ?>
-
-                       <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
-                        <p style="font-size: 14px!important;">Total Students</p>
-                        <h6><?php echo get_post_meta($post->ID,'vibe_students',true);?></h6>
-                      </div>
-
-                    <?php }?>
-
-
-                    <?php if(get_post_meta($post->ID,'vibe_duration',true) != '') { ?>
-
-                      <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
-                        <p style="font-size: 14px!important;">Duration</p>
-                        <h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?></h6>
-                      </div>
-
-                    <?php }?>
-                    <?php if(get_post_meta($post->ID,'vibe_course_frequency',true) != '') { ?>
-
-                     <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
-                      <p style="font-size: 14px!important;">Frequency</p>
-                      <h6><?php echo get_post_meta($post->ID,'vibe_course_frequency',true);?></h6>
-                    </div>
-
-                  <?php }?>
-
-                  <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) != '') { ?>
-
-                    <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
-                      <p style="font-size: 14px!important;">Sessions</p>
-                      <h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true);?></h6>
-                    </div>
-
-                  <?php }?>
-                  <?php if(get_post_meta($post->ID,'vibe_course_session_length',true) != '') { ?>
-
-                   <div class="col-xs-6 col-sm-6 col-lg-6 mrg countColor">
-                    <p style="font-size: 14px!important;">Session Length</p>
-                    <h6><?php echo get_post_meta($post->ID,'vibe_course_session_length',true);?></h6>
-                  </div>
-
-                <?php }?>
-              </div>
+                    </ul>
                     
                   </div>
                 </div>

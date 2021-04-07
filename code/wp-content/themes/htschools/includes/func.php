@@ -562,7 +562,7 @@ function the_sub_title($id=NULL){
   if( preg_match("/<[^<]+>/",$return,$m) != 0){
     return $return;
   }else if(isset($return) && strlen($return) > 5){
-    echo '<h5>'.do_shortcode($return).'</h5>';  
+    echo '<p>'.do_shortcode($return).'</p>';  
   }
   
 }

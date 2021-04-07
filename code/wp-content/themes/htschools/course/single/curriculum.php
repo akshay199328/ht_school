@@ -69,7 +69,7 @@ if(!empty($course_curriculum)){
                 </div>
             </div>
             <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5>
-            <p><?php the_sub_title($course_units_array[$counter]['id']); ?></p>
+            <?php the_sub_title($course_units_array[$counter]['id']); ?>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>
@@ -102,7 +102,7 @@ if(!empty($course_curriculum)){
                 </div>
             </div>
             <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5>
-            <p><?php echo wp_trim_words( $lessonId->post_content, 30, '..'); ?></p>
+             <?php the_sub_title($course_units[$counter]['id']); ?>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>

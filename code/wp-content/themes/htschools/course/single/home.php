@@ -358,6 +358,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div>
+            <?php /*
             <div class="other-courses grey-background">
               <div class="container">
                 <div class="">
@@ -374,6 +375,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div>
+  */?>
           </div>
         </div>
 

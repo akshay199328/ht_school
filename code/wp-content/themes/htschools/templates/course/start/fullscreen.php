@@ -79,6 +79,47 @@ get_header('blank');
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    var elem = document.documentElement;
+    window.isfullscreen = false;
+    /* View in fullscreen */
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+
+    /* Close fullscreen */
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+      }
+    }
+
+    (function($) {
+        $(document).ready(function(){
+            $(".vicon.vicon-fullscreen").click(function(){
+                if(window.isfullscreen){
+                    closeFullscreen();
+                    window.isfullscreen = false;
+                }else{
+                    openFullscreen();
+                    window.isfullscreen = true;
+                }
+            });
+        });
+    })( jQuery );
+</script>
+
 <?php
     /**
     * wplms_after_course_content hook.

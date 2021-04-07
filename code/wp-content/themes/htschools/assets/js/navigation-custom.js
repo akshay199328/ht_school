@@ -69,3 +69,39 @@ $(document).ready(function(){
        scrollTop: ($(target).offset().top -170)
      });
   });
+
+
+  
+var elem = document.documentElement;
+    window.isfullscreen = false;
+    /* View in fullscreen */
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+
+    /* Close fullscreen */
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+      }
+    }
+
+    $(document).on("click", ".vicon.vicon-fullscreen", function(){
+        if(window.isfullscreen){
+            closeFullscreen();
+            window.isfullscreen = false;
+        }else{
+            openFullscreen();
+            window.isfullscreen = true;
+        }
+    });

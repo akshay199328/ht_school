@@ -99,7 +99,7 @@ vibe_include_template("profile/top$profile_layout.php");
     
     // print_r(wpfp_get_users_favorites());
     //echo do_shortcode( '[wp-favorite-posts]' ); ?>
-
+<div id="empty"></div>
 <?php do_action( 'bp_after_member_settings_template' ); ?>
 </div>		
 <?php

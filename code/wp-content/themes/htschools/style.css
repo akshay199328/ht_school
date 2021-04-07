@@ -1109,7 +1109,7 @@ Course Details
 .fixedmenu-tabs .nav-tabs{
     position: relative;
     /*padding-right: 30px;*/
-    width: 92%;
+    width: 86%;
     border-bottom: none;
 }
 .fixedmenu-tabs .nav-tabs .share-icon {
@@ -4582,6 +4582,8 @@ border-color: transparent;
   background: #fff;
   border:1px solid #BEBEBE;
   margin-right: 20px;
+  float: left;
+    width: 100%;
 }
 .dashboard_accountinfo .profile-card .standard-form  {
     width: 70%;
@@ -4871,6 +4873,105 @@ p:empty{display: none;}
 .course_nofound h1{
   color: #000;
 
+}
+.profile_searchbox .search_section{padding-top: 10px;}
+.profile_searchbox .search_section input::-webkit-input-placeholder {
+  color: #A2A0A0!important;
+  font-weight: 500;
+}
+.profile_searchbox .search_section input{
+    padding: 0px 40px 10px !important;
+    height: 50px;
+    font-size: 15px;
+}
+.profile_searchbox .search_icon{
+  height: 23px;
+    width: 23px;
+    top: 16px;
+}
+.search_value {
+    margin-top: 30px;
+}
+.search_value span, .search_value .item {
+    width: auto;
+    border: solid 3px #fade3b;
+    text-align: left;
+    float: left;
+    display: inline-block;
+    margin-right: 7px;
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: bold!important;
+}
+.search_value span a{
+  padding: 5px 11px;
+    color: #000;
+    display: block;
+}
+.search_value span a i{
+  font-size: 17px;
+    float: right;
+    text-align: right;
+    position: relative;
+    right: -8px;
+    top: -2px;
+}
+.transprent{
+    background: transparent!important;
+    border-color: transparent!important;
+    padding: 0px!important;
+    margin-right: 0px!important;
+}
+.profile-card.transprent .share-icon  {
+    float: right;
+    width: 35%;
+    text-align: right;
+}
+.course-box .share-icon {
+    padding-bottom: 40px;
+}
+.share-icon ul li{
+  display: inline-block;
+  width: auto;
+  padding: 0px;
+  margin-right: 20px;
+  border: 0px;
+}
+.share-icon ul li:after{
+  display: none!important;
+}
+.share-icon ul li:last-child {
+    margin-right: 0px;
+}
+.share-icon ul li .a2a_dd {
+    position: relative;
+    top: 6px;
+}
+
+.empty_cart_div {
+    /* float: left; */
+    margin: 0px auto;
+    text-align: center;
+    display: table;
+}
+.empty_course_image {
+    background-image: url(./assets/images/empty_course.svg)!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+}
+.empty_cart_div h4{font-size: 25px;margin-top: 10px;}
+.empty_btn{
+      font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    background: #000;
+    padding: 13px 25px;
+    border: 0px;
+    margin-top: 20px;
 }
 /*-------Dashboard css:END-------*/
 

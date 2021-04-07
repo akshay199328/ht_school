@@ -1,4 +1,7 @@
 <?php
+if(isset($_SERVER['HTTP_REFERER'])){
+  $_SESSION['previousPageUrl']=$_SERVER['HTTP_REFERER'];
+}
 /**
  * Template Name: Login Page (Site Lock)
  */

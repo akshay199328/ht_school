@@ -1111,14 +1111,22 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
     //Set the redirect URL here in $redirectUrl
 
-    $redirectUrl = $_SERVER['HTTP_REFERER'];
+  $redirectUrl=the_blog_url();
+
+  if(isset($_SESSION['previousPageUrl'])){
+
+    $redirectUrl = $_SESSION['previousPageUrl'];
+
+  }
     return $redirectUrl;
+
+
 }, 10, 2);
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-    //Set the redirect URL here in $redirectUrl
+   $redirectUrl=the_blog_url();
+  if(isset($_SESSION['previousPageUrl'])){
     $redirectUrl = $_SESSION['previousPageUrl'];
-    //$redirectUrl = $_SESSION['previousPageUrl'];
-    return $redirectUrl;
+  }
 }, 10, 2);

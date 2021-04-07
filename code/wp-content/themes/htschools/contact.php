@@ -12,16 +12,18 @@ $contact_style = vibe_get_option('contact_style');
 $map_zoom = vibe_get_option('map_zoom');
 if(have_posts()):while(have_posts()):the_post();
 ?>
-<section class="stripe" id="contactcanvas">
-    <div id="map-canvas"></div>
-</section>
-<section id="content">
+
+<section id="content" class="section_contact">
+
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">
             <div class="col-md-12">
                 <div class="content">
+                  <ol class="breadcrumbs"><li><a href="#"><span>Home</span></a></li><li class="current"><span>Contact us</span></li></ol>
+                     <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div>
                     <?php
                         the_content();
+
                      ?>
                 </div>
                 <?php

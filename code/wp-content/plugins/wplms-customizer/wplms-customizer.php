@@ -308,6 +308,9 @@ function my_setup_nav() {
       ) );
 
 }
+function preferences() {
+      bp_core_load_template( 'preferences' );
+}
 
 // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
 
@@ -350,15 +353,15 @@ function bp_page_nav(){
     ) );
 
      bp_core_new_subnav_item( array(
-    'name' => __( 'Areas of Interest', 'buddypress' ), 
+    'name' => __( 'Areas of Interest', 'buddypress navigation' ), 
     'slug' => 'preference',
     'parent_url' => $user_domain,
     'parent_slug' => 'preference',
-    'screen_function' => 'preference_template',
+    'screen_function' => 'preferences_template',
     'position' => 30
  
     ) );
-
+    
      bp_core_new_subnav_item( array(
     'name' => __( 'Saved Courses', 'buddypress' ), 
     'slug' => 'saved-course',
@@ -394,6 +397,16 @@ add_action('bp_setup_nav', 'bp_page_nav', 10 );
 function active_course_template() {
       bp_core_load_template( 'active-course' );
 }
+function recommended_course_template() {
+      bp_core_load_template( 'recommended-course' );
+}
+
+function past_course_template() {
+      bp_core_load_template( 'past-course' );
+}
+function preferences_template() {
+      bp_core_load_template( 'preferences' );
+}
 function saved_course_template() {
       bp_core_load_template( 'saved-course' );
 }
@@ -403,14 +416,4 @@ function saved_articles_template() {
 function referral_code_template() {
       bp_core_load_template( 'referral-code' );
 } 
-function recommended_course_template() {
-      bp_core_load_template( 'recommended-course' );
-}
-
-function past_course_template() {
-      bp_core_load_template( 'past-course' );
-}
-function preferences() {
-      bp_core_load_template( 'preferences' );
-}
 

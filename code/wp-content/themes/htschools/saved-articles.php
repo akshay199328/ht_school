@@ -30,6 +30,14 @@ vibe_include_template("profile/top$profile_layout.php");
             <div class="news-listing">
                 <?php 
                     $article_data = wpfp_get_users_favorites();
+                    $count_array = []; 
+                    foreach ($article_data as $post_id) {
+                        $post = get_post($post_id);
+                        if($post->post_type == "post"){
+                            array_push($count_array, $post->ID);
+                        }
+                    }
+                    $count = count($count_array);
                     foreach ($article_data as $post_id) {
                        
                     $post = get_post($post_id);
@@ -76,7 +84,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                     <?php
                                         if(is_user_logged_in()){
                                           ?>
-                                          <?php wpfp_link(); ?>
+                                          <?php wpfp_save_link(); ?>
                                                 <?php }else{
                                           $url = "/login-register";
                                           ?>
@@ -102,13 +110,15 @@ vibe_include_template("profile/top$profile_layout.php");
             <?php 
              }
             }
+            if($count < 1){
             ?>
             <div class="empty_cart_div">
                 <div class="empty_article_image"></div>
                 <h4>Nothing Here But Us!</h4>
                 <p>All your saved articles will appear here.</p>
-                <button class="empty_btn">Explore Editor’s Desk</button>
+                <a href="<?php echo get_home_url();?>/news/"><button class="empty_btn">Explore Editor’s Desk</button></a>
             </div>
+            <?php } ?>
         </div>
     </div>
 </div>

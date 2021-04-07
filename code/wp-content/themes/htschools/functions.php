@@ -1124,3 +1124,36 @@ add_filter('google_login_redirect_url', function($redirectUrl, $provider){
        return $redirectUrl;
   }
 }, 10, 2);
+
+function wpfp_save_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
+    global $post;
+    //print_r($post);
+    $post_id = $post->ID;
+    //$post_id = &$post->ID;
+    extract($args);
+    $str = "";
+    if ($show_span)
+        $str = "<span class='wpfp-span'>";
+    $str .= wpfp_before_link_img();
+    $str .= wpfp_loading_img();
+    if ($action == "remove"):
+        $str .= wpfp_hhtml($post_id, wpfp_get_option('remove_favorite'), "remove");
+    elseif ($action == "add"):
+        $str .= wpfp_hhtml($post_id, wpfp_get_option('add_favorite'), "add");
+    elseif (wpfp_check_favorited($post_id)):
+        $str .= wpfp_hhtml($post_id, wpfp_get_option('remove_favorite'), "remove");
+    else:
+        $str .= wpfp_hhtml($post_id, wpfp_get_option('add_favorite'), "add");
+    endif;
+    if ($show_span)
+        $str .= "</span>";
+    if ($return) { return $str; } else { echo $str; }
+}
+
+function wpfp_hhtml($post_id, $opt, $action) {
+
+  $opt = "<i class='bi bi-trash'></i>";
+    $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "'>". $opt ."</a>";
+    $link = apply_filters( 'wpfp_link_html', $link );
+    return $link;
+}

@@ -26,9 +26,6 @@ vibe_include_template("profile/top$profile_layout.php");
     </div>
 </div>
 <div class="col-md-9"> 
-    <div class="course_nofound">
-        <h1>Area of Interest</h1>
-    </div>
     <div class="profile-card">
         <h1>Your Interests</h1>
         <div class="col-md-12 col-sm-12 profile_searchbox mrg">

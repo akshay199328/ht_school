@@ -1,7 +1,7 @@
 <?php
 
 /**
- * BuddyPress Notification Settings
+ * BuddyPress Active Courses
  *
  * @package BuddyPress
  * @subpackage bp-default

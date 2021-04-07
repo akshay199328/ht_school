@@ -1,7 +1,7 @@
 <?php
 
 /**
- * BuddyPress Preferences
+ * BuddyPress Saved Course
  *
  * @package BuddyPress
  * @subpackage bp-default
@@ -27,13 +27,25 @@ vibe_include_template("profile/top$profile_layout.php");
 </div>
 <div class="col-md-9"> 
     <div class="course_nofound">
-        <h1>Area of Interest</h1>
+        <h1>Saved Articles</h1>
     </div>
+    <?php 
+    $post_id = wpfp_get_users_favorites();
+    foreach ($post_id as $key) {
+        $title=get_post_meta($key,'vibe_title',true);
+    print_r($title);
+    $post = get_post($key);
+    print_r($post);
+    
+    }
+    // print_r(wpfp_get_users_favorites());
+    //echo do_shortcode( '[wp-favorite-posts]' ); ?>
 </div
+
 <?php do_action( 'bp_after_member_settings_template' ); ?>
 		
 <?php
 
 vibe_include_template("profile/bottom.php");  
 
-get_footer( vibe_get_footer() );  
+get_footer( vibe_get_footer() ); 

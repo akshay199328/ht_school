@@ -310,9 +310,6 @@ function my_setup_nav() {
 }
 
 // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
-function preferences() {
-      bp_core_load_template( 'preferences' );
-}
 
 
 function bp_page_nav(){
@@ -351,18 +348,69 @@ function bp_page_nav(){
     'position' => 20
  
     ) );
+
+     bp_core_new_subnav_item( array(
+    'name' => __( 'Areas of Interest', 'buddypress' ), 
+    'slug' => 'preference',
+    'parent_url' => $user_domain,
+    'parent_slug' => 'preference',
+    'screen_function' => 'preference_template',
+    'position' => 30
+ 
+    ) );
+
+     bp_core_new_subnav_item( array(
+    'name' => __( 'Saved Courses', 'buddypress' ), 
+    'slug' => 'saved-course',
+    'parent_url' => $user_domain.'preference/',
+    'parent_slug' => 'preference',
+    'screen_function' => 'saved_course_template',
+    'position' => 30
+    
+    ) );
+
+    bp_core_new_subnav_item( array(
+    'name' => __( 'Saved Articles', 'buddypress' ), 
+    'slug' => 'saved-articles',
+    'parent_url' => $user_domain.'preference/',
+    'parent_slug' => 'preference',
+    'screen_function' => 'saved_articles_template',
+    'position' => 30
+    
+    ) );
+
+    bp_core_new_subnav_item( array(
+    'name' => __( 'Referral Code', 'buddypress' ), 
+    'slug' => 'referral-code',
+    'parent_url' => $user_domain.'preference/',
+    'parent_slug' => 'preference',
+    'screen_function' => 'referral_code_template',
+    'position' => 30
+    
+    ) ); 
 }
 add_action('bp_setup_nav', 'bp_page_nav', 10 );
 
 function active_course_template() {
       bp_core_load_template( 'active-course' );
 }
- 
+function saved_course_template() {
+      bp_core_load_template( 'saved-course' );
+}
+function saved_articles_template() {
+      bp_core_load_template( 'saved-articles' );
+}
+function referral_code_template() {
+      bp_core_load_template( 'referral-code' );
+} 
 function recommended_course_template() {
       bp_core_load_template( 'recommended-course' );
 }
 
 function past_course_template() {
       bp_core_load_template( 'past-course' );
+}
+function preferences() {
+      bp_core_load_template( 'preferences' );
 }
 

@@ -7,6 +7,7 @@ get_header(vibe_get_header());
 $page_id = get_the_ID();
 
 $title=get_post_meta(get_the_ID(),'vibe_title',true);
+
 if(vibe_validate($title) || empty($title)){
   ?>
   <section class="news_heading">
@@ -36,10 +37,6 @@ if(vibe_validate($title) || empty($title)){
         <?php dynamic_sidebar( 'saved-posts' ); ?>      
     <?php endif; ?> -->
     <?php the_content();
-
-        global $wp;
-        $current_url = home_url(add_query_arg(array(), $wp->request));
-        echo "<pre>";print_r($current_url);exit;
      ?>
 <?php
 get_footer(vibe_get_footer());

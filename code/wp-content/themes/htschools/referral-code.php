@@ -1,7 +1,7 @@
 <?php
 
 /**
- * BuddyPress Preferences
+ * BuddyPress Saved Course
  *
  * @package BuddyPress
  * @subpackage bp-default
@@ -27,7 +27,7 @@ vibe_include_template("profile/top$profile_layout.php");
 </div>
 <div class="col-md-9"> 
     <div class="course_nofound">
-        <h1>Area of Interest</h1>
+        <h1>Referral Code</h1>
     </div>
 </div
 <?php do_action( 'bp_after_member_settings_template' ); ?>
@@ -36,4 +36,4 @@ vibe_include_template("profile/top$profile_layout.php");
 
 vibe_include_template("profile/bottom.php");  
 
-get_footer( vibe_get_footer() );  
+get_footer( vibe_get_footer() ); 

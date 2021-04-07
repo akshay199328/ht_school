@@ -180,7 +180,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                        /*do_action('notification_fragments');*/
                     }
                    foreach ($menuitems as $menu) {  ?>
-                       <li><a href="<?php echo $menu->url; ?>"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
+                       <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
                    <?php }
                    echo "</ul>";
                    ?>

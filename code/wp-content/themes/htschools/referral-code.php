@@ -25,10 +25,49 @@ vibe_include_template("profile/top$profile_layout.php");
         </div><!-- .item-list-tabs -->
     </div>
 </div>
-<div class="col-md-9"> 
-    <div class="course_nofound">
-        <h1>Referral Code</h1>
-    </div>
+<div class="col-md-9">
+    <div class=""> 
+        <div class="profile-card">
+            <h1>Your Referral Code</h1>
+            <div class="col-sm-9 mrg">
+                <div class="refferal_textbox">
+                    <!-- <label for="coupon_code">Coupon:</label> -->
+                     <input type="text" class="input-text" placeholder=" Http://Mywebsite.Com/Product-1/?Ref=123"> 
+                    <button type="submit" class="copy_link" name="" value="Copy Link">
+                        Copy Link
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-3 mrg">
+                <div class="refferal_social">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="<?php echo get_bloginfo('template_url')?>/assets/images/facebook.svg"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="<?php echo get_bloginfo('template_url')?>/assets/images/whatsapp.svg"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="<?php echo get_bloginfo('template_url')?>/assets/images/linkdin.svg"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="<?php echo get_bloginfo('template_url')?>/assets/images/email.svg"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div> 
+    
 </div
 <?php do_action( 'bp_after_member_settings_template' ); ?>
 		

@@ -4983,6 +4983,40 @@ p:empty{display: none;}
     border: 0px;
     margin-top: 20px;
 }
+.refferal_textbox input::-webkit-input-placeholder {
+  color: #000000;
+  font-weight: 500;
+}
+.refferal_textbox input{
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000!important;
+  line-height: 20px;
+  border:1px solid #000000!important;
+  width: 70%;
+    height: 45px;
+}
+.refferal_textbox button.copy_link{
+  background: #000;
+    font-size: 15px;
+    font-weight: bold;
+    color: #D5EBFF;
+    position: absolute;
+    border-radius: 0px;
+    height: 45px;
+    padding: 0px 25px;
+        border: 0px;
+}
+.refferal_social  {
+    margin-top: 5px;
+}
+.refferal_social ul li{
+  display: inline-block;
+      margin-right: 8px;
+}
+.refferal_social ul li:last-child{
+    margin-right: 0px;
+}
 /*-------Dashboard css:END-------*/
 
 /*-------Search css-------*/

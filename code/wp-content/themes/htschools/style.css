@@ -4924,7 +4924,7 @@ p:empty{display: none;}
 }
 .profile-card.transprent .share-icon  {
     float: right;
-    width: 35%;
+    width: 47%;
     text-align: right;
 }
 .course-box .share-icon {
@@ -4955,7 +4955,16 @@ p:empty{display: none;}
     display: table;
 }
 .empty_course_image {
-    background-image: url(./assets/images/empty_course.svg)!important;
+    background-image: url(./assets/images/empty_course.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+}
+.empty_article_image{
+  background-image: url(./assets/images/empty_articles.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -4964,6 +4973,7 @@ p:empty{display: none;}
     margin: 0 auto;
 }
 .empty_cart_div h4{font-size: 25px;margin-top: 10px;}
+.empty_cart_div p{font-size: 16px;line-height: 23px;}
 .empty_btn{
       font-size: 15px;
     font-weight: bold;

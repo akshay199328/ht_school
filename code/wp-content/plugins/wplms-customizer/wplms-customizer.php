@@ -304,12 +304,10 @@ function my_setup_nav() {
             'name' => __( 'Preferences', 'buddypress' ), 
             'slug' => 'preference', 
             'position' => 30,
-            'screen_function' => 'preferences', 
+            'screen_function' => 'preferences_template', 
+            'default_subnav_slug' => 'preference',
       ) );
 
-}
-function preferences() {
-      bp_core_load_template( 'preferences' );
 }
 
 // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.

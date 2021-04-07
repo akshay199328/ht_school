@@ -1464,12 +1464,12 @@ function wplms_redirect_to_course($order_id){
             <strong>'.__('SUBSCRIPTION','vibe').'</strong></li>';
 
             if($order->status == 'completed' || $order->status == 'complete'){
-              $ostatus=__('START COURSE','vibe');
+              $ostatus=__('Start Learning','vibe');
             }else if($order->status == 'pending'){
               do_action('wplms_force_woocommerce_order_complete',$order);
               $ostatus =__('WAITING FOR ORDER CONFIRMATION TO START COURSE','vibe');
             }else{
-              $ostatus=__('WAITING FOR ADMIN APPROVAL','vibe');
+              $ostatus=__('Start Learning','vibe');
             }
 
             foreach($order_courses as $order_course){

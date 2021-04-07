@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                            foreach ($menuitems as $menu) {  
                             $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
                               if($menu->title == 'Menu'){ 
-                                echo '<li class="border-menu ' . $current . ' "><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
+                                echo '<li class="border-menu ' . $current . ' "><a>' . $menu->title . '</a></li>';
                               }
                               else{
                                 if(is_user_logged_in()){

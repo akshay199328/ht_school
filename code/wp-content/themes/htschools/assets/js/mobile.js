@@ -40,7 +40,8 @@ $(document).ready(function($) {
   $(".course-listslider a").addClass('item');
   $('.progress_key_1, .progress_key_2').parents().parents().parents().parents().addClass("hide-price");
   $('#all').hide();
-  $('#view_all_sessions').click(function(){
+  $('#view_all_sessions').click(function(e){
+    e.preventDefault();
     $('#all').show();
     $('#only-4').hide();
     $('#view_all_sessions').hide();

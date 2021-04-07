@@ -102,7 +102,7 @@ if(!empty($course_curriculum)){
                 </div>
             </div>
             <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5>
-             <?php the_sub_title($course_units[$counter]['id']); ?>
+             <?php the_sub_title($course_units[$counter1]['id']); ?>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>

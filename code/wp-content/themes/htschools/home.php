@@ -25,6 +25,10 @@ get_header(vibe_get_header());
     </div>
 
   </section><!-- End Hero -->
+      <?php
+  if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
+  <?php dynamic_sidebar( 'home-hero-section' ); ?>      
+<?php endif; ?>
 <!-- ======= Features Section ======= -->
   <section id="Popular-Courses" class="Popular-Courses">
       <div class="container" data-aos="fade-up">
@@ -330,10 +334,7 @@ get_header(vibe_get_header());
       </div>
       <!-- End Testimonials Section -->
     </section>
-    <?php
-  if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
-  <?php dynamic_sidebar( 'home-hero-section' ); ?>      
-<?php endif; ?>
+
 </main><!-- End #main -->
 
 <?php

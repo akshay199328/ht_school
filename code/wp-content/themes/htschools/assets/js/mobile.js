@@ -11,6 +11,10 @@ $(window).on('scroll', function() {
         $('.fixed_banner').removeClass('static_banner');
     }
 }); 
+
+$(window).bind('scroll',function() {
+     $('.nav-tabs').find('li').removeClass('active');   
+  });
 $(document).ready(function(){
   $(".fixed_banner .course-fees strong:contains(FREE)").hide();
   $('.progress_key_2').removeClass('button');

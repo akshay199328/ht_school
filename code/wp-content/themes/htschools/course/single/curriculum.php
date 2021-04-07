@@ -49,7 +49,9 @@ if(!empty($course_curriculum)){
 	<div class="only-4" id="only-4">
 	<?php foreach($course_units_array as $lesson_units){ 
 		$lessonId = get_post($lesson['id']);
-		// print_r($lessonId);
+		//echo "<pre>";
+		 //print_r($course_units_array);
+		//echo $lessonId->ID;
 	?>
 	<div class="col-sm-12 col-lg-6 pull-left mrg">
         <div class="card">
@@ -67,7 +69,7 @@ if(!empty($course_curriculum)){
                 </div>
             </div>
             <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5>
-            <p><?php the_sub_title($lessonId->ID); ?></p>
+            <p><?php the_sub_title($course_units_array[$counter]['id']); ?></p>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>

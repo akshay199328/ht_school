@@ -1111,7 +1111,7 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
     //Set the redirect URL here in $redirectUrl
 
-  $redirectUrl=the_blog_url();
+  $redirectUrl=get_home_url();
 
   if(isset($_SESSION['previousPageUrl'])){
 
@@ -1125,7 +1125,7 @@ add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-   $redirectUrl=the_blog_url();
+   $redirectUrl=get_home_url();
   if(isset($_SESSION['previousPageUrl'])){
     $redirectUrl = $_SESSION['previousPageUrl'];
   }

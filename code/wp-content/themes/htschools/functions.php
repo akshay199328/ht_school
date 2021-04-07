@@ -1109,24 +1109,18 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
 }
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
-    //Set the redirect URL here in $redirectUrl
-
-  $redirectUrl=get_home_url();
-
-  if(isset($_SESSION['previousPageUrl'])){
-
-    $redirectUrl = $_SESSION['previousPageUrl'];
-
-  }
+      if(isset($_SESSION['previousPageUrl'])){
+        $redirectUrl = $_SESSION['previousPageUrl'];
+      }
     return $redirectUrl;
-
-
 }, 10, 2);
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-   $redirectUrl=get_home_url();
+
+ // print_r($_SESSION);exit;
   if(isset($_SESSION['previousPageUrl'])){
     $redirectUrl = $_SESSION['previousPageUrl'];
+       return $redirectUrl;
   }
 }, 10, 2);

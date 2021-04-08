@@ -35158,7 +35158,7 @@ body {
  		margin: 0
  	}
  	.blogpost .date {
- 		display: none
+ 		/*display: none*/
  	}
  	.blogpost .excerpt,
  	.blogpost .excerpt.thumb {
@@ -36134,8 +36134,8 @@ body {
 		border-bottom: 2px solid #000!important;
 	}
 	.dashboard_accountinfo .profile-card {padding: 15px;}
-	.dashboard_accountinfo .profile-card h1, .info-card h1 {font-size: 15px;    
-		line-height: 15px;
+	.dashboard_accountinfo .profile-card h1, .info-card h1 {font-size: 18px;    
+		line-height: 24px;
     	margin-bottom: 15px;
 	}
 	.dashboard_accountinfo .profile-card .standard-form {

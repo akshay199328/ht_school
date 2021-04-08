@@ -378,7 +378,7 @@ padding: 15px 0;
     box-shadow: none!important;
     padding: 0!important;*/
 }
-.hover_share{position: relative;}
+.hover_share{position: relative;margin-top: 0px;}
 .display_icon{
     display: none;
     background:#fff;

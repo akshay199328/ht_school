@@ -4375,6 +4375,7 @@ border-color: transparent;
   color: #000;
     font-size: 19px;
     font-weight: bold;
+
 }
 .top-icon li a{
   color: #000
@@ -4972,6 +4973,7 @@ p:empty{display: none;}
   padding: 0px;
   margin-right: 10px;
   border: 0px;
+  cursor: pointer;
 }
 .share-icon ul li:after{
   display: none!important;

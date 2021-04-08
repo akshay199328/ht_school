@@ -18,7 +18,7 @@ if(have_posts()):while(have_posts()):the_post();
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">
             <div class="col-md-12">
-                <div class="content">
+                <div class="content sec_cont">
                   <ol class="breadcrumbs"><li><a href="#"><span>Home</span></a></li><li class="current"><span>Contact us</span></li></ol>
                      <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div>
                     <?php

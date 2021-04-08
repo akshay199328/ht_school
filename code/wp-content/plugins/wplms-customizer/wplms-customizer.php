@@ -72,7 +72,7 @@ function rt_change_profile_tab_order() {
 	'name' => 'Account Info',
 	), 'profile' );
    $bp->members->nav->edit_nav( array(
-	'name' => 'My Course',
+	'name' => 'My Courses',
 	), 'course' );
 }
 add_action( 'bp_init', 'rt_change_profile_tab_order', 999 );
@@ -380,15 +380,15 @@ function bp_page_nav(){
     
     ) );
 
-    bp_core_new_subnav_item( array(
-    'name' => __( 'Referral Code', 'buddypress' ), 
-    'slug' => 'referral-code',
-    'parent_url' => $user_domain.'preference/',
-    'parent_slug' => 'preference',
-    'screen_function' => 'referral_code_template',
-    'position' => 30
+    // bp_core_new_subnav_item( array(
+    // 'name' => __( 'Referral Code', 'buddypress' ), 
+    // 'slug' => 'referral-code',
+    // 'parent_url' => $user_domain.'preference/',
+    // 'parent_slug' => 'preference',
+    // 'screen_function' => 'referral_code_template',
+    // 'position' => 30
     
-    ) ); 
+    // ) ); 
 }
 add_action('bp_setup_nav', 'bp_page_nav', 10 );
 
@@ -415,3 +415,28 @@ function referral_code_template() {
       bp_core_load_template( 'referral-code' );
 } 
 
+
+add_action('init','wplms_remove_snapshot_for_all',11);
+function wplms_remove_snapshot_for_all(){
+  remove_action('bp_before_profile_content','show_profile_snapshot');
+}
+add_action('bp_before_profile_content','custom_show_profile_snapshot');
+
+function custom_show_profile_snapshot(){
+   global $bp;
+
+   
+   $user_id=bp_displayed_user_id();
+
+   $certis=vibe_sanitize(get_user_meta($user_id,'certificates',false));
+   
+     if(isset($certis) && is_Array($certis) && count($certis)){
+          echo '<div class="certifications"><h6>'.__('Certifications','vibe').'</h6><ul class="slides">';
+          if(isset($certis) && is_Array($certis)) 
+           foreach($certis as $certi){
+                  echo '<li><a href="'.bp_get_course_certificate('user_id='.$user_id.'&course_id='.$certi).'" class="ajax-certificate"><i class="icon-certificate-file"></i><span>'.get_the_title($certi).'</span></a></li>';
+
+           }
+         echo '</ul></div>';  
+      }
+}

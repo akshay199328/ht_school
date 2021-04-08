@@ -139,6 +139,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             <div class="col-lg-12 course-button">
                                 <h6><?php the_course_price(); ?></h6>
                                 <?php the_course_button(); ?> 
+                                <!-- <a href="<?php echo get_bloginfo('url')?>/certificates/my-certificate/?c=<?php echo $post->ID?>&u=<?php echo $user->ID?>">Certificate</a> -->
                             </div>
                             <div class="profilecou-instructor">
                                 <div class="heading">

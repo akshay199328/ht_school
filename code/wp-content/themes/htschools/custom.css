@@ -378,7 +378,18 @@ padding: 15px 0;
     box-shadow: none!important;
     padding: 0!important;*/
 }
-
+.hover_share{position: relative;}
+.display_icon{
+    display: none;
+    background:#fff;
+    padding: 15px;
+    position: absolute;
+    width: 180px;
+    left: -158px;
+}
+.hover_share:hover .display_icon{
+    display: block;
+}
 
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}

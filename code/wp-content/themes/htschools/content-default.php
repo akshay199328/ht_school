@@ -36,6 +36,7 @@ if(!empty($instructors)){
     $displayname = get_the_author_meta( 'display_name' );
     $instructor = '<a href="'.$author_posts_url.'">'.$displayname.'</a>';
 }
+$post = get_post($post_id);
 
 ?>
 
@@ -71,7 +72,22 @@ if(!empty($instructors)){
                 <div class="col-sm-12 col-md-2 mrg news_icons">
                      
                    <div class="share-icon">
-                    <div class="top-icon">
+
+                    <ul>       
+                        <li class="hover_share">
+                        <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                          <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
+                        </svg>
+                        <div class="display_icon">
+                          <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
+                            <a class="a2a_button_facebook"></a>
+                            <a class="a2a_button_twitter"></a>
+                            <a class="a2a_button_pinterest"></a>
+                            <a class="a2a_button_google_gmail"></a>
+                          </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+                        </div>
+                      </li>
+                        <li>
                         <?php
                             if(is_user_logged_in()){
                                 ?>
@@ -83,13 +99,8 @@ if(!empty($instructors)){
                                 <?php
                             }
                         ?>
-                       <!-- <li id="savePosts"> <a href="?wpfpaction=add&postid=<?php echo get_the_ID(); ?>" class="savePosts"><i class="bi bi-bookmark"></i></a> </li>
-                       <li id="removePosts" class="d-none"> <a href="?wpfpaction=remove&postid=<?php echo get_the_ID(); ?>" class="removePosts"><i class="bi-bookmark-check-fill"></i></a> </li> -->
-                   </div>
-                    <a href="https://www.addtoany.com/share" class="a2a_dd"><svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
-                    </svg></a>
-                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                        </li>
+                     </ul> 
                 </div>
                 </div>
             </div>

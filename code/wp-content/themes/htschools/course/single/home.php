@@ -149,22 +149,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                               </ul>
                               <div class="share-icon">
                               <ul>
-                                  <li>
-                                    <a href="#">
-                                      <!-- <img src="<?php echo get_bloginfo('template_url')?>/assets/images/delete-icon.svg"/> -->
-                                      <?php
-                                         if(is_user_logged_in()){
-                                          ?>
-                                          <li style="list-style-type: none;"><?php wpfp_link(); ?></li>
-                                        <?php }else{
-                                          $url = "/login-register";
-                                          ?>
-                                          <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bi bi-bookmark"></i></a></li> 
-                                          <?php
-                                        }
-                                        ?>
-                                    </a>
-                                  </li>
+                                
                                   <!-- <li>
                                     <a href="https://www.addtoany.com/share" class="a2a_dd"><svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
                                       <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
@@ -183,6 +168,22 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         <a class="a2a_button_pinterest"></a>
                                       </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                                     </div>
+                                  </li>
+                                    <li>
+                                    <a href="#">
+                                      <!-- <img src="<?php echo get_bloginfo('template_url')?>/assets/images/delete-icon.svg"/> -->
+                                      <?php
+                                         if(is_user_logged_in()){
+                                          ?>
+                                          <li style="list-style-type: none;"><?php wpfp_link(); ?></li>
+                                        <?php }else{
+                                          $url = "/login-register";
+                                          ?>
+                                          <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bi bi-bookmark"></i></a></li> 
+                                          <?php
+                                        }
+                                        ?>
+                                    </a>
                                   </li>
                               </ul>  
                               <script async src="https://static.addtoany.com/menu/page.js"></script>

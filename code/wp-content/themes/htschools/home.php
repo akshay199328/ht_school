@@ -9,18 +9,66 @@ get_header(vibe_get_header());
 <!-- ======= Hero Section ======= -->
 
 <main id="main">
-    <!-- ======= Hero Section ======= -->
+   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
     <div class="header-space"></div>
     <div class="col-lg-12 mrg home_slider owl-carousel owl-theme">
         <div class="col-lg-12 mrg item">
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider1.jpg'?>">
+          <div class="container">
+            <div class="homecarousel_text">
+              <div class="col-sm-12 col-md-6 mrg">
+                <div class="pull-left">
+                  <h1>WHERE IMAGINATION MEETS EDUCATION</h1>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 mrg">
+                <div class="pull-right">
+                  <p>Imagine taking learning out of the four walls of the classroom. Imagine a virtual world where </p>
+                  <a href="#" class="learn_morebtn">Learn More…</a>
+                </div>
+              </div>  
+            </div>
+          </div>
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider1.png'?>" class="desktop_img">
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider1-sm.png'?>" class="mobile_img">
         </div>
         <div class="col-lg-12 mrg item">
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider2.jpg'?>">
+          <div class="container">
+            <div class="homecarousel_text">
+              <div class="col-sm-12 col-md-12 mrg">
+                <div class="pull-left">
+                  <h1>ONE SCHOOL WITH SIX DIMENSIONS </h1>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12 mrg">
+                <div class="pull-left">
+                  <p>Schools are about students, teachers, and parents. HT School broad bases the concept of education by bringing in a whole</p>
+                  <a href="#" class="learn_morebtn">Learn More…</a>
+                </div>
+              </div>  
+            </div>
+          </div>
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider2.png'?>"class="desktop_img">
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3-sm.png'?>" class="mobile_img">
         </div>
         <div class="col-lg-12 mrg item">
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3.jpg'?>">
+          <div class="container">
+            <div class="homecarousel_text">
+              <div class="col-sm-12 col-md-12 mrg">
+                <div class="pull-left">
+                  <h1>PUTTING THE COOL INTO SCHOOL </h1>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12 mrg">
+                <div class="pull-left">
+                  <p>HT School is way beyond schooling. It gives wings to studentsin ways that were never thought possible…</p>
+                  <a href="#" class="learn_morebtn">Learn More…</a>
+                </div>
+              </div>  
+            </div>
+          </div>
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3.png'?>"class="desktop_img">
+          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3-sm.png'?>" class="mobile_img">
         </div>
     </div>
 

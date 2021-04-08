@@ -83,9 +83,9 @@ get_header(vibe_get_header());
         <div class="row">
           <div class="col-sm-12 col-lg-4 mrg">
              <header class="section-header">
-                <h2>Popular Courses</h2>
-                <p>We offer classes for all ages throughout the year.</p>
-                <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Explore all Courses</a>
+                <h2>TRENDING COURSES</h2>
+                <p>Access the world’s activities, anytime anywhere.</p>
+                <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover Courses</a>
             </header>
             <div class="adworks">
               <?php
@@ -191,7 +191,7 @@ get_header(vibe_get_header());
               <?php endwhile; endif; ?>
               
             </div>
-            <a href="<?php echo get_home_url();?>/courses/" class="exlore-link mobile-btn">Explore all Courses</a>
+            <a href="<?php echo get_home_url();?>/courses/" class="exlore-link mobile-btn">Discover Courses</a>
           </div>
 
         </div> <!-- / row -->

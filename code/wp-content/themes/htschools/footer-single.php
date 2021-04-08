@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               </a>
             </div>
             <div class="col-lg-12 col-md-12 footer-info mrg">
-              <p>Supporting education through our products,</p>
+            <!--  <p>Supporting education through our products,</p> -->
             </div>
           </div>
 
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <div class="col-sm-8 col-lg-8 col-md-8 pull-left mrg">
               
               <div class="socio-list">
-                <span class="social-heading">Follow us on</span>
+                <!--  <span class="social-heading">Follow us on</span> -->
                 <a href="https://www.linkedin.com/company/htschool" target="_blank" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
                 <a href="https://twitter.com/htschool1" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="https://www.facebook.com/HTSchool-111960910982690/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -54,17 +54,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <div class="col-sm-12 middle-detils footer-links">
             <div class="col-lg-12 col-12 mrg">
               <ul>
-                  <li><a href="<?php echo get_site_url();?>/all-courses">Our Courses</a></li>
-                  <li><a href="<?php echo get_site_url();?>/news">News</a></li>
+                  <li><a href="<?php echo get_site_url();?>/all-courses">Course Offerings</a></li>
+                  <li><a href="<?php echo get_site_url();?>/news">News Release</a></li>
               </ul>
             </div>
             <div class="col-lg-12 col-12 about-links mrg">
               <ul>
                 <li><a href="#">About HT School</a></li>
-                <li><a href="https://www.hindustancareermate.com/" target="_blank">CareerMate</a></li>
-                <li><a href="https://www.htcodeathon.com/" target="_blank">Code-a-thon</a></li>
-                <li><a href="https://www.htscholarship.in/" target="_blank">Scholarship</a></li>
-                <li><a href="https://www.hindustanolympiad.in/" target="_blank">Olympiad</a></li>
+                <li><a href="https://www.hindustancareermate.com/" target="_blank">Career Mate</a></li>
+                <li><a href="https://www.htcodeathon.com/" target="_blank">Code-a-Thon</a></li>
+                <li><a href="https://www.htscholarship.in/" target="_blank">Scholarships</a></li>
+                <li><a href="https://www.hindustanolympiad.in/" target="_blank">Olympiads</a></li>
               </ul>
             </div>
           </div>

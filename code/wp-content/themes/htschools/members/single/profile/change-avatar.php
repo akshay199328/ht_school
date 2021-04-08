@@ -4,24 +4,24 @@
 
 <?php if ( !(int)bp_get_option( 'bp-disable-avatar-uploads' ) ) : ?>
 
-	<p><?php _e( 'Your avatar will be used on your profile and throughout the site. If there is a <a href="http://gravatar.com">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer.','vibe'); ?></p>
+	<p><?php _e( 'Your Avatar will be set as your HT School profile picture and used across the site. If you log in with your email account and there is a Gravatar associated with it, that will be used as your HT School Avatar. Alternatively, you can browse your system for a new Avatar.','vibe'); ?></p>
 
 	<form action="" method="post" id="avatar-upload-form" class="standard-form" enctype="multipart/form-data">
 
 		<?php if ( 'upload-image' == bp_get_avatar_admin_step() ) : ?>
 
 			<?php wp_nonce_field( 'bp_avatar_upload' ); ?>
-			<p><?php _e( 'Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.', 'vibe' ); ?></p>
-
+			<p><?php _e( 'Select a JPG, GIF  or PNG format from your system.', 'vibe' ); ?></p>
+<!--Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.-->
 			<p id="avatar-upload">
 				<input type="file" name="file" id="file" />
-				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Image', 'vibe' ); ?>" />
+				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Avatar', 'vibe' ); ?>" />
 				<input type="hidden" name="action" id="action" value="bp_avatar_upload" />
 			</p>
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
 				<p><?php _e( "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button.", 'vibe' ); ?></p>
-				<p><a class="button edit" href="<?php bp_avatar_delete_link(); ?>" title="<?php _e( 'Delete Avatar', 'vibe' ); ?>"><?php _e( 'Delete My Avatar', 'vibe' ); ?></a></p>
+				<p><a class="button edit" href="<?php bp_avatar_delete_link(); ?>" title="<?php _e( 'Delete Avatar', 'vibe' ); ?>"><?php _e( 'Delete Avatar', 'vibe' ); ?></a></p>
 			<?php endif; ?>
 
 		<?php endif; ?>

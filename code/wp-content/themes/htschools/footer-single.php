@@ -37,10 +37,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               
               <div class="socio-list">
                 <span class="social-heading">Follow us on</span>
-                <a href="#" class="twitter"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/htschool" target="_blank" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+                <a href="https://twitter.com/htschool1" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.facebook.com/HTSchool-111960910982690/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/ht.school/" target="_blank" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
               </div>
             </div>
             <div class="col-sm-4 col-lg-4 col-md-4 pull-right mrg">

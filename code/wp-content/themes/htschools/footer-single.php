@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               </a>
             </div>
             <div class="col-lg-12 col-md-12 footer-info mrg">
-            <!--  <p>Supporting education through our products,</p> -->
+            <!--  <p>Supporting education through our products,</p> ---->
             </div>
           </div>
 

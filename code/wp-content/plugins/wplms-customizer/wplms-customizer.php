@@ -353,7 +353,7 @@ function bp_page_nav(){
      bp_core_new_subnav_item( array(
     'name' => __( 'Areas of Interest', 'buddypress navigation' ), 
     'slug' => 'preference',
-    'parent_url' => $user_domain,
+    'parent_url' => $user_domain.'preference',
     'parent_slug' => 'preference',
     'screen_function' => 'preferences_template',
     'position' => 30

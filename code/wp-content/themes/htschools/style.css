@@ -4967,6 +4967,9 @@ p:empty{display: none;}
 .course-box .share-icon {
     padding-bottom: 40px;
 }
+.share-icon ul {
+  float: right;
+}
 .share-icon ul li{
   display: inline-block;
   width: auto;
@@ -4974,6 +4977,7 @@ p:empty{display: none;}
   margin-right: 10px;
   border: 0px;
   cursor: pointer;
+  
 }
 .share-icon ul li:after{
   display: none!important;
@@ -5148,10 +5152,12 @@ p:empty{display: none;}
   color: #000000;
   margin-bottom: 30px;
 }
-.static_content .content ol {
+.static_content .content ol, 
+.static_content .content ul {
   list-style-type: lower-alpha;
 }
-.static_content .content ol li{
+.static_content .content ol li, 
+.static_content .content ul li{
   color: #000;
   font-size: 18px;
   font-weight: 300;
@@ -5161,7 +5167,8 @@ p:empty{display: none;}
   padding: 10px 15px;
   font-family: "GT-Walsheim-Pro";
 }
-.static_content .content ol li:last-child {
+.static_content .content ol li:last-child, 
+.static_content .content ul li:last-child {
     margin-bottom: 30px;
 }
 .static_content .details h2{

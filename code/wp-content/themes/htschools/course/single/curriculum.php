@@ -73,6 +73,20 @@ if(!empty($course_curriculum)){
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>
+            <div class="progressbar-full">
+            	<div class="pull-left">
+            		<div class="progress_new">
+		            	<div class="overlay"></div>
+				        <div class="left"></div>
+				        <div class="right"></div>
+				    </div>
+            	</div>
+            	<div class="pull-left">
+            		<span class="title timer" data-from="0" data-to="30" data-speed="1800">30 MINS <span class="light">Estimated</span></span>
+            	</div>
+            </div>
+            
+		    
 			
 		</div>
 	</div>

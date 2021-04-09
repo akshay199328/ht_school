@@ -815,10 +815,13 @@ if(!function_exists('bp_course_item_view')){
               	<div class="middle-details">
                 <?php 
                 	$category_array = get_the_terms( $post->ID, 'course-cat');
+                	$excerpt = get_post_field('post_excerpt', $post->ID);
                 ?>
                 <h6><?php echo $category_array[0]->name; ?></h6>
                 <h2><?php bp_course_title(); ?></h2>
-
+                <?php if ( $excerpt != '' ) {
+                    echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
+                }  ?>
                 <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
                 <p>Sessions</p>
                 <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) == '') { ?>
@@ -836,10 +839,6 @@ if(!function_exists('bp_course_item_view')){
                 		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
                 	<?php }?>
                 </div>
-                <br/>
-                <br/>
-                <?php bp_course_desc(); ?>
-
               </div>
             </div>
             <div class="col-sm-12 col-lg-3 pull-left mrg">
@@ -851,20 +850,20 @@ if(!function_exists('bp_course_item_view')){
                       <?php the_course_button(); ?> 
                   </div>
                 </div>
-                <div class="heading">
+                <!-- <div class="heading">
                 	<h3>Instructor</h3>
-                </div>
+                </div> -->
                 <?php
-                $course_id=get_the_ID();
-                $post_tmp = get_post($course_id);
-                $author_id = $post_tmp->post_author;
-                $author_info = get_userdata($author_id);
-                $author_name = get_the_author_meta( 'display_name', $author_id );
-                $author_url = get_the_author_meta( 'user_url', $author_id );
-                $author_user_profile = get_avatar_url($author_id);
-                $author_company = get_the_author_meta( 'last_name', $author_id );
+                // $course_id=get_the_ID();
+                // $post_tmp = get_post($course_id);
+                // $author_id = $post_tmp->post_author;
+                // $author_info = get_userdata($author_id);
+                // $author_name = get_the_author_meta( 'display_name', $author_id );
+                // $author_url = get_the_author_meta( 'user_url', $author_id );
+                // $author_user_profile = get_avatar_url($author_id);
+                // $author_company = get_the_author_meta( 'last_name', $author_id );
                 ?>
-                <div class="col-sm-12 col-lg-7 pull-left mrg">
+                <!-- <div class="col-sm-12 col-lg-7 pull-left mrg">
                 	<div class="profile mt-auto">
                 		<div class="col-lg-12 profile-content">
                 			<div class="profileimg-name">
@@ -879,11 +878,13 @@ if(!function_exists('bp_course_item_view')){
                 			<div class="clearfix"></div>
                 		</div>
                 	</div>
-                </div>
+                </div> -->
 
               </div>
             </div>
+            
           </div>
+            
         </div>
    	<?php
    }

@@ -54,7 +54,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 
 		<?php do_action( 'bp_before_directory_course' ); ?>
 		<div class="row">
-			<div class="col-md-12 col-sm-12 mrg  top-pagination">
+			<div class="col-md-9 col-sm-9 mrg  top-pagination hide-progress">
 				<form action="" method="post" id="course-directory-form" class="hide-search dir-form">
 
 					<?php do_action( 'bp_before_directory_course_content' ); ?>
@@ -117,6 +117,12 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 
 				</form><!-- #course-directory-form -->
 			</div>	
+			<div class="col-lg-3 mrg adworks desktop-add right-adwork">
+            	<?php
+	              if ( is_active_sidebar( 'banner-1' ) ) : ?>
+	              <?php dynamic_sidebar( 'banner-1' ); ?>      
+	            <?php endif; ?>
+        	</div>
 			<div class="col-md-12 col-sm-8 mrg">
 				<?php
 					$sidebar = apply_filters('wplms_sidebar','buddypress',$id);

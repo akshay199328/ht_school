@@ -700,6 +700,7 @@ ol.breadcrumbs  {
 .owl-item:nth-child(3) .homecarousel_text .pull-right{
   width: 100%;
   float: left!important;
+  margin-left: 0px;
 }
 .home_slider .owl-dots{
   position: absolute;
@@ -5411,9 +5412,11 @@ p:empty{display: none;}
 .footer .bottom-detils .links li a:hover{
   color: #fade3b;  
 }
+
 .flex-direction-nav{
   display: none;
 }
+
 
 .certifications ul li:after{display: none!important;}
 @media (max-width: 992px) {

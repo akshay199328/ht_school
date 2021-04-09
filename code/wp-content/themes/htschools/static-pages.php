@@ -38,9 +38,10 @@ if(vibe_validate($title) || empty($title)){
                                $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                                $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
                                //print_r($menuitems);
-                               foreach ($menuitems as $menu) {  
+                               foreach ($menuitems as $menu) { 
+                               $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : ''; 
                                 if($menu->title != 'Contact Us'){
-                                   echo '<li><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
+                                   echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
                                 }
                                }
                            ?>

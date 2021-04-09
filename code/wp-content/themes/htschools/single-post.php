@@ -49,7 +49,6 @@ if ( has_post_thumbnail() ) {
 }
 
 $postCreatorName = get_post_meta(get_the_ID(), 'post_creator_name', true);
-
 // Current Post Tags List.
 $topics = wp_get_post_tags(get_the_ID());
 
@@ -92,7 +91,7 @@ $topics = wp_get_post_tags(get_the_ID());
       <div class="content-right">
         <div class="details">
           <div class="post-creator">
-            <p>By <strong><?php echo $postCreatorName; ?>,</strong> <br><?php echo $postDate; ?></p>
+            <p>By <strong><?php echo $postCreatorName;; ?>,</strong> <br><?php echo $postDate; ?></p>
             <!--   <p><?php echo $postDate; ?></p> -->
            <div class="share-icon">
              <!-- <a href="https://www.addtoany.com/share" class="a2a_dd"><svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
@@ -129,6 +128,9 @@ $topics = wp_get_post_tags(get_the_ID());
                     <a class="a2a_button_facebook"></a>
                     <a class="a2a_button_twitter"></a>
                     <a class="a2a_button_pinterest"></a>
+                    <a class="a2a_button_google_gmail"></a>
+                    <a class="a2a_button_whatsapp"></a>
+                    <a class="a2a_button_telegram"></a>
                   </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                 </div>
               </li>

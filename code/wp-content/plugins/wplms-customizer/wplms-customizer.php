@@ -422,11 +422,8 @@ function wplms_remove_snapshot_for_all(){
 }
 add_action('bp_before_profile_content','custom_show_profile_snapshot');
 
-function custom_show_profile_snapshot(){
+function custom_show_profile_snapshot($course_id,$user_id){
    global $bp;
-
-   
-   $user_id=bp_displayed_user_id();
 
    $certis=vibe_sanitize(get_user_meta($user_id,'certificates',false));
    
@@ -434,7 +431,7 @@ function custom_show_profile_snapshot(){
           echo '<div class="certifications"><h6>'.__('Certifications','vibe').'</h6><ul class="slides">';
           if(isset($certis) && is_Array($certis)) 
            foreach($certis as $certi){
-                  echo '<li><a href="'.bp_get_course_certificate('user_id='.$user_id.'&course_id='.$certi).'" class="ajax-certificate"><i class="icon-certificate-file"></i><span>'.get_the_title($certi).'</span></a></li>';
+                  echo '<li class="course_certificate"><a href="'.bp_get_course_certificate('user_id='.$user_id.'&course_id='.$course_id).'" target="_blank"><i class="icon-certificate-file"></i></a></li>';
 
            }
          echo '</ul></div>';  

@@ -842,7 +842,27 @@ if(!function_exists('bp_course_item_view')){
               </div>
             </div>
             <div class="col-sm-12 col-lg-3 pull-left mrg">
-                <div class="col-lg-12 right-details pull-left mrg">
+                
+                <div class="share-icon">
+	                <ul>
+	                  
+	                  <li class="hover_share">
+	                    <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+	                    <div class="display_icon">
+	                      <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
+	                        <a class="a2a_button_facebook"></a>
+	                        <a class="a2a_button_twitter"></a>
+	                        <a class="a2a_button_pinterest"></a>
+	                        <a class="a2a_button_google_gmail"></a>
+	                        <a class="a2a_button_whatsapp"></a>
+	                        <a class="a2a_button_telegram"></a>
+	                      </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+	                    </div>
+	                  </li>
+	                </ul>  
+	                <script async src="https://static.addtoany.com/menu/page.js"></script>
+              	</div>
+              	<div class="col-lg-12 right-details pull-left mrg">
                   
                   <div class="col-lg-12 course-button">
                       <h6><?php the_course_price(); ?>
@@ -850,36 +870,6 @@ if(!function_exists('bp_course_item_view')){
                       <?php the_course_button(); ?> 
                   </div>
                 </div>
-                <!-- <div class="heading">
-                	<h3>Instructor</h3>
-                </div> -->
-                <?php
-                // $course_id=get_the_ID();
-                // $post_tmp = get_post($course_id);
-                // $author_id = $post_tmp->post_author;
-                // $author_info = get_userdata($author_id);
-                // $author_name = get_the_author_meta( 'display_name', $author_id );
-                // $author_url = get_the_author_meta( 'user_url', $author_id );
-                // $author_user_profile = get_avatar_url($author_id);
-                // $author_company = get_the_author_meta( 'last_name', $author_id );
-                ?>
-                <!-- <div class="col-sm-12 col-lg-7 pull-left mrg">
-                	<div class="profile mt-auto">
-                		<div class="col-lg-12 profile-content">
-                			<div class="profileimg-name">
-                				<div class="col-xs-4 col-sm-2 col-lg-4 mrg profile-img pull-left">
-                					<img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
-                				</div>
-                				<div class="col-xs-6 col-sm-4 co-lg-3 pull-left">
-                					<h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
-                					<h4><?php echo $author_company; ?></h4>
-                				</div>
-                			</div>
-                			<div class="clearfix"></div>
-                		</div>
-                	</div>
-                </div> -->
-
               </div>
             </div>
             

@@ -141,6 +141,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                 <?php the_course_button(); ?> 
                                 <!-- <a href="<?php echo get_bloginfo('url')?>/certificates/my-certificate/?c=<?php echo $post->ID?>&u=<?php echo $user->ID?>">Certificate</a> -->
                             </div>
+                            <?php custom_show_profile_snapshot($post->ID,$user->ID);?>
                             <div class="profilecou-instructor">
                                 <div class="heading">
                                     <h3>Instructor</h3>

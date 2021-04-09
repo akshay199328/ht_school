@@ -13,63 +13,42 @@ get_header(vibe_get_header());
   <section id="hero" class="hero">
     <div class="header-space"></div>
     <div class="col-lg-12 mrg home_slider owl-carousel owl-theme">
+      <?php
+        $args1 = array(
+            'post_type' => 'banner',
+            'post_status' => 'publish',
+            'orderby' => 'id',
+            'order'   => 'ASC',
+            
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post(); 
+            $custom_fields = get_post_custom();
+            $image_url = wp_get_attachment_url($custom_fields['banner_image'][0]);
+            $mobile_image = wp_get_attachment_url($custom_fields['mobile_image'][0]);
+      ?>
         <div class="col-lg-12 mrg item">
           <div class="container">
             <div class="homecarousel_text">
               <div class="col-sm-12 col-md-6 mrg">
                 <div class="pull-left">
-                  <h1>WHERE IMAGINATION MEETS EDUCATION</h1>
+                
+                  <h1><?php echo $custom_fields['banner_title'][0];?></h1>
                 </div>
               </div>
               <div class="col-sm-12 col-md-6 mrg">
                 <div class="pull-right">
-                  <p>Imagine taking learning out of the four walls of the classroom. Imagine a virtual world where </p>
-                  <a href="#" class="learn_morebtn">Learn More…</a>
+                  <p><?php print_r(the_content()); ?></p>
+                  <a href="<?php echo $custom_fields['cta_link'][0];?>" class="learn_morebtn"><?php echo $custom_fields['cta_text'][0];?></a>
                 </div>
               </div>  
             </div>
           </div>
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider1.png'?>" class="desktop_img">
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider1-sm.png'?>" class="mobile_img">
+          <img src="<?php echo $image_url; ?>" class="desktop_img" />
+          <img src="<?php echo $mobile_image; ?>" class="mobile_img" />
         </div>
-        <div class="col-lg-12 mrg item">
-          <div class="container">
-            <div class="homecarousel_text">
-              <div class="col-sm-12 col-md-12 mrg">
-                <div class="pull-left">
-                  <h1>ONE SCHOOL WITH SIX DIMENSIONS </h1>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-12 mrg">
-                <div class="pull-left">
-                  <p>Schools are about students, teachers, and parents. HT School broad bases the concept of education by bringing in a whole</p>
-                  <a href="#" class="learn_morebtn">Learn More…</a>
-                </div>
-              </div>  
-            </div>
-          </div>
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider2.png'?>"class="desktop_img">
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3-sm.png'?>" class="mobile_img">
-        </div>
-        <div class="col-lg-12 mrg item">
-          <div class="container">
-            <div class="homecarousel_text">
-              <div class="col-sm-12 col-md-12 mrg">
-                <div class="pull-left">
-                  <h1>PUTTING THE COOL INTO SCHOOL </h1>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-12 mrg">
-                <div class="pull-left">
-                  <p>HT School is way beyond schooling. It gives wings to studentsin ways that were never thought possible…</p>
-                  <a href="#" class="learn_morebtn">Learn More…</a>
-                </div>
-              </div>  
-            </div>
-          </div>
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3.png'?>"class="desktop_img">
-          <img src="<?php echo get_bloginfo('template_url').'/assets/images/home-slider3-sm.png'?>" class="mobile_img">
-        </div>
+      <?php endwhile;endif; ?>
     </div>
 
   </section><!-- End Hero -->
@@ -83,7 +62,7 @@ get_header(vibe_get_header());
         <div class="row">
           <div class="col-sm-12 col-lg-4 mrg">
              <header class="section-header">
-                <h2>TRENDING COURSES</h2>
+                <h2>TRENDING COURSES</h2> 
                 <p>Access the world’s activities, anytime anywhere.</p>
                 <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover Courses</a>
             </header>
@@ -167,6 +146,9 @@ get_header(vibe_get_header());
                                     <a class="a2a_button_facebook"></a>
                                     <a class="a2a_button_twitter"></a>
                                     <a class="a2a_button_pinterest"></a>
+                                    <a class="a2a_button_google_gmail"></a>
+                                    <a class="a2a_button_whatsapp"></a>
+                                    <a class="a2a_button_telegram"></a>
                                   </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                                 </div>
                               </li>
@@ -346,7 +328,7 @@ get_header(vibe_get_header());
             </div>
           </div>
       </div> -->
-      <!-- ======== Testimonials Section ======== -->
+      <!-- ======= Testimonials Section ======= -->
       <div class="container testimonials" data-aos="fade-up">
         
         <div class="heading">

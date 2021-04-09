@@ -5181,6 +5181,8 @@ p:empty{display: none;}
 }
 .static_content .details{
   padding-top: 41.5px;
+      float: left;
+    width: 100%;
 }
 .static_content .sidebar {
     padding: 0px!important;

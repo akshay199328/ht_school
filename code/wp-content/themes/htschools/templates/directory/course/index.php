@@ -22,9 +22,9 @@ if(!isset($title) || !$title || (vibe_validate($title))){
                         }
                         
                 		if(is_tax()){
-                			echo '<h1>';
+                			echo '<h2>';
                 			single_cat_title();
-                			echo '</h1>';
+                			echo '</h2>';
                 			echo do_shortcode(category_description());
                 		}else{
 	                		echo '<h2>'.vibe_get_title($id).'</h2>';

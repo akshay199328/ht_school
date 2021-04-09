@@ -1152,7 +1152,7 @@ function wpfp_save_link( $return = 0, $action = "", $show_span = 1, $args = arra
 
 function wpfp_hhtml($post_id, $opt, $action) {
 
-  $opt = "<i class='bi bi-trash'></i>";
+  $opt = "<img src='".get_bloginfo('template_url')."/assets/images/delete-icon.svg'>";
     $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "'>". $opt ."</a>";
     $link = apply_filters( 'wpfp_link_html', $link );
     return $link;

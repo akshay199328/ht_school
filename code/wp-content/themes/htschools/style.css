@@ -5411,9 +5411,9 @@ p:empty{display: none;}
 .footer .bottom-detils .links li a:hover{
   color: #fade3b;  
 }
-
-
-
+.flex-direction-nav{
+  display: none;
+}
 
 .certifications ul li:after{display: none!important;}
 @media (max-width: 992px) {

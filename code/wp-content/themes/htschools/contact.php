@@ -46,6 +46,11 @@ if(have_posts()):while(have_posts()):the_post();
 ?>
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script type='text/javascript'>
+  let baseUrl = "<?php echo get_home_url(); ?>"
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = baseUrl + '/thank-you';
+  }, false );
+
   var map;
        
            function initialize() {

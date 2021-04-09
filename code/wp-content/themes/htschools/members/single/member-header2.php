@@ -36,7 +36,7 @@ $current_user = wp_get_current_user();
 							<a href="<?php bp_displayed_user_link(); ?>"><?php bp_displayed_user_fullname(); ?></a>
 						</h3>
 						<p><?php bp_displayed_user_email(); ?></p>
-						<a class="simple-link" href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/change-avatar">Change Profile Picture</a>
+						<a class="simple-link" href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/change-avatar">Change Avatar</a>
 					</div>
 				</div>
 			</div>

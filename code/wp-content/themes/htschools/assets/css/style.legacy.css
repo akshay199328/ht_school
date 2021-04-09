@@ -35941,7 +35941,7 @@ body {
 
 	.details-middle.devide ul li{
 		width: 45%;
-		float: left;
+		/*float: left;*/
 	}
 
 	.details.post-creator p {

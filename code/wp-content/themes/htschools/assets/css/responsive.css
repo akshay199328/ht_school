@@ -35,9 +35,26 @@
 }
 
 /*contact page css*/
+.contact-us .vc_column-inner{
+	padding: 25px 35px!important;
+    border: 1px solid #BEBEBE;
+    margin: 42px 15px 0px;
+    width: 95%!important;
+        background: #fff;
+}
+.contact-us  .wpb_content_element{margin-bottom: 27px;}
+.contact-us .vc_column-inner h1{
+	    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000;
+}
 .contact-us form{
-	padding: 15px;
-	border: 1px solid #BEBEBE;
+
+	/*padding: 15px;
+	    padding-top: 70px;
+	border: 1px solid #BEBEBE;*/
 }
 .contact-us input{
 	border-bottom: 1px solid #262626 !important;
@@ -46,6 +63,7 @@
 	border-left:  0px !important;
 	padding: 0px !important;
 	height: 40px;
+	background: transparent;
 }
 .contact-us label{
 	font-size: 14px;
@@ -70,21 +88,23 @@
 .contact-us textarea {
     font-size: 15px !important;
     color: #000;
-    padding: 15px;
-    border: 1px solid #707070;
+    border: 0;
     font-weight: 500;
-}
-input.wpcf7-form-control.wpcf7-submit {
-	padding: 0px 30px 0px 30px !important;
-	font-size: 15px;
-	font-weight: bold;
-	background-color: #000;
-	color: #fff !important;
+    padding: 28px 30px 20px 30px;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    background-color: #f8f8f8!important;
+    /* width: 559.8px; */
+    height: 160.8px;
 }
 
+.support-contact{
+	margin-top: 42px;
+}
 .support-contact .wpb_content_element{
 	border: 1px solid #BEBEBE;
-	padding: 15px 15px;
+	padding: 25px 35px;
+	    background: #fff;
 }
 .support-contact p a{
 	color: #0C5ACC !important;
@@ -101,10 +121,18 @@ input.wpcf7-form-control.wpcf7-submit {
 	font-size: 30px;
 	font-weight: 600 !important;
 	margin-bottom: 20px;
+	 line-height: 1.33;
 }
-
+.support-contact h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    margin: 22px 0px 0px;
+}
 section#content.section_contact{
-	padding-top: 110px !important;
+	padding-top: 5px !important;
+	    background: #F8F8F8
 }
 
 section#content.section_contact .pagetitle {
@@ -121,7 +149,18 @@ section#content.section_contact .pagetitle {
 	margin-left: 0px !important;
 	margin-top: 10px !important
 }
-
+input.wpcf7-form-control.wpcf7-submit{
+	    padding: 12px 35px 12px 35px !important;
+    font-size: 15px!important;
+    font-weight: bold!important;
+    line-height: 1.33!important;
+    background-color: #000!important;
+    color: #d5ebff !important;
+    height: 100%!important;
+}
+input.wpcf7-form-control.wpcf7-submit:hover{
+	transform: none!important;
+}
 /*contact page css*/
 
 /*course page*/
@@ -250,11 +289,14 @@ section#content.section_contact .pagetitle {
    background: url(../images/textarea_icon.png) top left;
  	background-size: 20px 20px;
     background-repeat: no-repeat;
-    background-position: 30px 12px;
+    background-position: 28px 29px;
     padding-left: 30px;
 }
 
-
+.your-message textarea:focus,
+.your-message textarea:visited{
+  background: none;
+}
 /*course page*/
 
 

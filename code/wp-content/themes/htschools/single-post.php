@@ -123,9 +123,7 @@ $topics = wp_get_post_tags(get_the_ID());
                  
               </li> -->
               <li class="hover_share">
-                <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-                  <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
-                </svg>
+                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
                 <div class="display_icon">
                   <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
                     <a class="a2a_button_facebook"></a>

@@ -14,7 +14,7 @@ $profile_layout = vibe_get_customizer('profile_layout');
 vibe_include_template("profile/top$profile_layout.php");  
 ?>
 <div id="item-body">
-    <div class="col-md-3 left_tabs">
+    <div class="col-md-3 left_tabs pull-left">
         <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
         	<ul class="">
         		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
@@ -24,7 +24,7 @@ vibe_include_template("profile/top$profile_layout.php");
         	<ul>
         </div><!-- .item-list-tabs -->
     </div>
-    <div class="col-md-9"> 
+    <div class="col-md-9 pull-left"> 
         <div class="profile-card transprent ">
             <h1>Saved Articles</h1>
             <div class="news-listing">
@@ -50,12 +50,12 @@ vibe_include_template("profile/top$profile_layout.php");
 
                 ?>
                 <div class="blogpost">
-                    <div class="col-sm-12 col-md-2 mrg">
+                    <div class="col-xs-2 col-sm-2 col-md-2 mrg">
                         <div class="featured">
                             <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_image; ?>"> </a>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-8 mrg">
+                    <div class="col-xs-8 col-sm-8 col-md-8 mrg">
                         <div class="excerpt thumb">
                             <div class="meta">
                              <div class="date">
@@ -75,7 +75,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         <p><?php echo wp_trim_words( get_the_excerpt(), 30); ?></p>
                     </div>
                 </div>
-                <div class="col-sm-2 col-md-2 mrg">
+                <div class="col-xs-2 col-sm-2 col-md-2 mrg">
                     <div class="share-icon">
                         <ul>
                             <li>
@@ -95,9 +95,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                 </a>
                             </li>
                             <li class="hover_share">
-                                <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-                                  <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
-                                </svg>
+                                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
                                 <div class="display_icon">
                                   <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
                                     <a class="a2a_button_facebook"></a>

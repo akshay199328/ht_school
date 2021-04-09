@@ -346,7 +346,7 @@ get_header(vibe_get_header());
             </div>
           </div>
       </div> -->
-      <!-- ======= Testimonials Section ======= -->
+      <!-- ======== Testimonials Section ======== -->
       <div class="container testimonials" data-aos="fade-up">
         
         <div class="heading">

@@ -12,7 +12,7 @@
 
 			<?php wp_nonce_field( 'bp_avatar_upload' ); ?>
 			<p><?php _e( 'Select a JPG, GIF  or PNG format from your system.', 'vibe' ); ?></p>
-<!--Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.---->
+<!----Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.---->
 			<p id="avatar-upload">
 				<input type="file" name="file" id="file" />
 				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Avatar', 'vibe' ); ?>" />

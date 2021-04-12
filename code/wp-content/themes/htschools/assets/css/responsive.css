@@ -1,4 +1,4 @@
-.details-middle.devide ul li:first-child {
+sa.details-middle.devide ul li:first-child {
     padding-top: 0px;
 }
 .details-middle.devide ul li:nth-child(4) {
@@ -310,7 +310,137 @@ input.wpcf7-form-control.wpcf7-submit:hover{
     z-index: 99999;
     box-shadow: -3px 0px 6px #00000016;
 }
+
+.right_feedback .modal-header {
+    padding: 20px 30px;
+    border-bottom: 1px dotted #000000;
+}
+.right_feedback .modal-header .close{
+	padding: 0px 20px;
+}
+.right_feedback .modal-header .close span {
+    color: #000 !important;
+    font-weight: 600;
+}
+.right_feedback h5.modal-title{
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 33px;
+	color: #000;
+}
+.model_body{
+	padding: 20px 30px;
+	display: inline-block;
+}
+.model_body p.rate_course{
+	font-size: 14px;
+	font-weight: 400;
+	color: #A2A0A0;
+	line-height: 19px;
+}
+.model_body .rate_star{
+	background: url(../images/green_star.png) top left;
+ 	background-size: 35px 33px;
+    background-repeat: no-repeat;
+    background-position: 0px 29px;
+    padding: 22px;
+}
+.rating_div {
+    padding-bottom: 35px;
+}
+.model_body .rate_star_wh{
+	background: url(../images/white_star.png) top left;
+ 	background-size: 35px 33px;
+    background-repeat: no-repeat;
+    background-position: 0px 29px;
+    padding: 22px;
+}
+.saved_coursebtn .savedbtn{
+	width: 90px;
+	padding: 9px 0px 9px;
+    border: solid 1px #A2A0A0;
+    text-align: center;
+    float: left;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 15px;
+    color: #000;
+    text-transform: uppercase;
+}
+.saved_coursebtn a.savedbtn.active {
+    background-color: #00d98e;
+    color: #fff;
+}
+
+.saved_coursebtn {
+    width: 400px;
+}
+.saved_textarex.your-message textarea{
+	background-position: 30px 29px;
+    padding-left: 70px;
+    padding-top: 28px;
+    background-color: #f7f7f7;
+    height: 230px;
+}
+.saved_submitbtn {
+    padding: 15px 30px;
+}
+button.saved_feedbackbtn {
+    background-color: #000;
+    border: 0px;
+    padding: 10px 20px;
+}
+button.saved_feedbackbtn span{
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 20px;
+}
 /*Feedbck sidebar css: END*/
+
+.course_status .course_content .course_content_content_wrapper .next_curriculum_item{
+	display: none !important;
+}
+.plyr__control--overlaid{
+	background:#fade3b !important;
+	color: #000 !important; 
+}
+.plyr--full-ui input[type=range]{
+	color: #fade3b !important;
+}
+
+/*login-section*/
+.user_menu{
+	width: 230px !important;
+	top: -1px !important;
+	right: -1px !important;
+}
+.user_menu.active a{
+	font-size: 15px !important;
+	line-height: 40px !important;
+	color: #707070 !important;
+	padding: 0px 10px !important;
+	font-weight: 400 !important;
+}
+.user_menu.active a>span{
+	line-height: 40px !important;
+}
+.usermenu_content a.active{
+	font-weight: 600 !important;
+    color: #000 !important;
+}
+
+.usermenu_content a.active span{
+	font-weight: 600 !important;
+    color: #000 !important;
+}
+.user_menu.active:after{
+	top: 0px !important;
+}
+
+/*login-section*/
 
 /*responsive added css by satish*/
 
@@ -696,6 +826,36 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 		.section_contact ol.breadcrumbs{
 			margin-top: 10px !important
 		}
+		/*course journey*/
+		.course_status .course_timeline .course_heading h2{
+			font-size: 24px !important;
+			line-height: 27px !important;
+		}
+		.course_progress_wrapper>span{
+			font-size: 11px !important;
+			line-height: 15px !important
+		}
+		.course_status .course_timeline .course_action_points .action_points a{
+			font-size: 15px !important;
+		}
+		.course_status .course_timeline>ul li.section p span.lesson_count, .course_status .course_timeline>ul li.section p span.lesson_duration{
+			font-size: 11px !important;
+			color: #fff !important;
+		}
+		.course_status .course_timeline>ul li.open_lesson .lesson_title{
+			font-size: 14px !important;
+			line-height: 19px !important;
+		}
+		.course_timeline{
+			border-right: 0px solid var(--border) !important;
+		}
+		.course_content_content .video_wrapper .plyr{
+			height: 352px !important;
+		}
+		.course_content .course_content_content p{
+			font-size: 15px !important;
+		}
+		/*course journey*/
 }
 	@media screen and (max-width:375px) {
 		.woocommerce-cart table.cart td.actions .coupon{

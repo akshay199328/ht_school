@@ -21,7 +21,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_HTTPHEADER => array(
-    'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTc5NDUwOTZ9.zvNbfyBBK8WJNT6xvfdzY8AGaRF4nUcdKO_H_Wn7J5M',
+    'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgyMDg2NzV9.Z7dHuLq8wQ2xB3ZZ48mKk0tGelLIhuDfneu2QKdZn80',
     'Cookie: connect.sid=s%3AJWoQe1D0xmO1_P1J-95EvmdkAOFzSTRO.oPW%2BXPJbxLPzIyEJzo79Kmn8IiXD0W60aiYYpwlvBaY'
   ),
 ));
@@ -134,7 +134,7 @@ foreach ($unitDecoded->data as $unitDecode ) {
 
 }
 
-echo "<pre>";print_r($unitDecoded);exit;
+//echo "<pre>";print_r($unitDecoded);exit;
 
 
 

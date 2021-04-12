@@ -36141,6 +36141,23 @@ body {
 	.dashboard_accountinfo .profile-card .standard-form {
 	    width: 100%;
 	}
+	.changeavtar_details p{color: #000;font-size: 14px;}
+	.changeavtar_details .btn{
+		padding: 14px 5px 14px 5px;
+	    width: 135px;
+	    background-color: #000000!important;
+	    font-size: 15px;
+	    font-weight: bold;
+	    font-stretch: normal;
+	    font-style: normal;
+	    line-height: 1.33;
+	    letter-spacing: normal;
+	    text-align: center;
+	    color: #fade3b!important;
+	    border: 0px;
+	    border-radius: 0px;
+	    display: inline-table;
+	}
 	#buddypress .standard-form label, #buddypress .standard-form span.label{
 		font-size: 12px;
 	}

@@ -133,7 +133,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       <div class="fixedmenu-tabs">
                         <div class="container">
                           <div class="row">
-                              <ul class="nav nav-tabs" id="">
+                              <ul class="nav nav-tabs left_tab" id="">
                                   <li class="nav-item">
                                     <a class="nav-link scrollto active" href="#overview">Overview</a>
                                   </li>

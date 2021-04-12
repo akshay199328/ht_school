@@ -410,6 +410,6 @@ padding: 15px 0;
 @media (max-width: 991px){
     header.sleek #trigger {display: none!important;}
     .course-listing .pagetitle.breadcrumbs {padding-left: 0px !important;padding-right: 0px!important;}
-    .course-listing {margin-top: 0px;}
+    .course-listing {margin-top: 0px;padding-bottom: 0px !important;}
     
 }

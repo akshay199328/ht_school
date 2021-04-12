@@ -1,3 +1,4 @@
+<div class="changeavtar_details">
 <h4><?php _e( 'Change Avatar', 'vibe' ); ?></h4>
 
 <?php do_action( 'bp_before_profile_avatar_upload_content' ); ?>
@@ -15,8 +16,8 @@
 <!----Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.---->
 			<p id="avatar-upload">
 				<input type="file" name="file" id="file" />
-				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Avatar', 'vibe' ); ?>" />
-				<input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Avatar', 'vibe' ); ?>" class="btn" />
+				<input type="hidden" name="action" id="action" value="bp_avatar_upload" class="btn" />
 			</p>
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
@@ -57,3 +58,4 @@
 <?php endif; ?>
 
 <?php do_action( 'bp_after_profile_avatar_upload_content' ); ?>
+</div>

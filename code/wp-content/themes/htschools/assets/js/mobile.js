@@ -61,7 +61,7 @@ $(document).ready(function() {
     items: 1,
     responsiveClass: true,
     autoplay: true,
-    autoplayTimeout:2000,
+    autoplayTimeout:5000,
     autoplayHoverPause: true,
     dots:true,
     responsive: {
@@ -86,19 +86,46 @@ $(document).ready(function() {
 
     if($(window).width() <= 992) {
         // alert("hello");
-      $('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-carousel');
-      $('.mobile-slider, .courses-slider, .course-listslider').addClass('owl-theme');
+      $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-carousel');
+      $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-theme');
+      $('.left_tab li').addClass('item');
       $('.mobile-slider').addClass('responsive_slider');
       $('.courses-slider').addClass('coursesmobile_slider');
       $('.course-listslider').addClass('coursemobile_listslider');
-
+      $('.left_tab').owlCarousel({
+                loop: false,
+                margin: 0,
+                responsiveClass: true,
+                autoplay: false,
+                autoplayTimeout:5000,
+                autoplayHoverPause: false,
+                responsive: {
+                  0: {
+                    items: 2,
+                    nav: false,
+                    dots:false
+                  },
+                 600: {
+                    items:2,
+                    nav: false,
+                    dots:false
+                  },
+                  768: {
+                    item:3,
+                    nav: false,
+                    loop: false,
+                    margin: 0,
+                    dots:false
+                  }
+                }
+              })
     }
     $('.responsive_slider').owlCarousel({
-        loop: true,
+        loop: false,
         margin: 20,
         responsiveClass: true,
         autoplay: true,
-        autoplayTimeout:2000,
+        autoplayTimeout:5000,
         autoplayHoverPause: true,
         nav: false,
         dots:false,
@@ -114,7 +141,7 @@ $(document).ready(function() {
           991: {
             items:2,
             nav: true,
-            loop: true,
+            loop: false,
             margin: 20
           }
         }
@@ -124,7 +151,7 @@ $(document).ready(function() {
         margin: 20,
         responsiveClass: true,
         autoplay: true,
-        autoplayTimeout:2000,
+        autoplayTimeout:5000,
         autoplayHoverPause: true,
         nav: false,
         dots:false,
@@ -147,10 +174,10 @@ $(document).ready(function() {
       })
       $('.coursemobile_listslider').owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 0,
         responsiveClass: true,
         autoplay: true,
-        autoplayTimeout:2000,
+        autoplayTimeout:5000,
         autoplayHoverPause: true,
         nav: false,
         dots:false,
@@ -158,7 +185,7 @@ $(document).ready(function() {
           0: {
             items:3,
             nav: false,
-            margin: 20
+            margin: 0
           },
           480: {
             items:3,
@@ -176,7 +203,7 @@ $(document).ready(function() {
             items:6,
             nav: false,
             loop: true,
-            margin: 20
+            margin: 0
           }
         }
       });
@@ -186,7 +213,7 @@ $(document).ready(function() {
                 margin: 20,
                 responsiveClass: true,
                 autoplay: true,
-                autoplayTimeout:2000,
+                autoplayTimeout:5000,
                 autoplayHoverPause: true,
                 nav: false,
                 dots:false,
@@ -207,4 +234,6 @@ $(document).ready(function() {
                   }
                 }
               })
+
+        
 });

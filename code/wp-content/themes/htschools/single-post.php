@@ -185,7 +185,7 @@ $topics = wp_get_post_tags(get_the_ID());
           </div>
 
            <!-- releted news -->
-          <div class="releted_news_section">
+          <div class="releted_news_section left-spacing">
              <div class="atwork_img">
           <?php
           if ( is_active_sidebar( 'banner-2' ) ) : ?>

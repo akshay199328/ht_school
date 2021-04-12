@@ -153,7 +153,9 @@ vibe_include_template("profile/top$profile_layout.php");
     	<?php } ?>
     </div>
 </div>
-
+<div class="right_feedback">
+  
+</div>
 <?php do_action( 'bp_after_member_settings_template' ); ?>
 		
 <?php

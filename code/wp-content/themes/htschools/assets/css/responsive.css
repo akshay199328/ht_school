@@ -299,6 +299,18 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 }
 /*course page*/
 
+/*Feedbck sidebar css: START*/
+.right_feedback {
+    width: 570px;
+    background: #fff;
+    position: fixed;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 99999;
+    box-shadow: -3px 0px 6px #00000016;
+}
+/*Feedbck sidebar css: END*/
 
 /*responsive added css by satish*/
 

@@ -437,3 +437,70 @@ function custom_show_profile_snapshot($course_id,$user_id){
          echo '</ul></div>';  
       }
 }
+
+// Extra Fields for Celebrity API.
+
+add_filter('wplms_course_metabox','custom_artist_name');
+function custom_artist_name($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Artist Name','vibe-artist-name'), // <label>
+  'desc'  => __('Artist Name','vibe-artist-name'), // description
+  'id'    => $prefix.'artist_name', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}
+
+add_filter('wplms_course_metabox','custom_rank');
+function custom_rank($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Rank','vibe-rank'), // <label>
+  'desc'  => __('Rank','vibe-rank'), // description
+  'id'    => $prefix.'rank', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}
+
+add_filter('wplms_course_metabox','custom_artist_profession');
+function custom_artist_profession($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Prefession','vibe-artist-profession'), // <label>
+  'desc'  => __('Prefession','vibe-artist-profession'), // description
+  'id'    => $prefix.'profession', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}
+
+add_filter('wplms_course_metabox','custom_trailer_link');
+function custom_trailer_link($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Trailer Link','vibe-trailer-link'), // <label>
+  'desc'  => __('Trailer Link','vibe-trailer-link'), // description
+  'id'    => $prefix.'trailer_link', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}
+
+add_filter('wplms_course_metabox','custom_promocode_applied');
+function custom_promocode_applied($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('PromoCode Applied','vibe-promocode-applied'), // <label>
+  'desc'  => __('PromoCode Applied','vibe-promocode-applied'), // description
+  'id'    => $prefix.'promocode_applied', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}

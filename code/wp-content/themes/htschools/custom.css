@@ -397,6 +397,12 @@ padding: 15px 0;
 .display_icon .a2a_kit a:last-child{
         margin-right:0px;
 }
+.newsdetail_caption {
+    font-size: 12px!important;
+    color: #E5E5E5!important;
+    line-height: 16px!important;
+    margin: 10px 0px!important;
+}
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}
     .right-details .course-button{padding-top: 65px!important;}

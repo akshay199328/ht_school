@@ -74,10 +74,10 @@ $topics = wp_get_post_tags(get_the_ID());
                   <h1><?php the_title(); ?></h1>
 
                   <?php the_sub_title(); ?>
-                  <h5><?php echo wp_trim_words( get_the_excerpt(), 30); ?></h5>
                 </div>
               </div>
               <img src="<?php echo $featured_image; ?>">
+              <p class="newsdetail_caption"><?php echo wp_trim_words( get_the_excerpt(), 30); ?></p>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 <?php }else{
                   $url = "/login-register";
                   ?>
-                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bi bi-bookmark"></i></a></li> 
+                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove"></i></a></li> 
                   <?php
                 }
                 ?>

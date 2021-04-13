@@ -33,7 +33,11 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
 }
 .border-menu:after{top: 1px!important}
 .custom-dropdown, .my-course{background: transparent;}
-.course-template-default .custom-dropdown{
+.custom-dropdown.active,
+.my-course.active,
+.course-template-default .my-course,
+.course-template-default .custom-dropdown
+{
     background: #000;
 }
 .custom-dropdown:before {
@@ -60,7 +64,10 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     bottom: 4px;
     left: 9px;
 }
-.course-template-default .custom-dropdown a:after{
+.custom-dropdown.active a:after,
+.course-template-default .my-course a:after,
+.course-template-default .custom-dropdown a:after
+{
     border-bottom: 1px solid #fff;
 }
 #buddypress .course.dir-list {padding: 0px;}

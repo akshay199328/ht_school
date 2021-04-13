@@ -35416,7 +35416,7 @@ body {
  	/*color: #fff!important;*/
  	    padding: 7px 20px 9px 10px;
  }
-.course-template-default .custom-dropdown  a{
+ .custom-dropdown.active  a{
 	color: #fff!important;
 }
  .single-course .header{

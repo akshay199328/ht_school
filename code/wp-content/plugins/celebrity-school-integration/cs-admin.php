@@ -22,9 +22,9 @@ if ( isset($_GET['action'] ) ) {
           CURLOPT_TIMEOUT => 0,
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => 'POST',
+          CURLOPT_CUSTOMREQUEST => 'GET',
           CURLOPT_HTTPHEADER => array(
-            'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgyODgxMjZ9.Ba4xOiA_W7-WOkzZWW7f63V-tWAED1Jf90Ehjqt-82o'
+            'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgyODk5NjV9.LCowzrBdKASwUcTLz73sxaTvaXc7BMH6zqIfhGmZ0Ws'
           ),
         ));
 
@@ -34,7 +34,7 @@ if ( isset($_GET['action'] ) ) {
 
         $responseCategory = json_decode($response);
 
-          //echo "<pre>hkhkhkk";print_r($response);exit;
+          //echo "<pre>hkhkhkk";print_r($responseCategory);exit;
 
         $props = array();
         foreach ($responseCategory as $category) {
@@ -64,7 +64,7 @@ if ( isset($_GET['action'] ) ) {
         //echo "<pre>";print_r($existingCategory);exit;
 
         foreach ($props as $prop) {
-        echo "<pre>";print_r($prop);exit;
+        //echo "<pre>";print_r($prop);exit;
           if(!in_array($prop['name'], $existingCategory)){
 
             $catInsert = wp_insert_term($prop['name'], 'course-cat', $prop);
@@ -111,8 +111,6 @@ if ( isset($_GET['action'] ) ) {
 
         }
 
-
-
         if(!is_wp_error($catInsert)){
           echo "<pre>";print_r("Category Inserted Successfully");exit;
           //the post is valid
@@ -120,8 +118,8 @@ if ( isset($_GET['action'] ) ) {
           echo $catInsert->get_error_message();
         }
 
-             
-     
+    }elseif($_GET['action'] == 'sync-courses'){
+      echo "courses";exit;
     }
 }
 ?>
@@ -167,6 +165,15 @@ jQuery(document).ready(function($) {
                         </div>
                     </div>
                 </td>
+            </tr>
+            <tr>   <th></th>
+              <td>
+                <div class="submitbox">
+                  <div id="delete-action">
+                    <a href="?page=wp-celeb-school&amp;action=sync-courses" id="wpcs-sync-cat" class="button">Sync Courses</a>
+                  </div>
+                </div>
+              </td>
             </tr>
         </table>
     </div>

@@ -4808,11 +4808,17 @@ border-color: transparent;
   background: #FADE3B;
   border-color: transparent;
 }
+.left-listing li:hover h4, .left-listing li.active  h4{
+  font-weight: bold!important;
+}
 .left-listing li h4{
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 300!important;
     line-height: 20px;
     color: #000;
+}
+.left-listing li a{
+  color: #000;
 }
 .middle-table {
     padding: 0px 30px;
@@ -5523,6 +5529,7 @@ p:empty{display: none;}
     .header-space {margin-top: 70px;}
     .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher{margin-top: 75px!important;}
     section#title {margin-top: 0px!important;}
+    .learing_card{padding-top:20px;}
     .left-spacing {padding-left: 0px!important;}
     .header .middle-menu{padding: 0;}
     .header .left-menu, .right-menu .text, .right-menu ul li a:after, 
@@ -5695,7 +5702,8 @@ p:empty{display: none;}
         margin-left: 0px;
         float: left!important;
     }
-    .home_slider .homecarousel_text {
+    .home_slider .homecarousel_text, 
+    .home_slider .homecarousel_text .pull-right {
         position: relative;    
         word-break: break-word;
         width: 100% !important;

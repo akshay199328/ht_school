@@ -23,53 +23,65 @@ vibe_include_template("profile/top$profile_layout.php");
 			<div class="left-listing">
 				<ul class="mobile-slider">
 					<li class="active item">
-						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-							<!-- <img src="assets/images/dashboard-1.svg"/> -->
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-						</div>
-						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-							<h4>Natural Language Processing</h4>
-						</div>
+						<a href="#">
+							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+								<!-- <img src="assets/images/dashboard-1.svg"/> -->
+								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
+								<h4>Natural Language Processing</h4>
+							</div>
+						</a>
 					</li>
 					<li class="item">
-						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-						</div>
-						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-							<h4>Strategies for Launching Your Creative Career</h4>
-						</div>
+						<a href="#">
+							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
+								<h4>Strategies for Launching Your Creative Career</h4>
+							</div>
+						</a>
 					</li>
 					<li class="item">
-						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-						</div>
-						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-							<h4>Data Science for Business Leaders</h4>
-						</div>
+						<a href="#">
+							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
+								<h4>Data Science for Business Leaders</h4>
+							</div>
+						</a>
 					</li>
 					<li class="item">
-						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-						</div>
-						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-							<h4>Strategies for Launching Your Creative Career</h4>
-						</div>
+						<a href="#">
+							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
+								<h4>Strategies for Launching Your Creative Career</h4>
+							</div>
+						</a>
 					</li>
 					<li class="item">
-						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-						</div>
-						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-							<h4>Data Science for Business Leaders</h4>
-						</div>
+						<a href="#">
+							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
+								<h4>Data Science for Business Leaders</h4>
+							</div>
+						</a>
 					</li>
 					<li class="item">
-						<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-						</div>
-						<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-							<h4>Strategies for Launching Your Creative Career</h4>
-						</div>
+						<a href="#">
+							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
+								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
+								<h4>Strategies for Launching Your Creative Career</h4>
+							</div>
+						</a>
 					</li>
 				</ul>
 			</div>

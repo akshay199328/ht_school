@@ -88,7 +88,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                                 <?php }else{
                                           $url = "/login-register";
                                           ?>
-                                             <a href="<?php echo get_site_url().$url; ?>"><i class="bi bi-bookmark"></i></a> 
+                                             <a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove"></i></a> 
                                           <?php
                                       }
                                   ?>

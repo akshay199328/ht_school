@@ -106,7 +106,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         <?php }else{
                           $url = "/login-register";
                           ?>
-                          <a href="<?php echo get_site_url().$url; ?>"><i class="bi bi-bookmark"></i></a> 
+                          <a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove"></i></a> 
                           <?php
                         }
                         ?>
@@ -153,7 +153,7 @@ vibe_include_template("profile/top$profile_layout.php");
   <?php } ?>
 </div>
 </div>
-<div class="right_feedback">
+<!-- <div class="right_feedback">
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLongTitle">Strategies for Launching Your
     Creative Career</h5>
@@ -186,7 +186,7 @@ vibe_include_template("profile/top$profile_layout.php");
   <div class="saved_submitbtn">
     <button class="saved_feedbackbtn"><span>Submit Feedback</span></button>
   </div>
-</div>
+</div> -->
 <?php do_action( 'bp_after_member_settings_template' ); ?>
 
 <?php

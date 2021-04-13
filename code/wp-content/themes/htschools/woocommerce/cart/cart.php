@@ -32,9 +32,9 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 					<thead>
 						<tr>
-							<th class="product-remove">&nbsp;</th>
-							<th class="product-thumbnail">&nbsp;</th>
-							<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
+							<th class="product-remove"></th>
+							<!-- <th class="product-thumbnail">&nbsp;</th> -->
+							<th colspan="2" class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
 							<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
 						</tr>
 					</thead>

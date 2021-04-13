@@ -10964,7 +10964,7 @@ body {
  .form-control[disabled],
  .form-control[readonly],
  fieldset[disabled] .form-control {
- 	background-color: #eee;
+ 	background-color: transparent;
  	opacity: 1
  }
 
@@ -24779,23 +24779,12 @@ body {
 
  }
 
- #buddypress .standard-form input::placeholder { 
+ #buddypress .standard-form input::-webkit-input-placeholder { 
  	color: #A2A0A0;
  	font-weight: 500;
  	font-size: 18px;
  }
 
- #buddypress .standard-form input:-ms-input-placeholder {
- 	color: #A2A0A0;
- 	font-weight: 500;
- 	font-size: 18px;
- }
-
- #buddypress .standard-form input::-ms-input-placeholder {
- 	color: #A2A0A0;
- 	font-weight: 500;
- 	font-size: 18px;
- }
  #buddypress .standard-form select {
  	/*padding: 3px*/
  	background-image: url('../images/profile-dropdown.svg');
@@ -35345,12 +35334,23 @@ body {
     /*background: transparent!important;*/
     margin-top: 116px;
 }
+
+
+.woocommerce-cart .cart-collaterals .cart_totals table{
+	border-collapse: collapse;
+}
+.woocommerce-cart table.cart td.actions .coupon{
+	width: 100%;
+}
 .woocommerce a.remove{
       color: #000000!important;
           font-size: 24px;
     height: auto;
     width: auto;
     font-weight: normal;
+}
+.woocommerce a.remove:hover{
+	background: transparent!important;color: #000000!important;
 }
  .woocommerce-page .cart-collaterals{background: #fff; padding: 20px;border: 1px solid #BEBEBE;}
  .woocommerce-page .checkout-button, .woocommerce-checkout #payment div.form-row button {
@@ -35364,22 +35364,7 @@ body {
     letter-spacing: normal;
     color: #D5EBFF;
  }
- .woocommerce-page .woocommerce-Price-currencySymbol,
- .woocommerce-page .woocommerce-Price-amount, .cart_item td.product-name a{font-weight: 500;font-size: 18px; color: #000}
- .woocommerce-page .woocommerce-Price-currencySymbol span{font-size: 18px; color: #000}
- .shop_table_responsive{background: #fff;}
- .woocommerce-cart .cart-collaterals .cart_totals table{padding:0px!important;    border: 0px;}
- .woocommerce table.shop_table td, 
- .woocommerce table.shop_table th {
- 	border-top: 0px!important;
-    padding: 16px 0!important;
-    font-weight: 500!important;
-    border-bottom: 1px dotted #707070!important;
- }
- .woocommerce-cart .cart-collaterals .cart_totals table th,  
- .woocommerce-cart .cart-collaterals .cart_totals table td {
- 	border: 0px!important
- }
+
  .woocommerce-cart .cart-collaterals .cart_totals h2 {
     margin: 0;
     padding: 0 0 20px!important;
@@ -35387,7 +35372,7 @@ body {
     text-transform: capitalize!important;
     font-weight: bold!important;
     color: #000!important;
-    border-bottom: 1px dotted rgba(0,0,0,.08)!important;
+    border-bottom: 1px dotted #707070e5!important;
 }
  /*------Added by bhavna-------*/
 .order_details_page{border: 1px solid #BEBEBE;}
@@ -35498,8 +35483,6 @@ body {
  }
 
 
-
-
  /*added by satish*/
 
  .woocommerce .quantity .qty{
@@ -35521,6 +35504,7 @@ body {
 		height: 45px;
 		border: 1px solid #000000;
 		margin: 0px;
+		max-width: 289px;
 	}
 
 	.woocommerce-cart table.cart td.actions .coupon button{
@@ -35551,10 +35535,7 @@ body {
 		padding: 15px;
 	}
 
-	.woocommerce-cart .cart-collaterals .cart_totals tr td, 
-	.woocommerce-cart .cart-collaterals .cart_totals tr th{
-		color: #000000;
-	}
+	
 
 	.woocommerce-billing-fields{
 		background-color: #fff;
@@ -35628,9 +35609,7 @@ body {
 		font-weight: 700;
 		font-size: 14px;
 	}
-	.woocommerce table.shop_table{
-		padding: 20px !important;
-	}
+	
 .custom_checkoutTable table.shop_table{
 		border: 0px!important;
     	padding: 0px !important;
@@ -35747,12 +35726,36 @@ body {
 		background: #fff;
 		padding: 20px;
 	}
-
-	.woocommerce table.shop_table{
+	table.shop_table  {
+	 	border-collapse: collapse!important;
+	 }
+	.woocommerce-cart-form{
 		background-color: #fff;
 		border: 1px solid #BEBEBE;
+		padding: 20px ;
 	}
-
+	/*-----CART TABLE CSS : START-------*/
+	.woocommerce table.shop_table thead{
+		border: 0px;
+	}
+	.woocommerce table.shop_table tbody tr{
+		border-top: 1px dotted #707070; 
+	}
+	.woocommerce table.shop_table th, .woocommerce table.shop_table td{
+		border-top: 0px;
+	    padding: 20px 5px;
+	    font-weight: 500;
+	     color: #000000;
+	}
+	.woocommerce table.shop_table th{
+		font-size: 15px;
+		line-height: 1.33;
+	}
+	.woocommerce table.shop_table td, .woocommerce table.shop_table td a{
+		font-size: 18px;
+		line-height: 1.11;
+		color: #000;
+	}
 	h2.woocommerce-order-details__title {
 		background-color: #fff;
 		padding: 20px 20px;
@@ -35808,12 +35811,12 @@ body {
 	.otp_button .arrow_btn{
 		padding: 9px 0px !important;
 	}
-	.login-box .btn.submit_btn{
+	/*.login-box .btn.submit_btn{
 		background-color: #707070 !important;
 	}
 	.login-box .btn.submit_btn:hover{
 		background-color: #000 !important;
-	}
+	}*/
 	.resend-info{
 		float: left;
 		width: 100%;

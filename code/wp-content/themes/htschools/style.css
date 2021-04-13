@@ -1276,8 +1276,8 @@ Course Details
       margin-bottom: 15px;
 }
 .course-list span, .course-list .item{
-  width:103px;
-    padding: 9px 5px 9px;
+  width:auto;
+    padding: 9px 20px 9px;
   border: solid 3px #fade3b;
   text-align: center;
   float: left;
@@ -3916,6 +3916,7 @@ button.course-button .button
     width: 740px;
     margin: 0px auto;
     background: #F8F8F8;
+    box-shadow: 1px 14px 25px rgb(124 172 216 / 50%);
 }
 .login-left img{width: 100%;height: 640px;}
 .login-box .login-right {
@@ -3969,8 +3970,9 @@ button.course-button .button
     color: #fff;
 }
 .login-box .btn.submit_btn{
-    background: #7b7b7b;
-    color: #cdbe69;
+    
+    background: #000;
+    color: #FADE3B;
         margin: 0px;
     text-align: center;
     font-size: 16px;
@@ -3978,11 +3980,11 @@ button.course-button .button
     width: 100%;
 }
 .login-box .btn.submit_btn a{color: #cdbe69;}
-.login-box .btn.submit_btn:hover{
-    background: #000;
-    color: #FADE3B;
+.login-box .btn[disabled]{
+    background: #7b7b7b;
+    color: #cdbe69;
+    opacity: 1;
 }
-.login-box .btn.submit_btn:hover a{color: #FADE3B;}
 .btn:focus, .btn.focus, .form-control:focus{
     outline: 0;
     box-shadow: 0 0 0 0rem rgb(0 123 255 / 25%);
@@ -5692,7 +5694,11 @@ p:empty{display: none;}
     }
     .course-button a{width: auto!important;padding-left: 15px;padding-right: 15px;}
     .profile-card .news-listing .blogpost .excerpt.thumb{margin-top: 0px!important;padding-left: 20px;}
-
+    .Profile_details {padding-left: 12px;}
+    .dashboard_header .details_align{padding-right: 0px;}
+    .dashboard_content #item-header h3 {font-size: 24px;line-height: 24px;}
+    .dashboard_content #item-header p{font-size: 14px;}
+    .dashboard_header #item-header-avatar {width: 70px!important;height: 70px;}
 }
 
 @media screen and (max-width:767px) and (min-width:320px){

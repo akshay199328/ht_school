@@ -77,7 +77,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 </div>
               </div>
               <img src="<?php echo $featured_image; ?>">
-              <p class="newsdetail_caption"><?php echo wp_trim_words( get_the_excerpt(), 30); ?></p>
+              <p class="newsdetail_caption"><?php echo get_post_meta(get_the_ID(), 'image_caption', true);?></p>
             </div>
           </div>
         </div>

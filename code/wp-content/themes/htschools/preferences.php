@@ -7,8 +7,8 @@
  * @subpackage bp-default
  */
 
+acf_form_head();
 get_header( vibe_get_header() ); 
-
 $profile_layout = vibe_get_customizer('profile_layout');
 
 vibe_include_template("profile/top$profile_layout.php");  
@@ -29,7 +29,35 @@ vibe_include_template("profile/top$profile_layout.php");
             <h1>Your Interests</h1>
             <div class="col-md-12 col-sm-12 profile_searchbox mrg">
                 <form action="" id="search-form" method="get">
-                   <div class="search_section">
+                    
+
+                    <?php 
+                    acf_form();
+                        $user = wp_get_current_user();
+
+                        $options = array(
+                          // 'field_groups' => ['group_5cbd99ef0f584'],
+                          'fields' => ['field_6073fa78fd159'],
+                          'form_attributes' => array(
+                            'method' => 'POST',
+                            'action' => admin_url("admin-post.php"),
+                          ),
+                          'html_before_fields' => sprintf(
+                            '<input type="hidden" name="action" value="adaptiveweb_save_profile_form">
+                            <input type="hidden" name="user_id" value="user_%s">',
+                            $user->ID
+                          ),
+                          'post_id' => "user_{$user->ID}",
+                          'form' => true,
+                          'html_submit_button' => '<button type="submit" class="acf-button button button-primary button-large" value="Update Profile">Update Profile</button>',
+                          'updated_message' => __("Post updated", 'acf'),
+                          'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
+                        );
+                        
+                        acf_form($options);
+
+                    ?>
+                   <!-- <div class="search_section">
                         <div class="search_icon"></div>
                         <input type="text" name="s" id="s" placeholder="Find an Interest to add" onblur="if(this.value=='')this.placeholder='Find an Interest to add'" onfocus="if(this.placeholder=='Find an Interest to add')this.placeholder=''">
                         <input type="hidden" value="submit">
@@ -44,7 +72,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         <span><a href="#">CSS3 <i class="bi bi-x"></i></a></span>
                         <span><a href="#">CSS3 <i class="bi bi-x"></i></a></span>
                         <span><a href="#">Javascript <i class="bi bi-x"></i></a></span>
-                    </div>
+                    </div> -->
                 </form>
                 
             </div>

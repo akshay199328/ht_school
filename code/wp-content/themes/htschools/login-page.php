@@ -179,7 +179,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/otp-verification.png" class="img-fluid">
                       <p id="mobile-otp-message"></p>
                     </div>
-                    <div id="otp" class="flex justify-center">
+                    <div id="otp" class="flex justify-center mobile-otp">
                       <input class="text-center form-control to_next" type="text" name="num_1" maxlength="1" />
                       <input class="text-center form-control to_next" type="text" name="num_2" maxlength="1" />
                       <input class="text-center form-control to_next" type="text" name="num_3" maxlength="1" />
@@ -281,23 +281,25 @@ jQuery(window).load(function(){
         // }
         // })
         jQuery("#verify-otp-btn").prop("disabled", true);
-                $('#otp').find('input').each(function() {
-            $(this).on('keyup', function(e) {
-              var parent = $($(this).parent());
+        jQuery("#verify-mob-otp-btn").prop("disabled", true);
+
+        jQuery('#otp').find('input').each(function() {
+            jQuery(this).on('keyup', function(e) {
+              var parent = jQuery(jQuery(this).parent());
               if (e.keyCode === 8 || e.keyCode === 37) {
-                var prev = parent.find('input#' + $(this).data('previous'));
+                var prev = parent.find('input#' + jQuery(this).data('previous'));
                 if (prev.length) {
-                  $(prev).select();
+                  jQuery(prev).select();
                 }
               } else if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
-                var next = parent.find('input#' + $(this).data('next'));
+                var next = parent.find('input#' + jQuery(this).data('next'));
                 if (next.length) {
-                  $(next).select();
+                  jQuery(next).select();
                 }
               }
               var counter = 0;
-              $('#otp').find('input').each(function() {
-                if ($(this).val() == '') {
+              jQuery('#otp').find('input').each(function() {
+                if (jQuery(this).val() == '') {
                   counter++;
                 } else {
 
@@ -308,6 +310,36 @@ jQuery(window).load(function(){
                 jQuery('#verify-otp-btn').prop("disabled", true);
                 } else {
                   jQuery('#verify-otp-btn').prop("disabled", false);
+                }
+            });
+          });
+        jQuery('.mobile-otp').find('input').each(function() {
+            jQuery(this).on('keyup', function(e) {
+              var parent = jQuery(jQuery(this).parent());
+              if (e.keyCode === 8 || e.keyCode === 37) {
+                var prev = parent.find('input#' + jQuery(this).data('previous'));
+                if (prev.length) {
+                  jQuery(prev).select();
+                }
+              } else if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+                var next = parent.find('input#' + jQuery(this).data('next'));
+                if (next.length) {
+                  jQuery(next).select();
+                }
+              }
+              var counter = 0;
+              jQuery('.mobile-otp').find('input').each(function() {
+                if (jQuery(this).val() == '') {
+                  counter++;
+                } else {
+
+                }
+              });
+
+              if (counter > 0) {
+                jQuery('#verify-mob-otp-btn').prop("disabled", true);
+                } else {
+                  jQuery('#verify-mob-otp-btn').prop("disabled", false);
                 }
             });
           });
@@ -356,7 +388,7 @@ jQuery(window).load(function(){
         jQuery("#reg_submit").click(function(){
             jQuery("#reg_submit").html("Please wait...");
             jQuery("#reg_submit").attr("disabled", "disabled");
-
+            
             jQuery.ajax({
                 type : "POST",
                 dataType : "json",
@@ -365,7 +397,7 @@ jQuery(window).load(function(){
                 success: function(response) {
                     jQuery("#reg_submit").html("Next");
                     jQuery("#reg_submit").removeAttr("disabled");
-
+                    jQuery("#verify-mob-otp-btn").prop("disabled", true);
                     if(response.status == 1){
                         jQuery("#login-step-3").hide();
                         jQuery("#login-step-4").show();

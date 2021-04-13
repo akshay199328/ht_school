@@ -1168,3 +1168,11 @@ function adaptiveweb_save_profile_form() {
   wp_redirect(add_query_arg('updated', 'success', wp_get_referer()));
   exit;
 }
+
+function wpb_logged_in_menu() {
+  // register_nav_menu('sidebar-menu',__( 'Sidebar Menu' ));
+  register_nav_menus( array(
+    'logged-in-menu' => esc_html__( 'Logged In Menu'),
+  ) );
+}
+add_action( 'init', 'wpb_logged_in_menu' );

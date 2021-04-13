@@ -98,6 +98,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                            $locations = get_nav_menu_locations();
                            $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                            $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+
+                           $logged_in_menu_name = 'logged-in-menu'; //menu slug
+                           $logged_in_locations = get_nav_menu_locations();
+                           $logged_in_menu = wp_get_nav_menu_object( $logged_in_locations[ $logged_in_menu_name ] );
+                           $logged_in_menuitems = wp_get_nav_menu_items( $logged_in_menu->term_id, array( 'order' => 'DESC' ) );
                            //print_r($menuitems);
                            echo "<nav class='menu-primary-menu-container'><ul id='menu-primary-menu' class='menu'>";
                            foreach ($menuitems as $menu) {  
@@ -107,12 +112,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                               }
                               else{
                                 if(is_user_logged_in()){
-                                  $user = wp_get_current_user();
-                                  $username = $user->user_login;
-                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . get_bloginfo('url') . '/my-courses">My Courses</a></li>';
+                                  foreach ($logged_in_menuitems as $loggedin_menu) { 
+                                  $current_logged_in = ( $_SERVER['REQUEST_URI'] == parse_url( $loggedin_menu->url, PHP_URL_PATH ) ) ? 'active' : '';
+                                    echo '<li class="my-course ' . $current_logged_in . '"><a href="' . $loggedin_menu->url . '">'.$loggedin_menu->title.'</a></li>';
                                 }
+                                  }
                                 else{
-                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . $menu->url . '">Courses</a></li>';
+                                  echo '<li class="custom-dropdown ' . $current . '"><a href="' . $menu->url . '">'.$menu->title.'</a></li>';
                                 }
                               }
                            }

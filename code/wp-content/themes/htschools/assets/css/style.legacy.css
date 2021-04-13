@@ -35366,22 +35366,35 @@ body {
  }
 
  .woocommerce-cart .cart-collaterals .cart_totals h2 {
-    margin: 0;
-    padding: 0 0 20px!important;
-    font-size: 25px!important;
-    text-transform: capitalize!important;
-    font-weight: bold!important;
-    color: #000!important;
-    border-bottom: 1px dotted #707070e5!important;
+    margin: 0 0px 0px 0px;
+    padding: 0 0 33px;
+    font-size: 25px;
+    text-transform: capitalize;
+    color: #000;
+    border-bottom: 1px dotted #707070e5;
+
 }
  /*------Added by bhavna-------*/
-.order_details_page{border: 1px solid #BEBEBE;}
+.order_details_page{
+	background-color: #fff;
+    border: 1px solid #BEBEBE;
+    padding: 20px;
+    margin-top: 15px;
+}
+.order_details_page tr{
+	border:0px!important;
+}
 .woocommerce .order_details_page table.shop_table{border:0px;}
 .woocommerce-cart-form tr:last-child td, 
 .woocommerce-checkout-review-order-table tfoot tr:last-child td,
 .woocommerce-checkout-review-order-table tfoot tr:last-child th
 {
 	border-bottom: 0px!important;
+}
+.cart_heading{
+	font-size: 25px;
+	 line-height: 1.32;
+	 padding-bottom: 20px;
 }
  section#title{
  	padding-top: 116px!important;
@@ -35397,10 +35410,15 @@ body {
  	position: relative;
  	width: 121px;
  }
- nav .menu li.custom-dropdown a, nav .menu li.custom-dropdown.current-menu-item a{
- 	color: #fff!important;
+ nav .menu li.custom-dropdown a ,
+ .my-course a
+ {
+ 	/*color: #fff!important;*/
  	    padding: 7px 20px 9px 10px;
  }
+.course-template-default .custom-dropdown  a{
+	color: #fff!important;
+}
  .single-course .header{
  	background: #fade3b!important;
  }
@@ -35560,20 +35578,22 @@ body {
 		font-size: 25px;
 		color: #000000;
 	}
+	.woocommerce-input-wrapper .select2-container{width: 86%!important;}
 	.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea{
-		border-bottom: 1px solid #262626 !important;
-		border-top: 0px !important;
-		border-right: 0px !important;
-		border-left: 0px !important;
-		color: #000;
-		margin: 0;
-		height: 100%;
-		font-size: 18px;
+		border-bottom: 1px solid rgb(38 38 38 / 25%)!important;
+	    border-top: 0px !important;
+	    border-right: 0px !important;
+	    border-left: 0px !important;
+	    color: #000;
+	    margin: 0;
+	    height: 100%;
+	    font-size: 18px;
 	    font-weight: 500;
 	    padding-left: 0;
 	    padding-top: 0px;
+	    width:86%;
 	}
-	.form-row input::placeholder{
+	.form-row input::-webkit-input-placeholder{
 		color: #A2A0A0;
 	}
 	.woocommerce form .form-row .required {
@@ -35585,7 +35605,7 @@ body {
 		width: 100%;
 	}
 	.woocommerce-billing-fields .select2-container--default .select2-selection--single{
-		border-bottom: 1px solid #000 !important;
+		border-bottom: 1px solid rgb(38 38 38 / 25%)!important;
 		border-left: 0px;
 		border-right: 0px;
 		border-top: 0px;
@@ -35628,8 +35648,9 @@ body {
 	.order_details_button.customOrder_details p{
 		font-size: 18px;
 	    font-weight: 300;
-	    padding: 10px 0px 20px;
+	    padding: 27.5px 0px 20px;
 	    line-height: 22px;
+	    margin: 0px;
 	}
 	.woocommerce .woocommerce-info {
 	    border-top-color: #fade3b!important;
@@ -35674,7 +35695,8 @@ body {
 		text-decoration: none;
 		overflow: visible;
 		padding: 10px 40px;
-		font-weight: 700;
+		font-size: 15px;
+    	font-weight: bold;
 		border-radius: 0px;
 		left: auto;
 		color: #D5EBFF;
@@ -35693,7 +35715,8 @@ body {
 		text-decoration: none;
 		overflow: visible;
 		padding: 10px 40px;
-		font-weight: 700;
+		font-size: 15px;
+    	font-weight: bold;
 		border-radius: 0px;
 		left: auto;
 		color: #000;
@@ -35735,6 +35758,9 @@ body {
 		padding: 20px ;
 	}
 	/*-----CART TABLE CSS : START-------*/
+	.woocommerce table.shop_table{
+		font-family: 'GT-Walsheim-Pro';
+	}
 	.woocommerce table.shop_table thead{
 		border: 0px;
 	}
@@ -35755,6 +35781,48 @@ body {
 		font-size: 18px;
 		line-height: 1.11;
 		color: #000;
+	}
+	.woocommerce-Price-amount.amount{
+		font-size: 18px;color: #000;font-weight: 500;
+	}
+	.order-total th,
+	.order-total td{
+		font-size: 18px!important;
+		line-height: 1.11;
+	}
+	.woocommerce-cart-form__contents .woocommerce-Price-amount.amount,
+	.order-total th,
+	.order-total td,
+	.order-total .woocommerce-Price-amount.amount{
+		font-weight: bold!important;
+	}
+	.woocommerce .cart_totals table.shop_table tbody tr{
+		border-top:0px;
+	}
+	.woocommerce .cart_totals table.shop_table tbody th, 
+	.woocommerce .cart_totals table.shop_table tbody td{
+		font-size: 16px;
+		line-height:1.38;
+		color: #000;
+		padding: 17px 0px 17px 0px;
+		font-weight: 500;
+    	border: 0px;
+	}
+	.order-total{border-top: 1px dotted #707070!important; }
+	.order-total th,
+	.order-total td{
+		padding-top: 27px!important;
+		padding-bottom: 27px !important;
+	}
+	.woocommerce table.shop_table.woocommerce-checkout-review-order-table td{font-size: 15px}
+	table.shop_table tfoot .cart-subtotal th{font-weight: normal!important;}
+	table.shop_table tfoot th,
+	table.shop_table tfoot td{
+		border-top: 1px dotted rgb(112 112 112 / 50%)!important;
+	}
+	.coupon_td{
+		padding-top: 33.5px!important;
+    	padding-left: 0px !important;
 	}
 	h2.woocommerce-order-details__title {
 		background-color: #fff;
@@ -35894,7 +35962,9 @@ body {
 	section#media_image-3 img{
 		width: 100%;
 	}
-
+	.latest-news .details-left img{
+		width: 100%;
+	}
 	.featured_tablist {
 		margin: 0px 0px 30px 0px;
 		padding: 0px 15px;
@@ -35923,7 +35993,7 @@ body {
 	}
 
 	.details-left .link a{
-		font-size: 34px !important;
+		/*font-size: 34px !important;*/
 	}
 
 	.news-date {
@@ -35934,16 +36004,16 @@ body {
 		margin-bottom: 0px !important;
 	}
 
-	section.latest-news{
-		padding: 20px 0 !important;
-	}
+	
 
 	.details-middle {
 		padding-left: 0px !important;
 	}
-
-	.details-middle.devide ul li{
-		width: 45%;
+	.latest-news .Interview_blog  {
+	    padding-left: 47px !important;
+	}
+	.details-middle .news_two_data li{
+		width: 42%;
 		/*float: left;*/
 	}
 
@@ -36032,7 +36102,8 @@ body {
 		}
 
 		.news-main .category-news .content-left .pagetitle h1{
-			font-size: 30px !important;
+			font-size: 40px !important;
+    		line-height: 42px;
 		}
 
 		.news-main .post-creator {

@@ -137,6 +137,11 @@ section {
     float: left;
   }
   .left-spacing {padding-left: 25px!important;}
+  .details-middle ul li{    margin-right: 47px;}
+  .details-middle .news_two_data ul li:nth-child(2n+2){    margin-right: 0px;}
+  .home_news-leftspacing{
+  padding-left: 32px!important;    padding-right: 0px!important;
+}
 
 }
 @media (max-width: 992px) {
@@ -1970,12 +1975,17 @@ Course Details
 .duration {
     margin-top: 15px;
 }
+.duration .pull-left,
+.duration .pull-right {
+    width: 50%;
+}
 .duration p{
  font-size: 10px!important;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.4;
+      line-height: 1.4!important;
+    margin: 0px!important;
 }
 .duration h6{
   font-size: 13px !important;
@@ -2151,6 +2161,12 @@ button.course-button .button
     text-decoration: underline;
     text-align: right;
 }
+section.latest-news{
+    padding: 20px 0px;
+  }
+.home_latest_news{
+  padding: 60px 0px!important;
+}
 .latest-news .header-heading {
     margin-bottom: 18px;
 }
@@ -2203,8 +2219,13 @@ button.course-button .button
     letter-spacing: normal;
     text-align: left;
     color: #0c5acc!important;
-        margin-top: 26.9px;
-    padding-right: 49px;
+        margin-top: 0;
+    margin-right: 49px;
+    word-break: break-word;
+        display: inline-block;
+}
+.home_latest_news .details-left .link a{
+  /*margin-top: 26.5px;*/
 }
 .details-middle{
   padding-left: 25px;
@@ -2226,11 +2247,13 @@ button.course-button .button
 .details-middle ul li{
     display: inline-block;
     width: 100%;
-    border-bottom: solid 1px #b8b8b8;
-    padding:20px 18px 8.5px 0px;
-    margin-right: 30px;
+    border-bottom: 1px dashed rgb(112 112 112 / 50%);
+    padding: 20px 18px 8.5px 0px;
+    /*margin-right: 47px;*/
 }
 .details-middle ul li:last-child{border-bottom: solid 0px #b8b8b8;}
+.home_latest_news .details-middle ul li {    width: 86%;}
+
 .details-middle ul li p{
     font-size: 11px;
     font-weight: bold;
@@ -4569,7 +4592,7 @@ border-color: transparent;
 
 .news_heading{padding:0px 0px;}
 .news_three_data li{
-      width: 30.27%!important;
+      width: 28.27%!important;
 }
 .news_three_data li:nth-last-child(2), .news_three_data li:nth-last-child(3){border-bottom: 0px}
 
@@ -5109,9 +5132,10 @@ p:empty{display: none;}
 
 .empty_cart_div {
     /* float: left; */
-    margin: 0px auto;
+    margin: 30px auto 50px;
     text-align: center;
     display: table;
+        width: 45%;
 }
 .empty_course_image {
     background-image: url(./assets/images/empty_course.svg);
@@ -5141,6 +5165,8 @@ p:empty{display: none;}
     padding: 13px 25px;
     border: 0px;
     margin-top: 20px;
+    color: #d5ebff!important;
+    display: inline-block;
 }
 .refferal_textbox input::-webkit-input-placeholder {
   color: #000000;

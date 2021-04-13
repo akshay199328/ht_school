@@ -21,16 +21,18 @@ defined( 'ABSPATH' ) || exit;
  * @hooked wc_empty_cart_message - 10
  */
 
-
+ 
 if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
+	<h2 class="ccart_heding">Your Cart</h2>
 	<div class="empty_cart_div">
 		<div class="empty_cart_image"></div>
-		<h4>Oops!<br>Your cart is Empty</h4>
+		<h4>Oops! Your cart is Empty</h4>
 		<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+		<p class="return-to-shops">
+			<a class="wc-backward empty_btn" href="<?php echo get_site_url();?>/courses">
+				Add Courses
+			</a>
+		</p>
 	</div>
-	<p class="return-to-shops">
-		<a class="button wc-backward" href="<?php echo get_site_url();?>/courses">
-			Add Courses
-		</a>
-	</p>
+	
 <?php endif; ?>

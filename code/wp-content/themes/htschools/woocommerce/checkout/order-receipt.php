@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 <div class="order_details_page">
+	<h2 class="cart_heading">Order details</h2>
 	<table cellspacing="0" class="shop_table shop_table_responsive">
 
 		<tbody><tr class="cart-subtotal">
@@ -31,10 +32,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<th><?php esc_html_e( 'Payment method:', 'woocommerce' ); ?></th>
 		</tr>
 		<tr class="order-total">
-			<th><strong><?php echo esc_html( $order->get_order_number() ); ?></strong></th>
-			<th><strong><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?>
-			<th><strong><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></strong></th>
-			<th><strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong></th>
+			<th><?php echo esc_html( $order->get_order_number() ); ?></th>
+			<th><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?>
+			<th><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></th>
+			<th><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></th>
 		</strong></th>
 	</tr>
 

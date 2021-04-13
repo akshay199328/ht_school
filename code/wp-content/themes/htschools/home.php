@@ -209,7 +209,7 @@ get_header(vibe_get_header());
     <!-- End Competitors Section -->
 
     <!-- ======= Latest News Section ======= -->
-    <section id="" class="latest-news">
+    <section id="" class="latest-news home_latest_news">
       <div class="container">
         <div class="row gx-0">
           <div class="col-sm-12">
@@ -232,19 +232,23 @@ get_header(vibe_get_header());
         ?>
           <div class="col-sm-12 col-lg-4">
             <div class="details-left">
-              <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+             
               <?php if ( has_post_thumbnail() ) { 
                 $featured_image = get_the_post_thumbnail_url();
               }
               ?>
               <img src="<?php echo $featured_image; ?>" class="img-fluid">
+              <div class="news-date">
+                <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              </div>
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
             </div>
           </div>
         <?php } endwhile; endif;?>
-          <div class="col-sm-12 col-lg-4">
+        <div class="col-sm-12 col-lg-8 home_news-leftspacing">
+          <div class="col-sm-12 col-lg-6 mrg">
             <div class="details-middle">
               <ul>
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
@@ -262,7 +266,7 @@ get_header(vibe_get_header());
               </ul>
             </div>
           </div>
-            <div class="col-sm-12 col-lg-4">
+          <div class="col-sm-12 col-lg-6 mrg">
               <div class="details-middle">
                 <div class="popularNew-heading">
                   <h5>Popular on<br/>HT School News</h5>
@@ -286,6 +290,7 @@ get_header(vibe_get_header());
                 </ul>
               </div>
             </div>
+          </div>
           <div class="col-lg-12 center">
             <?php
               if ( is_active_sidebar( 'banner-3' ) ) : ?>

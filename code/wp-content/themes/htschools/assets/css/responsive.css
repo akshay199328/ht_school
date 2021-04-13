@@ -19,7 +19,14 @@ sa.details-middle.devide ul li:first-child {
 .news_three_data{
 	min-height: 85px !important;
 }
-
+.details-middle .news_three_data li:nth-child(1),
+.details-middle .news_three_data li:nth-child(2),
+.details-middle .news_three_data li:nth-child(3),
+.details-middle .news_two_data li:nth-child(1),
+.details-middle .news_two_data li:nth-child(2)
+{
+    padding: 0px 18px 18px 0px !important;
+}
 .news_icons .share-icon .top-icon{
 	padding: 0px 10px;
 }

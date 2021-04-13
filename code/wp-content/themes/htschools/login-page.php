@@ -246,14 +246,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                 <button type="button" class="btn submit_btn" id="reloadpage" style="display: none;">Explore Courses & Workshops</button>
                 </div>
             </div>
-            
-            
-
-
-
           </div>
-
-
         </div>
       </div>      
     </div>
@@ -271,6 +264,53 @@ jQuery(window).load(function(){
 </script> -->
 <script type="text/javascript">
     jQuery(document).ready(function(){
+        // jQuery("#verify-otp-btn").prop("disabled", true);
+        // var count = 0;
+        // jQuery('.to_next').change(function(){
+        // jQuery('#otp input[type=text]').each(function(){
+        //     if ($(this).val() == '1') {
+        //       count++;
+        //     }
+        // });
+        // //console.log("" + count);
+        // if(count === 21){
+        //   jQuery('#verify-otp-btn').prop("disabled", false);
+        //   count = 0;
+        // } else {
+        //   jQuery('#verify-otp-btn').prop("disabled", true);
+        // }
+        // })
+        jQuery("#verify-otp-btn").prop("disabled", true);
+                $('#otp').find('input').each(function() {
+            $(this).on('keyup', function(e) {
+              var parent = $($(this).parent());
+              if (e.keyCode === 8 || e.keyCode === 37) {
+                var prev = parent.find('input#' + $(this).data('previous'));
+                if (prev.length) {
+                  $(prev).select();
+                }
+              } else if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+                var next = parent.find('input#' + $(this).data('next'));
+                if (next.length) {
+                  $(next).select();
+                }
+              }
+              var counter = 0;
+              $('#otp').find('input').each(function() {
+                if ($(this).val() == '') {
+                  counter++;
+                } else {
+
+                }
+              });
+
+              if (counter > 0) {
+                jQuery('#verify-otp-btn').prop("disabled", true);
+                } else {
+                  jQuery('#verify-otp-btn').prop("disabled", false);
+                }
+            });
+          });
 
         jQuery("#reloadpage").click(function(){
             //window.location.reload();

@@ -1025,7 +1025,7 @@ Course Details
     background-color: #333;
     color: #fff;
     position: sticky;
-    top: 0;
+    top: 96px;
     z-index: 99;
 
 }
@@ -5555,7 +5555,7 @@ p:empty{display: none;}
 @media screen and (max-width:991px) and (min-width:320px){
 
     .header-space {margin-top: 70px;}
-    .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher{margin-top: 75px!important;}
+    .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher{margin-top: 73px!important;}
     section#title {margin-top: 0px!important;}
     .learing_card{padding-top:20px;}
     .left-spacing {padding-left: 0px!important;}
@@ -5628,14 +5628,14 @@ p:empty{display: none;}
     .middle-details .share-icon{right: 0;}
     .sticky_content { display: block;}
     .fixed_banner, .right-section{
-          width: 100%;
-    margin: 0px;
-    position: relative;
-    padding: 0px 0px;
-    /* z-index: 9; */
-    height: auto;
-    min-width: 100%;
-    height: auto;
+        width: 100%;
+        margin: 0px;
+        position: relative;
+        padding: 0px 0px;
+        /* z-index: 9; */
+        top:0px;
+        min-width: 100%;
+        height: auto;
     }
     .fixed_banner ul li{border-top: solid 0px #a6a6a6;padding: 8px 0px;}
     .fixed_banner ul li:last-child {border-bottom: solid 0px #a6a6a6;}

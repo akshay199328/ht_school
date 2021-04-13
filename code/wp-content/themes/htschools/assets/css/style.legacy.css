@@ -35411,13 +35411,15 @@ body {
  	width: 121px;
  }
  nav .menu li.custom-dropdown a ,
- .my-course a
+ .my-course a,
+ .course-template-default .my-course
  {
  	/*color: #fff!important;*/
  	    padding: 7px 20px 9px 10px;
  }
 .custom-dropdown.active a,
 .course-template-default .custom-dropdown.active a,
+.course-template-default .custom-dropdown a,
 .my-course.active a
  {
 	color: #fff!important;

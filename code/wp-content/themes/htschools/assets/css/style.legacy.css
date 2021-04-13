@@ -35416,7 +35416,10 @@ body {
  	/*color: #fff!important;*/
  	    padding: 7px 20px 9px 10px;
  }
- .custom-dropdown.active  a{
+.custom-dropdown.active a,
+.course-template-default .custom-dropdown.active a,
+.my-course.active a
+ {
 	color: #fff!important;
 }
  .single-course .header{

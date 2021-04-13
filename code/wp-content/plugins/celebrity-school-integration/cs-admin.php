@@ -118,9 +118,11 @@ if ( isset($_GET['action'] ) ) {
           echo $catInsert->get_error_message();
         }
 
-    }elseif($_GET['action'] == 'sync-courses'){
-      echo "courses";exit;
     }
+}
+
+if($_GET['action'] == 'sync-courses'){
+     
 }
 ?>
 <?php if ( !empty($_POST ) ) : ?>

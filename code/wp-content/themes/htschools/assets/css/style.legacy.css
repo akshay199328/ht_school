@@ -35023,7 +35023,7 @@ body {
  	.blogpost .excerpt.thumb {
  		margin-left: 0;
  		clear: both;
- 		margin-top: 30px;
+ 		margin-top: 15px;
  		display: inline-block;
  		width: 100%
  	}
@@ -35058,9 +35058,9 @@ body {
  	}
  	.meta .date {
  		margin: 0;
- 		position: absolute;
+ 		/*position: absolute;*/
  		top: 0;
- 		background: #FFF
+ 		/*background: #FFF*/
  	}
  	.block.side .block_content {
  		display: block;
@@ -35990,16 +35990,17 @@ body {
 	.featured_tablist li a {
 		color: #939393;
 		font-weight: bold;
-		color: #000!important;
+		
 		padding: 3px 0rem;
 	}
 
 	
 	.featured_tablist li.active a, 
-	.featured_tablist li:hover a, 
+	.featured_tablist li:hover.active  a, 
 	.featured_tablist li:hover.active a{
 		border-color: transparent;
 		border-bottom: 2px solid #000 !important;
+		color: #000;
 	}
 
 	.details-left .link a{
@@ -36019,9 +36020,7 @@ body {
 	.details-middle {
 		padding-left: 0px !important;
 	}
-	.latest-news .Interview_blog  {
-	    padding-left: 47px !important;
-	}
+	
 	.details-middle .news_two_data li{
 		width: 42%;
 		/*float: left;*/
@@ -36149,8 +36148,17 @@ body {
 	.myprofile_content ul li{margin-bottom: 2px!important;}
 	.cart-contents-count {line-height: 16px; height: 15px; width: 15px;}
 	section#title{    padding-top: 75px!important;}
+	.news-date {padding: 15px 0px 0px;}
 }
 @media screen and (max-width: 767px){
+	.news-date {padding: 15px 0px 0px;}
+	.news-main .category-news .content-left .pagetitle h1 {
+	    font-size: 30px !important;line-height: 30px;
+	}
+	.news-main .content-right p {
+	    font-size: 15px;
+	    line-height: 22px;
+	}
 	.news-main .right_content {padding: 10px 0px 20px 0px !important;}
     .news-main .right_content .top-icon{width: auto;}
     .news-main .releted_news_section .related_post {padding: 15px 0px 0px;}

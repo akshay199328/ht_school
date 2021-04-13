@@ -412,7 +412,7 @@ padding: 15px 0;
 }
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}
-    .right-details .course-button{padding-top: 45px!important;}
+    .right-details .course-button{padding-top: 25px!important;}
     .dashboard_accountinfo .right-details .course-button {
         padding-top: 0px!important;
         margin-left: 0px!important;

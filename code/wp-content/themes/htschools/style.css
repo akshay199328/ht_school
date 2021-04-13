@@ -4991,7 +4991,7 @@ font-size: 15px;
     font-weight: 300;
     font-family: "GT-Walsheim-Pro";
 }
-p:empty{display: none;}
+p:empty, div.center:empty, .post-categories:empty{display: none;}
 .dashboard_accountinfo .course-box .learing-goals{padding: 20px 0px;}
 .dashboard_accountinfo .profilecou-instructor {
     position: relative;
@@ -5606,7 +5606,7 @@ p:empty{display: none;}
       position: relative;
       display: block;
       margin-top: 10px;
-      padding-bottom: 35px;
+      padding-bottom: 15px;
       padding-right: 0;
       border-bottom: 1px dashed #b8b8b8;
     }
@@ -5725,6 +5725,7 @@ p:empty{display: none;}
     .dashboard_content #item-header h3 {font-size: 24px;line-height: 24px;}
     .dashboard_content #item-header p{font-size: 14px;}
     .dashboard_header #item-header-avatar {width: 70px!important;height: 70px;}
+    .details-left .link a{margin-right: 0px;}
 }
 
 @media screen and (max-width:767px) and (min-width:320px){
@@ -5860,6 +5861,12 @@ p:empty{display: none;}
       right: 10px;
     }
     .share-icon img{width: 13.92px!important;}
+    .bookmark-remove{
+        height: 13.92px;
+        width: 13.92px;
+        background-size: 13.92px 13.92px;
+    }
+    .fixedmenu-tabs .bookmark-remove{top: 4px;}
     .dashboard_accountinfo .course-box .middle-details {padding: 0;padding-left: 10px;padding-right: 60px !important;}
     .course_home_progress{padding-left: 10px;}
     .dashboard_accountinfo .course-box .right-details .course-button {
@@ -5890,7 +5897,7 @@ p:empty{display: none;}
         margin-top: 5px!important;
       }
     .news_icons .top-icon, .news_icons .share-icon{float: left;padding: 0px;}
-    .news_icons .share-icon{margin-top: 6px;margin-left: 0px;}
+    .news_icons .share-icon{margin-top: 0px;margin-left: 0px;}
     .news_icons .share-icon .top-icon{    padding-left: 20px;}
     .news-listing .content-right .sidebar{margin-top: 15px;}
     .news-main .content-right .details .share-icon{width: auto;}

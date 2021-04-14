@@ -1,18 +1,11 @@
 <?php
-/**
- * Template Name: Custom API Page
- */
-
-require_once(ABSPATH . 'wp-admin/includes/media.php');
-require_once(ABSPATH . 'wp-admin/includes/file.php');
-require_once(ABSPATH . 'wp-admin/includes/image.php');
-
-// Course API
+// If this file is called directly, abort.
+if(!defined('WPINC')){ die; }
 
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/album/ranveer-brar-cooking-classes',
+  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/album/ojas-rajani-makeup-and-hair-stylist-classes',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -21,8 +14,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_HTTPHEADER => array(
-    'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgyMDg2NzV9.Z7dHuLq8wQ2xB3ZZ48mKk0tGelLIhuDfneu2QKdZn80',
-    'Cookie: connect.sid=s%3AJWoQe1D0xmO1_P1J-95EvmdkAOFzSTRO.oPW%2BXPJbxLPzIyEJzo79Kmn8IiXD0W60aiYYpwlvBaY'
+    'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgzNzM3NDd9.gzMBaGNt7wA_D_JP46aJNd2J3d2zKhhMMYURlvKJV08'
   ),
 ));
 
@@ -118,9 +110,13 @@ curl_setopt_array($unitCurl, array(
 
 $unitAPIResponse = curl_exec($unitCurl);
 $unitDecoded = json_decode($unitAPIResponse);
+//echo $unitAPIResponse;exit;
 curl_close($unitCurl);
 
 $unitProps = array();
+$unitcount=0;
+$unitArray=[];
+
 foreach ($unitDecoded->data as $unitDecode ) {
 	$unitDecode->status == 1 ? $uStatus = 'publish': $uStatus = 'draft';
 	$unitProps = array (
@@ -132,15 +128,17 @@ foreach ($unitDecoded->data as $unitDecode ) {
 	$unitId = wp_insert_post($unitProps);
 	add_post_meta( $unitId, 'vibe_subtitle', $unitDecode->description );
 
+  $unitArray[$unitcount]=$unitId;
+  
+  $CourseUnitMapp.='i:'.$unitcount.';s:4:"'.$unitId.'";';  
+  $unitcount++;
+
 }
+$CourseUnitMapping='a:'.count($unitArray).':{';
+$CourseUnitMapping.=$CourseUnitMapp;
+$CourseUnitMapping.='}';
 
-//echo "<pre>";print_r($unitDecoded);exit;
-
-
-
-
-
-
+update_post_meta( $post_id, 'vibe_course_curriculum', $CourseUnitMapping);
 if(!is_wp_error($post_id)){
 echo "<pre>";print_r("Course Created Successfully");exit;
   //the post is valid

@@ -37,7 +37,7 @@ vibe_include_template("profile/top$profile_layout.php");
 
                         $options = array(
                           // 'field_groups' => ['group_5cbd99ef0f584'],
-                          'fields' => ['field_6073fa78fd159'],
+                          'fields' => ['interest'],
                           'form_attributes' => array(
                             'method' => 'POST',
                             'action' => admin_url("admin-post.php"),

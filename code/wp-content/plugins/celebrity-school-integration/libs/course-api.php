@@ -1,30 +1,26 @@
 <?php
-// If this file is called directly, abort.
-if(!defined('WPINC')){ die; }
+// Course API
 
 $curl = curl_init();
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/album/ojas-rajani-makeup-and-hair-stylist-classes',
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_HTTPHEADER => array(
-    'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgzNzM3NDd9.gzMBaGNt7wA_D_JP46aJNd2J3d2zKhhMMYURlvKJV08'
-  ),
-));
+if ($AuthToken != '' ){
+ $courseapiurl=$wpcs_options['cs_api_url'].'/api/album/ranveer-brar-cooking-classes';
+  $curlcatheader=array('x-auth-token' =>$AuthToken);
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => $courseapiurl,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_HTTPHEADER => $curlcatheader,
+  ));
 
 $response = curl_exec($curl);
-
 $responseDecode = json_decode($response);
-
-
 $responseDecode->status == 1 ? $pStatus = 'publish': $pStatus = 'draft';
-
 $args = array (
    'post_title' => $responseDecode->meta_title,
    'post_content' => $responseDecode->a_desc,
@@ -58,7 +54,7 @@ foreach ($existingCategory as $existingCat ) {
 		wp_set_post_terms( $post_id, $cId, 'course-cat', true );
 	}
 }
-
+add_post_meta( $post_id, 'celeb_school_course_id', $responseDecode->id );
 add_post_meta( $post_id, 'vibe_trailer_link', $responseDecode->a_trailer_link );
 add_post_meta( $post_id, 'vibe_artist_name', $responseDecode->a_artist );
 add_post_meta( $post_id, 'vibe_profession', $responseDecode->profession );
@@ -92,9 +88,11 @@ $res2= set_post_thumbnail( $post_id, $attach_id );
 //Unit API
 
 $unitCurl = curl_init();
+$CourseUnitUrl=$wpcs_options['cs_api_url'].'/api/video/ranveer-brar-cooking-classes';
+$curlcatheader=array('x-auth-token' =>$AuthToken);
 
 curl_setopt_array($unitCurl, array(
-  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/video/ranveer-brar-cooking-classes',
+  CURLOPT_URL => $CourseUnitUrl,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -102,10 +100,7 @@ curl_setopt_array($unitCurl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
-  CURLOPT_HTTPHEADER => array(
-    'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgyMDg2NzV9.Z7dHuLq8wQ2xB3ZZ48mKk0tGelLIhuDfneu2QKdZn80',
-    'Cookie: connect.sid=s%3AALW5cDF4ckWVnJWeLahsu30Uu2vS8Vd4.MvC%2B%2BwtCrl8x6WpLALIHJDYXchpzLa%2BZUgoDgzhgq%2BI'
-  ),
+  CURLOPT_HTTPHEADER => $curlcatheader,
 ));
 
 $unitAPIResponse = curl_exec($unitCurl);
@@ -134,7 +129,7 @@ foreach ($unitDecoded->data as $unitDecode ) {
   $unitcount++;
 
 }
-$CourseUnitMapping='a:'.count($unitArray).':{';
+$CourseUnitMapping='a:'.count($unitArray).'{';
 $CourseUnitMapping.=$CourseUnitMapp;
 $CourseUnitMapping.='}';
 
@@ -144,4 +139,5 @@ echo "<pre>";print_r("Course Created Successfully");exit;
   //the post is valid
 }else{ 
   echo $post_id->get_error_message();
+}
 }

@@ -2,20 +2,22 @@
 // If this file is called directly, abort.
 if(!defined('WPINC')){ die; }
 
-        $curl = curl_init();
+ if ($AuthToken != '' ){
 
-        curl_setopt_array($curl, array(
-          CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/category',
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => '',
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => 'GET',
-          CURLOPT_HTTPHEADER => array(
-            'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgwOTQsIm5hbWUiOiJKYXRpbi4gUmFuYSIsImVtYWlsIjoicmFuYWo0MkBnbWFpbC5jb20iLCJpYXQiOjE2MTgyODk5NjV9.LCowzrBdKASwUcTLz73sxaTvaXc7BMH6zqIfhGmZ0Ws'
-          ),
+             $categoryapiurl=$wpcs_options['cs_api_url'].'/api/category';
+
+             $curl = curl_init();
+             $curlcatheader=array('x-auth-token' =>$AuthToken);
+             curl_setopt_array($curl, array(
+             CURLOPT_URL => $categoryapiurl,
+             CURLOPT_RETURNTRANSFER => true,
+             CURLOPT_ENCODING => '',
+             CURLOPT_MAXREDIRS => 10,
+             CURLOPT_TIMEOUT => 0,
+             CURLOPT_FOLLOWLOCATION => true,
+             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+             CURLOPT_CUSTOMREQUEST => 'GET',
+             CURLOPT_HTTPHEADER =>$curlcatheader,
         ));
 
         $response = curl_exec($curl);
@@ -107,6 +109,14 @@ if(!defined('WPINC')){ die; }
         }else{ 
           echo $catInsert->get_error_message();
         }
+
+
+
+          } /// auth request end
+          
+
+
+       
 
 
 ?>

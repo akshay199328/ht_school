@@ -22,67 +22,39 @@ vibe_include_template("profile/top$profile_layout.php");
 		<div class="col-sm-12 col-md-3 mrg">
 			<div class="left-listing">
 				<ul class="mobile-slider">
-					<li class="active item">
+					<?php global $wpdb;    
+					$user = wp_get_current_user();
+			            $query = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '".$user->ID."' ORDER BY rel.meta_key"));
+			            $result = $wpdb->get_results($query);
+			            
+			            foreach($result as $course){
+			                $args['post__in'][]=$course->course_id;
+			            }
+			            $query_args = apply_filters('wplms_mycourses',array(
+			                'post_type'=>'course',
+			                'post__in'=>$args['post__in']
+			            ));
+
+			            $course_query = new WP_Query($query_args);
+			            global $bp,$wpdb;
+			            while($course_query->have_posts()){
+	                    $course_query->the_post();
+	                    global $post;
+			            
+			        ?>
+					<li class="item dashboard-li" value="<?php echo get_the_ID();?>">
+						<input type="hidden" class="course_id" >
 						<a href="#">
 							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-								<!-- <img src="assets/images/dashboard-1.svg"/> -->
-								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
+								<?php bp_course_avatar(); ?>
 							</div>
 							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-								<h4>Natural Language Processing</h4>
+								<!-- <h4><?php bp_course_title();?></h4> -->
+								<h4><?php echo $post->post_title?></h4>
 							</div>
 						</a>
 					</li>
-					<li class="item">
-						<a href="#">
-							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-							</div>
-							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-								<h4>Strategies for Launching Your Creative Career</h4>
-							</div>
-						</a>
-					</li>
-					<li class="item">
-						<a href="#">
-							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-							</div>
-							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-								<h4>Data Science for Business Leaders</h4>
-							</div>
-						</a>
-					</li>
-					<li class="item">
-						<a href="#">
-							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-							</div>
-							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-								<h4>Strategies for Launching Your Creative Career</h4>
-							</div>
-						</a>
-					</li>
-					<li class="item">
-						<a href="#">
-							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-							</div>
-							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-								<h4>Data Science for Business Leaders</h4>
-							</div>
-						</a>
-					</li>
-					<li class="item">
-						<a href="#">
-							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-								<img src="<?php echo get_bloginfo('template_url');?>/assets/images/dashboard-1.svg" class="img-fluid"/>
-							</div>
-							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
-								<h4>Strategies for Launching Your Creative Career</h4>
-							</div>
-						</a>
-					</li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>
@@ -96,54 +68,8 @@ vibe_include_template("profile/top$profile_layout.php");
 							<th>Points</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-					      	<td scope="row"><span class="circle">15</span></td>
-					      	<td>You</td>
-					      	<td>400</td>
-					    </tr>
-					</tbody>
-					<tbody>
-					    <tr>
-					      	<td scope="row"><span class="circle">16</span></td>
-					      	<td>Deccan Chargers</td>
-					      	<td>300</td>
-					    </tr>
-					</tbody>
-					<tbody>
-					    <tr>
-					      	<td scope="row"><span class="circle">17</span></td>
-					      	<td>Chennai Super Kings</td>
-					      	<td>299</td>
-					    </tr>
-					</tbody>
-					<tbody>
-					    <tr>
-					      	<td scope="row"><span class="circle">18</span></td>
-					      	<td>Chennai Super Kings</td>
-					      	<td>400</td>
-					    </tr>
-					</tbody>
-					<tbody>
-					    <tr>
-					      	<td scope="row"><span class="circle">19</span></td>
-					      	<td>Kolkata Knight Riders</td>
-					      	<td>500</td>
-					    </tr>
-					</tbody>
-					<tbody>
-					    <tr>
-					      	<td scope="row"><span class="circle">20</span></td>
-					      	<td>Mumbai Indians</td>
-					      	<td>400</td>
-					    </tr>
-					</tbody>
-					<tbody>
-					    <tr>
-					      	<td scope="row"><span class="circle">21</span></td>
-					      	<td>Kolkata Knight Riders</td>
-					      	<td>400</td>
-					    </tr>
+					<tbody id="data">
+						
 					</tbody>
 				</table>
 			</div>
@@ -192,6 +118,37 @@ vibe_include_template("profile/top$profile_layout.php");
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		(function($) {
+			$(document).ready(function() {
+	            /* Select link with an id of first and a class of big.*/
+	            var course_id = $("ul .dashboard-li:first").val();
+	            getScore(course_id);
+         	});	
+			$('.dashboard-li').click(function(e){
+			  e.preventDefault();
+			  	$('.mobile-slider li').removeClass("active");
+    			$(this).addClass("active");
+			  var course_id = $(this).val();
+			  getScore(course_id);
+			})
+
+			function getScore(course_id){
+				$.ajax({
+				    type: 'POST',
+				    url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+				    data: {"action": "load-filter", course_id: course_id },
+				    success: function(response) {
+				    	if(response.length > 0){
+
+				    		$('#data').html(response);
+				    	}
+				    }
+			  	});
+			}
+
+		})( jQuery );
+	</script>
 	<?php do_action( 'bp_before_dashboard_body' ); ?>
 	<?php
 		/*if(current_user_can('edit_posts')){

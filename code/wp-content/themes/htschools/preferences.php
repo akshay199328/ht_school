@@ -30,7 +30,7 @@ vibe_include_template("profile/top$profile_layout.php");
             <div class="col-md-12 col-sm-12 profile_searchbox mrg">
                 <form action="" id="search-form" method="get">
                     
-                    <!-- <?php acf_form();?> -->
+                    <?php acf_form();?>
                     <div class="search_value">
                     <?php 
                         $user = wp_get_current_user();

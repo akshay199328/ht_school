@@ -53,9 +53,6 @@ get_header(vibe_get_header());
 
                     $query_args = apply_filters('wplms_mycourses',array(
                         'post_type'=>'course',
-                        'posts_per_page'=>12,
-                        'paged'=>$args['paged'],
-                        's'=>$args['s'],
                         'post__in'=>$args['post__in']
                     ),$user->ID);
 

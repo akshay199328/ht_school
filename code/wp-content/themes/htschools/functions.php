@@ -7,57 +7,57 @@ if (!session_id()) {
 }
 
 if(!defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
-	define('WPLMS_THEME_FILE_INCLUDE_PATH',get_template_directory());
-	//use this if you want to overwrite core functions from includes directory with your child theme
-	//copy includes and _inc folder into your child them and define path constant to child theme
-	
-	//define('WPLMS_THEME_FILE_INCLUDE_PATH',get_stylesheet_directory());
+  define('WPLMS_THEME_FILE_INCLUDE_PATH',get_template_directory());
+  //use this if you want to overwrite core functions from includes directory with your child theme
+  //copy includes and _inc folder into your child them and define path constant to child theme
+  
+  //define('WPLMS_THEME_FILE_INCLUDE_PATH',get_stylesheet_directory());
 }
 
 if(defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
-	// Essentials
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/config.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/init.php';
+  // Essentials
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/config.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/init.php';
 
-	// Register & Functions
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/register.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/actions.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/filters.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/class.upgrade.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/func.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/ratings.php'; 
-	// Customizer
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/customizer.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/css.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/vibe-menu.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/notes-discussions.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/wplms-woocommerce-checkout.php';
+  // Register & Functions
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/register.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/actions.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/filters.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/class.upgrade.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/func.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/ratings.php'; 
+  // Customizer
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/customizer.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/css.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/vibe-menu.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/notes-discussions.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/wplms-woocommerce-checkout.php';
 
-	if ( function_exists('bp_get_signup_allowed')) {
-	    include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/bp-custom.php';
-	}
+  if ( function_exists('bp_get_signup_allowed')) {
+      include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/bp-custom.php';
+  }
 
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/_inc/ajax.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/buddydrive.php';
-	//Widgets
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/custom_widgets.php';
-	if ( function_exists('bp_get_signup_allowed')) {
-	 include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/custom_bp_widgets.php';
-	}
-	if (function_exists('pmpro_hasMembershipLevel')) {
-	    include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/pmpro-connect.php';
-	}
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/advanced_woocommerce_widgets.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/twitter.php';
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/flickr.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/_inc/ajax.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/buddydrive.php';
+  //Widgets
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/custom_widgets.php';
+  if ( function_exists('bp_get_signup_allowed')) {
+   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/custom_bp_widgets.php';
+  }
+  if (function_exists('pmpro_hasMembershipLevel')) {
+      include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/pmpro-connect.php';
+  }
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/advanced_woocommerce_widgets.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/twitter.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/flickr.php';
 
-	//Misc
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/extras.php';
+  //Misc
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/extras.php';
 
-	//SETUP
-	include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/setup/wplms-install.php';
+  //SETUP
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/setup/wplms-install.php';
 }
-	
+  
 /**
  * Register widget area.
  *
@@ -1176,3 +1176,55 @@ function wpb_logged_in_menu() {
   ) );
 }
 add_action( 'init', 'wpb_logged_in_menu' );
+
+function get_display_name($user_id) {
+    if (!$user = get_userdata($user_id))
+        return false;
+    return $user->data->display_name;
+}
+add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
+add_action( 'wp_ajax_load-filter', 'prefix_load_cat_posts' );
+
+function prefix_load_cat_posts () {
+  global $post,$wpdb;
+  $course_id = $_POST[ 'course_id' ];
+  $user = wp_get_current_user();
+  $query =apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='".$course_id."' ORDER BY rel.meta_key"));
+  $result = $wpdb->get_results($query);
+    if ($wpdb->num_rows<=0) {
+      echo '0';
+    }
+    else
+    {
+      $array1 = array();
+      $array2 = array();
+      foreach($result as $course){
+        if($course->user_id == $user->ID){
+          array_push($array1,$course);
+        }
+        else{
+          array_push($array2,$course);
+        }
+        
+      }
+
+      $dashboard_data = array_merge($array1,$array2);
+      foreach($dashboard_data as $course){
+        if($course->user_id == $user->ID){
+          $response = '<tr style="background: #D5EBFF;">';
+        }
+        else{
+          $response = '<tr>';
+        }
+        $response .= '<td scope="row"><span class="circle">'.$course->user_id.'</span></td>';
+        $response .= '<td>'. get_display_name($course->user_id) .'</td>';
+        $response .= '<td>'. $course->score .'</td>';
+        $response .= '</tr>';
+        echo $response;
+      }
+    }
+
+  wp_reset_postdata(); 
+
+  die(1); 
+}

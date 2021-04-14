@@ -910,6 +910,10 @@ button.saved_feedbackbtn span{
 		section#title.search_page{
 			margin-top: 75px !important;
 		}
+		.course-box .share-icon{
+			top: 10.5px !important;
+   			right: 10px !important;
+		}
 
 }
 	@media screen and (max-width:375px) {

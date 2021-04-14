@@ -1040,6 +1040,7 @@ Course Details
     position: sticky;
     top: 96px;
     z-index: 99;
+    padding-top: 15px;
 
 }
 .course_background_img{

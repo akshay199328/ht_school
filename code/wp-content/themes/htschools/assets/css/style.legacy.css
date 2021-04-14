@@ -25400,7 +25400,9 @@ body {
  	margin: 0;
  	padding: 0
  }
-
+#buddypress .course.dir-list ul.item-list{
+	width: 96%;
+}
  #buddypress ul.item-list.activity-list {
  	border: none
  }

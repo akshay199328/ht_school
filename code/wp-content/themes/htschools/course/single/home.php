@@ -120,7 +120,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             </div>
             <div class="course-fees">
               <div class="container">
-                    <?php the_course_price(); ?>
+                    <h4><?php the_course_price(); ?></h4>
                      <?php the_course_button(); ?>
                 </div>
             </div>

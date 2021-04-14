@@ -196,11 +196,11 @@ $(document).ready(function() {
             nav: false
           },
           767: {
-            items:5,
+            items:4,
             nav: false
           },
           991: {
-            items:6,
+            items:4,
             nav: false,
             loop: true,
             margin: 0

@@ -35789,7 +35789,7 @@ body {
 		line-height: 1.11;
 		color: #000;
 	}
-	.woocommerce-Price-amount.amount{
+	.woocommerce .woocommerce-Price-amount.amount{
 		font-size: 18px;color: #000;font-weight: 500;
 	}
 	.order-total th,

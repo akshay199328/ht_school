@@ -674,8 +674,8 @@ ol.breadcrumbs  {
     margin-left: 10px;
 }
 .home_slider .homecarousel_text p{
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 26px;
+  line-height: 36px;
   color: #000;
   font-weight: 300;
 }
@@ -740,7 +740,7 @@ ol.breadcrumbs  {
 
 .learing_card{
   background: #d5ebff;
-  padding-top: 0px;
+  padding-top: 30px;
 }
 .learing_card h1 {
   margin: 0;
@@ -1123,7 +1123,7 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #fbca00;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 .course-fees a.link{
     padding: 12px 32px 12px 25px;
@@ -4591,6 +4591,9 @@ border-color: transparent;
 
 
 .news_heading{padding:0px 0px;}
+.news_heading h2{
+    color: #000;    margin: 25px 0px 5px;
+}
 .news_three_data li{
       width: 28.27%!important;
 }

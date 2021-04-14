@@ -424,5 +424,8 @@ padding: 15px 0;
     header.sleek #trigger {display: none!important;}
     .course-listing .pagetitle.breadcrumbs {padding-left: 0px !important;padding-right: 0px!important;}
     .course-listing {margin-top: 0px;padding-bottom: 0px !important;}
-    
+    .left-spacing, 
+    .about-details .pull-right {
+        padding-left: 0px!important;
+    }
 }

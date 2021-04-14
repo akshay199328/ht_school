@@ -48,9 +48,11 @@ $(document).ready(function($) {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 10) {
-        $(".innerheader-space").addClass("less_topmargin");
+      // alert("HELLO");
+        $(".innerheader-space").next(".sticky_content").children(".right-section").css({ "margin-top": "-20px"});
     } else {
-        $(".innerheader-space").removeClass("less_topmargin");
+      // alert("HELLO123");
+        $(".innerheader-space").next(".sticky_content").children(".right-section").css({ "margin-top": "0px"});
     }
 });
 
@@ -93,32 +95,13 @@ $(document).ready(function() {
       $('.courses-slider').addClass('coursesmobile_slider');
       $('.course-listslider').addClass('coursemobile_listslider');
       $('.left_tab').owlCarousel({
-                loop: false,
-                margin: 0,
-                responsiveClass: true,
-                autoplay: false,
-                autoplayTimeout:5000,
-                autoplayHoverPause: false,
-                responsive: {
-                  0: {
-                    items: 2,
-                    nav: false,
-                    dots:false
-                  },
-                 600: {
-                    items:2,
-                    nav: false,
-                    dots:false
-                  },
-                  768: {
-                    item:3,
-                    nav: false,
-                    loop: false,
-                    margin: 0,
-                    dots:false
-                  }
-                }
-              })
+          margin: 30,
+        loop: false,
+        autoWidth: true,
+        items: 4,
+        nav: false,
+        dots:false
+      })
     }
     $('.responsive_slider').owlCarousel({
         loop: false,
@@ -173,39 +156,12 @@ $(document).ready(function() {
         }
       })
       $('.coursemobile_listslider').owlCarousel({
-        loop: true,
         margin: 0,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayTimeout:5000,
-        autoplayHoverPause: true,
+        loop: true,
+        autoWidth: true,
+        items: 4,
         nav: false,
-        dots:false,
-        responsive: {
-          0: {
-            items:3,
-            nav: false,
-            margin: 0
-          },
-          480: {
-            items:3,
-            nav: false
-          },
-          575: {
-            items:4,
-            nav: false
-          },
-          767: {
-            items:4,
-            nav: false
-          },
-          991: {
-            items:4,
-            nav: false,
-            loop: true,
-            margin: 0
-          }
-        }
+        dots:false
       });
       
         $('.testimonials-carousel').owlCarousel({
@@ -237,5 +193,3 @@ $(document).ready(function() {
 
         
 });
-
-

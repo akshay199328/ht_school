@@ -46,7 +46,12 @@ vibe_include_template("profile/top$profile_layout.php");
 						<input type="hidden" class="course_id" >
 						<a href="#">
 							<div class="col-xs-3 col-sm-3 col-md-3 mrg">
-								<?php bp_course_avatar(); ?>
+								<?php 
+		                        if ( has_post_thumbnail() ) { 
+		                          $image_url = get_the_post_thumbnail_url();
+		                        }
+		                      ?>
+		                     <img src="<?php echo $image_url; ?>" class="img-fluid">
 							</div>
 							<div class="col-xs-9 col-sm-9 col-md-9 mrg">
 								<!-- <h4><?php bp_course_title();?></h4> -->
@@ -123,6 +128,7 @@ vibe_include_template("profile/top$profile_layout.php");
 			$(document).ready(function() {
 	            /* Select link with an id of first and a class of big.*/
 	            var course_id = $("ul .dashboard-li:first").val();
+	            $("ul .dashboard-li:first").addClass("active");
 	            getScore(course_id);
          	});	
 			$('.dashboard-li').click(function(e){

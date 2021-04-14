@@ -388,18 +388,20 @@ padding: 15px 0;
 .hover_share{position: relative;margin-top: 0px;}
 .display_icon{
     display: none;
-    background:#fff;
-    padding: 15px;
+    background: #fff;
+    padding: 5px 15px 15px;
     position: absolute;
-        width: auto;
+    width: auto;
     left: -132px;
     box-shadow: 0px 1px 13px #00000047;
+    z-index: 9;
 }
 .hover_share:hover .display_icon{
     display: block;
 }
 .display_icon .a2a_kit a{
-        margin-right: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
 }
 .display_icon .a2a_kit a:last-child{
         margin-right:0px;

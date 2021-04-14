@@ -140,8 +140,21 @@ section {
   .details-middle ul li{    margin-right: 47px;}
   .details-middle .news_two_data ul li:nth-child(2n+2){    margin-right: 0px;}
   .home_news-leftspacing{
-  padding-left: 32px!important;    padding-right: 0px!important;
-}
+    padding-left: 32px!important;    padding-right: 0px!important;
+  }
+  .footer .footer-top .social-links{
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    display: flex;
+    height: 120px;
+  }
+  .footer .footer-top .social-links .pull-left, .footer .footer-top .social-links .pull-right{
+      -webkit-box-pack: justify !important;
+      -ms-flex-pack: justify !important;
+      justify-content: space-between !important;
+      display: flex;
+  }
 
 }
 @media (max-width: 992px) {
@@ -1164,7 +1177,7 @@ Course Details
 .fixedmenu-tabs .nav-tabs{
     position: relative;
     /*padding-right: 30px;*/
-    width: 86%;
+    width: 85%;
     border-bottom: none;
 }
 .fixedmenu-tabs .nav-tabs .share-icon {
@@ -4844,9 +4857,14 @@ border-color: transparent;
     font-weight: 300!important;
     line-height: 20px;
     color: #000;
+    padding-left: 15px;
 }
 .left-listing li a{
   color: #000;
+  -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    display: flex;
 }
 .middle-table {
     padding: 0px 30px;
@@ -5064,6 +5082,7 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
     width: 23px;
     top: 16px;
 }
+.profile_searchbox #search-form{display: none;}
 .search_value {
     margin-top: 0px;
 }
@@ -5475,7 +5494,7 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
   color: #fade3b;
 }
 .footer .footer-top .footer-links {
-  margin-bottom: 30px;
+  margin-bottom: 37px;
 }
 
 .footer .footer-top .footer-links ul {
@@ -5510,6 +5529,7 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
   display: inline-block;
   line-height: 1;
   font-weight: bold;
+  line-height: 1.35;
 }
 
 .footer .footer-top .footer-links ul a:hover {
@@ -5519,7 +5539,7 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
     font-size: 34px;
     font-weight: bold;line-height: 46px;
 }
-.footer .footer-links .about-links{padding-top: 10px;}
+.footer .footer-links .about-links{padding-top: 10px!important;}
 .footer .footer-links .about-links ul li{
     font-size: 24px;
 }
@@ -5528,12 +5548,13 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
 }
 .footer .bottom-detils p {
   font-size: 15px;
-  line-height: 20px;
-  color: #D5EBFF;
-  font-weight: normal;
+  line-height: 1.33;
+    color: #D5EBFF;
+    font-weight: normal;
+    margin-bottom: 0;
 }
 .footer .bottom-detils .links {
-  margin-top: 15px;
+  margin-top: 12px;
 }
 .footer .bottom-detils .links li{
   font-size: 15px;
@@ -5815,6 +5836,10 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
     .dashboard_content #item-header p{font-size: 14px;}
     .dashboard_header #item-header-avatar {width: 70px!important;height: 70px;}
     .details-left .link a{margin-right: 0px;}
+    .right-section{margin-top: 0px!important;}
+    .course-aboutDetails .share-icon{
+        margin-top: 15px;
+    }
 }
 
 @media screen and (max-width:767px) and (min-width:320px){

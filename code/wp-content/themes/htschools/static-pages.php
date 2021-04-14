@@ -31,7 +31,7 @@ if(vibe_validate($title) || empty($title)){
             <div class="details">
                 <div class="col-md-3 col-sm-4">
                     <div class="sidebar">
-                       <ul class="border-link">
+                       <ul class="border-link left_tab">
                             <?php
                                $menu_name = 'footer-menu'; //menu slug
                                $locations = get_nav_menu_locations();

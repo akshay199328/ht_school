@@ -12,7 +12,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 	$profileType = get_profile_data('Profile Type');
 ?>
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
+	<ul class="left_tab">
 		<?php //bp_get_options_nav(); ?>
 		<li id="public-personal-li" class="<?php if($profileType != 'Parent'){ echo "current selected"; } ?>">
 			<a id="profile-type-student" href="javascript:void(0);">I am a Student</a>

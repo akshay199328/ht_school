@@ -6,22 +6,13 @@ $wpcs_options = get_option('wpcs_options');
 require_once(ABSPATH . 'wp-admin/includes/media.php');
 require_once(ABSPATH . 'wp-admin/includes/file.php');
 require_once(ABSPATH . 'wp-admin/includes/image.php');
-function the_slug_exists($post_name) {
-    global $wpdb;
-    if($wpdb->get_row("SELECT post_name FROM wp_posts WHERE post_name = '" . $post_name . "'", 'ARRAY_A')) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
 function get_default_headers() {
         return array( 'Content-Type' => 'application/json' );
 }
 
 if ( isset($_POST['submit']) ) {
   $wpcs_options['integration_id'] = htmlspecialchars($_POST['integration_id']);
+  $wpcs_options['integration_password'] = htmlspecialchars($_POST['integration_password']);
   $wpcs_options['cs_api_url'] = htmlspecialchars($_POST['cs_api_url']);
   update_option('wpcs_options', $wpcs_options);
 }
@@ -29,10 +20,11 @@ if ( isset($_POST['submit']) ) {
 $wpcs_options = get_option('wpcs_options');
 if (isset($wpcs_options['integration_id'])){
         $integrationid= $wpcs_options['integration_id'];
-        $Cbpassword= 'HTSchools';
+        //$Cbpassword= 'HTSchools';
+        $Cbpassword= $wpcs_options['integration_password'];
         $Loginurl=$wpcs_options['cs_api_url'].'/api/user/manual/login';
         $headers = get_default_headers();
-         $method='POST';
+        $method='POST';
 
          $Jsonbody = array(
             'email' => $integrationid,
@@ -48,9 +40,9 @@ if (isset($wpcs_options['integration_id'])){
             )
           );
 
-          if ( is_wp_error( $request ) ) {
+          /*if ( is_wp_error( $request ) ) {
             throw new \Exception( \json_encode( 'WP HTTP Error' ), 500 );
-          }
+          }*/
 
           $response_code = wp_remote_retrieve_response_code( $request );
           if ( $response_code >= '400' ) {
@@ -102,6 +94,10 @@ jQuery(document).ready(function($) {
         <table class="form-table">
             <tr>
                 <th><?php _e("Integration Email id", "wp-celeb-school") ?></th><td><input type="email" name="integration_id" value="<?php echo stripslashes($wpcs_options['integration_id']); ?>" /></td>
+            </tr>
+
+            <tr>
+                <th><?php _e("Integration emailid password", "wp-celeb-school") ?></th><td><input type="password" name="integration_password" value="<?php echo stripslashes($wpcs_options['integration_password']); ?>" /></td>
             </tr>
             <tr>
                 <th><?php _e("API URL", "wp-celeb-school") ?></th><td><input type="text" name="cs_api_url" value="<?php echo stripslashes($wpcs_options['cs_api_url']); ?>" /></td>

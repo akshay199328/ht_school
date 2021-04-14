@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="order_details_page">
 	<h2 class="cart_heading">Order details</h2>
+	<div class="table-responsive">
 	<table cellspacing="0" class="shop_table shop_table_responsive">
 
 		<tbody><tr class="cart-subtotal">
@@ -40,7 +41,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</tr>
 
 	
-</tbody></table>
+	</tbody>
+</table>
+</div>
+
 <div class="order_details_button customOrder_details">
 	<?php do_action( 'woocommerce_receipt_' . $order->get_payment_method(), $order->get_id() ); ?>
 </div>

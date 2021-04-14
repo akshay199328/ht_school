@@ -233,8 +233,12 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 	font-size: 15px !important;
 	font-weight: 600 ;
 }
-.course_content_content .video_wrapper .plyr{
+/*.course_content_content .video_wrapper .plyr{
 	height: 452px !important;
+}*/
+.course_content_content .video_wrapper .plyr__controls .plyr__controls__item:first-child{
+	background: #f3d447 !important;
+    color: #000 !important;
 }
 .course_status .course_timeline{
 	flex: 1 0 500px !important;
@@ -434,6 +438,15 @@ button.saved_feedbackbtn span{
 }
 
 /*login-section*/
+.order_details_page .table-responsive{
+	border: 0px !important
+}
+.course_home_progress .progress_value{
+	color: #00d98e;
+}
+.competitive .comp-para{
+	padding: 12px 56px 45px 30px !important;
+}
 
 /*responsive added css by satish*/
 @media screen and (min-width:992px) {
@@ -817,7 +830,8 @@ button.saved_feedbackbtn span{
 	@media screen and (max-width:767px)  and (min-width:320px){
 		/*contact us*/
 		.contact-us .vc_column-inner{
-			padding: 25px 25px!important;    margin: 20px 15px 0px;
+			padding: 25px 25px!important;
+			margin: 20px 9px 0px;
 		}
 		.contact-us .vc_column-inner h1, .support-contact h2{
 			font-size: 18px;
@@ -827,7 +841,7 @@ button.saved_feedbackbtn span{
 			width: 100% !important;
 		}
 		.contact-us form{
-			margin-bottom: 30px !important;
+			margin-bottom: 0px !important;
 		}
 		.contact-us input::-webkit-input-placeholder{
 			font-size:15px;
@@ -879,13 +893,24 @@ button.saved_feedbackbtn span{
 		.course_timeline{
 			border-right: 0px solid var(--border) !important;
 		}
-		.course_content_content .video_wrapper .plyr{
+		/*.course_content_content .video_wrapper .plyr{
 			height: 352px !important;
-		}
+		}*/
 		.course_content .course_content_content p{
 			font-size: 15px !important;
 		}
+
 		/*course journey*/
+		.course-box .middle-details h6{
+			font-size: 10px !important;
+		}
+		.course-box .middle-details h2{
+			font-size: 14px !important;
+		}
+		section#title.search_page{
+			margin-top: 75px !important;
+		}
+
 }
 	@media screen and (max-width:375px) {
 		.woocommerce-cart table.cart td.actions .coupon{
@@ -901,6 +926,13 @@ button.saved_feedbackbtn span{
 		}
 		.woocommerce-checkout #payment div.payment_box:before{
 			top: -6px !important;
+		}
+		.order_details_button #btn-razorpay{
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		.order_details_button #btn-razorpay-cancel{
+			width: 100%;
 		}
 	}
 

@@ -29,6 +29,20 @@ $args = array (
    'post_status' => $pStatus,
    'post_name' => $responseDecode->slug,
 );
+
+$ExistingCourse = array(
+    'meta_query' => array(
+        array(
+            'key' => 'celeb_school_course_id',
+            'value' => $responseDecode->id,
+        )
+    )
+);
+
+$ExistingResp = new WP_Query($ExistingCourse);
+echo "<pre>";print_r($ExistingResp);exit;
+  if (!$ExistingResp->have_posts()){
+
 $post_id = wp_insert_post($args);
 
 $image_url = "https://ht.fortune4.org/wp-content/uploads/2021/03/thinkstartup.jpeg";
@@ -113,7 +127,8 @@ $unitProps = array();
 $unitcount=0;
 $unitArray=[];
 $storeUnitIds = array();
-
+$CourseUnitMapping="";
+$CourseUnitMapp="";
 foreach ($unitDecoded->data as $unitDecode ) {
   $unitDecode->status == 1 ? $uStatus = 'publish': $uStatus = 'draft';
   $unitProps = array (
@@ -125,21 +140,12 @@ foreach ($unitDecoded->data as $unitDecode ) {
   $unitId = wp_insert_post($unitProps);
   add_post_meta( $unitId, 'vibe_subtitle', $unitDecode->description );
   $storeUnitIds[] = "".$unitId."";
-
-  /*$unitArray[$unitcount]=$unitId;
-  
-  $CourseUnitMapp.='i:'.$unitcount.';s:4:"'.$unitId.'";';  
-  $unitcount++;*/
+  $unitArray[$unitcount]=$unitId;
+  $unitcount++;
 
 }
-/*$CourseUnitMapping='a:'.count($unitArray).'{';
-$CourseUnitMapping.=$CourseUnitMapp;
-$CourseUnitMapping.='}';*/
-    if ( is_array( $storeUnitIds ) || is_object( $storeUnitIds ) ) {
-        $CourseUnitMapping =  serialize( $storeUnitIds );
-    }
-echo "<pre>";print_r($CourseUnitMapping);
-update_post_meta( $post_id, 'vibe_course_curriculum', $CourseUnitMapping);
+
+update_post_meta( $post_id, 'vibe_course_curriculum',$unitArray);
 
 if(!is_wp_error($post_id)){
 echo "<pre>";print_r("Course Created Successfully");exit;
@@ -147,4 +153,6 @@ echo "<pre>";print_r("Course Created Successfully");exit;
 }else{ 
   echo $post_id->get_error_message();
 }
+
+  }
 }

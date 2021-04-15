@@ -20,8 +20,8 @@ if ( isset($_POST['submit']) ) {
 $wpcs_options = get_option('wpcs_options');
 if (isset($wpcs_options['integration_id'])){
         $integrationid= $wpcs_options['integration_id'];
-        //$Cbpassword= 'HTSchools';
-        $Cbpassword= $wpcs_options['integration_password'];
+        $Cbpassword= 'HTSchools';
+        //$Cbpassword= $wpcs_options['integration_password'];
         $Loginurl=$wpcs_options['cs_api_url'].'/api/user/manual/login';
         $headers = get_default_headers();
         $method='POST';

@@ -82,43 +82,7 @@ vibe_include_template("profile/top$profile_layout.php");
 		<div class="col-sm-12 col-md-3 mrg">
 			<div class="right-details">
 				<h2>Top Rankers</h2>
-				<ul>
-					<li>
-						<div class="col-xs-8 col-sm-9 col-md-9 mrg">
-							<div class="content">
-								<p>Rank 1</p>
-								<h5>Sarthak Tushar Malankar</h5>
-								<span class="light">300 Pts</span>
-							</div>
-						</div>
-						<div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
-						</div>
-					</li>
-					<li>
-						<div class="col-xs-8 col-sm-9 col-md-9 mrg">
-							<div class="content">
-								<p>Rank 1</p>
-								<h5>Sarthak Tushar Malankar</h5>
-								<span class="light">300 Pts</span>
-							</div>
-						</div>
-						<div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
-						</div>
-					</li>
-					<li>
-						<div class="col-xs-8 col-sm-9 col-md-9 mrg">
-							<div class="content">
-								<p>Rank 1</p>
-								<h5>Sarthak Tushar Malankar</h5>
-								<span class="light">300 Pts</span>
-							</div>
-						</div>
-						<div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">
-							<img src="<?php echo get_bloginfo('template_url');?>/assets/images/gold.svg" class="img-gold"/>
-						</div>
-					</li>
+				<ul id="top_rankers">
 				</ul>
 			</div>
 		</div>
@@ -130,6 +94,7 @@ vibe_include_template("profile/top$profile_layout.php");
 	            var course_id = $("ul .dashboard-li:first").val();
 	            $("ul .dashboard-li:first").addClass("active");
 	            getScore(course_id);
+	            getRank(course_id);
          	});	
 			$('.dashboard-li').click(function(e){
 			  e.preventDefault();
@@ -137,6 +102,7 @@ vibe_include_template("profile/top$profile_layout.php");
     			$(this).addClass("active");
 			  var course_id = $(this).val();
 			  getScore(course_id);
+			  getRank(course_id);
 			})
 
 			function getScore(course_id){
@@ -146,8 +112,20 @@ vibe_include_template("profile/top$profile_layout.php");
 				    data: {"action": "load-filter", course_id: course_id },
 				    success: function(response) {
 				    	if(response.length > 0){
-
 				    		$('#data').html(response);
+				    	}
+				    }
+			  	});
+			}
+
+			function getRank(course_id){
+				$.ajax({
+				    type: 'POST',
+				    url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+				    data: {"action": "get-rank", course_id: course_id },
+				    success: function(response) {
+				    	if(response.length > 0){
+				    		$('#top_rankers').html(response);
 				    	}
 				    }
 			  	});

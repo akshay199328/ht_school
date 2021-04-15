@@ -338,7 +338,7 @@ function vibe_show_course_start_time_in_course_details($course_details){
     $timestamp = strtotime( $start_date );
     if(isset($start_date) &&  $timestamp  > time()){ 
         $time_remaining = human_time_diff(time(),$timestamp);
-        $extra=array('start_time' => '<li><i class="i_course_time">'.$time_remaining.'</i>'.__('STARTS IN ','vibe').'</li>');
+        $extra=array('start_time' => '<li class="start_time_none"><i class="i_course_time">'.$time_remaining.'</i>'.__('STARTS IN ','vibe').'</li>');
         array_splice($course_details, 1, 0, $extra);
     }
     return $course_details;

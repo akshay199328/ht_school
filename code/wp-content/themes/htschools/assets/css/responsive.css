@@ -1,5 +1,3 @@
-
-
 .details-middle ul li{
 	padding: 20px 18px 18px 0px !important;
 }
@@ -446,6 +444,27 @@ button.saved_feedbackbtn span{
 }
 .competitive .comp-para{
 	padding: 12px 56px 45px 30px !important;
+}
+
+/*15april*/
+.progressbar-circle{
+	margin-top: 60px;
+}
+
+.viewall-session{
+	margin: 10px 0px 0px !important;
+}
+.content.blogpost-search_bottom {
+    padding-bottom: 30px;
+}
+.featured_headeing h1{
+	font-size: 25px;
+}
+.topic_details h2{
+	font-size: 20px;
+}
+.related_post.details h2{
+	font-size: 25px;
 }
 
 /*responsive added css by satish*/

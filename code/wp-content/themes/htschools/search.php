@@ -54,7 +54,7 @@ $total_results = $wp_query->found_posts;
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="row">
         <div class="col-md-9 col-sm-8">
-            <div class="content">
+            <div class="content blogpost-search_bottom">
                 <?php
                     if ( have_posts() ) : while ( have_posts() ) : the_post();
 

@@ -43,6 +43,9 @@ $(document).ready(function($) {
     $('#only-4').hide();
     $('#view_all_sessions').hide();
   })
+  $(".close-share").click(function(){
+    $(".display_icon").hide();
+  })
   // alert("test");
   $(window).scroll(function() {    
     var scroll = $(window).scrollTop();

@@ -389,19 +389,33 @@ padding: 15px 0;
 .display_icon{
     display: none;
     background: #fff;
-    padding: 5px 15px 15px;
+    padding: 5px 10px 15px 15px;
     position: absolute;
-    width: auto;
-    left: -132px;
+    width: 271px;
+    right: -40px;
+    top: -10px;
     box-shadow: 0px 1px 13px #00000047;
     z-index: 9;
+}
+.display_icon h6 {
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    line-height: 16px;
+    margin-bottom: 15px;
+}
+.display_icon h6 i {
+        font-size: 17px;
+    color: #000000;
+    font-weight: bold;
+    float: right;
 }
 .hover_share:hover .display_icon{
     display: block;
 }
 .display_icon .a2a_kit a{
     margin-right: 5px;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 .display_icon .a2a_kit a:last-child{
         margin-right:0px;
@@ -430,4 +444,5 @@ padding: 15px 0;
     .about-details .pull-right {
         padding-left: 0px!important;
     }
+    .display_icon{left:0px;}
 }

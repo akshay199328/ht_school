@@ -10965,7 +10965,8 @@ body {
  .form-control[readonly],
  fieldset[disabled] .form-control {
  	background-color: transparent;
- 	opacity: 1
+ 	opacity: 1;
+ 	cursor: no-drop;
  }
 
  textarea.form-control {
@@ -36182,7 +36183,7 @@ body {
 	.blogpost-search:after{width: 100%;}
 	.myprofile_content {padding-left: 0px;}
 	.myprofile_content h2{display: none;}
-	.myprofile_content ul li{    width: 100px!important;}
+	.myprofile_content ul li{    width: auto!important;}
 	.myprofile_content .item-list-tabs li a{    
 		padding: 15px 10px!important;
 		font-size: 11px!important;
@@ -36305,8 +36306,8 @@ body {
 	.latest-news .center {margin-top: 5px;}
 }
 @media screen and (max-width: 437px){
-	.myprofile_content ul li{width: 83px!important;    margin-top: 2px!important;}
-	.myprofile_content .item-list-tabs li a{padding: 15px 6px!important;}
+	.myprofile_content ul li{width: auto!important;    margin-top: 2px!important;}
+	.myprofile_content .item-list-tabs li a{padding: 15px 8px!important;}
 
 }
 

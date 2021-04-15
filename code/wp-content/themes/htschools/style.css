@@ -1239,7 +1239,7 @@ Course Details
   font-style: normal;
   line-height: 1.29;
   letter-spacing: normal;
-  text-align: justify;
+  text-align: left;
   color: #000000;
   margin: 10px 0px 20px;
 }
@@ -4211,7 +4211,14 @@ section.latest-news{
     color: #fff!important;
     width: 50%;
 }
-
+.login-box .switch-input[disabled] + .switch-label.switch-label-off, 
+.radio .switch-input[disabled] + .switch-label.switch-label-off {
+    color: #fff!important;
+}
+.login-box .switch-input[disabled] + .switch-label, 
+.radio .switch-input[disabled] + .switch-label{
+      cursor: no-drop;
+}
 .login-box .switch-input:checked + .switch-label-on ~ .slider2, 
 .radio .switch-input:checked + .switch-label-on ~ .slider2 {
     left: 50%;
@@ -4281,6 +4288,9 @@ section.latest-news{
 }
 .switch-label-off span{
 /*  color: #fff;*/
+}
+.switch input[type=radio][disabled] + .switch .switch-label span{
+  color:#000!important;
 }
 @-webkit-keyframes slide-right {
     0% {
@@ -4734,7 +4744,11 @@ border-color: transparent;
       opacity: 1!important;
       background: #000!important;
 }
-.dashboard_accountinfo{    padding: 30px 0px;}
+.dashboard_accountinfo{    
+    padding: 30px 0px;    
+    float: left;
+    width: 100%;
+}
 .dashboard_accountinfo #item-body, .dashboard_accountinfo #subnav{ background: transparent!important;}
 .dashboard_accountinfo .item-list-tabs#subnav {padding: 0!important;}
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li{
@@ -4778,7 +4792,7 @@ border-color: transparent;
     font-size: 25px;
     color: #000;
     line-height: 33px;
-    margin-bottom: 25px;
+    margin-bottom: 36px;
 }
 
 .dashboard_accountinfo .form-control:focus {
@@ -4844,8 +4858,11 @@ border-color: transparent;
   float: left;
   width: 100%;
   border-bottom: 1px dotted #707070;
-  padding: 20px 8px 20px 20px;
+  /*padding: 20px 8px 20px 20px;*/
   background: transparent;
+}
+.left-listing li:last-child{
+  border-bottom: 1px dotted transparent;
 }
 .left-listing li:hover, .left-listing li.active,
 .dashboard-info .left-listing .active li
@@ -4869,6 +4886,7 @@ border-color: transparent;
     -ms-flex-align: center !important;
     align-items: center !important;
     display: flex;
+    padding: 20px 8px 20px 20px;
 }
 .middle-table {
     padding: 0px 30px;
@@ -4900,7 +4918,11 @@ border-color: transparent;
     box-shadow: none;
     border: 0px!important;
 }
-.middle-table table tbody:after{
+.middle-table table tbody tr{
+      position: relative;
+      display: block;
+}
+.middle-table table tbody tr:after{
       content: '';
     display: inline-block;
     width: 130.12px;
@@ -4981,17 +5003,20 @@ border-color: transparent;
  line-height: 15px;
  text-transform: uppercase;
      margin: 0px;
+         word-break: break-word;
 }
 .right-details li .content h5{
  font-size: 20px;
     letter-spacing: normal;
     line-height: 20px;
         margin: 5px 0px 1px;
+            word-break: break-word;
 }
 .right-details li .content span.light{
 font-size: 15px;
  font-weight: 300;
  line-height: 20px;
+     word-break: break-word;
 }
 .right-details li .img-gold{
     position: relative;
@@ -5108,6 +5133,7 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
     font-size: 11px;
     line-height: 15px;
     text-transform: uppercase;
+    letter-spacing: 0.55px;
 }
 .search_value ul li a{
       
@@ -5150,8 +5176,9 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
   padding: 0px!important;
 }
 .search_value li.select2-search .select2-search__field {
-      background: url(../images/search-search.jpg) no-repeat left center;
-        padding: 15px 30px 10px !important;
+    background: url(./assets/images/search-search.jpg) no-repeat left center;
+    background-size: 20px 20px;
+    padding: 15px 30px 10px !important;
     height: 50px;
     width: 100%!important;
     font-size: 15px;
@@ -5161,17 +5188,27 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
     margin-top: 10px;
     color: rgb(0, 0, 0) !important;
 }
+.preference .select2-container.select2-container--open .select2-results__options{
+  position: absolute!important;
+    top: -63px!important;
+    left: -1%!important;
+    background: #fff;
+    height: 200px;
+    display: block!important;
+    z-index: 999!important;
+    width: 100%;
+}
 .select2-container--open .select2-dropdown {
-    left: 0px!important;
-    top: -40px!important;
+    left: -1px!important;
+     top: -30px!important; 
     padding: 0!important;
-    border-color: transparent!important;
+    border-color: #ffffff00!important;
 }
 .select2-results__options{
   padding-top: 13.5px!important;
 }
 .select2-results__option {
-    padding: 0px!important;
+    padding: 0px 7px!important;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -5180,7 +5217,7 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
     font-size: 15px!important;
     line-height: 1.8!important;
     font-weight: bold!important;
-    margin-bottom: 15px!important;
+    margin-bottom: 10px!important;
     background: transparent!important;
 }
 .search_value .acf-form-submit {
@@ -6090,7 +6127,7 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
   .right-details .course-button h6{    padding-top: 0px;}
 }
 .paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}
-
+.start_time_none{display: none;}
 
 
 

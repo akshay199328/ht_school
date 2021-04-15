@@ -201,6 +201,18 @@ function custom_learning_goals($field1){
   return $field1;
    
 }
+add_filter('wplms_course_metabox','custom_who_this_course_for');
+function custom_who_this_course_for($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Who Is This Course For?','vibe-who_this_course_Is_for_first_block'), // <label>
+  'desc'  => __('Who Is This Course For?','vibe-who_this_course_Is_for_first_block'), // description
+  'id'    => $prefix.'who_this_course_Is_for_first_block', // field id and name
+  'type'  => 'textarea' // type of field
+                       );
+  return $field1;
+   
+}
 add_filter('wplms_course_metabox','custom_age_group');
 function custom_age_group($field1){
   $prefix = 'vibe_';

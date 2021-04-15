@@ -1267,3 +1267,33 @@ function change_woocommerce_order_number($order_id) {
 }
 }
 add_filter('woocommerce_order_number', 'change_woocommerce_order_number');
+
+
+
+function modify_search_query( $query ) {
+  // Make sure this isn't the admin or is the main query
+  if( is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  // Make sure this isn't the WooCommerce product search form
+  if( isset($_GET['post_type']) && ($_GET['post_type'] == 'product') ) {
+    return;
+  }
+
+  if( $query->is_search() ) {
+    $in_search_post_types = get_post_types( array( 'exclude_from_search' => false ) );
+
+    // The post types you're removing (example: 'product' and 'page')
+    $post_types_to_remove = array( 'product', 'page' );
+
+    foreach( $post_types_to_remove as $post_type_to_remove ) {
+      if( is_array( $in_search_post_types ) && in_array( $post_type_to_remove, $in_search_post_types ) ) {
+        unset( $in_search_post_types[ $post_type_to_remove ] );
+        $query->set( 'post_type', $in_search_post_types );
+      }
+    }
+  }
+
+}
+add_action( 'pre_get_posts', 'modify_search_query' );

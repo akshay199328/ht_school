@@ -227,11 +227,11 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <?php echo get_post_meta($post->ID,'vibe_course_message',true);?>
                                     </p>
                                   </div> -->
-                                  <?php if(get_post_meta($post->ID,'who_this_course_Is_for_first_block',true))
+                                  <?php if(get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true))
                                   {?>
                                   <div class="col-sm-12 course-for background-yellow">
                                     <h5>Who Is This Course For?</h5>
-                                    <p><?php echo get_post_meta($post->ID,'who_this_course_Is_for_first_block',true); ?></p>
+                                    <p><?php echo get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true); ?></p>
                                   </div>
                                 <?php }?>
                                   <div class="col-sm-12 course-list mrg">

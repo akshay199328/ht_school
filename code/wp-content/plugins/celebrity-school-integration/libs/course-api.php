@@ -110,7 +110,6 @@ if ( $fetchedQuery->found_posts <= 0 ){
   $res1= wp_update_attachment_metadata( $attach_id, $attach_data );
   $res2= set_post_thumbnail( $post_id, $attach_id );  
 
-
 //Unit API
 
   $unitCurl = curl_init();

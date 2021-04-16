@@ -159,9 +159,11 @@ vibe_include_template("profile/top$profile_layout.php");
 			 		</div>
 				<?php	}
 				}else{
-					return new WP_REST_Response( array('status'=>0,'message'=>__('No courses','wplms')), 200 );
+					echo '<h1>You have not completed any course till now</h1>';
 				}
-				$return = array('status'=>1,'courses'=>$courses,'total'=>$results->found_posts);
+				}
+				else{
+					echo '<h1>You have not completed any course till now</h1>';
 				}
 
 				?>

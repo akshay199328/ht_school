@@ -11,7 +11,8 @@ get_header( vibe_get_header() );
 
 $profile_layout = vibe_get_customizer('profile_layout');
 
-vibe_include_template("profile/top$profile_layout.php");  
+vibe_include_template("profile/top$profile_layout.php"); 
+/*do_action( 'bp_before_member_course_content' ); */
 ?>
 <div id="item-body">
     <div class="col-md-3 left_tabs">
@@ -27,40 +28,27 @@ vibe_include_template("profile/top$profile_layout.php");
     <div class="col-md-9">      
       	<?php
             $user = wp_get_current_user();
-            // print_r($user->user_login);
-            // print_r($user->ID);
-            
             global $wpdb;    
-            $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("
-            SELECT posts.ID as id
-            FROM {$wpdb->posts} AS posts
-            LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key
-            WHERE   posts.post_type   = %s
-            AND   posts.post_status   = %s
-            AND   meta.user_id   = %d
-            AND   meta.meta_value > %d
-            ",'course','publish',$user->ID,time()));
+            $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
             $result = $wpdb->get_results($courses_with_types);
 
             foreach($result as $course){
                     
-                $args['post__in'][]=$course->id;
                 $type = bp_course_get_user_course_status($user->ID,$course->id);
-                
+                if($type != 4){    
+                    $args['post__in'][]=$course->id;
+                }
                 $statuses[$course->id]= intval($type);
             }
 
             $query_args = apply_filters('wplms_mycourses',array(
                 'post_type'=>'course',
-                'posts_per_page'=>12,
-                'paged'=>$args['paged'],
-                's'=>$args['s'],
                 'post__in'=>$args['post__in']
             ),$user->ID);
 
             $course_query = new WP_Query($query_args);
             global $bp,$wpdb;
-            
+            if(!empty($result)){
             ?>
             
                 <section id="Popular-Courses" class="">
@@ -180,7 +168,11 @@ vibe_include_template("profile/top$profile_layout.php");
         </div>
     </div>
 </section>
-	
+	<?php } else{ 
+        echo '<h1>Active courses not found</h1>';
+    }
+    ?>
+
 
 </div><!-- #item-body -->
 

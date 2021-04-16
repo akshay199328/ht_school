@@ -1297,3 +1297,19 @@ function modify_search_query( $query ) {
 
 }
 add_action( 'pre_get_posts', 'modify_search_query' );
+
+function get_the_course_tags( $post_id, $post_tag ) {
+  $terms = get_the_terms( $post_id, $post_tag );
+
+  /**
+   * Filters the array of tags for the given post.
+   *
+   * @since 2.3.0
+   *
+   * @see get_the_terms()
+   *
+   * @param WP_Term[]|false|WP_Error $terms Array of WP_Term objects on success, false if there are no terms
+   *                                        or the post does not exist, WP_Error on failure.
+   */
+  return apply_filters( 'get_the_tags', $terms );
+}

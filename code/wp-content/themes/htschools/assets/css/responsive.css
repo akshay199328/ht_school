@@ -455,7 +455,7 @@ button.saved_feedbackbtn span{
 	margin: 10px 0px 0px !important;
 }
 .content.blogpost-search_bottom {
-    padding-bottom: 30px;
+    padding-bottom: 30px !important;
 }
 .featured_headeing h1{
 	font-size: 25px;

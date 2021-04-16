@@ -46,11 +46,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold!important;
 }
 p{
-    font-size: 14px;
+  font-size: 14px;
   font-weight:normal;
 }
 b, strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
 .mrg{padding: 0px!important;margin: 0px;}
@@ -116,7 +116,7 @@ section {
 .header-space{margin-top:116px;}
 @media (min-width: 992px) {
   .fixed_banner .container{    
-        padding: 0px;
+    padding: 0px;
     width: 360px;
     float: right;
     padding-right: 40px;
@@ -134,25 +134,25 @@ section {
   }
 }
 .breadcrumbs h2 {
-      font-size: 60px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #0c5acc;
-    margin: 10px 0px;
+  font-size: 60px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c5acc;
+  margin: 10px 0px;
 }
 .breadcrumbs p {
-    font-size: 40px;
-    font-weight:normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #0c5acc;
+  font-size: 40px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c5acc;
 }
 .breadcrumbs ol {
   display: flex;
@@ -163,7 +163,7 @@ section {
   font-size: 11px;
 }
 .breadcrumbs ol li{
-    font-size: 11px;
+  font-size: 11px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -171,7 +171,7 @@ section {
   letter-spacing: normal;
   text-align: left;
   color: #fff;
-   transition: 0.3s;
+  transition: 0.3s;
 }
 .breadcrumbs ol a {
   color: #fff;
@@ -189,12 +189,12 @@ section {
 .breadcrumbs ol li:after {
   padding-right: 6px;
   top: 3px;
-    position: relative;
-    padding-left: 11px;
-    color: #0c5acc;
-    content: "\f285";
-    display: inline-block;
-    font-family: bootstrap-icons !important;
+  position: relative;
+  padding-left: 11px;
+  color: #0c5acc;
+  content: "\f285";
+  display: inline-block;
+  font-family: bootstrap-icons !important;
 }
 .breadcrumbs ol li:last-child::after{
   visibility: hidden;
@@ -257,59 +257,59 @@ section {
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
 }
 .left-menu a {
-    float: left;
-    color: #000000;
-    font-size: 15px;
+  float: left;
+  color: #000000;
+  font-size: 15px;
 }
 .border-menu, .border-menu.active {
-    border: 1px solid #000;
-    padding: 7px 15px !important;
-    background: transparent!important;
-    margin-left: 0px;
-    position: relative;
-    width: 121px;
+  border: 1px solid #000;
+  padding: 7px 15px !important;
+  background: transparent!important;
+  margin-left: 0px;
+  position: relative;
+  width: 121px;
 }
 
 .border-menu:after{
   content: "\f456";
-    font-family: bootstrap-icons !important;
-    font-style: normal;
-    font-weight: normal !important;
-    color: #000000;
-    font-size: 15px;
-    float: right;
-    display: block;
-    top: 2px;
-    position: relative;
-    right: 9px;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  color: #000000;
+  font-size: 15px;
+  float: right;
+  display: block;
+  top: 2px;
+  position: relative;
+  right: 9px;
 }
 .dropdown-toggle::after{
   content: "\f282";
-   font-family: bootstrap-icons !important;
-    border: 0px !important;
-    position: relative;
-    top: -9px;
-    font-size: 12px;
-    margin-left: 5px;
-    color: #000;
-    font-weight: normal;
+  font-family: bootstrap-icons !important;
+  border: 0px !important;
+  position: relative;
+  top: -9px;
+  font-size: 12px;
+  margin-left: 5px;
+  color: #000;
+  font-weight: normal;
 }
 .border-menu a, .border-menu.active a{
-    margin-left: 0;
-    color: #000000!important;
-    font-size: 15px;    padding: 0px !important;
+  margin-left: 0;
+  color: #000000!important;
+  font-size: 15px;    padding: 0px !important;
 }
 .custom-course-menu:after{
-      content: '';
-    border-bottom: 1px solid #707070;
-    width: 61%;
-    height: 1px;
-    position: absolute;
-    bottom: 7px;
-    left: 7px;
+  content: '';
+  border-bottom: 1px solid #707070;
+  width: 61%;
+  height: 1px;
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
 }
 .left-menu a span{
-    font-weight: bold;position: relative;
+  font-weight: bold;position: relative;
 }
 .border-menu i{padding-left: 20px;}
 .header .logo {
@@ -318,9 +318,9 @@ section {
 
 .header .logo img {
   /*max-height: 40px; */
-    /* margin-right: 6px; */
-    text-align: center;
-    margin: 0px auto;
+  /* margin-right: 6px; */
+  text-align: center;
+  margin: 0px auto;
 }
 
 .header .logo span {
@@ -335,8 +335,8 @@ section {
   float: left;
 }
 .right-menu {
-    float: right;
-    text-align: right;
+  float: right;
+  text-align: right;
 }
 .right-menu .navbar{
   float: right;
@@ -358,13 +358,13 @@ section {
   padding: 0px;
 }
 .right-menu ul li a:after, .left-menu ul li span:after{
-    content:'';
-    border-bottom: 1px solid #707070;
-    width: 80%;
-    height: 1px;
-    position: absolute;
-    bottom: -3px;
-    left: 0;
+  content:'';
+  border-bottom: 1px solid #707070;
+  width: 80%;
+  height: 1px;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
 }
 .search-icon a:after, .right-menu .icon{display: none;}
 /*--------------------------------------------------------------
@@ -374,9 +374,9 @@ section {
 * Desktop Navigation 
 */
 .navbar {
-    padding: 0;
-    min-height: auto !important;
-    margin-bottom: 0 !important;
+  padding: 0;
+  min-height: auto !important;
+  margin-bottom: 0 !important;
 }
 
 .navbar ul {
@@ -607,7 +607,7 @@ section {
   margin-top: 116px;
 }
 .innerheader-space.less_topmargin {
-    margin-top: 95px;
+  margin-top: 95px;
 }
 /*--------------------------------------------------------------
 # Hero Section
@@ -626,15 +626,15 @@ section {
 }
 .learing_card h1 {
   margin: 0;
-    font-size: 60px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
-        text-transform: capitalize;
+  font-size: 60px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  text-transform: capitalize;
 }
 
 .learing_card p {
@@ -650,30 +650,30 @@ section {
 }
 .hero .col-lg-9, .hero .col-lg-3{float: left}
 .learing_card .hero-list  {
-    float: left;
-    width: 100%;
-    margin-top: 0px;
+  float: left;
+  width: 100%;
+  margin-top: 0px;
 }
 .hero-list .hero-card{
  display: inline-block;
-    float: left;
-    width: 250px;
-    height: 225.6px;
-    margin-right: 19px;
-    margin-top: 21px;
-    padding: 15px 20px;
-        word-break: break-word;
-    
+ float: left;
+ width: 250px;
+ height: 225.6px;
+ margin-right: 19px;
+ margin-top: 21px;
+ padding: 15px 20px;
+ word-break: break-word;
+
 }
 .hero-list .hero-card:nth-child(1){
   background: url("../img/Scholarship-Programme.png"), #0521c4;
   background-repeat: no-repeat;
-    background-position:20% 100%;
+  background-position:20% 100%;
 }
 .hero-list .hero-card:nth-child(2){
   background: url("../img/code.png"), #aa2061;
   background-repeat: no-repeat;
-    background-position:20% 106%;
+  background-position:20% 106%;
 }
 .hero-list .hero-card:nth-child(3){
   background: url("../img/career.png"), #12756f;
@@ -697,7 +697,7 @@ section {
   color: #d5ebff;
 }
 .hero-list .hero-card h5{
-    font-size: 30px;
+  font-size: 30px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -707,7 +707,7 @@ section {
   color: #d5ebff;
 }
 .hero-list .hero-card p{
-    font-size: 20px;
+  font-size: 20px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -717,18 +717,18 @@ section {
   color: #aad5fa;
 }
 .hero-list .hero-card a {
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
-    text-align: left;
-    color: #fff;
-    margin-top: 40px;
-    position: relative;
-    display: block;
-    text-decoration: underline;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  margin-top: 40px;
+  position: relative;
+  display: block;
+  text-decoration: underline;
 }
 .hero .btn-get-started {
   margin-top: 30px;
@@ -862,32 +862,32 @@ section {
 Course Details
 ------------------------#*/
 .right-section {
-    position: relative;
-    width: 60.5%;
-    float: right;
-    text-align: left;
-    /* margin-left: 39.5%; */
+  position: relative;
+  width: 60.5%;
+  float: right;
+  text-align: left;
+  /* margin-left: 39.5%; */
 }
 .course-aboutDetails{
-    padding:0px 0px;
-    float: left;
-    width: 100%;
+  padding:0px 0px;
+  float: left;
+  width: 100%;
 }
 .fixed_banner{
   background: url('../img/coursedetails-back.png') no-repeat;
   float: left;
-    background-size: cover;
-    position: fixed;
-    width: 39.5%;
-    z-index: 99;
-    height: 100%;
-    transition: all 0.5s ease;
+  background-size: cover;
+  position: fixed;
+  width: 39.5%;
+  z-index: 99;
+  height: 100%;
+  transition: all 0.5s ease;
 
 }
 .static_banner {
-    /*position: relative;*/
-    bottom: 60%;
-    transition: all 0.5s ease;
+  /*position: relative;*/
+  bottom: 60%;
+  transition: all 0.5s ease;
 }
 .fixed_banner .breadcrumbs li a{
   text-decoration: underline;
@@ -915,12 +915,12 @@ Course Details
 .fixed_banner ul li{
   display: block;
   border-top: solid 1px #a6a6a6;
-    padding: 15px 0px;
-    width: 100%;
-    float: left;
+  padding: 15px 0px;
+  width: 100%;
+  float: left;
 }
 .fixed_banner ul li:last-child{
-    border-bottom: solid 1px #a6a6a6;
+  border-bottom: solid 1px #a6a6a6;
 }
 .fixed_banner ul li p{
   font-size: 14px!important;
@@ -931,19 +931,19 @@ Course Details
   color: #fff!important;
 }
 .fixed_banner ul li h6{
-   font-size: 15px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: normal;
-  text-align: left;
-  color: #fff!important;
+ font-size: 15px;
+ font-weight: bold;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: 1.33;
+ letter-spacing: normal;
+ text-align: left;
+ color: #fff!important;
 }
 .course-fees {
-    margin: 25px 0px;
-    float: left;
-    width: 100%;
+  margin: 25px 0px;
+  float: left;
+  width: 100%;
 }
 .course-fees h4{
   font-size: 30px;
@@ -957,9 +957,9 @@ Course Details
   margin-bottom: 15px;
 }
 .course-fees a.link{
-    padding: 12px 32px 12px 25px;
+  padding: 12px 32px 12px 25px;
   background-color: #fbca00;
-    font-size: 20px;
+  font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -969,12 +969,12 @@ Course Details
   color: #004135;
 }
 .fixedmenu-tabs {
-    position: fixed;
-    background: #f7f7f7;
-    width: 61%;
-    z-index: 999;
-    padding: 20px 40px;
-    margin-left: 0px;
+  position: fixed;
+  background: #f7f7f7;
+  width: 61%;
+  z-index: 999;
+  padding: 20px 40px;
+  margin-left: 0px;
 }
 .course-aboutDetails .details-right{
   float: left;
@@ -982,62 +982,62 @@ Course Details
   padding-right:0px;
 }
 .course-aboutDetails .details-right .content-about {
-    float: left;
-    width: 100%;
-    padding: 0;
+  float: left;
+  width: 100%;
+  padding: 0;
 }
 .nav-tabs {
-    border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 .fixedmenu-tabs .nav-tabs{
-    position: relative;
-    /*padding-right: 30px;*/
-    width: 92%;
-    border-bottom: none;
+  position: relative;
+  /*padding-right: 30px;*/
+  width: 92%;
+  border-bottom: none;
 }
 .fixedmenu-tabs .nav-tabs .share-icon {
-    position: absolute;
-    right: 0;
-    top: 5px;
+  position: absolute;
+  right: 0;
+  top: 5px;
 }
 .fixedmenu-tabs .nav-tabs .nav-item a{
-    color: #939393;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 3px 0rem;
-    border-bottom: 2px solid transparent;
-    margin-right: 25px;
-    background: transparent;
+  color: #939393;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 3px 0rem;
+  border-bottom: 2px solid transparent;
+  margin-right: 25px;
+  background: transparent;
 }
 .fixedmenu-tabs .nav-tabs .nav-item.show .nav-item a, 
 .fixedmenu-tabs .nav-tabs .nav-item .active, 
 .fixedmenu-tabs .nav-tabs .nav-item:focus a, 
 .fixedmenu-tabs .nav-tabs .nav-item:hover a{
-    color: #000!important;
-    background-color: transparent!important;
-    border-color: transparent!important;
-    border-bottom: 2px solid #000!important;
+  color: #000!important;
+  background-color: transparent!important;
+  border-color: transparent!important;
+  border-bottom: 2px solid #000!important;
 }
 .fixedmenu-tabs .nav-tabs .nav-link:hover, 
 .fixedmenu-tabs .nav-tabs .nav-link:focus {
-    border-color: transparent;
+  border-color: transparent;
 }
 .left-spacing{padding-left: 25px;padding-right: 0;}
 .about-details {
-    margin-top: 36px;
+  margin-top: 36px;
 }
 .heading h3{
-    font-size: 25px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.32;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.32;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 .about-details p{
-    font-size: 17px;
+  font-size: 17px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1048,7 +1048,7 @@ Course Details
   margin: 10px 0px 20px;
 }
 .about-details .pull-right {
-    padding-left: 25px!important;
+  padding-left: 25px!important;
 }
 .background-yellow{
   background-color: #fade3b;
@@ -1060,7 +1060,7 @@ Course Details
   
 }
 .course-for h5{
-    font-size: 20px;
+  font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -1071,7 +1071,7 @@ Course Details
 
 }
 .course-for p{
-    font-size: 15px;
+  font-size: 15px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1087,7 +1087,7 @@ Course Details
   padding: 0px;
 }
 .course-list h5{
-    font-size: 20px;
+  font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -1095,11 +1095,11 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-      margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .course-list span{
   width:95px;
-    padding: 9px 0px 9px;
+  padding: 9px 0px 9px;
   border: solid 3px #fade3b;
   text-align: center;
   float: left;
@@ -1109,7 +1109,7 @@ Course Details
 }
 .course-list span:last-child{margin-right: 0px;}
 .course-list span h6{
-    font-size: 11px;
+  font-size: 11px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -1117,7 +1117,7 @@ Course Details
   letter-spacing: 0.55px;
   text-align: center;
   color: #000000;
-      word-break: break-word;
+  word-break: break-word;
   /*margin-bottom: 10px;*/
 }
 /*.course-list span h6 a{color: #000000;}*/
@@ -1126,7 +1126,7 @@ Course Details
 }
 
 .learing-goals  p{
-    font-size: 17px;
+  font-size: 17px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1137,43 +1137,43 @@ Course Details
 }
 
 .learing-goals .heading p{
-    margin-top: 10px;
+  margin-top: 10px;
 
 }
 .learing-goals .list{
-    margin-top: 30px;
-    padding-bottom: 25px;
+  margin-top: 30px;
+  padding-bottom: 25px;
 }
 .learing-goals .list p{
-    line-height: 25px;
-    position: relative;
-    padding-left: 20px;
+  line-height: 25px;
+  position: relative;
+  padding-left: 20px;
 }
 .learing-goals .list p:before{
-    content: '';
-    background: url('../img/bullet.png');
-    width: 10px;
-    height: 7px;
-    position: absolute;
-    display: block;
-    left: 0;
-    top: 9px;
+  content: '';
+  background: url('../img/bullet.png');
+  width: 10px;
+  height: 7px;
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 9px;
 }
 .instructor-detailsMini .profile-content  {
-    padding: 25px 25px 0px 0px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  padding: 25px 25px 0px 0px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 .profileimg-name{
   height: 110px;
 }
 .profileimg-name .co-lg-3.pull-left {
-    padding: 29px 0px 0px 20px;
+  padding: 29px 0px 0px 20px;
 }
 .instructor-detailsMini .profile-content h3{
   font-size: 15px;
@@ -1190,16 +1190,16 @@ Course Details
   
 } 
 .double-border {
-    padding-top: 7.5px;
-    border-bottom: 2px solid #dee2e6!important;
+  padding-top: 7.5px;
+  border-bottom: 2px solid #dee2e6!important;
 }
 .course-curriculum, .learing-goals, .course-instructor, .other-courses{
-    padding: 30px 0px;
-    float: left;
-    width: 100%;
+  padding: 30px 0px;
+  float: left;
+  width: 100%;
 }
 .instructor-detailsMini .profile-content p{
-    font-size: 20px;
+  font-size: 20px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1210,23 +1210,23 @@ Course Details
   margin-top: 15px;
 }
 .see-profilelink {
-    font-size: 15px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
-    position: relative;
-        display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  position: relative;
+  display: inline-block;
 }
 .see-profilelink:after{
   content: '';
   border-bottom: 2px solid #000;
-      display: block;
-    position: relative;
-    top: 5px;
+  display: block;
+  position: relative;
+  top: 5px;
 }
 /*.about-details.col-lg-6{float: left}*/
 .other-courses .heading h3{
@@ -1246,7 +1246,7 @@ Course Details
   margin: 0;
 }
 .details{
-    padding: 10px 0px;
+  padding: 10px 0px;
 }
 .other-courses .list .card:first-child{
   padding-left: 0px;
@@ -1278,15 +1278,15 @@ Course Details
 }
 .other-courses .list h3:after{
   content: '';
-      background: #707070;
-    width: 144px;
-    height: 1px;
-    position: absolute;
-    bottom: 0;
-    display: block;
+  background: #707070;
+  width: 144px;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  display: block;
 }
 .other-courses .list .session {
-    padding:15px 0px 25px 0px;
+  padding:15px 0px 25px 0px;
 }
 .other-courses .list .session h6{
   font-size: 13px;
@@ -1299,7 +1299,7 @@ Course Details
   color: #000000;
 }
 .other-courses .list .session img {
-    padding-right: 15px;float: left;
+  padding-right: 15px;float: left;
 }
 .other-courses .list .session h6 span{
   font-weight: normal;
@@ -1307,7 +1307,7 @@ Course Details
 .other-courses .list .bookdemo-btn{
   padding: 11px 16px 14px 15px;
   background-color: #000000;
-   font-size: 15px;
+  font-size: 15px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -1320,14 +1320,14 @@ Course Details
 
 }
 .cv-detilslist span{
-      width: auto;
-    margin: 0 10px 20px 12px;
-    padding: 9px 23px 9px 15px;
-    background-color: #fff;
-    display: inline-block;
+  width: auto;
+  margin: 0 10px 20px 12px;
+  padding: 9px 23px 9px 15px;
+  background-color: #fff;
+  display: inline-block;
 }
 .cv-detilslist span h6{
-    font-size: 17px;
+  font-size: 17px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -1337,30 +1337,30 @@ Course Details
   color: #000000;
 }
 .course-curriculum .list {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .card {
-    border-color: #e8e8e8;
-    border-radius: 0;
-    padding: 24px;
-        margin: 0px 30px 30px 0px;
+  border-color: #e8e8e8;
+  border-radius: 0;
+  padding: 24px;
+  margin: 0px 30px 30px 0px;
 }
 .course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) .card {
   /*margin-right:0px;*/
 }
 .card .default-background{
-    padding: 2px 5px 4px;
+  padding: 2px 5px 4px;
   background-color: #ffeaeb;
-    font-size: 11px;
+  font-size: 11px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.36;
   letter-spacing: 0.55px;
-      position: relative;
-    top: -5px;
-    text-transform: uppercase;
+  position: relative;
+  top: -5px;
+  text-transform: uppercase;
 }
 .Lpink{
   background-color: #ffeaeb;
@@ -1372,8 +1372,8 @@ Course Details
   background-color: rgba(255, 147, 0, 0.08)!important;
 }
 .card .default-background img {
-    width: 11px;
-        margin-right: 10.1px;
+  width: 11px;
+  margin-right: 10.1px;
 }
 .card h6{
   font-size: 11px;
@@ -1385,7 +1385,7 @@ Course Details
   text-align: right;
 }
 .card h5{
-    font-size: 20px;
+  font-size: 20px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
@@ -1394,7 +1394,7 @@ Course Details
   margin: 10px 0px;
 }
 .card p{
-    font-size: 15px;
+  font-size: 15px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1407,7 +1407,7 @@ Course Details
   margin: 40px 0px 0px;    float: left;
 }
 .all-session{
-    padding: 11px 17px 14px 15px;
+  padding: 11px 17px 14px 15px;
   background-color: #000000;  
   font-size: 15px;
   font-weight: bold;
@@ -1551,48 +1551,48 @@ Course Details
   background: url(../img/course-background.png) no-repeat;
 }
 .Popular-Courses .section-header {
-    padding-bottom: 0px;    text-align: left;
+  padding-bottom: 0px;    text-align: left;
 }
 .Popular-Courses .section-header h2 {
-    font-size: 60px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #0c5acc;
+  font-size: 60px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c5acc;
 }
 .Popular-Courses .section-header p{
-      font-size: 30px;
-    font-weight:normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #0c5acc;
+  font-size: 30px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c5acc;
 }
 .Popular-Courses .section-header .exlore-link {
-    padding: 12px 32px 16px 25px;
-    background-color: #0c5acc;
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
-    text-align: left;
-    color: #fade3b;
-    margin: 40px 0px;
-    display: inline-block;
+  padding: 12px 32px 16px 25px;
+  background-color: #0c5acc;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fade3b;
+  margin: 40px 0px;
+  display: inline-block;
 }
 .mobile-btn{display: none;}
 .space {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .space:last-child {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 .course-box {
   float: left;
@@ -1607,65 +1607,65 @@ Course Details
   margin-bottom: 20px;
 }
 .course-box:after{
-    content:'';
-    background: #000000;
-    width: 25%;
-    height: 2px;
-    position: absolute;
-    bottom: -1px;
-    right: 0; 
+  content:'';
+  background: #000000;
+  width: 25%;
+  height: 2px;
+  position: absolute;
+  bottom: -1px;
+  right: 0; 
 } 
 .dotted-border{
-    box-shadow: none;
-    border-bottom: dotted 1px #b8b8b8;
-    margin-left: 0px;
+  box-shadow: none;
+  border-bottom: dotted 1px #b8b8b8;
+  margin-left: 0px;
 }
 .right-adwork{
   float: right;
   text-align: right;
 }
 .course-box .middle-details {
-    padding-left: 18px;
+  padding-left: 18px;
 }
 .course-box .middle-details h6 {
-    font-size: 11px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.55px;
-    text-align: left;
-    color: #000000;
-    margin: 0px;
-    padding: 0px;
+  font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+  text-align: left;
+  color: #000000;
+  margin: 0px;
+  padding: 0px;
 }
 .course-box .middle-details h2 {
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
-    margin: 10px 0px 15px;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin: 10px 0px 15px;
 }
 .course-box .middle-details h2 a{color: #000000;font-weight: bold;}
 .course-box .middle-details p {
-        font-size: 15px;
-    font-weight:normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  font-size: 15px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 
 }
 .text-ellipsis{
-    width: 25.6em;
-    white-space: nowrap;
-    overflow: hidden;
+  width: 25.6em;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .features .feature-box h3 {
   font-size: 18px;
@@ -1674,318 +1674,318 @@ Course Details
   margin: 0;
 }
 .duration {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 .duration p{
  font-size: 10px!important;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.4;
+ font-weight: normal;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: 1.4;
 }
 .duration h6{
   font-size: 13px !important;
-    line-height: 1.31!important;
-    letter-spacing: normal!important;
+  line-height: 1.31!important;
+  letter-spacing: normal!important;
 }
 .duration h6 span{
   font-weight: normal!important;
 }
 .middle-details .share-icon {
-      display: none;
-    position: absolute;
-    top: 0px;
-    right: -142px;
-    width: auto;
-    cursor: pointer;
-    z-index: 999;
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: -142px;
+  width: auto;
+  cursor: pointer;
+  z-index: 999;
 }
 .middle-details .share-icon i{
-    color: #14171c;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: right;
-    float: right;
-    /*width: 100%;*/
+  color: #14171c;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: right;
+  float: right;
+  /*width: 100%;*/
 }
 .right-details .course-button{
-    float: left;
-    padding: 0px;
-    padding-top: 88px;
+  float: left;
+  padding: 0px;
+  padding-top: 88px;
 }
 .right-details .course-button h6 {
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
-    float: left;
-    /* width: 100%; */
-    display: inline-block;
-    margin-bottom: 10px;
-    padding-left: 4px;
-    margin-top: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  float: left;
+  /* width: 100%; */
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-left: 4px;
+  margin-top: 0px;
 }
 .right-details .course-button h6 .amount{ color: #000000;font-weight: bold;}
 .right-details .course-button h6 del{ color: #000000;font-weight: bold;}
 .right-details .course-button h6 .subs{color: #000000;font-weight: normal;font-size: 14px;position: relative;top:-4px;}
 .woocommerce-Price-currencySymbol{margin-right: 5px;}
 .right-details .course-button a {
-    padding: 11px 29px 14px 24px;
-    background-color: #000000;
-    font-size: 15px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #fade3b;
-    float: left;
-    margin-left: 4px;
+  padding: 11px 29px 14px 24px;
+  background-color: #000000;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fade3b;
+  float: left;
+  margin-left: 4px;
 }
 .competitive {
-    background: url(../img/Sci-fairBackground.jpg) no-repeat;
-        height: 595px;
-    background-size: cover;
+  background: url(../img/Sci-fairBackground.jpg) no-repeat;
+  height: 595px;
+  background-size: cover;
 }
 /*.Sci-fair .col-sm-6{float: left}*/
 .competitive .col-sm-6 img{
   padding-right: 30px;
 }
 .competitive .pull-right img {
-     float: right; 
-    text-align: right;
+ float: right; 
+ text-align: right;
 }
 .competitive .comp-heading {
-    width: 590px;
-    /*margin: 16px 0px;*/
-    padding: 30px 56px 16px 30px;
-    background-color: #fff;
+  width: 590px;
+  /*margin: 16px 0px;*/
+  padding: 30px 56px 16px 30px;
+  background-color: #fff;
 }
 .competitive .comp-heading h1{
-    font-size: 60px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  font-size: 60px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 .competitive .comp-para{
-    width: 724px;
-    padding: 12px 56px 70px 30px;
-    background-color: #fff;
-    position: relative;
+  width: 724px;
+  padding: 12px 56px 70px 30px;
+  background-color: #fff;
+  position: relative;
 }
 .competitive .comp-para p{
-    font-size: 30px;
-    font-weight:normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  font-size: 30px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 .competitive .comp-para .find-btn {
-    position: absolute;
-    padding: 12px 23px 12px 27px;
-    background-color: #000000;
-    bottom: -23px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 0;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
-    text-align: left;
-    color: #fff;
+  position: absolute;
+  padding: 12px 23px 12px 27px;
+  background-color: #000000;
+  bottom: -23px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 0;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
 }
 .adworks-head{
-    text-align: right;
-    margin: 0px auto;
-        float: left;
+  text-align: right;
+  margin: 0px auto;
+  float: left;
 }
 .adworks-head img{
-    width: 100%;
+  width: 100%;
 }
 .adworks-head a {
-    font-size: 11px;
-    font-weight:normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: normal;
-    color: #0c5acc;
-    text-decoration: underline;
-    text-align: right;
+  font-size: 11px;
+  font-weight:normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: normal;
+  color: #0c5acc;
+  text-decoration: underline;
+  text-align: right;
 }
 .latest-news .header-heading {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 .latest-news .header-heading h2{
-    font-size: 60px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
-    display: inline-block;
+  font-size: 60px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  display: inline-block;
 }
 .latest-news .header-heading .news-btn{
-    padding: 12px 27px 16px 25px;
-    background-color: #0c5acc;  
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
-    text-align: left;
-    color:#fff;
-    margin-left: 28px;
-    position: relative;
-    top: -19px;
+  padding: 12px 27px 16px 25px;
+  background-color: #0c5acc;  
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color:#fff;
+  margin-left: 28px;
+  position: relative;
+  top: -19px;
 }
-  .details-left p{
-    font-size: 11px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.55px;
-    text-align: left;
-    color: #000000;
-    margin-bottom: 10px;
+.details-left p{
+  font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 10px;
 }
 .details-left p a{
-    color: #000000;
+  color: #000000;
 }
 .details-left .link a{
-    font-size: 40px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #0c5acc!important;
-        margin-top: 26.9px;
-    padding-right: 49px;
+  font-size: 40px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c5acc!important;
+  margin-top: 26.9px;
+  padding-right: 49px;
 }
 .details-middle{
   padding-left: 25px;
 }
 .popularNew-heading {
-    position: absolute;
-    top: -60px;
+  position: absolute;
+  top: -60px;
 }
 .details-middle .popularNew-heading h5{
-    font-size: 25px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.32;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.32;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 .details-middle ul li{
-    display: inline-block;
-    width: 100%;
-    border-bottom: solid 1px #b8b8b8;
-    padding:20px 18px 8.5px 0px;
-    margin-right: 30px;
+  display: inline-block;
+  width: 100%;
+  border-bottom: solid 1px #b8b8b8;
+  padding:20px 18px 8.5px 0px;
+  margin-right: 30px;
 }
 .details-middle ul li:last-child{border-bottom: solid 0px #b8b8b8;}
 .details-middle ul li p{
-    font-size: 11px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.55px;
-    text-align: left;
-    color: #000000;
-    margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 8px;
 }
 .news_advertisment .pull-left {
-    float: left;
-    padding: 3px 7px 4px 8px;
-    background-color: #efefef;
-    font-size: 10px;
-    line-height: 1.4;
-    position: relative;
-    top: -5px;
+  float: left;
+  padding: 3px 7px 4px 8px;
+  background-color: #efefef;
+  font-size: 10px;
+  line-height: 1.4;
+  position: relative;
+  top: -5px;
 }
 .news_advertisment .pull-right {
-    /*padding: 3px 7px 4px 8px;*/
+  /*padding: 3px 7px 4px 8px;*/
 }
 .news_advertisment .pull-right a {
-    font-size: 11px;
-    text-decoration: underline;
-    font-weight: normal;
-    line-height: 1.36;
-    text-align: right;
-    color: #0c5acc;
+  font-size: 11px;
+  text-decoration: underline;
+  font-weight: normal;
+  line-height: 1.36;
+  text-align: right;
+  color: #0c5acc;
 }
 .details-middle ul li .link{
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
-    text-align: left;
-    color: #0c5acc;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0c5acc;
 }
 .details-middle ul li .link a{
-    color: #0c5acc;
-        min-height: 85px;
-    position: relative;
-    float: left;
+  color: #0c5acc;
+  min-height: 85px;
+  position: relative;
+  float: left;
 }
 .center{text-align: center;}
 .latest-news .center {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .infograph, .testimonials{
-    padding: 20px 0px;
-    margin-top: 45.5px;
-    border-top: solid 1px #b8b8b8;
+  padding: 20px 0px;
+  margin-top: 45.5px;
+  border-top: solid 1px #b8b8b8;
 } 
 .testimonials {
   display: none;
-    margin-top: 0px;
+  margin-top: 0px;
 }
 .profile-cont{
   float: left;
 }
 .infograph .heading h4, .testimonials .heading h4{
-    font-size: 25px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.32;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.32;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 .infograph .details {
-    padding: 30px 0px;
-    text-align: center;
+  padding: 30px 0px;
+  text-align: center;
 }
 .infograph .details .col-lg-4{float: left}
 .infograph .content {
-    padding: 28px 56px 20px 56px;
+  padding: 28px 56px 20px 56px;
 }
 .infograph .content p{
   font-size: 11px;
@@ -1999,7 +1999,7 @@ Course Details
   margin-bottom: 7px;
 }
 .infograph .content h3{
-    font-size: 20px;
+  font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -2009,18 +2009,18 @@ Course Details
   color: #000000;
 }
 .features .feature-box i {
-    line-height: 0;
-    background: #ecf3ff;
-    padding: 4px;
-    margin-right: 10px;
-    font-size: 24px;
-    border-radius: 3px;
-    transition: 0.3s;
+  line-height: 0;
+  background: #ecf3ff;
+  padding: 4px;
+  margin-right: 10px;
+  font-size: 24px;
+  border-radius: 3px;
+  transition: 0.3s;
 }
 
 .features .feature-box:hover i {
-    background: #4154f1;
-    color: #fff;
+  background: #4154f1;
+  color: #fff;
 }
 
 .features .feture-tabs {
@@ -2641,16 +2641,16 @@ Course Details
 # Testimonials
 --------------------------------------------------------------*/
 .testimonials .testimonial-item {
-    box-sizing: content-box;
-    padding: 0 130px 0 0;
-    margin: 40px 0px 40px;
-    /*box-shadow: 0px 0 20px rgba(1, 41, 112, 0.1);*/
-    background: #fff;
-    /*min-height: 320px;*/
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    transition: 0.3s;
+  box-sizing: content-box;
+  padding: 0 130px 0 0;
+  margin: 40px 0px 40px;
+  /*box-shadow: 0px 0 20px rgba(1, 41, 112, 0.1);*/
+  background: #fff;
+  /*min-height: 320px;*/
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: 0.3s;
 }
 
 .testimonials .testimonial-item .stars {
@@ -2671,51 +2671,51 @@ Course Details
 }
 
 .testimonials .testimonial-item h3 {
-      margin:18px 0px 0px 10px;
-    font-size: 20px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.35;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  margin:18px 0px 0px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 
 .testimonials .testimonial-item h4 {
-    margin: 0px 0px 0px 10px;
-    font-size: 11px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.55px;
-    text-align: left;
-    color: #000000;
+  margin: 0px 0px 0px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.36;
+  letter-spacing: 0.55px;
+  text-align: left;
+  color: #000000;
 }
 
 .testimonials .testimonial-item p {
-    margin: 0 auto 15px auto;
-    padding-left: 20px;
-    font-size: 15px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
+  margin: 0 auto 15px auto;
+  padding-left: 20px;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
 .testimonials .testimonial-item .profile-name{position: relative;}
 .testimonials .testimonial-item .profile-name:before{
-    content: '';
-    background: url(../img/testimonial-after.png);
-    position: absolute;
-    height: 112px;
-    width: 157px;
-    bottom: 70%;
-    left: 0;
-    z-index: 9;
+  content: '';
+  background: url(../img/testimonial-after.png);
+  position: absolute;
+  height: 112px;
+  width: 157px;
+  bottom: 70%;
+  left: 0;
+  z-index: 9;
 }
 .testimonials .swiper-pagination {
   margin-top: 20px;
@@ -3583,94 +3583,94 @@ Course Details
 # login css
 --------------------------------------------------------------*/
 .login {
-    background: #D5EBFF;
-    padding: 6px 0px 40px;
+  background: #D5EBFF;
+  padding: 6px 0px 40px;
 }
 .login-box{
-    width: 740px;
-    margin: 0px auto;
-    background: #F8F8F8;
+  width: 740px;
+  margin: 0px auto;
+  background: #F8F8F8;
 }
 .login-left img{width: 100%;height: 640px;}
 .login-box .login-right {
-    float: left;
-    width: 100%;
-    padding: 65px 40px;
+  float: left;
+  width: 100%;
+  padding: 65px 40px;
 }
 .login-box h4{
   font-size: 25px;
   color:#000000;
-      text-align: center;
+  text-align: center;
 }
 .login-box form {
-    margin: 55px 0px;
+  margin: 55px 0px;
 }
 .login-box.register-box form {
-    margin: 55px 0px 21px;
+  margin: 55px 0px 21px;
 }
 .login-box .form-group {
-    margin-bottom: 10px;
-        position: relative;
+  margin-bottom: 10px;
+  position: relative;
 }
 .login-box .btn{
-    width: 100%;
-    background: #fff;
-    border-radius: 0px;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    border-color: transparent;
+  width: 100%;
+  background: #fff;
+  border-radius: 0px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  border-color: transparent;
 }
 .login-box .btn.google_btn{
-    color: #000;
+  color: #000;
 }
 .login-box .btn.facebook_btn{
-    background: #1877F2;
-    color: #fff;
+  background: #1877F2;
+  color: #fff;
 }
 .login-box .btn.submit_btn{
-    background: #7b7b7b;
-    color: #cdbe69;
+  background: #7b7b7b;
+  color: #cdbe69;
 }
 .login-box .btn.submit_btn a{color: #cdbe69;}
 .login-box .btn.submit_btn:hover{
-    background: #000;
-    color: #FADE3B;
+  background: #000;
+  color: #FADE3B;
 }
 .login-box .btn.submit_btn:hover a{color: #FADE3B;}
 .btn:focus, .btn.focus, .form-control:focus{
-    outline: 0;
-    box-shadow: 0 0 0 0rem rgb(0 123 255 / 25%);
-    border-color: #BEBEBE;
+  outline: 0;
+  box-shadow: 0 0 0 0rem rgb(0 123 255 / 25%);
+  border-color: #BEBEBE;
 }
 .login-box .btn img{
-    margin-right: 15px;
+  margin-right: 15px;
 }
 .option_or{
-    position: relative;
-    text-align: center;
-    margin: 0px 0px 1rem;
+  position: relative;
+  text-align: center;
+  margin: 0px 0px 1rem;
 }
 .option_or:after{
-    content:'';
-    background: #AAAAAA;
-    width: 40%;
-    height: 1px;
-    position: absolute;
-    display: block;
-    top: 12px;
-    left: 0;
+  content:'';
+  background: #AAAAAA;
+  width: 40%;
+  height: 1px;
+  position: absolute;
+  display: block;
+  top: 12px;
+  left: 0;
 }
 .option_or:before{
-    content:'';
-    background: #AAAAAA;
-    width: 40%;
-    height: 1px;
-    position: absolute;
-    display: block;
-    top: 12px;
-    right: 0;
+  content:'';
+  background: #AAAAAA;
+  width: 40%;
+  height: 1px;
+  position: absolute;
+  display: block;
+  top: 12px;
+  right: 0;
 }
 .option_or span{
   color: #989898;
@@ -3681,18 +3681,18 @@ Course Details
   color: #979797;
 }
 .login-box input {
-    background: #fff;
-    border-color: #BEBEBE;
-    color: #000000;
-    border-radius: 0px;
-    padding: 15px 20px;
-    text-align: left;
-    font-size: 15px;
-    font-weight: normal;
-    height: 100%;
+  background: #fff;
+  border-color: #BEBEBE;
+  color: #000000;
+  border-radius: 0px;
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: normal;
+  height: 100%;
 }
 .form-footer {
-    text-align: center;
+  text-align: center;
 }
 .form-footer a{
   font-size: 16px;
@@ -3711,7 +3711,7 @@ Course Details
   margin-top: 30px;
 }
 .otp-ontent {
-    text-align: center;
+  text-align: center;
 }
 .otp-ontent img{
   margin:30px 0px; 
@@ -3724,24 +3724,24 @@ Course Details
 }
 .otp-ontent .content p a{font-weight: bold;}
 #otp {
-    margin: 20px 0px;
-    float: left;
+  margin: 20px 0px;
+  float: left;
 }
 .otp-ontent #otp input{
   width: 48.3px;
-    float: left;
-    padding: 15px 10px;
-    border: 1px solid #bebebe;
-    border-left: 0px;
-    color: #000000;
+  float: left;
+  padding: 15px 10px;
+  border: 1px solid #bebebe;
+  border-left: 0px;
+  color: #000000;
 }
 .otp-ontent #otp input:first-child{
   border-left: 1px solid #bebebe;
 }
 .resend-info{
-    float: left;
-    width: 100%;
-    padding: 10px 0px 30px;
+  float: left;
+  width: 100%;
+  padding: 10px 0px 30px;
 }
 .resend-info p{
   font-size: 14px;
@@ -3759,137 +3759,137 @@ Course Details
   color:#0C5ACC;
 }
 .otp_button .arrow_btn {
-    float: left;
-    width: 45px;
-    background: transparent;
-    border: 1px solid #000;
-    padding: 10px 0px;
+  float: left;
+  width: 45px;
+  background: transparent;
+  border: 1px solid #000;
+  padding: 10px 0px;
 }
 .otp_button .submit_btn {
-    float: left;
-    width: 240px;
-    margin-left: 5px;
+  float: left;
+  width: 240px;
+  margin-left: 5px;
 }
 .from-countrynum input{padding-left: 55px;}
 
 .country-code{
   position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    border-right: 1px solid #BEBEBE;
-    padding: 12px 12px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-right: 1px solid #BEBEBE;
+  padding: 12px 12px;
 }
 .login-box .switch {
-        border-radius: 0;
-    display: inline-block;
-    transition: all 0.1s ease;
-    height: 100%;
-    position: relative;
-    background-color: #ffffff;
-    width: 150px;
-    border: 1px solid #BEBEBE;
-    border-radius: 0;
-    margin-top: 0px;
-    padding: 0px;
+  border-radius: 0;
+  display: inline-block;
+  transition: all 0.1s ease;
+  height: 100%;
+  position: relative;
+  background-color: #ffffff;
+  width: 150px;
+  border: 1px solid #BEBEBE;
+  border-radius: 0;
+  margin-top: 0px;
+  padding: 0px;
 }
 
 .login-box .switch-label{
-    direction: rtl;
-    position: relative;
-    z-index: 2;
-    float: left;
-    width: 72px;
-    height: 41px;
-    padding: 0;
-    margin-bottom: 0;
-    font-size: 15px;
-    color: #BEBEBE;
-    text-align: center;
-    cursor: pointer;
-    font-weight: 500;
+  direction: rtl;
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 72px;
+  height: 41px;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #BEBEBE;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 .login-box .switch-input {
-    display: none;
+  display: none;
 }
 
 .login-box .switch-input:checked + .switch-label {
-    color: #fff;
-    width: 50%;
+  color: #fff;
+  width: 50%;
 }
 
 .login-box .switch-input:checked + .switch-label-on ~ .slider2 {
-    left: 50%;
-    border-radius:0;
+  left: 50%;
+  border-radius:0;
 }
 
 .login-box .switch-label-on{
-    border-radius:0;
+  border-radius:0;
 }
 
 .login-box .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2{
-    border-radius:0;
+  border-radius:0;
 }
 
 .login-box .switch-input:checked + .switch-label svg path{
-    fill: #ffffff;
+  fill: #ffffff;
 }
 
 .login-box .swith-row{
-    height: 45px;
-    direction: ltr;
-    width: 100%;
+  height: 45px;
+  direction: ltr;
+  width: 100%;
 }
 
 .login-box .slider2{
-    display: block;
-    position: absolute;
-    z-index: 1;
-    color: #ffffff;
-        top: 2px;
-    left: 2px;
-    width: 72px;
-    height: 37px;
-    background: #0C5ACC;
-    -webkit-transition:  500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
-    -moz-transition: 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
-    -ms-transition: 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
-    -o-transition: 500ms cubic-bezier(0.75, 0.820, 0.165, 1.000);
-    transition: 500ms cubic-bezier(0.75, 0.820, 0.165, 1.000);
+  display: block;
+  position: absolute;
+  z-index: 1;
+  color: #ffffff;
+  top: 2px;
+  left: 2px;
+  width: 72px;
+  height: 37px;
+  background: #0C5ACC;
+  -webkit-transition:  500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+  -moz-transition: 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+  -ms-transition: 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+  -o-transition: 500ms cubic-bezier(0.75, 0.820, 0.165, 1.000);
+  transition: 500ms cubic-bezier(0.75, 0.820, 0.165, 1.000);
 }
 
 
 .login-box .slide-right {
-    -webkit-animation: slide-right 0.5s infinite alternate-reverse both;
-    animation: slide-right 0.5s infinite alternate-reverse both;
+  -webkit-animation: slide-right 0.5s infinite alternate-reverse both;
+  animation: slide-right 0.5s infinite alternate-reverse both;
 }
 .login-box .switch-label span{
-    position: relative;
-    top: 9px;
+  position: relative;
+  top: 9px;
 }
 @-webkit-keyframes slide-right {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-    100% {
-        -webkit-transform: translateX(20px);
-        transform: translateX(20px);
-    }
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
 }
 @keyframes slide-right {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-    100% {
-        -webkit-transform: translateX(20px);
-        transform: translateX(20px);
-    }
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
 }
 .register_btn{
-    margin: 50px 0px 0px;
+  margin: 50px 0px 0px;
 }
 .register_btn p{
   font-size: 14px;
@@ -3912,19 +3912,19 @@ Course Details
 .footer h1{color: #000;}
 .social-links{margin-top: 45px;}
 .socio-list{
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    display: flex;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  display: flex;
 }
 .social-links .pull-right .socio-list {
-    float: right;
+  float: right;
 }
 .social-heading {
-    font-size: 11px;
-    color: #fff;
-    font-weight: bold;
-    margin-right: 10px;
+  font-size: 11px;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .footer .footer-top {
@@ -3936,20 +3936,20 @@ Course Details
 }
 
 .footer .footer-top .footer-info p {
-    font-size: 30px;
-    line-height: 40px;
-    margin-bottom: 0;
-    color: #D5EBFF;
-    font-weight: 300;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 0;
+  color: #D5EBFF;
+  font-weight: 300;
 }
 
 .footer .footer-top .social-links a {
-      font-size: 22px;
-    display: inline-block;
-    line-height: 0;
-    margin-right: 10px;
-    transition: 0.3s;
-    color: #EFEFEF;
+  font-size: 22px;
+  display: inline-block;
+  line-height: 0;
+  margin-right: 10px;
+  transition: 0.3s;
+  color: #EFEFEF;
 }
 
 .footer .footer-top .social-links a:hover {
@@ -3996,15 +3996,15 @@ Course Details
   color: #fade3b;
 }
 .footer .middle-detils ul li{
-    font-size: 34px;
-    font-weight: bold;line-height: 46px;
+  font-size: 34px;
+  font-weight: bold;line-height: 46px;
 }
 .footer .footer-links .about-links{padding-top: 10px;}
 .footer .footer-links .about-links ul li{
-    font-size: 24px;
+  font-size: 24px;
 }
 .bottom-detils {
-    padding: 0px 15px;
+  padding: 0px 15px;
 }
 .footer .bottom-detils p {
   font-size: 15px;
@@ -4024,7 +4024,7 @@ Course Details
   margin-right: 20px;
 }
 .footer .bottom-detils .links li:last-child{
-    margin-right: 0px;
+  margin-right: 0px;
 }
 .footer .bottom-detils .links li a{
   color: #D5EBFF;
@@ -4055,9 +4055,9 @@ Course Details
 @media screen and (max-width:1199px) and (min-width:992px){
   .hero {padding-top: 112px;}
   .hero-list .hero-card{
-      width: 328px;
-      height: 318px;
-      margin-right: 20px;
+    width: 328px;
+    height: 318px;
+    margin-right: 20px;
   }
   .hero h1 {margin: 0;font-size: 85px;}
   .hero p{font-size: 45px;}
@@ -4089,65 +4089,65 @@ Course Details
   
 }
 @media screen and (max-width:991px) and (min-width:320px){
-    .header-space {margin-top: 15px;}
-    #header .middle-menu{padding: 0;}
-    #header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}
-    .mobile-nav-toggle{float: left;margin-top: 9px;}
-    .right-menu .icon{display: block}
-    .right-menu ul li{margin-right: 15px;}
-    .header .logo img{max-width: 100px;margin: 0;margin-left: 25px;}
-    .mobile-add{display:block;margin-bottom: 30px;}
-    .hero-list .hero-card{
-        width: 100%;
-        height: 250px;
-        flex: 0 0 100%;
-      max-width: 100%;
-    }
-    .hero-list .owl-item:nth-child(1) .hero-card {
-      background: url(../img/Scholarship-Programme.png), #0521c4;
-      background-repeat: no-repeat;
-      background-position: 114% 100%;
-    }
-    .hero-list .owl-item:nth-child(2) .hero-card{
-      background: url("../img/code.png"), #aa2061;
-      background-repeat: no-repeat;
-      background-position:105% 106%;
-    }
-    .hero-list .owl-item:nth-child(3) .hero-card{
-      background: url("../img/career.png"), #12756f;
-      background-repeat: no-repeat;
-      background-position:105% 135%;
-    }
-    .hero-list .owl-item:nth-child(4) .hero-card{
-      background: url("../img/olympiad.png"), #001e03;
-      background-repeat: no-repeat;
-      background-position: 103% 108%;
-    }
-    .hero .adworks{text-align: left}
-    .competitive .comp-heading, .competitive .comp-para {width: 100%;}
-    .competitive .comp-heading{margin-top:30px;}
-    .competitive .pull-left, .competitive .pull-right{padding: 0px}
-    .competitive .pull-left img:first-child{margin-right: 15px}
-    .details-middle ul li{width: 100%;margin-right: 0px;padding: 20px 0px 35px 0px;border-bottom: 1px dashed #b8b8b8;}
-    .details-middle ul li .link a{height: 100%;min-height: 100%;   }
-    .latest-news .details-left .link a{
-      font-size: 20px;
-      font-weight: bold;
-      position: relative;
-      display: block;
-      margin-top: 10px;
-      padding-bottom: 35px;
-      padding-right: 0;
-      border-bottom: 1px dashed #b8b8b8;
-    }
-    .popularNew-heading {position: relative;top: 0;}
-    .details-middle {padding-left: 0;}
-    .infograph .owl-carousel .owl-item img{width: auto;text-align: center;margin: 0px auto;}
-    .right-details .course-button h6{padding-left: 0px;padding-top: 15px;}
-    .right-details .course-button {
-      padding-left: 20px;
-      float: left;
-      padding-top: 20px!important;}
+  .header-space {margin-top: 15px;}
+  #header .middle-menu{padding: 0;}
+  #header .left-menu, .right-menu .text, .right-menu ul li a:after, .left-menu ul li span:after{display: none;}
+  .mobile-nav-toggle{float: left;margin-top: 9px;}
+  .right-menu .icon{display: block}
+  .right-menu ul li{margin-right: 15px;}
+  .header .logo img{max-width: 100px;margin: 0;margin-left: 25px;}
+  .mobile-add{display:block;margin-bottom: 30px;}
+  .hero-list .hero-card{
+    width: 100%;
+    height: 250px;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .hero-list .owl-item:nth-child(1) .hero-card {
+    background: url(../img/Scholarship-Programme.png), #0521c4;
+    background-repeat: no-repeat;
+    background-position: 114% 100%;
+  }
+  .hero-list .owl-item:nth-child(2) .hero-card{
+    background: url("../img/code.png"), #aa2061;
+    background-repeat: no-repeat;
+    background-position:105% 106%;
+  }
+  .hero-list .owl-item:nth-child(3) .hero-card{
+    background: url("../img/career.png"), #12756f;
+    background-repeat: no-repeat;
+    background-position:105% 135%;
+  }
+  .hero-list .owl-item:nth-child(4) .hero-card{
+    background: url("../img/olympiad.png"), #001e03;
+    background-repeat: no-repeat;
+    background-position: 103% 108%;
+  }
+  .hero .adworks{text-align: left}
+  .competitive .comp-heading, .competitive .comp-para {width: 100%;}
+  .competitive .comp-heading{margin-top:30px;}
+  .competitive .pull-left, .competitive .pull-right{padding: 0px}
+  .competitive .pull-left img:first-child{margin-right: 15px}
+  .details-middle ul li{width: 100%;margin-right: 0px;padding: 20px 0px 35px 0px;border-bottom: 1px dashed #b8b8b8;}
+  .details-middle ul li .link a{height: 100%;min-height: 100%;   }
+  .latest-news .details-left .link a{
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    padding-bottom: 35px;
+    padding-right: 0;
+    border-bottom: 1px dashed #b8b8b8;
+  }
+  .popularNew-heading {position: relative;top: 0;}
+  .details-middle {padding-left: 0;}
+  .infograph .owl-carousel .owl-item img{width: auto;text-align: center;margin: 0px auto;}
+  .right-details .course-button h6{padding-left: 0px;padding-top: 15px;}
+  .right-details .course-button {
+    padding-left: 20px;
+    float: left;
+    padding-top: 20px!important;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: block!important;}
     .right-details .course-button a{margin-left: 10px;}
@@ -4165,17 +4165,17 @@ Course Details
     .cv-detilslist span:first-child{margin-left: 0px;}
     .viewall-session {margin: 0px 0px 0px;}
     .course-fees h4 {
-    font-size: 20px;
-    float: left;
-    margin: 14px 30px 0px 0px;
-  }
+      font-size: 20px;
+      float: left;
+      margin: 14px 30px 0px 0px;
+    }
 
-  .course-fees a.link{    
-    font-size: 16px;    
-    width: 185px;
-    float: left;
-    margin-left: 20px;
-  }
+    .course-fees a.link{    
+      font-size: 16px;    
+      width: 185px;
+      float: left;
+      margin-left: 20px;
+    }
     .other-courses .owl-carousel .owl-item img{width: auto;}
     .other-courses .list .card:last-child {border-right: 1px dotted #707070; }
     .course-curriculum .card{margin-right: 0px;margin-left: 0px;}
@@ -4191,9 +4191,9 @@ Course Details
     .footer .bottom-detils .links {margin-top: 20px;}
     .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
     .footer .footer-top .footer-info {margin-bottom: 10px;}
-}
-@media screen and (max-width:767px) and (min-width:320px){
-    
+  }
+  @media screen and (max-width:767px) and (min-width:320px){
+
     .hero .hero-list{margin-top: 10px;}
     .hero-list .hero-card h6 {font-size: 12px;}
     .hero-list .hero-card h5 {font-size: 23px;}
@@ -4206,11 +4206,11 @@ Course Details
     .Popular-Courses .section-header .exlore-link {padding: 12px 32px 12px 25px;}
     .course-box{margin-top: 30px;margin-bottom: 0;}
     .course-button {
-        border-top: 1px solid #707070;
-        padding: 15px 0px 0px;
-        margin-top: 10px;
-        float: left;
-        width: 100%;
+      border-top: 1px solid #707070;
+      padding: 15px 0px 0px;
+      margin-top: 10px;
+      float: left;
+      width: 100%;
     }
     .competitive .comp-heading h1{font-size: 35px;}
     .competitive .comp-para p, .latest-news .header-heading .news-btn{font-size: 14px;}
@@ -4224,52 +4224,150 @@ Course Details
     .course-fees {background: #fff;padding: 15px 0px;}
     .course-fees h4, .course-fees a.link{color: #000!important;}
     .profileimg-name .co-lg-3.pull-left {padding: 10px 0px 0px 20px;}
-}
-@media screen and (max-width:575px) and (min-width:320px){
-  .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
-    padding-left: 15px;
-    padding-right: 15px;
   }
-  .course-box .col-lg-2{
+  @media screen and (max-width:575px) and (min-width:320px){
+    .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .course-box .col-lg-2{
       -webkit-box-flex: 0;
       -ms-flex: 0 0 16.666667%;
       flex: 0 0 16.666667%;
       max-width: 16.666667%;
-  }
-  .course-box .col-lg-10 {
+    }
+    .course-box .col-lg-10 {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 83.333333%;
       flex: 0 0 83.333333%;
       max-width: 83.333333%;
-  }
-  .competitive .col-sm-8, .social-links .col-sm-8 {
+    }
+    .competitive .col-sm-8, .social-links .col-sm-8 {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 66.666667%;
       flex: 0 0 66.666667%;
       max-width: 66.666667%;
-  }
-  .competitive .col-sm-4, .profileimg-name .col-xs-4, .social-links .col-sm-4 {
+    }
+    .competitive .col-sm-4, .profileimg-name .col-xs-4, .social-links .col-sm-4 {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 33.333333%;
       flex: 0 0 33.333333%;
       max-width: 33.333333%;
-  }
-  .profileimg-name .col-xs-6{
+    }
+    .profileimg-name .col-xs-6{
       -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
       flex: 0 0 50%;
       max-width: 50%;
+    }
+    .latest-news .header-heading h2{display: block;}
+    .news-btn {
+      top: 0!important;
+      display: inline-block;
+      float: left;
+      clear: both;
+      margin: 20px 0px!important;
+    }
   }
-  .latest-news .header-heading h2{display: block;}
-  .news-btn {
-    top: 0!important;
+
+
+
+
+
+  /*added by satish notice bord*/
+
+  .notic_bord_box .modal-header{
+    border-bottom: 0px !important;
+    padding-bottom: 0px;  
+  }
+  .notic_bord_box .arrow {
+    border: solid black;
+    border-width: 0 1px 1px 0;
     display: inline-block;
-    float: left;
-    clear: both;
-    margin: 20px 0px!important;
+    padding: 3px;
+    margin-left: 10px;
   }
+  .notic_bord_box .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .notic_bord_box .modal-dialog{
+    max-width: 345px;
+    margin: auto;
+    z-index: 999999;
+  }
+  .notic_bord_box .modal-content{
+    background-color: #EFEFEF;
+    border: 0px;
+    position: relative;
+    top: -123px;
+    left: 502px;
+  }
+  /*.notic_bord_box .modal-content{
+    border: 0px;
+  }*/
+  .notification_div {
+    background-color: #fff;
+    margin-left: 15px;
+  }
+  .notifi_image {
+    background: url(../img/Group-15296.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 20px;
+    width: 20px;
+    float: left;
+  }
+ .notification_div .msg {
+    height: 200px;
+    padding-top: 15px;
+    border-bottom: 1px solid #efefef;
+}
+.notification_div p{
+  margin-left: 25px;
+  font-size: 13px;
+  line-height: 16px;
+}
+.notification_div .time p {
+    display: inline-block;
+}
+.notification_div .time {
+    padding-right: 15px;
+    padding-top: 30px;
+}
+.delet_div p{
+  margin-left: 0px;
+  background: #d5ebff;
+    padding: 3px;
+    font-weight: 600;
+    font-size: 11px;
+}
+.delet_div{
+  display: inline-block;
+    float: right;
 }
 
+ .delet_icon {
+    background: url(../img/Group-15298.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 20px;
+    width: 20px;
+    float: right;
+  }
+  .dropdown_div {
+    padding-left: 15px;
+    padding-bottom: 30px;
+} 
+.dropdown_div p {
+    font-size: 15px;
+    font-weight: 600;
+}
+h4.modal-title{
+  font-size: 25px;
+  line-height: 33px;
+}
+  /*added by satish*/
 
 
 

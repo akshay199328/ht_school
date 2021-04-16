@@ -621,10 +621,12 @@ section {
   background-size: cover;*/
   background: #D5EBFF;
 }
-
-.hero h1 {
+.learing_card{
+  background: #d5ebff;
+}
+.learing_card h1 {
   margin: 0;
-    font-size: 99px;
+    font-size: 60px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -635,9 +637,9 @@ section {
         text-transform: capitalize;
 }
 
-.hero p {
+.learing_card p {
   margin: 15px 0 0 0;
-  font-size: 50px;
+  font-size: 30px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -647,40 +649,42 @@ section {
   color: #000000;
 }
 .hero .col-lg-9, .hero .col-lg-3{float: left}
-.hero .hero-list  {
+.learing_card .hero-list  {
     float: left;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 .hero-list .hero-card{
-  display: inline-block;
-  float: left;
-  width: 370px;
-  height: 266px;
-  margin-right: 26px;
-  margin-top: 21px;
-  padding: 25px 30px;
+ display: inline-block;
+    float: left;
+    width: 250px;
+    height: 225.6px;
+    margin-right: 19px;
+    margin-top: 21px;
+    padding: 15px 20px;
+        word-break: break-word;
     
 }
 .hero-list .hero-card:nth-child(1){
   background: url("../img/Scholarship-Programme.png"), #0521c4;
   background-repeat: no-repeat;
-    background-position:113% 100%;
+    background-position:20% 100%;
 }
 .hero-list .hero-card:nth-child(2){
   background: url("../img/code.png"), #aa2061;
   background-repeat: no-repeat;
-    background-position:105% 106%;
+    background-position:20% 106%;
 }
 .hero-list .hero-card:nth-child(3){
   background: url("../img/career.png"), #12756f;
   background-repeat: no-repeat;
-  background-position:105% 135%;
+  background-position:20% 147%;
 }
 .hero-list .hero-card:nth-child(4){
   background: url("../img/olympiad.png"), #001e03;
   background-repeat: no-repeat;
-  background-position:106% 112%;
+  background-position:20% 111%;
+  margin-right: 0px;
 }
 .hero-list .hero-card h6{
   font-size: 20px;
@@ -693,11 +697,11 @@ section {
   color: #d5ebff;
 }
 .hero-list .hero-card h5{
-    font-size: 40px;
+    font-size: 30px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1;
+  line-height: 30px;
   letter-spacing: normal;
   text-align: left;
   color: #d5ebff;

@@ -4310,10 +4310,16 @@ Course Details
     background-color: #fff;
     margin-left: 15px;
   }
-  .notifi_image {
+  .notifi_image.pin {
     background: url(../img/Group-15296.png);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    height: 20px;
+    width: 20px;
+    float: left;
+  }
+   .notifi_image {
+    background: url(../img/Group-152962.png);
+    background-repeat: no-repeat;
     height: 20px;
     width: 20px;
     float: left;
@@ -4324,7 +4330,7 @@ Course Details
     border-bottom: 1px solid #efefef;
 }
 .notification_div p{
-  margin-left: 25px;
+  margin-left: 30px;
   font-size: 13px;
   line-height: 16px;
 }
@@ -4341,6 +4347,7 @@ Course Details
     padding: 3px;
     font-weight: 600;
     font-size: 11px;
+    margin-right: 5px;
 }
 .delet_div{
   display: inline-block;
@@ -4350,10 +4357,10 @@ Course Details
  .delet_icon {
     background: url(../img/Group-15298.png);
     background-repeat: no-repeat;
-    background-attachment: fixed;
     height: 20px;
     width: 20px;
     float: right;
+    margin-top: 3px;
   }
   .dropdown_div {
     padding-left: 15px;

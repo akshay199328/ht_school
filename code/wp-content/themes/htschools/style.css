@@ -296,7 +296,8 @@ ol.breadcrumbs  {
 }
 .course-template-default .header-scrolled, 
 .page-template-all-courses .header-scrolled,
-.page-template-my-courses .header-scrolled
+.page-template-my-courses .header-scrolled,
+.page-template-my-course .header-scrolled
 {
   background:#fade3b!important;
 }

@@ -816,6 +816,9 @@ if(!function_exists('bp_course_item_view')){
                 <?php 
                 	$category_array = get_the_terms( $post->ID, 'course-cat');
                 	$excerpt = get_post_field('post_excerpt', $post->ID);
+                	$custom_fields = get_post_custom();
+                	$duration = $custom_fields['vibe_duration'][0];
+                    $session = $custom_fields['vibe_course_sessions'][0];
                 ?>
                 <h6><?php echo $category_array[0]->name; ?></h6>
                 <h2><?php bp_course_title(); ?></h2>
@@ -823,13 +826,12 @@ if(!function_exists('bp_course_item_view')){
                     echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
                 }  ?>
                 <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
-                <p>Sessions</p>
-                <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) == '') { ?>
-                	<h6>--</h6>
-                <?php } else{ ?>
-                	<!-- <h6><?php echo $courselesson;?></h6> -->
-                	<h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true);?> <?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6>
-                <?php }?>
+                <p>Duration</p>
+                <?php if($duration == '' && $session == '') { ?>
+                <h6>--</h6>
+              	<?php } else{ ?>
+                <h6><?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span></h6>
+              	<?php }?>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
                 	<p>Age Group</p>

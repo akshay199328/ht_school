@@ -116,7 +116,11 @@ get_header(vibe_get_header());
                         <div class="col-lg-7 duration mrg">
                           <div class="pull-left">
                             <p>Duration</p>
-                            <h6><?php if($session != ''){echo $session.' Sessions ';} ?><span><?php echo $duration;?> Days</span></h6>
+                            <?php if($duration == '' && $session == '') { ?>
+                                <h6>--</h6>
+                            <?php } else{ ?>
+                              <h6><?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span></h6>
+                            <?php }?>
                           </div>
                           <div class="pull-right">
                             <p>Age Group</p>

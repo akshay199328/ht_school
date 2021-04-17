@@ -63,6 +63,9 @@ get_header(vibe_get_header());
                     global $post;
                     $progress = bp_course_get_user_progress($user->id,$post->ID);
                     if($statuses[$post->ID]>2){$progress = 100;}
+                    $custom_fields = get_post_custom();
+                    $duration = $custom_fields['vibe_duration'][0];
+                    $session = $custom_fields['vibe_course_sessions'][0];
                   ?>
                   <div class="course-box dotted-border">
                     <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
@@ -87,10 +90,10 @@ get_header(vibe_get_header());
                           <div class="col-lg-7 duration mrg">
                             <div class="pull-left">
                               <p>Duration</p>
-                              <?php if(get_post_meta($post->ID,'vibe_duration',true) == '') { ?>
+                             <?php if($duration == '' && $session == '') { ?>
                                 <h6>--</h6>
                               <?php } else{ ?>
-                                <h6><span><?php echo get_post_meta($post->ID,'vibe_duration',true);?></span> Days</h6>
+                                <h6><?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span></h6>
                               <?php }?>
                             </div>
                             <div class="pull-right">

@@ -47,6 +47,7 @@ vibe_include_template("profile/top$profile_layout.php");
       $postDate = get_the_date('M d, Y H:i');
       $custom_fields = get_post_custom();
       $duration = $custom_fields['vibe_duration'][0];
+      $session = $custom_fields['vibe_course_sessions'][0];
       $age_limit = $custom_fields['vibe_course_age_group'][0];
       $category_array = get_the_terms( $post->ID, 'course-cat');
       $excerpt = get_post_field('post_excerpt', $post->ID);
@@ -75,10 +76,10 @@ vibe_include_template("profile/top$profile_layout.php");
                 <div class="col-lg-7 duration mrg">
                   <div class="pull-left">
                     <p>Duration</p>
-                    <?php if(get_post_meta($post->ID,'vibe_duration',true) == '') { ?>
-                      <h6>--</h6>
+                    <?php if($duration == '' && $session == '') { ?>
+                    <h6>--</h6>
                     <?php } else{ ?>
-                      <h6><span><?php echo get_post_meta($post->ID,'vibe_duration',true);?></span> Days</h6>
+                    <h6><?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span></h6>
                     <?php }?>
                   </div>
                   <div class="pull-right">

@@ -97,6 +97,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             <li class="hover_share">
                                 <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
                                 <div class="display_icon">
+                                    <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
                                   <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
                                     <a class="a2a_button_facebook"></a>
                                     <a class="a2a_button_twitter"></a>

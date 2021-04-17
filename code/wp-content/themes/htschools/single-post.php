@@ -94,36 +94,12 @@ $topics = wp_get_post_tags(get_the_ID());
             <p>By <strong><?php echo $postCreatorName;; ?>,</strong> <br><?php echo $postDate; ?></p>
             <!--   <p><?php echo $postDate; ?></p> -->
            <div class="share-icon">
-             <!-- <a href="https://www.addtoany.com/share" class="a2a_dd"><svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-              <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
-            </svg></a>
-            <div class="top-icon">
-               <?php
-               if(is_user_logged_in()){
-                ?>
-                <li style="list-style-type: none;"><?php wpfp_link(); ?></li>
-              <?php }else{
-                $url = "/login-register";
-                ?>
-                <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bi bi-bookmark"></i></a></li> 
-                <?php
-              }
-              ?> -->
-             <!-- <li id="savePosts" style="list-style-type: none;"> <a href="?wpfpaction=add&postid=<?php echo get_the_ID(); ?>" class="savePosts"><i class="bi bi-bookmark"></i></a> </li>
-             <li id="removePosts" class="d-none" style="list-style-type: none;"> <a href="?wpfpaction=remove&postid=<?php echo get_the_ID(); ?>" class="removePosts"><i class="bi-bookmark-check-fill"></i></a> </li> -->
-           
             <ul>
-                                
-              <!-- <li>
-                <a href="https://www.addtoany.com/share" class="a2a_dd"><svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-                  <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
-                </svg></a>
-                 <script async src="https://static.addtoany.com/menu/page.js"></script>
-                 
-              </li> -->
+
               <li class="hover_share">
                 <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
                 <div class="display_icon">
+                  <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
                   <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
                     <a class="a2a_button_facebook"></a>
                     <a class="a2a_button_twitter"></a>

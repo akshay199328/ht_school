@@ -45,6 +45,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   <div class="container">
     <div class="row gx-0">
      <div class="featured_tablist">
+      <ul class="left_tab">
       <?php
       ?>
         <li class="active"><a href="#">All News</a></li>
@@ -55,6 +56,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <?php 
       }
       ?>
+      </ul>
     </div>
     <!-- <div class="featured_headeing">
       <h1>Featured News</h1>

@@ -98,7 +98,7 @@ $(document).ready(function() {
       $('.courses-slider').addClass('coursesmobile_slider');
       $('.course-listslider').addClass('coursemobile_listslider');
       $('.left_tab').owlCarousel({
-          margin: 30,
+          margin: 15,
         loop: false,
         autoWidth: true,
         items: 4,

@@ -444,5 +444,5 @@ padding: 15px 0;
     .about-details .pull-right {
         padding-left: 0px!important;
     }
-    .display_icon{left:0px;}
+    .display_icon{right:0px;}
 }

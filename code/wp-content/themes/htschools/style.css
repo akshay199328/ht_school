@@ -1951,7 +1951,7 @@ Course Details
     color: #000000;
     margin: 0px;
     padding: 0px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 .course-box .middle-details h2 {
     font-size: 20px;
@@ -1992,9 +1992,11 @@ Course Details
 .duration {
     margin-top: 15px;
 }
-.duration .pull-left,
+.duration .pull-left{
+width: 60%;
+}
 .duration .pull-right {
-    width: 50%;
+    width: 40%;
 }
 .duration p{
  font-size: 10px!important;
@@ -6088,6 +6090,14 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
         width: 290px!important;margin: 0px auto 20px;
     }
     .login-box form {margin: 25px 0px;}
+    .login-box div.nsl-container .nsl-button-svg-container{
+      margin-right: 15px;
+    }
+    .login-box .nsl-container-buttons{
+        text-align: center;
+        margin: 0px auto;
+        display: table;
+    }
     .latest-news .details-left img{width: 100%;}
     .news-main .image_background .content.content-left{    padding-bottom: 20px!important;}
     .news-main .image_background .content.content-left img{width: 100%;}
@@ -6121,10 +6131,10 @@ p:empty, div.center:empty, .post-categories:empty{display: none;}
     .dashboard_accountinfo .course-box .middle-details {padding: 0;padding-left: 10px;padding-right: 60px !important;}
     .course_home_progress{padding-left: 10px;}
     .dashboard_accountinfo .course-box .right-details .course-button {
-      margin-left: 10px !important;
+      margin-left: 0px !important;
       border: 0px;
       padding: 0px!important;
-      margin-top: 0px;
+      margin-top: 5px;
     }
     .dashboard_accountinfo .right-details .course-button h6{/*padding: 0px!important;*/}
     .dashboard_accountinfo .course-box .learing-goals {padding: 10px 0px!important;}

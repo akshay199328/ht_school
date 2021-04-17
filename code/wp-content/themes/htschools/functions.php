@@ -1313,3 +1313,19 @@ function get_the_course_tags( $post_id, $post_tag ) {
    */
   return apply_filters( 'get_the_tags', $terms );
 }
+add_action('admin_head', 'my_custom_fonts');
+function my_custom_fonts() {
+  echo '<style>
+    .interest-field{
+      display: none;
+    }
+</style>';
+echo '<script>
+jQuery(function($){
+  $(document).ready(function($) {
+    $("#interest-field").parent().parent().prev().hide();
+    $("h2:contains(user interest)").hide();
+  });
+  });
+</script>';
+}

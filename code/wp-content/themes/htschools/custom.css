@@ -280,8 +280,7 @@ padding: 15px 0;
 .right-details .course-button h6 .subs, 
 .course_button .extra_details,
 .course-fees span.amount+.subs,
-.course-box .course_sharing,
-.interest-field
+.course-box .course_sharing
 {
     display: none;
 }
@@ -395,7 +394,7 @@ padding: 15px 0;
     padding: 5px 10px 15px 15px;
     position: absolute;
     width: 271px;
-    right: -40px;
+    right: 0px;
     top: -10px;
     box-shadow: 0px 1px 13px #00000047;
     z-index: 9;

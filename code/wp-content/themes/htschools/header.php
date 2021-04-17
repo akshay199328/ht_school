@@ -131,12 +131,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <div class="middle-menu col-sm-2 col-lg-4">
                     <i class="bi bi-list mobile-nav-toggle"></i>
                     <?php
+                    $template_file = get_post_meta( get_the_ID(), '_wp_page_template', TRUE );
+                    print_r($template_file);
                         $url = apply_filters('wplms_logo_url',VIBE_URL.'/assets/images/logo.png','header');
                         if(!empty($url)){
                     ?>
-                        <a href="<?php echo vibe_site_url(); ?>" class="logo d-flex align-items-center"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                        <?php if ( is_page_template('all-courses.php') || is_page_template('my-course.php') ) { ?>
+                            // Runs this code when the contact form page template is being used
                         <a href="<?php echo vibe_site_url(); ?>" class="homeicon"><img src="<?php $logo_top = vibe_get_option('headertop_logo'); echo isset($logo_top)?$logo_top:apply_filters('wplms_logo_url',VIBE_URL.'/images/logo.png'); ?>" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                        
                     <?php
+                    }
+                    else{?>
+                        <a href="<?php echo vibe_site_url(); ?>" class="logo d-flex align-items-center"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+
+                    <?php }
                         }
                     ?>
                 </div>

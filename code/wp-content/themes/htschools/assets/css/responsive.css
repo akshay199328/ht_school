@@ -467,6 +467,26 @@ button.saved_feedbackbtn span{
 	font-size: 25px;
 }
 
+.woocommerce-order {
+    background-color: #fff;
+    padding: 15px 15px;
+}
+.woocommerce-order section.woocommerce-order-details {
+    padding: 0px !important;
+}
+h2.woocommerce-order-details__title{
+	padding: 0px !important;
+}
+section.woocommerce-customer-details{
+	padding: 0px !important;
+}
+.woocommerce-order h3.heading{
+	padding: 0px!important;
+}
+.woocommerce-order .course_order_details{
+	padding: 0px !important
+}
+
 /*responsive added css by satish*/
 @media screen and (min-width:992px) {
 	.details-middle .news_three_data li:nth-child(1),
@@ -960,6 +980,95 @@ button.saved_feedbackbtn span{
 		.news-listing .blogpost{
 			margin-bottom: 0px;
 		}
+		.woocommerce-cart-form{
+			margin-bottom: 20px;
+		}
+		.woocommerce table.shop_table{
+			margin: 0 -1px 0px 0 !important;
+		}
+		/*static page*/
+		.static_content .sidebar li.active a{
+			color: #000;
+   			border-bottom: 2px solid;
+    		padding-bottom: 3px;
+    		font-weight: 600;
+		}
+		.static_content .sidebar li.active{
+			background: transparent !important;
+		}
+		.static_content .sidebar li{
+			padding: 3px 0rem;
+			border-bottom: 0px dotted #707070;
+		}
+
+		.static_content .sidebar {
+    		padding: 0px 0px 25px 0px!important;
+		}
+
+		/*static page*/
+
+		/*order sucess page*/
+		.woocommerce-order {
+    		background-color: #fff;
+    		padding: 15px 15px;
+		}
+		h2.woocommerce-order-details__title{
+			font-size: 25px;
+		}
+		.woocommerce .order_details li{
+			font-size: 15px !important;
+			border-right: 0px !important;
+			margin-bottom: 15px !important;
+			border-bottom: 1px dashed rgba(0,0,0,.08);
+			border-right: 0px !important;
+			padding-bottom: 5px !important;
+			padding-right: 0px !important;
+			width: 100% !important;
+		}
+		.woocommerce .order_details li strong{
+			font-size: 18px !important;
+		}
+		p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received{
+			font-size: 15px;
+		}
+		ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
+    		margin-bottom: 0px;
+		}	
+		.woocommerce table.shop_table td, .woocommerce table.shop_table th{
+			font-weight: 300 !important;
+		}
+		.woocommerce table.shop_table td, .woocommerce table.shop_table th strong{
+			font-weight: 300 !important;
+		}
+		td.woocommerce-table__product-total.product-total.woocommerce-Price-amount.amount{
+			font-weight: 600 !important;
+		}
+		h2.woocommerce-column__title {
+    		font-size: 25px;
+		}
+		td.woocommerce-table__product-name.product-name a strong{
+			font-weight: 300 !important;
+		}
+		section.woocommerce-customer-details h3.heading{
+			font-size: 25px !important;
+    		font-weight: 600 !important;
+    		text-transform: capitalize;
+		}
+		.course_order_details li{
+			font-size: 15px;
+		}
+		section.woocommerce-customer-details{
+			margin-bottom: 10px !important; 
+		}
+		.course_order_details li strong{
+			font-weight: 300 !important;
+		}
+		.woocommerce .woocommerce-Price-amount.amount{
+			font-weight: 600 !important;
+		}
+		.woocommerce .woocommerce-Price-amount.amount td{
+			font-weight: 600 !important;
+		/*order sucess page*/
 
 }
 	@media screen and (max-width:375px) {

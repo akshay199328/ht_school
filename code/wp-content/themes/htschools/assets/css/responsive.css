@@ -239,7 +239,7 @@ input.wpcf7-form-control.wpcf7-submit:hover{
     color: #000 !important;
 }
 .course_status .course_timeline{
-	flex: 1 0 500px !important;
+	flex: 0 0 500px !important;
 }
 .course_progress_wrapper .course_progress{
 	background-color: #fff !important;
@@ -455,7 +455,7 @@ button.saved_feedbackbtn span{
 	margin: 10px 0px 0px !important;
 }
 .content.blogpost-search_bottom {
-    padding-bottom: 30px !important;
+    padding-bottom: 30px;
 }
 .featured_headeing h1{
 	font-size: 25px;

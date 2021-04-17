@@ -45,7 +45,10 @@ if(have_posts()):while(have_posts()):the_post();
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="body-text">
+        <p>We have received your message and one of our colleagues will get in touch with you soon. If your query is urgent, please use the telephone number: 11 60004242  to talk to one of our support executives.</p>
+        <p class="body-line">Thanks, HTSchool</p>
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -55,8 +58,16 @@ if(have_posts()):while(have_posts()):the_post();
   </div>
 </div>
 <style>
-  .modal-footer .btn{
-    
+  #exampleModal .body-text{
+  margin: 0px 30px 0 30px; 
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
   }
 </style>
 </section>

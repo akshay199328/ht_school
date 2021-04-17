@@ -294,7 +294,10 @@ ol.breadcrumbs  {
   padding: 5px 0!important;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
 }
-.course-template-default .header-scrolled{
+.course-template-default .header-scrolled, 
+.page-template-all-courses .header-scrolled,
+.page-template-my-courses .header-scrolled
+{
   background:#fade3b!important;
 }
 .left-menu a {

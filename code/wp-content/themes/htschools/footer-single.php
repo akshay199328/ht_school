@@ -23,7 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <div class="col-lg-8 col-md-12 footer-info ">
             <div class="col-lg-5 col-md-12 footer-info mrg">
               <a href="index.html" class="logo d-flex align-items-center">
-                <img src="<?php echo get_template_directory_uri()?>/assets/images/footer-logo.png" class="img-fluid" alt="">
+                <!-- <img src="<?php echo get_template_directory_uri()?>/assets/images/footer-logo.png" class="img-fluid" alt=""> -->
+                <?php
+                    $url = apply_filters('wplms_logo_url',VIBE_URL.'/assets/images/logo.png','footer');
+                    if(!empty($url)){
+                ?>    
+
+                    <a href="<?php echo vibe_site_url('','logo'); ?>"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                <?php 
+                    }
+                ?>
                 <!-- <span>FlexStart</span> -->
               </a>
             </div>

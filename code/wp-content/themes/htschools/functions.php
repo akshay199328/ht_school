@@ -1329,3 +1329,15 @@ jQuery(function($){
   });
 </script>';
 }
+add_filter('vibe_option_custom_sections','wplms_one_course_section');
+function wplms_one_course_section($sections){
+    $sections[1]['fields'][] = array(
+    'id' => 'headertop_logo',
+    'type' => 'upload',
+    'title' => __('Upload Logo for Fixed header', 'vibe'), 
+    'sub_desc' => __('Upload your logo', 'vibe'),
+    'desc' => __('This Logo is shown in header.', 'vibe'),
+    'std' => VIBE_URL.'/images/logo.png'
+    );
+    return $sections;
+}

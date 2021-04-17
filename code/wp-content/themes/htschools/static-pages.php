@@ -29,7 +29,7 @@ if(vibe_validate($title) || empty($title)){
               </div>
             </div>
             <div class="details">
-                <div class="col-md-3 col-sm-4">
+                <div class="col-md-3 col-sm-12">
                     <div class="sidebar">
                        <ul class="border-link left_tab">
                             <?php
@@ -49,7 +49,7 @@ if(vibe_validate($title) || empty($title)){
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-9 col-sm-8">
+                <div class="col-md-9 col-sm-12">
                     <div class="content">
                       <div class="pagetitle">
                         <h1><?php the_title(); ?></h1> 

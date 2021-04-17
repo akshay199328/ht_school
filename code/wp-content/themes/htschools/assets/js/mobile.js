@@ -53,9 +53,11 @@ $(document).ready(function($) {
     if (scroll >= 10) {
       // alert("HELLO");
         $(".innerheader-space").next(".sticky_content").children(".right-section").css({ "margin-top": "-20px"});
+        $(".innerheader-space.course-space").css({ "margin-top": "96px"});
     } else {
       // alert("HELLO123");
         $(".innerheader-space").next(".sticky_content").children(".right-section").css({ "margin-top": "0px"});
+        $(".innerheader-space.course-space").css({ "margin-top": "116px"});
     }
 });
 

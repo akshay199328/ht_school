@@ -283,9 +283,15 @@ ol.breadcrumbs  {
 --------------------------------------------------------------*/
 .header {
   background: transparent!important;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
   z-index: 997;
-  padding: 15px 0;
+  /*padding: 15px 0;*/
+  padding:0px 0px;
+  height: 116px;
+  -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    display: flex;
 }
 
 .inner-header{background: #fade3b;}
@@ -293,6 +299,7 @@ ol.breadcrumbs  {
   background: #D5EBFF!important;
   padding: 5px 0!important;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  height: 76px;
 }
 .course-template-default .header-scrolled, 
 .page-template-all-courses .header-scrolled,
@@ -1044,7 +1051,7 @@ Course Details
     background-color: #333;
     color: #fff;
     position: sticky;
-    top: 96px;
+    top: 76px;
     z-index: 99;
     padding-top: 15px;
 

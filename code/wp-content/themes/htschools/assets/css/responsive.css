@@ -569,7 +569,7 @@ section.woocommerce-customer-details{
 			padding: 10px 0 10px;
 		}
 		section.latest-news.news_latest-news.lts_news {
-			padding: 0px 15px !important;
+			padding: 15px !important;
 		}
 		.col-sm-12.col-md-3.content-right.right_count {
 			padding: 0px;
@@ -605,6 +605,19 @@ section.woocommerce-customer-details{
 
 		.woocommerce-checkout #payment div.payment_box:before{
 			top: -6px !important;
+		}
+		.blogpost .excerpt.thumb{
+			margin-top: 0px !important;
+    		margin-left: 15px !important;
+		}
+		.course-tablist li{
+			margin-bottom: 10px;
+		}
+		.competitive{
+			height: auto;
+		}
+		.right-details .course-button h6{
+			padding-top: 0px !important;
 		}
 
 	}
@@ -871,6 +884,9 @@ section.woocommerce-customer-details{
 		.contact-us .vc_column-inner{
 			padding: 25px 25px!important;
 			margin: 20px 9px 0px;
+		}
+		.blogpost .excerpt.thumb{
+			margin-top: 15px !important;
 		}
 		.contact-us .vc_column-inner h1, .support-contact h2{
 			font-size: 18px;

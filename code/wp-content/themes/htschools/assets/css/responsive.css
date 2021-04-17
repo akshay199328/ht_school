@@ -933,6 +933,33 @@ button.saved_feedbackbtn span{
 			top: 10.5px !important;
    			right: 10px !important;
 		}
+		.static_content .details{
+			padding-top: 0px !important;
+		}
+		.empty_cart_div{
+			margin: 0px auto;
+			width: 80%;
+		}
+		.empty_cart_div h4{
+			font-size: 20px;
+		}
+		.woocommerce form .form-row label{
+			margin-bottom: 0px;
+		}
+		.woocommerce-cart table.cart td.actions .coupon button{
+			width: 100% !important;
+			
+		}
+		.woocommerce-cart table.cart td.actions .coupon .input-text{
+			max-width: 100% !important;
+			margin-bottom: 10px !important;
+		}
+		.atwork_img{
+			padding: 0px !important;
+		}
+		.news-listing .blogpost{
+			margin-bottom: 0px;
+		}
 
 }
 	@media screen and (max-width:375px) {

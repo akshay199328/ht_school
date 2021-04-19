@@ -62,7 +62,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
 
 
             <div class="login-right" id="login-step-1">
-              <h4>Login or Register</h4>
+              <h4>Login / Register</h4>
               <form method="POST" id="ht_reg_email">
                 <input type="hidden" name="action" value="reg_send_otp">
                 <input type="hidden" name="prevPageurl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
@@ -83,8 +83,8 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                 </button>
               </form>
               <div class="form-footer">
-                <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a>
-                <p>By logging in, you agree to our Terms of Service and Privacy Policy</p>
+                <!-- <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a> -->
+                <p>By logging in, you agree to our <a href="<?php echo get_bloginfo('url').'/terms-of-use'?>">Terms of Service</a> and<a href="<?php echo get_bloginfo('url').'/privacy-policy-2'?>"> Privacy Policy</a></p>
               </div>
             </div>
 

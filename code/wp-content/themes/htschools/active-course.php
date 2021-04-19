@@ -172,6 +172,7 @@ vibe_include_template("profile/top$profile_layout.php");
 </section>
 	<?php } else{ ?>
         <h1>You don’t have any active courses right now</h1>
+        
     <?php }
     ?>
 

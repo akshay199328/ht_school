@@ -191,7 +191,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         <div class="content tab-content left-spacing" id="">
                           <div class="col-sm-12 about-details mrg">
                                   <div class="heading">
-                                    <h3>About The Course</h3>
+                                    <h3>About the Course</h3>
                                   </div>
                                   <div class="col-sm-12 col-lg-6 pull-left mrg">
                                       <p><?php 

@@ -73,7 +73,6 @@ get_header(vibe_get_header());
                      <?php bp_course_avatar(); 
                       $category_array = get_the_terms( $post->ID, 'course-cat');
                       $excerpt = get_post_field('post_excerpt', $post->ID);
-                 
                      ?>
                     </div>
                     <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">

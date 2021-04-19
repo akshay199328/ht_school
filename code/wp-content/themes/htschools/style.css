@@ -1425,7 +1425,7 @@ Course Details
     width: 100%;
 }
 .instructor-detailsMini .profile-content p{
-    font-size: 20px;
+    font-size: 17px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1542,6 +1542,18 @@ Course Details
   text-align: left;
   color: #fade3b;
 }
+.other-courses_join-btn a{
+  padding: 11px 16px 14px 15px;
+  background-color: #000000;
+   font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fade3b;
+}
 .cv-detilslist{
 
 }
@@ -1576,7 +1588,7 @@ Course Details
     display: block;
 }
 .course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) .card {
-  /*margin-right:0px;*/
+  margin-right:0px;
 }
 .card .default-background{
     padding: 2px 5px 4px;
@@ -5291,10 +5303,7 @@ h6:empty
 }
 .share-icon ul {
   float: right;
-      -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    display: flex;
+  
 }
 .share-icon ul li{
   display: inline-block;
@@ -5649,7 +5658,7 @@ h6:empty
   z-index: -1;
 }
  #exampleModal .modal-img{
-    height: 59px;
+    /*height: 59px;*/
   }
 #exampleModal .modal-text{
   margin: 10px 59px 0 0;  
@@ -5900,6 +5909,7 @@ h6:empty
   }
  .hero-list .hero-card h5 {font-size: 25px;}
   .details-middle ul li{width: 46%;margin-right: 20px;}
+   ul.full_width_list li{width: 100%}
   .right-details .course-button a{margin-left: 0px;}
   .right-details .course-button h6{padding-left: 0px;}
   .right-section .container {width: 565px;}
@@ -5942,6 +5952,7 @@ h6:empty
     .learing_card{padding-top:20px;}
     .left-spacing {padding-left: 0px!important;}
     .header .middle-menu{padding: 0;}
+    .remove_mob_margin{padding: 0!important;}
     .header .left-menu, .right-menu .text, .right-menu ul li a:after, 
     .left-menu ul li span:after{display: none;}
     .mobile-nav-toggle{float: left;margin-top: 0px;}
@@ -6328,6 +6339,7 @@ h6:empty
             padding: 0px 12px 0px 3px;
             font-size: 20px;
     }
+    .hover_share{top: -5px;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

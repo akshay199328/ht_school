@@ -430,7 +430,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           <div class="col-sm-12 mrg session">
                             <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" />24 Sessions <span>60 days</span></h6>
                           </div>
-                          <?php the_course_button(); ?> 
+                          <div class="other-courses_join-btn">
+                            <?php the_course_button(); ?> 
+                          </div>
                         </div>
                       </div>
                       <?php endwhile;endif;}

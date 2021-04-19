@@ -90,9 +90,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         </div>
       <?php } endwhile; endif;?>
       <div class="col-sm-12 col-lg-8">
-        <div class="col-sm-12 col-lg-6">
+        <div class="col-sm-12 col-lg-6 remove_mob_margin">
             <div class="details-middle">
-              <ul class="">
+              <ul class="full_width_list">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
                           // if( $Query->current_post != 0 ) { 
                   ?>
@@ -108,7 +108,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               </ul>
             </div>
         </div>
-        <div class="col-sm-12 col-lg-6">
+        <div class="col-sm-12 col-lg-6 remove_mob_margin">
           <div class="details-middle adwork">
             <?php
             if ( is_active_sidebar( 'banner-2' ) ) : ?>

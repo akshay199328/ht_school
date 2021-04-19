@@ -128,7 +128,7 @@ get_footer(vibe_get_footer());
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
-            <img src="http://localhost/Htschools/code/wp-content/uploads/2021/03/logo.png" class="modal-img"/>
+            <img src="https://ht.fortune4.org/wp-content/uploads/2021/04/logo-course.png" class="modal-img"/>
            <p class="modal-text"> Thank you for getting in touch!</p>
             <!-- <p class="modal-text">Welcome to</p>
             <p class="modal-para">Data Science Masterclass for Non-Programmers</p> -->
@@ -155,10 +155,10 @@ get_footer(vibe_get_footer());
         </ul> -->
         <!-- <p>We hope you had a great learning throughout and must be excited to share your achievements. Happy Learning!</p> -->
       </div>
-      <div class="third-btn">
+      <!-- <div class="third-btn">
           <button type="button" class="btn">Download Certificate  <i class="bi bi-download"></i></button>
             <button type="button" class="btn">Share Certificate <i class="bi bi-share"></i></button>
-      </div>
+      </div> -->
       </div>
     </div>
   </div>

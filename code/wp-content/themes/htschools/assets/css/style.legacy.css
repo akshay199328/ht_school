@@ -35645,6 +35645,7 @@ body {
 .custom_checkoutTable table.shop_table{
 		border: 0px!important;
     	padding: 0px !important;
+    	    word-break: break-word;
 	}
 	.order_details_page table.shop_table{
 		padding: 0px
@@ -36149,6 +36150,9 @@ body {
 @media screen and (max-width: 1087px) and (min-width: 992px){
 	.myprofile_content ul li{width: 145px!important;}
 }
+@media screen and (max-width: 1024px) and (min-width: 768px){
+	.woocommerce form .form-row input.input-text{width: 100%;}
+}
 @media screen and (max-width: 991px) and (min-width: 768px){
 	.myprofile_content ul li{margin-bottom: 2px!important;}
 	.cart-contents-count {line-height: 16px; height: 15px; width: 15px;}
@@ -36306,6 +36310,7 @@ body {
 	section#title.search_page{    padding-bottom: 15px!important;}
 	.adwork{margin: 5px 0px!important}
 	.latest-news .center {margin-top: 5px;}
+	.woocommerce form .form-row input.input-text{width: 100%;}
 }
 @media screen and (max-width: 437px){
 	.myprofile_content ul li{width: auto!important;    margin-top: 2px!important;}

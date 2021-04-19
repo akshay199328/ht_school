@@ -5291,6 +5291,10 @@ h6:empty
 }
 .share-icon ul {
   float: right;
+      -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    display: flex;
 }
 .share-icon ul li{
   display: inline-block;
@@ -5773,14 +5777,14 @@ h6:empty
 @media screen and (max-width:1199px) and (min-width:992px){
   .hero {padding-top: 0px;}
   .hero-list .hero-card{
-      width: 328px;
-      height: 318px;
+      width: 23.4%;
+      /*height: 318px;*/
       margin-right: 20px;
   }
- 
+ .hero-list .hero-card h5 {font-size: 25px;}
   .details-middle ul li{width: 46%;margin-right: 20px;}
-  .right-details .course-button a{margin-left: 12px;}
-  .right-details .course-button h6{padding-left: 30px;}
+  .right-details .course-button a{margin-left: 0px;}
+  .right-details .course-button h6{padding-left: 0px;}
   .right-section .container {width: 565px;}
   .fixed_banner .container{width: 355px;padding-right: 21px;}
   .home_slider .homecarousel_text h1 {font-size: 45px;line-height: 45px;margin-bottom: 10px;}
@@ -5792,9 +5796,6 @@ h6:empty
   .hero .hero-list{padding-right: 10px;}
   .home_slider .homecarousel_text h1 {font-size: 45px;line-height: 45px;margin-bottom: 10px;}
   .home_slider .homecarousel_text p {font-size: 22px;line-height: 32px;}
-  
-  
-  
   .infograph{border-top: solid 0px #b8b8b8;}
   .testimonials .testimonial-item{    padding: 0 10px 0 0;}
   .right-details .course-button a{margin-left: 12px;}
@@ -5805,31 +5806,14 @@ h6:empty
   .Popular-Courses .col-sm-12.col-lg-4{padding: 0px}
   .course-box{margin-left: 0px;}
   .hero-list .hero-card{
-        width: 100%;
-        height: 293px;
-        flex: 0 0 100%;
-      max-width: 100%;
+      width: 48.6%;
+      flex: 0 0 48.6%;
+      max-width: 48.6%;
     }
-    /*.hero-list .owl-item:nth-child(1) .hero-card {
-      background: url(./assets/images/Scholarship-Programme.png), #0521c4;
-      background-repeat: no-repeat;
-      background-position: 114% 100%;
+    .hero-list .hero-card:nth-child(2n+2){
+          margin-right: 0px;
     }
-    .hero-list .owl-item:nth-child(2) .hero-card{
-      background: url("./assets/images/code.png"), #aa2061;
-      background-repeat: no-repeat;
-      background-position:105% 106%;
-    }
-    .hero-list .owl-item:nth-child(3) .hero-card{
-      background: url("./assets/images/career.png"), #12756f;
-      background-repeat: no-repeat;
-      background-position:105% 135%;
-    }
-    .hero-list .owl-item:nth-child(4) .hero-card{
-      background: url("./assets/images/olympiad.png"), #001e03;
-      background-repeat: no-repeat;
-      background-position: 103% 108%;
-    }*/
+    .static_content .sidebar li{padding: 15.5px 13px;}
   
 }
 @media screen and (max-width:991px) and (min-width:320px){
@@ -6001,6 +5985,13 @@ h6:empty
     .right-section{margin-top: 0px!important;}
     .course-aboutDetails .share-icon{
         margin-top: 15px;
+    }
+    .course-button a, 
+    .course-button input, 
+    .course-button button, 
+    button.course-button, 
+    button.course-button .button{
+      width: auto;
     }
 }
 
@@ -6246,7 +6237,7 @@ h6:empty
   .right-details .course-button h6{    padding-top: 0px;}
 }
 .paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}
-.start_time_none{display: none;}
+.start_time_none{display: none!important;}
 .all_course_page{    padding-top: 30px;}
 
 

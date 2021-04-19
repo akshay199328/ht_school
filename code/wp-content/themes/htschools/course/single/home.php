@@ -339,7 +339,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
                     ?>
                     <div class="instructor-detailsMini">
-                        <div class="col-sm-12 col-lg-7 pull-left mrg">
+                        <div class="col-sm-12 col-md-7 col-lg-7 pull-left mrg">
                           <div class="profile mt-auto">
                             <div class="col-lg-12 profile-content">
                               <div class="profileimg-name">
@@ -361,7 +361,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-12 col-lg-5 mrg pull-right">
+                        <div class="col-sm-12 col-md-5 col-lg-5 mrg pull-right">
                           <div class="adworks">
                             <div class="col-sm-12 adworks-head mrg">
                                 <?php

@@ -488,6 +488,96 @@ section.woocommerce-customer-details{
 	padding: 0px !important
 }
 
+/*basic Quiz*/
+.course_status .incourse .quiz_questions_content .question_content{
+	min-height: 300px !important;
+}
+.course_status .incourse .quiz_questions_content .question_actions span{
+	font-size: 22px !important;
+	font-weight: 600 !important;
+	line-height: 30px !important;
+	color: #000 !important;
+}
+.quiz_questions_content .question_content p{
+	font-size: 38px !important;
+    line-height: 41px !important;
+    font-weight: 300 !important;
+}
+.course_status .incourse .question_option{
+	display: flex !important;
+    margin-bottom: 1rem !important;
+    padding: 20px;
+    border: 1px solid #DCDCDC;
+    border-radius: 3px !important;
+}
+.course_status .incourse .question_option:hover{
+	background-color: #BCF3A6;
+}
+.question_option.radio>input[type=radio]:checked+label:before{
+	border-color: #0c0c0c !important;
+    background-color: #f5f0f0 !important;
+}
+.course_status .incourse .incoursequiz_details{
+	background: transparent !important;
+}
+.course_status .incourse .incoursequiz_details{
+	right: 10% !important;
+}
+.course_status .incourse .question_option label{
+	font-size: 17px !important;
+    line-height: 22px !important;
+}
+.course_status .incourse .quiz_questions_content .question_actions{
+	border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+}
+.course_status .incourse .quiz_questions_content .question_content{
+	margin-right: 80px !important;
+}
+/*.course_status .incourse .incoursequiz_details{
+	z-index: -999999 !important;
+}*/
+.question_option:first-child{
+	margin-top: 30px;
+}
+.course_status .course_content .course_content_content_wrapper .finish_course>.button{
+	min-height: 45px !important;
+	background: #000 !important;
+	width: auto !important;
+	display: inline-block !important;
+	padding: 15px !important;
+}
+.finish_course {
+    padding-left: 40px;
+}
+.course_status .incourse .incoursequiz_details>div {
+    display: flex !important;
+    flex-wrap: initial !important;
+    margin: 0 -0.5rem !important;
+    align-items: flex-start !important;
+    width: auto !important;
+}
+.course_status .incourse .incoursequiz_details .incourse_quiz_button>a{
+	padding: 12px 12px 13px 12px!important;
+	text-align: center !important;
+}
+.question_option.radio.correct {
+    background: #FF9898;
+}
+.question_actions:before {
+    position: absolute;
+    content: "";
+    background-color: #fade3b;
+    height: 2px;
+    width: 185px;
+    left: 0px;
+    top: 50px;
+}
+.course_status .incourse>*{
+	margin: 0px !important;
+}
+/*basic Quiz*/
+
 /*responsive added css by satish*/
 @media screen and (min-width:992px) {
 	.details-middle .news_three_data li:nth-child(1),

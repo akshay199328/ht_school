@@ -1557,6 +1557,9 @@ Course Details
   color: #fade3b;
   border: 0px;
 }
+.other-courses_join-btn .course_home_progress{
+  display: none;
+}
 .cv-detilslist{
 
 }

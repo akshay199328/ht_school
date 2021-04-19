@@ -47,11 +47,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <?php
                       $excerpt = get_post_field('post_excerpt', $post->ID);
                       if ( $excerpt != '' ) {
-                        echo "<p>".$excerpt."</p>";
-                      }
-                      else{
-                        $content = wp_trim_words( $post->post_content, 40 );
-                        echo "<p>".esc_html( $content )."</p>";
+                        echo "<p>".wp_trim_words( $excerpt, 22, NULL )."</p>";
                       }
                       if(get_post_meta($post->ID,'vibe_course_age_group',true) != '') {
                         $ageGroup = get_post_meta($post->ID,'vibe_course_age_group',true);
@@ -428,7 +424,11 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           <?php bp_course_avatar(); ?>
                           <h3><?php bp_course_title(); ?></h3>
                           <div class="col-sm-12 mrg session">
-                            <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" />24 Sessions <span>60 days</span></h6>
+                            <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" /><?php if($duration == '' && $session == '') { ?>
+                                --
+                            <?php } else{ ?>
+                              <?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span>
+                            <?php }?></h6>
                           </div>
                           <div class="other-courses_join-btn">
                             <?php the_course_button(); ?> 

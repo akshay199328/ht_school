@@ -5609,6 +5609,123 @@ h6:empty
     text-align: left;
     color: #000000;
 }
+
+/*--------------------------------------------------------------
+# Contact modal
+--------------------------------------------------------------*/
+#exampleModal .close{
+  margin-top: -18px;
+  }
+  #exampleModal .body-line{
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  #exampleModal .modal-title{
+    padding-left: 17px;
+  }
+  #exampleModal .modal-body{
+    width: 100%;
+    height: auto;
+   background-color: #f8f8f8;
+
+  }  
+ #exampleModal .body-text{
+  margin: 0px 30px 0 30px; 
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  }
+  #exampleModal .modal-content{
+    top: 100px;
+    border-radius: 0px;
+     box-shadow: -3px 0 6px 0 rgba(0, 0, 0, 0.16); 
+  } 
+ #exampleModal .modal-backdrop{
+  z-index: -1;
+}
+ #exampleModal .modal-img{
+    height: 59px;
+  }
+#exampleModal .modal-text{
+  margin: 10px 59px 0 0;  
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+ 
+#exampleModal .modal-header{
+  width: 100%;
+  height: auto;
+  background-color: #d5ebff;
+  padding: 20px 20px 17px;
+}
+/*box2 style*/
+#exampleModal .modal-para{ 
+  /*margin: 3px 114px 0 0; 
+  font-size: 22px;
+  font-weight: 100;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.09;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;*/
+}
+#exampleModal .sec-line {
+  /*font-size: 18px;
+  font-weight: 500;*/
+}
+#exampleModal .custom-list li{
+  /*font-size: 14px;
+  font-weight: 100;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;*/
+}
+#exampleModal .custom-list{
+      /*list-style-image: url('./assets/images/bullet.png');*/
+}
+
+/*box3 style*/
+#exampleModal .btn
+{
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  color: #d5ebff;  
+  padding: 12px 17px 13px 13px;
+  background-color: #000000;
+  border:0px;
+}
+#exampleModal .btn{
+  margin-right: 15px;
+}
+#exampleModal .btn:last-child{
+   margin-right: 0px;
+}
+#exampleModal .bi-download, #exampleModal .bi-share{
+  margin-left: 8px;
+}
+#exampleModal .third-btn{
+  padding: 0px 24px 0px 24px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -5992,6 +6109,7 @@ h6:empty
     button.course-button, 
     button.course-button .button{
       width: auto;
+      margin-left: 0px;
     }
 }
 
@@ -6175,6 +6293,41 @@ h6:empty
     .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
     .footer .footer-top .footer-info {margin-bottom: 15px;}
     .footer .footer-top .footer-info .logo img {width: 150px;}
+
+    #exampleModal .modal-text{
+        font-size: 30px;
+        margin: 10px 25px 0 0;
+     }
+     #exampleModal .body-text{
+      font-size: 14px;
+      margin: 7px 5px 1px;
+     }
+      #exampleModal .modal-title{
+        padding-left: 2px;
+      }
+      #exampleModal .body-line {
+        margin-top: 20px;
+        margin-bottom: 17px;
+      }
+      #exampleModal.modal{
+        /*padding:42px;*/
+        padding: 17px
+      }
+      #exampleModal .modal-header {
+            padding: 20px 20px 20px;
+      }
+      #exampleModal .body-line,.body-line1
+      {
+        font-size: 18px;
+      }
+      #exampleModal .btn{
+        margin-bottom: 10px;
+        padding: 13px 19px 13px 21px;
+      }
+      #exampleModal .third-btn {
+            padding: 0px 12px 0px 3px;
+            font-size: 20px;
+    }
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

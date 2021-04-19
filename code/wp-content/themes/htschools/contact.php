@@ -34,42 +34,7 @@ if(have_posts()):while(have_posts()):the_post();
             </div>
         </div>
     </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="body-text">
-        <p>We have received your message and one of our colleagues will get in touch with you soon. If your query is urgent, please use the telephone number: 11 60004242  to talk to one of our support executives.</p>
-        <p class="body-line">Thanks, HTSchool</p>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<style>
-  #exampleModal .body-text{
-  margin: 0px 30px 0 30px; 
-  font-size: 18px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.67;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
-  }
-</style>
+
 </section>
 <?php
   $protocol = is_ssl() ? 'https' : 'http';
@@ -150,6 +115,51 @@ if(have_posts()):while(have_posts()):the_post();
            //google.maps.event.addDomListener(window, 'load', initialize);
            setTimeout(initialize, 2000);
 </script>
+
+
+
+
 <?php
 get_footer(vibe_get_footer());
 ?>
+<!-- Modal -->
+<div class="modal modal-box fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">        
+          <div class="modal-title" id="exampleModalLabel">
+            <img src="http://localhost/Htschools/code/wp-content/uploads/2021/03/logo.png" class="modal-img"/>
+           <p class="modal-text"> Thank you for getting in touch!</p>
+            <!-- <p class="modal-text">Welcome to</p>
+            <p class="modal-para">Data Science Masterclass for Non-Programmers</p> -->
+            <!-- <p class="modal-text">Congratulations on completing the Data Science Masterclass for Non-Programmers successfully. </p> -->
+          </div>          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+      <div class="body-text">
+        <p class="body-line1">We have received your message and one of our colleagues will get in touch with you soon. If your query is urgent, please use the telephone number: 11 60004242  to talk to one of our support executives.</p>
+        <p class="body-line">Thanks, HTSchool</p>
+        <!-- <p class="sec-line">Course Instructions are:</p>
+        <ul class="custom-list">
+          <li>Learn to use Python professionally, learning both Python 2 and Python </li>
+          <li>Create games with Python, like Tic Tac Toe and Blackjack!</li>
+          <li>Learn advanced Python features, like the collections module and how</li> 
+          <li>Learn to use Object Oriented Programming with classes!</li>
+          <li>Understand complex topics, like decorators.</li>
+          <li>Understand how to use both the Jupyter Notebook and create .py files</li>
+          <li>Get an understanding of how to create GUIs in the Jupyter Notebook</li> 
+          <li>Build a complete understanding of Python from the ground up!</li>
+        </ul> -->
+        <!-- <p>We hope you had a great learning throughout and must be excited to share your achievements. Happy Learning!</p> -->
+      </div>
+      <div class="third-btn">
+          <button type="button" class="btn">Download Certificate  <i class="bi bi-download"></i></button>
+            <button type="button" class="btn">Share Certificate <i class="bi bi-share"></i></button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

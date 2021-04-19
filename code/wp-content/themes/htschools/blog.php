@@ -90,31 +90,34 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         </div>
       <?php } endwhile; endif;?>
       <div class="col-sm-12 col-lg-8">
-        <div class="details-middle">
-          <ul class="news_two_data">
-            <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                      // if( $Query->current_post != 0 ) { 
-              ?>
-              <li>
-                <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                <div class="link">
-                  <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                </div>
-              </li>
-              <?php 
-                  // }
-            endwhile; endif; ?>
-          </ul>
+        <div class="col-sm-12 col-lg-6">
+            <div class="details-middle">
+              <ul class="">
+                <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                          // if( $Query->current_post != 0 ) { 
+                  ?>
+                  <li>
+                    <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                    <div class="link">
+                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                    </div>
+                  </li>
+                  <?php 
+                      // }
+                endwhile; endif; ?>
+              </ul>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+          <div class="details-middle adwork">
+            <?php
+            if ( is_active_sidebar( 'banner-2' ) ) : ?>
+             <?php dynamic_sidebar( 'banner-2' ); ?>      
+           <?php endif; ?>
+          </div>
         </div>
       </div>
-      <div class="col-sm-12 col-lg-4">
-        <div class="details-middle adwork">
-          <?php
-          if ( is_active_sidebar( 'banner-2' ) ) : ?>
-           <?php dynamic_sidebar( 'banner-2' ); ?>      
-         <?php endif; ?>
-        </div>
-      </div>
+      
       <div class="col-lg-12 center">
         <?php
         if ( is_active_sidebar( 'banner-4' ) ) : ?>

@@ -1542,7 +1542,9 @@ Course Details
   text-align: left;
   color: #fade3b;
 }
-.other-courses_join-btn a{
+.other-courses_join-btn .the_course_button a,
+.other-courses_join-btn .the_course_button button,
+.other-courses_join-btn .the_course_button input{
   padding: 11px 16px 14px 15px;
   background-color: #000000;
    font-size: 15px;

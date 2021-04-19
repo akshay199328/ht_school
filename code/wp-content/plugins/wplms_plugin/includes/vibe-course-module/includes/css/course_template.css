@@ -3519,10 +3519,13 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
 	color: #fff;
 	font-size: 23px;
 	font-weight: bold;
-	line-height: 28px
+	line-height: 28px;
+	margin: 10px 0;
 }
 .ui-datepicker .ui-datepicker-title select option{
 	color: #000;
+	font-size: 18px;
+	line-height: 26px
 }
 .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
 	background-image: none;
@@ -3531,19 +3534,23 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
   text-align: center;
   font-weight: 600;
   font-size: 12px;
-  color: #FFF; }
+  color: #FFF; 
+
+}
 
 .ui-datepicker-prev, .ui-datepicker-next {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  cursor: pointer;
-  background-repeat: no-repeat;
-  line-height: 600%;
-  overflow: hidden;
-  font-family: 'dashicons';
-  position: relative; }
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	line-height: 600%;
+	overflow: hidden;
+	font-family: 'dashicons';
+	position: relative; 
+    top: 17px!important;
+}
 
 .ui-datepicker-prev {
   float: left;
@@ -3570,24 +3577,30 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
   right: 0; }
 
 .ui-datepicker thead {
-  background-color: rgba(0,0,0,0.08);
-  border-bottom: 1px solid rgba(0,0,0,0.08); }
+    background-color: rgb(0 0 0 / 0%);
+    border-bottom: 1px solid rgb(0 0 0 / 0%);
+ }
 
 .ui-datepicker th {
   text-transform: uppercase;
   font-size: 11px;
   text-align: center;
   padding: 5px 0;
-  color: #444; }
-
+  color: #444; 
+}
+.ui-datepicker tbody th:first-child,
+.ui-datepicker tbody td:first-child{
+	padding-left: 20px;
+}
 .ui-datepicker tbody td {
-  padding: 0; }
+  padding: 0; border: 0px!important;
+}
 
 .ui-datepicker tbody td:last-child {
   border-right: 0px; }
 
 .ui-datepicker tbody tr {
-  border-bottom: 1px solid rgba(0,0,0,0.08); }
+  border-bottom: 1px solid rgb(0 0 0 / 0%) }
 
 .ui-datepicker tbody tr:last-child {
   border-bottom: 0px; }
@@ -3599,11 +3612,15 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
   width: 28px;
   height: 28px;
   line-height: 28px;
-  color: #666666; }
+  color: #666666; 
+  border: 0px!important;
+}
 
 .ui-datepicker-calendar .ui-state-default {
-  border-right: 1px solid rgba(0,0,0,0.08);
-  font-weight: 400; }
+  border-right: 1px solid transparent;
+  font-weight: 400; 
+  background: transparent;
+}
 
 .ui-datepicker-calendar .ui-state-hover {
   background: #f7f7f7; }

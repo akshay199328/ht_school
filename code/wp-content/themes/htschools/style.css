@@ -1555,6 +1555,7 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #fade3b;
+  border: 0px;
 }
 .cv-detilslist{
 
@@ -2111,22 +2112,22 @@ button.course-button .button
     display: inline-table;
         border: 0px;
 }
-.course-button a.progress_key_1, 
-.course-button input.progress_key_1,
-.course-button button.progress_key_1,
-.course-button a.progress_key_2, 
-.course-button input.progress_key_2,
-.course-button button.progress_key_2
+a.progress_key_1, 
+input.progress_key_1,
+button.progress_key_1,
+a.progress_key_2, 
+input.progress_key_2,
+button.progress_key_2
 {
     background: #00D98E!important;
-    color: #fff;
+    color: #fff!important;
 }
-.course-button a:focus.progress_key_3,
-.course-button input:focus.progress_key_3,
-.course-button button:focus.progress_key_3,
-.course-button a.progress_key_3, 
-.course-button input.progress_key_3,
-.course-button button.progress_key_3
+a:focus.progress_key_3,
+input:focus.progress_key_3,
+button:focus.progress_key_3,
+a.progress_key_3, 
+input.progress_key_3,
+button.progress_key_3
 {
     background: #FADE3B!important;
     color: #000;

@@ -386,7 +386,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     </div>
                     <div class="list mobile-slider">
 
-                      <?php do_action('wplms_single_course_content_end'); ?>
+                      <?php /*do_action('wplms_single_course_content_end');*/ ?>
                       <?php 
                       $tags_by_course_id = get_the_terms($post_id, 'course-tag' );
                       $tag_array = array();

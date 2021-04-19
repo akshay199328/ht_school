@@ -77,11 +77,16 @@ get_header(vibe_get_header());
       </div>
       </div>
       <div class="col-sm-12 col-md-3 content-right mrg">
+        <div class="category_topAD">
+          <?php
+            if ( is_active_sidebar( 'banner-2' ) ) :
+                dynamic_sidebar( 'banner-2' );      
+            endif;
+          ?>
+        </div>
         <div class="sidebar">
                     <?php
-                    if ( is_active_sidebar( 'banner-2' ) ) :
-                        dynamic_sidebar( 'banner-2' );      
-                    endif;
+                    
 
             echo "<h3>"."Featured News"."<h3>";
             $args = array(
@@ -105,12 +110,17 @@ get_header(vibe_get_header());
                   // }
           endwhile; endif;
 
-                    if ( is_active_sidebar( 'banner-2' ) ) :
-                        dynamic_sidebar( 'banner-2' );      
-                    endif;
+                    
                     $sidebar = apply_filters('wplms_sidebar','mainsidebar');
                     if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
                     <?php endif; ?>
+          </div>
+          <div class="category_bottomAD">
+              <?php
+                if ( is_active_sidebar( 'banner-2' ) ) :
+                    dynamic_sidebar( 'banner-2' );      
+                endif;
+              ?>
           </div>
       </div>
       
@@ -136,7 +146,7 @@ get_header(vibe_get_header());
         ?>
                   <div class="col-sm-12 col-lg-12 mrg">
             <div class="details-middle">
-              <ul>
+              <ul class="news_three_data">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
 
                   ?>

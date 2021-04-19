@@ -1,27 +1,27 @@
 /*--------------------------------------------------------------
 # Custom Css
 --------------------------------------------------------------*/
-#vibebp_login_wrapper{display: none;}
+
 p{font-family: 'GT-Walsheim-Pro'!important;}
 .ahref, .error, .link, .reply a{text-transform: initial!important;}
 .home-page #header { background: #d5ebff!important;}
 .home-page #header.header-scrolled{background: #fade3b!important;}
 .elementor-section.elementor-section-boxed > .elementor-container {max-width: 1088px!important;}
 /*.home-page .hero{padding-top: 29px;}*/
-/*.hero-list .hero-card h6, .hero-list .hero-card h5{margin: 0px!important;}*/
+
 .home-page .left-menu .navbar li.current_page_item a {
     color: #000!important;
 }
-
+.home-page .custom-dropdown:before{color: #000!important }
 .middle-menu { text-align: center;}
 nav li {margin-left: 0!important;}
-.left-menu nav li {margin-right: 23px!important;padding: 0px;    cursor: pointer;}
+.left-menu nav li {margin-right: 23px!important;padding: 7px 20px 10px 10px;    cursor: pointer;}
 .left-menu nav li:last-child {margin-right: 0px!important;}
 .left-menu nav li.current_page_item{background: #000;}
 .course .left-menu nav li.current_page_item a{color: #fff!important;}
 .sleek nav>.menu>li>a {color:#000!important;padding: 0px 6px 0px 0px!important;margin: 0 0px !important;text-transform: initial!important;font-size: 15px!important;
     font-weight: bold!important;}
-nav .menu li:last-child a{/*padding-right: 0px!important;*/}
+nav .menu li:last-child a{padding-right: 0px!important;}
 .navbar li a:hover {
     -webkit-transform: none!important;
     transform: none!important;
@@ -32,14 +32,6 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     margin-left: 0px!important;
 }
 .border-menu:after{top: 1px!important}
-.custom-dropdown, .my-course{background: transparent;}
-.custom-dropdown.active,
-.my-course.active,
-.course-template-default .my-course,
-.course-template-default .custom-dropdown
-{
-    background: #000;
-}
 .custom-dropdown:before {
     content: "\f282";
     display: inline-block;
@@ -49,25 +41,19 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     line-height: 0;
     margin-left: 5px;
     color: #fff;
-    top: 0px;
+    top: 4px;
     position: relative;
-    display: none;
 }
-
-.custom-dropdown a:after,
-.my-course a:after{
+.left-menu ul li.custom-dropdown a:after {
     content: '';
-    border-bottom: 1px solid #000;
-    width: 33px;
+    border-bottom: 1px solid #707070;
+    width: 80%;
     height: 1px;
     position: absolute;
-    bottom: 4px;
-    left: 9px;
+    bottom: -3px;
+    left: 0;
 }
-.custom-dropdown.active a:after,
-.course-template-default .my-course a:after,
-.course-template-default .custom-dropdown a:after
-{
+.left-menu ul li.current_page_item.custom-dropdown a:after{
     border-bottom: 1px solid #fff;
 }
 #buddypress .course.dir-list {padding: 0px;}
@@ -102,12 +88,12 @@ ol.breadcrumbs li+li:before {
     margin: 0px!important;
     padding-right: 7px!important;
     padding-left: 11px!important;
-    color: #3a79d5!important;
+    color: #fff!important;
     font-size: 11px!important;
     display: none;
 }
 ol.breadcrumbs li a {
-    color: #3a79d5!important;
+    color: #fff!important;
     font-size: 11px;
     text-transform: capitalize!important;
     line-height: 1.36;
@@ -117,7 +103,7 @@ ol.breadcrumbs li a {
 }
 
 ol.breadcrumbs li {
-    color: #3a79d5!important;
+    color: #fff!important;
     font-size: 11px;
     text-transform: capitalize!important;
     line-height: 1.36;
@@ -125,14 +111,7 @@ ol.breadcrumbs li {
     font-weight: bold!important;
     
 }
-.fixed_banner ol.breadcrumbs li, .fixed_banner ol.breadcrumbs li a{color: #fff!important}
-.background-breadcrumbs ol.breadcrumbs li, 
-.background-breadcrumbs ol.breadcrumbs li a,
-.woocommerce-cart ol.breadcrumbs li,
-.woocommerce-cart ol.breadcrumbs li a,
-.woocommerce-checkout ol.breadcrumbs li,
-.woocommerce-checkout ol.breadcrumbs li a
- {
+.background-breadcrumbs ol.breadcrumbs li, .background-breadcrumbs ol.breadcrumbs li a {
     color: #0c5acc!important;
 }
 .course-listing{
@@ -175,11 +154,8 @@ padding: 15px 0;
     border-bottom: 0px solid var(--border)!important;
 }
 .Popular-Courses .section-header{z-index: 9;background-color: transparent!important;box-shadow: none;}
-
-
 .course-listing{
-        margin-top: 0;
-    padding: 0;
+    margin-top: 15px;
 }
 .align-items-center {
     -ms-flex-align: center!important;
@@ -273,65 +249,30 @@ padding: 15px 0;
 .fixed_banner .content{
     background: none!important;
 }
-.fixed_banner ul li h6, .course-list span h6, .cv-detilslist span h6, .card h6, 
-.instructor-detailsMini .profile-content h4, .instructor-detailsMini .profile-content h6
-{margin: 0px!important;}
+.fixed_banner ul li h6, .course-list span h6, .cv-detilslist span h6, .card h6, .instructor-detailsMini .profile-content h4, .instructor-detailsMini .profile-content h6, 
+.course-box .middle-details p{margin: 0px!important;}
 .course-fees .course_sharing, 
 .right-details .course-button h6 .subs, 
 .course_button .extra_details,
-.course-fees span.amount+.subs,
-.course-box .course_sharing
-{
-    display: none;
-}
+.course-fees span.amount+.subs{display: none;}
 
-
-
-.course-fees .course_button,
-.course-fees a.course_button , 
-.course-fees input.course_button,
-.course-fees button.course_button 
-
- {
-        padding: 12px 0px 12px 0px;
+.course-fees .the_course_button .course_button{
+        padding: 12px 32px 12px 25px!important;
     background-color: #fbca00;
-    width: 203px !important;
     font-size: 20px!important;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.35;
     letter-spacing: normal;
-    text-align: center;
-    color: #004135;
+    text-align: left;
+    color: #004135!important;
     width: auto;
     border-radius: 0;
     margin: 5px 0px 0px;
     float: left;
-        border: 0px;
 }
-.course-fees .course_button a{color: #004135;font-weight: bold;}
-.course-fees .course_button.progress_key_1,
-.course-fees a.course_button.progress_key_1, 
-.course-fees input.course_button.progress_key_1,
-.course-fees button.course_button.progress_key_1,
-.course-fees .course_button.progress_key_2,
-.course-fees a.course_button.progress_key_2, 
-.course-fees input.course_button.progress_key_2,
-.course-fees button.course_button.progress_key_2
-{
-    background: #00D98E!important;
-    color: #fff;
-}
-.course-fees .course_button.progress_key_3,
-.course-fees a.course_button.progress_key_3, 
-.course-fees input.course_button.progress_key_3,
-.course-fees button.course_button.progress_key_3
-{
-    background: #FADE3B!important;
-    color: #000;
-}
-
+.course-fees .the_course_button .course_button a{color: #004135!important;font-weight: bold;text-transform: initial;}
 .learing-goals .heading p, .heading h3,.infograph .heading h4, .testimonials .heading h4{ text-transform: initial;}
 .share-icon a, .nav-tabs .nav-link.active{color: #000!important;}
 .cv-detilslist span h6{    font-weight: normal !important;}
@@ -355,7 +296,6 @@ padding: 15px 0;
 }
 .right-details .course-button h6 .amount{font-size: 20px;}
 .course-box .middle-details{padding-right: 15px;}
-.dashboard_accountinfo .course-box .middle-details {padding-right: 75px;}
 /*.right-details .course-button h6 .subs{display: block;}*/
 
 .details-middle ul li .link:hover:after, #scrolltop.fix {
@@ -379,7 +319,7 @@ padding: 15px 0;
 .other-courses .list .card:first-child {padding-left: 0px!important;}
 .fixedmenu-tabs .nav-tabs>li.active>a{    border-color: transparent;}
 .details-middle ul li .link a{    font-weight: bold;}
-.details-left.fixed_banner .course_home_progress, .hide-progress .course_home_progress,.hide-search, .top-pagination #pag-top{
+.course_home_progress, .hide-search, .top-pagination #pag-top{
     display: none!important;
 }
 .the_course_button .button  {
@@ -387,65 +327,15 @@ padding: 15px 0;
     box-shadow: none!important;
     padding: 0!important;*/
 }
-.hover_share{position: relative;margin-top: 0px;}
-.display_icon{
-    display: none;
-    background: #fff;
-    padding: 5px 10px 15px 15px;
-    position: absolute;
-    width: 247px;
-    right: 0px;
-    top: -10px;
-    box-shadow: 0px 1px 13px #00000047;
-    z-index: 9;
-}
-.display_icon h6 {
-    font-size: 12px;
-    color: #000;
-    text-align: left;
-    line-height: 16px;
-    margin-bottom: 15px;
-}
-.display_icon h6 i {
-        font-size: 17px;
-    color: #000000;
-    font-weight: bold;
-    float: right;
-    display: none;
-}
-.hover_share:hover .display_icon{
-    display: block;
-}
-.display_icon .a2a_kit a{
-    margin-right: 5px;
-    margin-top: 0px;
-}
-.display_icon .a2a_kit a:last-child{
-        margin-right:0px;
-}
-.newsdetail_caption {
-    font-size: 12px!important;
-    color: #E5E5E5!important;
-    line-height: 16px!important;
-    margin: 10px 0px!important;
-}
+.progress_key_1, .progress_key_2{background: #00D98E!important;}
+
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}
-    .right-details .course-button{padding-top: 25px!important;}
-    .dashboard_accountinfo .right-details .course-button {
-        padding-top: 0px!important;
-        margin-left: 0px!important;
-        padding-left: 0px!important;
-    }
-    .dashboard_accountinfo .right-details .course-button a{margin-left:0px!important;}
+    .right-details .course-button{padding-top: 65px!important;}
 }
 @media (max-width: 991px){
     header.sleek #trigger {display: none!important;}
-    .course-listing .pagetitle.breadcrumbs {padding-left: 0px !important;padding-right: 0px!important;}
-    .course-listing {margin-top: 0px;padding-bottom: 0px !important;}
-    .left-spacing, 
-    .about-details .pull-right {
-        padding-left: 0px!important;
-    }
-    .display_icon{right:0px;}
+    .course-listing .pagetitle.breadcrumbs {padding-left: 15px !important;padding-right: 15px!important;}
+    .course-listing {margin-top: 73px;}
+    
 }

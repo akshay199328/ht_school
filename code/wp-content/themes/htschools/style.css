@@ -143,7 +143,12 @@ section {
     padding-left: 32px!important;    padding-right: 0px!important;
   }
   .right-details .course-button h6, .course-button .the_course_button{/*float: right*/}
-
+  .details-middle ul.news_three_data li .link a,
+  .details-middle ul.news_two_data li .link a
+  {
+    min-height: 85px;
+  }
+  .releted_news_section .related_post{padding-left: 30px;}
   
 
 }
@@ -154,7 +159,7 @@ section {
     -ms-flex-pack: justify !important;
     justify-content: space-between !important;
     display: flex;
-    height: 120px;
+    height: 40px;
   }
   .footer .footer-top .social-links .pull-left, .footer .footer-top .social-links .pull-right{
       -webkit-box-pack: justify !important;
@@ -1085,6 +1090,7 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #fff;
+  margin-bottom: 20px;
 }
 .fixed_banner p{
   font-size: 17px!important;
@@ -1092,7 +1098,7 @@ Course Details
   line-height: 1.29!important;
   letter-spacing: normal!important;
   color: #fff!important;
-  margin: 20px 0px!important;
+  margin:0px 0px 20px 0px!important;
 }
 /*.fixed_banner .courseDetail_border{
   display: block;
@@ -1359,13 +1365,16 @@ Course Details
 .learing-goals .list{
     margin-top: 10px;
     padding-bottom: 25px;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 300;
 }
 .learing-goals .list ul{
       margin-top: 30px;
 }
 .learing-goals .list ul li{
     display: block;
-    line-height: 25px;
+    line-height: 25px!important;
     position: relative;
     padding-left: 20px;
     font-size: 17px;
@@ -1555,7 +1564,8 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #fade3b;
-  border: 0px;
+      border: 0px!important;
+    width: auto;
 }
 .other-courses_join-btn .course_home_progress{
   display: none;
@@ -2351,10 +2361,11 @@ section.latest-news{
 }
 .details-middle ul li .link a{
     color: #0c5acc;
-        min-height: 85px;
+        min-height: 100%;
     position: relative;
     float: left;
 }
+
 .center{text-align: center;}
 .latest-news .center {
     margin-top: 20px;
@@ -4122,6 +4133,9 @@ section.latest-news{
   font-weight: 300;
   color:#000000;
 }
+.form-footer a:hover{
+  color: #0C5ACC;
+}
 .form-footer a.login-link{
   color: #1877F2;
   font-weight: bold;
@@ -4132,6 +4146,14 @@ section.latest-news{
   line-height: 21px;
   color:#9E9E9E;
   margin-top: 30px;
+}
+.form-footer p a{
+  font-size:15px;
+  color:#9E9E9E;
+  font-weight: 300;
+}
+.form-footer p a:hover{
+  color: #0C5ACC;
 }
 #login-step-2 form{margin: 0px;}
 #login-step-3 form{    margin: 55px 0px 21px;}
@@ -4601,6 +4623,13 @@ border-color: transparent;
   position: relative;
     top: 6px;
 }
+.category_topAD{
+  margin-bottom: 20px;
+}
+.category_bottomAD{
+  margin-top: 20px;
+  float: left;
+}
 .news-listing .content-right .sidebar{
       padding: 20px;
     background: #fff;
@@ -4891,6 +4920,7 @@ border-color: transparent;
 .standard-form .form-group:last-child {
     margin-bottom: 0px;
 }
+
 .dashboard_accountinfo .info-card {
     padding-left: 20px;
 }
@@ -5318,6 +5348,7 @@ h6:empty
   margin-right: 10px;
   border: 0px;
   cursor: pointer;
+  margin-bottom: 0px;
   
 }
 .share-icon ul li:after{

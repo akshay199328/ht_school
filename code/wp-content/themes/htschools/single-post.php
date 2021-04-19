@@ -160,15 +160,26 @@ $topics = wp_get_post_tags(get_the_ID());
             </div>
           </div>
 
-           <!-- releted news -->
-          <div class="releted_news_section left-spacing">
-             <div class="atwork_img">
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- releted news -->
+<div class="releted_news_section">
+  <div class="container">
+    <div class="col-sm-12 col-md-4 mrg">
+      <div class="atwork_img">
           <?php
           if ( is_active_sidebar( 'banner-2' ) ) : ?>
             <?php dynamic_sidebar( 'banner-2' ); ?>      
           <?php endif; ?>
-        </div>
-
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 mrg">
         <div class="related_post details">
           <?php
                 // Related Posts
@@ -185,39 +196,34 @@ $topics = wp_get_post_tags(get_the_ID());
             $my_query = new WP_Query($args);
                      // print_r($my_query);
             //echo "<pre>";print_r($my_query);exit;
-
+            ?>
+              <div class="details-middle devide">
+                <ul class="news_two_data">
+            <?php 
             if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
                                   // if( $Query->current_post != 0 ) { 
               ?>
-              <div class="details-middle devide">
-                <ul>
                   <li>
                     <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                     <div class="link">
                       <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                     </div>
                   </li>
-                </ul>
-              </div>
               <?php 
+              
                               // }
             endwhile; endif;
 
             wp_reset_query();
           }
           ?>
-        </div>
+        </ul>
       </div>
-          <!-- releted news -->
-
-        </div>
-        </div>
       </div>
     </div>
   </div>
-
-      </div>
-
+</div>
+          <!-- releted news -->
     </div>
   </div>
   

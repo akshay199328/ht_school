@@ -36,7 +36,6 @@ vibe_include_template("profile/top$profile_layout.php");
 				$query_args = array(
 					'post_type'=>'course',
 					'post_status'=>'publish',
-					'posts_per_page'=>12,
 					'post__in'=>$finished_courses
 				);
 				$results  = new WP_query($query_args);

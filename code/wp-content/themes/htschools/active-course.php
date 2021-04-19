@@ -170,9 +170,9 @@ vibe_include_template("profile/top$profile_layout.php");
         </div>
     </div>
 </section>
-	<?php } else{ 
-        echo '<h1>Active courses not found</h1>';
-    }
+	<?php } else{ ?>
+        <h1>You don’t have any active courses right now</h1>
+    <?php }
     ?>
 
 

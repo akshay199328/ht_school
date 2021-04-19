@@ -1313,31 +1313,48 @@ function get_the_course_tags( $post_id, $post_tag ) {
    */
   return apply_filters( 'get_the_tags', $terms );
 }
-add_action('admin_head', 'my_custom_fonts');
-function my_custom_fonts() {
-  echo '<style>
-    .interest-field{
-      display: none;
-    }
-</style>';
-echo '<script>
-jQuery(function($){
-  $(document).ready(function($) {
-    $("#interest-field").parent().parent().prev().hide();
-    $("h2:contains(user interest)").hide();
-  });
-  });
-</script>';
-}
+// add_action('admin_head', 'my_custom_fonts');
+// function my_custom_fonts() {
+//   echo '<style>
+//     .interest-field{
+//       display: none;
+//     }
+// </style>';
+// echo '<script>
+// jQuery(function($){
+//   $(document).ready(function($) {
+//     $("#interest-field").parent().parent().prev().hide();
+//     $("h2:contains(user interest)").hide();
+//   });
+//   });
+// </script>';
+// }
 add_filter('vibe_option_custom_sections','wplms_one_course_section');
 function wplms_one_course_section($sections){
     $sections[1]['fields'][] = array(
     'id' => 'headertop_logo',
     'type' => 'upload',
-    'title' => __('Upload Logo for Fixed header', 'vibe'), 
+    'title' => __('Upload Logo for Course header', 'vibe'), 
     'sub_desc' => __('Upload your logo', 'vibe'),
     'desc' => __('This Logo is shown in header.', 'vibe'),
     'std' => VIBE_URL.'/images/logo.png'
     );
     return $sections;
+}
+
+function sc_tf_get_tags_as_array($post_id){
+    global $wpdb;
+    $tbl_terms = $wpdb->prefix . "terms";
+    $tbl_term_relationships = $wpdb->prefix . "term_relationships";
+
+    $sql = "SELECT name FROM $tbl_terms WHERE term_id in (SELECT term_taxonomy_id FROM $tbl_term_relationships WHERE object_id='$post_id');";
+    $results = $wpdb->get_results($sql);
+
+    if($results){
+        foreach($results as $row){
+            $tags_list[] = $row->name;
+        }
+    }
+
+    return $tags_list;
 }

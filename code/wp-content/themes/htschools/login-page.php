@@ -62,7 +62,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
 
 
             <div class="login-right" id="login-step-1">
-              <h4>Login / Register</h4>
+              <h4>Login / Sign Up</h4>
               <form method="POST" id="ht_reg_email">
                 <input type="hidden" name="action" value="reg_send_otp">
                 <input type="hidden" name="prevPageurl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">

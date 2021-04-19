@@ -1357,3 +1357,68 @@ function sc_tf_get_tags_as_array($post_id){
 
     return $tags_list;
 }
+function wpfp_course_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
+    global $post;
+    //print_r($post);
+    $post_id = $post->ID;
+    //$post_id = &$post->ID;
+    $title1 = "Bookmark this Course";
+    $title2 = "Remove Bookmark";
+    extract($args);
+    $str = "";
+    if ($show_span)
+        $str = "<span class='wpfp-span'>";
+    $str .= wpfp_before_link_img();
+    $str .= wpfp_loading_img();
+    if ($action == "remove"):
+        $str .= wpfp_course_link_html($post_id, wpfp_get_option('remove_favorite'), "remove",$title2);
+    elseif ($action == "add"):
+        $str .= wpfp_course_link_html($post_id, wpfp_get_option('add_favorite'), "add",$title1);
+    elseif (wpfp_check_favorited($post_id)):
+        $str .= wpfp_course_link_html($post_id, wpfp_get_option('remove_favorite'), "remove",$title2);
+    else:
+        $str .= wpfp_course_link_html($post_id, wpfp_get_option('add_favorite'), "add",$title1);
+    endif;
+    if ($show_span)
+        $str .= "</span>";
+    if ($return) { return $str; } else { echo $str; }
+}
+
+function wpfp_course_link_html($post_id, $opt, $action, $title) {
+  $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $title ."' rel='nofollow'>". $opt ."</a>";
+  $link = apply_filters( 'wpfp_course_link_html', $link );
+  return $link;
+}
+
+function wpfp_post_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
+    global $post;
+    //print_r($post);
+    $post_id = $post->ID;
+    //$post_id = &$post->ID;
+    $title1 = "Bookmark this Article";
+    $title2 = "Remove Bookmark";
+    extract($args);
+    $str = "";
+    if ($show_span)
+        $str = "<span class='wpfp-span'>";
+    $str .= wpfp_before_link_img();
+    $str .= wpfp_loading_img();
+    if ($action == "remove"):
+        $str .= wpfp_post_link_html($post_id, wpfp_get_option('remove_favorite'), "remove",$title2);
+    elseif ($action == "add"):
+        $str .= wpfp_post_link_html($post_id, wpfp_get_option('add_favorite'), "add",$title1);
+    elseif (wpfp_check_favorited($post_id)):
+        $str .= wpfp_post_link_html($post_id, wpfp_get_option('remove_favorite'), "remove",$title2);
+    else:
+        $str .= wpfp_post_link_html($post_id, wpfp_get_option('add_favorite'), "add",$title1);
+    endif;
+    if ($show_span)
+        $str .= "</span>";
+    if ($return) { return $str; } else { echo $str; }
+}
+
+function wpfp_post_link_html($post_id, $opt, $action, $title) {
+  $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $title ."' rel='nofollow'>". $opt ."</a>";
+  $link = apply_filters( 'wpfp_post_link_html', $link );
+  return $link;
+}

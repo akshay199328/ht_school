@@ -92,11 +92,11 @@ $post = get_post($post_id);
                         <?php
                             if(is_user_logged_in()){
                                 ?>
-                                <li style="list-style-type: none;"><?php wpfp_link(); ?></li>
+                                <li style="list-style-type: none;"><?php wpfp_post_link(); ?></li>
                             <?php }else{
                                 $url = "/login-register";
                                 ?>
-                                   <li><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove"></i></a></li> 
+                                   <li><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
                                 <?php
                             }
                         ?>

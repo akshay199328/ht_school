@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <h1 class="heading"></h1>
       </div>
         <div class="row gy-4">
-          <div class="col-lg-8 col-md-12 footer-info ">
-            <div class="col-lg-5 col-md-12 footer-info mrg">
+          <div class="col-lg-8 col-md-8 col-sm-12 footer-info ">
+            <div class="col-lg-5 col-md-5 col-sm-12 footer-info mrg">
               <a href="index.html" class="logo d-flex align-items-center">
                 <!-- <img src="<?php echo get_template_directory_uri()?>/assets/images/footer-logo.png" class="img-fluid" alt=""> -->
                 <?php
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
           </div>
 
-          <div class="col-sm-12 col-lg-4 social-links mrg">
+          <div class="col-sm-12  col-md-4 col-lg-4 social-links mrg">
             <div class="col-sm-8 col-lg-8 col-md-8 pull-left mrg">
               
               <div class="socio-list">

@@ -23122,6 +23122,8 @@ body {
  	#hideshow_course_pursue_panel {
  		left: 350px
  	}
+ 	.myprofile_content ul li{width: auto!important;}
+ 	.myprofile_content ul li a{padding: 15px 9px!important;}
  }
 
  @media (max-width:768px) {

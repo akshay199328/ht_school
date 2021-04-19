@@ -144,6 +144,11 @@ section {
   }
   .right-details .course-button h6, .course-button .the_course_button{/*float: right*/}
 
+  
+
+}
+
+@media (min-width: 768px){
   .footer .footer-top .social-links{
     -webkit-box-pack: justify !important;
     -ms-flex-pack: justify !important;
@@ -157,7 +162,6 @@ section {
       justify-content: space-between !important;
       display: flex;
   }
-
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -4685,19 +4689,25 @@ border-color: transparent;
     -ms-flex-align: center !important;
     align-items: center !important;
     display: flex;
-       padding-right: 40px;
+       padding-right: 20px;
     float: left;
     width: 100%;
 }
 .dashboard_header #item-header-avatar {
-        float: left;
+    float: left;
     width: 75px!important;
     height: 75px;
+    display: inline-block;
 }
 .dashboard_header #item-header-avatar img{border-radius: 100%!important;    border: 3px solid #FFFFFF;}
 .Profile_details{
     padding-left: 15px;
     float: left;
+    width: 75%;
+    display: inline-block;
+}
+.details_align .mrg {
+    width: 100%;
 }
 .dashboard_content #item-header h3 {
     font-size: 30px;
@@ -4712,7 +4722,11 @@ border-color: transparent;
     font-size: 15px;
     font-weight: 300;
     line-height: 20px;
-        margin-top: 5px;
+    margin-top: 5px;
+    word-break: break-word;
+}
+.dashboard_content #item-header .Profile_details .simple-link{
+  word-break: break-word;
 }
 .dashboard_content #item-header .Profile_details .simple-link:hover{
   color: #000;    text-decoration: underline;
@@ -5936,16 +5950,7 @@ h6:empty
       float: left;padding: 0px 0px 14px 0px;display: block;width: 100%;}
     .news_advertisment .pull-right a {font-weight: bold;text-transform: uppercase;
       text-align: left;color: #000000;}
-    .footer .footer-top .footer-info p {font-size: 20px;line-height: 1.35;}
-    .footer .footer-links li, .footer .bottom-detils .links li{display: block!important;}
-    .footer .middle-detils ul li {font-size: 24px;line-height: 32px;}
-    .footer .footer-links .about-links ul li {font-size: 15px;line-height: 24px;}
-    .footer .footer-top .footer-links, .footer .socio-list {padding: 0px 15px;margin-bottom: 0px;}
-    .footer .bottom-detils .links {margin-top: 20px;}
-    .footer .social-links{margin: 0px 0px 40px;}
-    .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
-    .footer .footer-top .footer-info {margin-bottom: 15px;}
-    .footer .footer-top .footer-info .logo img {width: 150px;}
+   
     .competitive{padding-left: 15px;padding-right: 15px;}
     .latest-news .header-heading .news-btn{    top: 0;}
     .Popular-Courses .adworks{text-align: center;}
@@ -5987,7 +5992,7 @@ h6:empty
     }
     .course-button a{width: auto!important;padding-left: 15px;padding-right: 15px;}
     .profile-card .news-listing .blogpost .excerpt.thumb{margin-top: 0px!important;padding-left: 20px;}
-    .Profile_details {padding-left: 12px;}
+    .Profile_details {padding-left: 12px;    width: 70%;}
     .dashboard_header .details_align{padding-right: 0px;}
     .dashboard_content #item-header h3 {font-size: 24px;line-height: 24px;}
     .dashboard_content #item-header p{font-size: 14px;}
@@ -6033,26 +6038,6 @@ h6:empty
         flex: 0 0 100%;
       max-width: 100%;
     }
-    /*.hero-list .owl-item:nth-child(1) .hero-card {
-      background: url(./assets/images/Scholarship-Programme.png), #0521c4;
-      background-repeat: no-repeat;
-      background-position: 114% 100%;
-    }
-    .hero-list .owl-item:nth-child(2) .hero-card{
-      background: url("./assets/images/code.png"), #aa2061;
-      background-repeat: no-repeat;
-      background-position:105% 106%;
-    }
-    .hero-list .owl-item:nth-child(3) .hero-card{
-      background: url("./assets/images/career.png"), #12756f;
-      background-repeat: no-repeat;
-      background-position:105% 195%;
-    }
-    .hero-list .owl-item:nth-child(4) .hero-card{
-      background: url("./assets/images/olympiad.png"), #001e03;
-      background-repeat: no-repeat;
-      background-position: 103% 125%;
-    }*/
     .hero-list .hero-card h6 {font-size: 12px;}
     .hero-list .hero-card h5 {font-size: 23px;margin:10px 0px!important;}
     .hero-list .hero-card p {font-size: 12px;}
@@ -6189,6 +6174,16 @@ h6:empty
     .profile_searchbox .search_section input{font-size: 15px!important;}
     .share-icon ul li{margin-right: 5px;}
     .news-main .content-right .details .share-icon {margin-top: 0px;}
+     .footer .footer-top .footer-info p {font-size: 20px;line-height: 1.35;}
+    .footer .footer-links li, .footer .bottom-detils .links li{display: block!important;}
+    .footer .middle-detils ul li {font-size: 24px;line-height: 32px;}
+    .footer .footer-links .about-links ul li {font-size: 15px;line-height: 24px;}
+    .footer .footer-top .footer-links, .footer .socio-list {padding: 0px 15px;margin-bottom: 0px;}
+    .footer .bottom-detils .links {margin-top: 20px;}
+    .footer .social-links{margin: 0px 0px 40px;}
+    .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
+    .footer .footer-top .footer-info {margin-bottom: 15px;}
+    .footer .footer-top .footer-info .logo img {width: 150px;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

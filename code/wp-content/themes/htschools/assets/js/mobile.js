@@ -91,7 +91,7 @@ $(document).ready(function() {
 })
 
 
-    if($(window).width() <= 992) {
+    if($(window).width() <= 768) {
         // alert("hello");
       $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-carousel');
       $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-theme');

@@ -25405,6 +25405,7 @@ body {
  }
 #buddypress .course.dir-list ul.item-list{
 	width: 96%;
+	    border-top: 1px solid rgb(0 0 0 / 0%);
 }
  #buddypress ul.item-list.activity-list {
  	border: none
@@ -35421,7 +35422,7 @@ body {
  .course-template-default .my-course a
  {
  	/*color: #fff!important;*/
- 	    padding: 7px 20px 9px 10px;
+ 	    padding:0px;
  }
 .custom-dropdown.active a,
 .course-template-default .custom-dropdown.active a,
@@ -36040,9 +36041,16 @@ body {
 	.post-creator p {
 		display: inline-block;
 		margin: 0px;
-		border-bottom: 2px solid;
+		/*border-bottom: 2px solid;*/
 	}
-
+	.post-creator:after{
+		content:'';
+		border-bottom: 1px solid #000;
+		display: block;
+	    width: 50%;
+	    margin: 20px 0px 5px;
+	    position: relative;
+	}
 	.atwork_img {
 		padding: 30px 0px;
 	}

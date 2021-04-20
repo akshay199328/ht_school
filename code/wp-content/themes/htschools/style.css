@@ -435,7 +435,7 @@ ol.breadcrumbs  {
 .right-menu ul li a:after, .left-menu ul li span:after{
     content:'';
     border-bottom: 1px solid #707070;
-    width: 80%;
+    width: 50%;
     height: 1px;
     position: absolute;
     bottom: -3px;
@@ -747,7 +747,7 @@ ol.breadcrumbs  {
 }
 .home_slider .owl-dots{
   position: absolute;
-      top: 4%;
+      top:0%;
     right: 17%;
 }
 .home_slider .owl-dot{
@@ -778,7 +778,7 @@ ol.breadcrumbs  {
 
 .learing_card{
   background: #d5ebff;
-  padding-top: 30px;
+  /*padding-top: 30px;*/
 }
 .learing_card h1 {
   margin: 0;
@@ -1040,7 +1040,7 @@ Course Details
     float: left;
     width: 100%;
 }
-.course-template-default .pusher, .post-template-default .pusher{
+.course-template-default .pusher, .post-template-default .pusher, .course .pusher {
     overflow: inherit;
 }
 .content-holder {
@@ -4492,7 +4492,9 @@ section.latest-news{
     margin: 5px 0px 20px;
 }
 .topic_details{
-
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
 }
 .topic_details li{
 
@@ -5546,6 +5548,9 @@ h6:empty
   color: #000000;
   margin-bottom: 30px;
 }
+.static_content a{
+  color: #0C5ACC;
+}
 .static_content .content ol, 
 .static_content .content ul {
   list-style-type: lower-alpha;
@@ -6469,4 +6474,7 @@ h6:empty
 .start_time_none{display: none!important;}
 .all_course_page{    padding-top: 30px;}
 
-
+#Popular-Courses.all_course_page .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}

@@ -72,7 +72,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
       if( $Query->current_post == 0 ) { 
         ?>
-        <div class="col-sm-12 col-lg-4">
+        <div class="col-sm-12 col-md-4 col-lg-4">
           <div class="details-left">
 
             <?php if ( has_post_thumbnail() ) { 
@@ -89,8 +89,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
           </div>
         </div>
       <?php } endwhile; endif;?>
-      <div class="col-sm-12 col-lg-8">
-        <div class="col-sm-12 col-lg-6 remove_mob_margin">
+      <div class="col-sm-12 col-md-8 col-lg-8">
+        <div class="col-sm-12 col-md-6 col-lg-6 remove_mob_margin">
             <div class="details-middle">
               <ul class="full_width_list">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
@@ -108,7 +108,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               </ul>
             </div>
         </div>
-        <div class="col-sm-12 col-lg-6 remove_mob_margin">
+        <div class="col-sm-12 col-md-6 col-lg-6 remove_mob_margin">
           <div class="details-middle adwork">
             <?php
             if ( is_active_sidebar( 'banner-2' ) ) : ?>
@@ -164,7 +164,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         endwhile; endif; ?>
          </ul>
       </div>
-      <div class="col-sm-12 col-lg-4">
+      <div class="col-sm-12 col-md-4 col-lg-4">
         <div class="details-middle">
 
         </div>

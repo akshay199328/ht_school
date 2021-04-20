@@ -71,8 +71,7 @@ $topics = wp_get_post_tags(get_the_ID());
                   if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
                     vibe_breadcrumbs(); 
                   ?>
-                  <h1
-                  ><?php the_title(); ?></h1>
+                  <h1><?php the_title(); ?></h1>
 
                   <?php the_sub_title(); ?>
                 </div>
@@ -119,7 +118,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 <?php }else{
                   $url = "/login-register";
                   ?>
-                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this article"></i></a></li> 
+                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
                   <?php
                 }
                 ?>
@@ -129,7 +128,18 @@ $topics = wp_get_post_tags(get_the_ID());
           </div>
           </div>
           <div class="content-default-list">
-            <?php the_content(); ?>
+            <div class="col-sm-12 col-lg-6 pull-left mrg">
+              <?php the_content(); ?>
+            </div>
+            <div class="col-sm-12 col-lg-6 mrg pull-right">
+              <div class="adworks">
+                <div class="col-sm-12 adworks-head mrg">
+                  <?php
+                    if ( is_active_sidebar( 'banner-2' ) ) : ?>
+                      <?php dynamic_sidebar( 'banner-2' ); ?>      
+                    <?php endif; ?>
+                </div>
+              </div>
           </div>
         </div>
         <div class="topic_details">
@@ -170,6 +180,7 @@ $topics = wp_get_post_tags(get_the_ID());
       </div>
     </div>
   </div>
+</div>
 </div>
 <!-- releted news -->
 <div class="releted_news_section">
@@ -227,7 +238,6 @@ $topics = wp_get_post_tags(get_the_ID());
   </div>
 </div>
           <!-- releted news -->
-    </div>
   </div>
   
 

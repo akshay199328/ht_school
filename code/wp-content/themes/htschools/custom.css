@@ -32,13 +32,14 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     margin-left: 0px!important;
 }
 .border-menu:after{top: 1px!important}
-.custom-dropdown, .my-course{background: transparent;}
+.custom-dropdown, .my-course{background: transparent; padding: 7px 20px 9px 10px!important;}
 .custom-dropdown.active,
 .my-course.active,
 .course-template-default .my-course,
 .course-template-default .custom-dropdown
 {
     background: #000;
+       
 }
 .custom-dropdown:before {
     content: "\f282";
@@ -57,12 +58,12 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
 .custom-dropdown a:after,
 .my-course a:after{
     content: '';
-    border-bottom: 1px solid #000;
-    width: 33px;
+    border-bottom: 1px solid #707070;
+    width: 50%;
     height: 1px;
     position: absolute;
-    bottom: 4px;
-    left: 9px;
+    bottom: -3px;
+    left: 0px;
 }
 .custom-dropdown.active a:after,
 .course-template-default .my-course a:after,
@@ -393,7 +394,7 @@ padding: 15px 0;
     background: #fff;
     padding: 5px 10px 15px 15px;
     position: absolute;
-    width: 247px;
+    width: 271px;
     right: 0px;
     top: -10px;
     box-shadow: 0px 1px 13px #00000047;

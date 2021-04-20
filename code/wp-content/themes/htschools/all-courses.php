@@ -23,6 +23,7 @@ get_header(vibe_get_header());
     <section id="Popular-Courses" class="all_course_page">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
+          <div class="sticky_content">
           <div class="col-sm-12 col-md-9 col-lg-9 mrg">
             <div class="">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
@@ -125,8 +126,9 @@ get_header(vibe_get_header());
               <?php dynamic_sidebar( 'banner-1' ); ?>      
             <?php endif; ?>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </section>
 <div class="col-md-12 col-sm-12">
     <?php

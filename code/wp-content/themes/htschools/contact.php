@@ -19,12 +19,20 @@ if(have_posts()):while(have_posts()):the_post();
         <div class="row">
             <div class="col-md-12">
                 <div class="content sec_cont">
-                  <ol class="breadcrumbs"><li><a href="#"><span>Home</span></a></li><li class="current"><span>Contact us</span></li></ol>
+                  <ol class="breadcrumbs">
+                    <li><a href="#"><span>Home</span></a></li><li class="current"><span>Contact us</span></li>
+                  </ol>
                      <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
-                    <?php
-                        the_content();
+                  <?php
+                      the_content();
 
-                     ?>
+                   ?>
+                  <!--  <div class="atwork_img">
+          <?php
+          if ( is_active_sidebar( 'banner-2' ) ) : ?>
+            <?php dynamic_sidebar( 'banner-2' ); ?>      
+          <?php endif; ?>
+      </div> -->
                 </div>
                 <?php
                 

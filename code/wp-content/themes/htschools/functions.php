@@ -1444,7 +1444,8 @@ function prefix_insert_post_ads( $content ) {
         ob_end_clean();
         
         $ad_code = '</div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg">';
-        $content = prefix_insert_after_paragraph( $ad_code, 3, $content );
+        $content = prefix_insert_after_paragraph( $ad_code, 2, $content );
+        //$content = prefix_insert_after_position( $ad_code,650, $content );
     }
      
     return $content;
@@ -1467,5 +1468,27 @@ function prefix_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
     }
      
     return implode( '', $paragraphs );
+}
+    
+function prefix_insert_after_words( $insertion, $count, $content ) {
+    $closing_p = ' ';
+    $paragraphs = explode( $closing_p, $content );
+    foreach ($paragraphs as $index => $paragraph) {
+ 
+        if ( trim( $paragraph ) ) {
+            $paragraphs[$index] .= $closing_p;
+        }
+ 
+        if ( $count == $index + 1 ) {
+            $paragraphs[$index] .= $insertion;
+        }
+    }
+     
+    return implode( '', $paragraphs );
+}
+  
+function prefix_insert_after_position( $insertion, $position, $content ) {
+    $content = substr_replace($content, $insertion, $position, 0);
+    return $content;
 }
 

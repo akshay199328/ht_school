@@ -189,20 +189,29 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   <div class="heading">
                                     <h3>About the Course</h3>
                                   </div>
-                                  <div class="col-sm-12 col-lg-6 pull-left mrg">
-                                      <p><?php 
-                                      $post_content = get_post_field('post_content', $post->ID);
-                                      if ( $post_content != '' ) {
-                                        echo $post_content;
-                                      }
-                                      ?></p>
+                                  <div class="row">
+                                    <div class="col-sm-12 col-lg-6 pull-left mrg">
+                                        <p><?php 
+                                        $post_content = get_post_field('post_content', $post->ID);
+                                        if ( $post_content != '' ) {
+                                          ob_start();
+                                          dynamic_sidebar('banner-2');
+                                          $addDisplay = ob_get_contents();
+                                          ob_end_clean();
+                                          $ad_code = '</p></div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg"><p>';
+
+                                          $post_content = prefix_insert_after_words( $ad_code,75, $post_content );
+                                          echo $post_content;
+                                        }
+                                        ?></p>
+                                    </div>
                                   </div>
-                                  <div class="col-sm-12 col-lg-6 mrg pull-right">
+                                  <!-- <div class="col-sm-12 col-lg-6 mrg pull-right">
                                     <div class="adworks">
                                       <div class="col-sm-12 adworks-head mrg">
                                         <?php
                                           if ( is_active_sidebar( 'banner-2' ) ) : ?>
-                                          <?php dynamic_sidebar( 'banner-2' ); ?>      
+                                          <?php //dynamic_sidebar( 'banner-2' ); ?>      
                                         <?php endif; ?>
                                       </div>
                                     </div>
@@ -213,7 +222,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         </video>
                                       <?php }?>
                                     </div>
-                                  </div>
+                                  </div> -->
 <!--                                   <div class="col-sm-12 course-for background-yellow">
                                     <h5>Who This Course Is For</h5>
                                     <p>

@@ -5,7 +5,7 @@ if(!defined('WPINC')){ die; }
 $curl = curl_init();
 
 if ($AuthToken != '' ){
- $courseapiurl=$wpcs_options['cs_api_url'].'/api/album/ranveer-brar-cooking-classes';
+ $courseapiurl=$wpcs_options['cs_api_url'].'/api/album/siddharth-prabhakar-business-classes';
   $curlcatheader=array('x-auth-token' =>$AuthToken);
   curl_setopt_array($curl, array(
     CURLOPT_URL => $courseapiurl,

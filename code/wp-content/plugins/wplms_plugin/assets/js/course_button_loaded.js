@@ -1440,7 +1440,7 @@
             return n && e(t.prototype, n), s && e(t, s), t
         }
     }();
-    var a = /[^a-zа-яё0-9\-']+/i;
+    var a = /[^a-zÐ°-ÑÑ‘0-9\-']+/i;
     t.SimpleTokenizer = function() {
         function e() {
             ! function(e, t) {
@@ -7091,7 +7091,11 @@
             className: "the_course_button"
         }, i && i.length ? c > -1 ? mr("span", null, mr("button", {
             onClick: () => {
-                f(!0)
+                if(l.is_cb_course){
+                    window.location = l.cb_course_link;
+                }else{
+                    f(!0)
+                }
             },
             className: "course_button full progress_key_" + l.user_status
         }, a)) : Array.isArray(i) ? mr("strong", {

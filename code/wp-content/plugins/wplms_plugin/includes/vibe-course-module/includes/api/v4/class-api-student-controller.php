@@ -1029,9 +1029,54 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 		function course_button($request){
 			$body = json_decode($request->get_body(),true);
 			$course_id = $body['id'];
+			$is_cb_course = 0;
+			$cb_course_link = "";
+
+            $cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
+            if ($cb_course_id){
+            	$is_cb_course = 1;
+
+            	$cbUserEmail = "ht_user_" . $this->user->id . "@htschools.com";
+
+            	$cb_user_registered = get_user_meta($this->user->id, 'cb_user_registered', true);
+
+            	if($cb_user_registered){
+            		$cb_user_password = md5(get_user_meta($this->user->id, 'cb_user_password', true));
+
+            		$signupResponse = $this->login_cb_user($cbUserEmail, $cb_user_password);
+            		if($signupResponse){
+            			update_user_meta($this->user->id, 'cb_user_registered', 1);
+
+            			$cbCourseResponse = $this->cb_course_delivery($cbUserEmail, $cb_course_id, $signupResponse);
+
+            			$cbCourseResponseArray = json_decode($cbCourseResponse, true);
+            			if(isset($cbCourseResponseArray['page_url'])){
+            				$cb_course_link = $cbCourseResponseArray['page_url'];
+            			}
+            		}
+
+            	}else{
+            		$cb_password = $this->guidv4();
+            		update_user_meta($this->user->id, 'cb_user_password', $cb_password);
+
+            		$signupResponse = $this->signup_cb_user($this->user->displayname, $cbUserEmail, md5($cb_password));
+            		if($signupResponse){
+            			update_user_meta($this->user->id, 'cb_user_registered', 1);
+
+            			$cbCourseResponse = $this->cb_course_delivery($cbUserEmail, $cb_course_id, $signupResponse);
+
+            			$cbCourseResponseArray = json_decode($cbCourseResponse, true);
+            			if(isset($cbCourseResponseArray['page_url'])){
+            				$cb_course_link = $cbCourseResponseArray['page_url'];
+            			}
+            		}
+            	}
+				
+            }
+            
+            $return = array('status'=>1,'text'=>'','course_status'=>-1,'link'=>apply_filters('bp_course_api_course_link',bp_core_get_user_domain($this->user->id).'#component=course&action=course&id='.$course_id),'extras'=>[]);
 
 			
-			$return = array('status'=>1,'text'=>'','course_status'=>-1,'link'=>apply_filters('bp_course_api_course_link',bp_core_get_user_domain($this->user->id).'#component=course&action=course&id='.$course_id),'extras'=>[]);
 
 
 			if(bp_course_is_member($course_id, $this->user->id)){
@@ -1073,6 +1118,8 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							'description'			=> '',
 							'user_progress'         => empty($progress)?0:intval($progress),
 							'user_status'           => $status,
+							'is_cb_course'          => $is_cb_course,
+							'cb_course_link'        => $cb_course_link,
 							'duration'				=> bp_course_get_course_duration($course_id,$this->user->id),
 							'user_expiry'           => bp_course_get_user_expiry_time($this->user->id,$course_id),
 							'start_date'            => $start_date,
@@ -1280,5 +1327,128 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			
 			return new WP_REST_Response( $return, 200 );
 		}
+
+		private function guidv4($data = null) {
+		    // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
+		    $data = $data ?? random_bytes(16);
+		    assert(strlen($data) == 16);
+
+		    // Set version to 0100
+		    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+		    // Set bits 6-7 to 10
+		    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+
+		    // Output the 36 character UUID.
+		    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+		}
+
+		private function signup_cb_user($userName, $email, $password){
+
+			$userData = array(
+				'name' => $userName,
+				'email' => $email,
+				'password' => $password,
+				'social_platform' => 'htschools',
+				'slug_url' => ''
+			);
+
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/user/manual/signup',
+			  CURLOPT_RETURNTRANSFER => true,
+			  CURLOPT_ENCODING => '',
+			  CURLOPT_MAXREDIRS => 10,
+			  CURLOPT_TIMEOUT => 0,
+			  CURLOPT_FOLLOWLOCATION => true,
+			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			  CURLOPT_CUSTOMREQUEST => 'POST',
+			  CURLOPT_POSTFIELDS => json_encode($userData),
+			  CURLOPT_HTTPHEADER => array(
+			    'Content-Type: application/json',
+			    //'Cookie: connect.sid=s%3Aa3J2Lr96Kw73Dl542b5k5UNEnLy4uqo5.dMw9IYD96YHjlu5SZoRKm%2BAMc3YNJz8iSl41EUerdeM'
+			  ),
+			));
+
+			$response = curl_exec($curl);
+			$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+			curl_close($curl);
+			if($httpcode == 200){
+				return $response;
+			}else{
+				return false;
+			}
+		}
+
+		private function login_cb_user($email, $password){
+
+			$userData = array(
+				'email' => $email,
+				'password' => $password
+			);
+
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+			  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/user/manual/login',
+			  CURLOPT_RETURNTRANSFER => true,
+			  CURLOPT_ENCODING => '',
+			  CURLOPT_MAXREDIRS => 10,
+			  CURLOPT_TIMEOUT => 0,
+			  CURLOPT_FOLLOWLOCATION => true,
+			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			  CURLOPT_CUSTOMREQUEST => 'POST',
+			  CURLOPT_POSTFIELDS => json_encode($userData),
+			  CURLOPT_HTTPHEADER => array(
+			    'Content-Type: application/json',
+			    //'Cookie: connect.sid=s%3Aa3J2Lr96Kw73Dl542b5k5UNEnLy4uqo5.dMw9IYD96YHjlu5SZoRKm%2BAMc3YNJz8iSl41EUerdeM'
+			  ),
+			));
+
+			$response = curl_exec($curl);
+			$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+			curl_close($curl);
+			if($httpcode == 200){
+				return $response;
+			}else{
+				return false;
+			}
+		}
+
+		private function cb_course_delivery($email, $courseId, $authToken){
+
+			$curl = curl_init();
+
+			$postData = array(
+				'email' => $email,
+				'subscribed_course_id' => $courseId,
+				'source' => 'htschools-web'
+			);
+
+			curl_setopt_array($curl, array(
+			  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/order/htCourseDelivery',
+			  CURLOPT_RETURNTRANSFER => true,
+			  CURLOPT_ENCODING => '',
+			  CURLOPT_MAXREDIRS => 10,
+			  CURLOPT_TIMEOUT => 0,
+			  CURLOPT_FOLLOWLOCATION => true,
+			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			  CURLOPT_CUSTOMREQUEST => 'POST',
+			  CURLOPT_POSTFIELDS =>json_encode($postData),
+			  CURLOPT_HTTPHEADER => array(
+			    'x-auth-token: ' . $authToken,
+			    'Content-Type: application/json',
+			    //'Cookie: connect.sid=s%3Aa3J2Lr96Kw73Dl542b5k5UNEnLy4uqo5.dMw9IYD96YHjlu5SZoRKm%2BAMc3YNJz8iSl41EUerdeM'
+			  ),
+			));
+
+			$response = curl_exec($curl);
+			$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+			curl_close($curl);
+			if($httpcode == 200){
+				return $response;
+			}else{
+				return false;
+			}
+		}
+
 	}//end of class
 }

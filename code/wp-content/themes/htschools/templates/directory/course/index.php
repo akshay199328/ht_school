@@ -131,13 +131,14 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 					<?php do_action( 'bp_after_directory_course' ); ?>
 				</div><!-- .padder -->
 				<?php do_action( 'bp_after_directory_course_page' ); ?>
+				<div class="col-md-12 col-sm-12">
+					<?php
+						$sidebar = apply_filters('wplms_sidebar','competitive-section');
+			            if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
+			       	<?php endif; ?>
+				</div>
 			</div><!-- #content -->
-			<div class="col-md-12 col-sm-12">
-				<?php
-					$sidebar = apply_filters('wplms_sidebar','competitive-section');
-		            if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
-		       	<?php endif; ?>
-			</div>
+			
 		</div>
 	</div>
 </section>

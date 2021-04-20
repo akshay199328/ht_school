@@ -71,13 +71,14 @@ $topics = wp_get_post_tags(get_the_ID());
                   if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
                     vibe_breadcrumbs(); 
                   ?>
-                  <h1><?php the_title(); ?></h1>
+                  <h1
+                  ><?php the_title(); ?></h1>
 
                   <?php the_sub_title(); ?>
                 </div>
               </div>
               <img src="<?php echo $featured_image; ?>">
-              <p class="newsdetail_caption"><?php echo get_post_meta(get_the_ID(), 'image_caption', true);?></p>
+              <p class="newsdetail_caption"><?php echo the_post_thumbnail_caption(); ?>
             </div>
           </div>
         </div>

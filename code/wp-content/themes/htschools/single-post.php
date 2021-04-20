@@ -119,7 +119,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 <?php }else{
                   $url = "/login-register";
                   ?>
-                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
+                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this article"></i></a></li> 
                   <?php
                 }
                 ?>

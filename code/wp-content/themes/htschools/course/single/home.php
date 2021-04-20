@@ -170,7 +170,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         <?php }else{
                                           $url = "/login-register";
                                           ?>
-                                          <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
+                                          <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this course"></i></a></li> 
                                           <?php
                                         }
                                         ?>
@@ -220,15 +220,17 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <?php echo get_post_meta($post->ID,'vibe_course_message',true);?>
                                     </p>
                                   </div> -->
-                                  <?php if(get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true))
-                                  {?>
+                                  <?php 
+                                    $who = get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true);
+                                  if(!empty(get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true))) : 
+                                  ?>
                                   <div class="col-sm-12 course-for background-yellow">
                                     <h5>Who Is This Course For?</h5>
                                     <p><?php echo get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true); ?></p>
                                   </div>
-                                <?php }?>
+                                <?php endif;?>
                                   <div class="col-sm-12 course-list mrg">
-                                    <h5>Who Is This Course For?</h5>
+                                    <h5>Related Tags</h5>
                                     <div class="col-sm-12 course-listslider mrg">
                                       <?php echo get_the_term_list_search(get_the_ID(),'course-tag'); ?>
                                       <!-- <span class="item"><a href="#"><h6>CSS</h6></a></span>

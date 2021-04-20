@@ -96,7 +96,7 @@ $post = get_post($post_id);
                             <?php }else{
                                 $url = "/login-register";
                                 ?>
-                                   <li><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
+                                   <li><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this article"></i></a></li> 
                                 <?php
                             }
                         ?>

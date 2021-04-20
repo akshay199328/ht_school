@@ -44,6 +44,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <section id="" class="latest-news grey-background">
   <div class="container">
     <div class="row gx-0">
+      <div class="">
      <div class="featured_tablist">
       <ul class="left_tab">
       <?php

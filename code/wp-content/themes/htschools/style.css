@@ -769,7 +769,7 @@ ol.breadcrumbs  {
 .hero {
   width: 100%;
   height: 100%;
-  padding-bottom: 0px;
+  padding-bottom: 60px;
   padding-top: 0;
   /*background: url(./assets/images/hero-bg.png) top center no-repeat;
   background-size: cover;*/
@@ -778,7 +778,7 @@ ol.breadcrumbs  {
 
 .learing_card{
   background: #d5ebff;
-  /*padding-top: 30px;*/
+  padding-top: 0px;
 }
 .learing_card h1 {
   margin: 0;
@@ -933,7 +933,7 @@ ol.breadcrumbs  {
 }
 @media (min-width: 1024px) {
   .hero {
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
   }
 }
 
@@ -2304,6 +2304,7 @@ section.latest-news{
     word-break: break-word;
         display: inline-block;
 }
+
 .home_latest_news .details-left .link a{
   /*margin-top: 26.5px;*/
 }
@@ -4508,7 +4509,7 @@ section.latest-news{
   text-transform: uppercase;
 }
 .topic_details a{
-  color: #000000;
+  color: #000000!important;
   font-weight: bold;
 }
 .related_post{
@@ -5954,10 +5955,12 @@ h6:empty
 @media screen and (max-width:1366px) and (min-width:1281px){
   .fixed_banner .container{width: 385px;}
   .right-section .container {width: 670px;}
+  .releted_news_section .related_post {padding-left: 54px;}
 }
 @media screen and (max-width:1280px) and (min-width:1200px){
   .fixed_banner .container{width: 395px;}
   .right-section .container {width: 655px;}
+  .releted_news_section .related_post {padding-left: 54px;}
 }
 @media screen and (max-width:1199px) and (min-width:992px){
   .hero {padding-top: 0px;}
@@ -5975,6 +5978,7 @@ h6:empty
   .fixed_banner .container{width: 355px;padding-right: 21px;}
   .home_slider .homecarousel_text h1 {font-size: 45px;line-height: 45px;margin-bottom: 10px;}
   .home_slider .homecarousel_text p {font-size: 22px;line-height: 32px;}
+  .releted_news_section .related_post {padding-left: 54px;}
 }
 @media screen and (max-width:991px) and (min-width:768px){
   

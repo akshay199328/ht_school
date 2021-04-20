@@ -214,7 +214,7 @@ get_header(vibe_get_header());
         <div class="row gx-0">
           <div class="col-sm-12">
               <div class="header-heading">
-                <h2>Editors Desk</h2>
+                <h2>Editor's Desk</h2>
                 <a href="<?php echo get_home_url();?>/news" class="news-btn">All Articles</a>
               </div>
           </div>

@@ -167,6 +167,9 @@ section {
       justify-content: space-between !important;
       display: flex;
   }
+  .right_spacing{
+    padding-left: 25px!important;
+  }
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -1369,10 +1372,14 @@ Course Details
     line-height: 22px;
     font-weight: 300;
 }
-.learing-goals .list ul{
-      margin-top: 30px;
+.learing-goals .list ul,
+.content-default-list ul
+{
+    margin-top: 30px;
 }
-.learing-goals .list ul li{
+.learing-goals .list ul li,
+.content-default-list ul li
+{
     display: block;
     line-height: 25px!important;
     position: relative;
@@ -1384,7 +1391,9 @@ Course Details
     text-align: left;
     color: #000000;
 }
-.learing-goals .list ul li:before{
+.learing-goals .list ul li:before,
+.content-default-list ul li:before
+{
     content: '';
     background: url('./assets/images/bullet.png');
     width: 10px;
@@ -1393,6 +1402,13 @@ Course Details
     display: block;
     left: 0;
     top: 9px;
+}
+.content-default-list{
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: left;
 }
 .instructor-detailsMini .profile-content  {
     padding: 25px 25px 0px 0px;
@@ -4455,6 +4471,7 @@ section.latest-news{
     line-height: 25px;
     font-weight: 300;
     color: #000;
+    text-align: justify;
 }
 .news-main .content-right .details {
     padding: 0px 0px;
@@ -6045,8 +6062,18 @@ h6:empty
     .details-middle {padding-left: 0;}
     .infograph .owl-carousel .owl-item img{width: auto;text-align: center;margin: 0px auto;}
     .right-details .course-button h6{
-      padding-left: 0px;padding-top: 15px;padding-right: 10px;margin-bottom:0px;}
-    .right-details .course-button {padding-left: 20px;float: left;padding-top: 10px!important;}
+        padding-left: 0px;
+        padding-top: 15px;
+        padding-right: 10px;
+        margin-bottom:0px;
+        
+    }
+    .right-details .course-button {padding-left: 20px;float: left;padding-top: 10px!important;
+      -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+        align-items: center !important;
+        display: flex;
+    }
     .course-box .right-details .course-button{
       margin-left: 20px !important;padding-left: 0px;margin-top: 10px;width: 94%;}
     .course-curriculum .card{

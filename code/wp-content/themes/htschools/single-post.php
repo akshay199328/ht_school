@@ -128,7 +128,9 @@ $topics = wp_get_post_tags(get_the_ID());
         </div>
           </div>
           </div>
-          <?php the_content(); ?>
+          <div class="content-default-list">
+            <?php the_content(); ?>
+          </div>
         </div>
         <div class="topic_details">
           <?php

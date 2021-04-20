@@ -266,7 +266,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <div class="heading">
                       <h3>Course Objectives</h3>
                     </div>
-                    <div class="list">
+                    <div class="content-default-list">
                       <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
                       <?php echo get_post_meta($post->ID,'learning_goals_list',true); ?>
                     </div>

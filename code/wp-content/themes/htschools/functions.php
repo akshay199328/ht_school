@@ -1429,3 +1429,43 @@ function wpc_shortcode_username() {
     $username = $current_user->user_login;
     return $username;
 }
+
+//Insert ads after second paragraph of single post content.
+ 
+add_filter( 'the_content', 'prefix_insert_post_ads' );
+ 
+function prefix_insert_post_ads( $content ) {
+     
+ 
+    if ( is_single() && ! is_admin() ) {
+        ob_start();
+        dynamic_sidebar('banner-2');
+        $addDisplay = ob_get_contents();
+        ob_end_clean();
+        
+        $ad_code = '</div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg">';
+        $content = prefix_insert_after_paragraph( $ad_code, 3, $content );
+    }
+     
+    return $content;
+}
+  
+// Parent Function that makes the magic happen
+  
+function prefix_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
+    $closing_p = '</p>';
+    $paragraphs = explode( $closing_p, $content );
+    foreach ($paragraphs as $index => $paragraph) {
+ 
+        if ( trim( $paragraph ) ) {
+            $paragraphs[$index] .= $closing_p;
+        }
+ 
+        if ( $paragraph_id == $index + 1 ) {
+            $paragraphs[$index] .= $insertion;
+        }
+    }
+     
+    return implode( '', $paragraphs );
+}
+

@@ -132,19 +132,21 @@ $topics = wp_get_post_tags(get_the_ID());
           </div>
           </div>
           <div class="content-default-list">
-            <div class="col-sm-12 col-lg-6 pull-left mrg">
-              <?php the_content(); ?>
-            </div>
-            <div class="col-sm-12 col-lg-6 mrg pull-right">
-              <div class="adworks">
-                <div class="col-sm-12 adworks-head mrg">
-                  <?php
-                    if ( is_active_sidebar( 'banner-2' ) ) : ?>
-                      <?php dynamic_sidebar( 'banner-2' ); ?>      
-                    <?php endif; ?>
-                </div>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6 pull-left mrg">
+                <?php the_content(); ?>
               </div>
-          </div>
+            </div>
+              <!-- <div class="col-sm-12 col-lg-6 mrg pull-right" style="display: none;">
+                <div class="adworks">
+                  <div class="col-sm-12 adworks-head mrg" id="right-banner-content">
+                    <?php
+                      if ( is_active_sidebar( 'banner-2' ) ) : ?>
+                        <?php //dynamic_sidebar( 'banner-2' ); ?>      
+                      <?php endif; ?>
+                  </div>
+                </div>
+              </div> -->
         </div>
         <div class="topic_details">
           <?php

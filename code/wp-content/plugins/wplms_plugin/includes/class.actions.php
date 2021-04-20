@@ -380,9 +380,9 @@ class WPLMS_4_Actions{
                             global $post;
                             setup_postdata($post);
                             $content=$post->post_content;
-                            $elementorFrontend = new \Elementor\Frontend();
-                            $elementorFrontend->enqueue_scripts();
-                            $elementorFrontend->enqueue_styles();
+                           // $elementorFrontend = new \Elementor\Frontend();
+                           // $elementorFrontend->enqueue_scripts();
+                           // $elementorFrontend->enqueue_styles();
                         }
                     }
                 }

@@ -170,7 +170,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         <?php }else{
                                           $url = "/login-register";
                                           ?>
-                                          <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this course"></i></a></li> 
+                                          <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this article"></i></a></li> 
                                           <?php
                                         }
                                         ?>

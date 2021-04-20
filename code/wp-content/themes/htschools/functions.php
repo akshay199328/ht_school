@@ -1422,3 +1422,10 @@ function wpfp_post_link_html($post_id, $opt, $action, $title) {
   $link = apply_filters( 'wpfp_post_link_html', $link );
   return $link;
 }
+
+add_shortcode( 'username', 'wpc_shortcode_username' );
+function wpc_shortcode_username() {
+    $current_user = wp_get_current_user();
+    $username = $current_user->user_login;
+    return $username;
+}

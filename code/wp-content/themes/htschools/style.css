@@ -1059,7 +1059,7 @@ Course Details
     transition: all 0.5s ease;
     padding: 0.5ex;
     min-width: 200px;
-    height: 765px;
+    height: 100vh;
     background-color: #333;
     color: #fff;
     position: sticky;

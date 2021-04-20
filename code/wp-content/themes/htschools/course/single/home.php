@@ -343,7 +343,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $author_company = get_the_author_meta( 'last_name', $author_id );
                         $student_count = get_the_author_meta( 'student_count', $author_id );
                         //echo "<pre>";print_r($author_company);exit;
-
+                        $author_biographical_info_array = split_string_by_words($author_biographical_info, 20);
                     ?>
                     <div class="instructor-detailsMini">
                         <div class="col-sm-12 col-md-7 col-lg-7 pull-left mrg">
@@ -362,7 +362,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                               </div>
                               <div class="clearfix"></div>
                               <div class="co-lg-12">
-                                <p><?php echo $author_biographical_info; ?></p>
+                                <p><?php echo $author_biographical_info_array[0]; ?></p>
                                 <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>
@@ -378,6 +378,11 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                             </div>
                           </div>
                         </div>
+                        <?php if(count($author_biographical_info_array) > 1){ ?>
+                        <div class="col-sm-12 col-md-12 col-lg-12 mrg  profile-content">
+                          <p><?php echo $author_biographical_info_array[1]; ?></p>
+                        </div>
+                        <?php } ?>
                     </div>
                   </div>
                 </div>

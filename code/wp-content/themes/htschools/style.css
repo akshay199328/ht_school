@@ -329,7 +329,9 @@ ol.breadcrumbs  {
   background: #D5EBFF!important;
 }
 .header.header-scrolled .logo img{
-      width: 140px;
+    -webkit-transform: scale(.9);
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
 }
 .page-id-69 .pagetitle h1{
   display: none!important;
@@ -400,7 +402,8 @@ ol.breadcrumbs  {
     /* margin-right: 6px; */
     text-align: center;
     margin: 0px auto;
-    transition: all 0.5s;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
 }
 
 .header .logo span {
@@ -2406,12 +2409,16 @@ section.latest-news{
     color: #0c5acc;
 }
 .details-middle ul li .link a{
-    color: #0c5acc;
+    color: #0c5acc!important;
         min-height: 100%;
     position: relative;
     float: left;
 }
 
+.details-middle ul li .link a.active, .details-middle ul li:hover a, 
+.details-middle ul li:hover a.active {
+   
+}
 .center{text-align: center;}
 .latest-news .center {
     margin-top: 20px;
@@ -6153,6 +6160,7 @@ h6:empty
       padding-bottom: 15px;
       padding-right: 0;
       border-bottom: 1px dashed #b8b8b8;
+          line-height: 28px;
     }
     .popularNew-heading {position: relative;top: 0;}
     .exlore-link.mobile-btn{margin: 10px 0px;}
@@ -6362,9 +6370,9 @@ h6:empty
     .right-menu ul li #new_searchicon{display: block!important}
     .bootom-link{
       margin-top: 50px!important;   
-      height: 260px;
+      /*height: 260px;
       overflow-y: scroll;
-      margin-right: 0px;
+      margin-right: 0px;*/
       padding-right: 30px;
     }
     .login-box .login-right{    padding: 30px 25px;}
@@ -6560,7 +6568,11 @@ h6:empty
     margin: 20px 0px!important;
   }
   .add-width{width: 100%!important;}
-  .navegacion ul, .menu-back{width: 100%!important;padding: 50px 50px 30px 50px!important;}
+  .menu-back{
+      width: 100%!important;
+      padding: 50px 30px 30px 30px!important;
+  }
+  .navegacion ul{width: 100%!important;padding:0 15px 0px 0px!important;}
   /*.right-menu ul li {margin-right: 10px;}*/
   .custom_topmenu {margin-left: 10px!important;}
   .vibebp-login {margin-right: 0px!important;}
@@ -6584,4 +6596,7 @@ h6:empty
 #Popular-Courses.all_course_page .row {
     margin-right: 0px;
     margin-left: 0px;
+}
+.customfeatured_headeing{
+  padding: 0px 0px 20px 0px !important;
 }

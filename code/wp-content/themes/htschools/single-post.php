@@ -133,7 +133,7 @@ $topics = wp_get_post_tags(get_the_ID());
           </div>
           <div class="content-default-list">
             <div class="row">
-              <div class="col-sm-12 col-lg-12 pull-left mrg">
+              <div class="col-sm-12 col-lg-6 pull-left mrg">
                 <?php the_content(); ?>
               </div>
             </div>

@@ -35913,7 +35913,7 @@ body {
 	}
 
 	.otp_button .submit_btn{
-		width: 84% !important;
+		width: 68% !important;
 		margin-left: 0px !important;
 	}
 	.otp_button .arrow_btn{
@@ -36378,9 +36378,15 @@ body {
 	.order-pay .cart-subtotal th{padding:20px 27px!important;font-weight: 500!important;}
 	/* .custom-html-widget{position:sticky;position:-webkit-sticky;top:0;border:1px solid red;} */
 
+	.page-template-all-courses .pusher,
 	.page-template-my-course .pusher{overflow: unset;}
+
+	.page-template-all-courses .Popular-Courses,
 	.page-template-my-course .Popular-Courses{overflow: unset;}
-	.page-template-my-course section{overflow: inherit;}	
+
+	.page-template-all-courses section,
+	.page-template-my-course section{overflow: inherit;}
+	.page-template-all-courses .widget_custom_html,	
 	.page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
 	/* mobileview */
 	@media screen and (max-width:1024px) {
@@ -36389,5 +36395,18 @@ body {
 			font-size: 12px!important;
 		}
 	}
-	
+	/* @media screen and 
+	(max-width:320px) {
+		.topic_details .widget_custom_html {
+    		left: 0px;
+		}
+		.mobile_menu ul{}
+	} */
+	@media screen and (max-width:767px)  and (min-width:320px){
+		.topic_details .widget_custom_html {left: 0px;}
+		.custom_margin{margin: 0!important;padding: 0 !important;}
+		.section.latest-news{padding: 20px 0px 0px!important;}
+		.customfeatured_headeing{padding:0px 0px 0px 0px !important}
+		.customfeatured_headeing h1{line-height:normal;}
+	}
 	

@@ -673,8 +673,9 @@ section.woocommerce-customer-details{
 
 /*log-in*/
 
-.contact-us input.wpcf7-form-control.wpcf7-submit {
-    margin-top: 15px;
+span.wpcf7-form-control-wrap.recaptcha {
+    display: block;
+    margin-bottom: 15px;
 }
 
 /*responsive added css by satish*/

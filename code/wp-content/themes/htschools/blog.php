@@ -41,19 +41,19 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
 <!-- ======= Featured ======= -->
 
-<section id="" class="latest-news grey-background">
+<section id="All" data-anchor="All" class="latest-news grey-background">
   <div class="container">
-    <div class="row gx-0">
+    <div class="">
       <div class="">
-     <div class="featured_tablist">
-      <ul class="left_tab">
+     <div class="featured_tablist mrg">
+        <ul class="tablist left_tab">
       <?php
       ?>
-        <li class="active news-li" data-scroll="news"><a href="#" >All News</a></li>
+        <li class="active news-li" data-scroll="All" id="All"><a href="#" data-id="All">All News</a></li>
       <?php
       foreach ($menuitems as $menu) {
         ?>
-        <li id="<?php echo $menu->ID; ?>" class="news-li" data-scroll="<?php echo $menu->ID; ?>"><a href="<?php echo $menu->url; ?> " ><?php echo $menu->title; ?></a></li>
+        <li id="<?php echo $menu->ID; ?>" class="news-li" data-scroll="<?php echo $menu->ID; ?>"><a href="<?php echo $menu->url; ?> " data-id="<?php echo $menu->ID; ?>"><?php echo $menu->title; ?></a></li>
         <?php 
       }
       ?>
@@ -73,7 +73,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
       if( $Query->current_post == 0 ) { 
         ?>
-        <div class="col-sm-12 col-md-4 col-lg-4">
+        <div class="col-sm-12 col-md-4 col-lg-4 mrg">
           <div class="details-left">
 
             <?php if ( has_post_thumbnail() ) { 
@@ -132,8 +132,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <section id="" class="latest-news  grey-background">
   <div class="container">
     <div class="">
-      <div class="featured_headeing">
-        <h1>Popular On HT school News</h1>
+      <div class="featured_headeing customfeatured_headeing">
+        <h1>Popular On HT school News</h1><br/>
       </div>
       <?php
       query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=6');

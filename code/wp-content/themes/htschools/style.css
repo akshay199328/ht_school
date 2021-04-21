@@ -346,6 +346,7 @@ ol.breadcrumbs  {
     margin-left: 0px;
     position: relative;
     width: 121px;
+    height: 45px;
 }
 
 .border-menu:after{
@@ -453,7 +454,7 @@ ol.breadcrumbs  {
     width: 50%;
     height: 1px;
     position: absolute;
-    bottom: -3px;
+    bottom: -7.5px;
     left: 0;
 }
 .search-icon a:after, .right-menu .icon{display: none;}

@@ -17,8 +17,8 @@ $(document).ready(function(){
       $('.navegacion').css({'width':'0%', 'background':'rgba(0,0,0,.0)'}); // Ocultamos el fonto transparente
       $('.border-menu').removeClass('fa fa-close').addClass('bi bi-bars'); // Agregamos el icono del Menu
       $('.navegacion .submenu').css({'left':'-455px'}); // Ocultamos los submenus
-      $('.navegacion .menu-back').css({'left':'-10px'}); // Ocultamos el Menu
-      $('.navegacion .menu').css({'left':'-10px'}); // Ocultamos el Menu
+      $('.navegacion .menu-back').css({'left':'0px'}); // Ocultamos el Menu
+      $('.navegacion .menu').css({'left':'0px'}); // Ocultamos el Menu
 
     }
   });

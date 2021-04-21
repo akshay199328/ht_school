@@ -33,7 +33,7 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
 }
 .border-menu:after{top: 1px!important}
 .custom-dropdown, .my-course{
-    background: transparent; padding: 9px 20px 9px 15px!important;
+    background: transparent; padding: 6px 20px 9px 15px!important;
     height: 45px;
     width: 114px;
 }
@@ -66,7 +66,7 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     width: 50%;
     height: 1px;
     position: absolute;
-    bottom: -7px;
+    bottom: -7.5px;
     left: 0px;
 }
 .custom-dropdown.active a:after,
@@ -292,9 +292,6 @@ padding: 15px 0;
 {
     display: none;
 }
-
-
-
 .course-fees .course_button,
 .course-fees a.course_button , 
 .course-fees input.course_button,

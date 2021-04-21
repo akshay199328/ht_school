@@ -136,7 +136,10 @@ section {
     width: 683px;
     float: left;
   }
-  .left-spacing {padding-left: 25px!important;}
+  .left-spacing {padding-left: 50px!important;}
+  .course-listslider{
+        margin-bottom: 20px!important;
+  }
   .details-middle ul li{    margin-right: 47px;}
   .details-middle .news_two_data ul li:nth-child(2n+2){    margin-right: 0px;}
   .home_news-leftspacing{
@@ -1180,8 +1183,11 @@ Course Details
     background: #f7f7f7;
     width: 61%;
     z-index: 999;
-    padding: 20px 40px;
+    padding: 20px 50px;
     margin-left: 0px;
+}
+.fixedmenu-tabs .row{
+  margin: 0px;
 }
 .course-aboutDetails .details-right{
   float: left;
@@ -6492,7 +6498,4 @@ h6:empty
 #Popular-Courses.all_course_page .row {
     margin-right: 0px;
     margin-left: 0px;
-}
-.right_spacing{
-    padding-left: 25px!important;
 }

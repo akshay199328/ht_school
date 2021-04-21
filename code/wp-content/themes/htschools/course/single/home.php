@@ -393,7 +393,37 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div>
-            <?php if(!empty(get_the_terms($post_id, 'course-tag' ))){ ?>
+            
+            <?php /*do_action('wplms_single_course_content_end');*/ ?>
+            <?php 
+            $tags_by_course_id = get_the_terms($post_id, 'course-tag' );
+            $tag_array = array();
+            $coursearray = array();
+            //print_r($tags_by_course_id);
+            if(!empty(get_the_terms($post_id, 'course-tag' ))){
+              foreach(get_the_terms($post_id, 'course-tag' ) as $tag) {
+                $tag_array[] = $tag->term_id ;
+              }
+            }
+            if ($tag_array) {
+              foreach($tag_array as $tag) {
+                $courses_ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = '".$tag."'") );
+                foreach ($courses_ids as $course_id) {
+                    $coursearray[] = $course_id;
+                }
+              }
+              $related_course_id = array_unique(array_diff($coursearray,array(get_the_ID())));
+              if( !empty( $related_course_id ) ) {
+                  $query_args = apply_filters('wplms_mycourses',array(
+                  'post_type'=>'course',
+                  'posts_per_page' => 2,
+                  'post__in'=>$related_course_id
+                  ),$user->ID);
+                  $Query_course = new WP_Query($query_args);
+              }
+            }
+            if($Query_course->have_posts()){?>
+
             <div class="other-courses grey-background">
               <div class="container">
                 <div class="">
@@ -402,43 +432,13 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       <h3>Other Courses</h3>
                     </div>
                     <div class="list mobile-slider">
+                    <?php if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
+                          $custom_fields = get_post_custom();
+                          $duration = $custom_fields['vibe_duration'][0];
+                          $age_limit = $custom_fields['vibe_course_age_group'][0];
+                          $category_array = get_the_terms( $post->ID, 'course-cat');
+                    ?>
 
-                      <?php /*do_action('wplms_single_course_content_end');*/ ?>
-                      <?php 
-                      $tags_by_course_id = get_the_terms($post_id, 'course-tag' );
-                      $tag_array = array();
-                      $coursearray = array();
-                      //print_r($tags_by_course_id);
-                      if(!empty(get_the_terms($post_id, 'course-tag' ))){
-                        foreach(get_the_terms($post_id, 'course-tag' ) as $tag) {
-                          $tag_array[] = $tag->term_id ;
-                        }
-                      }
-                      if ($tag_array) {
-                        foreach($tag_array as $tag) {
-                          $courses_ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = '".$tag."'") );
-                          foreach ($courses_ids as $course_id) {
-                              $coursearray[] = $course_id;
-                          }
-                        }
-                        if( !empty( $coursearray ) ) {
-                            $query_args = apply_filters('wplms_mycourses',array(
-                            'post_type'=>'course',
-                            'posts_per_page' => 2,
-                            'post__in'=>$coursearray
-                            ),$user->ID);
-                            $Query_course = new WP_Query($query_args);
-                        }
-                      }
-                      $unique_courses_id = array_unique($coursearray);
-                      if($Query_course != NULL){
-
-                      if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
-                            $custom_fields = get_post_custom();
-                            $duration = $custom_fields['vibe_duration'][0];
-                            $age_limit = $custom_fields['vibe_course_age_group'][0];
-                            $category_array = get_the_terms( $post->ID, 'course-cat');
-                      ?>
                       <div class="col-sm-12 col-lg-4 mrg card item">
                         <div class="details">
                           <h4><?php echo $category_array[0]->name;?></h4>
@@ -463,7 +463,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div>
-            <?php } ?>
           </div>
         </div>
 

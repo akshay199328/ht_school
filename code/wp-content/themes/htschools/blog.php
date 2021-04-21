@@ -49,11 +49,11 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       <ul class="left_tab">
       <?php
       ?>
-        <li class="active"><a href="#">All News</a></li>
+        <li class="active news-li" data-scroll="news"><a href="#" >All News</a></li>
       <?php
-      foreach ($menuitems as $menu) {  
+      foreach ($menuitems as $menu) {
         ?>
-        <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a></li>
+        <li id="<?php echo $menu->ID; ?>" class="news-li" data-scroll="<?php echo $menu->ID; ?>"><a href="<?php echo $menu->url; ?> " ><?php echo $menu->title; ?></a></li>
         <?php 
       }
       ?>
@@ -66,8 +66,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     $args = array(
       'post_type' => 'post',
       'post_status' => 'publish',
-      'category_name' => 'Featured',
-      'posts_per_page' => 3,
+      'posts_per_page' => 4,
+      'order'=>'DESC',
     );
     $Query = new WP_Query( $args );
     if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
@@ -95,7 +95,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             <div class="details-middle">
               <ul class="full_width_list">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                          // if( $Query->current_post != 0 ) { 
+                          if( $Query->current_post != 0 ) { 
                   ?>
                   <li>
                     <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -104,7 +104,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                     </div>
                   </li>
                   <?php 
-                      // }
+                       }
                 endwhile; endif; ?>
               </ul>
             </div>
@@ -136,20 +136,11 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <h1>Popular On HT school News</h1><br/>
       </div>
       <?php
-      $args = array(
-        'post_type' => 'post',
-        'post_status' => 'publish',
-        'category_name' => 'Expert',
-        'posts_per_page' => 6,
-/*                'meta_key'=>'post_views_count',
-'orderby'=>'meta_value_num'*/
-);
-      $Query = new WP_Query( $args ); 
-
+      query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=6');
       ?>
       <div class="details-middle">
           <ul class="news_three_data">
-        <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+        <?php if (have_posts()) : while (have_posts()) : the_post();
                       // if( $Query->current_post != 0 ) { 
           ?>
               <li>
@@ -180,22 +171,28 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   </div>
 </section>
 <!-- End Most Experts -->
+<div class="wrapper">
+<?php foreach ($menuitems as $menu) { ?>
 
-<section id="" class="latest-news">
+<section id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
   <div class="container">
     <div class="">
-      <div class="featured_headeing">
-        <h1>Interview News</h1>
-        <br/>
-      </div>
-      <?php
-      $args = array(
+      <?php 
+        $args = array(
         'post_type' => 'post',
         'post_status' => 'publish',
-        'category_name' => 'Interview',
+        'category_name' => $menu->title,
         'posts_per_page' => 6,
       );
       $Query = new WP_Query( $args );
+      if ($Query->have_posts()) : 
+      ?>
+      <div class="featured_headeing">
+        <h1><?php echo $menu->title; ?></h1>
+        <br/>
+      </div>
+      <?php
+      endif;
       if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
         if( $Query->current_post == 0 ) { 
           ?>
@@ -234,16 +231,19 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             </ul>
           </div>
         </div>
-        <div class="col-lg-12 center">
-          <?php
-          if ( is_active_sidebar( 'banner-3' ) ) : ?>
-           <?php dynamic_sidebar( 'banner-3' ); ?>      
-         <?php endif; ?>
-        </div>
+        <?php if ($Query->have_posts()) :?>
+          <div class="col-lg-12 center">
+            <?php
+            if ( is_active_sidebar( 'banner-3' ) ) : ?>
+             <?php dynamic_sidebar( 'banner-3' ); ?>      
+           <?php endif; ?>
+          </div>
+        <?php endif;?>
       </div>
     </div>
   </section>
-
+<?php }?>
+</div>
   <!-- End Most Interview -->
       <!-- <div class="container">
         <div class="row">

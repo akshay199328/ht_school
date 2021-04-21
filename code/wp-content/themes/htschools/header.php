@@ -27,32 +27,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <ul class="menu">
               
                 <!--titular-->
-              <!--   <?php
+              <?php
                     $args = array(
                         'theme_location'  => 'sidebar-menu',
                     );
 
                     wp_nav_menu( $args );
-                ?> -->
+                ?>
 
-                <?php
-                   $menu_name = 'sidebar-menu'; //menu slug
-                   $locations = get_nav_menu_locations();
-                   $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-                   $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-                   //print_r($menuitems);
-                   foreach ($menuitems as $menu) {  
-                   $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
-                    if($menu->title == 'Home'){
-                       echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
-                       
-                        }else{
-                          // Print menu item
-                          echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
-                        } 
-                    }
-                   
-               ?>
+                
                 
                 <div class="bootom-link">
                     <ul>

@@ -2,6 +2,7 @@
 $(document).ready(function(){
    // alert("HELLO")
   // MOSTRANDO Y OCULTANDO MENU
+  $('#menu-sidebar-menu li').removeClass('active');
   $('.border-menu, .mobile-nav-toggle').click(function(){
     // alert("CLICK")
     if($('.border-menu').attr('class') == 'bi bi-bars' ){

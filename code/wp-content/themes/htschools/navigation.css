@@ -76,6 +76,7 @@
 .navegacion ul::-webkit-scrollbar-thumb {
   background: #d0d0d0;
   border-radius: 12px;
+  height:50px;
 }
 .navegacion .menu li.title-menu{
     padding: 14px 17px;
@@ -204,7 +205,12 @@
     /*overflow-y: scroll;*/
 
 }
-.bootom-link ul{
+.mobile_menu{
+    display: none;
+    position: relative;
+    width: 94%;
+}
+.bootom-link ul, .mobile_menu ul{
     left: 0;
     position: relative;
      padding: 20px 0px 0px!important;
@@ -213,6 +219,9 @@ background: transparent!important;
 height: auto!important;
 max-height: 100%!important;
 overflow-y: inherit!important;
+}
+.mobile_menu ul {
+    padding-top: 0!important;
 }
 .bootom-link ul ul{
     padding: 0px!important;
@@ -236,6 +245,9 @@ font-size: 12px!important;
 .fix-background .border-link{
     border-top:1px dotted #707070;
     margin-top: 20px !important;
+}
+@media screen and (max-width: 767px){
+    .mobile_menu{display: block}
 }
 @media screen and (max-width: 320px){
     .navegacion ul{

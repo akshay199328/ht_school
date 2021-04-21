@@ -20,7 +20,7 @@
 	color: #939393 !important;
 }
 .featured_tablist{
-	margin: 0px 0px 20px 0px !important;
+	margin: 0px 0px 33px 0px !important;
 }
 
 /*contact page css*/
@@ -529,6 +529,7 @@ button.saved_feedbackbtn span{
 }
 .featured_headeing h1{
 	font-size: 25px;
+	line-height: 2.4;
 }
 .topic_details h2{
 	font-size: 20px;

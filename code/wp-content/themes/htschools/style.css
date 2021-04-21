@@ -170,7 +170,7 @@ section {
       justify-content: space-between !important;
       display: flex;
   }
-  
+  .pull-left .socio-list{padding-left: 80px;}
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -439,6 +439,7 @@ ol.breadcrumbs  {
 .right-menu ul li:last-child{
   padding-right: 0px;    margin-right: 0;
 }
+.mobile-display{display: none!important;}
 .vibebp-login {
     margin-right: 0!important;
 }
@@ -6296,6 +6297,9 @@ h6:empty
 @media screen and (max-width:767px) and (min-width:320px){
     /*.header-space {margin-top: 90px;}*/
     /*.hero{    padding-bottom: 30px;}*/
+    .mobile-display{display: inline-block!important;}
+    .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
+    .right-menu{margin-top: -7px!important;}
     .home_slider .homecarousel_text .pull-right {
         margin-left: 0px;
         float: left!important;
@@ -6577,9 +6581,9 @@ h6:empty
   .custom_topmenu {margin-left: 10px!important;}
   .vibebp-login {margin-right: 0px!important;}
   .header .logo img{    margin-left: 10px!important;}
-  .right-menu ul li{margin-right: 11px;}
+  .right-menu ul li{margin-right: 20px;}
   .cart-contents:before{background-size: 70% 70%!important;background-repeat: no-repeat!important;}
-  .right-menu ul li a img {width: 70%;}
+  .right-menu ul li a img {/*width: 70%;*/}
   a.loggedin_user img{margin-right: 0px!important;}
   .custom_topmenu .loggedin_user:before{display: none!important;}
   .cart-contents:before{    height: 40px!important;}
@@ -6598,5 +6602,5 @@ h6:empty
     margin-left: 0px;
 }
 .customfeatured_headeing{
-  padding: 0px 0px 20px 0px !important;
+  padding: 0px 0px 15px 0px !important;
 }

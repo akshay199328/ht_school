@@ -23,8 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <div class="fix-background">
   <div class="navegacion">
           <div class="menu-back">
+            <span class="close-navigation"></span>
             <ul class="menu">
-              <span class="close-navigation"></span>
+              
                 <!--titular-->
               <!--   <?php
                     $args = array(

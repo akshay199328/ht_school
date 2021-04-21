@@ -309,7 +309,7 @@ ol.breadcrumbs  {
 
 .inner-header{background: #fade3b;}
 .header.header-scrolled, .header.fixed {
-  background: #D5EBFF!important;
+  background: #fff!important;
   padding: 5px 0!important;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
   height: 76px;
@@ -320,6 +320,19 @@ ol.breadcrumbs  {
 .page-template-my-course .header-scrolled
 {
   background:#fade3b!important;
+}
+.page-id-69 .header,
+.page-id-69 section#title,
+.page-id-69 .header-scrolled,
+.page-template-home .header-scrolled
+{
+  background: #D5EBFF!important;
+}
+.header.header-scrolled .logo img{
+      width: 140px;
+}
+.page-id-69 .pagetitle h1{
+  display: none!important;
 }
 .left-menu a {
     float: left;
@@ -386,6 +399,7 @@ ol.breadcrumbs  {
     /* margin-right: 6px; */
     text-align: center;
     margin: 0px auto;
+    transition: all 0.5s;
 }
 
 .header .logo span {
@@ -4032,10 +4046,18 @@ section.latest-news{
     padding: 6px 0px 40px;
 }
 .login-box{
-    width: 740px;
+    width: 718px;
     margin: 0px auto;
     background: #F8F8F8;
     box-shadow: 1px 14px 25px rgb(124 172 216 / 50%);
+}
+.login-box .loginContent_left {
+    width: 317.89px;
+    float: left;
+}
+.login-box .loginContent_right {
+    width: 400px;
+    float: left;
 }
 .login-left img{width: 100%;height: 640px;}
 .login-box .login-right {
@@ -4059,15 +4081,20 @@ section.latest-news{
     margin-bottom: 10px;
         position: relative;
 }
+div.nsl-container-block .nsl-container-buttons a{
+  max-width: 100%!important;
+}
 .login-box .nsl-button{
     width: 100%;
     background: #fff;
     border-radius: 0px!important;
-    padding: 10px 20px;
+    padding: 5px 20px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
     border-color: transparent;
+    height: 45px;
+    box-shadow: none!important;
 }
 .login-box .nsl-button a{width: 290px!important;}
 
@@ -4076,12 +4103,17 @@ section.latest-news{
     padding: 0!important;
 }
 .login-box div.nsl-container .nsl-button-default div.nsl-button-label-container {
-    margin: 0 0px 0 0px!important;
-    padding: 0px 0!important;
-    font-family: "GT-Walsheim-Pro"!important;
-    letter-spacing: normal!important;
-  }
-.login-box .nsl-button.google_btn{
+  margin: 0 0px 0 0px!important;
+  padding: 0px 0!important;
+  font-family: "GT-Walsheim-Pro"!important;
+  letter-spacing: normal!important;
+  font-size: 16px;
+    line-height: 33px;
+}
+.login-box .nsl-button-facebook{
+  border: 1px solid transparent!important;
+}
+.login-box .nsl-button-google .nsl-button-label-container{
     color: #000;
 }
 .login-box .nsl-button.facebook_btn{
@@ -4207,11 +4239,12 @@ section.latest-news{
     float: left;
 }
 .otp-ontent #otp input{
-  width: 48.3px;
+  width: 53.3px;
     float: left;
     padding: 15px 10px;
     border: 1px solid #bebebe;
     border-left: 0px;
+    margin: 0px!important;
     color: #000000;
 }
 .otp-ontent #otp input:first-child{
@@ -6470,6 +6503,17 @@ h6:empty
     .right_spacing{
       padding-left: 0px!important;
     }
+    .login-box {
+      width: 95%;
+    }
+    .login-box .loginContent_left {
+        width: 100%;
+        float: left;
+    }
+    .login-box .loginContent_right {
+        width: 100%;
+        float: left;
+    }
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -6526,7 +6570,8 @@ h6:empty
   a.loggedin_user img{margin-right: 0px!important;}
   .custom_topmenu .loggedin_user:before{display: none!important;}
   .cart-contents:before{    height: 40px!important;}
-
+  .otp-ontent #otp input{    width: 37.3px;}
+  .otp_button .submit_btn {width: 68% !important;}
 }
 @media screen and (max-width: 358px) and (min-width: 320px){
   .right-details .course-button h6{    padding-top: 0px;}

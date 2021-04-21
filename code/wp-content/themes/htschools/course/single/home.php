@@ -190,8 +190,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <h3>About the Course</h3>
                                   </div>
 
-                                  <div class="row">
-                                    <div class="content-default-list">
+                                  <div class="row content-default-list">
+                                    <div class="">
                                     <div class="col-sm-12 col-lg-6 pull-left mrg">
                                         <p><?php 
                                         $post_content = get_post_field('post_content', $post->ID);

@@ -167,9 +167,7 @@ section {
       justify-content: space-between !important;
       display: flex;
   }
-  .right_spacing{
-    padding-left: 25px!important;
-  }
+  
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -1256,16 +1254,19 @@ Course Details
     text-align: left;
     color: #000000;
 }
+.about-details .heading h3{
+  margin-bottom: 10px;
+}
 .about-details p{
     font-size: 17px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.29;
+  line-height: 22px;
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  margin: 10px 0px 20px;
+  margin: 0px 0px 20px;
 }
 .about-details p br{
   
@@ -6420,6 +6421,9 @@ h6:empty
             font-size: 20px;
     }
     .hover_share{top: -5px;}
+    .right_spacing{
+      padding-left: 0px!important;
+    }
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -6488,4 +6492,7 @@ h6:empty
 #Popular-Courses.all_course_page .row {
     margin-right: 0px;
     margin-left: 0px;
+}
+.right_spacing{
+    padding-left: 25px!important;
 }

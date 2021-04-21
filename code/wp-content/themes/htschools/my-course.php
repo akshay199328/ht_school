@@ -23,7 +23,7 @@ get_header(vibe_get_header());
     <section id="Popular-Courses" class="">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
-          <div class="col-lg-8 mrg">
+          <div class="col-lg-9 mrg">
             <div class="">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                 	<?php
@@ -142,7 +142,7 @@ get_header(vibe_get_header());
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 mrg adworks desktop-add right-adwork">
+        <div class="col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
             <?php
               if ( is_active_sidebar( 'banner-1' ) ) : ?>
               <?php dynamic_sidebar( 'banner-1' ); ?>      

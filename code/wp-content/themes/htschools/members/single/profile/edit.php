@@ -1,4 +1,5 @@
 <?php
+acf_form_head();
 global $bp;
 /**
  * BuddyPress - Members Single Profile Edit
@@ -49,6 +50,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	<div class="profile-card">
 		<h1>Personal Details</h1>
 		<form id="profile-edit-form" name="profile-form" class="standard-form">
+			
 			<input type="hidden" name="action" value="save_custom_profile">
 			<div class="form-group">
 				<label for="first_name">First Name</label>
@@ -72,11 +74,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
 			</div>
 			<div class="form-group ">
-				<!-- <label> Gender <br/>
-					<input type="radio" name="gender"> Male<br/>
-					<input type="radio" name="gender"> Female<br/>
-				</label> -->
-				<label> Select Gender <br/>
+				
+				<label> Select Gender</label> <br/>
 				<div class="radio"> 
 					<div class="switch">
 	                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
@@ -91,7 +90,6 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                </div>
 	            </div>
 			</div>
-
 			<div class="form-group profile_search">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>">
@@ -109,6 +107,30 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<label for="user_city">City</label>
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>">
 			</div>
+			<div class="form-group hide-acf-form">
+				<?php acf_form( $args );?>
+			</div>
+			<div class="form-group">
+                <div class="search_value">                    
+
+                   <?php  
+                   $user = wp_get_current_user();
+                   $args = array(
+                      'post_id' => 'user_{$user->ID}',
+                      'form_attributes' => array(
+                      'class' => 'new-campaign-form',
+                      'id'=>'modalAjaxTrying'
+
+                      ),
+                      'fields' => ['select_school'],
+                      'submit_value' => __("Save and Continue", 'acf'),
+                    );
+                acf_form( $args ); ?>
+
+                              </div>        
+                </div>
+
+			
 			<p id="response_message" class="" style="margin: 10px 0; display: none;"></p>
 			<div class="form-group">
 				<button type="button" class="btn btn-default" id="profile_submit">Submit</button>
@@ -214,6 +236,22 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 <script type="text/javascript">
 	(function($) {
 		$(document).ready(function(){
+			var ajaxurl = "<?php echo home_url(); ?>/wp-admin/admin-ajax.php";
+            $('form#modalAjaxTrying :submit').click(function(event){
+			    event.preventDefault();
+			    var form_data = {'action' : 'acf/validate_save_post'};
+			    $('form#modalAjaxTrying :input').each(function(){
+			    form_data[$(this).attr('name')] = $(this).val()
+			    })
+
+			    form_data.action = 'save_my_data';
+			    $.post(ajaxurl, form_data)
+			    .done(function(save_data){
+			    // alert('Added successFully :');
+			   
+			    })
+
+			})
 			window.selectedCountry = "<?php echo $user_country; ?>";
 			$("#child_name").val('');
 			$("#child_school").val('');
@@ -317,7 +355,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			$("#profile_submit").click(function(){
 				$("#profile_submit").html("Please wait...");
                 $("#profile_submit").attr("disabled", "disabled");
-
+                $('form#modalAjaxTrying :submit').trigger('click');
+                var form_data = {'action' : 'acf/validate_save_post'};
 				$.ajax({
 	                type : "POST",
 	                dataType : "json",
@@ -326,7 +365,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                success: function(response) {
 	                    $("#profile_submit").html("Submit");
 	                    $("#profile_submit").removeAttr("disabled");
-
+	             
 	                    if(response.status == 1){
 	                    	$("#response_message").html(response.message);
 	                        $("#response_message").addClass('success');

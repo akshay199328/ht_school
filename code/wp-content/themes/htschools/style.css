@@ -1264,7 +1264,7 @@ Course Details
   margin-bottom: 10px;
 }
 .about-details p{
-    font-size: 17px;
+    font-size: 18px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1305,7 +1305,7 @@ Course Details
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.33;
+  line-height: 20px;
   letter-spacing: normal;
   text-align: left;
   color: #000000;
@@ -1417,6 +1417,9 @@ Course Details
     letter-spacing: normal;
     text-align: left;
 }
+.content-default-list .widget_custom_html{
+  margin-bottom: 15px;
+}
 .about-details .row{
       margin: 0px;
     float: left;
@@ -1461,7 +1464,7 @@ Course Details
     width: 100%;
 }
 .instructor-detailsMini .profile-content p{
-    font-size: 17px;
+    font-size: 18px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -2306,7 +2309,7 @@ section.latest-news{
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.33;
+    line-height:46px;
     letter-spacing: normal;
     text-align: left;
     color: #0c5acc!important;
@@ -4522,6 +4525,10 @@ section.latest-news{
   margin: 10px 10px 0px 0px;
   text-transform: uppercase;
 }
+.topic_details .widget_custom_html{
+    position: relative;
+    left: -35px;
+}
 .topic_details a{
   color: #000000!important;
   font-weight: bold;
@@ -5273,6 +5280,39 @@ h6:empty
 .search_value  .acf-label{
       display: none!important;
 }
+.search_value .new-campaign-form .acf-label{
+  display: block!important;
+      margin: 0px;
+}
+.search_value .new-campaign-form .acf-label label{
+  display: block;
+    font-weight: 500;
+    margin: 0px 0 0px;
+    font-size: 14px;
+    color: #A2A0A0;
+}
+.search_value .new-campaign-form{
+    width: 70%;
+}
+.search_value .new-campaign-form .select2-container {
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid #a8a6a6;
+    border-radius: 0px;
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 0px 12px;
+    box-shadow: none;
+    height: 100%;
+}
+.search_value .new-campaign-form .select2-selection__rendered {
+    color: #000!important;
+    padding: 0px 30px 0px 0px!important;
+}
+.search_value .new-campaign-form  .select2-selection__arrow{
+  top: 32%!important;
+}
 .search_value  .updated{margin-top: 0px!important}
 .search_value ul {
     position: relative;
@@ -5563,8 +5603,8 @@ h6:empty
   color: #000000;
   margin-bottom: 30px;
 }
-.static_content a{
-  color: #0C5ACC;
+.static_content .content a{
+  color: #0C5ACC!important;
 }
 .static_content .content ol, 
 .static_content .content ul {

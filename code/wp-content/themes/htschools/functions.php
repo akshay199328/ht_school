@@ -1512,3 +1512,6 @@ function split_string_by_words($text, $splitLength = 25)
     // if our array is under the limit, just send it straight back
     return array($text);
 }
+
+add_action( 'wp_ajax_save_my_data', 'acf_form_head' );
+add_action( 'wp_ajax_nopriv_save_my_data', 'acf_form_head' );

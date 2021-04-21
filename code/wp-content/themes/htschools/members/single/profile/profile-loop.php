@@ -91,7 +91,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                </div>
 	            </div>
 			</div>
-
+			
 			<div class="form-group">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>" readonly>
@@ -108,6 +108,19 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			<div class="form-group">
 				<label for="user_city">City</label>
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" readonly>
+			</div>
+			<div class="form-group">
+				<div class="search_value disable-edit-form">
+				<?php  $args = array(
+                  'post_id' => 'user_{$user->ID}',
+                  'form_attributes' => array(
+                  'id'=>'modalAjaxTrying',
+                  'disabled'=>true
+                  ),
+                  'fields' => ['select_school'],
+                );
+                acf_form( $args ); ?>
+            </div>
 			</div>
 		</form>
 	</div>
@@ -139,6 +152,13 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 		margin-bottom: 10px;
 	}
 </style>
+<script type="text/javascript">
+	(function($) {
+		$(document).ready(function(){
+	$('#acf-field_607ad4fffebde').prop('disabled','disabled');
+	});
+	})( jQuery );
+</script>
 
 <div class="col-md-4 col-sm-12 mrg">
 	<div class="info-card">

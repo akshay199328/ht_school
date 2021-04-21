@@ -233,8 +233,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     </p>
                                   </div> -->
                                   <?php 
-                                    $who = get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true);
-                                  if(!empty(get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true))) : 
+                                    $who_this_course = get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true);
+                                  if(strlen(trim($who_this_course))) : 
                                   ?>
                                   <div class="col-sm-12 course-for background-yellow">
                                     <h5>Who Is This Course For?</h5>
@@ -273,6 +273,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div> -->
+            <?php if(strlen(trim(get_post_meta($post->ID,'vibe_learning_goals',true)))) : ?>
             <div class="learing-goals" id="objective">
               <div class="container">
                 <div class="">
@@ -282,7 +283,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     </div>
                     <div class="content-default-list">
                       <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
-                      <?php echo get_post_meta($post->ID,'learning_goals_list',true); ?>
+                      <!-- <?php echo get_post_meta($post->ID,'learning_goals_list',true); ?> -->
                     </div>
                     <!-- <div class="col-lg-12 mrg adworks-head">
                       <a href="#">Adworks</a>
@@ -292,6 +293,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div>
+          <?php endif;?>
             <div class="course-curriculum grey-background" id="curriculum">
               <div class="container">
                 <div class="">

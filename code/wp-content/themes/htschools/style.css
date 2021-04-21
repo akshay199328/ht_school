@@ -6298,7 +6298,7 @@ h6:empty
     /*.header-space {margin-top: 90px;}*/
     /*.hero{    padding-bottom: 30px;}*/
     .mobile-display{display: inline-block!important;}
-    .header .homeicon {width: 96px;margin-left: -10px!important;}
+    .header .homeicon img{width: 96px;margin-left: -10px!important;}
     .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
     .right-menu{margin-top: -7px!important;}
     .home_slider .homecarousel_text .pull-right {
@@ -6337,6 +6337,7 @@ h6:empty
     .hero-list .hero-card p {font-size: 12px;}
     .hero-list .hero-card a {/*font-size: 10px;*/}
     #Popular-Courses{padding-left: 15px;padding-right: 15px;}
+    #Popular-Courses.all_course_page {padding-top: 10px;}
     .Popular-Courses .section-header p{margin-bottom: 10px;    }
     .Popular-Courses .section-header h2, .latest-news .header-heading h2, .breadcrumbs h2 {font-size: 35px;}
     .Popular-Courses .section-header p, .latest-news .details-left .link a, .details-middle ul li .link,.breadcrumbs p{font-size: 18px;}

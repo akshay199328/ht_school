@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="order_details_page">
 	<h2 class="cart_heading">Order details</h2>
 	<div class="table-responsive">
-	<table cellspacing="0" class="shop_table shop_table_responsive">
+	<table cellspacing="0" class="shop_table shop_table_responsive order-pay">
 
 		<tbody><tr class="cart-subtotal">
 			<th><?php esc_html_e( 'Order number:', 'woocommerce' ); ?></th>

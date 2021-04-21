@@ -6298,6 +6298,7 @@ h6:empty
     /*.header-space {margin-top: 90px;}*/
     /*.hero{    padding-bottom: 30px;}*/
     .mobile-display{display: inline-block!important;}
+    .header .homeicon {width: 96px;margin-left: -10px!important;}
     .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
     .right-menu{margin-top: -7px!important;}
     .home_slider .homecarousel_text .pull-right {
@@ -6423,7 +6424,7 @@ h6:empty
         /*width: 13.92px;*/
         background-size: 13.92px 13.92px;
     }
-    .fixedmenu-tabs .bookmark-remove{top: 4px;}
+    .fixedmenu-tabs .bookmark-remove, .post-creator .bookmark-remove{top: 4px;}
     .dashboard_accountinfo .course-box .middle-details {padding: 0;padding-left: 10px;padding-right: 60px !important;}
     .course_home_progress{padding-left: 10px;}
     .dashboard_accountinfo .course-box .right-details .course-button {

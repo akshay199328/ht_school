@@ -678,6 +678,10 @@ span.wpcf7-form-control-wrap.recaptcha {
     margin-bottom: 15px;
 }
 
+
+
+
+
 /*responsive added css by satish*/
 @media screen and (min-width:992px) {
 	.details-middle .news_three_data li:nth-child(1),
@@ -1082,6 +1086,7 @@ span.wpcf7-form-control-wrap.recaptcha {
 		}
 		.blogpost .excerpt.thumb{
 			margin-top: 15px !important;
+			margin-left: 0px !important;
 		}
 		.contact-us .vc_column-inner h1, .support-contact h2{
 			font-size: 18px;
@@ -1178,11 +1183,11 @@ span.wpcf7-form-control-wrap.recaptcha {
 			margin-bottom: 0px;
 		}
 		.woocommerce-cart table.cart td.actions .coupon button{
-			width: 100% !important;
+			width: 40% !important;
 			
 		}
 		.woocommerce-cart table.cart td.actions .coupon .input-text{
-			max-width: 100% !important;
+			max-width: 60% !important;
 			margin-bottom: 10px !important;
 		}
 		.atwork_img{
@@ -1279,7 +1284,32 @@ span.wpcf7-form-control-wrap.recaptcha {
 		}
 		.woocommerce .woocommerce-Price-amount.amount td{
 			font-weight: 600 !important;
+		}
 		/*order sucess page*/
+
+		.woocommerce-page .apply-coupon {
+			padding: 12px 12px 13px!important;
+		}
+		woocommerce-page .apply-coupon{padding: 12px 12px 13px!important;}
+        .woocommerce-page .checkout-button{font-size: 12px!important;}
+        .woocommerce table.shop_table td, .woocommerce table.shop_table td a{font-size: 15px!important;}
+        .woocommerce-cart table.cart td.actions .coupon .input-text{
+            margin-bottom: 10px !important;
+            max-width: 60% !important;
+            /* max-width: 100% !important; */
+        }
+        .all_course_page.landing-page {
+    		padding-top: 5px;
+		}
+		.hero{
+			padding-bottom: 20px;
+		}
+		.related_post.details h2{
+			margin-bottom: 0px !important;
+		}
+		.details-middle.adwork img {
+    		width: 100% !important;
+		}
 
 }
 	@media screen and (max-width:375px) {
@@ -1303,6 +1333,11 @@ span.wpcf7-form-control-wrap.recaptcha {
 		}
 		.order_details_button #btn-razorpay-cancel{
 			width: 100%;
+		}
+	}
+	@media screen and (max-width:320px) {
+		a.homeicon img {
+    		max-width: 100px;
 		}
 	}
 

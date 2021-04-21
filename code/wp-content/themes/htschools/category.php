@@ -10,7 +10,8 @@ get_header(vibe_get_header());
       <?php vibe_breadcrumbs(); ?>  
     </div>
     <div class="course-tablist">
-      <div class="tablist">
+      <div class="featured_tablist">
+        <ul class="tablist left_tab">
       <?php
           $menu_name = 'news-menu'; //menu slug
           $locations = get_nav_menu_locations();
@@ -33,6 +34,7 @@ get_header(vibe_get_header());
             }
           }
       ?>
+    </ul>
       </div>
       <div class="pagetitle">
       <h1>

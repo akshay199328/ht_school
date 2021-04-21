@@ -133,7 +133,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   <div class="container">
     <div class="">
       <div class="featured_headeing">
-        <h1>Popular On HT school News</h1><br/>
+        <h1>Popular On HT school News</h1>
       </div>
       <?php
       query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=6');

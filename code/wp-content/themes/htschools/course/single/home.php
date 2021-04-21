@@ -233,14 +233,16 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     </p>
                                   </div> -->
                                   <?php 
-                                    $who = get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true);
-                                  if(!empty(get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true))) : 
+                                    $who = get_post_meta(get_the_ID(),'vibe_who_this_course_Is_for_first_block',true);
+                                  if(get_post_meta(get_the_ID(),'vibe_course_age_group',true) == ''){
                                   ?>
+                                  <div></div>
+                                  <?php }else{ ?>
                                   <div class="col-sm-12 course-for background-yellow">
                                     <h5>Who Is This Course For?</h5>
-                                    <p><?php echo get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true); ?></p>
+                                    <p><?php echo get_post_meta(get_the_ID(),'vibe_who_this_course_Is_for_first_block',true); ?></p>
                                   </div>
-                                <?php endif;?>
+                                <?php }?>
                                   <div class="col-sm-12 course-list mrg">
                                     <h5>Related Tags</h5>
                                     <div class="col-sm-12 course-listslider mrg">

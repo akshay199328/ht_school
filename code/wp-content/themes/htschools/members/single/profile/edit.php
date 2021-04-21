@@ -1,4 +1,5 @@
 <?php
+acf_form_head();
 global $bp;
 /**
  * BuddyPress - Members Single Profile Edit
@@ -91,6 +92,52 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                </div>
 	            </div>
 			</div>
+			<div class="form-group hide-acf-form">
+				<?php acf_form( $args );?>
+			</div>
+			<div class="form-group">
+                    <div class="search_value">                    
+
+                     <!-- <?php 
+                        $user = wp_get_current_user();
+                        $options = array(
+                          //'field_groups' => ['group_5cbd99ef0f584'],
+                          'fields' => ['select_school'],
+                          'form_attributes' => array(
+                            'method' => 'POST',
+                            'action' => admin_url("admin-post.php"),
+                          	'id'=>'modalAjaxTrying'
+                          ),
+                          'html_before_fields' => sprintf(
+                            '<input type="hidden" name="action" value="adaptiveweb_save_profile_form_school">
+                            <input type="hidden" name="user_id" value="user_%s">',
+                            $user->ID
+                          ),
+                          'post_id' => "user_{$user->ID}",
+                          'form' => true,
+                          'html_submit_button' => '<button type="hidden" id="update_school_id" class="acf-button button button-primary button-large" value="Update Profile">Update Profile</button>',
+                          'updated_message' => __("Post updated", 'acf'),
+                          'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
+                        );
+                        acf_form($options);
+                    ?>   -->
+
+                   <?php  
+                   $user = wp_get_current_user();
+                   $args = array(
+                      'post_id' => 'user_{$user->ID}',
+                      'form_attributes' => array(
+                      'class' => 'new-campaign-form',
+                      'id'=>'modalAjaxTrying'
+
+                      ),
+                      'fields' => ['select_school'],
+                      'submit_value' => __("Save and Continue", 'acf'),
+                    );
+                acf_form( $args ); ?>
+
+                              </div>        
+                </div>
 
 			<div class="form-group profile_search">
 				<label for="user_country_data">Country</label>
@@ -214,6 +261,22 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 <script type="text/javascript">
 	(function($) {
 		$(document).ready(function(){
+			var ajaxurl = "<?php echo home_url(); ?>/wp-admin/admin-ajax.php";
+            $('form#modalAjaxTrying :submit').click(function(event){
+			    event.preventDefault();
+			    var form_data = {'action' : 'acf/validate_save_post'};
+			    $('form#modalAjaxTrying :input').each(function(){
+			    form_data[$(this).attr('name')] = $(this).val()
+			    })
+
+			    form_data.action = 'save_my_data';
+			    $.post(ajaxurl, form_data)
+			    .done(function(save_data){
+			    // alert('Added successFully :');
+			   
+			    })
+
+			})
 			window.selectedCountry = "<?php echo $user_country; ?>";
 			$("#child_name").val('');
 			$("#child_school").val('');
@@ -317,7 +380,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			$("#profile_submit").click(function(){
 				$("#profile_submit").html("Please wait...");
                 $("#profile_submit").attr("disabled", "disabled");
-
+                $('form#modalAjaxTrying :submit').trigger('click');
+                var form_data = {'action' : 'acf/validate_save_post'};
 				$.ajax({
 	                type : "POST",
 	                dataType : "json",
@@ -326,7 +390,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                success: function(response) {
 	                    $("#profile_submit").html("Submit");
 	                    $("#profile_submit").removeAttr("disabled");
-
+	             
 	                    if(response.status == 1){
 	                    	$("#response_message").html(response.message);
 	                        $("#response_message").addClass('success');

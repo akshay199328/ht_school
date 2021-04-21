@@ -281,7 +281,9 @@ padding: 15px 0;
 .right-details .course-button h6 .subs, 
 .course_button .extra_details,
 .course-fees span.amount+.subs,
-.course-box .course_sharing
+.course-box .course_sharing,
+.hide-acf-form,
+#modalAjaxTrying .acf-form-submit
 {
     display: none;
 }

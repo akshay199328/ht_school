@@ -115,7 +115,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 
 							</form><!-- #course-directory-form -->
 						</div>	
-						<div class="col-lg-3 mrg adworks desktop-add right-adwork">
+						<div class="col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
 			            	<?php
 				              if ( is_active_sidebar( 'banner-1' ) ) : ?>
 				              <?php dynamic_sidebar( 'banner-1' ); ?>      

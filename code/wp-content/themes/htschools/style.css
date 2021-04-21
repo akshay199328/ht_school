@@ -1264,7 +1264,7 @@ Course Details
   margin-bottom: 10px;
 }
 .about-details p{
-    font-size: 17px;
+    font-size: 18px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -1305,7 +1305,7 @@ Course Details
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.33;
+  line-height: 20px;
   letter-spacing: normal;
   text-align: left;
   color: #000000;
@@ -1417,6 +1417,9 @@ Course Details
     letter-spacing: normal;
     text-align: left;
 }
+.content-default-list .widget_custom_html{
+  margin-bottom: 15px;
+}
 .about-details .row{
       margin: 0px;
     float: left;
@@ -1461,7 +1464,7 @@ Course Details
     width: 100%;
 }
 .instructor-detailsMini .profile-content p{
-    font-size: 17px;
+    font-size: 18px;
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
@@ -2306,7 +2309,7 @@ section.latest-news{
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.33;
+    line-height:46px;
     letter-spacing: normal;
     text-align: left;
     color: #0c5acc!important;
@@ -4522,6 +4525,10 @@ section.latest-news{
   margin: 10px 10px 0px 0px;
   text-transform: uppercase;
 }
+.topic_details .widget_custom_html{
+    position: relative;
+    left: -35px;
+}
 .topic_details a{
   color: #000000!important;
   font-weight: bold;
@@ -5563,8 +5570,8 @@ h6:empty
   color: #000000;
   margin-bottom: 30px;
 }
-.static_content a{
-  color: #0C5ACC;
+.static_content .content a{
+  color: #0C5ACC!important;
 }
 .static_content .content ol, 
 .static_content .content ul {

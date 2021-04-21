@@ -32,7 +32,11 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     margin-left: 0px!important;
 }
 .border-menu:after{top: 1px!important}
-.custom-dropdown, .my-course{background: transparent; padding: 7px 20px 9px 10px!important;}
+.custom-dropdown, .my-course{
+    background: transparent; padding: 9px 20px 9px 15px!important;
+    height: 45px;
+    width: 114px;
+}
 .custom-dropdown.active,
 .my-course.active,
 .course-template-default .my-course,
@@ -62,7 +66,7 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     width: 50%;
     height: 1px;
     position: absolute;
-    bottom: -3px;
+    bottom: -7px;
     left: 0px;
 }
 .custom-dropdown.active a:after,

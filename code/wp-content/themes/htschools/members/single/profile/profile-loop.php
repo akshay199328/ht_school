@@ -45,7 +45,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 
 
 ?>
-<div class="col-md-8 mrg">
+<div class="col-md-8 col-sm-12 mrg">
 	<div class="profile-card">
 		<h1>Personal Details</h1>
 		<form id="profile-edit-form" name="profile-form" class="standard-form">
@@ -140,7 +140,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	}
 </style>
 
-<div class="col-md-4 mrg">
+<div class="col-md-4 col-sm-12 mrg">
 	<div class="info-card">
 		<?php if(count($childrens) > 0){ ?>
 			<div class="children-list">

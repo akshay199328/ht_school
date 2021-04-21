@@ -52,7 +52,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 				<?php do_action( 'bp_before_directory_course' ); ?>
 				<div class="row">
 					<div class="sticky_content">
-						<div class="col-md-9 col-sm-9 mrg  top-pagination hide-progress">
+						<div class="col-lg-9 col-sm-12 mrg  top-pagination hide-progress">
 							<form action="" method="post" id="course-directory-form" class="hide-search dir-form">
 
 								<?php do_action( 'bp_before_directory_course_content' ); ?>

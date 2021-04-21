@@ -184,6 +184,7 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 .course_status .course_content .course_content_content_wrapper h2{
 	font-size: 25px !important;
 	font-weight: 600 !important;
+	margin-top: 20px;
 }
 .course_status .course_content .course_content_content_wrapper .unit_videos{
 	margin-top: 15px !important;
@@ -290,6 +291,74 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 .your-message textarea:focus,
 .your-message textarea:visited{
   background: none;
+}
+.previous_results_wrapper h3.subtitle {
+    padding: 20px 0px;
+}
+.reviewform label {
+    font-size: 14px!important;
+    font-weight: 400 !important;
+    margin: 0px !important;
+    width: 70% !important;
+    padding-top: 0px !important;
+}
+.wplms-course-star-rating {
+    padding-left: 0px !important;
+}
+.wplms-course-star-rating .vicon {
+   font-size: 33px;
+}
+.wplms-course-star-rating {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+}
+.reviewform input {
+    height: 40px !important;
+}
+.reviewform textarea {
+    height: 150px !important;
+}
+.reviewform input:placeholder{
+	padding-left: 10px !important
+}
+.reviewpopup_content .close span:before{
+	font-size: 15px !important;
+    color: #000 !important;
+}
+.reviewform {
+    margin-top: 0px !important;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .close{
+	top: 20px !important;
+    right: 20px !important;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer{
+	background: #fff !important;
+	display: block !important;
+}
+
+.course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer>a.button {
+    max-width: 350px !important;
+    margin-top: 20px !important;
+    background-color: #000!important;
+    color: #fff !important;
+    font-size: 15px !important;
+    line-height: 22px;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer>a.button span{
+	padding-top: 5px !important;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer>a {
+    font-size: 15px;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content{
+	width: calc(100% - 40%) !important;
+}
+.finish-course-content .completion_message a {
+    display: block;
+}
+.finish-course-content .completion_message{
+	font-size: 20px !important;
 }
 /*course page*/
 
@@ -548,7 +617,7 @@ section.woocommerce-customer-details{
 	padding: 15px !important;
 }
 .finish_course {
-    padding-left: 40px;
+    padding-left: 30px;
 }
 .course_status .incourse .incoursequiz_details>div {
     display: flex !important;
@@ -709,6 +778,10 @@ section.woocommerce-customer-details{
 		}
 		.right-details .course-button h6{
 			padding-top: 0px !important;
+		}
+		/*tab*/
+		.fixedmenu-tabs .nav-tabs{
+			width: 85% !important
 		}
 
 	}

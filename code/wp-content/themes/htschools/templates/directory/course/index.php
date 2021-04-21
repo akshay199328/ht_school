@@ -8,13 +8,13 @@ $title=get_post_meta($id,'vibe_title',true);
 if(!isset($title) || !$title || (vibe_validate($title))){
 
 ?>
-<section class="course-listing">
+<section class="breadcrumbs background-breadcrumbs">
 	<div class="innerheader-space"></div>
 	<?php do_action('wplms_before_title'); ?>
     <div class="<?php echo vibe_get_container(); ?>">
         <div class="">
-             <div class="col-md-12 col-sm-12 mrg">
-                <div class="pagetitle breadcrumbs background-breadcrumbs">
+             <div class="">
+                <div class="">
                 	<?php 
                         $breadcrumbs=get_post_meta($id,'vibe_breadcrumbs',true);
                         if(!isset($breadcrumbs) || !$breadcrumbs || vibe_validate($breadcrumbs)){

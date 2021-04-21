@@ -189,8 +189,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   <div class="heading">
                                     <h3>About the Course</h3>
                                   </div>
+
                                   <div class="row">
-                                    <div class="col-sm-12 col-lg-6 pull-left mrg">
+                                    <div class="content-default-list">
+                                    <div class="col-sm-12 col-lg-12 pull-left mrg">
                                         <p><?php 
                                         $post_content = get_post_field('post_content', $post->ID);
                                         if ( $post_content != '' ) {
@@ -205,6 +207,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         }
                                         ?></p>
                                     </div>
+                                  </div>
                                   </div>
                                   <!-- <div class="col-sm-12 col-lg-6 mrg pull-right">
                                     <div class="adworks">

@@ -10,30 +10,32 @@ get_header(vibe_get_header());
       <?php vibe_breadcrumbs(); ?>  
     </div>
     <div class="course-tablist">
-      <div class="tablist">
-      <?php
-          $menu_name = 'news-menu'; //menu slug
-          $locations = get_nav_menu_locations();
-          $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-          $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+      <div class="featured_tablist">
+        <ul class="tablist left_tab">
+        <?php
+            $menu_name = 'news-menu'; //menu slug
+            $locations = get_nav_menu_locations();
+            $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+            $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
 
-          global $wp;
-          $current_url = home_url(add_query_arg(array(), $wp->request));
-          ?>
-          <li><a href="<?php echo get_site_url(); ?>/news">All News</a></li>
-          <?php
-          foreach ($menuitems as $menu) {  
-            if($current_url."/" == $menu->url){    
-              ?>
-              <li><a href="<?php echo $menu->url; ?> "class="active"><?php echo $menu->title; ?></a></li>
-              <?php 
-            }else{
-              ?>
-              <li><a href="<?php echo $menu->url; ?>" ><?php echo $menu->title; ?></a></li>
-              <?php
+            global $wp;
+            $current_url = home_url(add_query_arg(array(), $wp->request));
+            ?>
+            <li><a href="<?php echo get_site_url(); ?>/news">All News</a></li>
+            <?php
+            foreach ($menuitems as $menu) {  
+              if($current_url."/" == $menu->url){    
+                ?>
+                <li><a href="<?php echo $menu->url; ?> "class="active"><?php echo $menu->title; ?></a></li>
+                <?php 
+              }else{
+                ?>
+                <li><a href="<?php echo $menu->url; ?>" ><?php echo $menu->title; ?></a></li>
+                <?php
+              }
             }
-          }
-      ?>
+        ?>
+        </ul>
       </div>
       <div class="pagetitle">
       <h1>

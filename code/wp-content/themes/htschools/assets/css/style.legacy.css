@@ -35839,6 +35839,9 @@ body {
 	table.shop_table tfoot td{
 		border-top: 1px dotted rgb(112 112 112 / 50%)!important;
 	}
+	.woocommerce-checkout-review-order-table td:first-child{
+		width: 65%;
+	}
 	.coupon_td{
 		padding-top: 33.5px!important;
     	padding-left: 0px !important;
@@ -35988,8 +35991,10 @@ body {
 		margin: 0px 0px 30px 0px;
 		padding: 0px 15px;
 		width: 100%;
+		    transition: all 0.5s;
+		    z-index: 9;
 	}
-
+	.course-tablist .featured_tablist {padding: 0px 0px!important;}
 	.featured_tablist li {
 		display: inline-block;
 		color: #939393;

@@ -148,7 +148,7 @@ section {
   {
     min-height: 85px;
   }
-  .releted_news_section .related_post{padding-left: 30px;}
+  .releted_news_section .related_post{padding-left: 35px;}
   
 
 }
@@ -1409,6 +1409,10 @@ Course Details
     line-height: 1.29;
     letter-spacing: normal;
     text-align: left;
+}
+.content-default-list .row{
+      margin: 0px;
+    float: left;
 }
 .instructor-detailsMini .profile-content  {
     padding: 25px 25px 0px 0px;
@@ -4466,6 +4470,9 @@ section.latest-news{
     line-height: 25px;
     color: #000;
         
+}
+.news-main .content-right h2:first-child{
+  /*margin-top: -17px;*/
 }
 .news-main .content-right p{
     font-size: 18px;

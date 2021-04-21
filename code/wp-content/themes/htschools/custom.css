@@ -283,7 +283,8 @@ padding: 15px 0;
 .course-fees span.amount+.subs,
 .course-box .course_sharing,
 .hide-acf-form,
-#modalAjaxTrying .acf-form-submit
+.new-campaign-form .acf-form-submit,
+.disable-edit-form .acf-form-submit
 {
     display: none;
 }

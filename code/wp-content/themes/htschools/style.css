@@ -6529,6 +6529,16 @@ h6:empty
         width: 100%;
         float: left;
     }
+    .course-aboutDetails .share-icon{
+           display: block;
+        margin-top: 15px;
+        float: left;
+        width: 100%;
+    }
+    .course-aboutDetails .share-icon ul{
+      float: left;
+    }
+    .fixedmenu-tabs .container{padding:0px!important;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

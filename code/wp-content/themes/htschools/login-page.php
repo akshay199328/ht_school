@@ -48,7 +48,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
 
       <div class="row">
         <div class="login-box">
-          <div class="col-sm-12 col-md-6 mrg pull-left">
+          <div class="col-sm-12 col-md-5 mrg pull-left">
             <div class="login-left">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/login-back.jpg" class="img-fluid"/>
             </div>
@@ -56,7 +56,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
 
 
 
-          <div class="col-sm-12 col-md-6 mrg pull-right">
+          <div class="col-sm-12 col-md-7 mrg pull-right">
 
 
 
@@ -75,7 +75,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                   <span>OR</span>
                 </div>
                 <div class="form-group">
-                  <input type="email" name="email" class="form-control" placeholder="Enter email">
+                  <input type="email" name="email" class="form-control" placeholder="Email id">
                   <p class="error" style="display: none;" id="ht_otp_error"></p>
                 </div>
                 <button  id="ht_reg_email_btn" type="button" class="btn submit_btn">

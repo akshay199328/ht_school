@@ -522,7 +522,7 @@ button.saved_feedbackbtn span{
 }
 
 .viewall-session{
-	margin: 10px 0px 0px !important;
+	margin: 10px 0px 30px !important;
 }
 .content.blogpost-search_bottom {
     padding-bottom: 30px;
@@ -646,6 +646,33 @@ section.woocommerce-customer-details{
 	margin: 0px !important;
 }
 /*basic Quiz*/
+
+
+/*log-in*/
+.login-left img{
+	height: 550px !important;
+}
+.login-box .login-right{
+	padding: 47px 40px !important;
+}
+.login-box h4 {
+    font-size: 25px;
+    font-weight: 600 !important;
+    line-height: 33px;
+}
+.login-box form {
+    margin: 45px 0px 55px;
+}
+.login-box .nsl-button{
+	border: 1px solid #C2C2C2;
+}
+.login-box .btn.submit_btn{
+	background: #707070 !important;
+	font-size: 15px !important;
+}
+
+/*log-in*/
+
 
 /*responsive added css by satish*/
 @media screen and (min-width:992px) {

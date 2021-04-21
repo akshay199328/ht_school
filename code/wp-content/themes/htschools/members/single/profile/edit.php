@@ -50,6 +50,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	<div class="profile-card">
 		<h1>Personal Details</h1>
 		<form id="profile-edit-form" name="profile-form" class="standard-form">
+			
 			<input type="hidden" name="action" value="save_custom_profile">
 			<div class="form-group">
 				<label for="first_name">First Name</label>
@@ -73,11 +74,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
 			</div>
 			<div class="form-group ">
-				<!-- <label> Gender <br/>
-					<input type="radio" name="gender"> Male<br/>
-					<input type="radio" name="gender"> Female<br/>
-				</label> -->
-				<label> Select Gender <br/>
+				
+				<label> Select Gender</label> <br/>
 				<div class="radio"> 
 					<div class="switch">
 	                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
@@ -92,35 +90,28 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                </div>
 	            </div>
 			</div>
+			<div class="form-group profile_search">
+				<label for="user_country_data">Country</label>
+				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>">
+				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
+			</div>
+
+
+			<div class="form-group profile_search">
+				<label for="user_state">State</label>
+				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="Select State" value="<?php echo $user_state; ?>">
+			</div>
+
+
+			<div class="form-group profile_search">
+				<label for="user_city">City</label>
+				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>">
+			</div>
 			<div class="form-group hide-acf-form">
 				<?php acf_form( $args );?>
 			</div>
 			<div class="form-group">
-                    <div class="search_value">                    
-
-                     <!-- <?php 
-                        $user = wp_get_current_user();
-                        $options = array(
-                          //'field_groups' => ['group_5cbd99ef0f584'],
-                          'fields' => ['select_school'],
-                          'form_attributes' => array(
-                            'method' => 'POST',
-                            'action' => admin_url("admin-post.php"),
-                          	'id'=>'modalAjaxTrying'
-                          ),
-                          'html_before_fields' => sprintf(
-                            '<input type="hidden" name="action" value="adaptiveweb_save_profile_form_school">
-                            <input type="hidden" name="user_id" value="user_%s">',
-                            $user->ID
-                          ),
-                          'post_id' => "user_{$user->ID}",
-                          'form' => true,
-                          'html_submit_button' => '<button type="hidden" id="update_school_id" class="acf-button button button-primary button-large" value="Update Profile">Update Profile</button>',
-                          'updated_message' => __("Post updated", 'acf'),
-                          'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
-                        );
-                        acf_form($options);
-                    ?>   -->
+                <div class="search_value">                    
 
                    <?php  
                    $user = wp_get_current_user();
@@ -139,23 +130,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
                               </div>        
                 </div>
 
-			<div class="form-group profile_search">
-				<label for="user_country_data">Country</label>
-				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>">
-				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
-			</div>
-
-
-			<div class="form-group profile_search">
-				<label for="user_state">State</label>
-				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="Select State" value="<?php echo $user_state; ?>">
-			</div>
-
-
-			<div class="form-group profile_search">
-				<label for="user_city">City</label>
-				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>">
-			</div>
+			
 			<p id="response_message" class="" style="margin: 10px 0; display: none;"></p>
 			<div class="form-group">
 				<button type="button" class="btn btn-default" id="profile_submit">Submit</button>

@@ -5280,6 +5280,39 @@ h6:empty
 .search_value  .acf-label{
       display: none!important;
 }
+.search_value .new-campaign-form .acf-label{
+  display: block!important;
+      margin: 0px;
+}
+.search_value .new-campaign-form .acf-label label{
+  display: block;
+    font-weight: 500;
+    margin: 0px 0 0px;
+    font-size: 14px;
+    color: #A2A0A0;
+}
+.search_value .new-campaign-form{
+    width: 70%;
+}
+.search_value .new-campaign-form .select2-container {
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid #a8a6a6;
+    border-radius: 0px;
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 0px 12px;
+    box-shadow: none;
+    height: 100%;
+}
+.search_value .new-campaign-form .select2-selection__rendered {
+    color: #000!important;
+    padding: 0px 30px 0px 0px!important;
+}
+.search_value .new-campaign-form  .select2-selection__arrow{
+  top: 32%!important;
+}
 .search_value  .updated{margin-top: 0px!important}
 .search_value ul {
     position: relative;

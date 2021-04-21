@@ -22513,7 +22513,7 @@ body {
  	transform: none!important;
  }
  .content .pagination {
- 	margin: 0
+ 	margin: 20px 0px;
  }
 
  .expand header {
@@ -35422,11 +35422,11 @@ body {
  }
  .border-menu, .border-menu.active {
  	border: 1px solid #000;
- 	padding: 7px 15px !important;
+ 	padding: 12px 15px !important;
  	background: transparent!important;
  	margin-left: 0px;
  	position: relative;
- 	width: 121px;
+ 	width: 114px;
  }
  nav .menu li.custom-dropdown a,
  .my-course a,
@@ -36376,7 +36376,12 @@ body {
 	.order_details_button.customOrder_details{margin: 27.5px 41px 38px 26px;}
 	.order-pay .order-total th,
 	.order-pay .cart-subtotal th{padding:20px 27px!important;font-weight: 500!important;}
+	/* .custom-html-widget{position:sticky;position:-webkit-sticky;top:0;border:1px solid red;} */
 
+	.page-template-my-course .pusher{overflow: unset;}
+	.page-template-my-course .Popular-Courses{overflow: unset;}
+	.page-template-my-course section{overflow: inherit;}	
+	.page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
 	/* mobileview */
 	@media screen and (max-width:1024px) {
 		.woocommerce-page .checkout-button {

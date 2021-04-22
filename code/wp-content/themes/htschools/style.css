@@ -3421,7 +3421,8 @@ section.latest-news{
 .contact_adwork{
       position: absolute;
     right: 32px;
-    bottom: 90px;
+        bottom: 220px;
+    padding: 0!important;
 }
 .contact .info-box {
   color: #444444;

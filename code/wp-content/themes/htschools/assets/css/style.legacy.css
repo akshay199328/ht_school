@@ -36216,17 +36216,20 @@ body {
     .news-main .details h2 {margin-bottom: 20px;}
     .news-main .releted_news_section {float: left;width: 100%;padding-bottom: 20px;}
     .news-main .releted_news_section .related_post h2 {margin-bottom: 0px;}
+    .search_section{
+    	padding-top:10px;
+    }
     .search_section input{
 		padding: 0px 45px 10px !important;
 		font-size: 20px;
-		height:50px;
-  		line-height:50px;
+		height:40px;
+  		line-height:40px;
 	}
 	.search_icon{
 		height: 22px;
 	    width: 22px;
 	    left: 10px;
-	    top:34px;
+	    top:11px;
 	}
 	.blogpost-search .excerpt h3 a{font-weight: 18px;}
 	.blogpost-search:after{width: 100%;}

@@ -448,4 +448,8 @@ padding: 15px 0;
         padding-left: 0px!important;
     }
     .display_icon{right:0px;}
+    
+}
+@media (max-width: 767px){
+    .fixedmenu-tabs .display_icon{left:0px;}
 }

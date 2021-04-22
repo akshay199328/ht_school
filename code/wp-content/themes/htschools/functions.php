@@ -1430,6 +1430,13 @@ function wpc_shortcode_username() {
     return $username;
 }
 
+add_shortcode( 'contact-adwork', 'wpc_shortcode_contact_adwork' );
+function wpc_shortcode_username() {
+    if ( is_active_sidebar( 'banner-2' ) ) {
+      return dynamic_sidebar( 'banner-2' );      
+    }
+}
+
 //Insert ads after second paragraph of single post content.
  
 add_filter( 'the_content', 'prefix_insert_post_ads' );

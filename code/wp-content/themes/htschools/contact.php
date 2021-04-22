@@ -27,12 +27,6 @@ if(have_posts()):while(have_posts()):the_post();
                       the_content();
 
                    ?>
-                  <div class="atwork_img contact_adwork">
-                    <?php
-                    if ( is_active_sidebar( 'banner-2' ) ) : ?>
-                      <?php dynamic_sidebar( 'banner-2' ); ?>      
-                    <?php endif; ?>
-                </div>
                 </div>
                 <?php
                 

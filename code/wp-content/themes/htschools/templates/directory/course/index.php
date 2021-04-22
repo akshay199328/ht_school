@@ -44,14 +44,14 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 <?php
 }
 ?>
-<section id="Popular-Courses" class="all_course_page landing-page">
-	<div id="buddypress">
+<section id="Popular-Courses">
+	<!-- <div id="buddypress"> -->
     	<div class="<?php echo vibe_get_container(); ?>">
 			<?php do_action( 'bp_before_directory_course_page' ); ?>
-			<div class="padder">
+			<!-- <div class="padder"> -->
 				<?php do_action( 'bp_before_directory_course' ); ?>
 				<div class="row">
-					<div class="sticky_content">
+					<!-- <div class="sticky_content"> -->
 						<div class="col-lg-9 col-sm-12 mrg  top-pagination hide-progress">
 							<form action="" method="post" id="course-directory-form" class="hide-search dir-form">
 
@@ -127,9 +127,9 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 				                if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
 			               	<?php endif; ?>
 						</div>
-					</div>
+					<!-- </div> -->
 					<?php do_action( 'bp_after_directory_course' ); ?>
-				</div><!-- .padder -->
+				<!--</div> .padder -->
 				<?php do_action( 'bp_after_directory_course_page' ); ?>
 				<div class="col-md-12 col-sm-12">
 					<?php
@@ -140,6 +140,6 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 			</div><!-- #content -->
 			
 		</div>
-	</div>
+	<!-- </div> -->
 </section>
 <?php

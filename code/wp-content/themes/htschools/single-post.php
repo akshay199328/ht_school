@@ -73,7 +73,7 @@ $topics = wp_get_post_tags(get_the_ID());
                   ?>
                   <h1><?php the_title(); ?></h1>
 
-                  <?php the_sub_title(); ?>
+                  <div class="border_text"><?php the_sub_title(); ?></div>
                 </div>
               </div>
               <img src="<?php echo $featured_image; ?>">

@@ -22539,6 +22539,7 @@ body {
  	font-weight: bold;
  	font-size: 30px;
  	color: #000;
+ 	line-height: 2;
  }
 
  .pagetitle h5 {
@@ -35678,6 +35679,7 @@ body {
 	.order_details_button.customOrder_details {
 		background-color: #fff;
 		/* padding: 0px 40px 20px; */
+		padding: 0px 28px 20px;
 	}
 	.order_details_button.customOrder_details p{
 		font-size: 18px;
@@ -35805,8 +35807,8 @@ body {
 	.woocommerce table.shop_table th, .woocommerce table.shop_table td{
 		border-top: 0px;
 	    padding: 20px 5px;
-	    
-	    font-weight: 500;
+	    font-weight:normal;
+	    /* font-weight: 500; */
 	     color: #000000;
 	}
 	.woocommerce table.shop_table th{
@@ -36106,8 +36108,8 @@ body {
 			border-right: 0px !important;
 			border-top:0px !important;
 			width: 100% !important;
-			padding: 0px 80px 14px!important;
-			height: 73px;
+			padding: 0px 80px 10px !important;
+			height: 60px;
 			color: #000!important;
 			line-height: 60px;
 			font-size: 60px;
@@ -36142,7 +36144,12 @@ body {
 		.image_background {
 			background: #000!important;
 		}
-
+		.border_text p:after{
+			content:'';
+    		border-bottom: 1px solid #fff;
+    		margin-top: 5px;
+    		display: block;
+		}
 		
 
 		.right_content .content-right{
@@ -36216,20 +36223,16 @@ body {
     .news-main .details h2 {margin-bottom: 20px;}
     .news-main .releted_news_section {float: left;width: 100%;padding-bottom: 20px;}
     .news-main .releted_news_section .related_post h2 {margin-bottom: 0px;}
-    .search_section{
-    	padding-top:10px;
-    }
     .search_section input{
 		padding: 0px 45px 10px !important;
 		font-size: 20px;
-		height:40px;
-  		line-height:40px;
+		height: 100%;
 	}
 	.search_icon{
 		height: 22px;
 	    width: 22px;
 	    left: 10px;
-	    top:11px;
+	    top: 27px
 	}
 	.blogpost-search .excerpt h3 a{font-weight: 18px;}
 	.blogpost-search:after{width: 100%;}
@@ -36377,23 +36380,29 @@ body {
 	/* new css added */
 	.woocommerce-checkout-review-order-table .woocommerce-Price-amount.amount{font-size: 15px;}
 	.woocommerce-terms-and-conditions-wrapper .alt{padding: 12px 80px 13px 78px!important;}
-	.order_details_button.customOrder_details{margin: 27.5px 41px 38px 26px;}
+	/* .order_details_button.customOrder_details{margin: 27.5px 41px 38px 26px;} */
 	.order-pay .order-total th,
 	.order-pay .cart-subtotal th{padding:20px 27px!important;font-weight: 500!important;}
 	/* .custom-html-widget{position:sticky;position:-webkit-sticky;top:0;border:1px solid red;} */
 
+	.course .pusher,
 	.page-template-all-courses .pusher,
 	.page-template-my-course .pusher{overflow: unset;}
 
+	.course .Popular-Courses,
 	.page-template-all-courses .Popular-Courses,
 	.page-template-my-course .Popular-Courses{overflow: unset;}
 
+	.course section,
 	.page-template-all-courses section,
 	.page-template-my-course section{overflow: inherit;}
+
+	.course .widget_custom_html,
 	.page-template-all-courses .widget_custom_html,	
 	.page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
 
-	.disable-edit-form .acf-form-fields .acf-label{display: block!important;}
+	.course ul.item-list li{border-bottom: 0!important;}
+
 
 	/* mobileview */
 	@media screen and (max-width:1024px) {
@@ -36415,20 +36424,7 @@ body {
 		.section.latest-news{padding: 20px 0px 0px!important;}
 		.customfeatured_headeing{padding:0px 0px 0px 0px !important}
 		.customfeatured_headeing h1{line-height:normal;}
+		.order_details_button.customOrder_details p{display:flex;justify-content: center;}
+		.search_value .new-campaign-form{width:100%;}
 	}
-	.new-campaign-form .select2-selection__arrow b{display: none}
-	.new-campaign-form .select2-selection__arrow:after
-         {
-            content: '';
-            background: url(../images/profile-search.svg) no-repeat bottom right;
-            position: absolute;
-            right: 0px;
-            top: 0;
-            bottom: 10px;
-            display: block;
-            /* height: 17px; */
-            width: 19px;
-        }
-	.new-campaign-form .select2-results__option{
-		    font-weight: normal!important;
-	}
+	

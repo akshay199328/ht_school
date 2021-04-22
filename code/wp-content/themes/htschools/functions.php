@@ -1432,9 +1432,9 @@ function wpc_shortcode_username() {
 
 add_shortcode( 'contact-adwork', 'wpc_shortcode_contact_adwork' );
 function wpc_shortcode_contact_adwork() {
-    if ( is_active_sidebar( 'banner-2' ) ) {
+    
       return dynamic_sidebar( 'banner-2' );      
-    }
+    
 }
 
 //Insert ads after second paragraph of single post content.

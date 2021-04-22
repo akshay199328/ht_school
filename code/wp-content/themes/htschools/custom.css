@@ -422,8 +422,9 @@ padding: 15px 0;
     display: block;
 }
 .display_icon .a2a_kit a{
-    margin-right: 5px;
+    margin-right: 9px;
     margin-top: 0px;
+    padding: 0 0px;
 }
 .display_icon .a2a_kit a:last-child{
         margin-right:0px;

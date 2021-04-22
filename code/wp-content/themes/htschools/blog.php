@@ -43,9 +43,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
 <section id="All" data-anchor="All" class="latest-news grey-background">
   <div class="container">
-    <div class="">
-      <div class="">
-     <div class="featured_tablist mrg">
+    <div class="featured_tablist mrg">
         <ul class="tablist left_tab">
       <?php
       ?>
@@ -125,58 +123,59 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
          <?php dynamic_sidebar( 'banner-4' ); ?>      
        <?php endif; ?>
      </div>
-    </div>
   </div>
-</section>
 <!-- ======= Featured ======= -->
-<section id="" class="latest-news  grey-background">
-  <div class="container">
-    <div class="">
-      <div class="featured_headeing customfeatured_headeing">
-        <h1>Popular On HT school News</h1>
-      </div>
-      <?php
-      query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=6');
-      ?>
-      <div class="details-middle">
-          <ul class="news_three_data">
-        <?php if (have_posts()) : while (have_posts()) : the_post();
-                      // if( $Query->current_post != 0 ) { 
-          ?>
-              <li>
-                <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-
-                <div class="link">
-                  <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                </div>
-              </li>
-           
-          <?php 
-                  // }
-        endwhile; endif; ?>
-         </ul>
-      </div>
-      <div class="col-sm-12 col-md-4 col-lg-4">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="newsMain_populartHt">
+        <div class="featured_headeing customfeatured_headeing">
+          <h1>Popular On HT school News</h1>
+        </div>
+        <?php
+        query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=6');
+        ?>
         <div class="details-middle">
+            <ul class="news_three_data">
+          <?php if (have_posts()) : while (have_posts()) : the_post();
+                        // if( $Query->current_post != 0 ) { 
+            ?>
+                <li>
+                  <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
 
+                  <div class="link">
+                    <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                  </div>
+                </li>
+             
+            <?php 
+                    // }
+          endwhile; endif; ?>
+           </ul>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4">
+          <div class="details-middle">
+
+          </div>
+        </div>
+        <div class="col-lg-12 center">
+            <?php
+            if ( is_active_sidebar( 'banner-4' ) ) : ?>
+             <?php dynamic_sidebar( 'banner-4' ); ?>      
+           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-12 center">
-          <?php
-          if ( is_active_sidebar( 'banner-4' ) ) : ?>
-           <?php dynamic_sidebar( 'banner-4' ); ?>      
-         <?php endif; ?>
-      </div>
     </div>
+  </div>
   </div>
 </section>
 <!-- End Most Experts -->
-<div class="wrapper">
+
+<section class="latest-news customNews_tab">
 <?php foreach ($menuitems as $menu) { ?>
 
-<section id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
-  <div class="container">
-    <div class="">
+  <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
+    <div class="container">
       <?php 
         $args = array(
         'post_type' => 'post',
@@ -189,7 +188,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       ?>
       <div class="featured_headeing">
         <h1><?php echo $menu->title; ?></h1>
-        <br/>
+        <!-- <br/> -->
       </div>
       <?php
       endif;
@@ -205,8 +204,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               ?>
 
               <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
-              <br/><br/>
-              <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              <!-- <br/><br/> -->
+              <div class="news-date">
+                <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              </div>
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
@@ -241,9 +242,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <?php endif;?>
       </div>
     </div>
-  </section>
 <?php }?>
-</div>
+</section>
+
   <!-- End Most Interview -->
       <!-- <div class="container">
         <div class="row">

@@ -20,7 +20,7 @@
 	color: #939393 !important;
 }
 .featured_tablist{
-	margin: 0px 0px 33px 0px !important;
+	margin: 0px 0px 20px 0px !important;
 }
 
 /*contact page css*/
@@ -668,10 +668,6 @@ section.woocommerce-customer-details{
 .login-box .nsl-button{
 	border: 1px solid #C2C2C2;
 }
-.login-box .btn.submit_btn{
-	background: #707070 !important;
-	font-size: 15px !important;
-}
 
 /*log-in*/
 
@@ -1312,9 +1308,6 @@ span.wpcf7-form-control-wrap.recaptcha {
 		.details-middle.adwork img {
     		width: 100% !important;
 		}
-		.all_course_page.landing-page .right-details .course-button{
-			padding-left: 70px !important;
-		}
 
 }
 	@media screen and (max-width:375px) {
@@ -1343,9 +1336,6 @@ span.wpcf7-form-control-wrap.recaptcha {
 	@media screen and (max-width:320px) {
 		a.homeicon img {
     		max-width: 100px;
-		}
-		.all_course_page.landing-page .right-details .course-button{
-			padding-left: 0px !important;
 		}
 	}
 

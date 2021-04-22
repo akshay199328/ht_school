@@ -2333,7 +2333,7 @@ section.latest-news{
     text-align: left;
     color: #0c5acc!important;
         margin-top: 0;
-    margin-right: 49px;
+    margin-right: 0px;
     word-break: break-word;
         display: inline-block;
 }
@@ -3415,6 +3415,14 @@ section.latest-news{
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.section_contact .content.sec_cont{
+  position: relative;
+}
+.contact_adwork{
+      position: absolute;
+    right: 32px;
+    bottom: 90px;
+}
 .contact .info-box {
   color: #444444;
   background: #fafbff;

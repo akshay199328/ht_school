@@ -94,7 +94,7 @@ if($(window).width() >= 768) {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 160) {
-        $(".featured_tablist").css({ "position": "fixed", "width":"100%", "margin":"0px auto", "left":"0", "right":"0", "top":"10%", "background":"#f7f7f7", "padding" : "0px"});
+        $(".featured_tablist").css({ "position": "fixed", "width":"100%", "margin":"0px auto", "left":"0", "right":"0", "top":"9.1%", "background":"#f7f7f7", "padding" : "0px"});
         $(".featured_tablist .left_tab").css({ "padding": "20px 0px", "width":"1050px", "margin":"0px auto"});
 
     } else {

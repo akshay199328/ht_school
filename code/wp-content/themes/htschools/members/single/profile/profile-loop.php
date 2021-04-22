@@ -1,4 +1,5 @@
 <?php
+acf_form_head();
 global $bp;
 /**
  * BuddyPress - Members Single Profile Edit

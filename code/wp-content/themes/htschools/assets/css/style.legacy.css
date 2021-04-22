@@ -36388,6 +36388,9 @@ body {
 	.page-template-my-course section{overflow: inherit;}
 	.page-template-all-courses .widget_custom_html,	
 	.page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
+
+	.disable-edit-form .acf-form-fields .acf-label{display: block!important;}
+
 	/* mobileview */
 	@media screen and (max-width:1024px) {
 		.woocommerce-page .checkout-button {
@@ -36409,4 +36412,19 @@ body {
 		.customfeatured_headeing{padding:0px 0px 0px 0px !important}
 		.customfeatured_headeing h1{line-height:normal;}
 	}
-	
+	.new-campaign-form .select2-selection__arrow b{display: none}
+	.new-campaign-form .select2-selection__arrow:after
+         {
+            content: '';
+            background: url(../images/profile-search.svg) no-repeat bottom right;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            bottom: 10px;
+            display: block;
+            /* height: 17px; */
+            width: 19px;
+        }
+	.new-campaign-form .select2-results__option{
+		    font-weight: normal!important;
+	}

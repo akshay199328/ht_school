@@ -24,30 +24,22 @@ get_header(vibe_get_header());
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-9 mrg">
-            <div class="">
-                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                 	<?php
 		                $user = wp_get_current_user();
                     // print_r($user->user_login);
                     // print_r($user->ID);
                     
+                    $user = wp_get_current_user();
                     global $wpdb;    
-                    $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("
-                    SELECT posts.ID as id
-                    FROM {$wpdb->posts} AS posts
-                    LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key
-                    WHERE   posts.post_type   = %s
-                    AND   posts.post_status   = %s
-                    AND   meta.user_id   = %d
-                    AND   meta.meta_value > %d
-                    ",'course','publish',$user->ID,time()));
+                    $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
                     $result = $wpdb->get_results($courses_with_types);
 
                     foreach($result as $course){
                             
-                        $args['post__in'][]=$course->id;
                         $type = bp_course_get_user_course_status($user->ID,$course->id);
-                        
+                        if($type != 4){    
+                            $args['post__in'][]=$course->id;
+                        }
                         $statuses[$course->id]= intval($type);
                     }
 
@@ -58,15 +50,18 @@ get_header(vibe_get_header());
 
                     $course_query = new WP_Query($query_args);
                     global $bp,$wpdb;
-                    while($course_query->have_posts()){
+                    if(!empty($result)){
+                  ?>
+                  <div class="">
+                  <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+                    <?php while($course_query->have_posts()){
                     $course_query->the_post();
                     global $post;
                     $progress = bp_course_get_user_progress($user->id,$post->ID);
                     if($statuses[$post->ID]>2){$progress = 100;}
                     $custom_fields = get_post_custom();
                     $duration = $custom_fields['vibe_duration'][0];
-                    $session = $custom_fields['vibe_course_sessions'][0];
-                  ?>
+                    $session = $custom_fields['vibe_course_sessions'][0]; ?>
                   <div class="course-box dotted-border">
                     <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
                         
@@ -138,9 +133,14 @@ get_header(vibe_get_header());
                       </div>
                     </div>
                   </div>
-                <?php } ?>
+                <?php }?>
+                    </div>
                 </div>
-            </div>
+                <?php } else{ ?>
+                    <h1>You don’t have any active courses right now</h1>
+                    
+                <?php }
+                ?>
         </div>
         <div class="col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
             <?php

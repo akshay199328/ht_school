@@ -85,19 +85,19 @@ get_header(vibe_get_header());
             endif;
           ?>
         </div>
+        <?php
+          $args = array(
+              'post_type' => 'post',
+              'post_status' => 'publish',
+              'category_name' => "Expert's corner",
+              'posts_per_page' => 6,
+          );
+          $Query = new WP_Query( $args );
+          if ($Query->have_posts()){
+          ?>
+          <h3>Expert News<h3>
         <div class="sidebar">
-                    <?php
-                    
-
-            echo "<h3>"."Expert News"."<h3>";
-            $args = array(
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'category_name' => 'Expert',
-                'posts_per_page' => 6,
-            );
-            $Query = new WP_Query( $args );
-            if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+            <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
                       // if( $Query->current_post != 0 ) { 
               ?>
               <div class="list" >
@@ -116,6 +116,7 @@ get_header(vibe_get_header());
                     if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
                     <?php endif; ?>
           </div>
+        <?php } ?>
           <div class="category_bottomAD">
             <?php
 
@@ -131,21 +132,22 @@ get_header(vibe_get_header());
     </div>
   </div>
 </section>
+<?php
+  $args = array(
+      'post_type' => 'post',
+      'post_status' => 'publish',
+      'category_name' => 'Interviews',
+      'posts_per_page' => 6,
+  );
+  $Query = new WP_Query( $args );
+?>
+<?php if ($Query->have_posts()){ ?>
 <section id="" class="latest-news news_latest-news lts_news">
   <div class="container">
     <div class="row gx-0">
       <div class="pagetitle">
-        <h1>Interview News</h1>
+        <h1>Interviews News</h1>
       </div>
-          <?php
-            $args = array(
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'category_name' => 'Interview',
-                'posts_per_page' => 6,
-            );
-            $Query = new WP_Query( $args );
-        ?>
                   <div class="col-sm-12 col-lg-12 mrg">
             <div class="details-middle">
               <ul class="news_three_data">
@@ -169,5 +171,6 @@ get_header(vibe_get_header());
       </div>
     </section>
 <?php
+}
 get_footer(vibe_get_footer());
 ?>

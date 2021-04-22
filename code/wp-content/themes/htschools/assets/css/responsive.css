@@ -1312,6 +1312,9 @@ span.wpcf7-form-control-wrap.recaptcha {
 		.details-middle.adwork img {
     		width: 100% !important;
 		}
+		.all_course_page.landing-page .right-details .course-button{
+			padding-left: 70px !important;
+		}
 
 }
 	@media screen and (max-width:375px) {
@@ -1340,6 +1343,9 @@ span.wpcf7-form-control-wrap.recaptcha {
 	@media screen and (max-width:320px) {
 		a.homeicon img {
     		max-width: 100px;
+		}
+		.all_course_page.landing-page .right-details .course-button{
+			padding-left: 0px !important;
 		}
 	}
 

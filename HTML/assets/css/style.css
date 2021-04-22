@@ -4224,6 +4224,7 @@ Course Details
     .course-fees {background: #fff;padding: 15px 0px;}
     .course-fees h4, .course-fees a.link{color: #000!important;}
     .profileimg-name .co-lg-3.pull-left {padding: 10px 0px 0px 20px;}
+    .notic_bord_box .modal-content{top: 0px !important; left: 0px !important;}
   }
   @media screen and (max-width:575px) and (min-width:320px){
     .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -4308,7 +4309,7 @@ Course Details
   }*/
   .notification_div {
     background-color: #fff;
-    margin-left: 15px;
+    margin-left: 21px;
   }
   .notifi_image.pin {
     background: url(../img/Group-15296.png);
@@ -4330,16 +4331,20 @@ Course Details
     border-bottom: 1px solid #efefef;
 }
 .notification_div p{
-  margin-left: 30px;
+  margin-left: 32px;
   font-size: 13px;
   line-height: 16px;
+  padding-right: 51px;
 }
 .notification_div .time p {
     display: inline-block;
 }
 .notification_div .time {
-    padding-right: 15px;
+    padding-right: 38px;
     padding-top: 30px;
+}
+.notification_div .msg:nth-child(2) {
+    height: 400px;
 }
 .delet_div p{
   margin-left: 0px;
@@ -4364,7 +4369,7 @@ Course Details
   }
   .dropdown_div {
     padding-left: 15px;
-    padding-bottom: 30px;
+    margin-bottom: 31px;
 } 
 .dropdown_div p {
     font-size: 15px;

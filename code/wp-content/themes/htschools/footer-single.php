@@ -36,9 +36,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <!-- <span>FlexStart</span> -->
               </a>
             </div>
-            <div class="col-lg-12 col-md-12 footer-info mrg">
-            <!--  <p>Supporting education through our products,</p> ---->
-            </div>
+            <!-- <div class="col-lg-12 col-md-12 footer-info mrg">
+              <p>Supporting education through our products,</p> --
+            </div> -->
           </div>
 
           <div class="col-sm-12  col-md-4 col-lg-4 social-links mrg">

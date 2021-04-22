@@ -162,7 +162,7 @@ section {
     -ms-flex-pack: justify !important;
     justify-content: space-between !important;
     display: flex;
-    height: 40px;
+    height: 75px;
   }
   .footer .footer-top .social-links .pull-left, .footer .footer-top .social-links .pull-right{
       -webkit-box-pack: justify !important;
@@ -6614,5 +6614,23 @@ h6:empty
     margin-left: 0px;
 }
 .customfeatured_headeing{
-  padding: 0px 0px 15px 0px !important;
+  padding: 0px 0px 5px 0px !important;
 }
+
+.learing-goals .heading h3{padding-bottom: 5px;}
+
+
+/*.search_section input{
+  padding: 0px 80px 14px !important;height: 73px;line-height: 60px;
+}
+.search_icon{
+  top:51px;
+}
+
+.search_section input{
+  height:50px;
+  line-height:50px;
+}
+.search_icon{
+  top:34px;
+}*/

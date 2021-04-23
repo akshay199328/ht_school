@@ -36460,11 +36460,12 @@ body {
 	#profileModal .light{font-size: 10px;
 		font-weight: normal;
 		font-stretch: normal;
-		font-style: normal;
-		
+		font-style: normal;		
 		letter-spacing: normal;
 		text-align: left;
 		color: #000000;}
 		#profileModal .progress_new .right{border-color:#0d9ce8;}
-		#profileModal .progress_new .left{border-color:#0087ff;}
+		#profileModal .progress_new .left{border-color:#0087ff;background-color: #d5ebff;}
+		.info-card{font-size: 15px;
+			font-weight: 300;}
 	

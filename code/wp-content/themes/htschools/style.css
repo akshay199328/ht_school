@@ -236,10 +236,10 @@ ol.breadcrumbs  {
 }
 
 .breadcrumbs li:after {
-      padding-right: 9px;
+      padding-right: 5px;
     top: 2px;
     position: relative;
-    padding-left: 4px;
+    padding-left: 5px;
     color: #000000;
     content: "\f285";
     display: inline-block;
@@ -4111,6 +4111,7 @@ section.latest-news{
 .login-box .loginContent_right {
     width: 400px;
     float: left;
+        position: relative;
 }
 .login-left img{width: 100%;height: 640px;}
 .login-box .login-right {
@@ -4198,7 +4199,7 @@ div.nsl-container-block .nsl-container-buttons a{
 .option_or{
     position: relative;
     text-align: center;
-    margin: 0px 0px 1rem;
+    margin: 8px 0px 13px;
 }
 .option_or:after{
     content:'';
@@ -4238,6 +4239,9 @@ div.nsl-container-block .nsl-container-buttons a{
     font-size: 15px;
     font-weight: normal;
     height: 100%;
+}
+div.nsl-container .nsl-container-buttons{
+      padding: 0px 0!important;
 }
 .form-footer {
     text-align: center;

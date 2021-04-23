@@ -2190,7 +2190,7 @@ button.course-button .button
     line-height: 1.33;
     letter-spacing: normal;
     text-align: center;
-    color: #fade3b;
+    color: #fade3b!important;
     float: left;
     margin-left: 4px;
     border-radius: 0px !important;
@@ -2215,7 +2215,7 @@ input.progress_key_3,
 button.progress_key_3
 {
     background: #FADE3B!important;
-    color: #000;
+    color: #000!important;
 }
 
 .competitive {
@@ -4364,14 +4364,16 @@ div.nsl-container .nsl-container-buttons{
     margin-top: 0px;
     padding: 0px;
 }
-
+.standard-form .radio {
+  display: block;
+}
 .login-box .switch-label, .radio .switch-label {
     direction: rtl;
     position: relative;
     z-index: 2;
     float: left;
     width: 72px;
-    height: 41px;
+    height: 45px;
     padding: 0;
     margin-bottom: 0;
     font-size: 15px;
@@ -4440,7 +4442,7 @@ div.nsl-container .nsl-container-buttons{
         top: 2px;
     left: 2px;
     width: 72px;
-    height: 37px;
+    height: 40px;
     background: #0C5ACC;
     -webkit-transition:  500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
     -moz-transition: 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
@@ -5444,12 +5446,15 @@ h6:empty
     font-weight: bold;
     border-width: 0px 0px 3px !important;
     border-bottom-style: dotted !important;
-    margin-top: 10px;
+    margin-top: 30px;
     color: rgb(0, 0, 0) !important;
+}
+.preference .select2-container{
+      /*top: 535px!important;*/
 }
 .preference .select2-container.select2-container--open .select2-results__options{
   position: absolute!important;
-    top: -63px!important;
+    /*top: -63px!important;*/
     left: -1%!important;
     background: #fff;
     height: 200px;
@@ -5509,7 +5514,7 @@ h6:empty
 }
 .profile-card.transprent .share-icon  {
     float: right;
-    width: 47%;
+    width: 100%;
     text-align: right;
 }
 .course-box .share-icon {
@@ -5616,7 +5621,7 @@ h6:empty
 /*-------Dashboard css:END-------*/
 
 /*-------Search css-------*/
-.search.search-results #content {padding: 0px;}
+.search.search-results #content {padding-top: 0;padding-bottom: 60px;}
 .search.search-results .cats ul li{    margin-top: 4px;}
 .blogpost-search {
    position: relative;

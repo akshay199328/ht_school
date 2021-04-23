@@ -81,7 +81,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			</div>
 			<div class="form-group ">
 				
-				<label> Select Gender</label> <br/>
+				<label> Select Gender</label> 
 				<div class="radio"> 
 					<div class="switch">
 	                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>

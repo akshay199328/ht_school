@@ -150,13 +150,12 @@ vibe_include_template("profile/top$profile_layout.php");
                     echo "<p>".esc_html( $content )."</p>";
                   }
                 ?>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
-                <p>Sessions</p>
-                <?php if(get_post_meta($post->ID,'vibe_course_sessions',true) == '') { ?>
-                    <h6>--</h6>
+                <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg duration">
+                <p>Duration</p>
+                <?php if($duration == '') { ?>
+                <h6>--</h6>
                 <?php } else{ ?>
-                    <!-- <h6><?php echo $courselesson;?></h6> -->
-                    <h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true);?> <?php echo $duration;?> Days</h6>
+                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
                 <?php }?>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">

@@ -439,12 +439,15 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           <h4><?php echo $category_array[0]->name;?></h4>
                           <?php bp_course_avatar(); ?>
                           <h3><?php bp_course_title(); ?></h3>
-                          <div class="col-sm-12 mrg session">
-                            <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" /><?php if($duration == '' && $session == '') { ?>
+                          <div class="col-sm-12 mrg session duration">
+                            <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" />
+                              <!-- <?php if($duration == '' && $session == '') { ?>
                                 --
                             <?php } else{ ?>
                               <?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span>
-                            <?php }?></h6>
+                            <?php }?> -->
+                            <?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span>
+                          </h6>
                           </div>
                           <div class="other-courses_join-btn">
                             <?php the_course_button(); ?> 

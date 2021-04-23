@@ -257,7 +257,7 @@ border: 1px solid deepskyblue;
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="profileModalLabel">
-            <img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/03/logo.png" class="modal-img"/>
+            <img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/03/logo-popup.png" class="modal-img"/>
            <!-- <p class="modal-text"> Thank you for getting in touch!</p> -->
             <!-- <p class="modal-text">Welcome to</p>
             <p class="modal-para">Data Science Masterclass for Non-Programmers</p> -->

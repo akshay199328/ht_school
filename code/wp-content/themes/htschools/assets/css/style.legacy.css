@@ -14683,7 +14683,8 @@ body {
 
  .modal-header {
  	padding: 15px;
- 	border-bottom: 1px solid #e5e5e5
+ 	border-bottom: 1px solid #e5e5e5;
+	 background-color: #d5ebff;
  }
 
  .modal-header:after {
@@ -35915,7 +35916,7 @@ body {
 	}
 
 	.otp_button .submit_btn{
-		width: 68% !important;
+		width: 84% !important;
 		margin-left: 0px !important;
 	}
 	.otp_button .arrow_btn{
@@ -36078,7 +36079,7 @@ body {
 		border-bottom: 1px solid #000;
 		display: block;
 	    width: 50%;
-	    margin: 20px 0px 5px;
+	    margin: 20px 0px 0px;
 	    position: relative;
 	}
 	.atwork_img {
@@ -36178,7 +36179,7 @@ body {
 		}
 @media screen and (min-width: 767px){
 	.about-details.mrg.right_content {
-			padding: 10px 0px 20px 0px !important;
+			padding: 26px 0px 20px 0px !important;
 		}
 		.right_spacing{
 		    padding-left: 25px!important;
@@ -36402,8 +36403,16 @@ body {
 	.page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
 
 	.course ul.item-list li{border-bottom: 0!important;}
-
-
+	.children-list h1{border-bottom: 1px dotted #a8a6a6!important;}
+	.children-element{border-bottom: 1px dotted #a8a6a6!important;}
+	.children-element .child-index strong{font-size: 11px;
+		font-weight: bold;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: 1.36;
+		letter-spacing: 0.55px;
+		text-align: left;
+		color: #000000;}
 	/* mobileview */
 	@media screen and (max-width:1024px) {
 		.woocommerce-page .checkout-button {
@@ -36427,4 +36436,35 @@ body {
 		.order_details_button.customOrder_details p{display:flex;justify-content: center;}
 		.search_value .new-campaign-form{width:100%;}
 	}
+
+
+	/* profile model pop up */
+	#profileModal .modal-header {background-color: #d5ebff;padding: 30px 30px 18px;}
+	#profileModal .modal-text {    margin-bottom: 0;font-family: GTWalsheimPro;font-size: 25px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;text-align: left;color: #000000;}
+	#profileModal .modal-img{margin-bottom: 7px;}
+	#profileModal .modal-header .close{padding: 0 1rem;margin-top: 0;opacity: 1;font-weight: 400;font-size: 24px;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;}
+	#profileModal .progressbar-full{display:block}
+	#profileModal .progress_new .overlay{background-color: #d5ebff;}
+	#profileModal .progress_new{height:80px;width:80px;background-color: #fff;}
+	#profileModal .progressbar-full .title{text-align: center;margin: -85px 11px;font-size: 21px;font-weight: bold;font-stretch: normal;font-style: normal;letter-spacing: normal;color: #000000;}
+	#profileModal  .pull-left{padding: 0 10px;}
+	.top-line{width: 50%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: 4px solid #00D98E;
+		border-radius: 100px 0px 0px 100px;
+		border-right: 0;
+		transform-origin: right;}
+	#profileModal .light{font-size: 10px;
+		font-weight: normal;
+		font-stretch: normal;
+		font-style: normal;
+		
+		letter-spacing: normal;
+		text-align: left;
+		color: #000000;}
+		#profileModal .progress_new .right{border-color:#0d9ce8;}
+		#profileModal .progress_new .left{border-color:#0087ff;}
 	

@@ -95,7 +95,8 @@ $topics = wp_get_post_tags(get_the_ID());
       <div class="content-right">
         <div class="details">
           <div class="post-creator">
-            <p>By <strong><?php echo $postCreatorName;; ?>,</strong> <br><?php echo $postDate; ?></p>
+            <p>By <strong><?php echo $postCreatorName;; ?>,</strong>
+               <span class="post_date"><?php echo $postDate; ?></span></p>
             <!--   <p><?php echo $postDate; ?></p> -->
            <div class="share-icon">
             <ul>

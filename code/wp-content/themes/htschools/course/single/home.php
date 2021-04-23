@@ -160,9 +160,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                       </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                                     </div>
                                   </li>
-                                    <li>
-                                    <a href="#">
-                                      <!-- <img src="<?php echo get_bloginfo('template_url')?>/assets/images/delete-icon.svg"/> -->
                                       <?php
                                          if(is_user_logged_in()){
                                           ?>
@@ -174,8 +171,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                           <?php
                                         }
                                         ?>
-                                    </a>
-                                  </li>
                               </ul>  
                               <script async src="https://static.addtoany.com/menu/page.js"></script>
                             </div>

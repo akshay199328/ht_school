@@ -316,12 +316,16 @@ ol.breadcrumbs  {
 }
 .home .header{height: 116px;}
 .inner-header{background: #fade3b;}
-.home .header.header-scrolled, 
-.home .header.fixed {
+.header.header-scrolled, 
+.header.fixed {
   background: #fff!important;
-  padding: 5px 0!important;
+  /*padding: 5px 0!important;*/
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  height: 76px;
+  /*height: 80px;*/
+}
+.home .header.header-scrolled,
+.home .header.fixed {
+  height: 80px;
 }
 .course-template-default .header-scrolled, 
 .page-template-all-courses .header-scrolled,
@@ -414,7 +418,17 @@ ol.breadcrumbs  {
     transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
 }
-
+.course-template-default .header .logo img{
+  display: none;
+}
+.course-template-default .header a.logo {
+    background: url('./assets/images/logo_yellow.png');
+    display: block;
+    width: 182px;
+    height: 50px;
+    text-align: center;
+    margin: 0px auto;
+}
 .header .logo span {
   font-size: 30px;
   font-weight: bold;
@@ -713,7 +727,7 @@ ol.breadcrumbs  {
   /*margin-top: 20px;*/
 }
 .innerheader-space{
-  margin-top: 65px;
+  margin-top: 80px;
 }
 .innerheader-space.less_topmargin {
     margin-top: 95px;
@@ -4566,7 +4580,7 @@ div.nsl-container-block .nsl-container-buttons a{
     padding: 0px 0px;
 }
 .news-main .content-right .details .share-icon{
-  margin-top: 15px;
+  margin-top: 0px;
 }
 .news-main .content-right .details .share-icon a, 
 .news-main .content-right .details .share-icon .top-icon {
@@ -4993,7 +5007,7 @@ border-color: transparent;
     font-size: 25px;
     color: #000;
     line-height: 33px;
-    margin-bottom: 36px;
+    margin-bottom: 10px;
 }
 
 .dashboard_accountinfo .form-control:focus {
@@ -5054,6 +5068,7 @@ border-color: transparent;
   font-weight: 300;
   color: #000000;
   line-height: 20px;
+  margin-bottom: 15px!important;
 }
 .left-listing li{
   display: block;
@@ -5503,7 +5518,7 @@ h6:empty
   display: inline-block;
   width: auto;
   padding: 0px;
-  margin-right: 10px;
+  margin-right: 20px;
   border: 0px;
   cursor: pointer;
   margin-bottom: 0px;
@@ -6663,8 +6678,21 @@ h6:empty
 }
 
 .learing-goals .heading h3{padding-bottom: 5px;}
-
-
+.news-main .post-creator p{
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 300;
+    color: #000;
+}
+.news-main .post-creator p span{
+    font-size: 11px;
+    line-height: 15px;
+      display: block;
+      margin-top: 4px;
+}
+.support-contact .wpb_content_element:last-child{
+  display: none;
+}
 /*.search_section input{
   padding: 0px 80px 14px !important;height: 73px;line-height: 60px;
 }

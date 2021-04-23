@@ -95,8 +95,9 @@ get_header(vibe_get_header());
           $Query = new WP_Query( $args );
           if ($Query->have_posts()){
           ?>
-          <h3>Expert News<h3>
+          
         <div class="sidebar">
+          <h3>Expert News</h3>
             <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
                       // if( $Query->current_post != 0 ) { 
               ?>

@@ -7091,13 +7091,22 @@
             className: "the_course_button"
         }, i && i.length ? c > -1 ? mr("span", null, mr("button", {
             onClick: () => {
-                if(l.is_cb_course){
-                    window.location = l.cb_course_link;
+                window.selectedCourseId = l.id;
+                if(window.checkProfile == undefined){
+                    window.checkProfile = true;
+                }
+
+                if(l.is_profile_complete || window.checkProfile == false){
+                    if(l.is_cb_course){
+                        window.location = l.cb_course_link;
+                    }else{
+                        f(!0)
+                    }
                 }else{
-                    f(!0)
+                    jQuery("#profileModal").modal("show");
                 }
             },
-            className: "course_button full progress_key_" + l.user_status
+            className: "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id
         }, a)) : Array.isArray(i) ? mr("strong", {
             className: "course_button full"
         }, mr("a", {

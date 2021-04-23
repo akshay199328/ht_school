@@ -1031,6 +1031,19 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$course_id = $body['id'];
 			$is_cb_course = 0;
 			$cb_course_link = "";
+			$is_profile_complete = 0;
+
+			$user_mobile = get_profile_data('Phone');
+			$user_birthday = get_profile_data('Birthday');
+			$user_gender = get_profile_data('Gender');
+			$user_country = get_profile_data('Country');
+			$user_state = get_profile_data('State');
+			$user_city = get_profile_data('City');
+			$dob = strtotime($user_birthday);
+
+			if($dob > '1970-01-01' && $user_city != '' && $user_state != '' && $user_country != '' && $user_gender != ''){
+				$is_profile_complete = 1;
+			}
 
             $cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
             if ($cb_course_id){
@@ -1119,6 +1132,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							'user_progress'         => empty($progress)?0:intval($progress),
 							'user_status'           => $status,
 							'is_cb_course'          => $is_cb_course,
+							'is_profile_complete'   => $is_profile_complete,
 							'cb_course_link'        => $cb_course_link,
 							'duration'				=> bp_course_get_course_duration($course_id,$this->user->id),
 							'user_expiry'           => bp_course_get_user_expiry_time($this->user->id,$course_id),

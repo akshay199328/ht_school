@@ -98,7 +98,7 @@ if($(window).width() >= 768) {
         $(".featured_tablist .left_tab").css({ "padding": "20px 0px", "width":"1050px", "margin":"0px auto"});
 
     } else {
-        $(".featured_tablist").css({ "position": "relative", "width":"100%", "margin":"0px", "left":"0", "right":"0", "top":"0", "background":"transparent", "padding" : "0px 15px"});
+        $(".featured_tablist").css({ "position": "relative", "width":"100%", "margin":"0px", "left":"0", "right":"0", "top":"0", "background":"transparent", "padding" : "10px 0px 0px 0px!important"});
         $(".featured_tablist .left_tab").css({ "padding": "0px 0px", "width":"100%", "margin":"0px"});
     }
 });

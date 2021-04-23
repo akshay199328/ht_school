@@ -400,6 +400,19 @@ border: 1px solid deepskyblue;
                 </div>
                 <div class="col-md-3">
                     <!-- progress bra -->
+                    <div class="progressbar-full">
+                        <div class="pull-left">
+                            <div class="progress_new">
+                                <div class="overlay"></div>
+                                <div class="left"></div>
+                                <div class="right"></div>
+                                
+                            </div>
+                        </div>
+                        <div class="pull-left">
+                            <span class="title timer" data-from="0" data-to="30" data-speed="1800">70% <span class="light">Completed</span></span>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

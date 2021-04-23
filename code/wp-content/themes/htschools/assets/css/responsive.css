@@ -71,6 +71,10 @@ border-bottom: 1px solid #262626 !important;
     color: #A2A0A0;
     font-weight: 500;
 }
+.contact-us select {
+        background: url('../images/profile-dropdown.svg') no-repeat;
+    background-position: 98% 65%;
+}
 .contact-us label{
 	font-size: 14px;
 	color: #A2A0A0;

@@ -5008,6 +5008,7 @@ border-color: transparent;
     color: #000;
     line-height: 33px;
     margin-bottom: 10px;
+    font-weight:bold!important;
 }
 
 .dashboard_accountinfo .form-control:focus {

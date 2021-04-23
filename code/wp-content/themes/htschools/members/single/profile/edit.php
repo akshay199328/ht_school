@@ -27,6 +27,12 @@ $user_country = get_profile_data('Country');
 $user_state = get_profile_data('State');
 $user_city = get_profile_data('City');
 
+$user_school_name = "";
+$user_school = get_profile_data('Linked School');
+if(intval($user_school) > 0){
+	$user_school_name = get_user_by('id', $user_school)->display_name;
+}
+
 $dob = strtotime($user_birthday);
 
 // ht_parent_child_mapping
@@ -107,14 +113,20 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<label for="user_city">City</label>
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>">
 			</div>
-			<div class="form-group hide-acf-form">
-				<?php acf_form( $args );?>
+
+			<div class="form-group profile_search">
+				<label for="user_school_data">School</label>
+				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
+				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+			</div>
+			<!-- <div class="form-group hide-acf-form">
+				<?php// acf_form( $args );?>
 			</div>
 			<div class="form-group">
                 <div class="search_value">                    
 
                    <?php  
-                   $user = wp_get_current_user();
+                  /* $user = wp_get_current_user();
                    $args = array(
                       'post_id' => 'user_{$user->ID}',
                       'form_attributes' => array(
@@ -125,10 +137,10 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
                       'fields' => ['select_school'],
                       'submit_value' => __("Save and Continue", 'acf'),
                     );
-                acf_form( $args ); ?>
+                acf_form( $args );*/ ?>
 
                               </div>        
-                </div>
+                </div> -->
 
 			
 			<p id="response_message" class="" style="margin: 10px 0; display: none;"></p>
@@ -236,7 +248,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 <script type="text/javascript">
 	(function($) {
 		$(document).ready(function(){
-			var ajaxurl = "<?php echo home_url(); ?>/wp-admin/admin-ajax.php";
+		/*	var ajaxurl = "<?php echo home_url(); ?>/wp-admin/admin-ajax.php";
             $('form#modalAjaxTrying :submit').click(function(event){
 			    event.preventDefault();
 			    var form_data = {'action' : 'acf/validate_save_post'};
@@ -251,7 +263,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			   
 			    })
 
-			})
+			})*/
 			window.selectedCountry = "<?php echo $user_country; ?>";
 			$("#child_name").val('');
 			$("#child_school").val('');
@@ -313,6 +325,16 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			        event.preventDefault();
 			        $("#child_school").val(ui.item.label);
 			        $("#child_school_id").val(ui.item.value);
+			    },
+			});	
+
+			$( "#user_school_data" ).autocomplete({
+				source: schoolUrl,
+				minLength: 2,
+				select: function(event, ui) {
+			        event.preventDefault();
+			        $("#user_school_data").val(ui.item.label);
+			        $("#user_school").val(ui.item.value);
 			    },
 			});	
 

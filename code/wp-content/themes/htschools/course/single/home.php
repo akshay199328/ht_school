@@ -422,7 +422,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                   $Query_course = new WP_Query($query_args);
               }
             }
-            if($Query_course->have_posts()){?>
+            if($Query_course && $Query_course->have_posts()){?>
 
             <div class="other-courses grey-background">
               <div class="container">

@@ -898,7 +898,7 @@ function add_extra_item_to_nav_menu( $items, $args ) {
 function get_profile_data( $field, $user_id = 0, $multi_format = 'array' ) {
 
   if ( empty( $user_id ) ) {
-    $user_id = bp_displayed_user_id();
+    $user_id = bp_loggedin_user_id();
   }
 
   if ( empty( $user_id ) ) {
@@ -951,7 +951,8 @@ function save_custom_profile(){
     
     $response = array(
         'status' => 0,
-        'message' => 'Unable to save profile, please try again'
+        'message' => 'Unable to save profile, please try again',
+        'profile_complete' => 0
     );
 
     $user_id = bp_loggedin_user_id();
@@ -969,11 +970,23 @@ function save_custom_profile(){
         xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
         xprofile_set_field_data('State', $user_id, trim($_REQUEST['user_state']));
         xprofile_set_field_data('City', $user_id, trim($_REQUEST['user_city']));
+        xprofile_set_field_data('Linked School', $user_id, trim($_REQUEST['user_school']));
 
-        $response = array(
-            'status' => 1,
-            'message' => 'Profile updated successfully.'
-        );
+        if(esc_attr( $_POST['first_name']) != "" 
+          && esc_attr( $_POST['last_name']) != ""
+            && trim($_REQUEST['user_dob']) != ""
+            && trim($_REQUEST['user_gender']) != ""
+            && trim($_REQUEST['user_country']) != ""
+            && trim($_REQUEST['user_state']) != ""
+            && trim($_REQUEST['user_city']) != ""
+            && trim($_REQUEST['user_school']) != ""
+      ){
+            $response['profile_complete'] = 1;
+          }
+
+        $response['status'] = 1;
+        $response['message'] = 'Profile updated successfully.';
+        
     }catch(Exception $e){
 
     }
@@ -1044,6 +1057,30 @@ add_action("wp_ajax_get_schools", "get_schools");
 add_action( 'wp_ajax_nopriv_get_schools', 'get_schools' ); 
 
 function get_schools(){
+    global $wpdb;
+    
+    $response = array();
+
+    $args = array(
+        'role'    => 'School',
+        'orderby' => 'user_nicename',
+        'order'   => 'ASC'
+    );
+    $results = get_users( $args );
+
+
+    foreach ($results as $data) {
+        $row = array();
+        $row['label'] = $data->display_name;
+        $row['value'] = $data->id;
+
+        $response[] = $row;
+    }
+
+    echo json_encode($response); exit;
+}
+
+function get_schools_old(){
     global $wpdb;
     
     $response = array();

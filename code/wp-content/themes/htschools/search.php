@@ -35,8 +35,8 @@ $total_results = $wp_query->found_posts;
                 <form action="<?php echo home_url(); ?>" id="search-form" method="get">
                    <div class="search_section">
                     <div class="search_icon"></div>
-                    <input type="text" name="s" id="s" value="Search HT School" onblur="if(this.value=='')this.value='Search HT School'"
-                    onfocus="if(this.value=='Search HT School')this.value=''" />
+                    <input type="text" name="s" id="s" placeholder="Search HT School" onblur="if(this.placeholder=='')this.placeholder='Search HT School'"
+                    onfocus="if(this.placeholder=='Search HT School')this.placeholder=''" />
                     <input type="hidden" value="submit" />
                 </div> 
                  

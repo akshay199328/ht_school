@@ -86,12 +86,12 @@ vibe_include_template("profile/top$profile_layout.php");
                     echo "<p>".esc_html( $content )."</p>";
                   }
                 ?>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg">
+                <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg duration">
                     <p>Duration</p>
-                    <?php if($duration == '' && $session == '') { ?>
+                    <?php if($duration == '') { ?>
                     <h6>--</h6>
                     <?php } else{ ?>
-                    <h6><?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span></h6>
+                    <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
                     <?php }?>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">

@@ -1464,7 +1464,12 @@ add_shortcode( 'username', 'wpc_shortcode_username' );
 function wpc_shortcode_username() {
     $current_user = wp_get_current_user();
     $username = $current_user->user_login;
-    return get_bloginfo('url').'/members-directory/'.$username;
+    if(!$username || empty($username) || $username == ''){
+      return get_bloginfo('url').'/login-register';
+    }
+    else{
+      return get_bloginfo('url').'/members-directory/'.$username;
+    }
 }
 
 add_shortcode( 'contact-adwork', 'wpc_shortcode_contact_adwork' );

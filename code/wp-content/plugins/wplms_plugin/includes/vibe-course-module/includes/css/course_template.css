@@ -3520,7 +3520,7 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
   .ui-datepicker .ui-datepicker-year
 	{width: 38%!important;}
 	.ui-datepicker .ui-datepicker-title select{
-		font-size: 22px!important;
+		font-size: 22px!important;background-image: none;
 	}
 	.ui-datepicker .ui-datepicker-title{
 		margin: 8px 2.3em!important;

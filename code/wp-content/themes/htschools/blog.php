@@ -172,20 +172,18 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <!-- End Most Experts -->
 
 <section class="latest-news customNews_tab">
-<?php foreach ($menuitems as $menu) { ?>
-
+<?php foreach ($menuitems as $menu) { 
+  $args = array(
+  'post_type' => 'post',
+  'post_status' => 'publish',
+  'category_name' => $menu->title,
+  'posts_per_page' => 6,
+);
+$Query = new WP_Query( $args );
+if ($Query->have_posts()) : 
+?>
   <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
     <div class="container">
-      <?php 
-        $args = array(
-        'post_type' => 'post',
-        'post_status' => 'publish',
-        'category_name' => $menu->title,
-        'posts_per_page' => 6,
-      );
-      $Query = new WP_Query( $args );
-      if ($Query->have_posts()) : 
-      ?>
       <div class="featured_headeing">
         <h1><?php echo $menu->title; ?></h1>
         <!-- <br/> -->
@@ -239,9 +237,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
              <?php dynamic_sidebar( 'banner-3' ); ?>      
            <?php endif; ?>
           </div>
-        <?php endif;?>
       </div>
     </div>
+    <?php endif;?>
 <?php }?>
 </section>
 

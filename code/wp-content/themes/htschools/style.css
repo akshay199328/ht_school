@@ -2287,6 +2287,9 @@ section.latest-news{
 }
 .customNews_tab .latest-news{
     background: #fff;
+        float: left;
+    width: 100%;
+    padding-bottom: 30px;
 }
 .customNews_tab .latest-news:nth-child(2n+2){
     background: #f7f7f7;
@@ -4245,7 +4248,7 @@ div.nsl-container-block .nsl-container-buttons a{
 }
 .form-footer p a{
   font-size:15px;
-  color:#9E9E9E;
+  color:#0C5ACC;
   font-weight: 300;
 }
 .form-footer p a:hover{

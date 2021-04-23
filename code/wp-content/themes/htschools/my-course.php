@@ -23,7 +23,6 @@ get_header(vibe_get_header());
     <section id="Popular-Courses" class="">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
-          <div class="col-lg-9 mrg">
                 	<?php
 		                $user = wp_get_current_user();
                     // print_r($user->user_login);
@@ -52,6 +51,7 @@ get_header(vibe_get_header());
                     global $bp,$wpdb;
                     if(!empty($result)){
                   ?>
+                  <div class="col-lg-9 mrg">
                   <div class="">
                   <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                     <?php while($course_query->have_posts()){
@@ -136,18 +136,22 @@ get_header(vibe_get_header());
                 <?php }?>
                     </div>
                 </div>
+                  </div>
+                  <div class="col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
+                      <?php
+                        if ( is_active_sidebar( 'banner-1' ) ) : ?>
+                        <?php dynamic_sidebar( 'banner-1' ); ?>      
+                      <?php endif; ?>
+                  </div>
                 <?php } else{ ?>
-                    <h1>You don’t have any active courses right now</h1>
+                    <div class="empty_cart_div">
+                        <div class="empty_course_image"></div>
+                        <h4>You have not bought any courses till now</h4>
+                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+                    </div>
                     
                 <?php }
                 ?>
-        </div>
-        <div class="col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
-            <?php
-              if ( is_active_sidebar( 'banner-1' ) ) : ?>
-              <?php dynamic_sidebar( 'banner-1' ); ?>      
-            <?php endif; ?>
-        </div>
     </div>
 </div>
 </section>

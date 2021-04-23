@@ -30,13 +30,16 @@ vibe_include_template("profile/top$profile_layout.php");
       <?php 
       $course_data = wpfp_get_users_favorites();
       $count_array = []; 
-      foreach ($course_data as $post_id) {
-       $post = get_post($post_id);
-       if($post->post_type == "course"){
-        array_push($count_array, $post->ID);
+      if(!empty($course_data)){
+        foreach ($course_data as $post_id) {
+         $post = get_post($post_id);
+         if($post->post_type == "course"){
+          array_push($count_array, $post->ID);
+          }
+        }
       }
-    }
     $count = count($count_array);
+    if($count > 0){
     foreach ($course_data as $post_id) {
 
       $post = get_post($post_id);
@@ -146,13 +149,13 @@ vibe_include_template("profile/top$profile_layout.php");
     }
     ?>
   </div>
-  <?php if($count < 1){ ?>
-    <div class="empty_cart_div">
-      <div class="empty_course_image"></div>
-      <h4>You Don’t Have Any Courses <br/>Saved Till Now. </h4>
-      <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
-    </div>
-  <?php } ?>
+  <?php }else{ ?>
+  <div class="empty_cart_div">
+    <div class="empty_course_image"></div>
+    <h4>You Don’t Have Any Courses <br/>Saved Till Now. </h4>
+    <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+  </div>
+<?php }?>
 </div>
 </div>
 <!-- <div class="right_feedback">

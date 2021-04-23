@@ -416,7 +416,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               if( !empty( $related_course_id ) ) {
                   $query_args = apply_filters('wplms_mycourses',array(
                   'post_type'=>'course',
-                  'posts_per_page' => 2,
+                  'posts_per_page' => 4,
                   'post__in'=>$related_course_id
                   ),$user->ID);
                   $Query_course = new WP_Query($query_args);

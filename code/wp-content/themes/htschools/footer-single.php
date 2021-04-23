@@ -63,17 +63,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <div class="col-sm-12 middle-detils footer-links">
             <div class="col-lg-12 col-12 mrg">
               <ul>
-                  <li><a href="<?php echo get_site_url();?>/all-courses">Course Offerings</a></li>
-                  <li><a href="<?php echo get_site_url();?>/news">News Release</a></li>
+                  <li><a href="<?php echo get_site_url();?>/all-courses" title="Course Offerings">Course Offerings</a></li>
+                  <li><a href="<?php echo get_site_url();?>/news" title="News Release">News Release</a></li>
               </ul>
             </div>
             <div class="col-lg-12 col-12 about-links mrg">
               <ul>
-                <li><a href="<?php echo get_bloginfo('url')?>/about">About HT School</a></li>
-                <li><a href="https://www.hindustancareermate.com/" target="_blank">Career Mate</a></li>
-                <li><a href="https://www.htcodeathon.com/" target="_blank">Code-a-Thon</a></li>
-                <li><a href="https://www.lenovoscholarship.com/" target="_blank">Scholarships</a></li>
-                <li><a href="https://www.hindustanolympiad.in/" target="_blank">Olympiads</a></li>
+                <li><a href="<?php echo get_bloginfo('url')?>/about" title="About HT School">About HT School</a></li>
+                <li><a href="https://www.hindustancareermate.com/" title="Career Mate" target="_blank">Career Mate</a></li>
+                <li><a href="https://www.htcodeathon.com/" title="Code-a-Thon" target="_blank">Code-a-Thon</a></li>
+                <li><a href="https://www.lenovoscholarship.com/" title="Scholarships" target="_blank">Scholarships</a></li>
+                <li><a href="https://www.hindustanolympiad.in/" title="Olympiads" target="_blank">Olympiads</a></li>
               </ul>
             </div>
           </div>

@@ -313,7 +313,7 @@ border: 1px solid deepskyblue;
                                     <label>Date of Birth*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>">
+                                    <input id="user_dob_display" type="text" class="in-class form-control" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>">
                                     <input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
                                     <!-- <input type="date" name=""  placeholder="DD / MM / YYYY" class="in-class form-control" />              -->
                                 </div>

@@ -85,7 +85,7 @@ $post = get_post($post_id);
                                     </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                                 </div>
                               </li>
-                                <li>
+                                
                                 <?php
                                     if(is_user_logged_in()){
                                         ?>
@@ -97,7 +97,7 @@ $post = get_post($post_id);
                                         <?php
                                     }
                                 ?>
-                                </li>
+                                
                              </ul> 
                         </div>
                     </div>

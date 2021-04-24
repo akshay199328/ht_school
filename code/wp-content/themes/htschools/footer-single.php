@@ -400,7 +400,7 @@ border: 1px solid deepskyblue;
                 </div>
                 <div class="col-md-3">
                     <!-- progress bra -->
-                    <div class="progressbar-full">
+                    <!-- <div class="progressbar-full">
                         <div class="pull-left">
                             <div class="progress_new">
                                 <div class="overlay"></div>
@@ -411,6 +411,13 @@ border: 1px solid deepskyblue;
                         </div>
                         <div class="pull-left">
                             <span class="title timer" data-from="0" data-to="30" data-speed="1800">70% <span class="light">Completed</span></span>
+                        </div>
+                    </div> -->
+                    <div class="circles-container bg-white">
+                        <div class="circlebar" data-circle-startTime=0 data-circle-maxValue="50" data-circle-dialWidth=5 data-circle-size="80px" data-circle-type="progress">
+                            <div class="loader-bg">
+                                <div class="text">00:00:00</div>
+                            </div>
                         </div>
                     </div>
                 </div>

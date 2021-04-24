@@ -453,6 +453,11 @@ padding: 15px 0;
     .display_icon{right:0px;}
     
 }
-@media (max-width: 767px){
+@media (max-width: 767px) and (min-width:320px){
     .fixedmenu-tabs .display_icon{left:0px;}
+    .course-fees .course_button, .course-fees a.course_button, .course-fees input.course_button, .course-fees button.course_button {
+        width: 185px !important;
+        font-size: 13px!important;
+        margin: 0px 0px 0px;
+    }
 }

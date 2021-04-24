@@ -180,6 +180,7 @@ if(!is_admin()){
   wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
   wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
   wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
+  wp_enqueue_script( 'wplms-circle', get_template_directory_uri(). '/assets/js/circle.js', '', '', true );
 }
 //wp_enqueue_script( 'library-jui-js', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.min.js', '', '', true );
 // add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );

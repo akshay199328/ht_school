@@ -1172,7 +1172,10 @@ Course Details
     border-top: solid 1px #a6a6a6;
     
 }
-
+.fixed_banner.course_fixedBanner .content li{
+  border-bottom: 0px;
+}
+.fixed_banner h2{margin-bottom: 30px;    margin-top: 20px;}
 .fixed_banner li p{
   font-size: 14px!important;
   line-height: 1.36!important;
@@ -1712,6 +1715,7 @@ Course Details
   line-height: 1.36;
   letter-spacing: 0.55px;
   text-align: right;
+  text-transform: uppercase;
 }
 .card h5{
     font-size: 20px;
@@ -4959,6 +4963,7 @@ border-color: transparent;
       border-radius: 0px!important;
     text-transform: capitalize!important;
     letter-spacing: normal!important;
+    font-family: "GT-Walsheim-Pro"!important;
 }
 .material #buddypress .myprofile_content .current, .material #buddypress .myprofile_content .selected {
     -webkit-transform: perspective(400px) translateY(-2px);
@@ -4992,10 +4997,13 @@ border-color: transparent;
   background: transparent!important;
   text-transform: initial!important;
   border-radius: 0px!important;
-  padding: 13px 20px!important;
+  padding: 18px 20px!important;
   border-bottom: 1px dotted #707070!important;
   letter-spacing: normal!important;
       line-height: 20px!important;
+}
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:first-child{
+  border-top: 1px dotted #707070!important;
 }
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li:hover a, 
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:hover,
@@ -5021,7 +5029,7 @@ border-color: transparent;
     font-size: 25px;
     color: #000;
     line-height: 33px;
-    margin-bottom: 10px;
+    margin-bottom: 22px;
     font-weight:bold!important;
 }
 
@@ -6150,6 +6158,7 @@ h6:empty
   .home_slider .homecarousel_text h1 {font-size: 45px;line-height: 45px;margin-bottom: 10px;}
   .home_slider .homecarousel_text p {font-size: 22px;line-height: 32px;}
   .releted_news_section .related_post {padding-left: 54px;}
+  .fixedTop_tab .tablist{    width: 930px!important;padding: 40px 0px 20px!important;}
 }
 @media screen and (max-width:991px) and (min-width:768px){
   
@@ -6176,6 +6185,7 @@ h6:empty
     }
     .static_content .sidebar li{padding: 15.5px 13px;}
     .fixedmenu-tabs .container{padding:0px!important;}
+    .fixedTop_tab .tablist{    width: 705px!important;padding: 40px 0px 20px!important;}
 }
 @media screen and (max-width:991px) and (min-width:320px){
     .header{    height: 80px;}
@@ -6266,7 +6276,7 @@ h6:empty
     .cv-detilslist span { margin: 0px 10px 10px 12px;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: inline-block!important;}
-    .right-details .course-button a{margin-left: 0px;}
+    .right-details .course-button a{margin-left: 0px;font-size: 12px;}
     .middle-details .share-icon{right: 0;}
     .sticky_content { display: block;}
     .fixed_banner, .right-section{
@@ -6352,7 +6362,15 @@ h6:empty
       position: unset;
     }
     .course-button a{width: auto!important;padding-left: 15px;padding-right: 15px;}
-    .profile-card .news-listing .blogpost .excerpt.thumb{margin-top: 0px!important;padding-left: 20px;}
+    .profile-card .news-listing,
+    .profile-card .news-listing .blogpost:first-child {
+      padding-top: 0px!important;
+    }
+    .profile-card .news-listing .blogpost .excerpt.thumb{
+      margin-top: 0px!important;
+      padding-left: 0px;
+      margin-left: 10.5px!important;
+    }
     .Profile_details {padding-left: 12px;    width: 70%;}
     .dashboard_header .details_align{padding-right: 0px;}
     .dashboard_content #item-header h3 {font-size: 24px;line-height: 24px;}
@@ -6416,6 +6434,7 @@ h6:empty
     .hero-list .hero-card h5 {font-size: 23px;margin:10px 0px!important;}
     .hero-list .hero-card p {font-size: 12px;}
     .hero-list .hero-card a {/*font-size: 10px;*/}
+    .pagetitle h1{line-height: 1.39!important;}
     #Popular-Courses{padding-left: 15px;padding-right: 15px;}
     #Popular-Courses.all_course_page {padding-top: 10px;}
     .Popular-Courses .section-header p{margin-bottom: 10px;    }
@@ -6451,8 +6470,10 @@ h6:empty
     .cv-detilslist span { margin: 0 10px 20px 0px;}
     .cv-detilslist span h6 {font-size: 12px;}
     .learing-goals p {font-size: 13px;}
-    .course-fees {background: #fff;padding: 15px 0px;}
-    .course-fees h4, .course-fees a.link{color: #000!important;}
+    .course-fees .container{padding-right: 0px;}
+    .course-fees {background: #fff;padding: 15px 10px;}
+    .course-fees h4, .course-fees a.link{margin: 12px 30px 0px 0px;color: #000!important;}
+    .course-fees .the_course_button{    float: right;}
     .profileimg-name .co-lg-3.pull-left {padding: 10px 0px 0px 20px;}
     .breadcrumbs h5 {font-size: 18px;}
     .heading h3{font-size: 18px;line-height: 16px;}
@@ -6492,8 +6513,9 @@ h6:empty
     .Profile_details{float: left;padding-left: 15px;}
     .logged-in .right-menu ul.after_loginspace {margin-top: 3px;}
     .course-box .middle-details h2 {font-size: 15px;line-height: 15px;}
-    .course-box .middle-details h6 {letter-spacing: 1px;}
-    .course-box .middle-details p{font-size: 12px;line-height: 16px;}
+    .course-box .middle-details h6 {letter-spacing: 1px;margin-bottom: 5px;}
+    .course-box .middle-details p{font-size: 12px;line-height: 16px;margin-bottom: 13px;}
+    .course-box .middle-details .duration p{font-size: 10px;}
     .course-box .col-lg-10, 
     .course-box .col-lg-10 .col-lg-9, 
     .course-box .col-lg-10 .col-lg-3,
@@ -6511,7 +6533,8 @@ h6:empty
         /*width: 13.92px;*/
         background-size: 13.92px 13.92px;
     }
-    .fixedmenu-tabs .bookmark-remove, .post-creator .bookmark-remove{top: 4px;}
+    .fixedmenu-tabs .bookmark-remove, .post-creator .bookmark-remove,
+    .post-creator .bookmark{top: 4px;}
     .dashboard_accountinfo .course-box .middle-details {padding: 0;padding-left: 10px;padding-right: 60px !important;}
     .course_home_progress{padding-left: 10px;}
     .dashboard_accountinfo .course-box .right-details .course-button {
@@ -6544,11 +6567,15 @@ h6:empty
     .blogpost .news_icons {
         position: absolute;
         right: 0;
-        top: 0;
+        top: -14px;
     }
+    .tablist {margin: 0px 0px 0px 0px;}
     .news_icons .top-icon, .news_icons .share-icon{float: right;padding: 0px;}
     .news_icons .share-icon{margin-top: 0px;margin-left: 0px;}
     .news_icons .share-icon .top-icon{    padding-left: 20px;}
+    .news-listing .blogpost h3{font-size: 16px;line-height: 21px;}
+    .blogpost .meta {margin: 0 10px 2px 0!important;}
+    .news-listing .blogpost p{font-size: 12px;line-height: 15px;}
     .news-listing .content-right .sidebar{margin-top: 15px;}
     .news-main .content-right .details .share-icon{width: auto;}
     .news-listing .content-right .sidebar{    margin-top: 10px;}
@@ -6558,7 +6585,7 @@ h6:empty
     .search_value span, .search_value .item{font-size: 11px;    line-height: 15px;}
     .search_value span a i{top: -3px;}
     .profile_searchbox .search_section input{font-size: 15px!important;}
-    .share-icon ul li{margin-right: 5px;}
+    .share-icon ul li{margin-right: 10px;}
     .news-main .content-right .details .share-icon {margin-top: 0px;}
      .footer .footer-top .footer-info p {font-size: 20px;line-height: 1.35;}
     .footer .footer-links li, .footer .bottom-detils .links li{display: block!important;}
@@ -6569,7 +6596,7 @@ h6:empty
     .footer .social-links{margin: 0px 0px 40px;}
     .social-links{padding: 0px 15px !important;margin-top: 0px;margin-bottom: 30px;}
     .footer .footer-top .footer-info {margin-bottom: 15px;}
-    .footer .footer-top .footer-info .logo img {width: 150px;}
+    .footer .footer-top .footer-info img {width: 150px;}
 
     #exampleModal .modal-text{
         font-size: 30px;
@@ -6630,6 +6657,22 @@ h6:empty
       float: left;
     }
     .fixedmenu-tabs .container{padding:0px!important;}
+    .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:first-child {
+        border-top: 0px dotted #707070!important;
+    }
+    .empty_btn {font-size: 12px;}
+    .form-control::-webkit-input-placeholder {
+        font-size: 14px!important;
+     }
+    .course-template-default .header a.logo{
+        background: none!important;
+        margin: inherit;
+        height: auto;
+        width: auto;
+    }
+    .woocommerce-Price-amount {
+    font-size: 15px!important;color: #000000!important;}
+    .footer-info .logo img{height: 55px;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -6755,9 +6798,93 @@ select option{
     padding:20px 10px;
     font-size: 15px;
 }
-.page-template-blog .pusher,
-.page-template-blog section {
+body,
+.pusher,
+section {
     overflow: inherit!important;
+}
+.circles-container .loader {
+    position: relative;
+    float:left;
+    user-select: none;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+}
+.circles-container .loader-bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 5px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circles-container .spinner-holder-one {
+    position: absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    width: 50%;
+    height: 50%;
+    background: transparent;
+    box-sizing: border-box;
+}
+.circles-container .spinner-holder-two {
+    position: absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-sizing: border-box;
+}
+.circles-container .loader-spinner {
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    border: 5px solid #0087ff;
+    box-sizing: border-box;
+}  
+.circles-container .animate-0-25-a {
+    transform: rotate(90deg);
+    transform-origin: 100% 100%;
+}
+.circles-container .animate-0-25-b {
+    transform: rotate(-90deg);
+    transform-origin: 100% 100%;
+}
+.circles-container .animate-25-50-a {
+    transform: rotate(180deg);
+    transform-origin: 100% 100%;
+}
+.circles-container .animate-25-50-b {
+    transform: rotate(-90deg);
+    transform-origin: 100% 100%;
+}
+.circles-container .animate-50-75-a {
+    transform: rotate(270deg);
+    transform-origin: 100% 100%;
+}
+.circles-container .animate-50-75-b {
+    transform: rotate(-90deg);
+    transform-origin:100% 100%;
+}
+.circles-container .animate-75-100-a {
+    transform: rotate(0deg);
+    transform-origin: 100% 100%;
+}
+.circles-container .animate-75-100-b {
+    transform: rotate(-90deg);
+    transform-origin: 100% 100%;
+}
+.circles-container .text {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(135, 206, 235);
+    font-weight: bold;  
 }
 .fixedTop_tab{
     position: fixed;
@@ -6769,7 +6896,10 @@ select option{
     background: rgb(247, 247, 247);
 }
 .fixedTop_tab .tablist {
-      padding: 20px 0px;
+      padding:30px 0px;
     width: 1050px;
     margin: 0px auto;
 }
+.profile-card .news-listing .blogpost:first-child {
+      padding-top: 0px!important;
+    }

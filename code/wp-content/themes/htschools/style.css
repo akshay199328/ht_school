@@ -4394,6 +4394,9 @@ div.nsl-container .nsl-container-buttons{
     color: #fff!important;
     width: 50%;
 }
+.radio .switch-input:checked + .switch-label span{
+  color: #fff!important;
+}
 .login-box .switch-input[disabled] + .switch-label.switch-label-off, 
 .radio .switch-input[disabled] + .switch-label.switch-label-off {
     color: #999!important;
@@ -4419,7 +4422,9 @@ div.nsl-container .nsl-container-buttons{
 {
     border-radius:0;
 }
-
+.radio .switch-label-off,.switch-input:checked + .switch-label-off span ~ .slider2{
+  color: #fff!important;
+}
 .login-box .switch-input:checked + .switch-label svg path,
 .radio .switch-input:checked + .switch-label svg path
 {

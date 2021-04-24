@@ -83,6 +83,7 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
 #title .pagetitle {padding-top: 0!important;}
 .breadcrumbs li{
     margin-right: 0!important;
+    font-family: "GT-Walsheim-Pro";
 }
 .breadcrumbs li+li:before {
     content: ""!important;
@@ -100,6 +101,7 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
     line-height: 1.36;
     letter-spacing: normal;
     font-weight: bold!important;
+    font-family: "GT-Walsheim-Pro";
     
 }
 ol.breadcrumbs li+li:before {

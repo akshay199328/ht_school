@@ -94,12 +94,14 @@ if($(window).width() >= 768) {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 160) {
-        $(".featured_tablist").css({ "position": "fixed", "width":"100%", "margin":"0px auto", "left":"0", "right":"0", "top":"9.1%", "background":"#f7f7f7", "padding" : "10px 0px 0px 0px!important"});
-        $(".featured_tablist .left_tab").css({ "padding": "20px 0px", "width":"1050px", "margin":"0px auto"});
+        $(".featured_tablist").addClass('fixedTop_tab');
+        // $(".featured_tablist").css({ "position": "fixed", "width":"100%", "margin":"0px auto", "left":"0", "right":"0", "top":"9.1%", "background":"#f7f7f7", "padding" : "10px 0px 0px 0px!important"});
+        // $(".featured_tablist .left_tab").css({ "padding": "20px 0px", "width":"1050px", "margin":"0px auto"});
 
     } else {
-        $(".featured_tablist").css({ "position": "relative", "width":"100%", "margin":"0px", "left":"0", "right":"0", "top":"0", "background":"transparent", "padding" : "10px 0px 0px 0px!important"});
-        $(".featured_tablist .left_tab").css({ "padding": "0px 0px", "width":"100%", "margin":"0px"});
+      $(".featured_tablist").removeClass('fixedTop_tab');
+        // $(".featured_tablist").css({ "position": "relative", "width":"100%", "margin":"0px", "left":"0", "right":"0", "top":"0", "background":"transparent", "padding" : "10px 0px 0px 0px!important"});
+        // $(".featured_tablist .left_tab").css({ "padding": "0px 0px", "width":"100%", "margin":"0px"});
     }
 });
 
@@ -241,3 +243,5 @@ $(window).scroll(function() {
     }
 
 }).scroll();
+
+

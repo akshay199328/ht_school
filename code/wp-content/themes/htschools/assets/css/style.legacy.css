@@ -36109,7 +36109,7 @@ width: 300px;
 
 		.featured_tablist li.active {
 			border-bottom: 2px solid #000 !important;
-			padding: 3px 0px !important;
+			padding: 0px 0px !important;
 		}
 
 

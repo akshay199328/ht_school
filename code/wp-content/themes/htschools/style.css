@@ -2298,7 +2298,7 @@ button.progress_key_3
     text-align: right;
 }
 section.latest-news{
-    padding: 20px 0px;
+    padding:0px 0px 20px;
 }
 .customNews_tab .latest-news{
     background: #fff;
@@ -2458,8 +2458,8 @@ section.latest-news{
    
 }
 .center{text-align: center;}
-.latest-news .center {
-    margin-top: 20px;
+.latest-news .center .widget_custom_html {
+       margin: 33px 0px;
 }
 .infograph, .testimonials{
     padding: 20px 0px;
@@ -4633,6 +4633,7 @@ div.nsl-container .nsl-container-buttons{
 }
 .related_post{
   padding:30px 0px;
+      float: left;
 }
 .news-listing  {padding: 0px 0 60px;}
 .news-listing .background-breadcrumbs, .news_heading .background-breadcrumbs{
@@ -6179,10 +6180,10 @@ h6:empty
 @media screen and (max-width:991px) and (min-width:320px){
     .header{    height: 80px;}
     .home .header {
-        height: 80px;
+        height: 55px;
     }
-    .header.header-scrolled, .header.fixed{height: 55px;}
-    .header-space {margin-top: 70px;}
+    /*.header.header-scrolled, .header.fixed{height: 55px;}*/
+    .header-space {margin-top: 80px;}
     .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher{margin-top: 73px!important;}
     section#title {margin-top: 0px!important;}
     .learing_card{padding-top:20px;}
@@ -6379,6 +6380,7 @@ h6:empty
     .header .homeicon img{width: 96px;margin-left: -10px!important;}
     .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
     .right-menu{margin-top: -7px!important;}
+    .home_slider .homecarousel_text .pull-left {width: 100%;}
     .home_slider .homecarousel_text .pull-right {
         margin-left: 0px;
         float: left!important;
@@ -6669,8 +6671,8 @@ h6:empty
   }
   .add-width{width: 100%!important;}
   .menu-back{
-      width: 100%!important;
-      padding: 50px 30px 30px 30px!important;
+      width: 70%!important;
+      padding: 50px 20px 30px 20px!important;
   }
   .navegacion ul{width: 100%!important;padding:0 15px 0px 0px!important;}
   /*.right-menu ul li {margin-right: 10px;}*/
@@ -6746,4 +6748,23 @@ select option{
   color: #000;
     font-weight: 300;
     padding:20px 10px;
+    font-size: 15px;
+}
+.page-template-blog .pusher,
+.page-template-blog section {
+    overflow: inherit!important;
+}
+.fixedTop_tab{
+    position: fixed;
+    width: 100%;
+    margin: 0px auto;
+    left: 0px;
+    right: 0px;
+    top: 9.1%;
+    background: rgb(247, 247, 247);
+}
+.fixedTop_tab .tablist {
+      padding: 20px 0px;
+    width: 1050px;
+    margin: 0px auto;
 }

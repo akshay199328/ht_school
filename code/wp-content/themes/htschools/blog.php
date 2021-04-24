@@ -172,11 +172,11 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 </section>
 <!-- End Most Experts -->
 <div class="wrapper">
+<section class="latest-news">
 <?php foreach ($menuitems as $menu) { ?>
 
-<section id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
-  <div class="container">
-    <div class="">
+  <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
+    <div class="container">
       <?php 
         $args = array(
         'post_type' => 'post',
@@ -241,8 +241,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <?php endif;?>
       </div>
     </div>
+  <?php }?>
   </section>
-<?php }?>
 </div>
   <!-- End Most Interview -->
       <!-- <div class="container">

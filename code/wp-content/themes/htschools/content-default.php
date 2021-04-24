@@ -41,12 +41,12 @@ $post = get_post($post_id);
 ?>
 
             <div class="blogpost">
-                <div class="col-sm-12 col-md-2 mrg">
+                <div class="col-sm-2 col-md-2 mrg">
                     <div class="featured">
                         <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_image; ?>"> </a>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-8 mrg">
+                <div class="col-sm-10 col-md-8 mrg">
                     
                     <div class="excerpt thumb">
                         <div class="meta">
@@ -69,7 +69,7 @@ $post = get_post($post_id);
                         
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-2 mrg news_icons">
+                <div class="col-sm-2 col-md-2 mrg news_icons">
                      
                    <div class="share-icon">
 

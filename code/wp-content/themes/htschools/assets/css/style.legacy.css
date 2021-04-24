@@ -36036,13 +36036,13 @@ width: 300px;
 		font-weight: bold;
 		line-height: 20px;
 		margin-right: 15px;
+		padding: 0px 0px 5px;
 	}
 
 	.featured_tablist li a {
 		color: #939393;
 		font-weight: bold;
-		
-		padding: 3px 0rem;
+		padding: 3px 0rem 5px;;
 	}
 
 	
@@ -36109,7 +36109,7 @@ width: 300px;
 
 		.featured_tablist li.active {
 			border-bottom: 2px solid #000 !important;
-			padding: 0px 0px !important;
+			/*padding: 0px 0px !important;*/
 		}
 
 

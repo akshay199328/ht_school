@@ -41,70 +41,69 @@ $post = get_post($post_id);
 ?>
 
             <div class="blogpost">
-                <div class="col-sm-2 col-md-2 mrg">
+                <div class="col-sm-2 col-md-2 mrg  pull-left">
                     <div class="featured">
                         <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_image; ?>"> </a>
                     </div>
                 </div>
-                <div class="col-sm-10 col-md-8 mrg">
-                    
-                    <div class="excerpt thumb">
-                        <div class="meta">
-                         <div class="date">
-                            <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo $postDate; ?>
+                <div class="col-sm-10 col-md-10 mrg pull-right">
+                    <div class="col-sm-10 col-md-10 mrg ">
+                        <div class="excerpt thumb">
+                            <div class="meta">
+                                 <div class="date">
+                                    <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo $postDate; ?>
+                                </div>
+                            </div>
+                            <h3>
+                                <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                            </h3>
+                            <div class="cats">
+                                <ul class="post-categories">
+                                    <?php //echo $categoryList; 
+                                        //echo $instructor;
+                                    ?>
+                                </ul>
+                            </div>
+
+                            <p><?php echo wp_trim_words( get_the_excerpt(), 30); ?></p>
                         </div>
                     </div>
-                        <h3>
-                            <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
-                        </h3>
-                       <div class="cats">
-                            <ul class="post-categories">
-                                <?php //echo $categoryList; 
-                                    //echo $instructor;
-                                ?>
-                            </ul>
-                        </div>
-
-                        <p><?php echo wp_trim_words( get_the_excerpt(), 30); ?></p>
-                        
-                    </div>
-                </div>
-                <div class="col-sm-2 col-md-2 mrg news_icons">
-                     
-                   <div class="share-icon">
-
-                    <ul>       
-                        <li class="hover_share">
-                        <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
-                        <div class="display_icon">
-                            <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
-                            <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
-                                <a class="a2a_button_facebook"></a>
-                                <a class="a2a_button_twitter"></a>
-                                <a class="a2a_button_pinterest"></a>
-                                <a class="a2a_button_google_gmail"></a>
-                                <a class="a2a_button_whatsapp"></a>
-                                <a class="a2a_button_telegram"></a>
-                            </div><script async src="https://static.addtoany.com/menu/page.js"></script>
-                        </div>
-                      </li>
-                        <li>
-                        <?php
-                            if(is_user_logged_in()){
-                                ?>
-                                <li style="list-style-type: none;"><?php wpfp_post_link(); ?></li>
-                            <?php }else{
-                                $url = "/login-register";
-                                ?>
-                                   <li><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this article"></i></a></li> 
+                    <div class="col-sm-2 col-md-2 mrg news_icons">
+                        <div class="share-icon">
+                            <ul>       
+                                <li class="hover_share">
+                                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+                                <div class="display_icon">
+                                    <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
+                                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
+                                        <a class="a2a_button_facebook"></a>
+                                        <a class="a2a_button_twitter"></a>
+                                        <a class="a2a_button_pinterest"></a>
+                                        <a class="a2a_button_google_gmail"></a>
+                                        <a class="a2a_button_whatsapp"></a>
+                                        <a class="a2a_button_telegram"></a>
+                                    </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+                                </div>
+                              </li>
+                                <li>
                                 <?php
-                            }
-                        ?>
-                        </li>
-                     </ul> 
-                </div>
+                                    if(is_user_logged_in()){
+                                        ?>
+                                        <li style="list-style-type: none;"><?php wpfp_post_link(); ?></li>
+                                    <?php }else{
+                                        $url = "/login-register";
+                                        ?>
+                                           <li><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this article"></i></a></li> 
+                                        <?php
+                                    }
+                                ?>
+                                </li>
+                             </ul> 
+                        </div>
+                    </div>
                 </div>
             </div>
+
           
 
 <!-- <?php

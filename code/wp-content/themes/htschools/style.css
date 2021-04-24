@@ -314,7 +314,7 @@ ol.breadcrumbs  {
     align-items: center !important;
     display: flex;
 }
-.home .header{height: 116px;}
+.home .header{height: 116px;background: #d5ebff!important;}
 .inner-header{background: #fade3b;}
 .header.header-scrolled, 
 .header.fixed {
@@ -2086,7 +2086,7 @@ Course Details
 }
 .course-box .middle-details h2 a{color: #000000;font-weight: bold;}
 .course-box .middle-details p {
-        font-size: 15px;
+        font-size: 15px!important;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -2096,9 +2096,11 @@ Course Details
     color: #000000;
     margin-bottom: 0;
     margin: 0px!important;
-        margin-bottom: 5px!important;
+    margin-bottom: 20px!important;
 
 }
+
+.middle-details .duration p{margin-bottom:0px}
 .text-ellipsis{
     width: 25.6em;
     white-space: nowrap;

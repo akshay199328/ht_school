@@ -246,6 +246,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 </div>
 
 <script type="text/javascript">
+	window.onbeforeunload = null;
 	(function($) {
 		$(document).ready(function(){
 		/*	var ajaxurl = "<?php echo home_url(); ?>/wp-admin/admin-ajax.php";
@@ -288,7 +289,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 		                success: function(response) {
 		                    $("#submit-child-btn").html("Submit");
 		                    $("#submit-child-btn").removeAttr("disabled");
-
+		                    window.onbeforeunload = null;
 		                    if(response.status == 1){
 		                   	window.location.reload();
 		                    }else{
@@ -387,7 +388,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                success: function(response) {
 	                    $("#profile_submit").html("Submit");
 	                    $("#profile_submit").removeAttr("disabled");
-	             
+	             		window.onbeforeunload = null;
 	                    if(response.status == 1){
 	                    	$("#response_message").html(response.message);
 	                        $("#response_message").addClass('success');

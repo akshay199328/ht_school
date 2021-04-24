@@ -27,6 +27,12 @@ $user_country = get_profile_data('Country');
 $user_state = get_profile_data('State');
 $user_city = get_profile_data('City');
 
+$user_school_name = "";
+$user_school = get_profile_data('Linked School');
+if(intval($user_school) > 0){
+	$user_school_name = get_user_by('id', $user_school)->display_name;
+}
+
 $dob = strtotime($user_birthday);
 
 // ht_parent_child_mapping
@@ -111,17 +117,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" readonly>
 			</div>
 			<div class="form-group">
-				<div class="search_value disable-edit-form">
-				<?php  $args = array(
-                  'post_id' => 'user_{$user->ID}',
-                  'form_attributes' => array(
-                  'id'=>'modalAjaxTrying',
-                  'disabled'=>true
-                  ),
-                  'fields' => ['select_school'],
-                );
-                acf_form( $args ); ?>
-            </div>
+				<label for="user_school_data">School</label>
+				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>" readonly>
 			</div>
 		</form>
 	</div>

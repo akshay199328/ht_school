@@ -1122,6 +1122,9 @@ Course Details
     bottom:61.5%;
     transition: all 0.5s ease;
 }
+.fixed_banner .breadcrumbs {
+    padding: 0px 0 15px 0;
+}
 .fixed_banner .breadcrumbs li a{
   /*text-decoration: underline;*/
 }
@@ -2100,7 +2103,7 @@ Course Details
 
 }
 
-.middle-details .duration p{margin-bottom:0px}
+.middle-details .duration p{margin-bottom:0px!important;font-size:10px!important;}
 .text-ellipsis{
     width: 25.6em;
     white-space: nowrap;
@@ -4639,7 +4642,8 @@ div.nsl-container .nsl-container-buttons{
 }
 .related_post{
   padding:30px 0px;
-      float: left;
+  float: left;
+  width: 100%;
 }
 .news-listing  {padding: 0px 0 60px;}
 .news-listing .background-breadcrumbs, .news_heading .background-breadcrumbs{
@@ -6818,7 +6822,7 @@ section {
     height: 100%;
     border-radius: 50%;
     box-sizing: border-box;
-    border: 5px solid #eeeeee;
+    border: 5px solid #d5ebff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6884,8 +6888,10 @@ section {
 }
 .circles-container .text {
     text-align: center;
-    font-size: 20px;
-    color: rgb(135, 206, 235);
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.62;
+    color: rgb(0 0 0)!important;
     font-weight: bold;  
 }
 .fixedTop_tab{

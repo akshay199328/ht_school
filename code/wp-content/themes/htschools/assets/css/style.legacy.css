@@ -36248,7 +36248,7 @@ width: 300px;
 	    left: 10px;
 	    top: 27px
 	}
-	.blogpost-search .excerpt h3 a{font-weight: 18px;}
+	.blogpost-search .excerpt h3 a{font-weight: 18px!important;padding: 10px 0 14px 0;display:block}
 	.blogpost-search:after{width: 100%;}
 	.myprofile_content {padding-left: 0px;}
 	.myprofile_content h2{display: none;}
@@ -36372,7 +36372,7 @@ width: 300px;
 	section#title{    padding-top: 0px!important;}
 	section#title.search_page{    padding-bottom: 15px!important;}
 	.adwork{margin: 5px 0px!important}
-	.latest-news .center {margin-top: 5px;}
+	.latest-news .widget_custom_html{margin-top: 25px;}
 	.woocommerce form .form-row input.input-text{width: 100%;}
 }
 @media screen and (max-width: 437px){
@@ -36447,10 +36447,16 @@ width: 300px;
 		.topic_details .widget_custom_html {left: 0px;}
 		.custom_margin{margin: 0!important;padding: 0 !important;}
 		.section.latest-news{padding: 20px 0px 0px!important;}
-		.customfeatured_headeing{padding:0px 0px 0px 0px !important}
+		.customfeatured_headeing{padding:0px 0px 10px 0px !important}
 		.customfeatured_headeing h1{line-height:normal;}
 		.order_details_button.customOrder_details p{display:flex;justify-content: center;}
 		.search_value .new-campaign-form{width:100%;}
+		.Popular-Courses .section-header{padding-bottom: 20px;}
+		.custom-html-widget a img{width:100%;}
+		.details-middle ul li p{font-size: 10px;}
+		.latest-news .details-left .link a{font-weight:500!important}
+		.details-middle ul li .link a{font-weight:500!important}
+		.bootom-link p{font-size:11px!important}
 	}
 
 

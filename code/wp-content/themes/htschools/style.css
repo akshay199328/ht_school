@@ -818,7 +818,9 @@ ol.breadcrumbs  {
   background-size: cover;*/
   background: #D5EBFF;
 }
-
+.hero .owl-carousel .owl-item img{
+      height: 646px;
+}
 .learing_card{
   background: #d5ebff;
   padding-top: 0px;

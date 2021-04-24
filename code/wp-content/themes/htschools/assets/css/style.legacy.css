@@ -36378,7 +36378,7 @@ width: 300px;
 }
 @media screen and (max-width: 437px){
 	.myprofile_content ul li{width: auto!important;    margin-top: 2px!important;}
-	.myprofile_content .item-list-tabs li a{padding: 15px 8px!important;}
+	.myprofile_content .item-list-tabs li a{padding: 15px 3px!important;}
 
 }
 .fixed_banner p.newsdetail_caption {
@@ -36458,6 +36458,13 @@ width: 300px;
 		.latest-news .details-left .link a{font-weight:500!important}
 		.details-middle ul li .link a{font-weight:500!important}
 		.bootom-link p{font-size:11px!important}
+		.right-details .course-button h6 .amount{font-size: 15px;}
+		.fixedmenu-tabs .nav-tabs .nav-item a{font-size:11px}
+		.about-details p{font-size: 15px;font-weight: 300;}
+		.about-details .course-for{ padding: 12px 21px 19px 20px;}
+		.course-list span, .course-list .item{font-size: 11px;margin: 4px 7px 20px 0px;}
+		.course-for p{font-size: 15px;}
+		.course-for h5{font-size:14px}
 	}
 
 

@@ -44,7 +44,7 @@ if(!isset($title) || !$title || (vibe_validate($title))){
 <?php
 }
 ?>
-<section id="Popular-Courses" clas="all_course_page">
+<section id="Popular-Courses" class="all_course_page">
 	<!-- <div id="buddypress"> -->
     	<div class="<?php echo vibe_get_container(); ?>">
 			<?php do_action( 'bp_before_directory_course_page' ); ?>

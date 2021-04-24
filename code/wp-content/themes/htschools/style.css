@@ -836,6 +836,7 @@ ol.breadcrumbs  {
     text-align: left;
     color: #000000;
         text-transform: capitalize;
+        margin-top: 60px;
 }
 
 .learing_card p {
@@ -1002,6 +1003,7 @@ ol.breadcrumbs  {
   }
   .learing_card h1 {
     font-size: 35px;
+        margin-top: 30px;
   }
   .hero h2 {
     font-size: 24px;
@@ -1177,10 +1179,8 @@ Course Details
     border-top: solid 1px #a6a6a6;
     
 }
-.fixed_banner.course_fixedBanner .content li{
-  border-bottom: 0px;
-}
-.fixed_banner h2{margin-bottom: 30px;    margin-top: 20px;}
+
+.fixed_banner h2{margin-bottom: 30px;    /*margin-top: 20px;*/}
 .fixed_banner li p{
   font-size: 14px!important;
   line-height: 1.36!important;
@@ -6198,7 +6198,7 @@ h6:empty
 @media screen and (max-width:991px) and (min-width:320px){
     .header{    height: 80px;}
     .home .header {
-        height: 55px;
+        height: 80px;
     }
     /*.header.header-scrolled, .header.fixed{height: 55px;}*/
     .header-space {margin-top: 80px;}
@@ -6457,6 +6457,9 @@ h6:empty
     }
     .Popular-Courses .section-header .exlore-link{font-size: 12px;}
     .Popular-Courses .section-header .exlore-link {padding: 12px 32px 12px 25px;}
+    .fixed_banner.course_fixedBanner .content li{
+        border-bottom: 0px;
+      }
     .course-box{display: block;margin-top: 10px;margin-bottom: 0;    margin-left: 0px;}
     .course_single_item:first-child .course-box{margin-top: 0px;}
     .course-button {

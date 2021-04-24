@@ -421,8 +421,8 @@ ol.breadcrumbs  {
 .course-template-default .header .logo img{
   display: none;
 }
-.course-template-default .header a.logo {
-    background: url('./assets/images/logo_yellow.png');
+.course .header a.logo {
+    background: url('https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo_yellow-bg.png');
     display: block;
     width: 182px;
     height: 50px;

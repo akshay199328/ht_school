@@ -422,6 +422,7 @@ border: 1px solid deepskyblue;
   </div>
 </div>
 <script type="text/javascript">
+    window.onbeforeunload = null;
     (function($) {
         $(document).ready(function(){
 
@@ -521,7 +522,7 @@ border: 1px solid deepskyblue;
                     success: function(response) {
                         $("#profile_submit").html("Submit");
                         $("#profile_submit").removeAttr("disabled");
-                 
+                        window.onbeforeunload = null;
                         if(response.status == 1){
                             $("#response_message").html(response.message);
                             $("#response_message").addClass('success');

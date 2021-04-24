@@ -4428,12 +4428,12 @@ div.nsl-container .nsl-container-buttons{
     border-radius:0;
 }
 
-.login-box .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2,
+.login-box .switch-label-off, .switch-input:checked + .switch-label-off ~ .slider2,
 .radio .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2
 {
     border-radius:0;
 }
-.radio .switch-label-off,.switch-input:checked + .switch-label-off span ~ .slider2{
+.switch-input:checked + .switch-label-off span ~ .slider2{
   color: #fff!important;
 }
 .login-box .switch-input:checked + .switch-label svg path,

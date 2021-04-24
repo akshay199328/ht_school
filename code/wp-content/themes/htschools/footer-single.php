@@ -325,10 +325,8 @@ border: 1px solid deepskyblue;
                         </div>
                         <div class="tab-pane fade" id="step2">
                             <div class="row">
-<!--                                 <div class="col-md-12">
-                                    <label>Select gender</label>
-                                </div>
- -->                            <div class="form-group ">
+                              <div class="col-md-12">
+                                  <div class="form-group ">
                                     <label> Select Gender</label> <br/>
                                     <div class="radio"> 
                                         <div class="switch" style="height: unset;">
@@ -344,7 +342,7 @@ border: 1px solid deepskyblue;
                                         </div>
                                     </div>
                                 </div>
-
+                              </div>
                                 <!-- <div class="col-md-12">  
                                     <label>School name*</label>
                                 </div> -->

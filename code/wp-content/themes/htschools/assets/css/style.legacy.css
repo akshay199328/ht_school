@@ -36158,6 +36158,7 @@ width: 300px;
 		.image_background {
 			background: #000!important;
 		}
+		
 		.border_text p:after{
 			content:'';
     		border-bottom: 1px solid #fff;

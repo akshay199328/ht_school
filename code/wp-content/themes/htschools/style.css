@@ -2067,7 +2067,7 @@ Course Details
     margin: 0px;
     padding: 0px;
         margin: 0px 0px 10px;
-    /*text-transform: uppercase;*/
+    text-transform: uppercase;
 }
 .course-box .middle-details h2 {
     font-size: 20px;
@@ -2360,7 +2360,8 @@ section.latest-news{
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height:46px;
+    /*line-height:46px;*/
+    line-height:1.33
     letter-spacing: normal;
     text-align: left;
     color: #0c5acc!important;
@@ -2413,6 +2414,7 @@ section.latest-news{
     text-align: left;
     color: #000000;
     margin-bottom: 8px;
+    text-transform:uppercase
 }
 .news_advertisment .pull-left {
     float: left;
@@ -4465,7 +4467,7 @@ div.nsl-container .nsl-container-buttons{
 .radio .switch-label span
 {
     position: relative;
-    top: 12px;
+    top: 14px;
 }
 .switch-label-off span{
 /*  color: #fff;*/
@@ -6232,6 +6234,7 @@ h6:empty
       padding-right: 0;
       border-bottom: 1px dashed #b8b8b8;
           line-height: 28px;
+
     }
     .popularNew-heading {position: relative;top: 0;}
     .exlore-link.mobile-btn{margin: 10px 0px;}
@@ -6410,7 +6413,13 @@ h6:empty
     #Popular-Courses.all_course_page {padding-top: 10px;}
     .Popular-Courses .section-header p{margin-bottom: 10px;    }
     .Popular-Courses .section-header h2, .latest-news .header-heading h2, .breadcrumbs h2 {font-size: 35px;}
-    .Popular-Courses .section-header p, .latest-news .details-left .link a, .details-middle ul li .link,.breadcrumbs p{font-size: 18px;}
+    .Popular-Courses .section-header p, 
+    .latest-news .details-left .link a, 
+    .details-middle ul li .link,
+    .breadcrumbs p
+    {
+      font-size: 18px;
+    }
     .Popular-Courses .section-header .exlore-link{font-size: 12px;}
     .Popular-Courses .section-header .exlore-link {padding: 12px 32px 12px 25px;}
     .course-box{display: block;margin-top: 10px;margin-bottom: 0;    margin-left: 0px;}
@@ -6703,17 +6712,14 @@ h6:empty
 .support-contact .wpb_content_element:last-child{
   display: none;
 }
-/*.search_section input{
-  padding: 0px 80px 14px !important;height: 73px;line-height: 60px;
-}
-.search_icon{
-  top:51px;
+.children-element:after{
+  content:'';
+  background: #000;
+    height: 2px;
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    width: 52.27px;
+    right: 0;
 }
 
-.search_section input{
-  height:50px;
-  line-height:50px;
-}
-.search_icon{
-  top:34px;
-}*/

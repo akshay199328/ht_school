@@ -1432,8 +1432,8 @@ Course Details
 {
     margin-top: 30px;
 }
-.learing-goals .list ul li,
-.content-default-list ul li
+.learing-goals .list li,
+.content-default-list li
 {
     display: block;
     line-height: 25px!important;
@@ -1446,8 +1446,8 @@ Course Details
     text-align: left;
     color: #000000;
 }
-.learing-goals .list ul li:before,
-.content-default-list ul li:before
+.learing-goals .list li:before,
+.content-default-list li:before
 {
     content: '';
     background: url('./assets/images/bullet.png');
@@ -6200,7 +6200,8 @@ h6:empty
     }
     /*.header.header-scrolled, .header.fixed{height: 55px;}*/
     .header-space {margin-top: 80px;}
-    .innerheader-space, .woocommerce-cart .pusher, .woocommerce-checkout .pusher{margin-top: 73px!important;}
+    .innerheader-space, .woocommerce-cart .pusher, 
+    .woocommerce-checkout .pusher{margin-top: 80px!important;}
     section#title {margin-top: 0px!important;}
     .learing_card{padding-top:20px;}
     .left-spacing {padding-left: 0px!important;}
@@ -6289,7 +6290,7 @@ h6:empty
         width: 100%;
         margin: 0px;
         position: relative;
-        padding: 0px 0px;
+        padding: 8px 0px;
         /* z-index: 9; */
         top:0px;
         min-width: 100%;

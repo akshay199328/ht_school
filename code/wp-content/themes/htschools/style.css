@@ -2138,6 +2138,7 @@ width: 60%;
   font-size: 13px !important;
     line-height: 1.31!important;
     letter-spacing: normal!important;
+        text-transform: capitalize!important;
 }
 .duration h6 span{
   font-weight: normal!important;
@@ -4379,6 +4380,7 @@ div.nsl-container .nsl-container-buttons{
 }
 .standard-form .radio_switch {
   display: block;
+      padding-top: 10px;
 }
 .login-box .switch-label, .radio_switch .switch-label {
     direction: rtl;
@@ -4433,7 +4435,9 @@ div.nsl-container .nsl-container-buttons{
 {
     border-radius:0;
 }
-.switch-input:checked + .switch-label-off span ~ .slider2{
+.switch-input:checked + .switch-label-off ~ .slider2,
+.switch-input:checked + .switch-label-on ~ .slider2
+{
   color: #fff!important;
 }
 .login-box .switch-input:checked + .switch-label svg path,
@@ -5283,6 +5287,9 @@ font-size: 15px;
     margin-left: 0px;
     box-shadow: none;
 }
+.course_home_progress{
+      padding-left: 5px;
+}
 .progress {
     background: #D5EBFF!important;
     border-radius: 6px;
@@ -5304,7 +5311,8 @@ h6:empty
     position: relative;
     display: block;
     float: left;
-    padding-top: 150px;
+    padding-top: 20px;
+    padding-left: 5px;
 }
 .dashboard_accountinfo .profilecou-instructor .heading h3, 
 .profilecou-instructor .profile-heading h4,
@@ -6916,13 +6924,17 @@ section {
     background: rgb(247, 247, 247);
 }
 .fixedTop_tab .tablist {
-      padding:30px 0px;
+      padding:30px 0px 15px;
     width: 1050px;
     margin: 0px auto;
 }
 .profile-card .news-listing .blogpost:first-child {
       padding-top: 0px!important;
     }
-    .dashboard_content.material #content {
+.dashboard_content.material#content {
     padding-bottom: 0px!important;
-  }
+}
+
+.material .pusher .button:hover,{
+  box-shadow:none!important;
+}

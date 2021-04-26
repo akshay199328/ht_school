@@ -26357,6 +26357,7 @@ body {
  }
 #item-body .certifications {
     margin: 20px 0 30px;
+    padding-left: 5px;
 }
  #item-body .badges h6,
  #item-body .certifications h6 {

@@ -146,14 +146,15 @@ border: 1px solid deepskyblue;
   }
 
   #profileModal .in-class{
-    background-color: white;
+        background-color: #fff;
     margin-bottom: 10px;
     border: 0px !important;
     border-bottom: 1px solid #ccc !important;
     padding: 6px 1px;
-    font-size: 16px;
+    font-size: 18px;
     border-radius: 0px;
     box-shadow: none;
+    font-weight: 500;
   }
   #profileModal .input-group{
      background-color: white;
@@ -174,9 +175,9 @@ border: 1px solid deepskyblue;
     box-shadow: none !important;
   }
   #profileModal label{
-    font-weight: 100;
+    font-weight: 500;
     margin-bottom: 0px;
-    font-size: 13px;
+    font-size: 14px;
     color: #bbb;
   }
   #profileModal .n-btn{
@@ -204,8 +205,9 @@ border: 1px solid deepskyblue;
       width: 150px;
 }
   @media only screen and (max-device-width: 480px) {
-    .tabContent .nav>li, .nav>li>{
+    .tabContent .nav>li{
           width: 120px;
+          text-align: center;
     }
    .tabContent .nav>li, .nav>li>a{
           padding: 5px 25px 5px 25px;
@@ -280,7 +282,7 @@ border: 1px solid deepskyblue;
         <div class="row">
             <form id="profile-edit-form" name="profile-form" class="standard-form">
                 <input type="hidden" name="action" value="save_custom_profile">
-                <div class="col-md-9">
+                <div class="col-md-9 mrg">
                   <div class="tabContent">
                     <ul class=" ul-nav nav nav-pills nav-fill ">
                         <li class="active" ><a data-toggle="pill"  href="#step1">Step 1</a></li>
@@ -337,7 +339,7 @@ border: 1px solid deepskyblue;
                               <div class="col-md-12">
                                   <div class="form-group ">
                                     <label> Select Gender</label> <br/>
-                                    <div class="radio"> 
+                                    <div class="radio_switch"> 
                                         <div class="switch" style="height: unset;">
                                             <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
                                             <label for="one" class="switch-label switch-label-off">

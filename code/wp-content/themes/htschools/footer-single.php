@@ -134,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
  #profileModal .ul-nav>li>a {
 border: 1px solid deepskyblue;
-    padding: 2px 60px 2px 60px;
+    padding: 2px 10px;
     border-radius: 0px;
     color:deepskyblue;
  } 
@@ -195,11 +195,19 @@ border: 1px solid deepskyblue;
     color: #afafaf;
   }
   #profileModal .b-class{
-    padding: 25px;
+    padding: 30px;
   }
-
+.tabContent{
+  padding: 0px 18px 0px 16px;
+}
+.tabContent .nav>li, .nav>li>a{
+      width: 150px;
+}
   @media only screen and (max-device-width: 480px) {
-   #profileModal .ul-nav>li>a{
+    .tabContent .nav>li, .nav>li>{
+          width: 120px;
+    }
+   .tabContent .nav>li, .nav>li>a{
           padding: 5px 25px 5px 25px;
      }
     #profileModal .n-btn{    
@@ -273,6 +281,7 @@ border: 1px solid deepskyblue;
             <form id="profile-edit-form" name="profile-form" class="standard-form">
                 <input type="hidden" name="action" value="save_custom_profile">
                 <div class="col-md-9">
+                  <div class="tabContent">
                     <ul class=" ul-nav nav nav-pills nav-fill ">
                         <li class="active" ><a data-toggle="pill"  href="#step1">Step 1</a></li>
                         <li><a data-toggle="pill" class="mnav" id="profile_step_2"  href="#step2">Step 2</a></li>
@@ -393,7 +402,7 @@ border: 1px solid deepskyblue;
                                 </div>
                             </div>
                         </div>       
-
+                      </div>  
                     </div>
                 </div>
                 <div class="col-md-3">

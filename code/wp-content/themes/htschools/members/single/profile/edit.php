@@ -97,6 +97,11 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	            </div>
 			</div>
 			<div class="form-group profile_search">
+				<label for="user_school_data">School</label>
+				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
+				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+			</div>
+			<div class="form-group profile_search">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>">
 				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
@@ -114,11 +119,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>">
 			</div>
 
-			<div class="form-group profile_search">
-				<label for="user_school_data">School</label>
-				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
-				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
-			</div>
+			
 			<!-- <div class="form-group hide-acf-form">
 				<?php// acf_form( $args );?>
 			</div>

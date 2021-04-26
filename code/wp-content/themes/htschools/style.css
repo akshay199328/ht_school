@@ -4483,7 +4483,7 @@ div.nsl-container .nsl-container-buttons{
 .radio_switch .switch-label span
 {
     position: relative;
-    top: 14px;
+    top: 12px;
 }
 .switch-label-off span{
 /*  color: #fff;*/
@@ -5033,18 +5033,16 @@ border-color: transparent;
 .dashboard_accountinfo .profile-card .standard-form  {
     width: 70%;
 }
-.dashboard_accountinfo .profile-card h1 {
+.dashboard_accountinfo .profile-card h1, 
+.info-card h1 {
     font-size: 25px;
     color: #000;
     line-height: 33px;
-    
+     margin-bottom: 22px;
     font-weight:bold!important;
-}
-.dashboard_accountinfo .profile-card h1{
-  margin-bottom: 22px;
-}
-.info-card h1{
-  margin-bottom: 10px;
+}}
+.info-card #child-edit-form h1{
+  margin-bottom: 10px!important;
 }
 .dashboard_accountinfo .form-control:focus {
     color: red;
@@ -5088,7 +5086,9 @@ border-color: transparent;
     margin: 0;
     border-radius: 0px;
 }
-.standard-form .btn:hover{
+.standard-form .btn:hover,
+.standard-form .btn:focus
+{
   background: #000000;
     color: #D5EBFF;
 }
@@ -6923,3 +6923,6 @@ section {
 .profile-card .news-listing .blogpost:first-child {
       padding-top: 0px!important;
     }
+    .dashboard_content.material #content {
+    padding-bottom: 0px!important;
+  }

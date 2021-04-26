@@ -36499,4 +36499,6 @@ width: 300px;
 		#profileModal .progress_new .left{border-color:#0087ff;background-color: #d5ebff;}
 		.info-card{font-size: 15px;
 			font-weight: 300;}
-	
+.child-form	select{
+	    border-bottom: 1px solid #a8a6a6!important;
+}

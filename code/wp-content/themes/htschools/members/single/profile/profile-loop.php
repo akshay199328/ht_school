@@ -98,7 +98,10 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                </div>
 	            </div>
 			</div>
-			
+			<div class="form-group">
+				<label for="user_school_data">School</label>
+				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>" readonly>
+			</div>
 			<div class="form-group">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>" readonly>
@@ -116,10 +119,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<label for="user_city">City</label>
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" readonly>
 			</div>
-			<div class="form-group">
-				<label for="user_school_data">School</label>
-				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>" readonly>
-			</div>
+			
 		</form>
 	</div>
 </div>

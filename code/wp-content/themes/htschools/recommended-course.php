@@ -211,7 +211,9 @@ vibe_include_template("profile/top$profile_layout.php");
             </div>
             </div>
             </div>
-        <?php  endwhile; endif; } else{
+        <?php  endwhile; else: ?>
+            <h1>You don’t have any recommended courses right now</h1>
+        <?php endif; } else{
                 ?>
                 <h1>You don’t have any recommended courses right now</h1>
             <?php } ?>

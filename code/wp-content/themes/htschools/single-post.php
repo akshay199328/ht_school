@@ -196,7 +196,6 @@ $topics = wp_get_post_tags(get_the_ID());
                 // Related Posts
           $tags = wp_get_post_tags(get_the_ID());
           if ($tags) {
-            echo '<h2>Related News</h2>';
             $first_tag = $tags[0]->term_id;
 
             $args=array(
@@ -207,11 +206,13 @@ $topics = wp_get_post_tags(get_the_ID());
             $my_query = new WP_Query($args);
                      // print_r($my_query);
             //echo "<pre>";print_r($my_query);exit;
+            if ($my_query->have_posts()):
+            echo '<h2>Related News</h2>';
             ?>
               <div class="details-middle devide">
                 <ul class="news_two_data">
             <?php 
-            if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
+            while ($my_query->have_posts()) : $my_query->the_post();
                                   // if( $Query->current_post != 0 ) { 
               ?>
                   <li>
@@ -222,13 +223,13 @@ $topics = wp_get_post_tags(get_the_ID());
                   </li>
               <?php 
               
-                              // }
-            endwhile; endif;
-
-            wp_reset_query();
-          }
+               endwhile;               // }
+         
           ?>
         </ul>
+            <?php  endif;
+
+            wp_reset_query();  }?>
       </div>
       </div>
     </div>

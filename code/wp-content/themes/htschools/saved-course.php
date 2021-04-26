@@ -79,10 +79,10 @@ vibe_include_template("profile/top$profile_layout.php");
                 <div class="col-lg-7 duration mrg">
                   <div class="pull-left">
                     <p>Duration</p>
-                    <?php if($duration == '' && $session == '') { ?>
+                    <?php if($duration == '') { ?>
                     <h6>--</h6>
                     <?php } else{ ?>
-                    <h6><?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span></h6>
+                    <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
                     <?php }?>
                   </div>
                   <div class="pull-right">

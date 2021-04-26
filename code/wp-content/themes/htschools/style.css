@@ -152,7 +152,7 @@ section {
     min-height: 85px;
   }
   .releted_news_section .related_post{padding-left: 60px;}
-  
+    #profileModal .modal-content{height: 669px;}
 
 }
 
@@ -421,7 +421,13 @@ body.page-template-home , .page-template-home .pusher {
     margin: 0px auto;
     transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
+   /* width: 182px;
+    height: 50px;*/
 }
+/*.home-page .header .logo img{
+width: auto;
+    height: auto;
+}*/
 .single-course .header .logo img{
   display: none;
 }
@@ -4443,9 +4449,12 @@ div.nsl-container .nsl-container-buttons{
 }
 
 .login-box .switch-label-off, .switch-input:checked + .switch-label-off ~ .slider2,
-.radio_switch .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2
+.radio_switch .switch-label-off, .switch-input:checked + .switch-label-off ~ .slider2
 {
     border-radius:0;
+}
+.switch-input:checked + .switch-label-off ~ .slider2{
+    color: #fff!important;
 }
 .switch-label-off ~ .slider2,
 .switch-label-on ~ .slider2

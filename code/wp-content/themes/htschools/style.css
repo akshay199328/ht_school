@@ -422,7 +422,7 @@ ol.breadcrumbs  {
   display: none;
 }
 .single-course .header a.logo {
-        background: url(http://localhost/Htschools/code/wp-content/uploads/2021/04/logo-all.png) no-repeat;
+        background: url('./assets/images/logo_yellow.png') no-repeat;
     display: block;
     width: 157px;
     height: 42px;
@@ -1790,7 +1790,7 @@ Course Details
   width: 16px;
   display: block;
   position: relative;
-  top: 7px;
+  top: 5px;
 }
 .bookmark{
   background: url('./assets/images/saved.svg') no-repeat;
@@ -2372,8 +2372,8 @@ section.latest-news{
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    /*line-height:46px;*/
-    line-height:1.33;
+    line-height:46px;
+    /*line-height:1.33;*/
     letter-spacing: normal;
     text-align: left;
     color: #0c5acc!important;
@@ -4435,8 +4435,8 @@ div.nsl-container .nsl-container-buttons{
 {
     border-radius:0;
 }
-.switch-input:checked + .switch-label-off ~ .slider2,
-.switch-input:checked + .switch-label-on ~ .slider2
+.switch-label-off ~ .slider2,
+.switch-label-on ~ .slider2
 {
   color: #fff!important;
 }
@@ -4659,7 +4659,7 @@ div.nsl-container .nsl-container-buttons{
 margin-top: 20px;
 }
 .tablist{
-  margin: 15px 0px 30px 0px;
+  margin: 24px 0px 44px 0px;
 }
 /*.course-tablist .tablist{
   margin: 30px 0px 30px 0px;

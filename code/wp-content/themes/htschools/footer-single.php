@@ -46,17 +46,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               
               <div class="socio-list">
                 <!--  <span class="social-heading">Follow us on</span> -->
-                <a href="https://www.linkedin.com/company/htschool" target="_blank" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
-                <a href="https://twitter.com/htschool1" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.facebook.com/HTSchool-111960910982690/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/ht.school/" target="_blank" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/htschool" target="_blank" class="linkedin">
+                  <!-- <img class="icon" src="/assets/images/footer-linkdin.svg"/> -->
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-linkdin.svg"/>
+                </a>
+                <a href="https://twitter.com/htschool1" target="_blank" class="twitter">
+                  <!-- <img class="icon" src="/assets/images/footer-twitter.svg"/> -->
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-twitter.svg"/>
+                </a>
+                <a href="https://www.facebook.com/HTSchool-111960910982690/" target="_blank" class="facebook">
+                  <!-- <img class="icon" src="/assets/images/footer-facebook.svg"/> -->
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-facebook.svg"/>
+                </a>
+                <a href="https://www.instagram.com/ht.school/" target="_blank" class="instagram">
+                  <!-- <img class="icon" src="/assets/images/footer-instagram.svg"/> -->
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-instagram.svg"/>
+                </a>
               </div>
             </div>
             <div class="col-sm-4 col-lg-4 col-md-4 pull-right mrg">
               
               <div class="socio-list">
                 <span class="social-heading">RSS Feed</span>
-                <a href="<?php bloginfo('rss2_url'); ?>" target="_blank" class="twitter"><i class="bi bi-wifi bx bxl-wifi"></i></a>
+                <a href="<?php bloginfo('rss2_url'); ?>" target="_blank" class="twitter">
+                  <!-- <img class="icon" src="/assets/images/footer-rss.svg"/> -->
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-rss.svg"/>
+                </a>
               </div>
             </div>
           </div>
@@ -104,11 +119,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php if(is_user_logged_in()){ ?>
 
 <style>
+  #profileModal{
+        -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    /*display: flex;*/
+  }
+  #profileModal.modal.modal-box.fade.in{
+    display: flex!important;
+  }
     .ui-widget-content.ui-autocomplete{
         z-index: 99999;
     }
   #profileModal .modal-content {
-    top: 139px;
+    /*top: 139px;*/
+        border-radius: 0px;
+    background: #fff;
   }
 
 #profileModal .ul-nav>li.active>a{
@@ -138,6 +164,10 @@ border: 1px solid deepskyblue;
     border-radius: 0px;
     color:deepskyblue;
  } 
+ #profileModal .ul-nav>li>a:hover{
+  background-color: #0d9ce8;
+    color: #ffffff;
+ }
  #profileModal .ul-nav{
   margin-bottom: 25px;
  }
@@ -192,24 +222,33 @@ border: 1px solid deepskyblue;
    }
  #profileModal .input-group-addon{
     border:none;
-    background-color: white;
+    background-color: #fff;
     color: #afafaf;
+    line-height: normal;
+    vertical-align: bottom;
+    padding-bottom: 10px;
   }
   #profileModal .b-class{
     padding: 30px;
   }
-.tabContent{
+.tabDetails{
   padding: 0px 18px 0px 16px;
 }
-.tabContent .nav>li, .nav>li>a{
+.tabDetails .nav>li{
       width: 150px;
+    }
+.tabDetails .nav>li, .nav>li>a{
+      text-align: center;
+}
+.tabDetails .form-group .radio_switch{
+      margin-bottom: 10px;
 }
   @media only screen and (max-device-width: 480px) {
-    .tabContent .nav>li{
+    .tabDetails .nav>li{
           width: 120px;
           text-align: center;
     }
-   .tabContent .nav>li, .nav>li>a{
+   .tabDetails .nav>li, .tabDetails .nav>li>a{
           padding: 5px 25px 5px 25px;
      }
     #profileModal .n-btn{    
@@ -228,10 +267,7 @@ border: 1px solid deepskyblue;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
   }
-  #profileModal .modal-content {
-    top: 166px;
-  }
-  }
+}
 
 </style>
 
@@ -283,7 +319,7 @@ border: 1px solid deepskyblue;
             <form id="profile-edit-form" name="profile-form" class="standard-form">
                 <input type="hidden" name="action" value="save_custom_profile">
                 <div class="col-md-9 mrg">
-                  <div class="tabContent">
+                  <div class="tabDetails">
                     <ul class=" ul-nav nav nav-pills nav-fill ">
                         <li class="active" ><a data-toggle="pill"  href="#step1">Step 1</a></li>
                         <li><a data-toggle="pill" class="mnav" id="profile_step_2"  href="#step2">Step 2</a></li>
@@ -296,35 +332,35 @@ border: 1px solid deepskyblue;
                                     <label>First Name*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="first_name"  value="<?php echo $currentUser->user_firstname; ?>" placeholder="First name" class=" in-class form-control">
+                                    <input type="text" name="first_name"  value="<?php echo $currentUser->user_firstname; ?>" placeholder="First name" class=" in-class form-control user_field">
                                 </div>
 
                                 <div class="col-md-12">
                                     <label>Last Name*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="last_name"  value="<?php echo $currentUser->user_lastname; ?>" placeholder="Last name" class=" in-class form-control">
+                                    <input type="text" name="last_name"  value="<?php echo $currentUser->user_lastname; ?>" placeholder="Last name" class=" in-class form-control user_field">
                                 </div>
 
                                 <div class="col-md-12">
                                     <label>Email id*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="email" name="user_email"  value="<?php echo $currentUser->user_email; ?>" readonly placeholder="Email id"  class="in-class form-control"/>
+                                    <input type="email" name="user_email"  value="<?php echo $currentUser->user_email; ?>" readonly placeholder="Email id"  class="in-class form-control user_field"/>
                                 </div>
 
                                 <div class="col-md-12">
                                     <label>Mobile Number*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" class="in-class form-control" readonly/>
+                                    <input type="text" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" class="in-class form-control user_field" readonly/>
                                 </div>
 
                                 <div class="col-md-12">
                                     <label>Date of Birth*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input id="user_dob_display" type="text" class="in-class form-control" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>">
+                                    <input id="user_dob_display" type="text" class="in-class form-control user_field" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>">
                                     <input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
                                     <!-- <input type="date" name=""  placeholder="DD / MM / YYYY" class="in-class form-control" />              -->
                                 </div>
@@ -341,7 +377,7 @@ border: 1px solid deepskyblue;
                                     <label> Select Gender</label> <br/>
                                     <div class="radio_switch"> 
                                         <div class="switch" style="height: unset;">
-                                            <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
+                                            <input type="radio" class="switch-input user_radio_btn user_field" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
                                             <label for="one" class="switch-label switch-label-off">
                                                 <span>Female</span>
                                             </label>
@@ -360,7 +396,7 @@ border: 1px solid deepskyblue;
                                 <div class="col-md-12">  
                                     <div class="input-group">
                                         <label for="user_school_data">School</label>
-                                        <input type="text" class="s-class form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
+                                        <input type="text" class="s-class form-control user_field" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                         <input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
                                     </div>
@@ -371,7 +407,7 @@ border: 1px solid deepskyblue;
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-group">
-                                        <input type="type"  id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>" class="s-class form-control" />
+                                        <input type="type"  id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>" class="s-class form-control user_field" />
                                         <input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                     </div>
@@ -382,7 +418,7 @@ border: 1px solid deepskyblue;
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-group">
-                                        <input type="type" id="user_state" name="user_state" placeholder="Select State" value="<?php echo $user_state; ?>" class="s-class form-control" />
+                                        <input type="type" id="user_state" name="user_state" placeholder="Select State" value="<?php echo $user_state; ?>" class="s-class form-control user_field" />
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                     </div>
                                 </div>
@@ -392,7 +428,7 @@ border: 1px solid deepskyblue;
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-group">
-                                        <input type="type"  id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" class="s-class form-control" />
+                                        <input type="type"  id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" class="s-class form-control user_field" />
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                     </div>
                                 </div> 
@@ -423,7 +459,7 @@ border: 1px solid deepskyblue;
                         </div>
                     </div> -->
                     <div class="circles-container bg-white">
-                        <div class="circlebar" data-circle-startTime=0 data-circle-maxValue="50" data-circle-dialWidth=5 data-circle-size="80px" data-circle-type="progress">
+                        <div class="circlebar" id="progress-new" data-circle-startTime=0 data-circle-maxValue="100" data-circle-dialWidth=5 data-circle-size="80px" data-circle-type="progress">
                             <div class="loader-bg">
                                 <div class="text">00:00:00</div>
                             </div>
@@ -441,7 +477,17 @@ border: 1px solid deepskyblue;
     window.onbeforeunload = null;
     (function($) {
         $(document).ready(function(){
-
+            updateProgressBar();
+            function updateProgressBar(){
+              var count=0;
+              $(".user_field").each(function(){
+                  count = count+($.trim($(this).val())=="" ? 1 : 0);
+              });
+              var filled_count = 10 - count;
+              var total_count = 10;
+              var total_percent = (filled_count/total_count) * 100;
+              $("#progress-new").attr("data-circle-maxValue",total_percent);
+            }
             $(".close_modal").unbind();
             $(".close_modal").click(function(){
                 $("#profileModal").modal("hide");
@@ -475,6 +521,14 @@ border: 1px solid deepskyblue;
 
             $("#profile_next_step").click(function(){
                 $("#profile_step_2").click();
+                updateProgressBar();
+                var prefs = {
+                    element: ".circlebar"
+                };
+                $('.circlebar').each(function() {
+                    prefs.element = $(this);
+                    new Circlebar(prefs);
+                });
             });
 
             var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
@@ -540,6 +594,14 @@ border: 1px solid deepskyblue;
                         $("#profile_submit").removeAttr("disabled");
                         window.onbeforeunload = null;
                         if(response.status == 1){
+                            updateProgressBar();
+                            var prefs = {
+                                element: ".circlebar"
+                            };
+                            $('.circlebar').each(function() {
+                                prefs.element = $(this);
+                                new Circlebar(prefs);
+                            });
                             $("#response_message").html(response.message);
                             $("#response_message").addClass('success');
                             $("#response_message").removeClass('error');

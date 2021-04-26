@@ -36060,7 +36060,7 @@ width: 300px;
 	}
 
 	.news-date {
-		padding: 15px 0px;
+		padding: 15px 0px 10px;
 	}
 
 	.news-date p{
@@ -36471,7 +36471,7 @@ width: 300px;
 
 
 	/* profile model pop up */
-	#profileModal .modal-header {background-color: #d5ebff;padding: 30px 30px 18px;}
+	#profileModal .modal-header {background-color: #d5ebff;padding: 30px 30px 18px;border-radius: 0px;}
 	#profileModal .modal-text {    margin-bottom: 0;font-family: GTWalsheimPro;font-size: 25px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;text-align: left;color: #000000;}
 	#profileModal .modal-img{margin-bottom: 7px;}
 	#profileModal .modal-header .close{padding: 0 1rem;margin-top: 0;opacity: 1;font-weight: 400;font-size: 24px;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;}

@@ -56,7 +56,7 @@ vibe_include_template("profile/top$profile_layout.php");
       $excerpt = get_post_field('post_excerpt', $post->ID);
       if($post->post_type == "course"){
         ?>
-        <div class="course-box dotted-border">
+        <div class="course-box dotted-border savedCourse_box">
           <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
             <?php 
             if ( has_post_thumbnail() ) { 

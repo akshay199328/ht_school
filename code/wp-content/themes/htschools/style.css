@@ -418,14 +418,14 @@ ol.breadcrumbs  {
     transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
 }
-.course-template-default .header .logo img{
+.single-course .header .logo img{
   display: none;
 }
-.course .header a.logo {
-    background: url('https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo_yellow-bg.png');
+.single-course .header a.logo {
+        background: url(http://localhost/Htschools/code/wp-content/uploads/2021/04/logo-all.png) no-repeat;
     display: block;
-    width: 182px;
-    height: 50px;
+    width: 157px;
+    height: 42px;
     text-align: center;
     margin: 0px auto;
 }
@@ -1110,7 +1110,7 @@ Course Details
     background-color: #333;
     color: #fff;
     position: sticky;
-    top: 76px;
+    top: 80px;
     z-index: 99;
     padding-top: 15px;
 
@@ -2372,7 +2372,7 @@ section.latest-news{
     font-stretch: normal;
     font-style: normal;
     /*line-height:46px;*/
-    line-height:1.33
+    line-height:1.33;
     letter-spacing: normal;
     text-align: left;
     color: #0c5acc!important;
@@ -4364,7 +4364,7 @@ div.nsl-container .nsl-container-buttons{
     padding: 12px 12px;
     line-height: 28px;
 }
-.login-box .switch, .radio .switch {
+.login-box .switch, .radio_switch .switch {
         border-radius: 0;
     display: inline-block;
     transition: all 0.1s ease;
@@ -4377,10 +4377,10 @@ div.nsl-container .nsl-container-buttons{
     margin-top: 0px;
     padding: 0px;
 }
-.standard-form .radio {
+.standard-form .radio_switch {
   display: block;
 }
-.login-box .switch-label, .radio .switch-label {
+.login-box .switch-label, .radio_switch .switch-label {
     direction: rtl;
     position: relative;
     z-index: 2;
@@ -4396,40 +4396,40 @@ div.nsl-container .nsl-container-buttons{
     font-weight: 500;
 }
 
-.login-box .switch-input,  .radio .switch-input{
+.login-box .switch-input,  .radio_switch .switch-input{
     display: none;
 }
 
 .login-box .switch-input:checked + .switch-label, 
-.radio .switch-input:checked + .switch-label {
+.radio_switch .switch-input:checked + .switch-label {
     color: #fff!important;
     width: 50%;
 }
-.radio .switch-input:checked + .switch-label span{
+.radio_switch .switch-input:checked + .switch-label span{
   color: #fff!important;
 }
 .login-box .switch-input[disabled] + .switch-label.switch-label-off, 
-.radio .switch-input[disabled] + .switch-label.switch-label-off {
+.radio_switch .switch-input[disabled] + .switch-label.switch-label-off {
     color: #999!important;
 }
 .login-box .switch-input[disabled] + .switch-label, 
-.radio .switch-input[disabled] + .switch-label{
+.radio_switch .switch-input[disabled] + .switch-label{
       cursor: no-drop;
 }
 .login-box .switch-input:checked + .switch-label-on ~ .slider2, 
-.radio .switch-input:checked + .switch-label-on ~ .slider2 {
+.radio_switch .switch-input:checked + .switch-label-on ~ .slider2 {
     left: 50%;
     border-radius:0;
 }
 
 .login-box .switch-label-on,
-.radio .switch-label-on
+.radio_switch .switch-label-on
 {
     border-radius:0;
 }
 
 .login-box .switch-label-off, .switch-input:checked + .switch-label-off ~ .slider2,
-.radio .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2
+.radio_switch .switch-label-off,.switch-input:checked + .switch-label-off ~ .slider2
 {
     border-radius:0;
 }
@@ -4437,13 +4437,13 @@ div.nsl-container .nsl-container-buttons{
   color: #fff!important;
 }
 .login-box .switch-input:checked + .switch-label svg path,
-.radio .switch-input:checked + .switch-label svg path
+.radio_switch .switch-input:checked + .switch-label svg path
 {
     fill: #ffffff;
 }
 
 .login-box .swith-row,
-.radio .swith-row
+.radio_switch .swith-row
 {
     height: 45px;
     direction: ltr;
@@ -4451,7 +4451,7 @@ div.nsl-container .nsl-container-buttons{
 }
 
 .login-box .slider2,
-.radio .slider2
+.radio_switch .slider2
 {
     display: block;
     position: absolute;
@@ -4471,7 +4471,7 @@ div.nsl-container .nsl-container-buttons{
 
 
 .login-box .slide-right,
-.radio .slide-right
+.radio_switch .slide-right
  {
     -webkit-animation: slide-right 0.5s infinite alternate-reverse both;
     animation: slide-right 0.5s infinite alternate-reverse both;
@@ -4480,7 +4480,7 @@ div.nsl-container .nsl-container-buttons{
     position: relative;
     top: 9px;
 }
-.radio .switch-label span
+.radio_switch .switch-label span
 {
     position: relative;
     top: 14px;
@@ -5033,14 +5033,19 @@ border-color: transparent;
 .dashboard_accountinfo .profile-card .standard-form  {
     width: 70%;
 }
-.dashboard_accountinfo .profile-card h1, .info-card h1 {
+.dashboard_accountinfo .profile-card h1 {
     font-size: 25px;
     color: #000;
     line-height: 33px;
-    margin-bottom: 22px;
+    
     font-weight:bold!important;
 }
-
+.dashboard_accountinfo .profile-card h1{
+  margin-bottom: 22px;
+}
+.info-card h1{
+  margin-bottom: 10px;
+}
 .dashboard_accountinfo .form-control:focus {
     color: red;
     border-bottom: 3px solid red;
@@ -6645,6 +6650,7 @@ h6:empty
             font-size: 20px;
     }
     .hover_share{top: -5px;}
+    .savedCourse_box .hover_share{top: 0px;}
     .right_spacing{
       padding-left: 0px!important;
     }

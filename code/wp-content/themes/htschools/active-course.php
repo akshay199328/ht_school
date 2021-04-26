@@ -86,23 +86,24 @@ vibe_include_template("profile/top$profile_layout.php");
                     echo "<p>".esc_html( $content )."</p>";
                   }
                 ?>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg duration">
-                    <p>Duration</p>
-                    <?php if($duration == '') { ?>
-                    <h6>--</h6>
-                    <?php } else{ ?>
-                    <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
-                    <?php }?>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
-                	<p>Age Group</p>
-                	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
-                		<h6>--</h6>
-                	<?php } else{ ?>
-                		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
-                	<?php }?>
-                </div>
-                            
+                <div class="col-lg-7 duration mrg">
+                    <div class="pull-left">
+                        <p>Duration</p>
+                        <?php if($duration == '') { ?>
+                        <h6>--</h6>
+                        <?php } else{ ?>
+                        <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
+                        <?php }?>
+                    </div>
+                    <div class="pull-right">
+                    	<p>Age Group</p>
+                    	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
+                    		<h6>--</h6>
+                    	<?php } else{ ?>
+                    		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
+                    	<?php }?>
+                    </div>
+                </div>            
                             <!-- <div class="learing-goals">
                                 <div class="">
                                     <div class="">

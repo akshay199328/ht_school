@@ -150,21 +150,23 @@ vibe_include_template("profile/top$profile_layout.php");
                     echo "<p>".esc_html( $content )."</p>";
                   }
                 ?>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg duration">
-                <p>Duration</p>
-                <?php if($duration == '') { ?>
-                <h6>--</h6>
-                <?php } else{ ?>
-                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
-                <?php }?>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
-                    <p>Age Group</p>
-                    <?php if($age_limit) { ?>
-                        <h6>--</h6>
+                <div class="col-lg-7 duration mrg">
+                    <div class="pull-left ">
+                    <p>Duration</p>
+                    <?php if($duration == '') { ?>
+                    <h6>--</h6>
                     <?php } else{ ?>
-                        <h6><?php echo $age_limit;?></h6>
+                    <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
                     <?php }?>
+                    </div>
+                    <div class="pull-right">
+                        <p>Age Group</p>
+                        <?php if($age_limit) { ?>
+                            <h6>--</h6>
+                        <?php } else{ ?>
+                            <h6><?php echo $age_limit;?></h6>
+                        <?php }?>
+                    </div>
                 </div>
               </div>
             </div>

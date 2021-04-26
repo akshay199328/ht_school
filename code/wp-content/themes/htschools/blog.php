@@ -189,7 +189,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       ?>
       <div class="featured_headeing">
         <h1><?php echo $menu->title; ?></h1>
-        <br/>
+        
       </div>
       <?php
       endif;
@@ -205,8 +205,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               ?>
 
               <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
-              <br/><br/>
-              <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              <div class="news-date">
+                <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              </div>
+              
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>

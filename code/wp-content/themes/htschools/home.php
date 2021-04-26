@@ -230,17 +230,17 @@ get_header(vibe_get_header());
             if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
               if( $Query->current_post == 0 ) { 
         ?>
-          <div class="col-sm-12 col-lg-4">
+          <div class="col-sm-12 col-lg-4 homeDetails-left">
             <div class="details-left">
-             
+             <div class="news-date">
+                <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              </div>
               <?php if ( has_post_thumbnail() ) { 
                 $featured_image = get_the_post_thumbnail_url();
               }
               ?>
               <img src="<?php echo $featured_image; ?>" class="img-fluid">
-              <div class="news-date">
-                <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-              </div>
+              <br/>
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>

@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-  <g id="Group_15963" data-name="Group 15963" transform="translate(-64 -107)">
-    <circle id="Ellipse_186" data-name="Ellipse 186" cx="3.529" cy="3.529" r="3.529" transform="translate(65 114.471)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-    <circle id="Ellipse_187" data-name="Ellipse 187" cx="3.529" cy="3.529" r="3.529" transform="translate(77.941 108)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-    <circle id="Ellipse_188" data-name="Ellipse 188" cx="3.529" cy="3.529" r="3.529" transform="translate(77.941 120.941)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-    <line id="Line_127" data-name="Line 127" x2="5.882" y2="2.941" transform="translate(72.059 119.765)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-    <line id="Line_128" data-name="Line 128" x1="5.882" y2="2.941" transform="translate(72.059 113.294)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Group_18482" data-name="Group 18482" transform="translate(-64 -107)">
+    <circle id="Ellipse_186" data-name="Ellipse 186" cx="3.176" cy="3.176" r="3.176" transform="translate(65 113.824)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+    <circle id="Ellipse_187" data-name="Ellipse 187" cx="3.176" cy="3.176" r="3.176" transform="translate(76.647 108)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+    <circle id="Ellipse_188" data-name="Ellipse 188" cx="3.176" cy="3.176" r="3.176" transform="translate(76.647 119.647)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_127" data-name="Line 127" x2="5.294" y2="2.647" transform="translate(71.353 118.588)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_128" data-name="Line 128" x1="5.294" y2="2.647" transform="translate(71.353 112.765)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
   </g>
 </svg>

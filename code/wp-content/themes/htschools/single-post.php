@@ -101,7 +101,19 @@ $topics = wp_get_post_tags(get_the_ID());
            <div class="share-icon">
             <ul>
 
-              <li class="hover_share">
+              
+                <?php
+                 if(is_user_logged_in()){
+                  ?>
+                  <li style="list-style-type: none;"><?php wpfp_post_link(); ?></li>
+                <?php }else{
+                  $url = "/login-register";
+                  ?>
+                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
+                  <?php
+                }
+                ?>
+                <li class="hover_share">
                 <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
                 <div class="display_icon">
                   <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
@@ -114,19 +126,6 @@ $topics = wp_get_post_tags(get_the_ID());
                     <a class="a2a_button_telegram"></a>
                   </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                 </div>
-              </li>
-                <li>
-                <?php
-                 if(is_user_logged_in()){
-                  ?>
-                  <li style="list-style-type: none;"><?php wpfp_post_link(); ?></li>
-                <?php }else{
-                  $url = "/login-register";
-                  ?>
-                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
-                  <?php
-                }
-                ?>
               </li>
           </ul> 
         </div>

@@ -71,20 +71,7 @@ $post = get_post($post_id);
                     <div class="col-sm-2 col-md-2 mrg news_icons">
                         <div class="share-icon">
                             <ul>       
-                                <li class="hover_share">
-                                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
-                                <div class="display_icon">
-                                    <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
-                                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
-                                        <a class="a2a_button_facebook"></a>
-                                        <a class="a2a_button_twitter"></a>
-                                        <a class="a2a_button_pinterest"></a>
-                                        <a class="a2a_button_google_gmail"></a>
-                                        <a class="a2a_button_whatsapp"></a>
-                                        <a class="a2a_button_telegram"></a>
-                                    </div><script async src="https://static.addtoany.com/menu/page.js"></script>
-                                </div>
-                              </li>
+                                
                                 
                                 <?php
                                     if(is_user_logged_in()){
@@ -97,7 +84,20 @@ $post = get_post($post_id);
                                         <?php
                                     }
                                 ?>
-                                
+                                <li class="hover_share">
+                                    <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+                                    <div class="display_icon">
+                                        <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
+                                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
+                                            <a class="a2a_button_facebook"></a>
+                                            <a class="a2a_button_twitter"></a>
+                                            <a class="a2a_button_pinterest"></a>
+                                            <a class="a2a_button_google_gmail"></a>
+                                            <a class="a2a_button_whatsapp"></a>
+                                            <a class="a2a_button_telegram"></a>
+                                        </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+                                    </div>
+                                  </li>
                              </ul> 
                         </div>
                     </div>

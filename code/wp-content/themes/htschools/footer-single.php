@@ -48,19 +48,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <!--  <span class="social-heading">Follow us on</span> -->
                 <a href="https://www.linkedin.com/company/htschool" target="_blank" class="linkedin">
                   <!-- <img class="icon" src="/assets/images/footer-linkdin.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-linkdin.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-linkedin.svg"/>
                 </a>
                 <a href="https://twitter.com/htschool1" target="_blank" class="twitter">
                   <!-- <img class="icon" src="/assets/images/footer-twitter.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-twitter.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-twitter.svg"/>
                 </a>
                 <a href="https://www.facebook.com/HTSchool-111960910982690/" target="_blank" class="facebook">
                   <!-- <img class="icon" src="/assets/images/footer-facebook.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-facebook.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-facebook.svg"/>
                 </a>
                 <a href="https://www.instagram.com/ht.school/" target="_blank" class="instagram">
                   <!-- <img class="icon" src="/assets/images/footer-instagram.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-instagram.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-instagram.svg"/>
                 </a>
               </div>
             </div>

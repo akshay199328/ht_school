@@ -114,7 +114,7 @@ section {
 --------------------------------------------------------------*/
 
 .breadcrumbs {
-  padding: 15px 0 15px 0;
+  padding: 14px 0 11px 0;
   background: transparent;
   min-height: auto;
   /*margin-top: 82px;*/
@@ -151,7 +151,7 @@ section {
   {
     min-height: 85px;
   }
-  .releted_news_section .related_post{padding-left: 35px;}
+  .releted_news_section .related_post{padding-left: 60px;}
   
 
 }
@@ -337,9 +337,13 @@ ol.breadcrumbs  {
 .page-id-69 .header,
 .page-id-69 section#title,
 .page-id-69 .header-scrolled,
-.page-template-home .header-scrolled
+.page-template-home .header-scrolled,
+.my-account .header-scrolled
 {
   background: #D5EBFF!important;
+}
+body.page-template-home , .page-template-home .pusher {
+    background-color: #d5ebff;
 }
 .home .header.header-scrolled .logo img{
     -webkit-transform: scale(.9);
@@ -1798,7 +1802,7 @@ Course Details
   width: 16px;
   display: block;
   position: relative;
-  top: 7px;
+  top: 5px;
 }
 .progress_new .left, .progress_new .right {
     width: 50%;
@@ -2415,7 +2419,15 @@ section.latest-news{
   border-bottom: solid 0px #b8b8b8;
 }
 .home_latest_news .details-middle ul li {    width: 86%;}
-
+.news-date p{
+  text-transform: uppercase;
+}
+.homeDetails-left .news-date{
+    padding: 0px 0px 10px;
+}
+.homeDetails-left .link {
+    margin-top: 26.9px;
+}
 .details-middle ul li p{
     font-size: 11px;
     font-weight: bold;
@@ -4661,9 +4673,9 @@ margin-top: 20px;
 .tablist{
   margin: 24px 0px 44px 0px;
 }
-/*.course-tablist .tablist{
-  margin: 30px 0px 30px 0px;
-}*/
+.course-tablist .tablist{
+  margin:24px 0px 31px 0px;
+}
 .course-tablist li{
   display: inline-block;
   color: #939393;
@@ -6443,7 +6455,7 @@ h6:empty
     .home_slider .mobile_img {
         display: block!important;
         width: auto!important;
-        margin: 0px 15px;
+        margin: 0px 0px;
     }
     .hero .hero-list{margin-top: 10px;}
     .hero-list .hero-card{
@@ -6824,11 +6836,11 @@ select option{
     padding:20px 10px;
     font-size: 15px;
 }
-body,
+/*body,
 .pusher,
 section {
     overflow: inherit!important;
-}
+}*/
 .circles-container .loader {
     position: relative;
     float:left;

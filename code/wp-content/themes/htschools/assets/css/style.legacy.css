@@ -36471,7 +36471,9 @@ width: 300px;
 
 
 	/* profile model pop up */
-	#profileModal .modal-header {background-color: #d5ebff;padding: 30px 30px 18px;border-radius: 0px;}
+	#profileModal .modal-header {background-color: #d5ebff;padding: 33px 30px 18px;border-radius: 0px;}
+	#profileModal .b-class{padding: 20px 19px 26px 30px!important;}
+	#profileModal .n-btn{    padding: 10px 50px 10px 50px !important;margin-top: 22px!important;margin-bottom: 0!important;}
 	#profileModal .modal-text {    margin-bottom: 0;font-family: GTWalsheimPro;font-size: 25px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.36;letter-spacing: normal;text-align: left;color: #000000;}
 	#profileModal .modal-img{margin-bottom: 7px;}
 	#profileModal .modal-header .close{padding: 0 1rem;margin-top: 0;opacity: 1;font-weight: 400;font-size: 24px;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;}
@@ -36502,4 +36504,18 @@ width: 300px;
 			font-weight: 300;}
 .child-form	select{
 	    border-bottom: 1px solid #a8a6a6!important;
+}
+
+@media screen and (max-width:767px)  and (min-width:320px){
+	#profileModal .circles-container{position: absolute;top: -473px;right: 13px;}
+	#profileModal .circles-container .loader{height:55px!important;width:55px!important;}
+	#profileModal .circles-container .text{font-size: 13px!important;}
+	#profileModal #profile-edit-form .tabDetails .nav>li{width: 80px!important;padding: 0px!important;}
+	#profileModal .b-class{padding: 24px 12px!important;}
+	#profileModal .modal-text{font-size: 20px;}
+	#profileModal label{font-size: 12px;}
+	#profileModal #profile-edit-form .tabDetails .nav>li>a{font-size: 11px;}
+	#profileModal .ul-nav>li.active>a:after{margin-top: 18px!important;border-top: 5px solid #0d9ce8!important;border-left: 5px solid transparent!important;border-right: 5px solid transparent!important;}
+	#profileModal .in-class{font-size: 14px!important;}
+	
 }

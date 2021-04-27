@@ -318,7 +318,7 @@ border: 1px solid deepskyblue;
         <div class="row">
             <form id="profile-edit-form" name="profile-form" class="standard-form">
                 <input type="hidden" name="action" value="save_custom_profile">
-                <div class="col-md-9 mrg">
+                <div class="col-md-9 col-sm-9 mrg">
                   <div class="tabDetails">
                     <ul class=" ul-nav nav nav-pills nav-fill ">
                         <li class="active" ><a data-toggle="pill"  href="#step1">Step 1</a></li>
@@ -443,7 +443,7 @@ border: 1px solid deepskyblue;
                       </div>  
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-3">
                     <!-- progress bra -->
                     <!-- <div class="progressbar-full">
                         <div class="pull-left">

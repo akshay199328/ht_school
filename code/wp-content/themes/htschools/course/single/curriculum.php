@@ -68,8 +68,15 @@ if(!empty($course_curriculum)){
                   <h6>Session <?php echo $counter + 1; ?> / <?php echo $countunit; ?></h6>
                 </div>
             </div>
-            <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5>
-            <?php the_sub_title($course_units_array[$counter]['id']); ?>
+            <!-- <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5> -->
+            <?php $video = get_post_meta($course_units_array[$counter]['id'],'vibe_video',true);
+	            if(strlen(trim($video))) {
+	            ?>
+	            <video width="100%" height="240" controls="" poster="assets/img/Intersection-video.jpg">
+	                <source src="<?php echo $video;?>" type="video/mp4">
+	            </video>
+        	<?php }else{the_sub_title($course_units_array[$counter]['id']); }?>
+            <h5><?php echo $lesson_units['title'];?></h5>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>

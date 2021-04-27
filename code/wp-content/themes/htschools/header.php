@@ -183,9 +183,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    if (is_user_logged_in()){
                        /*do_action('notification_fragments');*/
                     }
-                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/news'><img src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
+                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/news'><img alt='news' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
                    foreach ($menuitems as $menu) {  ?>
-                       <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
+                       <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper'src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
                    <?php }
                    echo "</ul>";
                    ?>

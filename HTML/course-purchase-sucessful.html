@@ -226,6 +226,12 @@
                 font-weight: 700;
                 font-family: "Lato", sans-serif;
             }
+            .img-wrap{width: 50%;text-align: center;}
+            @media only screen and (max-width: 768px) {
+                /* For mobile phones: */
+                .img-wrap{width:100%;}
+                
+            }
         </style>
     </head>
 
@@ -280,14 +286,14 @@
                                                 </tr>
                                             </table>
                                             <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 40px;">
-                                                <div style="width: 50%; text-align: center;">
+                                                <div class="img-wrap">
                                                     <img src="assets/img/mailer-course.png" />
                                                     <a href="#" style="background-color: #000000; font-size: 16px; text-transform: capitalize; padding: 11px 30px; color: #fff; font-weight: 600; margin-bottom: 20px; display: inline-block;">
                                                         My Courses
                                                     </a>
                                                     <p style="margin-top: 0; color: #000; line-height: 22px;">Click to view your HT School courses/workshops.</p>
                                                 </div>
-                                                <div style="width: 50%; text-align: center;">
+                                                <div class="img-wrap">
                                                     <img src="assets/img/mailer-explorer-course.png" />
                                                     <a href="#" style="background-color: #000000; font-size: 16px; text-transform: capitalize; padding: 11px 30px; color: #fff; font-weight: 600; margin-bottom: 20px; display: inline-block;">
                                                         Explore All Courses

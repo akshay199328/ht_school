@@ -23,7 +23,7 @@ class WC_GST_Settings {
         add_action( 'woocommerce_process_product_meta', array( $this , 'fn_save_license_field') );
         add_action( 'admin_print_scripts',  array( $this , 'fn_load_custom_wp_admin_script'), 999 );
         add_action( 'woocommerce_email_after_order_table', array( $this , 'fn_woocommerce_gstin_invoice_fields') );
-        add_action( 'admin_notices', array( $this , 'print_pro_notice') );
+       // add_action( 'admin_notices', array( $this , 'print_pro_notice') );
         add_filter( 'plugin_row_meta', array( $this, 'fn_add_extra_links' ), 10, 2 );
     }
 

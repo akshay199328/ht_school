@@ -518,4 +518,16 @@ function custom_promocode_applied($field1){
    
 }
 
+add_filter('wplms_unit_metabox','custom_video');
+
+function custom_video($settings){
+  $settings [] = array( // Text Input
+    'label' => 'Video', // <label>
+    'desc'  => 'Add Video embeded code', // description
+    'id'  => 'vibe_video', // field id and name
+    'type'  => 'textarea', // type of field
+  );
+  return $settings;
+}
+
 

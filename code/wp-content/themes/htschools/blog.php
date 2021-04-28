@@ -129,7 +129,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   </div>
 </section>
 <!-- ======= Featured ======= -->
-<section id="" class="latest-news  grey-background">
+<!-- <section id="" class="latest-news  grey-background">
   <div class="container">
     <div class="">
       <div class="featured_headeing customfeatured_headeing">
@@ -169,7 +169,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End Most Experts -->
 <div class="wrapper">
 <section class="latest-news">

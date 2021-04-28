@@ -248,9 +248,9 @@ get_header(vibe_get_header());
           </div>
         <?php } endwhile; endif;?>
         <div class="col-sm-12 col-lg-8 home_news-leftspacing">
-          <div class="col-sm-12 col-lg-6 mrg">
+          <div class="col-sm-12 col-lg-12 mrg">
             <div class="details-middle">
-              <ul>
+              <ul class="news_two_data">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
                       if( $Query->current_post != 0 ) { 
                   ?>

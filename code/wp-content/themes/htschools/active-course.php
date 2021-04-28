@@ -151,7 +151,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                 <div class="col-sm-12 col-lg-12 mrg">
                                     <div class="profile-content mt-auto">
                                         <div class="profile-img">
-                                            <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
+                                            <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="Author User Profile" title="Author User Profile">
                                         </div>
                                         <div class="clearfix"></div>
                                         <div class="profile-heading">

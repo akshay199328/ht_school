@@ -45,8 +45,8 @@ get_header(vibe_get_header());
               </div>  
             </div>
           </div>
-          <img src="<?php echo $image_url; ?>" class="desktop_img" />
-          <img src="<?php echo $mobile_image; ?>" class="mobile_img" />
+          <img alt="desktop" title="desktop" src="<?php echo $image_url; ?>" class="desktop_img" />
+          <img alt="mobile" title="mobile" src="<?php echo $mobile_image; ?>" class="mobile_img" />
         </div>
       <?php endwhile;endif; ?>
     </div>
@@ -139,7 +139,7 @@ get_header(vibe_get_header());
                             <ul>
                               
                               <li class="hover_share">
-                                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+                                <img alt="share icon" title="share icon" src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
                                 <div class="display_icon">
                                   <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
                                   <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
@@ -239,7 +239,7 @@ get_header(vibe_get_header());
                 $featured_image = get_the_post_thumbnail_url();
               }
               ?>
-              <img src="<?php echo $featured_image; ?>" class="img-fluid">
+              <img alt="featured image" title="featured image" src="<?php echo $featured_image; ?>" class="img-fluid">
               <br/>
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
@@ -248,9 +248,9 @@ get_header(vibe_get_header());
           </div>
         <?php } endwhile; endif;?>
         <div class="col-sm-12 col-lg-8 home_news-leftspacing">
-          <div class="col-sm-12 col-lg-6 mrg">
+          <div class="col-sm-12 col-lg-12 mrg">
             <div class="details-middle">
-              <ul>
+              <ul class="news_two_data">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
                       if( $Query->current_post != 0 ) { 
                   ?>
@@ -365,7 +365,7 @@ get_header(vibe_get_header());
                 </div>
                 <div class="profile profile-name mt-auto">
                   <div class="col-sm-12 col-lg-3 mrg">
-                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="testimonial-img img-fluid" alt="" >
+                    <img alt="testimonial" title="testimonial" src="<?php echo get_the_post_thumbnail_url(); ?>" class="testimonial-img img-fluid" alt="" >
                   </div>
                   <div class="col-sm-12 col-lg-9 mrg">
                     <h3><?php echo $custom_fields['vibe_testimonial_author_name'][0] ?></h3>

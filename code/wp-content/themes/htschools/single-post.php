@@ -73,7 +73,9 @@ $topics = wp_get_post_tags(get_the_ID());
                   ?>
                   <h1><?php the_title(); ?></h1>
 
-                  <div class="border_text"><?php the_sub_title(); ?></div>
+                  <div class="border_text"><?php $sub_title = get_post_meta(get_the_ID(),'vibe_subtitle',true);
+                  echo wp_trim_words( $sub_title, 20, NULL )
+                  ?></div>
                 </div>
               </div>
               <img src="<?php echo $featured_image; ?>">
@@ -182,7 +184,7 @@ $topics = wp_get_post_tags(get_the_ID());
 <div class="releted_news_section">
   <div class="container">
     
-    <div class="col-sm-9 col-md-9 mrg">
+    <div class="col-sm-12 col-md-9 mrg">
         <div class="related_post details">
           <?php
                 // Related Posts
@@ -225,7 +227,7 @@ $topics = wp_get_post_tags(get_the_ID());
       </div>
       </div>
     </div>
-    <div class="col-sm-3 col-md-3 mrg">
+    <div class="col-sm-12 col-md-3 mrg">
       <div class="atwork_img">
           <?php
           if ( is_active_sidebar( 'banner-2' ) ) : ?>

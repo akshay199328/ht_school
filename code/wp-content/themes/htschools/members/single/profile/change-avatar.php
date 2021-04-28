@@ -31,10 +31,10 @@
 
 			<h5><?php _e( 'Crop Your New Avatar', 'vibe' ); ?></h5>
 
-			<img src="<?php bp_avatar_to_crop(); ?>" id="avatar-to-crop" class="avatar" alt="<?php _e( 'Avatar to crop', 'vibe' ); ?>" />
+			<img src="<?php bp_avatar_to_crop(); ?>" id="avatar-to-crop" class="avatar" alt="<?php _e( 'Avatar to crop', 'vibe' ); ?>" title="<?php _e( 'Avatar to crop', 'vibe' ); ?>"/>
 
 			<div id="avatar-crop-pane">
-				<img src="<?php bp_avatar_to_crop(); ?>" id="avatar-crop-preview" class="avatar" alt="<?php _e( 'Avatar preview', 'vibe' ); ?>" />
+				<img src="<?php bp_avatar_to_crop(); ?>" id="avatar-crop-preview" class="avatar" alt="<?php _e( 'Avatar preview', 'vibe' ); ?>" title="<?php _e( 'Avatar preview', 'vibe' ); ?>" />
 			</div>
 
 			<input type="submit" name="avatar-crop-submit" id="avatar-crop-submit" value="<?php _e( 'Crop Image', 'vibe' ); ?>" />

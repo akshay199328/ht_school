@@ -49,7 +49,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <ul class="tablist left_tab">
       <?php
       ?>
-        <li class="active news-li" data-scroll="All" id="All"><a href="#" data-id="All">All News</a></li>
+        <li class="active news-li" data-scroll="All" id="All"><a href="#" data-id="All">Latest</a></li>
       <?php
       foreach ($menuitems as $menu) {
         ?>
@@ -129,7 +129,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   </div>
 </section>
 <!-- ======= Featured ======= -->
-<section id="" class="latest-news  grey-background">
+<!-- <section id="" class="latest-news  grey-background">
   <div class="container">
     <div class="">
       <div class="featured_headeing customfeatured_headeing">
@@ -169,10 +169,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End Most Experts -->
 <div class="wrapper">
-<section class="latest-news">
+<section >
 <?php foreach ($menuitems as $menu) { ?>
 
   <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">

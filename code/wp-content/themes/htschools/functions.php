@@ -1494,7 +1494,7 @@ function prefix_insert_post_ads( $content ) {
         ob_end_clean();
         
         $ad_code = '</div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg">';
-        $content = prefix_insert_after_paragraph( $ad_code, 2, $content );
+        $content = prefix_insert_after_paragraph( $ad_code, 1, $content );
         //$content = prefix_insert_after_position( $ad_code,650, $content );
     }
      

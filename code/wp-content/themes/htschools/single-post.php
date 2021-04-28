@@ -97,8 +97,7 @@ $topics = wp_get_post_tags(get_the_ID());
       <div class="content-right">
         <div class="details">
           <div class="post-creator">
-            <p>By <strong><?php echo $postCreatorName;; ?>,</strong>
-               <span class="post_date"><?php echo $postDate; ?></span></p>
+            <p>By <strong><?php echo $postCreatorName;; ?>,</strong><span class="post_date"><?php echo $postDate; ?></span></p>
             <!--   <p><?php echo $postDate; ?></p> -->
            <div class="share-icon">
             <ul>
@@ -111,7 +110,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 <?php }else{
                   $url = "/login-register";
                   ?>
-                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Remove this course"></i></a></li> 
+                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Bookmark this article"></i></a></li> 
                   <?php
                 }
                 ?>

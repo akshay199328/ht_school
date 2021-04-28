@@ -522,8 +522,8 @@ add_filter('wplms_unit_metabox','custom_video');
 
 function custom_video($settings){
   $settings [] = array( // Text Input
-    'label' => 'Video', // <label>
-    'desc'  => 'Add Video embeded code', // description
+    'label' => 'Video Thumbnail', // <label>
+    'desc'  => 'Add video thumbnail link', // description
     'id'  => 'vibe_video', // field id and name
     'type'  => 'textarea', // type of field
   );

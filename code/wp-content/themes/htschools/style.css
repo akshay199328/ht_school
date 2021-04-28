@@ -6722,6 +6722,9 @@ h6:empty
     .woocommerce-Price-amount {
     font-size: 15px!important;color: #000000!important;}
     .footer-info .logo img{height: 55px;}
+    .page_not_found .details {padding: 0px 15px;}
+    .page_not_found .details h6 {font-size: 34px;line-height: 44px;}
+    .page_not_found .details p {font-size: 16px;line-height: 22px;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -6802,10 +6805,12 @@ h6:empty
 
 .learing-goals .heading h3{padding-bottom: 5px;}
 .news-main .post-creator p{
-    font-size: 14px;
-    line-height: 19px;
+        font-size: 14px;
+    line-height: normal;
     font-weight: 300;
     color: #000;
+    white-space: inherit;
+    word-break: break-word;
 }
 .news-main .post-creator p span{
     font-size: 11px;
@@ -6960,4 +6965,36 @@ section {
 
 .material .pusher .button:hover,{
   box-shadow:none!important;
+}
+
+/*-----PAGE NOT FOUND : CSS-----*/
+
+.page_not_found{padding: 122px 0px 90px;}
+.page_not_found .details {
+    padding: 0px 0px;
+    margin: 0px auto;
+    /* width: 604px; */
+    width: 55%;
+    /*background: #000;*/
+    text-align: center;
+}
+.page_not_found .details h6 {
+    font-size: 45px;
+    color: #97C4EE;
+    line-height: 60px;
+}
+.page_not_found .details p{
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    margin: 10px 0px 26px;
+}
+.page_not_found .details .btn{
+  font-size: 15px;
+    line-height: 20px;
+    background: #000;
+    color: #D5EBFF;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 16px 25px;
 }

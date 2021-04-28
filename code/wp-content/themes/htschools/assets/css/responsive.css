@@ -559,6 +559,8 @@ button.saved_feedbackbtn span{
 }
 .related_post.details h2{
 	font-size: 25px;
+	color: #000;
+	margin-bottom: 20px;
 }
 
 .woocommerce-order {

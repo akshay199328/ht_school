@@ -1,20 +1,4 @@
 <!DOCTYPE html>
-
-
-<!--
-Dynamically Auto Generated Page - Do Not Edit
-================================================================
-Software Name: iBilling - CRM, Accounting and Invoicing Software
-Version: 4.6.1
-Author: CloudOnex
-Website: http://www.cloudonex.com
-Contact: admin@ibilling.io
-Purchase: http://www.cloudonex.com
-License: You must have a valid license purchased in order to legally use this Software.
-=======================================================================================
--->
-
-
 <html>
 
 <head>

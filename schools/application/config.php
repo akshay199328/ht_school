@@ -1,7 +1,7 @@
 <?php
 $db_host	    = 'localhost';
-$db_user        = 'tourcode_billing';
-$db_password	= 'b=;iup7OidOg';
-$db_name	    = 'tourcode_billing';
-define('APP_URL', 'http://testourcode.com/billing');
+$db_user        = 'root';
+$db_password	= '';
+$db_name	    = 'schools_ht';
+define('APP_URL', 'http://localhost/Htschools-git/schools');
 $_app_stage = 'Live'; // You can set this variable Live to Dev to enable ibilling Debug

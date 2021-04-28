@@ -36519,3 +36519,9 @@ width: 300px;
 	#profileModal .in-class{font-size: 14px!important;}
 	
 }
+
+/* new css added video part */
+.video-wrap .card h5{font-size: 20px;font-weight: 300!important}
+.video-wrap .card{padding: 24px 15px;}
+.video-wrap .card .pull-left .default-background{top:0;}
+.video-wrap .card .progressbar-circle{margin-top: 0;}

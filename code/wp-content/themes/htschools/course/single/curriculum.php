@@ -53,7 +53,7 @@ if(!empty($course_curriculum)){
 		 //print_r($course_units_array);
 		//echo $lessonId->ID;
 	?>
-	<div class="col-sm-12 col-lg-6 pull-left mrg">
+	<div class="col-sm-12 col-lg-6 pull-left mrg video-wrap">
         <div class="card">
 
             <div class="col-sm-12 mrg">
@@ -72,7 +72,7 @@ if(!empty($course_curriculum)){
             <?php $video = get_post_meta($course_units_array[$counter]['id'],'vibe_video',true);
 	            if(strlen(trim($video))) {
 	            ?>
-	            <video width="100%" height="240" controls="" poster="assets/img/Intersection-video.jpg">
+	            <video width="100%" height="163" controls="" poster="assets/img/Intersection-video.jpg">
 	                <source src="<?php echo $video;?>" type="video/mp4">
 	            </video>
             	<h5><?php echo $lesson_units['title'];?></h5>
@@ -109,7 +109,7 @@ if(!empty($course_curriculum)){
 	foreach($course_units as $lesson_units){ 
 		$lessonId = get_post($lesson['id']);
 	?>
-	<div class="col-sm-12 col-lg-6 pull-left mrg">
+	<div class="col-sm-12 col-lg-6 pull-left mrg video-wrap">
         <div class="card">
 
             <div class="col-sm-12 mrg">
@@ -127,7 +127,7 @@ if(!empty($course_curriculum)){
             <?php $video1 = get_post_meta($course_units[$counter1]['id'],'vibe_video',true);
 	            if(strlen(trim($video1))) {
 	            ?>
-	            <video width="100%" height="240" controls="" poster="assets/img/Intersection-video.jpg">
+	            <video width="100%" height="163" controls="" poster="assets/img/Intersection-video.jpg">
 	                <source src="<?php echo $video1;?>" type="video/mp4">
 	            </video>
             	<h5><?php echo $lesson_units['title'];?></h5>

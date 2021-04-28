@@ -151,7 +151,7 @@ section {
   {
     min-height: 85px;
   }
-  .releted_news_section .related_post{padding-left: 60px;}
+  .releted_news_section .related_post{/*padding-left: 60px;*/}
     #profileModal .modal-content{height: 669px;}
 
 }
@@ -4623,7 +4623,7 @@ div.nsl-container .nsl-container-buttons{
     line-height: 25px;
     font-weight: 300;
     color: #000;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 .news-main .content-right .details {
     padding: 0px 0px;
@@ -4661,7 +4661,7 @@ div.nsl-container .nsl-container-buttons{
 }
 .topic_details .widget_custom_html{
     position: relative;
-    left: -35px;
+    /*left: -35px;*/
 }
 .topic_details a{
   color: #000000!important;

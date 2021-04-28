@@ -181,15 +181,8 @@ $topics = wp_get_post_tags(get_the_ID());
 <!-- releted news -->
 <div class="releted_news_section">
   <div class="container">
-    <div class="col-sm-12 col-md-4 mrg">
-      <div class="atwork_img">
-          <?php
-          if ( is_active_sidebar( 'banner-2' ) ) : ?>
-            <?php dynamic_sidebar( 'banner-2' ); ?>      
-          <?php endif; ?>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-8 mrg">
+    
+    <div class="col-sm-9 col-md-9 mrg">
         <div class="related_post details">
           <?php
                 // Related Posts
@@ -230,6 +223,14 @@ $topics = wp_get_post_tags(get_the_ID());
 
             wp_reset_query();  }?>
       </div>
+      </div>
+    </div>
+    <div class="col-sm-3 col-md-3 mrg">
+      <div class="atwork_img">
+          <?php
+          if ( is_active_sidebar( 'banner-2' ) ) : ?>
+            <?php dynamic_sidebar( 'banner-2' ); ?>      
+          <?php endif; ?>
       </div>
     </div>
   </div>

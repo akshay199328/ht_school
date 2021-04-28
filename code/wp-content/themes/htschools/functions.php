@@ -739,7 +739,7 @@ function my_header_add_to_cart_fragment( $fragments ) {
     ob_start();
     $count = WC()->cart->cart_contents_count;
     ?><li><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
-      <img alt="cart" title="cart" src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg">
+      <img alt="View your shopping cart" title="View your shopping cart" src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg">
       <?php
     if ( $count > 0 ) {
         ?>
@@ -759,7 +759,7 @@ function my_header_notification_fragment( $fragments ) {
     ob_start();
     $count = WC()->cart->cart_contents_count;
     ?><li><a class="cart-contents" title="<?php _e( 'View your notification' ); ?>">
-      <img alt="notification" title="notification" src="<?php echo get_bloginfo('template_url');?>/assets/images/notification.svg">
+      <img alt="Notification" title="Notification" src="<?php echo get_bloginfo('template_url');?>/assets/images/notification.svg">
       <?php
     if ( $count > 0 ) {
         ?>
@@ -1189,7 +1189,7 @@ function wpfp_save_link( $return = 0, $action = "", $show_span = 1, $args = arra
 
 function wpfp_hhtml($post_id, $opt, $action) {
 
-  $opt = "<img alt='delete icon' title='delete icon' src='".get_bloginfo('template_url')."/assets/images/delete-icon.svg'>";
+  $opt = "<img alt='Delete Icon' title='Delete Icon' src='".get_bloginfo('template_url')."/assets/images/delete-icon.svg'>";
     $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "'>". $opt ."</a>";
     $link = apply_filters( 'wpfp_link_html', $link );
     return $link;

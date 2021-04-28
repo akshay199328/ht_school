@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     if(!empty($url)){
                 ?>    
 
-                    <a href="<?php echo vibe_site_url('','logo'); ?>"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                    <a href="<?php echo vibe_site_url('','logo'); ?>"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
                 <?php 
                     }
                 ?>
@@ -48,19 +48,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <!--  <span class="social-heading">Follow us on</span> -->
                 <a href="https://www.linkedin.com/company/htschool" target="_blank" class="linkedin">
                   <!-- <img class="icon" src="/assets/images/footer-linkdin.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-linkedin.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-linkedin.svg" alt="Linkedin" title="Linkedin"/>
                 </a>
                 <a href="https://twitter.com/htschool1" target="_blank" class="twitter">
                   <!-- <img class="icon" src="/assets/images/footer-twitter.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-twitter.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-twitter.svg" alt="Twitter" title="Twitter"/>
                 </a>
                 <a href="https://www.facebook.com/HTSchool-111960910982690/" target="_blank" class="facebook">
                   <!-- <img class="icon" src="/assets/images/footer-facebook.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-facebook.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-facebook.svg" alt="Facebook" title="Facebook"/>
                 </a>
                 <a href="https://www.instagram.com/ht.school/" target="_blank" class="instagram">
                   <!-- <img class="icon" src="/assets/images/footer-instagram.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-instagram.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-instagram.svg" alt="Instagram" title="Instagram"/>
                 </a>
               </div>
             </div>
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <span class="social-heading">RSS Feed</span>
                 <a href="<?php bloginfo('rss2_url'); ?>" target="_blank" class="twitter">
                   <!-- <img class="icon" src="/assets/images/footer-rss.svg"/> -->
-                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-rss.svg"/>
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/footer-rss.svg" alt="RSS Feed" title="RSS Feed"/>
                 </a>
               </div>
             </div>
@@ -303,7 +303,7 @@ border: 1px solid deepskyblue;
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="profileModalLabel">
-            <img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/03/logo-popup.png" class="modal-img"/>
+            <img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/03/logo-popup.png" class="modal-img" alt="Logo" title="Logo"/>
            <!-- <p class="modal-text"> Thank you for getting in touch!</p> -->
             <!-- <p class="modal-text">Welcome to</p>
             <p class="modal-para">Data Science Masterclass for Non-Programmers</p> -->

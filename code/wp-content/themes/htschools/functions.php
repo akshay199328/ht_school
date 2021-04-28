@@ -448,8 +448,13 @@ function reg_send_otp(){
     $headers = 'From: '. $email . "\r\n" .
       'Reply-To: ' . $email . "\r\n";
 
-    //Here put your Validation and send mail
-    $sent = wp_mail($requestEmail, $subject, strip_tags($message), $headers);
+    ob_start();
+    include('email-templates/otp-confirmation.php');
+    $email_content = ob_get_contents();
+    ob_end_clean();
+    add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+    $sent = wp_mail($requestEmail, $subject, $email_content, $headers);
+    remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
         if($sent) {
           $response['status'] = 1;
           $response['message'] = 'We have sent you a verification code at ' . $requestEmail . '. Please enter the code to verify your email.';
@@ -466,6 +471,9 @@ function reg_send_otp(){
   echo json_encode($response); exit;
 }
 
+function set_html_content_type() {
+return 'text/html';
+}
 add_action("wp_ajax_reg_verify_otp", "reg_verify_otp");
 add_action( 'wp_ajax_nopriv_reg_verify_otp', 'reg_verify_otp' ); 
 
@@ -739,7 +747,7 @@ function my_header_add_to_cart_fragment( $fragments ) {
     ob_start();
     $count = WC()->cart->cart_contents_count;
     ?><li><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
-      <img alt="View your shopping cart" title="View your shopping cart" src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg">
+      <img src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg">
       <?php
     if ( $count > 0 ) {
         ?>
@@ -759,7 +767,7 @@ function my_header_notification_fragment( $fragments ) {
     ob_start();
     $count = WC()->cart->cart_contents_count;
     ?><li><a class="cart-contents" title="<?php _e( 'View your notification' ); ?>">
-      <img alt="Notification" title="Notification" src="<?php echo get_bloginfo('template_url');?>/assets/images/notification.svg">
+      <img src="<?php echo get_bloginfo('template_url');?>/assets/images/notification.svg">
       <?php
     if ( $count > 0 ) {
         ?>
@@ -1189,7 +1197,7 @@ function wpfp_save_link( $return = 0, $action = "", $show_span = 1, $args = arra
 
 function wpfp_hhtml($post_id, $opt, $action) {
 
-  $opt = "<img alt='Delete Icon' title='Delete Icon' src='".get_bloginfo('template_url')."/assets/images/delete-icon.svg'>";
+  $opt = "<img src='".get_bloginfo('template_url')."/assets/images/delete-icon.svg'>";
     $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "'>". $opt ."</a>";
     $link = apply_filters( 'wpfp_link_html', $link );
     return $link;

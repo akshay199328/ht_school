@@ -143,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
                         echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a href="'.get_bloginfo('url').'/login-register" rel="nofollow" >
-                          <span class="icon"><img src="'.get_bloginfo('template_url').'/assets/images/login-profile.svg" alt="login profile" title="login profile"/></span>
+                          <span class="icon"><img src="'.get_bloginfo('template_url').'/assets/images/login-profile.svg" alt="Login Profile" title="Login Profile"/></span>
                           <span class="text">'.__('Login','vibe').'</span>
                           </a>').'</li>';
                         do_action('wp_head_wplms_login');
@@ -178,12 +178,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
                    //print_r($menuitems);
-                   echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img alt='search' title='search' src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
+                   echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img alt='Search' title='Search' src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
                    do_action('woocommerce_add_to_cart_fragments'); 
                    if (is_user_logged_in()){
                        /*do_action('notification_fragments');*/
                     }
-                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/news'><img alt='news' title='news' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
+                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/news'><img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
                    foreach ($menuitems as $menu) {  ?>
                        <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
                    <?php }

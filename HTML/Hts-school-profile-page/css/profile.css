@@ -14,31 +14,46 @@
 .bg-light-blue{background-color: var(--light-blue);}
 .sec_pt{padding-top: 60px;}
 .sec_pb{padding-bottom: 60px;}
+.advertisedment{display: none;}
 
+.main-navigation .navbar-brand{padding: 0;}
+.main-navigation .navbar-brand img{width:213px;height:66px}
+.main-navigation .profile-logo{}
+.main-navigation .right-logo{margin-right: 30px;}
+.profile-list{display: flex;list-style-type: none;padding: 0;margin: 0;flex-direction: row;}
+.main-navigation .login-link{padding: 0rem 1rem 2px 0px;position: relative;color:#000;font-size: 15px;font-weight: bold;}
+.main-navigation  .login-link::after{content: '';border-bottom: 1px solid #707070;width: 58%;height: 1px;position: absolute;bottom: -3px;left: 0;}
 
-.main-navigation{background-color: #fff;height:80px}
-.main-navigation .navbar-nav .nav-item .login-link{padding: 0.5rem 1rem 2px 0px;position: relative;color:#000;font-size: 15px;font-weight: bold;font-family: GT Walsheim Pro;}
-.main-navigation .navbar-nav .nav-item .login-link::after{content: '';border-bottom: 1px solid #707070;width: 58%;height: 1px;position: absolute;bottom: -3px;left: 0;}
-.main-navigation .navbar-nav .right-logo{margin-right: 30px;}
-
+.banner{display: block;
+  background-image: url(../images/school_banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  max-width: 1366px;
+  height: 350px;}
 
 .header-title{display: flex;align-items: center;margin-bottom: 40px;}
 .header-title h2{font-size: 60px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1;letter-spacing: normal;color: #0C5ACC;display: inline-block;}
 .view-all{padding: 16px 25px;background-color: #0c5acc;font-size: 20px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.35;letter-spacing: normal;text-align: left;color: #fff;margin-left: 28px;}
 .video_txt{font-size: 20px;font-weight: bold;color:#0C5ACC;line-height: 1.35;}
 .video_wrap{margin-bottom: 46px;display: block}
+.second-sec{margin-bottom: 0;}
 .video_wrap:hover{text-decoration: none;}
 .video_wrap .video-img{margin-bottom: 26px;display: block;}
 .advertised_img{margin-left: 50px;}
 
-.latest-news-wrap{padding: 40px 0 0;}
+.latest-news-wrap{padding: 47px 0 0;}
 .latest-news-wrap .latest_news{display: block;text-align: center;}
 
 .title-text{font-size: 60px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1;letter-spacing: normal;color: var(--black);display: inline-block;}
-
+.vision-wrap {padding-bottom: 70px;}
 .vision-wrap .title-text{margin-bottom: 50px;}
 .vision-wrap p{font-size: 20px;font-weight: 300;}
+.vision-wrap .latest_news{padding-top: 42px;padding-bottom: 60px;width: 100%;
+  text-align: center;}
 
+/* .about-section{background: #0c5acc url(../images/about-us-pic.png) no-repeat;background-size: contain;background-position: 118% 100%;} */
+.about-section{background: #0c5acc;}
 .about-section .title-text{color: var(--white);margin-bottom: 40px;}
 .about-section p{color:#fff;font-size: 20px;font-weight: 300;margin-bottom: 38px;}
 .about-section .about-img{background-image: url(../images/about-us-pic.png);
@@ -53,7 +68,7 @@
   /* top: 0; */
   margin-top: -5px;}
 
-.wrap{display: flex;justify-content: space-around;justify-content: space-between}
+.wrap{display: flex;justify-content: space-around;flex-wrap: wrap;}
 .left-side{flex:0 0 50%}
 .right-side{flex:0 0 50%;}
 
@@ -94,6 +109,8 @@
 .contact-section{padding-top: 23px;padding-bottom: 70px;}
 .contact-section .title-text{margin-bottom: 40px;}
 .contact-section .contact-box p{font-size: 20px;font-weight:300}
+
+
 
 
 
@@ -274,4 +291,70 @@
   .footer .footer-top .footer-info {margin-bottom: 15px;}
   .footer .footer-top .footer-info img {width: 150px;}
 }
+
+
+
+/* reponsive */
+@media screen and (max-width:767px) and (min-width:320px){
+.advertisedment{display: block;}
+.d-display-none{display: none;}
+.main-navigation .container{flex-wrap: nowrap;padding: 0;}
+.main-navigation .navbar-brand img {width: 120px;height: 37px;}
+.main-navigation .right-col .profile-list .profile-logo img{width: 62px;height: 17px;}
+.main-navigation .login-link{font-size: 11px;padding: 0rem 0px 2px 0px;}
+.main-navigation .right-logo{margin-right: 13px;}
+.vision-wrap img{max-width: 100%; }
+.vision-wrap .vision{max-width: 100%;    margin-bottom: 34px;}
+.honourable-wrap .team-wrap .image-box img{max-width: 100%;}
+.wrap{flex-direction: column;}
+.about-section{background-color: #0c5acc;}
+.about-section .container{padding:0}
+.about-section .left-side{background-color: #fff;padding: 0 15px;}
+.about-section p{color:#000;margin-bottom: 20px;}
+.about-section .title-text{color:#000;   margin-bottom: 25px;}
+.about-section .sec_pt{padding-top: 0;}
+.about-section .sec_pb{padding-bottom: 0;}
+.about-section .about-img{ position: relative;
+  height: 407px;
+  right: 0;
+  background-position: 63% 125%;
+  background-size: cover;}
+
+
+.video-sec{padding-top: 30px;}
+.header-title h2{font-size: 30px;}
+.video-sec .view-all{padding: 13px 25px;font-size: 14px;}
+.video-sec .video_txt{font-size: 18px;font-weight: 600;}
+.video-sec .video_wrap .video-img{margin-bottom: 13px;}
+.video-sec .video_wrap{margin-bottom: 24px;}
+.title-text{font-size: 30px;}
+.testimonial-wrap{padding-top: 36px;padding-bottom: 30px;}
+.testimonial-wrap .title-text{margin-bottom: 27px;}
+.testimonial-wrap .box{margin-right: 44px; margin-bottom: 40px;}
+.desktop-view{display: block;}
+.vision-wrap{padding-top: 70px;padding-bottom: 0;}
+.vision-wrap .latest_news{order:3;    padding-top: 28px;
+  padding-bottom: 40px;}
+.schoolvision-wrap{order:2}
+.vision-wrap .title-text{    position: absolute;top: -322px;z-index: 1;}
+.honourable-wrap .hounteam-box{padding: 0;}
+.honourable-wrap .team-wrap{flex-direction: column;}
+.honourable-wrap{padding-top: 36px;padding-bottom: 34px;}
+.honourable-wrap .team-wrap .image-box{height: 266px;}
+.honourable-wrap .team-wrap .team-name{font-size: 22px;}
+.honourable-wrap .team-wrap .small-team-name{font-size: 15px;}
+.honourable-wrap .team-wrap .team-text{font-size: 25px;line-height: 37px;}
+.honourable-wrap .team-wrap .team-text::after{height: 56px;width: 76px;bottom: -27px;}
+.honourable-wrap .team-wrap .team-text::before{height: 56px;width: 76px;}
+.honourable-wrap .bottom-box .profile-name{font-size: 22px;}
+.honourable-wrap .bottom-box .designation{font-size: 14px;}
+.contact-section{padding-bottom: 0}
+.contact-section .title-text{margin-bottom: 25px;}
+.contact-section .contact-box p{font-size: 15px;}
+.contact-section .contact{margin-top: 26px;}
+.news-section{padding:30px 0}
+
+}
+/* end responsive */
+
 

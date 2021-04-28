@@ -49,7 +49,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <ul class="tablist left_tab">
       <?php
       ?>
-        <li class="active news-li" data-scroll="All" id="All"><a href="#" data-id="All">All News</a></li>
+        <li class="active news-li" data-scroll="All" id="All"><a href="#" data-id="All">Latest</a></li>
       <?php
       foreach ($menuitems as $menu) {
         ?>

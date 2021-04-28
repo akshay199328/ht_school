@@ -126,12 +126,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         if(!empty($url)){
                     ?>
                         <?php if ( is_page_template('all-courses.php') || is_page_template('my-course.php') ) { ?>
-                        <a href="<?php echo vibe_site_url(); ?>" class="homeicon"><img src="<?php $logo_top = vibe_get_option('headertop_logo'); echo isset($logo_top)?$logo_top:apply_filters('wplms_logo_url',VIBE_URL.'/images/logo.png'); ?>" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                        <a href="<?php echo vibe_site_url(); ?>" class="homeicon"><img src="<?php $logo_top = vibe_get_option('headertop_logo'); echo isset($logo_top)?$logo_top:apply_filters('wplms_logo_url',VIBE_URL.'/images/logo.png'); ?>" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
                         
                     <?php
                     }
                     else{?>
-                        <a href="<?php echo vibe_site_url(); ?>" class="logo d-flex align-items-center"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                        <a href="<?php echo vibe_site_url(); ?>" class="logo d-flex align-items-center"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
 
                     <?php }
                         }
@@ -143,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
                         echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a href="'.get_bloginfo('url').'/login-register" rel="nofollow" >
-                          <span class="icon"><img src="'.get_bloginfo('template_url').'/assets/images/login-profile.svg"/></span>
+                          <span class="icon"><img src="'.get_bloginfo('template_url').'/assets/images/login-profile.svg" alt="login profile" title="login profile"/></span>
                           <span class="text">'.__('Login','vibe').'</span>
                           </a>').'</li>';
                         do_action('wp_head_wplms_login');
@@ -178,14 +178,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
                    //print_r($menuitems);
-                   echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
+                   echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img alt='search' title='search' src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
                    do_action('woocommerce_add_to_cart_fragments'); 
                    if (is_user_logged_in()){
                        /*do_action('notification_fragments');*/
                     }
-                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/news'><img alt='news' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
+                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/news'><img alt='news' title='news' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
                    foreach ($menuitems as $menu) {  ?>
-                       <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper'src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
+                       <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
                    <?php }
                    echo "</ul>";
                    ?>

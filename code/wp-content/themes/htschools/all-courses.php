@@ -49,7 +49,7 @@ get_header(vibe_get_header());
                           $image_url = get_the_post_thumbnail_url();
                         }
                       ?>
-                     <a href="<?php echo get_permalink($post->ID);?>"> <img src="<?php echo $image_url; ?>" class="img-fluid"></a>
+                     <a href="<?php echo get_permalink($post->ID);?>"> <img src="<?php echo $image_url; ?>" class="img-fluid" alt="" title=""></a>
                     </div>
                     <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
                       <div class="col-sm-12 col-lg-9 pull-left mrg">
@@ -87,7 +87,7 @@ get_header(vibe_get_header());
                           <div class="share-icon">
                             <ul>
                               <li class="hover_share">
-                                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+                                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg" alt="share icon" title="share icon">
                                 <div class="display_icon">
                                   <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
                                   <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">

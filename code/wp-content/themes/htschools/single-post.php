@@ -74,7 +74,7 @@ $topics = wp_get_post_tags(get_the_ID());
                   <h1><?php the_title(); ?></h1>
 
                   <div class="border_text"><?php $sub_title = get_post_meta(get_the_ID(),'vibe_subtitle',true);
-                  echo wp_trim_words( $sub_title, 20, NULL )
+                  echo wp_trim_words( $sub_title, 18, NULL )
                   ?></div>
                 </div>
               </div>

@@ -1,11 +1,12 @@
 <?php
 // If this file is called directly, abort.
 if(!defined('WPINC')){ die; }
+$slugcburl='dabboo-ratnani-photography-classes';
 
 $curl = curl_init();
 
 if ($AuthToken != '' ){
- $courseapiurl=$wpcs_options['cs_api_url'].'/api/album/siddharth-prabhakar-business-classes';
+ $courseapiurl=$wpcs_options['cs_api_url'].'/api/album/'.$slugcburl;
   $curlcatheader=array('x-auth-token' =>$AuthToken);
   curl_setopt_array($curl, array(
     CURLOPT_URL => $courseapiurl,
@@ -113,7 +114,7 @@ if ( $fetchedQuery->found_posts <= 0 ){
 //Unit API
 
   $unitCurl = curl_init();
-  $CourseUnitUrl=$wpcs_options['cs_api_url'].'/api/video/ranveer-brar-cooking-classes';
+  $CourseUnitUrl=$wpcs_options['cs_api_url'].'/api/video/'.$slugcburl;
   $curlcatheader=array('x-auth-token' =>$AuthToken);
 
   curl_setopt_array($unitCurl, array(

@@ -2424,7 +2424,7 @@ section.latest-news{
 {
   border-bottom: solid 0px #b8b8b8;
 }
-.home_latest_news .details-middle ul li {    width: 86%;}
+.home_latest_news .details-middle ul li {    /*width: 86%;*/}
 .news-date p{
   text-transform: uppercase;
 }

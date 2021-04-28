@@ -220,7 +220,7 @@ $(window).scroll(function() {
     var windscroll = $(window).scrollTop();
     if (windscroll >= 100) {
         $('.latest-news').each(function(index,e) {
-            if ($(this).position().top <= windscroll - 20) {
+            if ($(this).position().top <= windscroll + 130) {
               var id = $(this).attr('id');
                 //$('news-li').eq(e).addClass('active');
                 if(id != 'All'){

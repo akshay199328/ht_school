@@ -215,7 +215,7 @@ get_header(vibe_get_header());
           <div class="col-sm-12">
               <div class="header-heading">
                 <h2>Editor's Desk</h2>
-                <a href="<?php echo get_home_url();?>/news" class="news-btn">All Articles</a>
+                <a href="<?php echo get_home_url();?>/editorsdesk" class="news-btn">All Articles</a>
               </div>
           </div>
           <?php
@@ -223,7 +223,7 @@ get_header(vibe_get_header());
                 'post_type' => 'post',
                 'post_status' => 'publish',
                 //'category_name' => 'Expert','Interview','Featured',
-                'posts_per_page' => 5,
+                'posts_per_page' => 9,
                 'order'=>'DESC',
             );
             $Query = new WP_Query( $args );
@@ -266,7 +266,7 @@ get_header(vibe_get_header());
               </ul>
             </div>
           </div>
-          <div class="col-sm-12 col-lg-6 mrg">
+          <!-- <div class="col-sm-12 col-lg-6 mrg">
               <div class="details-middle">
                 <div class="popularNew-heading">
                   <h5>Popular on<br/>HT School News</h5>
@@ -289,7 +289,7 @@ get_header(vibe_get_header());
                     ?>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="col-lg-12 center">
             <?php

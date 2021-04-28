@@ -20,7 +20,7 @@ get_header(vibe_get_header());
           global $wp;
           $current_url = home_url(add_query_arg(array(), $wp->request));
           ?>
-          <li><a href="<?php echo get_site_url(); ?>/news">All News</a></li>
+          <li><a href="<?php echo get_site_url(); ?>/editorsdesk">Latest</a></li>
           <?php
           foreach ($menuitems as $menu) {  
             if($current_url."/" == $menu->url){    
@@ -86,19 +86,13 @@ get_header(vibe_get_header());
           ?>
         </div>
         <?php
-          $args = array(
-              'post_type' => 'post',
-              'post_status' => 'publish',
-              'category_name' => "Expert's corner",
-              'posts_per_page' => 6,
-          );
-          $Query = new WP_Query( $args );
-          if ($Query->have_posts()){
+          query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=4');
+          if (have_posts()){
           ?>
           
         <div class="sidebar">
-          <h3>Expert News</h3>
-            <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+          <h3>Popular on HTSchool</h3>
+            <?php if (have_posts()) : while (have_posts()) : the_post();
                       // if( $Query->current_post != 0 ) { 
               ?>
               <div class="list" >
@@ -134,16 +128,15 @@ get_header(vibe_get_header());
   </div>
 </section>
 <?php
-  $args = array(
+  /*$args = array(
       'post_type' => 'post',
       'post_status' => 'publish',
       'category_name' => 'Interviews',
       'posts_per_page' => 6,
   );
   $Query = new WP_Query( $args );
-?>
-<?php if ($Query->have_posts()){ ?>
-<section id="" class="latest-news news_latest-news lts_news">
+php if ($Query->have_posts()){ */?>
+<!-- <section id="" class="latest-news news_latest-news lts_news">
   <div class="container">
     <div class="row gx-0">
       <div class="pagetitle">
@@ -170,8 +163,8 @@ get_header(vibe_get_header());
 
         </div>
       </div>
-    </section>
+    </section> -->
 <?php
-}
+/*}*/
 get_footer(vibe_get_footer());
 ?>

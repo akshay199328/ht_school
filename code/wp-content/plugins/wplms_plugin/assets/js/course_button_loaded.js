@@ -6585,14 +6585,14 @@
             }
         })), sr("div", {
             className: "popup-footer"
-        }, sr("a", {
-            className: "link",
-            onClick: () => F(!1)
         }, window.wplms_course_data.translations.cancel), sr("a", {
             className: "button is-primary",
             onClick: e.back
         }, window.wplms_course_data.translations.back_to_my_courses, sr("span", {
             className: "vicon vicon-angle-right"
+        }, sr("a", {
+            className: "link",
+            onClick: () => F(!1)
         })))))) : "", C ? sr("div", {
             className: "reviewpopup_wrapper",
             onClick: e => {

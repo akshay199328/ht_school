@@ -77,13 +77,19 @@
 
 .previous_results_wrapper h3 {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    cursor: pointer
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #000;
+    align-content: center;
+    padding: 20px 0px;
 }
-
+.previous_results_wrapper h3 .vicon{
+    margin-left: 30px;
+} 
 .previous_results_wrapper .quiz_results {
     box-shadow: 1px 1px 5px 1px var(--shadow);
     padding: 1rem;
@@ -220,7 +226,21 @@
     align-items: center;
     justify-content: center
 }
-
+.course_status .reviewpopup_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content{
+    margin-top: 0px!important;
+    height: 100%;
+    width: calc(100% - 65%) !important;
+    border-radius: 0!important;
+    /*padding: 0!important;*/
+}
 .course_status .reviewpopup_wrapper .reviewpopup_content,
 .course_status .course_instructions_wrapper .reviewpopup_content {
     margin-top: 90px
@@ -235,7 +255,8 @@
     background: var(--highlight);
     padding: 1.5rem;
     border-radius: 4px;
-    box-shadow: 1px 2px 50px var(--shadow)
+    box-shadow: 1px 2px 50px var(--shadow);
+    padding: 21px 0px;
 }
 
 .course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer,
@@ -270,7 +291,18 @@
     white-space: break-spaces;
     height: auto
 }
-
+.course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer>a.button {
+        max-width: max-content;
+    margin-top: 20px ;
+    background-color: #000;
+    color: #d5ebff ;
+    font-size: 15px;
+    line-height: 22px;
+    border-radius: 0px;
+}
+.reviewpopup_wrapper .reviewpopup_content .popup-footer>a.button .vicon-angle-right{
+    display: none;
+}
 .course_status .reviewpopup_wrapper .reviewpopup_content .course-star-rating span,
 .course_status .reviewpopup_wrapper .course_instructions .course-star-rating span,
 .course_status .course_instructions_wrapper .reviewpopup_content .course-star-rating span,
@@ -286,16 +318,27 @@
     top: 1rem;
     right: 1rem;
     z-index: 99999;
-    cursor: pointer
+    cursor: pointer;
+    opacity: 1;
 }
-
+/*.reviewpopup_content .close span:before{
+    font-size: 15px ;
+    color: #000 ;
+}*/
+.reviewform {
+    margin-top: 0px !important;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .close{
+        top: 20px;
+    right: 50.3px;
+}
 .course_status .reviewpopup_wrapper .reviewpopup_content .close span:before,
 .course_status .reviewpopup_wrapper .course_instructions .close span:before,
 .course_status .course_instructions_wrapper .reviewpopup_content .close span:before,
 .course_status .course_instructions_wrapper .course_instructions .close span:before {
-    color: red;
-    font-weight: 900;
-    font-size: 1.5rem
+    color: #000;
+    font-weight: bold;
+    font-size: 8.5px;
 }
 
 .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform,
@@ -309,10 +352,49 @@
 .course_status .reviewpopup_wrapper .course_instructions .reviewform label,
 .course_status .course_instructions_wrapper .reviewpopup_content .reviewform label,
 .course_status .course_instructions_wrapper .course_instructions .reviewform label {
-    font-size: 2rem;
-    display: inline-block
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: left;
+    color: #a2a0a0;
 }
-
+.course_status .reviewpopup_wrapper .reviewpopup_content .reviewform label,
+.course_status .reviewpopup_wrapper .reviewpopup_content .reviewform .wplms-course-star-rating,
+.course_status .reviewpopup_wrapper .reviewpopup_content .reviewform input,
+.course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea
+{
+    padding: 0px 42px!important;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea {
+    background: url(../images/textarea_icon.png) top left;
+    height: 352.8px;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    background-color: #f8f8f8;
+    padding-top: 9.1px!important;
+    border: 0;
+    
+    
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .reviewform input:placeholder{
+    padding-left: 10px !important
+}
+.reviewpopup_wrapper .reviewpopup_content input,
+.reviewpopup_wrapper .reviewpopup_content .reviewform textarea{
+    margin: 0px!important;
+    border-top: 0px !important;
+    border-bottom: 1px dotted hsl(0deg 0% 44% / 50%)!important;
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer{
+    margin: 70px 1.5rem 1rem 1.5rem!important;
+    padding: 0.8rem 1.5rem!important;
+    background: #fff !important;
+    display: block !important;
+}
 .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform>*,
 .course_status .reviewpopup_wrapper .course_instructions .reviewform>*,
 .course_status .course_instructions_wrapper .reviewpopup_content .reviewform>*,
@@ -492,12 +574,12 @@
     top: 0;
     background: #F7F7F7;
     margin: 0rem;
-    padding: 28px 30px;
+    padding: 27px 30px;
         height: auto;
     line-height: 0;
     border-bottom: 0px solid rgb(247 247 247);
     box-shadow: none;
-    z-index: 999;
+    z-index: 99;
 }
 
 .course_status .course_content .course_content_header .toggle_timeline_wrapper {
@@ -537,14 +619,14 @@
     flex-direction: column;
     justify-content: flex-start;
     flex: 0;
-    margin-top: 1.5rem;
+    margin-top: 0px;
     height: auto
 }
 
 .course_status .course_content .course_content_content_wrapper h2 {
     margin: 1.5rem 0;
-    font-size: 2.5rem;
-    line-height: 1;
+    font-size: 25px;
+    line-height: 1.32;
     margin-bottom: 1rem;
     font-weight: 600
 }
@@ -957,7 +1039,11 @@
     justify-content: space-between;
     flex-wrap: wrap
 }
-
+.course_status .course_timeline .course_action_points .action_points .vicon{
+    font-weight: bold;
+    color: #000;
+    font-size: 15px;
+}
 .course_status .course_timeline .course_action_points .action_points div {
     padding: 1rem;
     flex: 1;
@@ -995,6 +1081,9 @@
     margin: 0 !important;
     padding: 18px 29px 16px 30px;
     border-bottom: 1px dotted hsl(0deg 0% 44% / 50%);
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
 }
 
 .course_status .course_timeline>ul li.collapsed_lesson {
@@ -1105,25 +1194,33 @@
     height: 100%
 
 }
-
+.course_status .course_timeline>ul li .unit_progress_wrapper .react-progress-circle {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+}
 .course_status .course_timeline>ul li.section {
     background: #000000;
     color: #ffffff;
     margin: 0;
     padding: 19px 30px 21px;
+    border-bottom: 2px solid #e8e8e8;
 }
-
+.course_status .course_timeline>ul li.section:last-child{
+    border-bottom: 2px solid transparent;
+}
 .course_status .course_timeline>ul li.section p {
     font-weight: 600;
     font-size: 120%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     margin: 0;
 }
 .course_status .course_timeline>ul li.section .vicon-minus,
 .course_status .course_timeline>ul li.section .vicon-plus {
-        margin-top: -2px;
+        /*margin-top: -2px;*/
     font-size: 22px;
 }
 .course_status .course_timeline>ul li:not(.section).done>div.unit_progress_wrapper:before {
@@ -1163,7 +1260,15 @@
 }
 
 .course_status .right_block .review_block {
-    margin: 0 5px
+    margin: 0 20px 0 0px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 15px;
+    color: #000;
+    line-height: 1.33;
+    letter-spacing: 0.6px;
+    text-align: left;
+    font-weight: bold;
 }
 
 .course_status .unit_prevnext {
@@ -1209,6 +1314,7 @@
 .course_status .right_block .vicon {
 	color: #000;
     font-size: 12px;
+    margin-right: 10px;
 }
 .unit_prev .vicon {
 	margin-right: 10px;
@@ -1238,11 +1344,13 @@
 }
 
 .course_status .lesson_info {
-    font-weight: 600;
-    opacity: 0.5;
+    font-weight: bold;
+    opacity: 1;
     display: flex;
     align-items: center;
-    margin-bottom: 3px
+    margin-bottom: 6px;
+    line-height: 1.36;
+    letter-spacing: 0.55px;
 }
 
 .course_status .lesson_info>span+span {
@@ -1267,9 +1375,9 @@
     flex-wrap: wrap;
     align-items: flex-start;
     flex-direction: row-reverse;
-        border-top: 1px dotted #707070;
+    border-top: 0px dotted #707070;
     margin: 0!important;
-    padding-top: 1.5rem;
+    padding-top: 0;
 }
 
 .course_status .incourse>* {
@@ -2099,7 +2207,7 @@
 .course_content_content h2 {
     font-size: 2.5rem;
     font-weight: 800;
-    margin: 0 0 1.5rem !important
+    margin: 0 0 20px !important
 }
 
 .course_content_content .video_wrapper {
@@ -2519,7 +2627,7 @@
 }
 
 .wplms-course-star-rating .vicon {
-    padding: 3px 3px 5px 5px
+    padding: 5px 0px 0px 0px
 }
 
 .wplms-course-star-rating .vicon.golden {
@@ -2529,7 +2637,7 @@
 }
 
 .wplms-course-star-rating .vicon+.vicon {
-    margin-left: 0.5rem
+    margin-left: 5px;
 }
 
 @media (max-width: 480px) {

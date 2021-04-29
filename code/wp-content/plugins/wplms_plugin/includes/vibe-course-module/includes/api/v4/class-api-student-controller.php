@@ -1031,7 +1031,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$course_id = $body['id'];
 			$is_cb_course = 0;
 			$cb_course_link = "";
-			$is_profile_complete = 1;
+			$is_profile_complete = 0;
 
 			$user_mobile = get_profile_data('Phone');
 			$user_birthday = get_profile_data('Birthday');
@@ -1041,9 +1041,9 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$user_city = get_profile_data('City');
 			$dob = strtotime($user_birthday);
 
-			// if($dob > '1970-01-01' && $user_city != '' && $user_state != '' && $user_country != '' && $user_gender != ''){
-			// 	$is_profile_complete = 1;
-			// }
+			if($dob > '1970-01-01' && $user_city != '' && $user_state != '' && $user_country != '' && $user_gender != ''){
+				$is_profile_complete = 1;
+			}
 
             $cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
             if ($cb_course_id){

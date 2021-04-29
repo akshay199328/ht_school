@@ -31,7 +31,6 @@ vibe_include_template("profile/top$profile_layout.php");
             global $wpdb;    
             $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
             $result = $wpdb->get_results($courses_with_types);
-
             foreach($result as $course){
                     
                 $type = bp_course_get_user_course_status($user->ID,$course->id);
@@ -41,14 +40,17 @@ vibe_include_template("profile/top$profile_layout.php");
                 $statuses[$course->id]= intval($type);
             }
 
-            $query_args = apply_filters('wplms_mycourses',array(
-                'post_type'=>'course',
-                'post__in'=>$args['post__in']
-            ),$user->ID);
+            if(!empty($args['post__in'])){
+                
+                $query_args = apply_filters('wplms_mycourses',array(
+                    'post_type'=>'course',
+                    'post__in'=>$args['post__in']
+                ),$user->ID);
 
-            $course_query = new WP_Query($query_args);
+                $course_query = new WP_Query($query_args);
+            }
             global $bp,$wpdb;
-            if(!empty($result)){
+            if(!empty($course_query)){
             ?>
             
                 <section id="Popular-Courses" class="">

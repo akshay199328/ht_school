@@ -1532,8 +1532,8 @@ function wpbeginner_numeric_posts_nav() {
     echo '<div class="pagination"><ul>' . "\n";
  
     /** Previous Post Link */
-    if ( get_previous_posts_link('<i class="bi bi-chevron-left"></i>') )
-        printf( '<li class="pagination_arrow">%s</li>' . "\n", get_previous_posts_link('<i class="bi bi-chevron-left"></i>') );
+    if ( get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') )
+        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') );
  
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
@@ -1562,8 +1562,8 @@ function wpbeginner_numeric_posts_nav() {
     }
  
     /** Next Post Link */
-    if ( get_next_posts_link('<i class="bi bi-chevron-right"></i>') )
-        printf( '<li class="pagination_arrow">%s</li>' . "\n", get_next_posts_link('<i class="bi bi-chevron-right"></i>') );
+    if ( get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg>') )
+        printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg>') );
  
     echo '</ul></div>' . "\n";
  

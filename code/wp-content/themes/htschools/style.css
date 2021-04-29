@@ -152,7 +152,15 @@ section {
     min-height: 85px;
   }
   .releted_news_section .related_post{/*padding-left: 60px;*/}
-    #profileModal .modal-content{height: 669px;}
+  #profileModal .modal-content{height: 669px;}
+  .course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) {
+      padding-right: 0px;
+      padding-left: 15px;
+  }
+  .course-curriculum .list .col-lg-6.pull-left{
+          padding: 0;
+    padding-right: 15px;
+  }
 
 }
 
@@ -1688,14 +1696,13 @@ Course Details
     border-color: #e8e8e8!important;
     border-radius: 0!important;
     padding: 24px;
-    margin: 0px 30px 30px 0px;
+    margin: 0px 0px 30px 0px;
     height: 300px;
+        width: 100%;
     float: left;
     display: block;
 }
-.course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) .card {
-  margin-right:0px;
-}
+
 .card .default-background{
     padding: 2px 5px 4px;
   background-color: #ffeaeb;
@@ -5811,7 +5818,7 @@ h6:empty
     padding: 0rem 0rem 0!important;
 }
 .course_status .course_content .course_content_content_wrapper{
-      margin-top: 2rem!important;
+      /*margin-top: 2rem!important;*/
 }
 .course_content_content{
   padding: 18px 30px 0!important;
@@ -5820,13 +5827,13 @@ h6:empty
   background: #ffffff!important;
 }
 .course_status .lesson_info{
-  opacity: 1!important;
+  /*opacity: 1!important;*/
 }
 .course_status .lesson_info>span+span {
     margin-left: 14px!important;
 }
 .course_status .course_content .course_content_content_wrapper h2{
-  line-height: 1.32!important;
+  /*line-height: 1.32!important;*/
 }
 .course_status .incourse .incoursequiz_details{
     position: absolute!important;

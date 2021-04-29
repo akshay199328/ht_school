@@ -31,7 +31,7 @@ get_header(vibe_get_header());
                     $args_course = array(
                         'post_type' => 'course',
                         'post_status' => 'publish',
-                        'posts_per_page'=>2,
+                        'posts_per_page'=>6,
                     );
                     $Query_course = new WP_Query( $args_course );
                     if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();

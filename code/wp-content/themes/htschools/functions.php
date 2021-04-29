@@ -1576,6 +1576,7 @@ function course_pagination($wp_query) {
  
     $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
     $max   = intval( $wp_query->max_num_pages );
+    //print_r($paged);
  
     /** Add current page to the array */
     if ( $paged >= 1 )
@@ -1595,8 +1596,8 @@ function course_pagination($wp_query) {
     echo '<div class="pagination"><ul>' . "\n";
  
     /** Previous Post Link */
-    if ( get_previous_posts_link('<i class="bi bi-chevron-left"></i>') )
-        printf( '<li>%s</li>' . "\n", get_previous_posts_link('<i class="bi bi-chevron-left"></i>') );
+    if ( get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') )
+        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') );
  
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
@@ -1625,9 +1626,10 @@ function course_pagination($wp_query) {
     }
  
     /** Next Post Link */
-    if ( get_next_posts_link('<i class="bi bi-chevron-right"></i>') )
-        printf( '<li>%s</li>' . "\n", get_next_posts_link('<i class="bi bi-chevron-right"></i>') );
+    if ( get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg>') )
+        printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg>') );
  
     echo '</ul></div>' . "\n";
  
 }
+

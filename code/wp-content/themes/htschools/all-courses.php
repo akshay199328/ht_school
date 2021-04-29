@@ -28,12 +28,10 @@ get_header(vibe_get_header());
             <div class="">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                   <?php
-                  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $args_course = array(
                         'post_type' => 'course',
                         'post_status' => 'publish',
-                        'paged' => $paged, 
-                        'posts_per_page'=>6,
+                        'posts_per_page'=>2,
                     );
                     $Query_course = new WP_Query( $args_course );
                     if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();

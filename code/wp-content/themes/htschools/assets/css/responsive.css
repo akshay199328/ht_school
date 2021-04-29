@@ -176,20 +176,13 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 
 /*course page*/
 
-.course_status .course_timeline .course_heading h2{
-	font-size: 30px !important;
-	margin-bottom: 40px !important;
-	font-weight: 600 !important;
-	color: #000 !important;
-	line-height: 30px !important;
+/*.course_status .course_timeline .course_heading h2{
+
 }
 .course_status .course_timeline .course_heading .course_progress>span{
 	background-color: #00D98E !important;
 }
 .course_progress_wrapper>span{
-	font-size: 14px !important;
-	font-weight: 400 !important;
-	color: #000 !important;
 }
 .course_status .course_timeline .course_action_points .action_points a{
 	color: #000;
@@ -249,14 +242,10 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 .course_status .course_timeline>ul li.active .unit_progress_wrapper:before{
 	background-color: #FADE3B !important;
 	color: ##FADE3B !important;
-}
-.course_status .unit_prevnext .navigate_unit span:not(.vicon){
-	font-size: 15px !important;
-	font-weight: 600 ;
-}
-/*.course_content_content .video_wrapper .plyr{
-	height: 452px !important;
 }*/
+.course_status .unit_prevnext .navigate_unit span:not(.vicon){
+	
+}
 .course_content_content .video_wrapper .plyr__controls .plyr__controls__item:first-child{
 	background: #f3d447 !important;
     color: #000 !important;
@@ -268,21 +257,20 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 	background-color: #fff !important;
 	border-radius: 20px !important;
 }
-.course_status .course_timeline>ul li p>span.vicon{
+/*.course_status .course_timeline>ul li p>span.vicon{
 	font-size: 16px;
     font-weight: 600;
-}
+}*/
 .course_status .course_timeline>ul li p>span.lesson_duration{
-	font-size: 13px !important;
-    font-weight: 300;
+	/*font-size: 13px !important;
+    font-weight: 300;*/
 }
 .course_status .course_content .course_content_header{
-	height: 45px !important;
 }
 .course_status .course_timeline>ul li.open_lesson .lesson_title{
-	font-size: 15px !important;
+	/*font-size: 15px !important;
 	font-weight: 400;
-	line-height: 20px !important;
+	line-height: 20px !important;*/
 
 }
 .course_status .course_timeline>ul li.active .lesson_title{

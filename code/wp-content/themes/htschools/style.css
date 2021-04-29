@@ -5873,8 +5873,8 @@ h6:empty
     margin: 0px!important;
 }
 .course_status .incourse{
-  border-top: 1px dotted #707070;
-    margin: 0!important;
+  /*border-top: 1px dotted #707070;
+    margin: 0!important;*/
 }
 .course_status .incourse .quiztimer .circle_timer .react-progress-circle {
     margin-right: 13px!important;

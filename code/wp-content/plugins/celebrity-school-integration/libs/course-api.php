@@ -1,7 +1,7 @@
 <?php
 // If this file is called directly, abort.
 if(!defined('WPINC')){ die; }
-$slugcburl='dabboo-ratnani-photography-classes';
+$slugcburl='ganesh-acharya-dancing-classes';
 
 $curl = curl_init();
 

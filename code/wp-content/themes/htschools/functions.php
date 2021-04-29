@@ -155,10 +155,6 @@ function wp_bootstrap_starter_widgets_init() {
     ) );
 }
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
-// wp_enqueue_style( 'wplms-aos', get_template_directory_uri(). '/assets/vendor/aos/aos.css' );
-//wp_enqueue_style( 'library-jui-main', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.min.css' );
-//wp_enqueue_style( 'library-jui-structure', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.structure.min.css' );
-//wp_enqueue_style( 'library-jui-theme', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.theme.min.css' );
 if(!is_admin()){
   wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
   wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css' );
@@ -168,31 +164,13 @@ if(!is_admin()){
   wp_enqueue_style( 'wplms-owl-carousel', get_template_directory_uri(). '/assets/css/owl.carousel.min.css' );
   wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css' );
   wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css' );
-
-  // wp_enqueue_script( 'wplms-aos-js', get_template_directory_uri(). '/assets/vendor/aos/aos.js', '', '', true );
-  /*add_action('wp_enqueue_scripts', 'no_more_jquery');
-  function no_more_jquery(){
-      wp_deregister_script('jquery');
-  }*/
   wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
   wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
-  // wp_enqueue_script( 'wplms-owl', get_template_directory_uri(). '/assets/js/owl-carousel.min.js', '', '', true );
   wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
   wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
   wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
   wp_enqueue_script( 'wplms-circle', get_template_directory_uri(). '/assets/js/circle.js', '', '', true );
 }
-//wp_enqueue_script( 'library-jui-js', get_template_directory_uri(). '/assets/library/jquery-ui/jquery-ui.min.js', '', '', true );
-// add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
-// function add_search_box( $items, $args ) {
-//     if( !($args->theme_location == 'top-menu') ) 
-//     return $items;
-//     $searchbox = '<li class="search-icon"><a id="new_searchicon"><i class="bi bi-search"></i></a></li>';
-
-//     return $searchbox.$items;
-
-// }
-
 function wpse_enqueue_datepicker() {
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'jquery-ui-datepicker' );
@@ -365,16 +343,6 @@ if(!function_exists('ht_course_get_full_course_curriculum')){
   }
 }
 
-// if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['login_location']) && !empty($_POST['login_location'])) ) {
-//     add_filter('login_redirect', 'my_login_redirect', 10, 3);
-//     function my_login_redirect() {
-//         $location = $_SERVER['HTTP_REFERER'];
-//         wp_safe_redirect($location);
-//         exit();
-//     }
-// }
-
-
 function wpb_custom_new_menu() {
   // register_nav_menu('sidebar-menu',__( 'Sidebar Menu' ));
   register_nav_menus( array(
@@ -411,14 +379,6 @@ if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['l
         exit;
     }
 }
-
-//   if(is_user_logged_in()){
-// add_filter('wplms_take_this_course_button_label',function($credits){
-
-//   return '<strong><span class="coming_soon">Join Course</span></strong>';
-
-// });
-// }
 
 // Login Functionality
 add_action("wp_ajax_reg_send_otp", "reg_send_otp");
@@ -681,51 +641,6 @@ function reg_verify_mob_otp(){
     echo json_encode($response); exit;
 }
 
-// add_filter('wplms_course_details_widget','wplms_show_unit_count_and_time');
-// function wplms_show_unit_count_and_time($course_details){
-//     $course_id = get_the_ID();
-//     $units=bp_course_get_curriculum_units($course_id);
-//     $course_details['units'] = '<li><i class="icon-grid-alt"></i>'.count($units).' Units</li>';
-//     $duration = $total_duration = 0;
-//     foreach($units as $unit){
-//         $duration = get_post_meta($unit,'vibe_duration',true);
-//         if(get_post_type($unit)=='unit'){
-//            $unit_duration_parameter = apply_filters('vibe_unit_duration_parameter',60,$unit);
-//         }elseif(get_post_type($unit)=='quiz'){
-//            $unit_duration_parameter = apply_filters('vibe_quiz_duration_parameter',60,$unit);
-//         }
-        
-//         $total_duration =  $total_duration + $duration*$unit_duration_parameter;
-//      }
-            
-//      $course_details['units_duration'] = '<li><i class="icon-clock-1"></i>'.tofriendlytime(( $total_duration)).'</li>';
-//      print_r($course_details);
-//      return $course_details;
-// }
-// add_filter('wplms_course_details_widget','wplms_show_unit_count_and_time');
-// function wplms_show_unit_count_and_time($course_details){
-//     $course_id = get_the_ID();
-//     $units=bp_course_get_curriculum_units($course_id);
-//     $course_details['units'] = '<li><i class="icon-grid-alt"></i>'.count($units).' Units</li>';
-//     $duration = $total_duration = 0;
-//     foreach($units as $unit){
-//         $duration = get_post_meta($unit,'vibe_duration',true);
-//         if(get_post_type($unit)=='unit'){
-//            $unit_duration_parameter = apply_filters('vibe_unit_duration_parameter',60,$unit);
-//         }elseif(get_post_type($unit)=='quiz'){
-//            $unit_duration_parameter = apply_filters('vibe_quiz_duration_parameter',60,$unit);
-//         }
-        
-//         $total_duration =  $total_duration + $duration*$unit_duration_parameter;
-//      }
-            
-//      $course_details['units_duration'] = '<li><i class="icon-clock-1"></i>'.tofriendlytime(( $total_duration)).'</li>';
-//      print_r($course_details);
-//      return $course_details;
-// }
-
-
-
 add_filter('wplms_course_credits','wplms_hide_course_credits_for_course_students',10,2);
 function wplms_hide_course_credits_for_course_students($credits,$course_id){
   if(!is_user_logged_in()){
@@ -747,7 +662,7 @@ function my_header_add_to_cart_fragment( $fragments ) {
     ob_start();
     $count = WC()->cart->cart_contents_count;
     ?><li><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
-      <img src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg">
+      <img alt="View your shopping cart" src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg">
       <?php
     if ( $count > 0 ) {
         ?>
@@ -1573,3 +1488,12 @@ function split_string_by_words($text, $splitLength = 25)
 
 add_action( 'wp_ajax_save_my_data', 'acf_form_head' );
 add_action( 'wp_ajax_nopriv_save_my_data', 'acf_form_head' );
+
+add_filter( 'clean_url', function( $url ) {
+    if ( FALSE === strpos( $url, '.js' ) ) {
+        // not our file
+        return $url;
+    }
+    // Must be a ', not "!
+    return "$url' defer='defer";
+}, 11, 1 );

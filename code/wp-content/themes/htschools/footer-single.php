@@ -353,7 +353,7 @@ border: 1px solid deepskyblue;
                                     <label>Mobile Number*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" class="in-class form-control user_field" readonly/>
+                                    <input type="text" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" class="in-class form-control user_field"/>
                                 </div>
 
                                 <div class="col-md-12">
@@ -491,6 +491,7 @@ border: 1px solid deepskyblue;
             $(".close_modal").unbind();
             $(".close_modal").click(function(){
                 $("#profileModal").modal("hide");
+                window.location.reload();
             });
 
             var ajaxurl = "<?php echo home_url(); ?>/wp-admin/admin-ajax.php";

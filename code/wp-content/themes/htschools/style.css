@@ -153,11 +153,11 @@ section {
   }
   .releted_news_section .related_post{/*padding-left: 60px;*/}
   #profileModal .modal-content{height: 669px;}
-  .course-curriculum .list .col-lg-6.pull-left:nth-child(2n+2) {
+  .course-curriculum .list .video-wrap:nth-child(2n+2) {
       padding-right: 0px;
       padding-left: 15px;
   }
-  .course-curriculum .list .col-lg-6.pull-left{
+  .course-curriculum .list .video-wrap{
           padding: 0;
     padding-right: 15px;
   }

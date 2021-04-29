@@ -1489,14 +1489,14 @@ function split_string_by_words($text, $splitLength = 25)
 add_action( 'wp_ajax_save_my_data', 'acf_form_head' );
 add_action( 'wp_ajax_nopriv_save_my_data', 'acf_form_head' );
 
-add_filter( 'clean_url', function( $url ) {
-    if ( FALSE === strpos( $url, '.js' ) ) {
-        // not our file
-        return $url;
-    }
-    // Must be a ', not "!
-    return "$url' defer='defer";
-}, 11, 1 );
+// add_filter( 'clean_url', function( $url ) {
+//     if ( FALSE === strpos( $url, '.js' ) ) {
+//         // not our file
+//         return $url;
+//     }
+//     // Must be a ', not "!
+//     return "$url' defer='defer";
+// }, 11, 1 );
 
 function wpbeginner_numeric_posts_nav() {
  
@@ -1511,6 +1511,7 @@ function wpbeginner_numeric_posts_nav() {
  
     $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
     $max   = intval( $wp_query->max_num_pages );
+    //print_r($paged);
  
     /** Add current page to the array */
     if ( $paged >= 1 )

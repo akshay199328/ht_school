@@ -37,7 +37,7 @@
 		<div class="profile-heading">
 			<div class="<?php echo vibe_get_container(); ?>">
 	    		<div class="row">
-	    			<div class="col-md-12">
+	    			<div class="col-md-12 heading-align">
 		    			<div class="pull-left">
 		    				<h3 id="profile_current_menu"></h3>
 		    			</div>

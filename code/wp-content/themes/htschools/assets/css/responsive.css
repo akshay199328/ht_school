@@ -577,10 +577,10 @@ section.woocommerce-customer-details{
     background-color: #f5f0f0 !important;
 }
 .course_status .incourse .incoursequiz_details{
-	background: transparent !important;
+	/*background: transparent !important;*/
 }
 .course_status .incourse .incoursequiz_details{
-	right: 10% !important;
+	/*right: 10% !important;*/
 }
 .course_status .incourse .question_option label{
 	font-size: 17px !important;

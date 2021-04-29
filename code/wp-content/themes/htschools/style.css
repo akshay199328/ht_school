@@ -4909,12 +4909,20 @@ border-color: transparent;
 .profile-heading {
     padding: 10px 0px;
 }
+.profile-heading .heading-align{
+  -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+}
 .profile-heading h3 {
     font-size: 15px;
     line-height: 20px;
     color: #000000;
      padding: 0px 15px;
-     padding-top: 10px;
+     padding-top: 0px;
 }
 .dashboard_header{
     background: url('./assets/images/dashboard-background.jpg') no-repeat top center;!important; 
@@ -5821,7 +5829,7 @@ h6:empty
       /*margin-top: 2rem!important;*/
 }
 .course_content_content{
-  padding: 18px 30px 0!important;
+  /*padding: 18px 30px 0!important;*/
 }
 .course_status_fullscreen .course_status{
   background: #ffffff!important;
@@ -5836,13 +5844,13 @@ h6:empty
   /*line-height: 1.32!important;*/
 }
 .course_status .incourse .incoursequiz_details{
-    position: absolute!important;
+   /* position: absolute!important;
     top: 4rem!important;
     right: 2%;
     flex: 0 0 0px !important;
     width: 24%;
     margin: 0px!important;
-    border: 0px!important;
+    border: 0px!important;*/
 }
 .course_status .incourse .incoursequiz_details .quiz_timeline{display: none!important}
 .course_status .incourse .quiztimer .timer_amount{

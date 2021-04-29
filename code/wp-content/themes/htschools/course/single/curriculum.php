@@ -109,7 +109,7 @@ if(!empty($course_curriculum)){
 	foreach($course_units as $lesson_units){ 
 		$lessonId = get_post($lesson['id']);
 	?>
-	<div class="col-sm-12 col-lg-6 pull-left mrg video-wrap">
+	<div class="col-sm-12 col-lg-6 pull-left video-wrap">
         <div class="card">
 
             <div class="col-sm-12 mrg">

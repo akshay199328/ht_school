@@ -53,7 +53,7 @@ if(!empty($course_curriculum)){
 		 //print_r($course_units_array);
 		//echo $lessonId->ID;
 	?>
-	<div class="col-sm-12 col-lg-6 pull-left mrg video-wrap">
+	<div class="col-sm-12 col-lg-6 pull-left video-wrap">
         <div class="card">
 
             <div class="col-sm-12 mrg">

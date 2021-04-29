@@ -57,6 +57,7 @@ get_header(vibe_get_header());
       </h1>
       <h5><?php echo term_description(); ?></h5>
       </div>
+    </div>
       <div class="col-sm-12 col-md-9 mrg content-left">
         <div class="content">
         <?php
@@ -74,7 +75,8 @@ get_header(vibe_get_header());
           }
           endwhile;
           endif;
-          pagination();
+          //pagination();
+          wpbeginner_numeric_posts_nav();
         ?>
       </div>
       </div>
@@ -126,7 +128,7 @@ get_header(vibe_get_header());
           </div>
       </div>
       
-    </div>
+    
     
     </div>
   </div>

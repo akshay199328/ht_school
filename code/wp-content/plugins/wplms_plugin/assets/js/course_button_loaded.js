@@ -3786,7 +3786,7 @@
         })), u ? o && o.hasOwnProperty("id") ? nn("div", {
             className: "single_quiz_result quiz_results"
         }, nn("span", {
-            className: "vicon vicon-arrow-left",
+            className: "vicon vicon-angle-left",
             onClick: () => {
                 l(null)
             }
@@ -5136,7 +5136,7 @@
         }, Ds("span", null, Ds("span", {
             onClick: e.back
         }, Ds("span", {
-            className: "vicon vicon-arrow-left"
+            className: "vicon vicon-angle-left"
         })), Ds("strong", null, window.wplms_course_data.translations[e.type]), Ds("span", {
             onClick: e.expand
         }, Ds("span", {
@@ -6592,7 +6592,7 @@
             className: "button is-primary",
             onClick: e.back
         }, window.wplms_course_data.translations.back_to_my_courses, sr("span", {
-            className: "vicon vicon-arrow-right"
+            className: "vicon vicon-angle-right"
         })))))) : "", C ? sr("div", {
             className: "reviewpopup_wrapper",
             onClick: e => {
@@ -6656,7 +6656,7 @@
                 re()
             }
         }, window.wplms_course_data.translations.submit_review_and_finish_course, " ", sr("span", {
-            className: "vicon vicon-arrow-right"
+            className: "vicon vicon-angle-right"
         }))) : sr(or, null, sr("a", {
             className: "link",
             onClick: () => M(!1)
@@ -6671,7 +6671,7 @@
                 })) : (alert(window.wplms_course_data.translations.please_check_review_form), T(!1))
             }
         }, window.wplms_course_data.translations.submit_review, " ", sr("span", {
-            className: "vicon vicon-arrow-right"
+            className: "vicon vicon-angle-right"
         }))))) : "")) : "", (() => {
             let e = 0;
             if (m && m.courseitems && m.courseitems.length && m.courseitems[W] && "unit" == m.courseitems[W].type && !m.courseitems[W].status && m.courseitems[W].hasOwnProperty("meta") && m.courseitems[W].meta.hasOwnProperty("access") && m.courseitems[W].meta.access && (e = 1, m.hasOwnProperty("assignment_locking") && m.assignment_locking && m.courseitems[W].meta.hasOwnProperty("assignments") && m.courseitems[W].meta.assignments.length && (e = 0), m.courseitems[W].meta.hasOwnProperty("video") && (m.courseitems[W].meta.video.hasOwnProperty("url") || Array.isArray(m.courseitems[W].meta.video) && m.courseitems[W].meta.video.length) && (e = 0)), e) return sr(ea, null)
@@ -6680,7 +6680,7 @@
         }, sr("div", {
             className: "course_package_header"
         }, sr("div", {
-            className: "vicon vicon-arrow-left",
+            className: "vicon vicon-angle-left",
             onClick: e.back
         }), sr("div", {
             className: "finish_course button is-primary small",
@@ -6700,7 +6700,7 @@
         }, sr("div", {
             className: "action_points"
         }, sr("a", {
-            className: "vicon vicon-arrow-left",
+            className: "vicon vicon-angle-left",
             onClick: e.back
         }), !s && !is(m) && m.hasOwnProperty("courseitems") && m.courseitems.length ? sr(or, null, sr("a", {
             className: "vicon vicon-search",
@@ -6797,14 +6797,14 @@
                 Z("prev")
             }
         }, f.prev ? sr(or, null, sr("span", {
-            className: "vicon vicon-arrow-left"
+            className: "vicon vicon-angle-left"
         }), sr("span", null, window.wplms_course_data.translations.previous_unit)) : ""), sr("div", {
             className: "unit_next navigate_unit",
             onClick: () => {
                 Z("next")
             }
         }, f.next ? sr(or, null, sr("span", null, window.wplms_course_data.translations.next_unit), sr("span", {
-            className: "vicon vicon-arrow-right"
+            className: "vicon vicon-angle-right"
         })) : "")) : "")), s ? sr(p, null) : m && m.courseitems && m.courseitems.length ? (() => {
             let t = 0,
                 n = 0;

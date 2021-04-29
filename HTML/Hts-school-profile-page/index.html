@@ -16,42 +16,43 @@
     <link rel="stylesheet" href="css/font.css" type="text/css">
 </head>
 <body>
-<!-- profile menu -->
-<nav class="navbar navbar-expand-lg main-navigation">
-    <div class="container">
-  <a class="navbar-brand" href="#"><img src="images/school_client_logo.png"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <!-- <a class="nav-link" href="#">Login</a> -->
-        <a class="navbar-brand right-logo" href="#"><img src="images/school_profile_logo.png"></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link login-link" href="#">Log in</a>
-      </li>
-     
-    </ul>
-  </div>
-</div>
+
+<nav>
+    <div class="navbar main-navigation">
+        <div class="container">
+            
+                <div class="left-col">
+                    <a class="navbar-brand" href="#"><img src="images/school_client_logo.png"></a>
+                </div>
+                <div class="right-col">
+                   <ul class="profile-list">
+                       <li>
+                        <a class="profile-logo  right-logo" href="#"><img src="images/school_profile_logo.png"></a>
+                       </li>
+                       <li>
+                            <a class="nav-link login-link" href="#">Log in</a>
+                       </li>
+                   </ul>
+                </div>
+            
+        </div>
+    </div>
 </nav>
-<!-- profile menu -->
 
 <!-- profile banner  -->
 <header>
     <div class="owl-carousel owl-theme" id="banner">                         
          <div class="item">
-            <img src="images/school_banner.png" alt="images not found">
+            <!-- <img src="images/school_banner.png" alt="images not found"> -->
+            <span class="banner"></span>
         </div>    
     </div>
 </header>
 <!--end  profile banner  -->
 
 <!-- video section -->
-<section class="sec_pt">
+<section class="sec_pt video-sec">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -85,19 +86,17 @@
             </div>        
 
             <div class="col-md-4">
-                <a href="#" class="video_wrap advertised_img">
+                <a href="#" class="video_wrap advertised_img d-display-none">
                     <span class="video-img">
                         <img src="images/add.jpg" class="img-fluid">
                     </span>
                     
                 </a>
-            </div>
-           
-            
+            </div>            
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="#" class="video_wrap mb-0">
+                <a href="#" class="video_wrap second-sec">
                     <span class="video-img">
                         <img src="images/video_3.jpg" class="img-fluid">
                     </span>
@@ -107,7 +106,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="#" class="video_wrap mb-0">
+                <a href="#" class="video_wrap second-sec">
                     <span class="video-img">
                         <img src="images/video_4.jpg" class="img-fluid">
                     </span>
@@ -117,12 +116,20 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="#" class="video_wrap mb-0">
+                <a href="#" class="video_wrap second-sec">
                     <span class="video-img">
                         <img src="images/video_5.jpg" class="img-fluid">
                     </span>
                     <span class="video_txt">
                         Lorem Ipsum Is Simply Dummy Text Of The Printing Typesetting Industry. 
+                    </span>
+                    
+                </a>
+            </div>
+            <div class="col-md-4 advertisedment">
+                <a href="#" class="video_wrap">
+                    <span class="video-img">
+                        <img src="images/add.jpg" class="img-fluid">
                     </span>
                     
                 </a>
@@ -133,8 +140,8 @@
 </section>
 <!--end video section -->
 
-<!-- small banner section -->
-<section class="latest-news-wrap">
+<!-- small banner section desktop view  -->
+<!-- <section class="latest-news-wrap">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -144,25 +151,30 @@
             </div>
         </div>
     </div>
-</section>
-<!--end small banner section -->
+</section> -->
+<!--end small banner section desktop view-->
 
 <!-- school vision section -->
-<section class="sec_pt sec_pb vision-wrap">
+<section class="vision-wrap">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-5">
+            <a href="#" class="latest_news">
+                <img src="images/latest_news_banner.jpg" class="img-fluid">
+            </a>
+            <div class="col-md-5 schoolvision-wrap">
                 <h2 class="title-text">School Vision</h2>
                 <p>ORCHIDS takes the step forward with a vision of creating a dynamic generation that imagined and innovated their own revolutions hopefully, one fine morning.'</p>
             </div>
             <div class="col-md-7">
-                <img src="images/school-vision.jpg">
+                <img src="images/school-vision.jpg" class="vision">
             </div>
         </div>
     </div>
 </section>
 
 <!-- end school vision section -->
+
+
 
 <!-- <section class="bg-blue about-section">
     <div class="container">
@@ -183,7 +195,7 @@
         </div>
     </div>
 </section> -->
-<section class="bg-blue about-section">
+<section class="about-section">
     <div class="container">
         <div class="wrap">
             <div class="left-side">
@@ -205,7 +217,7 @@
 
 
 <!-- small banner section -->
-<section class="latest-news-wrap bg-gray">
+<section class="latest-news-wrap bg-gray d-display-none">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -283,6 +295,11 @@
                 </div>
             </div>
         </div>
+        <div class="row advertisedment">
+            <div class="col-md-3">
+                <img src="images/add.jpg" class="img-fluid">
+            </div>
+        </div>
     </div>
 </section>
 <!-- testimonial section -->
@@ -307,7 +324,7 @@
                             ypesetting industry. Lorem Ipsum has been the industry's dummy text ever since the</span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 d-display-none">
                     <img src="images/add.jpg" class="img-fluid">
                 </div>
         </div>
@@ -366,7 +383,7 @@
 <!-- email section -->
 <section class="contact-section bg-light-blue">
     <div class="container">
-        <div class="row">
+       
             <div class="row align-items-center contact-box">
                 <div class="col-md-5">
                     <h2 class="title-text">Contact Us</h2>
@@ -378,15 +395,15 @@
                     <p class="mb-0">Email: admin.oisvkh@orchids.edu.in</p>
                 </div>
                 <div class="col-md-7">
-                    <img src="images/contact-pic.png">
+                    <img src="images/contact-pic.png" class="img-fluid contact">
                 </div>
             </div>
-        </div>
+       
     </div>
 </section>
 <!-- end email section -->
 <!-- small banner section -->
-<section class="latest-news-wrap bg-light-blue pd-bottom">
+<section class="latest-news-wrap bg-light-blue pd-bottom news-section">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -526,18 +543,25 @@ $('#banner').owlCarousel({
     $('#testimonials').owlCarousel({
     loop:true,
     margin:10,
+    mouseDrag:true,
     nav:false,
     dots:false,
     responsive:{
         0:{
-            items:0
+            items:1
         },
         600:{
             items:1
         },
+        768:{
+            items:2
+        },
         1000:{
             items:3
-        }
+        },
+        1380:{
+                items:3,
+            },
     }
 });
 
@@ -547,13 +571,17 @@ $('#banner').owlCarousel({
     loop:true,
     margin:10,
     nav:false,
+    mouseDrag:true,
     dots:false,
     responsive:{
         0:{
-            items:0
+            items:1
         },
         600:{
             items:1
+        },
+        768:{
+            items:2
         },
         1000:{
             items:3

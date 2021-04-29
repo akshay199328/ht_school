@@ -237,9 +237,10 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
               </div>
               <?php if ( has_post_thumbnail() ) { 
                 $featured_image = get_the_post_thumbnail_url();
-              }
+              
               ?>
               <img alt="featured image" title="featured image" src="<?php echo $featured_image; ?>" class="img-fluid">
+            <?php } ?>
               <br/>
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>

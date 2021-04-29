@@ -172,7 +172,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 </section> -->
 <!-- End Most Experts -->
 <div class="wrapper">
-<section >
+<section class="latest-news">
 <?php foreach ($menuitems as $menu) { ?>
 
   <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">

@@ -126,7 +126,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 <div class="empty_article_image"></div>
                 <h4>Nothing Here But Us!</h4>
                 <p>All your saved articles will appear here.</p>
-                <a href="<?php echo get_home_url();?>/news/"><button class="empty_btn">Explore Editor’s Desk</button></a>
+                <a href="<?php echo get_home_url();?>/editorsdesk/"><button class="empty_btn">Explore Editor’s Desk</button></a>
             </div>
             <?php } ?>
         </div>

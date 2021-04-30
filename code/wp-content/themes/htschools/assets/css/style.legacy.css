@@ -22464,7 +22464,7 @@ body {
  .pagination li, .pagination-links span, .pagination-links a{
  	display: inline-block;
  }
- .pagination li a, .pagination-links a{
+ .pagination li a, .pagination-links a, .pagination-links span{
  	padding: 0;
  	width: 40px;
  	height: 40px;
@@ -22481,9 +22481,16 @@ body {
  	line-height: 37px;
  	cursor: pointer;
  }
- .pagination li.active a{
+.pagination-links span:hover,
+.pagination-links a:hover{
+ 	transform: none!important;
+ }
+.pagination li.active a,
+.pagination-links span.current
+ {
  	background: #D5EBFF!important;
  	border-color: #D5EBFF!important;
+ 	transform: none!important;
  	color: #000;
  	font-weight: bold;
  }
@@ -22504,7 +22511,7 @@ body {
     color: #000;
 }
  .content .pagination {
- 	margin: 20px 0px;
+ 	margin: 49px 0px 20px 0px;
  }
 
  .expand header {

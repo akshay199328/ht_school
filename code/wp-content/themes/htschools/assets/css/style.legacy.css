@@ -36515,3 +36515,100 @@ width: 300px;
 .video-wrap .card{padding: 24px 15px;}
 .video-wrap .card .pull-left .default-background{top:0;}
 .video-wrap .card .progressbar-circle{margin-top: 0;}
+
+
+
+/* pop up css*/
+.profile-edit .modal-backdrop{z-index: 1;}
+#edit-child-profile.modal.right .modal-dialog {
+position: fixed;
+margin: auto;
+width: 390px;
+height: 100%;
+-webkit-transform: translate3d(0%, 0, 0);
+-ms-transform: translate3d(0%, 0, 0);
+ -o-transform: translate3d(0%, 0, 0);
+transform: translate3d(0%, 0, 0);
+}
+
+
+#edit-child-profile.modal.right .modal-content {
+	height: 100%;
+	overflow-y: auto;
+}
+
+
+#edit-child-profile.modal.right .modal-body {
+	padding: 15px 40px;
+}     
+/*Right*/
+#edit-child-profile.modal.right.fade .modal-dialog {
+	right: -320px;
+	-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+	   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		 -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+			transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+#edit-child-profile.modal.right.fade.in .modal-dialog {
+	right: 0;border-radius: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+#edit-child-profile .modal-content {
+	border-radius: 0;
+	border: none;
+}
+
+#edit-child-profile.modal-header {
+	border-bottom-color: #EEEEEE;
+	background-color: #FAFAFA;border-radius: 0;
+}
+#edit-child-profile .modal-body .child-form .form-group .edit-inline{    border: 0px;
+    border-bottom: 1px solid #a8a6a6;
+    border-radius: 0px;
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 0px 12px;
+    box-shadow: none;
+    height: 100%
+}
+
+#edit-child-profile .modal-body .child-form .profile_dropdown{
+	max-width: 60%;
+}
+#edit-child-profile .modal-body .child-form label{
+	display: block;
+    font-weight: 500;
+    margin: 0px 0 0px;
+    font-size: 13px;
+    color: #A2A0A0;
+}
+#edit-child-profile .modal-body .child-form .content .btn{
+		font-size: 15px;
+		line-height: 20px;
+		font-weight: bold;
+		padding: 12px 30px;
+		background: #000000;
+		color: #D5EBFF;
+		border: 1px solid transparent;
+		margin: 6px 0;
+		border-radius: 0px;
+}
+#edit-child-profile .modal-body .child-form .add-pic{
+	margin-bottom: 18px;
+}
+#edit-child-profile .modal-body .child-form .pic{height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    display: block;
+}
+#edit-child-profile .modal-body .child-form .add-name{
+	display: block;
+    font-weight: 500;
+    margin: 0px 0 0px;
+    font-size: 13px;
+    color: #A2A0A0;
+}

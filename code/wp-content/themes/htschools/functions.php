@@ -993,7 +993,7 @@ function get_schools(){
     );
     $results = get_users( $args );
 
-
+    
     foreach ($results as $data) {
         $row = array();
         $row['label'] = $data->display_name;

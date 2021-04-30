@@ -147,6 +147,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			<p id="response_message" class="" style="margin: 10px 0; display: none;"></p>
 			<div class="form-group">
 				<button type="button" class="btn btn-default" id="profile_submit">Submit</button>
+				<button type="button" class=" btn-default button-border" id="profile_cancel"><a href="<?php echo get_bloginfo('url')?>/members-directory/<?php echo $currentUser->user_login?>">Cancel</a></button>
 			</div>
 
 		</form>

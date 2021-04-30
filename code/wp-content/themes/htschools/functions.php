@@ -981,27 +981,46 @@ function get_countries(){
 add_action("wp_ajax_get_schools", "get_schools");
 add_action( 'wp_ajax_nopriv_get_schools', 'get_schools' ); 
 
+// function get_schools(){
+//     global $wpdb;
+    
+//     $response = array();
+
+//     $args = array(
+//         'role'    => 'School',
+//         'orderby' => 'user_nicename',
+//         'order'   => 'ASC'
+//     );
+//     $results = get_users( $args );
+
+    
+//     foreach ($results as $data) {
+//         $row = array();
+//         $row['label'] = $data->display_name;
+//         $row['value'] = $data->id;
+
+//         $response[] = $row;
+//     }
+
+//     echo json_encode($response); exit;
+// }
+
 function get_schools(){
     global $wpdb;
     
     $response = array();
-
-    $args = array(
-        'role'    => 'School',
-        'orderby' => 'user_nicename',
-        'order'   => 'ASC'
-    );
-    $results = get_users( $args );
-
+    $results = $wpdb->get_results("SELECT ht_users.ID, ht_users.user_nicename,ht_users.display_name 
+    FROM ht_users INNER JOIN ht_usermeta 
+    ON ht_users.ID = ht_usermeta.user_id 
+    WHERE ht_usermeta.meta_value LIKE '%School%' AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");
     
     foreach ($results as $data) {
-        $row = array();
-        $row['label'] = $data->display_name;
-        $row['value'] = $data->id;
+      $row = array();
+      $row['label'] = $data->display_name;
+      $row['value'] = $data->ID;
 
-        $response[] = $row;
+      $response[] = $row;
     }
-
     echo json_encode($response); exit;
 }
 

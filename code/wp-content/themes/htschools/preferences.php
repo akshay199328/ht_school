@@ -50,7 +50,7 @@ vibe_include_template("profile/top$profile_layout.php");
                           'post_id' => "user_{$user->ID}",
                           'form' => true,
                           'html_submit_button' => '<button type="submit" class="acf-button button button-primary button-large" value="Update Profile">Update Profile</button>',
-                          'updated_message' => __("Post updated", 'acf'),
+                          'updated_message' => __("Your interest updated", 'acf'),
                           'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
                         );
                         

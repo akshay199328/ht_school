@@ -205,15 +205,15 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     </div>
                                   </div>
                                   </div>
-                                  <!-- <div class="col-sm-12 col-lg-6 mrg pull-right">
-                                    <div class="adworks">
+                                  <div class="col-sm-12 col-lg-6 mrg pull-right">
+                                    <!-- <div class="adworks">
                                       <div class="col-sm-12 adworks-head mrg">
                                         <?php
                                           if ( is_active_sidebar( 'banner-2' ) ) : ?>
                                           <?php //dynamic_sidebar( 'banner-2' ); ?>      
                                         <?php endif; ?>
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-sm-12 tab-video mrg">
                                        <?php if(get_post_meta($post->ID,'vibe_trailer_link',true) != ''){?>
                                        <video width="100%" height="240" controls="" >
@@ -221,7 +221,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         </video>
                                       <?php }?>
                                     </div>
-                                  </div> -->
+                                  </div>
 <!--                                   <div class="col-sm-12 course-for background-yellow">
                                     <h5>Who This Course Is For</h5>
                                     <p>

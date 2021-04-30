@@ -9,6 +9,23 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php
     wp_head();
 ?>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MXXRRC3');</script>
+<!-- End Google Tag Manager -->
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1055314/HT_School_Desktop_Home/HT_School_Desk_HP_MID_A_Billboard', [[728, 90], [1, 1], [970, 90], [970, 250], [1290, 250], [980, 90]], 'div-gpt-ad-1619596100543-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script>
 </head>
 <body <?php body_class(); ?>>
 <div id="global" class="global">

@@ -74,5 +74,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php
 wp_footer(); 
 ?>
+<!-- /1055314/HT_School_Desktop_Home/HT_School_Desk_HP_MID_A_Billboard -->
+<div id='div-gpt-ad-1619596100543-0'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1619596100543-0'); });
+  </script>
+</div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXXRRC3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>

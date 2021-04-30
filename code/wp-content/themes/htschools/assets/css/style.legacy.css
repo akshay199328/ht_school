@@ -22464,7 +22464,7 @@ body {
  .pagination li, .pagination-links span, .pagination-links a{
  	display: inline-block;
  }
- .pagination li a, .pagination-links a{
+ .pagination li a, .pagination-links a, .pagination-links span{
  	padding: 0;
  	width: 40px;
  	height: 40px;
@@ -22511,7 +22511,7 @@ body {
     color: #000;
 }
  .content .pagination {
- 	margin: 20px 0px;
+ 	margin: 49px 0px 20px 0px;
  }
 
  .expand header {

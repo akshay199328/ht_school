@@ -130,44 +130,7 @@ get_header(vibe_get_header());
     </div>
   </div>
 </section>
-<?php
-  /*$args = array(
-      'post_type' => 'post',
-      'post_status' => 'publish',
-      'category_name' => 'Interviews',
-      'posts_per_page' => 6,
-  );
-  $Query = new WP_Query( $args );
-php if ($Query->have_posts()){ */?>
-<!-- <section id="" class="latest-news news_latest-news lts_news">
-  <div class="container">
-    <div class="row gx-0">
-      <div class="pagetitle">
-        <h1>Interviews News</h1>
-      </div>
-                  <div class="col-sm-12 col-lg-12 mrg">
-            <div class="details-middle">
-              <ul class="news_three_data">
-                <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
 
-                  ?>
-                    <li>
-                      <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                      <div class="link">
-                          <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                      </div>
-                    </li>
-                  <?php 
-                  // }
-                  endwhile; endif; ?>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section> -->
 <?php
-/*}*/
-get_footer(vibe_get_footer());
+get_footer();
 ?>

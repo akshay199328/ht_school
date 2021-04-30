@@ -202,7 +202,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			<h1>Add your Childrens</h1>
 			<div class="content">
 				<p>Please add your child/ren’s detail by clicking the <strong>add a child</strong> button below</p>
-				<button type="button" class="btn" id="add-child-btn">Add a Child</button>
+				<!-- <button type="button" class="btn" id="add-child-btn">Add a Child</button> -->
+				<button type="button" class="btn" data-toggle="modal" data-target="#edit-child-profile">Add a Child</button>
 			</div>
 			<div id="child-form" style="display:none;">
 				<div class="form-group">

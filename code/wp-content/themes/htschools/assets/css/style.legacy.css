@@ -24780,7 +24780,7 @@ body {
  	color: #000;
  	font-weight: 500;
  	font-size: 18px;
- 	padding: 10px 0px 12px;
+ 	padding: 10px 25px 12px 0px;
  	box-shadow: none;
  	height: 100%;
 
@@ -36567,23 +36567,26 @@ transform: translate3d(0%, 0, 0);
 	border: none;
 }
 
-#edit-child-profile.modal-header {
+#edit-child-profile .modal-header {
 	border-bottom-color: #EEEEEE;
-	background-color: #FAFAFA;border-radius: 0;
+	background-color: #fff;border-radius: 0;    
+    display: flex;
+    align-items: center;    padding: 31px 40px 0px;border-bottom: 0;
 }
-#edit-child-profile .modal-body .child-form .form-group .edit-inline{    border: 0px;
+#edit-child-profile .modal-header .modal-title{font-size: 24px;}
+#edit-child-profile .modal-body .child-form-pop .form-group .edit-inline{    border: 0px;
     border-bottom: 1px solid #a8a6a6;
     border-radius: 0px;
     color: #000;
     font-weight: 500;
     font-size: 16px;
-    padding: 5px 0px 12px;
+    padding: 5px 25px 12px 0;
     box-shadow: none;
     height: 100%
 }
 
 #edit-child-profile .modal-body .child-form .profile_dropdown{
-	max-width: 60%;
+	/* max-width: 60%; */
 }
 #edit-child-profile .modal-body .child-form label{
 	display: block;
@@ -36615,7 +36618,15 @@ transform: translate3d(0%, 0, 0);
 #edit-child-profile .modal-body .child-form .add-name{
 	display: block;
     font-weight: 500;
-    margin: 0px 0 0px;
+    margin: 0px 0 8px;
     font-size: 13px;
     color: #A2A0A0;
 }
+#edit-child-profile .child-form select{width: 57%;}
+#edit-child-profile .child-form select{
+	background-image: url(../images/profile-dropdown.svg);
+}
+#edit-child-profile .modal-header .close{margin-top: -21px;
+    color: #000;
+    opacity: 1;
+    font-weight: 500;}

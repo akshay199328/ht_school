@@ -31,12 +31,17 @@ vibe_include_template("profile/top$profile_layout.php");
             // print_r($user->user_login);
             //print_r($user->ID);
 			$finished_courses = bp_course_get_user_courses($user->ID,'course_evaluated');
-			// print_r($finished_courses);
+			foreach($finished_courses as $courseId){
+                $type = bp_course_get_user_course_status($user->ID,$courseId);
+                if($type == 4){    
+                    $args['post__in'][]=$courseId;
+                }
+            }
 			if(!empty($finished_courses)){
 				$query_args = array(
 					'post_type'=>'course',
 					'post_status'=>'publish',
-					'post__in'=>$finished_courses
+					'post__in'=>$args['post__in']
 				);
 				$results  = new WP_query($query_args);
 				$courses = array();

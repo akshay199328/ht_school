@@ -500,7 +500,7 @@ function custom_trailer_link($field1){
   'label' => __('Trailer Link','vibe-trailer-link'), // <label>
   'desc'  => __('Trailer Link','vibe-trailer-link'), // description
   'id'    => $prefix.'trailer_link', // field id and name
-  'type'  => 'text' // type of field
+  'type'  => 'textarea' // type of field
                        );
   return $field1;
    

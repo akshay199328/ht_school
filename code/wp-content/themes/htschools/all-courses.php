@@ -28,13 +28,15 @@ get_header(vibe_get_header());
             <div class="">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                   <?php
+                  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $args_course = array(
                         'post_type' => 'course',
                         'post_status' => 'publish',
                         'posts_per_page'=>6,
+                        'paged'=>$paged
                     );
-                    $Query_course = new WP_Query( $args_course );
-                    if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
+                    $wp_query = new WP_Query( $args_course );
+                    if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                       $custom_fields = get_post_custom();
                       $duration = $custom_fields['vibe_duration'][0];
                       $session = $custom_fields['vibe_course_sessions'][0];
@@ -116,7 +118,7 @@ get_header(vibe_get_header());
                       </div>
                     </div>
                   </div>
-                <?php endwhile; endif; course_pagination($Query_course);?>
+                <?php endwhile; endif; posts_pagination();?>
                 </div>
             </div>
         </div>

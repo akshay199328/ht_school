@@ -75,7 +75,7 @@ get_header(vibe_get_header());
           }
           endwhile;
           endif;
-         wpbeginner_numeric_posts_nav();
+         posts_pagination();
         ?>
       </div>
       </div>

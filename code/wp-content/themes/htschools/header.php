@@ -9,6 +9,23 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php
     wp_head();
 ?>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MXXRRC3');</script>
+<!-- End Google Tag Manager -->
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1055314/HT_School_Desktop_Home/HT_School_Desk_HP_MID_A_Billboard', [[728, 90], [1, 1], [970, 90], [970, 250], [1290, 250], [980, 90]], 'div-gpt-ad-1619596100543-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script>
 </head>
 <body <?php body_class(); ?>>
 <div id="global" class="global">
@@ -183,7 +200,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                    if (is_user_logged_in()){
                        /*do_action('notification_fragments');*/
                     }
-                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/news'><img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
+                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/editorsdesk'><img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
                    foreach ($menuitems as $menu) {  ?>
                        <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
                    <?php }

@@ -22,7 +22,7 @@ $total_results = $wp_query->found_posts;
             <div class="col-md-12">
                 <div class="pagetitle">
                     <?php vibe_breadcrumbs(); ?>  
-                    <h1><?php _e('Search Results for "', 'vibe'); the_search_query(); ?></h1>
+                    <h1><?php _e('Search Results  ', 'vibe');  ?></h1>
                     <h5><?php echo vibe_sanitizer($total_results).__(' results found','vibe');  ?></h5>
                 </div>
             </div>

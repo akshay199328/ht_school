@@ -833,7 +833,7 @@ if(!function_exists('bp_course_item_view')){
 	                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
 	                <?php }?>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg">
+                <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg duration">
                 	<p>Age Group</p>
                 	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
                 		<h6>--</h6>

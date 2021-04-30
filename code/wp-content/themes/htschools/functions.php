@@ -1009,7 +1009,7 @@ function get_schools(){
     global $wpdb;
     
     $response = array();
-    $results = $wpdb->get_results("SELECT ht_users.ID, ht_users.user_nicename,ht_users.display_name 
+    $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,ht_users.display_name 
     FROM ht_users INNER JOIN ht_usermeta 
     ON ht_users.ID = ht_usermeta.user_id 
     WHERE ht_usermeta.meta_value LIKE '%School%' AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");

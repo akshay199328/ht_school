@@ -130,7 +130,7 @@ get_header(vibe_get_header());
     </div>
   </div>
 </section>
-
 <?php
-get_footer();
+
+get_footer(vibe_get_footer());
 ?>

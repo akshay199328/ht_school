@@ -5698,7 +5698,7 @@ h6:empty
 /*-------Dashboard css:END-------*/
 
 /*-------Search css-------*/
-.search.search-results #content {padding-top: 0;padding-bottom: 60px;}
+.search.search-results #content {padding-top: 0;padding-bottom: 60px!important;}
 .search.search-results .cats ul li{    margin-top: 4px;}
 .blogpost-search {
    position: relative;
@@ -6705,6 +6705,7 @@ h6:empty
     .right-details .hover_share{top: 6px;}
     .fixedmenu-tabs .share-icon .hover_share{top: -5px!important;}
     .dotted-border .share-icon .hover_share{top: -18px;}
+    .news_icons .hover_share{top: -2px;}
     .right_spacing{
       padding-left: 0px!important;
     }

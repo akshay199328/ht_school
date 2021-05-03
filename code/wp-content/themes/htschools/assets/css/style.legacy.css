@@ -35925,8 +35925,8 @@ body {
 		color: #7b7b7b !important;
 	}
 
-	.otp_button .submit_btn{
-		width: 84% !important;
+	.login-box .otp_button .btn.submit_btn{
+		width: 84%;
 		margin-left: 0px !important;
 	}
 	.otp_button .arrow_btn{
@@ -36459,11 +36459,13 @@ width: 300px;
 		.bootom-link p{font-size:11px!important}
 		.right-details .course-button h6 .amount{font-size: 15px;}
 		.fixedmenu-tabs .nav-tabs .nav-item a{font-size:11px}
-		.about-details p{font-size: 15px;font-weight: 300;}
+		.about-details p{font-size: 15px;font-weight: 300;margin: 0px 0px 13px;}
 		.about-details .course-for{ padding: 12px 21px 19px 20px;}
 		.course-list span, .course-list .item{font-size: 11px;margin: 4px 7px 20px 0px;}
 		.course-for p{font-size: 15px;}
 		.course-for h5{font-size:14px}
+		.video-wrap .card{padding: 17px 15px 14px!important;}
+		.page-id-69 section#title{padding-top: 84px !important;}
 	}
 
 
@@ -36514,8 +36516,13 @@ width: 300px;
 	#profileModal .ul-nav>li.active>a:after{margin-top: 18px!important;border-top: 5px solid #0d9ce8!important;border-left: 5px solid transparent!important;border-right: 5px solid transparent!important;}
 	#profileModal .in-class{font-size: 14px!important;}
 	.saved-articles .share-icon ul{display: flex;}
+
 	.static_content .content{padding: 10px 17px!important;}
+	.video-wrap{padding-left: 0;padding-right:0}
+	.learing-goals .list ul, .content-default-list ul{margin-top: 10px;}
+	.learing-goals .list li, .content-default-list li{font-size: 13px;font-weight: 300;}
 	
+	.fixedmenu-tabs{padding: 20px 0px 15px;}
 }
 
 /* new css added video part */

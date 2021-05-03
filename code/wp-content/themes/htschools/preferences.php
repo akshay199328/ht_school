@@ -58,22 +58,6 @@ vibe_include_template("profile/top$profile_layout.php");
 
                     ?>
                     </div>
-                   <!-- <div class="search_section">
-                        <div class="search_icon"></div>
-                        <input type="text" name="s" id="s" placeholder="Find an Interest to add" onblur="if(this.value=='')this.placeholder='Find an Interest to add'" onfocus="if(this.placeholder=='Find an Interest to add')this.placeholder=''">
-                        <input type="hidden" value="submit">
-                    </div> 
-                    <div class="search_value">
-                        <span><a href="#">CSS3 <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">Javascript <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">HTML5 <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">Front End <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">BootStrap <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">Data Science <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">CSS3 <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">CSS3 <i class="bi bi-x"></i></a></span>
-                        <span><a href="#">Javascript <i class="bi bi-x"></i></a></span>
-                    </div> -->
                 </form>
                 
             </div>

@@ -78,7 +78,7 @@ if(!empty($course_curriculum)){
             	<h5><?php echo $lesson_units['title'];?></h5>
         	<?php }else{?>
         		<h5><?php echo $lesson_units['title'];?></h5>
-        		<?php the_sub_title($course_units_array[$counter]['id']); }?>
+        		<?php $sub_title = the_sub_title($course_units_array[$counter]['id']); }?>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>

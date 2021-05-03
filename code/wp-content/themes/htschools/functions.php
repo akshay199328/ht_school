@@ -94,6 +94,28 @@ function wp_bootstrap_starter_widgets_init() {
         'after_title'   => '</h3>',
     ) );
 
+        register_sidebar( array(
+        'name'          => esc_html__( 'Home page trending courses banner', 'wp-bootstrap-starter' ),
+        'id'            => 'homepage-mid-banner',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Home page footer  banner', 'wp-bootstrap-starter' ),
+        'id'            => 'homepage-footer-banner',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+
     register_sidebar( array(
         'name'          => esc_html__( 'Banner1', 'wp-bootstrap-starter' ),
         'id'            => 'banner-1',

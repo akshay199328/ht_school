@@ -152,7 +152,7 @@ section {
     min-height: 85px;
   }
   .releted_news_section .related_post{/*padding-left: 60px;*/}
-  #profileModal .modal-content{height: 669px;}
+  #profileModal .modal-content{min-height: 669px;}
   .course-curriculum .list .video-wrap:nth-child(2n+2) {
       padding-right: 0px;
       padding-left: 15px;
@@ -346,7 +346,8 @@ ol.breadcrumbs  {
 .page-id-69 section#title,
 .page-id-69 .header-scrolled,
 .page-template-home .header-scrolled,
-.my-account .header-scrolled
+.my-account .header-scrolled,
+.page-template-login-page .header-scrolled
 {
   background: #D5EBFF!important;
 }
@@ -5885,7 +5886,7 @@ h6:empty
     letter-spacing: normal;
     text-align: left;
     color: #d5ebff;
-    margin: 0px!important;
+    /*margin: 0px!important;*/
 }
 .course_status .incourse{
   /*border-top: 1px dotted #707070;
@@ -5903,8 +5904,8 @@ h6:empty
     font-weight: 300 !important;
 }
 .course_status .incourse .quiz_questions_content .question_content{
-        width: 37%;
-    float: left;
+     /*   width: 37%;
+    float: left;*/
 }
 .question_content p{
       font-size: 38px!important;
@@ -6330,7 +6331,9 @@ h6:empty
         display: flex;
     }
     .course-box .right-details .course-button{
-      margin-left: 20px !important;padding-left: 0px;margin-top: 10px;width: 94%;}
+      margin-left: 20px !important;padding-left: 0px;margin-top: 10px;width: 94%;
+      justify-content: space-between;
+    }
     .course-curriculum .card{
       height: auto;width: 100%;margin: 0px 0px 15px 0px;word-break: break-word;}
     .cv-detilslist span { margin: 0px 10px 10px 12px;}
@@ -6522,7 +6525,7 @@ h6:empty
     }
     .course-button .the_course_button{float: left;width: auto;}
     /*.right-details .course-button { padding-left: 0px!important;}*/
-    .course-box:after{width: 230.5px;}
+    .course-box:after{width: 103.5px;right: 6px;}
     .middle-details .duration  {padding-top: 0px !important;}
     .competitive .comp-heading h1{font-size: 35px;}
     .competitive .comp-para p, .latest-news .header-heading .news-btn{font-size: 14px;}

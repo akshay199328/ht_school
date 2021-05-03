@@ -1041,15 +1041,20 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$user_city = get_profile_data('City');
 			$dob = strtotime($user_birthday);
 
-			if($dob > '1970-01-01' && $user_city != '' && $user_state != '' && $user_country != '' && $user_gender != ''){
+			if($dob > '2015-01-01' && $user_city != '' && $user_state != '' && $user_country != '' && $user_gender != ''){
 				$is_profile_complete = 1;
 			}
 
-            $cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
+			$cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
+            if ($cb_course_id){
+            	$is_cb_course = 1;
+            	$cb_course_link = get_bloginfo('url') . "/wc-api/start-cs-course?course_id=" . $course_id;
+            }
+           /* $cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
             if ($cb_course_id){
             	$is_cb_course = 1;
 
-            	$cbUserEmail = "ht_user_" . $this->user->id . "@htschools.com";
+            	$cbUserEmail = "ht_user_" . $this->user->id . "_" . rand(10,100) . "@htschools.com";
 
             	$cb_user_registered = get_user_meta($this->user->id, 'cb_user_registered', true);
 
@@ -1085,7 +1090,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
             		}
             	}
 				
-            }
+            }*/
             
             $return = array('status'=>1,'text'=>'','course_status'=>-1,'link'=>apply_filters('bp_course_api_course_link',bp_core_get_user_domain($this->user->id).'#component=course&action=course&id='.$course_id),'extras'=>[]);
 
@@ -1436,9 +1441,11 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 				'subscribed_course_id' => $courseId,
 				'source' => 'htschools-web'
 			);
+			$wpcs_options = get_option('wpcs_options');
+			$cs_api_url = $wpcs_options['cs_api_url'].'/htCourseDelivery';
 
 			curl_setopt_array($curl, array(
-			  CURLOPT_URL => 'https://origin-dev.celebrityschool.in:1337/api/order/htCourseDelivery',
+			  CURLOPT_URL => $cs_api_url,
 			  CURLOPT_RETURNTRANSFER => true,
 			  CURLOPT_ENCODING => '',
 			  CURLOPT_MAXREDIRS => 10,

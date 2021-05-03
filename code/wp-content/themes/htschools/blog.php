@@ -112,8 +112,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <div class="col-sm-12 col-md-6 col-lg-6 remove_mob_margin">
           <div class="details-middle adwork">
             <?php
-            if ( is_active_sidebar( 'banner-2' ) ) : ?>
-             <?php dynamic_sidebar( 'banner-2' ); ?>      
+            if ( is_active_sidebar( 'news_landing_mid_banner' ) ) : ?>
+             <?php dynamic_sidebar( 'news_landing_mid_banner' ); ?>      
            <?php endif; ?>
           </div>
         </div>
@@ -121,56 +121,14 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       
       <div class="col-lg-12 center">
         <?php
-        if ( is_active_sidebar( 'banner-4' ) ) : ?>
-         <?php dynamic_sidebar( 'banner-4' ); ?>      
+        if ( is_active_sidebar( 'news_landing_top_banner' ) ) : ?>
+         <?php dynamic_sidebar( 'news_landing_top_banner' ); ?>      
        <?php endif; ?>
      </div>
     </div>
   </div>
 </section>
-<!-- ======= Featured ======= -->
-<!-- <section id="" class="latest-news  grey-background">
-  <div class="container">
-    <div class="">
-      <div class="featured_headeing customfeatured_headeing">
-        <h1>Popular On HT school News</h1>
-      </div>
-      <?php
-      query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=6');
-      ?>
-      <div class="details-middle">
-          <ul class="news_three_data">
-        <?php if (have_posts()) : while (have_posts()) : the_post();
-                      // if( $Query->current_post != 0 ) { 
-          ?>
-              <li>
-                <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
 
-                <div class="link">
-                  <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                </div>
-              </li>
-           
-          <?php 
-                  // }
-        endwhile; endif; ?>
-         </ul>
-      </div>
-      <div class="col-sm-12 col-md-4 col-lg-4">
-        <div class="details-middle">
-
-        </div>
-      </div>
-      <div class="col-lg-12 center">
-          <?php
-          if ( is_active_sidebar( 'banner-4' ) ) : ?>
-           <?php dynamic_sidebar( 'banner-4' ); ?>      
-         <?php endif; ?>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End Most Experts -->
 <div class="wrapper">
 <section class="latest-news">
 <?php foreach ($menuitems as $menu) { ?>
@@ -236,8 +194,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <?php if ($Query->have_posts()) :?>
           <div class="col-lg-12 center">
             <?php
-            if ( is_active_sidebar( 'banner-3' ) ) : ?>
-             <?php dynamic_sidebar( 'banner-3' ); ?>      
+            if ( is_active_sidebar( 'news_landing_footer_banner' ) ) : ?>
+             <?php dynamic_sidebar( 'news_landing_footer_banner' ); ?>      
            <?php endif; ?>
           </div>
         <?php endif;?>

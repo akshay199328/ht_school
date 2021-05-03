@@ -7,24 +7,24 @@ if ( !defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
 <main id="main">
-	<section class="breadcrumbs background-breadcrumbs">
+  <section class="breadcrumbs background-breadcrumbs">
       <div class="innerheader-space"></div>
       <div class="container">
         <?php
-        	$breadcrumbs=get_post_meta($id,'vibe_breadcrumbs',true);
+          $breadcrumbs=get_post_meta($id,'vibe_breadcrumbs',true);
             if(!isset($breadcrumbs) || !$breadcrumbs || vibe_validate($breadcrumbs)){
                 vibe_breadcrumbs();
             }
-        	echo '<h2>'.vibe_get_title($id).'</h2>';
-	        the_sub_title($id);
+          echo '<h2>'.vibe_get_title($id).'</h2>';
+          the_sub_title($id);
         ?>
       </div>
     </section>
     <section id="Popular-Courses" class="">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
-                	<?php
-		                $user = wp_get_current_user();
+                  <?php
+                    $user = wp_get_current_user();
                     // print_r($user->user_login);
                     // print_r($user->ID);
                     
@@ -34,7 +34,6 @@ get_header(vibe_get_header());
                     $result = $wpdb->get_results($courses_with_types);
 
                     foreach($result as $course){
-                            
                         $type = bp_course_get_user_course_status($user->ID,$course->id);
                         if($type != 4){    
                             $args['post__in'][]=$course->id;
@@ -75,8 +74,8 @@ get_header(vibe_get_header());
                     <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
                       <div class="col-sm-12 col-lg-9 pull-left mrg">
                         <div class="middle-details">
-                          	<h6><?php echo $category_array[0]->name; ?></h6>
-                        	<h2><?php echo bp_course_title(); ?></h2>
+                            <h6><?php echo $category_array[0]->name; ?></h6>
+                          <h2><?php echo bp_course_title(); ?></h2>
                           <div class="col-lg-12 share-icon mrg">
                             <i class="bi bi-share"></i>
                           </div>
@@ -93,7 +92,7 @@ get_header(vibe_get_header());
                                 <?php }?>
                             </div>
                             <div class="pull-right">
-	                            <p>Age Group</p>
+                              <p>Age Group</p>
                               <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
                                 <h6>--</h6>
                               <?php } else{ ?>
@@ -158,10 +157,15 @@ get_header(vibe_get_header());
 </div>
 </section>
 <div class="col-md-12 col-sm-12">
-		<?php
-			$sidebar = apply_filters('wplms_sidebar','competitive-section');
+    <?php
+      $sidebar = apply_filters('wplms_sidebar','competitive-section');
             if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
-       	<?php endif; ?>
+        <?php endif; ?>
+  </div>
+</main>
+<?php
+get_footer(vibe_get_footer());
+?>dif; ?>
 	</div>
 </main>
 <?php

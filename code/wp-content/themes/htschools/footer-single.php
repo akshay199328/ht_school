@@ -518,6 +518,7 @@ border: 1px solid deepskyblue;
                 changeMonth: true,
                 changeYear: true,
                 dateFormat: "dd/mm/yy",
+                yearRange: '1980:-3'
             });
 
             $("#profile_next_step").click(function(){

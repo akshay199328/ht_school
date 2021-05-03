@@ -68,8 +68,8 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
       </header>
       <div class="adworks">
         <?php
-        if ( is_active_sidebar( 'banner-2' ) ) : ?>
-          <?php dynamic_sidebar( 'banner-2' ); ?>      
+        if ( is_active_sidebar( 'homepage-mid-banner' ) ) : ?>
+          <?php dynamic_sidebar( 'homepage-mid-banner' ); ?>      
         <?php endif; ?>
       </div>
     </div>
@@ -179,34 +179,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
 </div>
 
 </section><!-- End Features Section -->
-<?php  /* ======= Competitors Section ======= -->
-    <!-- <section id="" class="competitive">
-    <?php   // start by setting up the query
-    $query_banner = new WP_Query( array(
-        'post_type' => 'banner',
-        'banner_groups' => 'home'
-    ));
- 
-   
-    if ( $query_banner->have_posts() ) {?>
-        <div class="container">
-        <div class="row gx-0">
-          <?php echo do_shortcode('[banner id="102"]'); ?>
-        </div>
-      </div>
-    <?php } else{
-      echo "nothing";
-    } ?>
-      
-  </section> 
-  <!-- End Competitors Section -->
-*/?>
-  <!-- ======= Competitors Section ======= -->
-  <?php
-  if ( is_active_sidebar( 'competitive-section' ) ) : ?>
-    <?php dynamic_sidebar( 'competitive-section' ); ?>      
-  <?php endif; ?>
-  <!-- End Competitors Section -->
+
 
   <!-- ======= Latest News Section ======= -->
   <section id="" class="latest-news home_latest_news">
@@ -294,47 +267,14 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
           </div>
           <div class="col-lg-12 center">
             <?php
-            if ( is_active_sidebar( 'banner-3' ) ) : ?>
-              <?php dynamic_sidebar( 'banner-3' ); ?>      
+            if ( is_active_sidebar( 'homepage-footer-banner' ) ) : ?>
+              <?php dynamic_sidebar( 'homepage-footer-banner' ); ?>      
             <?php endif; ?>
           </div>
         </div>
       </div>
 
-<!--       <div class="container">
-        <div class="row">
-            <div class="col-lg-12 infograph">
-              <div class="heading">
-                <h4>Infographics</h4>
-              </div>
-              <div class="details mobile-slider">
-                <?php
-                  $args1 = array(
-                      'post_type' => 'infographics',
-                      'post_status' => 'publish',
-                      
-                  );
-                  $Query1 = new WP_Query( $args1 );
-                  
-                  // print_r(get_post_custom());
-                  if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post(); 
-                      $custom_fields = get_post_custom();
-                      $image_url = wp_get_attachment_url($custom_fields['image'][0]);
-                    
-                ?>
-                  <div class="co-sm-12 col-lg-4 item" data-aos="zoom-in" data-aos-delay="100">
-                      <img src="<?php echo $image_url; ?>" class="img-fluid" />
-                      <div class="content">
-                        <p><?php echo get_the_date('M d, Y H:i'); ?></p>
-                        <h3><?php echo get_the_title(); ?></h3>
-                      </div>
-                  </div>
-                <?php endwhile;endif;?>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- ======= Testimonials Section ======= -->
+    <!-- ======= Testimonials Section ======= -->
         <div class="container testimonials" data-aos="fade-up">
 
           <div class="heading">

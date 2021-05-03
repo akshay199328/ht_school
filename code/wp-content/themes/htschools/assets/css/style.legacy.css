@@ -35690,7 +35690,7 @@ body {
 	.order_details_button.customOrder_details {
 		background-color: #fff;
 		/* padding: 0px 40px 20px; */
-		padding: 0px 28px 20px;
+		padding: 10px 28px 20px;
 	}
 	.order_details_button.customOrder_details p{
 		font-size: 18px;
@@ -36651,13 +36651,24 @@ transform: translate3d(0%, 0, 0);
 
 /* 
 header logo */
-/* .page-id-0 .header .homeicon{
-	background-image: url('https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo_yellow-bg.png');
-	background-repeat: no-repeat;background-size: cover;width:182px;height:50px;display: inline-block;
-} */
+.page-id-0 a.logo {
+    background-image: url(https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo_yellow-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 182px;
+    height: 50px;
+    display: inline-block;
+}
+.page-id-0 a.logo img {
+    display: none;
+}
 
 .custom_checkoutTable{margin-bottom: 25px;}
 .contact-us .vc_column-inner{margin: 42px 15px 42px!important;}
+.cart-collaterals{margin-bottom: 25px;}
+.woocommerce .woocommerce-cart-form{margin-bottom: 25px;}
+.woocommerce .order_details_page{margin-bottom: 25px;}
+.woocommerce .woocommerce-order{margin-bottom: 25px;}
 /* add new pagnation css */
 
 .pagination li.pagination_arrow .angle-next{margin-right: 9px;}

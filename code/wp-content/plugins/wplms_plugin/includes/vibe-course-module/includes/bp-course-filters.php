@@ -530,11 +530,11 @@ class bp_course_filters{
 
 		<?php do_action( 'bp_after_directory_course_list' ); ?>
 
-		<!-- <div id="pag-bottom" class="pagination">
+		<div id="pag-bottom" class="pagination">
 
 			<div class="pag-count" id="course-dir-count-bottom">
 
-				<?php bp_course_pagination_count(); ?>
+				<?php /*bp_course_pagination_count(); */?>
 
 			</div>
 
@@ -544,7 +544,7 @@ class bp_course_filters{
 
 			</div>
 
-		</div> -->
+		</div>
 
 	<?php else: ?>
 

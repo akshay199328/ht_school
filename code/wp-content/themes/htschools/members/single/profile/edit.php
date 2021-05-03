@@ -205,7 +205,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<!-- <button type="button" class="btn" id="add-child-btn">Add a Child</button> -->
 				<button type="button" class="btn" data-toggle="modal" data-target="#edit-child-profile">Add a Child</button>
 			</div>
-			<div id="child-form" style="display:none;">
+			<!--<div id="child-form" >
 				<div class="form-group">
 					<label for="">Child's Name</label>
 					<input type="text" class="form-control" id="child_name" name="child_name" placeholder="Enter Child's Name">
@@ -244,6 +244,10 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 					<button type="button" class="btn" id="submit-child-btn">Submit</button>
 				</div>
 			</div>
+			-->
+			<!--edit child pop up Modal -->
+
+<!-- modal -->
 		</form>
 	</div>
 </div>

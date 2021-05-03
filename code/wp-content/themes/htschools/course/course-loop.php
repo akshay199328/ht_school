@@ -73,11 +73,11 @@ if ( bp_course_has_items( bp_ajax_querystring( 'course' ) ) ) : ?>
 
 	<div id="pag-bottom" class="pagination">
 
-		<div class="pag-count" id="course-dir-count-bottom">
+		<!-- <div class="pag-count" id="course-dir-count-bottom">
 
 			<?php bp_course_pagination_count(); ?>
 
-		</div>
+		</div> -->
 
 		<div class="pagination-links" id="course-dir-pag-bottom">
 

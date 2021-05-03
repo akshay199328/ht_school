@@ -78,7 +78,7 @@ get_header(vibe_get_header());
                               <?php if($age_limit == '') { ?>
                               <h6>--</h6>
                               <?php } else{ ?>
-                              <h6><?php echo $age_limit;?></h6>
+                              <h6><?php echo $age_limit;?><span> yrs</span></h6>
                               <?php }?>
                             </div>
                           </div>

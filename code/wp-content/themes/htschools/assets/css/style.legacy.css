@@ -36630,3 +36630,14 @@ transform: translate3d(0%, 0, 0);
 	background-image: url(../images/profile-dropdown.svg);
 }
 #edit-child-profile .modal-header .close{margin-top: -21px;color: #000;opacity: 1;font-weight: 500;}
+
+
+/* ipad media query */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    
+    .other-courses .list .session img{float: inherit;}
+    .video-wrap{padding-right: 0;padding-left: 0;}
+}

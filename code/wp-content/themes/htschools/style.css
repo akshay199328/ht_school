@@ -7025,6 +7025,8 @@ section {
     
     .course-box .right-details .course-button{justify-content: flex-end;width: 98%;}
     .course .widget_custom_html,
-	.page-template-all-courses .widget_custom_html,	
-	.page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
+	  .page-template-all-courses .widget_custom_html,	
+	  .page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
+    .Popular-Courses .adworks{text-align: left;margin-bottom: 20px;}
+   
 }

@@ -141,8 +141,8 @@ get_header(vibe_get_header());
                   </div>
                   <div class="col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
                       <?php
-                        if ( is_active_sidebar( 'banner-1' ) ) : ?>
-                        <?php dynamic_sidebar( 'banner-1' ); ?>      
+                        if ( is_active_sidebar( 'course_section_rhs_banner' ) ) : ?>
+                        <?php dynamic_sidebar( 'course_section_rhs_banner' ); ?>      
                       <?php endif; ?>
                   </div>
                 <?php } else{ ?>

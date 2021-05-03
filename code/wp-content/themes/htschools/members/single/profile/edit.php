@@ -321,7 +321,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				altFormat: "yy-mm-dd",
 				changeMonth: true,
 				changeYear: true,
-				dateFormat: "dd/mm/yy",
+				yearRange: '1980:-3'    
 			});
 
 			var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';

@@ -36522,7 +36522,7 @@ width: 300px;
 	.video-wrap{padding-left: 0;padding-right:0}
 	.learing-goals .list ul, .content-default-list ul{margin-top: 10px;}
 	.learing-goals .list li, .content-default-list li{font-size: 13px;font-weight: 300;}
-	
+	.page-id-69 .ol.breadcrumbs{padding: 5px 0 5px 0;}
 	.fixedmenu-tabs{padding: 20px 0px 15px;}
 }
 
@@ -36620,8 +36620,8 @@ transform: translate3d(0%, 0, 0);
 #edit-child-profile .modal-body .child-form .add-pic{
 	margin-bottom: 18px;
 }
-#edit-child-profile .modal-body .child-form .pic{height: 40px;
-    width: 40px;
+#edit-child-profile .modal-body .child-form .pic{height: 80px;
+    width: 80px;
     border-radius: 50%;
     border: 1px solid #ddd;
     display: block;
@@ -36638,7 +36638,7 @@ transform: translate3d(0%, 0, 0);
 	background-image: url(../images/profile-dropdown.svg);
 }
 #edit-child-profile .modal-header .close{margin-top: -21px;color: #000;opacity: 1;font-weight: 500;}
-
+#edit-child-profile #errMobileMsg{    position: relative;top: -8px;} 
 
 /* ipad media query */
 @media only screen 
@@ -36672,6 +36672,7 @@ header logo */
 .woocommerce .woocommerce-order{margin-bottom: 25px;}
 .dotted-border .middle-details h6{text-transform: lowercase!important;}
 .search-results .pusher{margin-bottom: 20px;}
+#errMobileMsg{color: #ff0000;font-size: 12px;font-weight: 500;}
 
 /* add new pagnation css */
 

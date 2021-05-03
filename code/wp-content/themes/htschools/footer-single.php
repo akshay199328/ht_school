@@ -686,7 +686,7 @@ border: 1px solid deepskyblue;
                     <div class="add-pic">
                         <span class="add-name">Add Pic</span>
                         <span class="pic">
-                          <img src="images/">
+                          <img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg">
                         </span>
                     </div>
                     <div class="form-group">

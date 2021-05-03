@@ -90,7 +90,7 @@ vibe_include_template("profile/top$profile_layout.php");
                     <?php if($age_limit == '') { ?>
                       <h6>--</h6>
                     <?php } else{ ?>
-                      <h6><?php echo $age_limit;?></h6>
+                      <h6><?php echo $age_limit;?><span> yrs</span></h6>
                     <?php }?>
                   </div>
                 </div>

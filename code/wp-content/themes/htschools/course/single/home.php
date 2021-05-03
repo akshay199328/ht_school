@@ -72,7 +72,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       $courseDetails = array();
 
                       $courseDetails[] = array(
-                        'Age Group' => $ageGroup,
+                        'Age Group' => $ageGroup.' yrs',
                         'Certification' => $totalStudent,
                         'Course Duration' => $duration,
                         'Frequency' => $frequency,

@@ -1552,7 +1552,7 @@ function posts_pagination() {
  
     /** Previous Post Link */
     if ( get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg><img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') )
-        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg><img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') );
+        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg><img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg class="angle-prev">') );
  
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
@@ -1581,8 +1581,8 @@ function posts_pagination() {
     }
  
     /** Next Post Link */
-    if ( get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg><img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>') )
-        printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg><img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>') );
+    if ( get_next_posts_link('<img  src='.get_bloginfo('template_url').'/assets/images/page-next.svg><img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>') )
+        printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg class="angle-next"><img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>') );
  
     echo '</ul></div>' . "\n";
  

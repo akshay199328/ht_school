@@ -36465,7 +36465,7 @@ width: 300px;
 		.course-for p{font-size: 15px;}
 		.course-for h5{font-size:14px}
 		.video-wrap .card{padding: 17px 15px 14px!important;}
-		.page-id-69 section#title{padding-top: 84px !important;}
+		
 	}
 
 
@@ -36647,4 +36647,21 @@ transform: translate3d(0%, 0, 0);
     
     .other-courses .list .session img{float: inherit;}
     .video-wrap{padding-right: 0;padding-left: 0;}
+}
+
+
+/* add new pagnation css */
+
+.pagination li.pagination_arrow .angle-next{margin-right: 9px;}
+.pagination li.pagination_arrow .angle-prev{margin-left: 9px;}
+.pagination-links .prev{font: 0/0 a;}
+#course-dir-list .pagination-links .prev::after{
+	content:"";background-image: url('https://ht.fortune4.org/wp-content/themes/htschools/assets/images/page-prev.svg');
+	background-repeat:no-repeat;display: block;height:9px;width:5px;    position: relative;
+	margin-top: -10px;    right: -33px;
+}
+.pagination-links .next{font: 0/0 a;}
+#course-dir-list .pagination-links .next::after{content:"";background-image: url('https://ht.fortune4.org/wp-content/themes/htschools/assets/images/page-next.svg');
+background-repeat:no-repeat;display: block;height:9px;width:5px;    position: relative;
+margin-top: -10px;
 }

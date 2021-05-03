@@ -6333,7 +6333,7 @@ h6:empty
     }
     .course-box .right-details .course-button{
       margin-left: 20px !important;padding-left: 0px;margin-top: 10px;width: 94%;
-      justify-content: space-between;
+      /* justify-content: space-between; */justify-content: flex-end;
     }
     .course-curriculum .card{
       height: auto;width: 100%;margin: 0px 0px 15px 0px;word-break: break-word;}
@@ -6700,9 +6700,11 @@ h6:empty
             padding: 0px 12px 0px 3px;
             font-size: 20px;
     }
-    .hover_share{top: 3px;}
+    .hover_share{top: 8px;}
     .savedCourse_box .hover_share{top: 0px;}
-    .right-details .hover_share{top: 0px;}
+    .right-details .hover_share{top: 6px;}
+    .fixedmenu-tabs .share-icon .hover_share{top: -5px!important;}
+    .dotted-border .share-icon .hover_share{top: -18px;}
     .right_spacing{
       padding-left: 0px!important;
     }
@@ -7020,6 +7022,9 @@ section {
     padding: 16px 25px;
 }
 
+textarea:focus {
+  background: none;
+}
 /* ipad media query */
 @media only screen 
   and (min-device-width: 768px) 

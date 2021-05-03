@@ -353,7 +353,8 @@ border: 1px solid deepskyblue;
                                     <label>Mobile Number*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" class="in-class form-control user_field"/>
+                                    <input type="text" name="user_mobile" placeholder="Mobile Number" maxlength="10" id="user_mobile" value="<?php echo $user_mobile ?>" class="in-class form-control user_field"/>
+                                    <span id="errMobileMsg"></span>
                                 </div>
 
                                 <div class="col-md-12">
@@ -477,6 +478,36 @@ border: 1px solid deepskyblue;
     window.onbeforeunload = null;
     (function($) {
         $(document).ready(function(){
+            $("#user_mobile").keypress(function (e) {
+              var mobNum = $(this).val();
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                  $("#errMobileMsg").text("Please enter Digits Only");
+                  return false;
+                }
+                else{
+                  $("#errMobileMsg").text('');
+                }
+            });
+
+            $("#user_mobile").on("blur", function(){
+              phone_validate()
+            });
+            function phone_validate() 
+            { 
+              var mobNum = $('#user_mobile').val();
+                  var filter = /^\d*(?:\.\d{1,2})?$/;
+
+                  if (filter.test(mobNum)) {
+                      if(mobNum.length!=10){
+                        $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                          return false;
+                      } 
+                  }
+                  else{
+                      $("#errMobileMsg").text('Not a valid number');
+                      return false;
+                  }
+            }
             updateProgressBar();
             function updateProgressBar(){
               var count=0;

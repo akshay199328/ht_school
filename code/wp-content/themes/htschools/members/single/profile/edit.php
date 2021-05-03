@@ -72,7 +72,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			</div>
 			<div class="form-group">
 				<label for="user_mobile">Mobile Number</label>
-				<input type="text" class="form-control" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" >
+				<input type="text" class="form-control" name="user_mobile" id="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" >
+				<span id="errMobileMsg"></span>
 			</div>
 			<div class="form-group edit_DOB">
 				<label for="user_dob">Date of Birth</label>
@@ -272,6 +273,41 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			    })
 
 			})*/
+			$("#user_mobile").keypress(function (e) {
+				var mobNum = $(this).val();
+			    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+			        //display error message
+			        $("#errMobileMsg").text("Please enter Digits Only");
+			               return false;
+			    }
+			    else{
+			        $("#errMobileMsg").text('');
+
+			    }
+			    
+			});
+
+			$("#user_mobile").on("blur", function(){
+		        phone_validate()
+		    
+		  	});
+			function phone_validate() 
+			{ 
+				var mobNum = $('#user_mobile').val();
+		        var filter = /^\d*(?:\.\d{1,2})?$/;
+
+		        if (filter.test(mobNum)) {
+		            if(mobNum.length!=10){
+		              $("#errMobileMsg").text("Please enter 10 digit mobile number");
+		                return false;
+		            } 
+		        }
+		        else{
+		            $("#errMobileMsg").text('Not a valid number');
+		            return false;
+		        }
+			} 
+
 			window.selectedCountry = "<?php echo $user_country; ?>";
 			$("#child_name").val('');
 			$("#child_school").val('');
@@ -382,42 +418,43 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			    },
 			});	
 
-			$("#profile_submit").click(function(){
-				$("#profile_submit").html("Please wait...");
-                $("#profile_submit").attr("disabled", "disabled");
-                $('form#modalAjaxTrying :submit').trigger('click');
-                var form_data = {'action' : 'acf/validate_save_post'};
-				$.ajax({
-	                type : "POST",
-	                dataType : "json",
-	                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-	                data : $("#profile-edit-form").serialize(),
-	                success: function(response) {
-	                    $("#profile_submit").html("Submit");
-	                    $("#profile_submit").removeAttr("disabled");
-	             		window.onbeforeunload = null;
-	                    if(response.status == 1){
-	                    	$("#response_message").html(response.message);
-	                        $("#response_message").addClass('success');
-	                        $("#response_message").removeClass('error');
-	                        $("#response_message").show();
-	                        setTimeout(function(){
-	                            $("#response_message").html('');
-	                            $("#response_message").hide();
-	                        }, 5000);
+			$("#profile_submit").click(function(e){
+					$("#profile_submit").html("Please wait...");
+	                $("#profile_submit").attr("disabled", "disabled");
+	                $('form#modalAjaxTrying :submit').trigger('click');
+	                var form_data = {'action' : 'acf/validate_save_post'};
+					$.ajax({
+		                type : "POST",
+		                dataType : "json",
+		                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+		                data : $("#profile-edit-form").serialize(),
+		                success: function(response) {
+		                    $("#profile_submit").html("Submit");
+		                    $("#profile_submit").removeAttr("disabled");
+		             		window.onbeforeunload = null;
+		                    if(response.status == 1){
+		                    	$("#response_message").html(response.message);
+		                        $("#response_message").addClass('success');
+		                        $("#response_message").removeClass('error');
+		                        $("#response_message").show();
+		                        setTimeout(function(){
+		                            $("#response_message").html('');
+		                            $("#response_message").hide();
+		                        }, 5000);
 
-	                    }else{
-	                        $("#response_message").html(response.message);
-	                        $("#response_message").addClass('error');
-	                        $("#response_message").removeClass('success');
-	                        $("#response_message").show();
-	                        setTimeout(function(){
-	                            $("#response_message").html('');
-	                            $("#response_message").hide();
-	                        }, 5000);
-	                    }
-	                }
-	            });				
+		                    }else{
+		                        $("#response_message").html(response.message);
+		                        $("#response_message").addClass('error');
+		                        $("#response_message").removeClass('success');
+		                        $("#response_message").show();
+		                        setTimeout(function(){
+		                            $("#response_message").html('');
+		                            $("#response_message").hide();
+		                        }, 5000);
+		                    }
+		                }
+		            });	
+	            			
 			});
 
 		});

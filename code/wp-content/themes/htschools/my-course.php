@@ -42,14 +42,16 @@ get_header(vibe_get_header());
                         $statuses[$course->id]= intval($type);
                     }
 
-                    $query_args = apply_filters('wplms_mycourses',array(
-                        'post_type'=>'course',
-                        'post__in'=>$args['post__in']
-                    ),$user->ID);
+                    if(!empty($args['post__in'])){
+                      $query_args = apply_filters('wplms_mycourses',array(
+                          'post_type'=>'course',
+                          'post__in'=>$args['post__in']
+                      ),$user->ID);
+                      $course_query = new WP_Query($query_args);
+                    }
 
-                    $course_query = new WP_Query($query_args);
                     global $bp,$wpdb;
-                    if(!empty($result)){
+                    if(!empty($course_query)){
                   ?>
                   <div class="col-lg-9 mrg">
                   <div class="">

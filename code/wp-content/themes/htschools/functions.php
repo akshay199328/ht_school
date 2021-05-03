@@ -133,6 +133,17 @@ function wp_bootstrap_starter_widgets_init() {
             'after_title'   => '</h3>',
         ) );
 
+    register_sidebar( array(
+            'name'          => esc_html__( 'news page mid banner', 'wp-bootstrap-starter' ),
+            'id'            => 'news_landing_mid_banner',
+            'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ) );
+
+
   register_sidebar( array(
             'name'          => esc_html__( 'news section footer banner', 'wp-bootstrap-starter' ),
             'id'            => 'news_landing_footer_banner',
@@ -143,8 +154,8 @@ function wp_bootstrap_starter_widgets_init() {
             'after_title'   => '</h3>',
         ) );
     register_sidebar( array(
-        'name'          => esc_html__( 'Banner1', 'wp-bootstrap-starter' ),
-        'id'            => 'banner-1',
+        'name'          => esc_html__( 'banner_300_250', 'wp-bootstrap-starter' ),
+        'id'            => 'banner_300_250',
         'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
@@ -1636,3 +1647,183 @@ function posts_pagination() {
  
 }
 
+
+add_action( 'woocommerce_api_start-cs-course', 'start_cs_course');
+
+function start_cs_course(){
+    $courseId = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;
+
+    if($courseId <= 0){
+        wp_redirect(get_bloginfo('url'));
+        exit;
+    }
+
+    if(!is_user_logged_in()){
+        wp_redirect(get_bloginfo('url'));
+        exit;
+    }
+
+    $userId = get_current_user_id();
+
+    if(!bp_course_is_member($courseId, $userId)){
+        wp_redirect(get_bloginfo('url'));
+        exit;    
+    }
+
+    $cb_course_id = get_post_meta($courseId,'celeb_school_course_id',true);
+
+    $cb_user_email = get_user_meta($userId, 'cb_user_login_email', true);
+    if($cb_user_email != ''){
+        $cb_user_password = md5($cb_user_email);
+
+        $signupResponse = login_cb_user($cb_user_email, $cb_user_password);
+        if($signupResponse != false){
+            $cbCourseResponse = cb_course_delivery($cb_user_email, $cb_course_id, $signupResponse);
+
+            $cbCourseResponseArray = json_decode($cbCourseResponse, true);
+            if(isset($cbCourseResponseArray['page_url'])){
+                $cb_course_link = $cbCourseResponseArray['page_url'];
+                wp_redirect($cb_course_link);
+            }else{
+                echo "Error occured while loading the course."; exit;
+            }
+        }else{
+            echo "Error occured while loading the course. Please Try again."; exit;
+        }
+
+    }else{
+        $cbUserEmail = "ht_user_" . $userId . "_" . rand(1000,9999) . "@htschools.com";
+        update_user_meta($userId, 'cb_user_login_email', $cbUserEmail);
+
+        $signupResponse = signup_cb_user("John Doe", $cbUserEmail, md5($cbUserEmail));
+        if($signupResponse != false){
+            $cbCourseResponse = cb_course_delivery($cbUserEmail, $cb_course_id, $signupResponse);
+
+            $cbCourseResponseArray = json_decode($cbCourseResponse, true);
+            if(isset($cbCourseResponseArray['page_url'])){
+                $cb_course_link = $cbCourseResponseArray['page_url'];
+                wp_redirect($cb_course_link);
+            }else{
+                echo "SSO Error occured while loading the course."; exit;
+            }
+        }else{
+            echo "SSO Error occured while loading the course. Please Try again."; exit;
+        }
+    }
+}
+
+
+function signup_cb_user($userName, $email, $password){
+
+    $userData = array(
+        'name' => $userName,
+        'email' => $email,
+        'password' => $password,
+        'social_platform' => 'htschools',
+        'slug_url' => ''
+    );
+
+    $wpcs_options = get_option('wpcs_options');
+
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => $wpcs_options['cs_api_url'] . '/api/user/manual/signup',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => json_encode($userData),
+      CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+        //'Cookie: connect.sid=s%3Aa3J2Lr96Kw73Dl542b5k5UNEnLy4uqo5.dMw9IYD96YHjlu5SZoRKm%2BAMc3YNJz8iSl41EUerdeM'
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+    if($httpcode == 200){
+        return $response;
+    }else{
+        return false;
+    }
+}
+
+function login_cb_user($email, $password){
+
+    $userData = array(
+        'email' => $email,
+        'password' => $password
+    );
+
+    $wpcs_options = get_option('wpcs_options');
+
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => $wpcs_options['cs_api_url'] . '/api/user/manual/login',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => json_encode($userData),
+      CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+        //'Cookie: connect.sid=s%3Aa3J2Lr96Kw73Dl542b5k5UNEnLy4uqo5.dMw9IYD96YHjlu5SZoRKm%2BAMc3YNJz8iSl41EUerdeM'
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+    if($httpcode == 200){
+        return $response;
+    }else{
+        return false;
+    }
+}
+
+function cb_course_delivery($email, $courseId, $authToken){
+
+    $curl = curl_init();
+
+    $postData = array(
+        'email' => $email,
+        'subscribed_course_id' => $courseId,
+        'source' => 'htschools-web'
+    );
+
+    $wpcs_options = get_option('wpcs_options');
+    $cs_api_url = $wpcs_options['cs_api_url'] . '/api/order/htCourseDelivery';
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => $cs_api_url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS =>json_encode($postData),
+      CURLOPT_HTTPHEADER => array(
+        'x-auth-token: ' . $authToken,
+        'Content-Type: application/json',
+        //'Cookie: connect.sid=s%3Aa3J2Lr96Kw73Dl542b5k5UNEnLy4uqo5.dMw9IYD96YHjlu5SZoRKm%2BAMc3YNJz8iSl41EUerdeM'
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+    if($httpcode == 200){
+        return $response;
+    }else{
+        return false;
+    }
+}

@@ -2160,6 +2160,7 @@ width: 60%;
 }
 .duration h6 span{
   font-weight: normal!important;
+      text-transform: initial!important;
 }
 .middle-details .share-icon {
       display: none;
@@ -6624,7 +6625,8 @@ h6:empty
     .item-body .col-md-9{padding: 0px;}
     .exlore-link.mobile-btn {margin: 10px 0px;font-size: 12px;line-height: 16px;}
     #otp { margin: 20px auto; float: none;display: table;}
-    .otp_button{margin: 0px auto;display: table;}
+    .otp_button{margin: 0px auto;display: table;width: 100%;text-align: center;}
+    .otp_button .submit_btn {width: 80% !important;}
     .news_icons { 
         display: block;
         float: left;
@@ -6804,7 +6806,7 @@ h6:empty
   .custom_topmenu .loggedin_user:before{display: none!important;}
   .cart-contents:before{    height: 40px!important;}
   .otp-ontent #otp input{    width: 37.3px;}
-  .otp_button .submit_btn {width: 68% !important;}
+  .otp_button .submit_btn {/*width: 68% !important;*/}
 }
 @media screen and (max-width: 358px) and (min-width: 320px){
   .right-details .course-button h6{    padding-top: 0px;}

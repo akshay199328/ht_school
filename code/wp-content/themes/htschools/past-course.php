@@ -117,7 +117,7 @@ vibe_include_template("profile/top$profile_layout.php");
 				                	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
 				                		<h6>--</h6>
 				                	<?php } else{ ?>
-				                		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?></h6>
+				                		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
 				                	<?php }?>
 				                </div>
 				            </div>

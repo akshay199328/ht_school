@@ -36413,7 +36413,7 @@ width: 300px;
 
 	.course .widget_custom_html,
 	.page-template-all-courses .widget_custom_html,	
-	.page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
+	.page-template-my-course .widget_custom_html{position: sticky;top: 100px;}
 
 	.course ul.item-list li{border-bottom: 0!important;}
 	.children-list h1{border-bottom: 1px dotted #a8a6a6!important;padding-bottom: 11px;}
@@ -36649,7 +36649,15 @@ transform: translate3d(0%, 0, 0);
     .video-wrap{padding-right: 0;padding-left: 0;}
 }
 
+/* 
+header logo */
+/* .page-id-0 .header .homeicon{
+	background-image: url('https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo_yellow-bg.png');
+	background-repeat: no-repeat;background-size: cover;width:182px;height:50px;display: inline-block;
+} */
 
+.custom_checkoutTable{margin-bottom: 25px;}
+.contact-us .vc_column-inner{margin: 42px 15px 42px!important;}
 /* add new pagnation css */
 
 .pagination li.pagination_arrow .angle-next{margin-right: 9px;}

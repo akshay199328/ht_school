@@ -2160,7 +2160,7 @@ width: 60%;
 }
 .duration h6 span{
   font-weight: normal!important;
-      text-transform: initial!important;
+      text-transform: lowercase!important;
 }
 .middle-details .share-icon {
       display: none;

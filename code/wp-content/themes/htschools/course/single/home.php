@@ -215,11 +215,14 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                       </div>
                                     </div> -->
                                     <div class="col-sm-12 tab-video mrg">
-                                       <?php if(get_post_meta($post->ID,'vibe_trailer_link',true) != ''){?>
-                                       <video width="100%" height="240" controls="" >
+                                       <?php $trailer_link = get_post_meta($post->ID,'vibe_trailer_link',true);
+                                        if(strlen(trim($trailer_link))) : 
+                                        ?>
+                                       <!-- <video width="100%" height="240" controls="" >
                                             <source src="<?php echo get_post_meta($post->ID,'vibe_trailer_link',true);?>" type="video/mp4">
-                                        </video>
-                                      <?php }?>
+                                        </video> -->
+                                        <iframe width="100%" height="240" src="<?php echo get_post_meta($post->ID,'vibe_trailer_link',true);?>"></iframe>
+                                      <?php endif;?>
                                     </div>
                                   </div>
 <!--                                   <div class="col-sm-12 course-for background-yellow">

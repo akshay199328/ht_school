@@ -4301,7 +4301,9 @@
                     className: "question"
                 }, gn("div", {
                     className: "question_actions"
-                }, gn("span", null, window.wplms_course_data.translations.question_full_prefix, " ", o + 1), gn("div", null, gn("span", {
+                }, gn("span", null, window.wplms_course_data.translations.question_full_prefix, " ", o + 1), gn("div",{
+                    className: "marks_right"
+                }, null, gn("span", {
                     className: "marks"
                 }, gn("i", {
                     className: "vicon vicon-medall"

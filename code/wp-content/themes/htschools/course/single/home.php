@@ -237,6 +237,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <p><?php echo get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true); ?></p>
                                   </div>
                                 <?php endif;?>
+                                  <?php if(get_the_term_list_search(get_the_ID(),'course-tag')) : ?>
                                   <div class="col-sm-12 course-list mrg">
                                     <h5>Related Tags</h5>
                                     <div class="col-sm-12 course-listslider mrg">
@@ -250,6 +251,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                       <span class="item"><a href="#"><h6>PHP</h6></a></span> -->
                                     </div>  
                                   </div>
+                                <?php endif;?>
                               </div>
                             </div>
                         </div>
@@ -289,7 +291,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div>
-          <?php endif;?>
+          <?php endif;
+          if(count(bp_course_get_curriculum_units(get_the_ID()))) : 
+          ?>
+
             <div class="course-curriculum grey-background" id="curriculum">
               <div class="container">
                 <div class="">
@@ -324,6 +329,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 </div>
               </div>
             </div>
+          <?php endif;?>
             <div class="course-instructor" id="instructor">
               <div class="container">
                 <div class="">

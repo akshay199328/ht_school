@@ -17,16 +17,16 @@ vibe_include_template("profile/top$profile_layout.php");
 <div id="item-body">
     <div class="col-md-3 left_tabs">
         <div class="item-list-tabs no-ajax <?php if ( !bp_is_my_profile() ) echo 'notmyprofile'; ?>" id="subnav" role="navigation">
-        	<ul class="left_tab">
-        		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
-        		do_action('bp_course_get_options_sub_nav');
-        		?>
-        	</ul>
+            <ul class="left_tab">
+                <?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
+                do_action('bp_course_get_options_sub_nav');
+                ?>
+            </ul>
         </div><!-- .item-list-tabs -->
     </div>
 
     <div class="col-md-9">      
-      	<?php
+        <?php
             $user = wp_get_current_user();
             global $wpdb;    
             $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
@@ -71,10 +71,10 @@ vibe_include_template("profile/top$profile_layout.php");
                 <?php bp_course_avatar(); ?>
             </div>
             <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
-            	<div class="col-sm-12 col-lg-9 pull-left mrg">
-              	<div class="middle-details">
+                <div class="col-sm-12 col-lg-9 pull-left mrg">
+                <div class="middle-details">
                 <?php 
-                	$category_array = get_the_terms( $post->ID, 'course-cat');
+                    $category_array = get_the_terms( $post->ID, 'course-cat');
                 ?>
                 <h6><?php echo $category_array[0]->name; ?></h6>
                 <h2><?php bp_course_title(); ?></h2>
@@ -98,12 +98,12 @@ vibe_include_template("profile/top$profile_layout.php");
                         <?php }?>
                     </div>
                     <div class="pull-right">
-                    	<p>Age Group</p>
-                    	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
-                    		<h6>--</h6>
-                    	<?php } else{ ?>
-                    		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
-                    	<?php }?>
+                        <p>Age Group</p>
+                        <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
+                            <h6>--</h6>
+                        <?php } else{ ?>
+                            <h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
+                        <?php }?>
                     </div>
                 </div>            
                             <!-- <div class="learing-goals">
@@ -134,6 +134,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                 <?php the_course_button(); ?> 
                                 <!-- <a href="<?php echo get_bloginfo('url')?>/certificates/my-certificate/?c=<?php echo $post->ID?>&u=<?php echo $user->ID?>">Certificate</a> -->
                             </div>
+                            <?php custom_show_profile_snapshot($post->ID,$user->ID);?>
                             <div class="profilecou-instructor">
                                 <div class="heading">
                                     <h3>Instructor</h3>
@@ -172,7 +173,7 @@ vibe_include_template("profile/top$profile_layout.php");
         </div>
     </div>
 </section>
-	<?php } else{ ?>
+    <?php } else{ ?>
         <div class="empty_cart_div">
             <div class="empty_course_image"></div>
             <h4>You have not bought any courses till now</h4>
@@ -185,7 +186,7 @@ vibe_include_template("profile/top$profile_layout.php");
 </div><!-- #item-body -->
 
 <?php do_action( 'bp_after_member_settings_template' ); ?>
-		
+        
 <?php
 
 vibe_include_template("profile/bottom.php");  

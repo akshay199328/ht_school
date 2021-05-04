@@ -76,10 +76,18 @@ if(!empty($course_curriculum)){
 	                <source src="<?php echo $video;?>" type="video/mp4">
 	            </video>
             	<h5><?php echo $lesson_units['title'];?></h5>
-        	<?php }else{?>
+        	<?php }else{
+        		$sub_title = get_post_meta($course_units_array[$counter]['id'],'vibe_subtitle',true);
+        		?>
         		<h5><?php echo $lesson_units['title'];?></h5>
-        		<?php $sub_title = the_sub_title($course_units_array[$counter]['id']);
-        		wp_trim_words($sub_title, 20, NULL); }?>
+        		<p>
+        		<?php 
+        			echo mb_strimwidth( $sub_title, 0, 130, '...' );?></p>
+
+        		<?php /*$sub_title = the_sub_title($course_units_array[$counter]['id']);
+        		wp_trim_words(strip_tags($sub_title), 5, NULL);*/
+
+        		 }?>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>
@@ -132,11 +140,18 @@ if(!empty($course_curriculum)){
 	                <source src="<?php echo $video1;?>" type="video/mp4">
 	            </video>
             	<h5><?php echo $lesson_units['title'];?></h5>
-        	<?php }else{?>
+        		<?php }else{
+        			$sub_title1 = get_post_meta($course_units_array[$counter1]['id'],'vibe_subtitle',true);
+        		?>
         		<h5><?php echo $lesson_units['title'];?></h5>
+        		<p>
         		<?php 
-        		$sub_title = the_sub_title($course_units_array[$counter]['id']);
-        		wp_trim_words($sub_title, 20, NULL); }?>
+        			echo mb_strimwidth( $sub_title1, 0, 130, '...' );?></p>
+
+        		<?php /*$sub_title = the_sub_title($course_units_array[$counter]['id']);
+        		wp_trim_words(strip_tags($sub_title), 5, NULL);*/
+
+        		 }?>
             <div class="progressbar-circle">
               	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
             </div>

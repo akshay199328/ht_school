@@ -224,11 +224,11 @@ $(window).scroll(function() {
               var id = $(this).attr('id');
                 //$('news-li').eq(e).addClass('active');
                 if(id != 'All'){
-
                   $('.news-li.active').removeClass('active');
                   $('.news-li[data-scroll="' + id + '"]').addClass('active');
                 }
                 else{
+                  $('.news-li.active').removeClass('active');
                   $('.news-li[data-scroll="' + id + '"]').addClass('active');
                 }
                 //$(".news-li[data-id=" + $(this).attr('id') + "]").addClass("active");

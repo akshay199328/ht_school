@@ -131,7 +131,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
 <div class="wrapper">
 <section class="latest-news">
-<?php foreach ($menuitems as $menu) { ?>
+
+<?php $count=12;foreach ($menuitems as $menu) { ?>
 
   <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
     <div class="container">
@@ -193,15 +194,22 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         </div>
         <?php if ($Query->have_posts()) :?>
           <div class="col-lg-12 center">
-            <?php
+            <?php /*
             if ( is_active_sidebar( 'news_landing_footer_banner' ) ) : ?>
              <?php dynamic_sidebar( 'news_landing_footer_banner' ); ?>      
-           <?php endif; ?>
+           <?php endif; */?>          
+
+          <!-- //1055314/HT_School_Desktop_Section/HT_School_Desk_Section_Footer_Billboard-->
+            <div id='div-gpt-ad-1619596100543-<?php echo $count;?>'>
+              <script>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1619596100543-<?php echo $count;?>'); });
+              </script>
+            </div>
           </div>
         <?php endif;?>
       </div>
     </div>
-  <?php }?>
+  <?php $count++;}?>
   </section>
 </div>
   <!-- End Most Interview -->

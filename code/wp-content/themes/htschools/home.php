@@ -111,7 +111,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
                     $excerpt = get_post_field('post_excerpt', $post->ID);
                     ?>
                     <?php if ( $excerpt != '' ) {
-                      echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
+                      echo "<p>".wp_trim_words( $excerpt, 20, NULL )."</p>";
                     }  ?>
                     <div class="col-lg-7 duration mrg">
                       <div class="pull-left">

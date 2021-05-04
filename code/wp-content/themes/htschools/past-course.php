@@ -157,6 +157,14 @@ vibe_include_template("profile/top$profile_layout.php");
 			                                            <h4><?php echo $author_company; ?></h4>
 			                                        </div>
 			                                        <div class="clearfix"></div>
+													<div class="download">
+														<span class="dwn-box">
+															<span class="dwn-name">Download Certificate</span>
+															<span class="dwn-img">
+																<image src="<?php echo get_bloginfo('template_url')?>/assets/images/dwn-icon.png">
+															</span>
+														</span>
+													</div>
 			                                     </div>
 			                                </div>
 			                            </div>

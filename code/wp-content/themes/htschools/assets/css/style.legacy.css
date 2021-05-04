@@ -36681,6 +36681,9 @@ transform: translate3d(0%, 0, 0);
 .pagination li.pagination_arrow .angle-next{margin-right: 9px;}
 .pagination li.pagination_arrow .angle-prev{margin-left: 9px;}
 .pagination-links .prev{font: 0/0 a;}
+.pagination .page-num-last{position: relative;right: 22px;}
+.pagination .page-num-first{position: relative;left: 7px;}
+
 #course-dir-list .pagination-links .prev::after{
 	content:"";background-image: url('https://ht.fortune4.org/wp-content/themes/htschools/assets/images/page-prev.svg');
 	background-repeat:no-repeat;display: block;height:9px;width:5px;    position: relative;
@@ -36690,4 +36693,27 @@ transform: translate3d(0%, 0, 0);
 #course-dir-list .pagination-links .next::after{content:"";background-image: url('https://ht.fortune4.org/wp-content/themes/htschools/assets/images/page-next.svg');
 background-repeat:no-repeat;display: block;height:9px;width:5px;    position: relative;
 margin-top: -10px;
+}
+
+
+/* add download option */
+.download .dwn-box{
+	border: 1px solid #ababab;
+    padding: 9px 10px;
+    margin: 11px 0 0;
+    display: flex;
+    align-items: center;
+}
+.download .dwn-box .dwn-name{
+	font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    line-height: 18px;
+    display: inline-block;
+    word-break: break-word;
+}
+.download .dwn-box .dwn-img{
+	display: inline-block;
+    height: 28px;
+    width: 28px;
 }

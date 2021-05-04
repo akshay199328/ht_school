@@ -6785,13 +6785,13 @@
             className: "course_heading"
         },sr("div", {
             className: "leftheader-logo"
-        }), sr("h2", {
-            dangerouslySetInnerHTML: {
-                __html: c.name
-            }
-        }), sr("h6", {
+        }),sr("h6", {
             dangerouslySetInnerHTML: {
                 __html: c.category
+            }
+        }),sr("h2", {
+            dangerouslySetInnerHTML: {
+                __html: c.name
             }
         }), sr("div", {
             class: "course_progress_wrapper"

@@ -1128,6 +1128,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 						}
 
 						$progress = bp_course_get_user_progress($this->user->id,$course_id);
+						$category_array = get_the_terms($course_id, 'course-cat');
 						//Course Status openning on Course Page
 						$_course_data = array(
 							'id'                    => $course_id,
@@ -1149,6 +1150,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							'link'					=> get_permalink($course_id),
 							'course_retakes'        => bp_course_get_course_retakes($course_id,$this->user->id),
 							'user_retakes'        	=> bp_course_get_user_course_retakes($course_id,$this->user->id),
+							'category' => $category_array[0]->name
 						);
 						$return['course'] = $_course_data;
 						$return['text'] = $statuses[$status];

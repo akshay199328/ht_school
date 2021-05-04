@@ -164,8 +164,8 @@ $topics = wp_get_post_tags(get_the_ID());
         </div>
         <div class="col-lg-12 center mrg">
 <!--             <?php
-            if ( is_active_sidebar( 'banner-3' ) ) : ?>
-              <?php dynamic_sidebar( 'banner-3' ); ?>      
+            if ( is_active_sidebar( 'story_banner_billboard' ) ) : ?>
+              <?php dynamic_sidebar( 'story_banner_billboard' ); ?>      
               <?php endif; ?> -->
             </div>
           </div>
@@ -229,8 +229,8 @@ $topics = wp_get_post_tags(get_the_ID());
     <div class="col-sm-12 col-md-3 mrg">
       <div class="atwork_img">
           <?php
-          if ( is_active_sidebar( 'banner-2' ) ) : ?>
-            <?php dynamic_sidebar( 'banner-2' ); ?>      
+          if ( is_active_sidebar( 'banner-3' ) ) : ?>
+            <?php dynamic_sidebar( 'banner-3' ); ?>      
           <?php endif; ?>
       </div>
     </div>

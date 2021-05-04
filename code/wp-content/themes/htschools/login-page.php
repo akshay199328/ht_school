@@ -122,11 +122,6 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                     </button>
                     <button type="button" class="btn submit_btn" id="verify-otp-btn">Verify OTP</button>
                   </div>
-                  
-                  <!-- <div class="form-footer">
-                    <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a>
-                    <p>By logging in, you agree to our Terms of Service and Privacy Policy</p>
-                  </div> -->
                 </form>
             </div>
 
@@ -206,31 +201,10 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                       <button type="button" class="btn submit_btn" id="verify-mob-otp-btn">Verify OTP</button>
                     </div>
 
-                    
-                    <!-- <div class="form-footer">
-                      <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a>
-                      <p>By logging in, you agree to our Terms of Service and Privacy Policy</p>
-                    </div> -->
                 </form>
             </div>
 
-
-<!--             <div class="login-box register-box" id="login-step-5" style="display: none;">
-                <div class="col-sm-12 col-md-6 mrg pull-left">
-                    <div class="login-left">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/login-back.jpg" class="img-fluid"/>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 mrg pull-right">
-                    <div class="login-right message-content">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thank-you.svg" class="img-fluid"/>
-                    </div>
-                </div>
-
-                <button type="button" class="btn submit_btn" id="reloadpage">My Account</button>
-            </div> -->
-
-            <div class="login-box-1 register-box" id="login-step-5" style="display: none;">
+           <div class="login-box-1 register-box" id="login-step-5" style="display: none;">
               <div class="col-sm-12 col-md-6 mrg pull-left">
                 <div class="congrts_section">
                   <p class="congrat_small">congratulations!</p>
@@ -264,22 +238,6 @@ jQuery(window).load(function(){
 </script> -->
 <script type="text/javascript">
     jQuery(document).ready(function(){
-        // jQuery("#verify-otp-btn").prop("disabled", true);
-        // var count = 0;
-        // jQuery('.to_next').change(function(){
-        // jQuery('#otp input[type=text]').each(function(){
-        //     if ($(this).val() == '1') {
-        //       count++;
-        //     }
-        // });
-        // //console.log("" + count);
-        // if(count === 21){
-        //   jQuery('#verify-otp-btn').prop("disabled", false);
-        //   count = 0;
-        // } else {
-        //   jQuery('#verify-otp-btn').prop("disabled", true);
-        // }
-        // })
         jQuery("#verify-otp-btn").prop("disabled", true);
         jQuery("#verify-mob-otp-btn").prop("disabled", true);
 

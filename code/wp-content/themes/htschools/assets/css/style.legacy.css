@@ -27094,8 +27094,7 @@ body {
 
  #buddypress div#item-header ul {
  	margin-bottom: 15px;
- 	overflow: hidden;
-	
+ 	overflow: hidden
  }
 
  #buddypress ul.item-list li .item-instructor {
@@ -36523,21 +36522,10 @@ width: 300px;
 	.learing-goals .list li, .content-default-list li{font-size: 13px;font-weight: 300;}
 	.page-id-69 .ol.breadcrumbs{padding: 5px 0 5px 0;}
 	.fixedmenu-tabs{padding: 20px 0px 15px;}
-	/* .page-id-0 a.logo{    background: none;height: auto;width: auto;} */
+	.page-id-0 a.logo{    background: none;
+		height: auto;
+		width: auto;}
 }
-
-/*header logo */
-/* .page-id-0 a.logo {
-    background-image: url(https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo_yellow-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 182px;
-    height: 50px;
-    display: inline-block;margin: 0 auto;
-}
-.page-id-0 a.logo img{
-    display: none;
-} */
 
 /* new css added video part */
 .video-wrap .card h5{font-size: 20px;font-weight: 300!important}
@@ -36567,6 +36555,8 @@ transform: translate3d(0%, 0, 0);
 	height: 100%;
 	overflow-y: auto;
 }
+
+
 #edit-child-profile.modal.right .modal-body {
 	padding: 15px 40px;
 }     
@@ -36663,7 +36653,18 @@ transform: translate3d(0%, 0, 0);
 }
 
 /* 
-
+header logo */
+.page-id-0 a.logo {
+    background-image: url(https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo_yellow-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 182px;
+    height: 50px;
+    display: inline-block;margin: 0 auto;
+}
+.page-id-0 a.logo img{
+    display: none;
+}
 
 .custom_checkoutTable{margin-bottom: 25px;}
 .contact-us .vc_column-inner{margin: 42px 15px 42px!important;}
@@ -36671,7 +36672,7 @@ transform: translate3d(0%, 0, 0);
 .woocommerce .woocommerce-cart-form{margin-bottom: 25px;}
 .woocommerce .order_details_page{margin-bottom: 25px;}
 .woocommerce .woocommerce-order{margin-bottom: 25px;}
-.dotted-border .middle-details h6{text-transform: capitalize;!important;}
+.dotted-border .middle-details h6{text-transform: uppercase;!important;}
 #errMobileMsg{color: #ff0000;font-size: 12px;font-weight: 500;}
 
 /* add new pagnation css */

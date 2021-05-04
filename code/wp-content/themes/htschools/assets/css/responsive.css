@@ -570,7 +570,7 @@ section.woocommerce-customer-details{
     line-height: 22px !important;
 }
 .course_status .incourse .quiz_questions_content .question_actions{
-	border-bottom: 2px solid #000;
+	border-bottom: 1.5px solid #fade3b;
     padding-bottom: 10px;
 }
 .question_option:first-child{
@@ -586,13 +586,13 @@ section.woocommerce-customer-details{
 .finish_course {
     padding-left: 30px;
 }
-.course_status .incourse .incoursequiz_details>div {
-    display: flex !important;
-    flex-wrap: initial !important;
-    margin: 0 -0.5rem !important;
-    align-items: flex-start !important;
-    width: auto !important;
-}
+/*.course_status .incourse .incoursequiz_details>div {
+    display: flex ;
+    flex-wrap: initial;
+    margin: 0 -0.5rem;
+    align-items: flex-start;
+    width: auto;
+}*/
 .course_status .incourse .incoursequiz_details .incourse_quiz_button>a{
 	padding: 12px 12px 13px 12px!important;
 	text-align: center !important;
@@ -601,13 +601,13 @@ section.woocommerce-customer-details{
     background: #FF9898;
 }
 .question_actions:before {
-    position: absolute;
+    /*position: absolute;
     content: "";
     background-color: #fade3b;
     height: 2px;
     width: 185px;
     left: 0px;
-    top: 40px;
+    top: 40px;*/
 }
 .course_status .incourse>*{
 	margin: 0px !important;

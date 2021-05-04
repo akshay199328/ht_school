@@ -584,14 +584,14 @@
 }
 
 .course_status .course_content .course_content_header {
-        display: flex;
-    justify-content: space-between;
+    display: flex;
+    justify-content: flex-end;
     position: sticky;
     top: 0;
     background: #F7F7F7;
     margin: 0rem;
     padding: 27px 30px;
-        height: auto;
+    height: auto;
     line-height: 0;
     border-bottom: 0px solid rgb(247 247 247);
     box-shadow: none;
@@ -611,6 +611,9 @@
     line-height: 1.33;
     letter-spacing: 0.6px;
     text-align: left;
+}
+.hide_panel{
+    display: none!important;
 }
 .course_status .course_content .course_content_header .toggle_timeline_wrapper .vicon  {
     margin-right: 10px;
@@ -706,7 +709,12 @@
     top: 12%;
     right: 2.8%;
 }
-
+.course_status .course_content .course_content_content_wrapper .driptimer_wrapper,
+.right_buttons,
+.marks_right .marks,
+.marks_right .flag{
+    display: none!important;
+}
 .course_status .course_content .course_content_content_wrapper .driptimer_wrapper .driptimer {
     display: flex;
     flex-direction: column;
@@ -1360,6 +1368,7 @@
     margin: 0;
     padding: 19px 30px 21px;
     border-bottom: 2px solid #e8e8e8;
+        cursor: pointer;
 }
 .course_status .course_timeline>ul li.section:last-child{
     border-bottom: 2px solid transparent;
@@ -1403,13 +1412,17 @@
 }
 .course_status .right_block {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     text-transform: capitalize;
     font-size: 15px;
     color: #000;
     line-height: 1.33;
     letter-spacing: 0.6px;
-    text-align: left;
+    text-align: right;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    flex-direction: row;
 }
 
 .course_status .right_block .review_block {
@@ -1784,7 +1797,12 @@
     line-height: 1;
     position: absolute
 }
-
+.course_status .incourse .question_list{
+    float: right;
+    width: 45%;
+    margin-top: 15px;
+    padding-left: 87px;
+}
 .course_status .incourse .checked_answer {
     margin: 31px 0 0;
     padding: 16px 20px;
@@ -1957,9 +1975,9 @@
     border-radius: 4px;
     box-shadow: 0 2px 8px 0 rgb(0 0 0 / 7%);
     border: solid 1px #dcdcdc;
-    width: 372px;
+    width: 100%;
     float: right;
-    margin-left: -39px;
+    /* margin-left: -39px; */
     /* margin-left: 87px; */
     padding: 17px 20px;
     flex-wrap: nowrap;
@@ -1991,9 +2009,11 @@
     margin-bottom: 0;
     -webkit-box-align: center !important;
     -ms-flex-align: center !important;
-    align-items: center !important;
     display: flex;
     position: relative;
+    /* flex-wrap: wrap; */
+    align-content: center;
+    flex-direction: row;
 }
 .question_option.radio input[type=radio]:checked+label:after,
 .question_option input[type=checkbox]:checked+label:after
@@ -2012,7 +2032,7 @@
     position: absolute;
     color: #FFF;
     left: 2px;
-    top: 4px;
+    top: 2px;
     line-height: 1;
     font-size: 14px;
 }
@@ -2022,10 +2042,11 @@
 .question_option.radio>input[type=radio]+label:before,
 .question_option input[type=checkbox]+label:before
 {
-    width: 18px;
+        width: 18px;
     height: 18px;
     border: 1px solid #000;
-    border-radius: 100px;
+    border-radius: 100%;
+    display: inline-table;
 }
 .question_option.radio>input[type=radio]:checked+label:before,
 .question_option input[type=checkbox]:checked+label:before
@@ -2178,12 +2199,11 @@
 }
 
 .course_status .incourse .incoursequiz_details>div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: flex ;
+    flex-wrap: initial;
     margin: 0 -0.5rem;
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
+    width: auto;
 }
 
 .course_status .incourse .incoursequiz_details>div>* {
@@ -2210,32 +2230,31 @@
 }
 
 .course_status .incourse .incoursequiz_details>div strong .student_score {
-    font-size: 11px;
+    display: block;
+    float: left;
+    font-size: 30px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.55px;
-    text-align: left;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
     color: #000000;
-    display: block;
-    float: left;
-    margin-top: 7px;
 }
 
 .course_status .incourse .incoursequiz_details>div strong .student_quiz_status {
-    font-size: 11px;
+    display: block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 22px;
+    font-size: 15px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.36;
-    letter-spacing: 0.55px;
+    line-height: 1.33;
+    letter-spacing: normal;
     text-align: left;
     color: #000000;
-    display: block;
-    float: left;
-    margin-top: 7px;
-    margin-left: 10px;
 }
 
 .course_status .incourse .incoursequiz_details>div .show_questions {

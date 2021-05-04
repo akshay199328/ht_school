@@ -2018,7 +2018,7 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }), t.options && t.options.length ? J(X, null, (t => s.map((function(s, a) {
+        }), J("div", {className: "question_list"},t.options && t.options.length ? J(X, null, (t => s.map((function(s, a) {
             let r = t.options.findIndex(e => e == s);
             return J("div", {
                 className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : "")
@@ -2050,7 +2050,7 @@
             }
         }, J("i", {
             class: "vicon vicon-trash"
-        }))) : "")
+        }))) : ""))
     };
     const {
         createElement: Q,
@@ -4179,7 +4179,7 @@
             }, gn("span", null, window.wplms_course_data.translations.show_questions), gn("span", {
                 className: "vicon vicon-angle-double-right"
             })) : "", t && t.meta && t.meta.questions && t.meta.questions.length && t.submitted ? gn("div", {
-                className: "buttons has-addons small"
+                className: "buttons has-addons small right_buttons"
             }, gn("a", {
                 className: "correct" == q ? "button tip end is-focused" : "button tip",
                 title: window.wplms_course_data.translations.show_correct_attempts,
@@ -6806,7 +6806,7 @@
         }, sr("div", {
             className: "course_content_header"
         }, sr("span", {
-            className: "toggle_timeline_wrapper",
+            className: "toggle_timeline_wrapper hide_panel",
             onClick: () => {
                 S(!q)
             }

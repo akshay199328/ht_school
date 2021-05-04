@@ -188,19 +188,32 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
                                   <div class="row content-default-list">
                                     <div class="">
-                                    <div class="col-sm-12 col-lg-6 pull-left mrg">
+                                    <div class="col-sm-12 col-lg-12 mrg">
                                         <p><?php 
                                         $post_content = get_post_field('post_content', $post->ID);
-                                        if ( $post_content != '' ) {
-                                          ob_start();
-                                          dynamic_sidebar('news_landing_mid_banner');
-                                          $addDisplay = ob_get_contents();
-                                          ob_end_clean();
-                                          $ad_code = '</p></div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg"><p>';
+                                        
+                                        ob_start();
+                                        dynamic_sidebar('news_landing_mid_banner');
+                                        $addDisplay = ob_get_contents();
+                                        ob_end_clean();
+
+                                        $videoContent = '';
+                                        $trailer_link = get_post_meta($post->ID,'vibe_trailer_link',true);
+                                        if(strlen(trim($trailer_link))){
+                                          $videoContent = '<div align="right" style="float: right;margin-left: 15px;">
+                                                              <iframe width="100%" height="240" src="' . get_post_meta($post->ID,'vibe_trailer_link',true) . '"></iframe>
+                                                           </div>';
+                                        }
+
+                                        $ad_code = '<div align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
+                                        
+                                        $post_content = $ad_code . $videoContent . $post_content;
+
+                                        echo $post_content;
+                                        /*if ( $post_content != '' ) {
 
                                           $post_content = prefix_insert_after_words( $ad_code,75, $post_content );
-                                          echo $post_content;
-                                        }
+                                        }*/
                                         ?></p>
                                     </div>
                                   </div>
@@ -214,16 +227,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         <?php endif; ?>
                                       </div>
                                     </div> -->
-                                    <div class="col-sm-12 tab-video mrg">
-                                       <?php $trailer_link = get_post_meta($post->ID,'vibe_trailer_link',true);
-                                        if(strlen(trim($trailer_link))) : 
-                                        ?>
-                                       <!-- <video width="100%" height="240" controls="" >
-                                            <source src="<?php echo get_post_meta($post->ID,'vibe_trailer_link',true);?>" type="video/mp4">
-                                        </video> -->
-                                        <iframe width="100%" height="240" src="<?php echo get_post_meta($post->ID,'vibe_trailer_link',true);?>"></iframe>
-                                      <?php endif;?>
-                                    </div>
+                                      
                                   </div>
 <!--                                   <div class="col-sm-12 course-for background-yellow">
                                     <h5>Who This Course Is For</h5>
@@ -353,10 +357,20 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $author_company = get_the_author_meta( 'last_name', $author_id );
                         $student_count = get_the_author_meta( 'student_count', $author_id );
                         //echo "<pre>";print_r($author_company);exit;
-                        $author_biographical_info_array = split_string_by_words($author_biographical_info, 20);
+                        //$author_biographical_info_array = split_string_by_words($author_biographical_info, 20);
+
+                        ob_start();
+                        dynamic_sidebar('instructor_banner');
+                        $addDisplay = ob_get_contents();
+                        ob_end_clean();
+
+                        $ad_code = '<div align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
+                        
+                        $author_biographical_info = $ad_code . $author_biographical_info;
+
                     ?>
                     <div class="instructor-detailsMini">
-                        <div class="col-sm-12 col-md-7 col-lg-7 pull-left mrg">
+                        <div class="col-sm-12 col-md-12 col-lg-12 pull-left mrg">
                           <div class="profile mt-auto">
                             <div class="col-lg-12 profile-content">
                               <div class="profileimg-name">
@@ -372,27 +386,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                               </div>
                               <div class="clearfix"></div>
                               <div class="co-lg-12">
-                                <p><?php echo $author_biographical_info_array[0]; ?></p>
+                                <p><?php echo $author_biographical_info; ?></p>
                                 <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-12 col-md-5 col-lg-5 mrg pull-right">
-                          <div class="adworks">
-                            <div class="col-sm-12 adworks-head mrg">
-                                <?php
-                                  if ( is_active_sidebar( 'instructor_banner' ) ) : ?>
-                                  <?php dynamic_sidebar( 'instructor_banner' ); ?>      
-                                <?php endif; ?>
-                            </div>
-                          </div>
-                        </div>
-                        <?php if(count($author_biographical_info_array) > 1){ ?>
-                        <div class="col-sm-12 col-md-12 col-lg-12 mrg  profile-content">
-                          <p><?php echo $author_biographical_info_array[1]; ?></p>
-                        </div>
-                        <?php } ?>
                     </div>
                   </div>
                 </div>

@@ -440,15 +440,14 @@ function user_certificate($course_id,$user_id){
    $certis=vibe_sanitize(get_user_meta($user_id,'certificates',false));
    
      if(isset($certis) && is_Array($certis) && count($certis)){
-          echo '<div class="certifications"><h6>'.__('Certifications','vibe').'</h6><ul class="slides">';
           if(isset($certis) && is_Array($certis)) 
-           foreach($certis as $certi){
-            if($certi == $course_id){
-                  echo '<li class="course_certificate"><a href="'.bp_get_course_certificate('user_id='.$user_id.'&course_id='.$course_id).'" target="_blank"><i class="icon-certificate-file"></i></a></li>';
-            }
+            foreach($certis as $certi){
+              if($certi == $course_id){
+                echo '<a href="'.bp_get_course_certificate('user_id='.$user_id.'&course_id='.$course_id).'" target="_blank" class="dwn-box"><span class="dwn-name">Download Certificate</span><span class="dwn-img"><image src="'.get_bloginfo('template_url').'/assets/images/dwn-icon.png"></span><a href="'.bp_get_course_certificate('user_id='.$user_id.'&course_id='.$course_id).'" target="_blank"></a>';
+              }
            }
-         echo '</ul></div>';  
-      }
+           
+    }
 }
 
 // Extra Fields for Celebrity API.

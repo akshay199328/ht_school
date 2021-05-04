@@ -170,7 +170,15 @@ register_sidebar( array(
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
     ) );
-
+  register_sidebar( array(
+        'name'          => esc_html__( 'instructor_banner', 'wp-bootstrap-starter' ),
+        'id'            => 'instructor_banner',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
     register_sidebar( array(
         'name'          => esc_html__( 'Banner2', 'wp-bootstrap-starter' ),
         'id'            => 'banner-2',
@@ -1626,10 +1634,13 @@ function posts_pagination() {
     }
  
     echo '<div class="pagination"><ul>' . "\n";
- 
+    
+    if ( $paged != 1 )
+        echo '<li class="page-num page-num-first pagination_arrow prev"><a href='.get_pagenum_link(1).'>'.__('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg>').' </a></li>';
+
     /** Previous Post Link */
-    if ( get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg><img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') )
-        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg><img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg class="angle-prev">') );
+    if ( get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') )
+        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg class="angle-prev">') );
  
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
@@ -1656,10 +1667,13 @@ function posts_pagination() {
         $class = $paged == $max ? ' class="active"' : '';
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
     }
- 
+    
+    if ( $paged != $max )
+        echo '<li class="page-num page-num-last"><a href='.get_pagenum_link($max).'> '.__('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>').'</a></li>';
+
     /** Next Post Link */
-    if ( get_next_posts_link('<img  src='.get_bloginfo('template_url').'/assets/images/page-next.svg><img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>') )
-        printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg class="angle-next"><img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>') );
+    if ( get_next_posts_link('<img  src='.get_bloginfo('template_url').'/assets/images/page-next.svg>') )
+        printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg class="angle-next">') );
  
     echo '</ul></div>' . "\n";
  

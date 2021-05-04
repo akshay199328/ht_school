@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: My Courses page
+ * Template Name: My Courses
  */
 if ( !defined( 'ABSPATH' ) ) exit;
 

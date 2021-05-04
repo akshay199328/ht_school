@@ -361,7 +361,7 @@ border: 1px solid deepskyblue;
                                     <label>Date of Birth*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input id="user_dob_display" type="text" class="in-class form-control user_field" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>">
+                                    <input id="user_dob_display" type="text" class="in-class form-control user_field" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
                                     <input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
                                     <!-- <input type="date" name=""  placeholder="DD / MM / YYYY" class="in-class form-control" />              -->
                                 </div>
@@ -495,18 +495,20 @@ border: 1px solid deepskyblue;
             function phone_validate() 
             { 
               var mobNum = $('#user_mobile').val();
-                  var filter = /^\d*(?:\.\d{1,2})?$/;
-
-                  if (filter.test(mobNum)) {
-                      if(mobNum.length!=10){
-                        $("#errMobileMsg").text("Please enter 10 digit mobile number");
-                          return false;
-                      } 
-                  }
-                  else{
-                      $("#errMobileMsg").text('Not a valid number');
-                      return false;
-                  }
+              var filter = /^\d*(?:\.\d{1,2})?$/;
+              var phoneno = new RegExp(/^(?!0+$)\d{8,}$/);
+              if(mobNum.length!=10){
+                $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                  return false;
+              }
+              else if(!mobNum.match(phoneno))
+              {
+                $("#errMobileMsg").text("Not a valid Phone Number");
+                return false;
+              }
+              else{
+                $("#errMobileMsg").text('');
+              }
             }
             updateProgressBar();
             function updateProgressBar(){
@@ -553,15 +555,20 @@ border: 1px solid deepskyblue;
             });
 
             $("#profile_next_step").click(function(){
-                $("#profile_step_2").click();
-                updateProgressBar();
-                var prefs = {
-                    element: ".circlebar"
-                };
-                $('.circlebar').each(function() {
-                    prefs.element = $(this);
-                    new Circlebar(prefs);
-                });
+                if(phone_validate() === false){
+                  return false;
+                }
+                else{
+                  $("#profile_step_2").click();
+                  updateProgressBar();
+                  var prefs = {
+                      element: ".circlebar"
+                  };
+                  $('.circlebar').each(function() {
+                      prefs.element = $(this);
+                      new Circlebar(prefs);
+                  });
+                }
             });
 
             var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
@@ -613,56 +620,58 @@ border: 1px solid deepskyblue;
             }); 
 
             $("#profile_submit").click(function(){
-                $("#profile_submit").html("Please wait...");
-                $("#profile_submit").attr("disabled", "disabled");
                 
-                var form_data = {'action' : 'acf/validate_save_post'};
-                $.ajax({
-                    type : "POST",
-                    dataType : "json",
-                    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-                    data : $("#profile-edit-form").serialize(),
-                    success: function(response) {
-                        $("#profile_submit").html("Submit");
-                        $("#profile_submit").removeAttr("disabled");
-                        window.onbeforeunload = null;
-                        if(response.status == 1){
-                            updateProgressBar();
-                            var prefs = {
-                                element: ".circlebar"
-                            };
-                            $('.circlebar').each(function() {
-                                prefs.element = $(this);
-                                new Circlebar(prefs);
-                            });
-                            $("#response_message").html(response.message);
-                            $("#response_message").addClass('success');
-                            $("#response_message").removeClass('error');
-                            $("#response_message").show();
+              $("#profile_submit").html("Please wait...");
+              $("#profile_submit").attr("disabled", "disabled");
+              
+              var form_data = {'action' : 'acf/validate_save_post'};
+              $.ajax({
+                  type : "POST",
+                  dataType : "json",
+                  url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                  data : $("#profile-edit-form").serialize(),
+                  success: function(response) {
+                      $("#profile_submit").html("Submit");
+                      $("#profile_submit").removeAttr("disabled");
+                      window.onbeforeunload = null;
+                      if(response.status == 1){
+                          updateProgressBar();
+                          var prefs = {
+                              element: ".circlebar"
+                          };
+                          $('.circlebar').each(function() {
+                              prefs.element = $(this);
+                              new Circlebar(prefs);
+                          });
+                          $("#response_message").html(response.message);
+                          $("#response_message").addClass('success');
+                          $("#response_message").removeClass('error');
+                          $("#response_message").show();
 
-                            if(response.profile_complete == 1){
-                                window.checkProfile = false;
-                                $("#profileModal").modal("hide");
-                                $(".button_cource_id_" + window.selectedCourseId).click();
-                            }
+                          if(response.profile_complete == 1){
+                              window.checkProfile = false;
+                              $("#profileModal").modal("hide");
+                              $(".button_cource_id_" + window.selectedCourseId).click();
+                          }
 
-                            setTimeout(function(){
-                                $("#response_message").html('');
-                                $("#response_message").hide();
-                            }, 5000);
+                          setTimeout(function(){
+                              $("#response_message").html('');
+                              $("#response_message").hide();
+                          }, 5000);
 
-                        }else{
-                            $("#response_message").html(response.message);
-                            $("#response_message").addClass('error');
-                            $("#response_message").removeClass('success');
-                            $("#response_message").show();
-                            setTimeout(function(){
-                                $("#response_message").html('');
-                                $("#response_message").hide();
-                            }, 5000);
-                        }
-                    }
-                });             
+                      }else{
+                          $("#response_message").html(response.message);
+                          $("#response_message").addClass('error');
+                          $("#response_message").removeClass('success');
+                          $("#response_message").show();
+                          setTimeout(function(){
+                              $("#response_message").html('');
+                              $("#response_message").hide();
+                          }, 5000);
+                      }
+                  }
+              });    
+                     
             });
 
         });

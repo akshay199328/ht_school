@@ -36673,7 +36673,7 @@ transform: translate3d(0%, 0, 0);
 .woocommerce .woocommerce-cart-form{margin-bottom: 25px;}
 .woocommerce .order_details_page{margin-bottom: 25px;}
 .woocommerce .woocommerce-order{margin-bottom: 25px;}
-.dotted-border .middle-details h6{text-transform: uppercase:!important;}
+.dotted-border .middle-details h6{text-transform: uppercase!important;}
 #errMobileMsg{color: #ff0000;font-size: 12px;font-weight: 500;}
 
 /* add new pagnation css */
@@ -36694,6 +36694,8 @@ transform: translate3d(0%, 0, 0);
 background-repeat:no-repeat;display: block;height:9px;width:5px;    position: relative;
 margin-top: -10px;
 }
+
+.home_news-leftspacing{margin-top: 20px;}
 
 
 /* add download option */

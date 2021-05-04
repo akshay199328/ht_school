@@ -141,7 +141,7 @@ if(!empty($course_curriculum)){
 	            </video>
             	<h5><?php echo $lesson_units['title'];?></h5>
         		<?php }else{
-        			$sub_title1 = get_post_meta($course_units_array[$counter1]['id'],'vibe_subtitle',true);
+        			$sub_title1 = get_post_meta($course_units[$counter1]['id'],'vibe_subtitle',true);
         		?>
         		<h5><?php echo $lesson_units['title'];?></h5>
         		<p>

@@ -437,7 +437,6 @@ function referral_code_template() {
 
 function user_certificate($course_id,$user_id){
    global $bp;
-
    $certis=vibe_sanitize(get_user_meta($user_id,'certificates',false));
    
      if(isset($certis) && is_Array($certis) && count($certis)){

@@ -4439,7 +4439,7 @@ div.nsl-container .nsl-container-buttons{
 }
 .login-box .switch-input[disabled] + .switch-label.switch-label-off, 
 .radio_switch .switch-input[disabled] + .switch-label.switch-label-off {
-    color: #999!important;
+    /*color: #999!important;*/
 }
 .login-box .switch-input[disabled] + .switch-label, 
 .radio_switch .switch-input[disabled] + .switch-label{
@@ -5341,10 +5341,14 @@ font-size: 15px;
     font-weight: 300;
     font-family: "GT-Walsheim-Pro";
 }
+:empty, n
 p:empty, 
 div.center:empty, 
 .post-categories:empty,
-h6:empty
+h6:empty,
+.category_topAD:empty,
+.category_bottomAD:empty
+
 {display: none;}
 .dashboard_accountinfo .course-box .learing-goals{padding: 20px 0px;}
 .dashboard_accountinfo .profilecou-instructor {

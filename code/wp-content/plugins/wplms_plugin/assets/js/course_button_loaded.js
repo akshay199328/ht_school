@@ -1870,7 +1870,9 @@
                 dangerouslySetInnerHTML: {
                     __html: e.title
                 }
-            }), "section" == e.type ? k("span", null, k("span", {
+            }), "section" == e.type ? k("span", {
+                className: "lesson_infolist"
+            }, null, k("span", {
                 className: "lesson_count"
             }, e.lesson_count + " " + window.wplms_course_data.translations.lesson_count), k("span", {
                 className: "lesson_duration"
@@ -5135,10 +5137,12 @@
             className: "unit_comments_enclosure"
         }, Ds("div", {
             className: o ? "unit_comments_wrapper active" : "unit_comments_wrapper"
-        }, Ds("span", null, Ds("span", {
+        }, Ds("span",{
+            className: "comment_top_heading"
+        }, null, Ds("span", {
             onClick: e.back
         }, Ds("span", {
-            className: "vicon vicon-angle-left"
+            className: "bi bi-arrow-left"
         })), Ds("strong", null, window.wplms_course_data.translations[e.type]), Ds("span", {
             onClick: e.expand
         }, Ds("span", {
@@ -6510,12 +6514,13 @@
             className: "course_status " + (q ? "moveonside" : ""),
             ref: r
         }, L && m.hasOwnProperty("instructions") && m.instructions.length ? sr("div", {
-            className: "course_instructions_wrapper",
+            className: "course_instructions_popup",
             onClick: e => {
                 e.preventDefault(), document.querySelector(".course_instructions_wrapper") && e.target === document.querySelector(".course_instructions_wrapper") && j(!1)
             }
         }, sr("div", {
-            className: "course_instructions"
+            className: "course_instructions exampleModalPopup",
+            id:"exampleModalPopup"
         }, sr("div", {
             className: "close",
             onClick: () => {
@@ -6523,7 +6528,32 @@
             }
         }, sr("span", {
             className: "vicon vicon-close"
-        })), sr("h1", null, window.wplms_course_data.translations.course_instructions), sr("div", {
+        })),
+        sr("div", {
+            className: "modal-header",
+            onClick: () => {
+                j(!1)
+            }
+        }, sr("div", {
+            className: "header-logo"
+        }),
+        sr("div", {
+            className: "header-info"
+        },
+            
+            sr("h2", {
+                dangerouslySetInnerHTML: {
+                    __html: "Welcome"
+                }
+            }), 
+            sr("h6", {
+            dangerouslySetInnerHTML: {
+                __html: c.name
+            }
+        })
+        )),
+         sr("h1", null, window.wplms_course_data.translations.course_instructions), sr("div", {
+            className: "custom-list",
             dangerouslySetInnerHTML: {
                 __html: m.instructions
             }
@@ -6753,9 +6783,15 @@
             expand: () => x(!k)
         }) : "", e.hasOwnProperty("course") ? sr("div", {
             className: "course_heading"
-        }, sr("h2", {
+        },sr("div", {
+            className: "leftheader-logo"
+        }), sr("h2", {
             dangerouslySetInnerHTML: {
                 __html: c.name
+            }
+        }), sr("h6", {
+            dangerouslySetInnerHTML: {
+                __html: c.category
             }
         }), sr("div", {
             class: "course_progress_wrapper"

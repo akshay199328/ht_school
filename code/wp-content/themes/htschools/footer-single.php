@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <div class="col-lg-12 col-12 mrg">
               <ul>
                   <li><a href="<?php echo get_site_url();?>/all-courses" title="Course Offerings">Course Offerings</a></li>
-                  <li><a href="<?php echo get_site_url();?>/news" title="News Release">News Release</a></li>
+                  <li><a href="<?php echo get_site_url();?>/editorsdesk" title="News Release">News Release</a></li>
               </ul>
             </div>
             <div class="col-lg-12 col-12 about-links mrg">

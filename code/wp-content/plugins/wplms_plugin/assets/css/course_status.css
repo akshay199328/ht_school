@@ -959,6 +959,7 @@
     max-width: 48px
 }
 
+
 .course_status .course_timeline .unit_comments_enclosure .unit_comments_wrapper .unit_comments .unit_comment .comment_user img {
     width: 32px;
     height: 32px;
@@ -974,7 +975,7 @@
 }
 .course_status .course_timeline .unit_comments_enclosure .unit_comments_wrapper .unit_comments .unit_comment .comment_user .username{
     position: absolute;
-    right: 203px;
+    left: 74px;
     font-size: 15px;
     line-height: 20px;
     max-width: none;
@@ -1082,7 +1083,15 @@
 
 .course_status .course_timeline .unit_comments_enclosure .unit_comments_wrapper .unit_comments_action .addcomment textarea {
     flex: 1;
-    max-height: 10rem
+    max-height: 10rem;
+    background-color: #e8e8e8;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 0;
+    border-left:0;
+    padding: 20px;
+    color: #000;
+    font-size: 17px;font-weight: 300;
 }
 
 .course_status .course_timeline .unit_comments_enclosure .unit_comments_wrapper .unit_comments_action .addcomment .addcomment_buttons {
@@ -1185,7 +1194,7 @@
 .course_status .course_timeline .course_action_points .action_points .vicon{
     font-weight: bold;
     color: #000;
-    font-size: 15px;
+    font-size: 20px;
 }
 .course_status .course_timeline .course_action_points .action_points div {
     padding: 1rem;
@@ -1745,7 +1754,8 @@
     color: #fff;
     font-weight: 900;
     position: absolute;
-    font-size: 3rem;
+    /* font-size: 3rem; */
+    font-size: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1949,7 +1959,8 @@
     border: solid 1px #dcdcdc;
     width: 372px;
     float: right;
-    margin-left: 87px;
+    margin-left: -39px;
+    /* margin-left: 87px; */
     padding: 17px 20px;
     flex-wrap: nowrap;
     flex-direction: row;

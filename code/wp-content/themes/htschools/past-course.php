@@ -159,12 +159,6 @@ vibe_include_template("profile/top$profile_layout.php");
 			                                        <div class="clearfix"></div>
 													<div class="download">
 														<?php user_certificate($post->ID,$user->ID);?>
-														<!-- <span class="dwn-box">
-															<span class="dwn-name">Download Certificate</span>
-															<span class="dwn-img">
-																<image src="<?php echo get_bloginfo('template_url')?>/assets/images/dwn-icon.png">
-															</span>
-														</span> -->
 													</div>
 			                                     </div>
 			                                </div>

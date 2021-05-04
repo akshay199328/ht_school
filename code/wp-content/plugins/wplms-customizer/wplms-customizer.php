@@ -440,7 +440,6 @@ function user_certificate($course_id,$user_id){
    $certis=vibe_sanitize(get_user_meta($user_id,'certificates',false));
    
      if(isset($certis) && is_Array($certis) && count($certis)){
-          echo '<div class="certifications"><h6>'.__('Certifications','vibe').'</h6>';
           if(isset($certis) && is_Array($certis)) 
             foreach($certis as $certi){
               if($certi == $course_id){

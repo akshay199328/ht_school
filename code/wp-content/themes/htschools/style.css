@@ -4928,6 +4928,7 @@ border-color: transparent;
     color: #000000;
      padding: 0px 15px;
      padding-top: 0px;
+     word-break: break-word;
 }
 .dashboard_header{
     background: url('./assets/images/dashboard-background.jpg') no-repeat top center;!important; 
@@ -5386,6 +5387,7 @@ h6:empty,
     line-height: 20px;
     color: #000;
     padding: 0;
+    word-break: break-word;
     
 }
 .profilecou-instructor .profile-heading {

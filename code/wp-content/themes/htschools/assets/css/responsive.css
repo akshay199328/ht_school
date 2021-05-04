@@ -2,11 +2,11 @@
 	padding: 20px 18px 18px 0px !important;
 }
 .details-middle ul li .link a{
-	min-height: 84px;
+	min-height: auto;
 }
 
 .news_three_data{
-	min-height: 85px !important;
+	min-height: auto !important;
 }
 
 .news_icons .share-icon .top-icon{

@@ -41,7 +41,7 @@ $current_user = wp_get_current_user();
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-8 mrg">
+		<div class="col-xs-12 col-md-8 mrg right-part-menu">
 			<div id="item-nav" class="myprofile_content">
 			<h2> My Profile</h2>
 			<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">

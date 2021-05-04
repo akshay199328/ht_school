@@ -36681,6 +36681,9 @@ transform: translate3d(0%, 0, 0);
 .pagination li.pagination_arrow .angle-next{margin-right: 9px;}
 .pagination li.pagination_arrow .angle-prev{margin-left: 9px;}
 .pagination-links .prev{font: 0/0 a;}
+.pagination .page-num-last{position: relative;right: 22px;}
+.pagination .page-num-first{position: relative;left: 7px;}
+
 #course-dir-list .pagination-links .prev::after{
 	content:"";background-image: url('https://ht.fortune4.org/wp-content/themes/htschools/assets/images/page-prev.svg');
 	background-repeat:no-repeat;display: block;height:9px;width:5px;    position: relative;

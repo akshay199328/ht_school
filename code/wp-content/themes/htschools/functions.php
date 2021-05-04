@@ -211,6 +211,16 @@ register_sidebar( array(
         'after_title'   => '</h3>',
     ) );
 
+  register_sidebar( array(
+        'name'          => esc_html__( 'Story page banner', 'wp-bootstrap-starter' ),
+        'id'            => 'story-top-banner',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
     register_sidebar( array(
       'name'          => esc_html__( 'Saved Posts', 'wp-bootstrap-starter' ),
       'id'            => 'saved-posts',
@@ -1079,7 +1089,7 @@ function get_schools(){
     $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,ht_users.display_name 
     FROM ht_users INNER JOIN ht_usermeta 
     ON ht_users.ID = ht_usermeta.user_id 
-    WHERE ht_usermeta.meta_value LIKE '%School%' AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");
+    WHERE ht_usermeta.meta_key='ht_user_level' and ht_usermeta.meta_value='0' AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");
     
     foreach ($results as $data) {
       $row = array();

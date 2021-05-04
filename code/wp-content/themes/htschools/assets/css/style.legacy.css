@@ -36175,8 +36175,8 @@ width: 300px;
 		}
 
 		.news-main .category-news .content-left .pagetitle h1{
-			font-size: 40px !important;
-    		line-height: 42px;
+			font-size: 38px !important;
+    		line-height: 38px;
 		}
 
 		.news-main .post-creator {
@@ -36671,7 +36671,7 @@ transform: translate3d(0%, 0, 0);
 .woocommerce .woocommerce-cart-form{margin-bottom: 25px;}
 .woocommerce .order_details_page{margin-bottom: 25px;}
 .woocommerce .woocommerce-order{margin-bottom: 25px;}
-.dotted-border .middle-details h6{text-transform: lowercase!important;}
+.dotted-border .middle-details h6{text-transform: capitalize;!important;}
 #errMobileMsg{color: #ff0000;font-size: 12px;font-weight: 500;}
 
 /* add new pagnation css */

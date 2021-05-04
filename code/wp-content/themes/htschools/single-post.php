@@ -141,8 +141,8 @@ $topics = wp_get_post_tags(get_the_ID());
         </div>
         <div class="topic_details">
           <?php
-          if ( is_active_sidebar( 'banner-4' ) ) : ?>
-            <?php dynamic_sidebar( 'banner-4' ); ?>      
+          if ( is_active_sidebar( 'story-top-banner' ) ) : ?>
+            <?php dynamic_sidebar( 'story-top-banner' ); ?>      
           <?php endif; ?>
           <br>
           <?php $tagsCount = count($topics);

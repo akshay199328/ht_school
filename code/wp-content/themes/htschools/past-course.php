@@ -130,7 +130,7 @@ vibe_include_template("profile/top$profile_layout.php");
 			                                <?php the_course_button(); ?> 
 			                                <!-- <a href="<?php echo get_bloginfo('url')?>/certificates/my-certificate/?c=<?php echo $post->ID?>&u=<?php echo $user->ID?>">Certificate</a> -->
 			                            </div>
-			                            <?php user_certificate($post->ID,$user->ID);?>
+			                            
 			                            <div class="profilecou-instructor">
 			                                <div class="heading">
 			                                    <h3>Instructor</h3>
@@ -158,12 +158,13 @@ vibe_include_template("profile/top$profile_layout.php");
 			                                        </div>
 			                                        <div class="clearfix"></div>
 													<div class="download">
-														<span class="dwn-box">
+														<?php user_certificate($post->ID,$user->ID);?>
+														<!-- <span class="dwn-box">
 															<span class="dwn-name">Download Certificate</span>
 															<span class="dwn-img">
 																<image src="<?php echo get_bloginfo('template_url')?>/assets/images/dwn-icon.png">
 															</span>
-														</span>
+														</span> -->
 													</div>
 			                                     </div>
 			                                </div>

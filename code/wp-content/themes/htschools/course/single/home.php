@@ -193,7 +193,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         $post_content = get_post_field('post_content', $post->ID);
                                         if ( $post_content != '' ) {
                                           ob_start();
-                                          dynamic_sidebar('banner-2');
+                                          dynamic_sidebar('news_landing_mid_banner');
                                           $addDisplay = ob_get_contents();
                                           ob_end_clean();
                                           $ad_code = '</p></div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg"><p>';
@@ -209,7 +209,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <!-- <div class="adworks">
                                       <div class="col-sm-12 adworks-head mrg">
                                         <?php
-                                          if ( is_active_sidebar( 'banner-2' ) ) : ?>
+                                          if ( is_active_sidebar( '' ) ) : ?>
                                           <?php //dynamic_sidebar( 'banner-2' ); ?>      
                                         <?php endif; ?>
                                       </div>
@@ -382,8 +382,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           <div class="adworks">
                             <div class="col-sm-12 adworks-head mrg">
                                 <?php
-                                  if ( is_active_sidebar( 'banner-2' ) ) : ?>
-                                  <?php dynamic_sidebar( 'banner-2' ); ?>      
+                                  if ( is_active_sidebar( 'instructor_banner' ) ) : ?>
+                                  <?php dynamic_sidebar( 'instructor_banner' ); ?>      
                                 <?php endif; ?>
                             </div>
                           </div>

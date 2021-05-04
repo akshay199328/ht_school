@@ -170,7 +170,15 @@ register_sidebar( array(
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
     ) );
-
+  register_sidebar( array(
+        'name'          => esc_html__( 'instructor_banner', 'wp-bootstrap-starter' ),
+        'id'            => 'instructor_banner',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
     register_sidebar( array(
         'name'          => esc_html__( 'Banner2', 'wp-bootstrap-starter' ),
         'id'            => 'banner-2',

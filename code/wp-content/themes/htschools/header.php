@@ -33,6 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       googletag.defineSlot('/1055314/HT_School_Desktop_Section/HT_School_Desk_Section_MID_A_Mrec', [[300,250]], 'div-gpt-ad-1619596100543-7').addService(googletag.pubads());
     googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_MID_A_Mrec', [[300,250]], 'div-gpt-ad-1619596100543-8').addService(googletag.pubads()); 
     googletag.defineSlot('/1055314/HT_School_Desktop_Section/HT_School_Desk_Section_MID_A_Mrec', [[300,250]], 'div-gpt-ad-1619596100543-11').addService(googletag.pubads());
+    googletag.defineSlot('/1055314/HT_School_Desktop_Section/HT_School_Desk_Section_MID_A_Mrec', [[300,250]], 'div-gpt-ad-1619596100543-20').addService(googletag.pubads());
     googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_Footer_Billboard', [[728,90], [970,90], [970,250], [1290,250],[980,90], [970,90]], 'div-gpt-ad-1619596100543-12').addService(googletag.pubads());
     googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_Footer_Billboard', [[728,90], [970,90], [970,250], [1290,250],[980,90], [970,90]], 'div-gpt-ad-1619596100543-13').addService(googletag.pubads());
     googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_Footer_Billboard', [[728,90], [970,90], [970,250], [1290,250],[980,90], [970,90]], 'div-gpt-ad-1619596100543-14').addService(googletag.pubads());

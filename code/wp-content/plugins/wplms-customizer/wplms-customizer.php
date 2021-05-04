@@ -435,7 +435,7 @@ function referral_code_template() {
 // }
 // add_action('bp_before_profile_content','custom_show_profile_snapshot');
 
-function custom_show_profile_snapshot($course_id,$user_id){
+function user_certificate($course_id,$user_id){
    global $bp;
 
    $certis=vibe_sanitize(get_user_meta($user_id,'certificates',false));

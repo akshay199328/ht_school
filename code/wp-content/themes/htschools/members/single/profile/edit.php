@@ -147,7 +147,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			
 			<p id="response_message" class="" style="margin: 10px 0; display: none;"></p>
 			<div class="form-group">
-				<button type="button" class="btn btn-default" id="profile_submit">Submit</button>
+				<button type="button" class="btn btn-default" id="edit_profile_submit">Submit</button>
 				<button type="button" class=" btn-default button-border" id="profile_cancel"><a href="<?php echo get_bloginfo('url')?>/members-directory/<?php echo $currentUser->user_login?>" class="can_btn">Cancel</a></button>
 			</div>
 
@@ -288,25 +288,27 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			});
 
 			$("#user_mobile").on("blur", function(){
-		        phone_validate()
-		    
-		  	});
-			function phone_validate() 
-			{ 
-				var mobNum = $('#user_mobile').val();
-		        var filter = /^\d*(?:\.\d{1,2})?$/;
-
-		        if (filter.test(mobNum)) {
-		            if(mobNum.length!=10){
-		              $("#errMobileMsg").text("Please enter 10 digit mobile number");
-		                return false;
-		            } 
-		        }
-		        else{
-		            $("#errMobileMsg").text('Not a valid number');
-		            return false;
-		        }
-			} 
+              phone_validation()
+            });
+            function phone_validation() 
+            { 
+              var mobNum = $('#user_mobile').val();
+              var filter = /^\d*(?:\.\d{1,2})?$/;
+              var phoneno = new RegExp(/^(?!0+$)\d{8,}$/);
+              if(mobNum.length!=10){
+                $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                  return false;
+              }
+              else if(!mobNum.match(phoneno))
+              {
+                $("#errMobileMsg").text("Not a valid Phone Number");
+                return false;
+              }
+              else{
+                $("#errMobileMsg").text('');
+                return true;
+              }
+            }
 
 			window.selectedCountry = "<?php echo $user_country; ?>";
 			$("#child_name").val('');
@@ -357,6 +359,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				altFormat: "yy-mm-dd",
 				changeMonth: true,
 				changeYear: true,
+				dateFormat: "dd/mm/yy",
 				yearRange: '1980:-3'    
 			});
 
@@ -418,9 +421,13 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			    },
 			});	
 
-			$("#profile_submit").click(function(e){
-					$("#profile_submit").html("Please wait...");
-	                $("#profile_submit").attr("disabled", "disabled");
+			$("#edit_profile_submit").click(function(e){
+				if(phone_validation() === false){
+		        	return false;
+		        }
+		        else{
+					$("#edit_profile_submit").html("Please wait...");
+	                $("#edit_profile_submit").attr("disabled", "disabled");
 	                $('form#modalAjaxTrying :submit').trigger('click');
 	                var form_data = {'action' : 'acf/validate_save_post'};
 					$.ajax({
@@ -429,8 +436,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 		                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
 		                data : $("#profile-edit-form").serialize(),
 		                success: function(response) {
-		                    $("#profile_submit").html("Submit");
-		                    $("#profile_submit").removeAttr("disabled");
+		                    $("#edit_profile_submit").html("Submit");
+		                    $("#edit_profile_submit").removeAttr("disabled");
 		             		window.onbeforeunload = null;
 		                    if(response.status == 1){
 		                    	$("#response_message").html(response.message);
@@ -454,6 +461,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 		                    }
 		                }
 		            });	
+		        }
 	            			
 			});
 

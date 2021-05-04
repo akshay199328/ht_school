@@ -36660,7 +36660,7 @@ header logo */
     background-size: cover;
     width: 182px;
     height: 50px;
-    display: inline-block;
+    display: inline-block;margin: 0 auto;
 }
 .page-id-0 a.logo img{
     display: none;
@@ -36673,7 +36673,6 @@ header logo */
 .woocommerce .order_details_page{margin-bottom: 25px;}
 .woocommerce .woocommerce-order{margin-bottom: 25px;}
 .dotted-border .middle-details h6{text-transform: lowercase!important;}
-.search-results .pusher{margin-bottom: 20px;}
 #errMobileMsg{color: #ff0000;font-size: 12px;font-weight: 500;}
 
 /* add new pagnation css */

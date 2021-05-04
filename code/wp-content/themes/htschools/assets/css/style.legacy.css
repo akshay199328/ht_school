@@ -36522,6 +36522,7 @@ width: 300px;
 	.learing-goals .list li, .content-default-list li{font-size: 13px;font-weight: 300;}
 	.page-id-69 .ol.breadcrumbs{padding: 5px 0 5px 0;}
 	.fixedmenu-tabs{padding: 20px 0px 15px;}
+	.page-id-0 a.logo img{display:none}
 }
 
 /* new css added video part */
@@ -36637,6 +36638,7 @@ transform: translate3d(0%, 0, 0);
 }
 #edit-child-profile .modal-header .close{margin-top: -21px;color: #000;opacity: 1;font-weight: 500;}
 #edit-child-profile #errMobileMsg{    position: relative;top: -8px;} 
+.releted_news_section{float:left;width:100%}
 
 /* ipad media query */
 @media only screen 

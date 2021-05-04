@@ -6704,12 +6704,12 @@ h6:empty,
             padding: 0px 12px 0px 3px;
             font-size: 20px;
     }
-    .hover_share{top: 8px;}
-    .savedCourse_box .hover_share{top: 0px;}
+    .hover_share{top: -5px;}
+    /* .savedCourse_box .hover_share{top: 0px;}
     .right-details .hover_share{top: 6px;}
     .fixedmenu-tabs .share-icon .hover_share{top: -5px!important;}
     .dotted-border .share-icon .hover_share{top: -18px;}
-    .news_icons .hover_share{top: -2px;}
+    .news_icons .hover_share{top: -2px;} */
     .right_spacing{
       padding-left: 0px!important;
     }

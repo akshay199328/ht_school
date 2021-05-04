@@ -27094,7 +27094,8 @@ body {
 
  #buddypress div#item-header ul {
  	margin-bottom: 15px;
- 	overflow: hidden
+ 	overflow: hidden;
+	
  }
 
  #buddypress ul.item-list li .item-instructor {

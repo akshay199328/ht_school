@@ -5582,53 +5582,6 @@ span.videoProgressDuration {
     
 }
 
-.course_progress_wrapper {
-    display: flex;
-    align-items: center;
-    min-width: 150px;
-    font-size: 0.75rem
-}
-
-.course_progress_wrapper>span {
-    margin: 0 0.5rem
-}
-
-.course_progress_wrapper .course_progress {
-    position: relative;
-    width: 100%;
-    height: 5px;
-    background: rgba(0, 0, 0, 0.05)
-}
-
-.course_progress_wrapper .course_progress>span {
-    background: #1ebf1e;
-    height: 100%;
-    height: 5px;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    top: 0
-}
-
-.wplms-course-star-rating {
-    display: flex;
-    align-items: center;
-    flex-direction: row
-}
-
-.wplms-course-star-rating .vicon {
-    padding: 3px 3px 5px 5px
-}
-
-.wplms-course-star-rating .vicon.golden {
-    background: gold;
-    color: #fff;
-    border-radius: 5px
-}
-
-.wplms-course-star-rating .vicon+.vicon {
-    margin-left: 0.5rem
-}
 
 @media (max-width: 480px) {
     

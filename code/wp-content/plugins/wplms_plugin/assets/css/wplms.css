@@ -474,47 +474,7 @@
     border: 1px solid var(--border)
 }
 
-.course_duration_stick_left .field_wrapper .tip_trigger {
-    margin-left: 10px
-}
 
-.course_duration_stick_left .field_wrapper>span {
-    flex: 1 0 160px
-}
-
-.course_duration_stick_left .field_wrapper>.field_value {
-    flex: 1 0 160px;
-    display: flex;
-    justify-content: flex-end
-}
-
-.course_duration_stick_left .field_wrapper>.field_value div:not(.switch),
-.course_duration_stick_left .field_wrapper>.field_value input {
-    width: 100%
-}
-
-.course_duration_stick_left .field_wrapper strong {
-    display: none
-}
-
-.course_duration_stick_left .duration_field {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center
-}
-
-.course_duration_stick_left .duration_field input {
-    height: 35px;
-    border-right: 0
-}
-
-.course_duration_stick_left .duration_field .vicon {
-    padding: 5px
-}
-
-.course_duration_stick_left .duration_field select {
-    width: 80px
-}
 
 .taxonomy_field {
     display: flex;
@@ -666,110 +626,10 @@ div.embed_block {
     transform: rotate(90deg)
 }
 
-.reviewpopup_wrapper,
-.course_instructions_wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
 
-.reviewpopup_wrapper .reviewpopup_content,
-.reviewpopup_wrapper .course_instructions,
-.course_instructions_wrapper .reviewpopup_content,
-.course_instructions_wrapper .course_instructions {
-    position: relative;
-    width: 50%;
-    background: var(--highlight);
-    padding: 1.5rem;
-    border-radius: 4px;
-    box-shadow: 1px 2px 50px var(--shadow)
-}
-
-.reviewpopup_wrapper .reviewpopup_content .popup-footer,
-.reviewpopup_wrapper .course_instructions .popup-footer,
-.course_instructions_wrapper .reviewpopup_content .popup-footer,
-.course_instructions_wrapper .course_instructions .popup-footer {
-    display: flex;
-    justify-content: space-between;
-    background: #eee;
-    margin: 1rem -1.5rem -1.5rem;
-    padding: 0.8rem 1.5rem;
-    border-radius: 0 0 4px 4px;
-    align-items: center;
-    line-height: 1
-}
-
-.reviewpopup_wrapper .reviewpopup_content .popup-footer>a,
-.reviewpopup_wrapper .course_instructions .popup-footer>a,
-.course_instructions_wrapper .reviewpopup_content .popup-footer>a,
-.course_instructions_wrapper .course_instructions .popup-footer>a {
-    flex: 1
-}
-
-.reviewpopup_wrapper .reviewpopup_content .course-star-rating span,
-.reviewpopup_wrapper .course_instructions .course-star-rating span,
-.course_instructions_wrapper .reviewpopup_content .course-star-rating span,
-.course_instructions_wrapper .course_instructions .course-star-rating span {
-    font-size: 2rem
-}
-
-.reviewpopup_wrapper .reviewpopup_content .close,
-.reviewpopup_wrapper .course_instructions .close,
-.course_instructions_wrapper .reviewpopup_content .close,
-.course_instructions_wrapper .course_instructions .close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 99999;
-    cursor: pointer
-}
-
-.reviewpopup_wrapper .reviewpopup_content .close span:before,
-.reviewpopup_wrapper .course_instructions .close span:before,
-.course_instructions_wrapper .reviewpopup_content .close span:before,
-.course_instructions_wrapper .course_instructions .close span:before {
-    color: red;
-    font-weight: 900;
-    font-size: 1.5rem
-}
-
-.reviewpopup_wrapper .reviewpopup_content .reviewform,
-.reviewpopup_wrapper .course_instructions .reviewform,
-.course_instructions_wrapper .reviewpopup_content .reviewform,
-.course_instructions_wrapper .course_instructions .reviewform {
-    margin: 1rem 0
-}
-
-.reviewpopup_wrapper .reviewpopup_content .reviewform label,
-.reviewpopup_wrapper .course_instructions .reviewform label,
-.course_instructions_wrapper .reviewpopup_content .reviewform label,
-.course_instructions_wrapper .course_instructions .reviewform label {
-    font-size: 2rem;
-    display: inline-block
-}
-
-.reviewpopup_wrapper .reviewpopup_content .reviewform>*,
-.reviewpopup_wrapper .course_instructions .reviewform>*,
-.course_instructions_wrapper .reviewpopup_content .reviewform>*,
-.course_instructions_wrapper .course_instructions .reviewform>* {
-    margin: 5px 0;
-    width: 100%;
-    padding: 5px
-}
 
 @media (max-width: 998px) {
 
-    .reviewpopup_wrapper .reviewpopup_content,
-    .course_instructions_wrapper .reviewpopup_content {
-        width: 90%
-    }
 }
 
 @keyframes loader {
@@ -5685,81 +5545,7 @@ a.button.is-primary {
     border-color: var(--primary)
 }
 
-.rtl .mycourses_header>div a+a {
-    margin-right: 1rem
-}
 
-.rtl .course_overview_wrapper .course_overview .course_header .course_featured {
-    margin-right: auto;
-    margin-left: 1.5rem
-}
-
-.rtl .course_blocks .course_block .course_featured_image_over {
-    left: auto;
-    right: 0
-}
-
-.rtl .course_blocks .course_block .course_featured_image_over .course_label {
-    border-radius: 5px 0px 0px 5px
-}
-
-.rtl .course_submissions_wrapper .student_list a.link {
-    display: block;
-    float: left;
-    width: fit-content
-}
-
-.rtl .course_submissions_wrapper span.vicon.vicon-arrow-left {
-    float: left;
-    display: inline-block
-}
-
-.rtl .vibebp_content_preview_wrapper .vibebp_content_preview {
-    margin-right: 2rem
-}
-
-.rtl .field_quiz_questions .total_marks {
-    right: auto;
-    left: 0
-}
-
-.rtl .wplms_create_course_wrapper .wplms_edit_course_content .course_curriculum_builder_wrapper .vibe_vibe_course_curriculum>div>.field_wrapper>.field_value .course_curriculum_wrapper {
-    margin-right: auto;
-    margin-left: 1.5rem
-}
-
-.rtl .wplms_create_course_wrapper .wplms_course_creation_tabs li:first-child.active a:after {
-    width: calc(50% + 1rem);
-    left: calc(0% - 0.5rem)
-}
-
-.rtl .wplms_create_course_wrapper .wplms_course_creation_tabs li:last-child.active a:after {
-    right: auto;
-    width: calc(50% + 0.5rem);
-    left: 50%
-}
-
-.rtl .comments_wrapper .comment_wrapper .comments_comment img {
-    margin-right: 0;
-    margin-left: 1rem
-}
-
-.rtl .field_quiz_questions .unitquestions .question_block .question_heading strong span>svg {
-    margin-right: 0;
-    margin-left: 0.5rem
-}
-
-.rtl .quiz_wrapper .incourse .incoursequiz_details {
-    margin-right: auto;
-    margin-left: 1rem
-}
-
-.rtl .incourse .quiz_questions_content .question .marks,
-.rtl .incourse .quiz_questions_content .question .question_hint {
-    float: left;
-    margin-right: auto;
-    margin-left: 0.5rem
-}
 
 .instructor_controls {
     margin-top: 1.5rem;

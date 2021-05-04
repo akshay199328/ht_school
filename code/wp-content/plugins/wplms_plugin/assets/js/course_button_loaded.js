@@ -6735,7 +6735,7 @@
             className: "vicon vicon-angle-left",
             onClick: e.back
         }), !s && !is(m) && m.hasOwnProperty("courseitems") && m.courseitems.length ? sr(or, null, sr("a", {
-            className: "vicon vicon-search",
+            className: "icon_search",
             onClick: () => {
                 u(!0)
             }
@@ -6751,7 +6751,7 @@
             }
         })) : "") : "", document.querySelector("body").classList.contains("single-course") ? "" : sr("a", {
             title: document.querySelector("body").classList.contains("course_status_fullscreen") ? window.wplms_course_data.translations.minimise_screen : window.wplms_course_data.translations.maximise_screen,
-            className: "vicon vicon-fullscreen",
+            className: "icon_fullscreen",
             onClick: () => {
                 //document.querySelector("body").classList.contains("course_status_fullscreen") ? document.querySelector("body").classList.remove("course_status_fullscreen") : document.querySelector("body").classList.add("course_status_fullscreen")
             }

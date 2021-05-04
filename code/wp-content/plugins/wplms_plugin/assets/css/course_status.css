@@ -1138,7 +1138,7 @@
     z-index: 9;
     box-shadow: none;
     align-items: center;
-    padding: 29px 30px;
+    padding: 27px 30px;
 }
 
 .course_status .course_timeline .course_action_points .search-course {
@@ -1203,6 +1203,12 @@
     font-weight: bold;
     color: #000;
     font-size: 20px;
+}
+.icon_search{
+    background: url('../../assets/images/search_icon.svg');
+}
+.icon_fullscreen{
+
 }
 .course_status .course_timeline .course_action_points .action_points div {
     padding: 1rem;
@@ -1994,12 +2000,6 @@
 }
 .course_status .incourse .question_option:hover {
     background-color: #eceaea;
-}
-.course_status .incourse .question_option.radio:first-child {
-    margin-top: 49px;
-}
-.course_status .incourse .question_option.radio:last-child {
-    
 }
 .question .resetq_answer.button, 
 .question .bookmark.button{

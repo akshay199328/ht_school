@@ -617,7 +617,7 @@ section.woocommerce-customer-details{
 
 /*log-in*/
 .login-left img{
-	height: 550px !important;
+	height: 555px !important;
 }
 .login-box .login-right{
 	padding: 47px 40px !important;
@@ -1133,7 +1133,7 @@ span.wpcf7-form-control-wrap.recaptcha {
 			margin-top: 75px !important;
 		}
 		.course-box .share-icon{
-			top: 10.5px !important;
+			top: 0px !important;
    			right: 10px !important;
 		}
 		.static_content .details{

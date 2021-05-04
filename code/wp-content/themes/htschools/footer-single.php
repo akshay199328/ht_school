@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 </footer>
 </div><!-- END PUSHER -->
 </div><!-- END MAIN -->
-	<!-- SCRIPTS -->
+  <!-- SCRIPTS -->
 
 <?php if(is_user_logged_in()){ ?>
 
@@ -361,7 +361,7 @@ border: 1px solid deepskyblue;
                                     <label>Date of Birth*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input id="user_dob_display" type="text" class="in-class form-control user_field" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
+                                    <input id="user_dob_display" type="text" class="in-class form-control user_field" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>">
                                     <input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
                                     <!-- <input type="date" name=""  placeholder="DD / MM / YYYY" class="in-class form-control" />              -->
                                 </div>
@@ -495,20 +495,18 @@ border: 1px solid deepskyblue;
             function phone_validate() 
             { 
               var mobNum = $('#user_mobile').val();
-              var filter = /^\d*(?:\.\d{1,2})?$/;
-              var phoneno = new RegExp(/^(?!0+$)\d{8,}$/);
-              if(mobNum.length!=10){
-                $("#errMobileMsg").text("Please enter 10 digit mobile number");
-                  return false;
-              }
-              else if(!mobNum.match(phoneno))
-              {
-                $("#errMobileMsg").text("Not a valid Phone Number");
-                return false;
-              }
-              else{
-                $("#errMobileMsg").text('');
-              }
+                  var filter = /^\d*(?:\.\d{1,2})?$/;
+
+                  if (filter.test(mobNum)) {
+                      if(mobNum.length!=10){
+                        $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                          return false;
+                      } 
+                  }
+                  else{
+                      $("#errMobileMsg").text('Not a valid number');
+                      return false;
+                  }
             }
             updateProgressBar();
             function updateProgressBar(){
@@ -555,20 +553,15 @@ border: 1px solid deepskyblue;
             });
 
             $("#profile_next_step").click(function(){
-                if(phone_validate() === false){
-                  return false;
-                }
-                else{
-                  $("#profile_step_2").click();
-                  updateProgressBar();
-                  var prefs = {
-                      element: ".circlebar"
-                  };
-                  $('.circlebar').each(function() {
-                      prefs.element = $(this);
-                      new Circlebar(prefs);
-                  });
-                }
+                $("#profile_step_2").click();
+                updateProgressBar();
+                var prefs = {
+                    element: ".circlebar"
+                };
+                $('.circlebar').each(function() {
+                    prefs.element = $(this);
+                    new Circlebar(prefs);
+                });
             });
 
             var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
@@ -620,58 +613,56 @@ border: 1px solid deepskyblue;
             }); 
 
             $("#profile_submit").click(function(){
+                $("#profile_submit").html("Please wait...");
+                $("#profile_submit").attr("disabled", "disabled");
                 
-              $("#profile_submit").html("Please wait...");
-              $("#profile_submit").attr("disabled", "disabled");
-              
-              var form_data = {'action' : 'acf/validate_save_post'};
-              $.ajax({
-                  type : "POST",
-                  dataType : "json",
-                  url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-                  data : $("#profile-edit-form").serialize(),
-                  success: function(response) {
-                      $("#profile_submit").html("Submit");
-                      $("#profile_submit").removeAttr("disabled");
-                      window.onbeforeunload = null;
-                      if(response.status == 1){
-                          updateProgressBar();
-                          var prefs = {
-                              element: ".circlebar"
-                          };
-                          $('.circlebar').each(function() {
-                              prefs.element = $(this);
-                              new Circlebar(prefs);
-                          });
-                          $("#response_message").html(response.message);
-                          $("#response_message").addClass('success');
-                          $("#response_message").removeClass('error');
-                          $("#response_message").show();
+                var form_data = {'action' : 'acf/validate_save_post'};
+                $.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                    data : $("#profile-edit-form").serialize(),
+                    success: function(response) {
+                        $("#profile_submit").html("Submit");
+                        $("#profile_submit").removeAttr("disabled");
+                        window.onbeforeunload = null;
+                        if(response.status == 1){
+                            updateProgressBar();
+                            var prefs = {
+                                element: ".circlebar"
+                            };
+                            $('.circlebar').each(function() {
+                                prefs.element = $(this);
+                                new Circlebar(prefs);
+                            });
+                            $("#response_message").html(response.message);
+                            $("#response_message").addClass('success');
+                            $("#response_message").removeClass('error');
+                            $("#response_message").show();
 
-                          if(response.profile_complete == 1){
-                              window.checkProfile = false;
-                              $("#profileModal").modal("hide");
-                              $(".button_cource_id_" + window.selectedCourseId).click();
-                          }
+                            if(response.profile_complete == 1){
+                                window.checkProfile = false;
+                                $("#profileModal").modal("hide");
+                                $(".button_cource_id_" + window.selectedCourseId).click();
+                            }
 
-                          setTimeout(function(){
-                              $("#response_message").html('');
-                              $("#response_message").hide();
-                          }, 5000);
+                            setTimeout(function(){
+                                $("#response_message").html('');
+                                $("#response_message").hide();
+                            }, 5000);
 
-                      }else{
-                          $("#response_message").html(response.message);
-                          $("#response_message").addClass('error');
-                          $("#response_message").removeClass('success');
-                          $("#response_message").show();
-                          setTimeout(function(){
-                              $("#response_message").html('');
-                              $("#response_message").hide();
-                          }, 5000);
-                      }
-                  }
-              });    
-                     
+                        }else{
+                            $("#response_message").html(response.message);
+                            $("#response_message").addClass('error');
+                            $("#response_message").removeClass('success');
+                            $("#response_message").show();
+                            setTimeout(function(){
+                                $("#response_message").html('');
+                                $("#response_message").hide();
+                            }, 5000);
+                        }
+                    }
+                });             
             });
 
         });
@@ -689,54 +680,56 @@ border: 1px solid deepskyblue;
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 
             </div>
-
-            <div class="modal-body">
-                  <div class="child-form child-form-pop">
-                    <div class="add-pic">
-                        <span class="add-name">Add Pic</span>
-                        <span class="pic">
-                          <img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg">
-                        </span>
+            <form id="child-edit-form" class="standard-form">
+              <input type="hidden" name="action" value="save_child_entry">
+              <div class="modal-body">
+                    <div class="child-form child-form-pop">
+                      <div class="add-pic">
+                          <span class="add-name">Add Pic</span>
+                          <span class="pic">
+                            <img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg">
+                          </span>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Child's Name</label>
+                        <input type="text" class="form-control edit-inline" id="child_name" name="child_name" placeholder="Enter Child's Name">
+                      </div>
+                      <div class="form-group profile_search">
+                        <label for="">Name of your School</label>
+                        <input type="text" class="form-control edit-inline" id="child_school" name="child_school" placeholder="Find your School">
+                        <input type="hidden" name="child_school_id" id="child_school_id">
+                      </div>
+                      <div class="form-group profile_dropdown">
+                        <label for="">Grade / Standard</label>
+                        <select name="grade">
+                          <option value="1st">1st</option>
+                          <option value="2nd">2nd</option>
+                          <option value="3rd">3rd</option>
+                          <option value="4th">4th</option>
+                          <option value="5th">5th</option>
+                          <option value="6th">6th</option>
+                          <option value="7th">7th</option>
+                          <option value="8th">8th</option>
+                          <option value="9th">9th</option>
+                          <option value="10th">10th</option>
+                        </select>
+                      </div>
+                      <div class="form-group profile_dropdown">
+                        <label for="">Section / Division</label>
+                        <select name="division">
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          <option value="D">D</option>
+                        </select>
+                      </div>
+                      <div class="content">
+                        <p class="error" id="child_form_error" style="display: none;"></p>
+                        <button type="button" class="btn" id="submit-child-btn">Add a Child</button>
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <label for="">Child's Name</label>
-                      <input type="text" class="form-control edit-inline" id="child_name" name="child_name" placeholder="Enter Child's Name">
-                    </div>
-                    <div class="form-group profile_search">
-                      <label for="">Name of your School</label>
-                      <input type="text" class="form-control edit-inline" id="child_school" name="child_school" placeholder="Find your School">
-                      <input type="hidden" name="child_school_id" id="child_school_id">
-                    </div>
-                    <div class="form-group profile_dropdown">
-                      <label for="">Grade / Standard</label>
-                      <select name="grade">
-                        <option value="1st">1st</option>
-                        <option value="2nd">2nd</option>
-                        <option value="3rd">3rd</option>
-                        <option value="4th">4th</option>
-                        <option value="5th">5th</option>
-                        <option value="6th">6th</option>
-                        <option value="7th">7th</option>
-                        <option value="8th">8th</option>
-                        <option value="9th">9th</option>
-                        <option value="10th">10th</option>
-                      </select>
-                    </div>
-                    <div class="form-group profile_dropdown">
-                      <label for="">Section / Division</label>
-                      <select name="division">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                      </select>
-                    </div>
-                    <div class="content">
-                      <p class="error" id="child_form_error" style="display: none;"></p>
-                      <button type="button" class="btn" id="submit-child-btn">Add a Child</button>
-                    </div>
-                  </div>
-            </div>
+              </div>
+            </form>
         </div>
         <!-- modal-content -->
     </div>

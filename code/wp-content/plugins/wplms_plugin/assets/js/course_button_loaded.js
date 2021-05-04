@@ -6732,7 +6732,7 @@
         }, sr("div", {
             className: "action_points"
         }, sr("a", {
-            className: "vicon vicon-angle-left",
+            className: "arrow_right",
             onClick: e.back
         }), !s && !is(m) && m.hasOwnProperty("courseitems") && m.courseitems.length ? sr(or, null, sr("a", {
             className: "icon_search",
@@ -6913,12 +6913,7 @@
                         onClick: () => {
                             ae()
                         }
-                    }, sr("span", {
-                        className: "vicon vicon-check-box",
-                        style: {
-                            margin: "0 1rem"
-                        }
-                    }), window.wplms_course_data.translations.complete_course)));
+                    }, window.wplms_course_data.translations.complete_course)));
                 case "wplms-assignment":
                     return sr("div", {
                         className: "course_content_content_wrapper"
@@ -6954,12 +6949,8 @@
                         onClick: () => {
                             ae()
                         }
-                    }, sr("span", {
-                        className: "vicon vicon-check-box",
-                        style: {
-                            margin: "0 1rem"
-                        }
-                    }), window.wplms_course_data.translations.complete_course)));
+                    }, 
+                     window.wplms_course_data.translations.complete_course)));
                 case "unit":
                 default:
                     return sr("div", {
@@ -7003,9 +6994,9 @@
                             ae()
                         }
                     }, sr("span", {
-                        className: "vicon vicon-check-box",
+                        className: "",
                         style: {
-                            margin: "0 1rem"
+                            display: "none"
                         }
                     }), window.wplms_course_data.translations.complete_course)))
             }

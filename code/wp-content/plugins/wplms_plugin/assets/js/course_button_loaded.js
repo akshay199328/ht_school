@@ -6652,7 +6652,11 @@
             className: "vicon vicon-close"
         })), I ? sr(p, null) : m.hasOwnProperty("comments_open") && m.comments_open ? sr(or, null, sr("div", {
             className: "reviewform"
-        }, sr("label", null, window.wplms_course_data.translations.rating), sr(la, {
+        },sr("div", {
+            className: "review_heading",
+            dangerouslySetInnerHTML: {
+                __html: c.name
+            }}), sr("label", null, window.wplms_course_data.translations.rating), sr(la, {
             update: (e, t) => {
                 if ("ratingchanged" == t) {
                     let t = 0;

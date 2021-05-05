@@ -1,5 +1,6 @@
 .details-middle ul li{
-	padding: 20px 18px 18px 0px !important;
+	/* padding: 20px 18px 18px 0px !important; */
+	padding: 18.5 18px 12.5 0px !important;
 }
 .details-middle ul li .link a{
 	min-height: auto;

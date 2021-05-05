@@ -149,7 +149,7 @@ section {
   .details-middle ul.news_three_data li .link a,
   .details-middle ul.news_two_data li .link a
   {
-    min-height: 85px;
+    min-height: auto;
   }
   .releted_news_section .related_post{/*padding-left: 60px;*/}
   #profileModal .modal-content{min-height: 669px;}
@@ -1458,7 +1458,7 @@ Course Details
 .learing-goals .list li,
 .content-default-list li
 {
-    display: block;
+    display: flex;
     line-height: 25px!important;
     position: relative;
     padding-left: 20px;
@@ -7052,3 +7052,5 @@ textarea:focus {
     .Popular-Courses .adworks{text-align: left;margin-bottom: 20px;}
    
 }
+/* *changes avtar */
+.upload-image{font-size: 15px;line-height: 20px;font-weight: bold;padding: 12px 30px;background: #000000;color: #D5EBFF;border: 1px solid transparent;margin: 0;border-radius: 0px;}

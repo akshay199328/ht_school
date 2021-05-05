@@ -16,8 +16,8 @@
 <!----Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.---->
 			<p id="avatar-upload">
 				<input type="file" name="file" id="file" />
-				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Avatar', 'vibe' ); ?>" class="btn" />
-				<input type="hidden" name="action" id="action" value="bp_avatar_upload" class="btn" />
+				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Avatar', 'vibe' ); ?>" class="btn upload-image" />
+				<input type="hidden" name="action" id="action" value="bp_avatar_upload" class="btn upload-image" />
 			</p>
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>

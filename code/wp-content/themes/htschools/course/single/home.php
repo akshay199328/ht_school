@@ -366,27 +366,28 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
                         $ad_code = '<div align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
                         
-                        $author_biographical_info = $ad_code . $author_biographical_info;
+                        $author_biographical_info = $ad_code . "<p>" . $author_biographical_info . "</p>";
 
                     ?>
                     <div class="instructor-detailsMini">
                         <div class="col-sm-12 col-md-12 col-lg-12 pull-left mrg">
                           <div class="profile mt-auto">
                             <div class="col-lg-12 profile-content">
-                              <div class="profileimg-name">
-                                <div class="col-xs-4 col-sm-2 col-lg-4 mrg profile-img pull-left">
-                                  <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
-                                </div>
-                                <div class="col-xs-8 col-sm-8 co-lg-8 pull-left">
-                                  <h3 class="name"><?php echo $author_name; ?></h3>
-                                  <h4><?php echo $author_company; ?></h4>
-                                  <div class="double-border"></div>
-                                  <!-- <h6>2,192,534 <span>Students</span></h6> -->
-                                </div>
-                              </div>
                               <div class="clearfix"></div>
                               <div class="co-lg-12">
-                                <p><?php echo $author_biographical_info; ?></p>
+                                
+                                  <div class="profileimg-name" align="left" style="float: left; width: 260px;margin-bottom: 15px;">
+                                    <div class="col-xs-4 col-sm-2 col-lg-4 mrg profile-img pull-left">
+                                      <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 co-lg-8 pull-left">
+                                      <h3 class="name"><?php echo $author_name; ?></h3>
+                                      <h4><?php echo $author_company; ?></h4>
+                                      <div class="double-border"></div>
+                                      <!-- <h6>2,192,534 <span>Students</span></h6> -->
+                                    </div>
+                                  </div>
+                                  <?php echo $author_biographical_info; ?>
                                 <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>

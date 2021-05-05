@@ -86,13 +86,13 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<div class="radio_switch"> 
 					<div class="switch">
 	                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
-	                    <p for="one" class="switch-label switch-label-off">
+	                    <label for="one" class="switch-label switch-label-off">
 	                        <span>Female</span>
-	                    </p>
+						</label>
 	                    <input type="radio" class="switch-input admin_radio_btn" name="user_gender" value="Male" id="two" <?php if($user_gender == 'Male'){ echo "checked"; } ?>>
-	                    <p for="two" class="switch-label switch-label-on">
+	                    <label for="two" class="switch-label switch-label-on">
 	                        <span>Male</span>
-	                    </p>
+						</label>
 	                    <span class="slider2"></span>
 	                </div>
 	            </div>

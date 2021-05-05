@@ -825,14 +825,43 @@ function wc_npr_filter_phone( $address_fields ) {
 
 // Filter will do its magic before the fields are passed to the template.
 add_filter('woocommerce_checkout_fields', function($fields) {
-
-  // Do things with your fields like setting the
-  // priority, label, required, etc.
-  // or removing them
-
-  // Example: Set the priorities straight
-  // Probably not meant for this since priority is something
-  // totally different than order.
+   global $current_user;
+    $fname = get_user_meta( $current_user->ID, 'first_name', true );
+    $lname = get_user_meta( $current_user->ID, 'last_name', true );
+    $address_1 = get_user_meta( $current_user->ID, 'billing_address_1', true ); 
+    $address_2 = get_user_meta( $current_user->ID, 'billing_address_2', true );
+    $city = get_user_meta( $current_user->ID, 'billing_city', true );
+    $state = get_user_meta( $current_user->ID, 'billing_state', true );
+    $postcode = get_user_meta( $current_user->ID, 'billing_postcode', true );
+    $billing_email = get_user_meta( $current_user->ID, 'billing_email', true );
+    $billing_phone = get_user_meta( $current_user->ID, 'billing_phone', true );
+    if(!is_null($fname)) {
+      $fields['billing']['billing_first_name']['default'] = $fname;
+    }
+    if(!is_null($lname)) {
+      $fields['billing']['billing_last_name']['default'] = $lname;
+    }
+    if(!is_null($billing_email)) {
+      $fields['billing']['billing_email']['default'] = $billing_email;
+    }
+    if(!is_null($billing_phone)) {
+      $fields['billing']['billing_phone']['default'] = $billing_phone;
+    }
+    if(!is_null($city)) {
+      $fields['billing']['billing_city']['default'] = $city;
+    }
+    if(!is_null($postcode)) {
+      $fields['billing']['billing_postcode']['default'] = $postcode;
+    }
+    if(!is_null($address_1)) {
+      $fields['billing']['billing_address_1']['default'] = $address_1;
+    }
+    if(!is_null($address_2)) {
+      $fields['billing']['billing_address_2']['default'] = $address_2;
+    }
+    if(!is_null($state)) {
+      $fields['billing']['billing_state']['default'] = $state;
+    }
   $fields['billing']['billing_first_name']['priority'] = 0;
   $fields['billing']['billing_last_name']['priority'] = 5;
   $fields['billing']['billing_email']['priority'] = 10;

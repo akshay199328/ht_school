@@ -26,7 +26,7 @@ if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 	<h2 class="ccart_heding">Your Cart</h2>
 	<div class="empty_cart_div">
 		<div class="empty_cart_image"></div>
-		<h4>Oops! Your cart is Empty</h4>
+		<h4>Oops! Your cart is empty</h4>
 		<p class="return-to-shops">
 			<a class="wc-backward empty_btn" href="<?php echo get_site_url();?>/courses">
 				Add Courses

@@ -7076,3 +7076,5 @@ textarea:focus {
   text-align: left;
   color: #000000;
   margin-bottom: 16px;}
+
+  .woocommerce-form-coupon-toggle{display: none;}

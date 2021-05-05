@@ -87,8 +87,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <li><a href="<?php echo get_bloginfo('url')?>/about" title="About HT School">About HT School</a></li>
                 <li><a href="https://www.hindustancareermate.com/" title="Career Mate" target="_blank">Career Mate</a></li>
                 <li><a href="https://www.htcodeathon.com/" title="Code-a-Thon" target="_blank">Code-a-Thon</a></li>
-                <li><a href="https://www.lenovoscholarship.com/" title="Scholarships" target="_blank">Scholarships</a></li>
-                <li><a href="https://www.hindustanolympiad.in/" title="Olympiads" target="_blank">Olympiads</a></li>
+                <li><a href="https://www.lenovoscholarship.com/" title="Scholarships" target="_blank">Scholarship</a></li>
+                <li><a href="https://www.hindustanolympiad.in/" title="Olympiads" target="_blank">Olympiad</a></li>
               </ul>
             </div>
           </div>
@@ -339,7 +339,7 @@ border: 1px solid deepskyblue;
                                     <label>Last Name*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="last_name"  value="<?php echo $currentUser->user_lastname; ?>" placeholder="Last name" class=" in-class form-control user_field" id="last_name">
+                                    <input type="text" name="last_name"  value="<?php echo $currentUser->user_lastname; ?>" placeholder="Last name" class=" in-class form-control user_field" id="user_lastname">
                                 </div>
 
                                 <div class="col-md-12">

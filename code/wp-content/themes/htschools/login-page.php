@@ -419,8 +419,9 @@ jQuery(window).load(function(){
                 data : jQuery("#ht_reg_email").serialize(),
                 success: function(response) {
                     if(response.status == 1){
+                      $('#otp-verification-form').trigger("reset");
                       document.getElementById('reg-otp-timer').innerHTML = "00:30";
-                jQuery("#resend-otp-link").hide();
+                      jQuery("#resend-otp-link").hide();
                         startTimer();
                     }else{
                         jQuery("#ht_resend_error").html(response.message);
@@ -442,6 +443,7 @@ jQuery(window).load(function(){
                 data : jQuery("#reg_form").serialize(),
                 success: function(response) {
                     if(response.status == 1){
+                      $('#mobile-otp-verification-form').trigger("reset");
                         document.getElementById('mob-otp-timer').innerHTML = "00:30";
                         jQuery("#resend-mob-link").hide();
                         startTimer2();
@@ -507,6 +509,8 @@ jQuery(window).load(function(){
 
         if(m == 0 && s == 0){
           jQuery("#resend-otp-link").show();
+          $('.to_next').find('input:text').val('');
+          document.getElementById('reg-otp-timer').innerHTML = m + ":" + s;
             return;
         }
 
@@ -524,7 +528,8 @@ jQuery(window).load(function(){
         var s = checkSecond((timeArray[1] - 1));
 
         if(m == 0 && s == 0){
-            jQuery("#resend-mob-link").show();
+          jQuery("#resend-mob-link").show();
+          document.getElementById('mob-otp-timer').innerHTML = m + ":" + s;
             return;
         }
 

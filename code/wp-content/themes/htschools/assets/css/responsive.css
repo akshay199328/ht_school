@@ -288,6 +288,8 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 	font-size: 17px !important;
 	line-height: 22px !important;
 	font-weight: 300 !important;
+	    color: #000;
+	        margin: 0 0 22px;
 }
 
 .your-message textarea{

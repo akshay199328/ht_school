@@ -64,7 +64,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			</div>
 			<div class="form-group">
 				<label for="last_name">Last Name</label>
-				<input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" id="last_name">
+				<input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname">
 			</div>
 			<div class="form-group">
 				<label for="user_email">Email</label>
@@ -88,11 +88,11 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 	                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
 	                    <label for="one" class="switch-label switch-label-off">
 	                        <span>Female</span>
-						</label>
+	                    </label>
 	                    <input type="radio" class="switch-input admin_radio_btn" name="user_gender" value="Male" id="two" <?php if($user_gender == 'Male'){ echo "checked"; } ?>>
 	                    <label for="two" class="switch-label switch-label-on">
 	                        <span>Male</span>
-						</label>
+	                    </label>
 	                    <span class="slider2"></span>
 	                </div>
 	            </div>

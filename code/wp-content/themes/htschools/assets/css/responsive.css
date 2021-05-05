@@ -339,13 +339,24 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 }
 .course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer>a {
     font-size: 15px;
+        display: flex;
+    float: left;
+    width: 100%;
+    flex-direction: column;
 }
 
 .finish-course-content .completion_message a {
     display: block;
 }
 .finish-course-content .completion_message{
-	font-size: 20px !important;
+	    font-size: 20px !important;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
 }
 /*course page*/
 
@@ -573,9 +584,7 @@ section.woocommerce-customer-details{
 	border-bottom: 1.5px solid #fade3b;
     padding-bottom: 10px;
 }
-.question_option:first-child{
-	margin-top: 30px;
-}
+
 .course_status .course_content .course_content_content_wrapper .finish_course>.button{
 	min-height: 45px !important;
 	background: #000 !important;

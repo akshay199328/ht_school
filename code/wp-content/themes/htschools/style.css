@@ -778,6 +778,7 @@ width: auto;
   line-height: 36px;
   color: #000;
   font-weight: 300;
+  padding-right: 30px;
 }
 .home_slider .homecarousel_text .learn_morebtn{
   font-size: 15px;
@@ -807,6 +808,7 @@ width: auto;
   float: left!important;
   margin-left: 0px;
 }
+
 .home_slider .owl-dots{
   position: absolute;
       top:0%;
@@ -1466,6 +1468,7 @@ Course Details
     letter-spacing: normal;
     text-align: left;
     color: #000000;
+    font-family: "GT-Walsheim-Pro"!important;
 }
 .learing-goals .list li:before,
 .content-default-list li:before
@@ -1485,6 +1488,7 @@ Course Details
     line-height: 1.29;
     letter-spacing: normal;
     text-align: left;
+    font-family: "GT-Walsheim-Pro"!important;
 }
 .content-default-list .widget_custom_html{
   margin-bottom: 15px;

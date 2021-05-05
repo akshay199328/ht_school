@@ -2138,7 +2138,9 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }), t.options && t.options.length ? ne(ie, null, (t => {
+        }),ne(ie, null, ne("div", {
+            className: "question_list",
+        }, t.options && t.options.length ? ne(ie, null, (t => {
             if (s && s.length) return s.map((function(s, a) {
                 let r = t.options.findIndex(e => e == s);
                 return ne("div", {
@@ -2176,7 +2178,7 @@
             }
         }, ne("i", {
             class: "vicon vicon-trash"
-        }))) : "")
+        }))) : "")))
     };
     const {
         createElement: le,
@@ -2670,7 +2672,7 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }), t.options && t.options.length ? We(Ve, null, (t => t.options.map((function(s, a) {
+        }),J("div", {className: "question_list"}, t.options && t.options.length ? We(Ve, null, (t => t.options.map((function(s, a) {
             return We("div", {
                 className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(a) ? "question_correct" : "question_incorrect" : "")
             }, We("input", {
@@ -2701,7 +2703,7 @@
             }
         }, We("i", {
             class: "vicon vicon-trash"
-        }))) : "")
+        }))) : ""))
     };
     const {
         createElement: Ke,
@@ -3603,7 +3605,7 @@
                 s = n,
                 a = [],
                 i = 0;
-            if (n > 1 && false)
+            if (n > 1)
                 for (; n;)
                     if (n) {
                         let e = n;
@@ -4151,7 +4153,7 @@
             })), e.hasOwnProperty("activity") ? t.submitted ? gn("h3", null, gn("span", {
                 className: "student_score"
             }, t.meta.auto ? t.marks + "/" + t.max_marks : ""), t.quiz_passing_score ? gn("span", null, t.marks > t.quiz_passing_score ? window.wplms_course_data.translations.passed : window.wplms_course_data.translations.failed) : "") : "" : gn("div", {
-                className: "up" == d ? "incoursequiz_details dev show_controls" : "incoursequiz_details hide_controls",
+                className: "up" == d ? "incoursequiz_details show_controls" : "incoursequiz_details hide_controls",
                 ref: l
             }, gn("div", null, t.submitted ? gn("strong", {
                 onClick: () => {
@@ -6558,14 +6560,22 @@
                 __html: m.instructions
             }
         }))) : "", H ? sr("div", {
-            className: "reviewpopup_wrapper"
+            className: "reviewpopup_wrapper complete_course_popup",
+            id:"remove_course_popup",
         }, sr("div", {
             className: "reviewpopup_content"
         }, sr("div", {
             className: "finish-course-content"
-        }, H.hasOwnProperty("percentage") ? sr("span", {
-            className: "finished_percentage",
-            ref: e => nr(e, {
+        },sr("div", {
+            className: "close",
+            onClick: () => {
+                 var element = document.getElementById("remove_course_popup").remove();
+            }
+        }, sr("span", {
+            className: "vicon vicon-close"
+        })), H.hasOwnProperty("percentage") ? sr("span", {
+            className: "finish-logo",
+           /* ref: e => nr(e, {
                 colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
                 angle: 90,
                 spread: 90,
@@ -6576,7 +6586,7 @@
                 stagger: 2,
                 width: "12px",
                 height: "12px"
-            })
+            })*/
         }, sr("span", null, sr("span", null, sr("strong", null, H.percentage), sr("span", null, "%")), sr("span", null, H.title))) : "", H.awards ? sr("div", {
             className: "awards"
         }, Object.keys(H.awards).map(e => "badge" == e ? sr("div", {
@@ -6612,16 +6622,17 @@
                 __html: H.message
             }
         }), sr("div", {
+            className: "congrats-message",
             dangerouslySetInnerHTML: {
                 __html: H.post_message
             }
-        })), sr("div", {
+        })),/* sr("div", {
             className: "popup-footer"
-        }, window.wplms_course_data.translations.cancel), sr("a", {
-            className: "button is-primary",
+        }, window.wplms_course_data.translations.cancel),*/ sr("a", {
+            className: "button is-primary back-button",
             onClick: e.back
         }, window.wplms_course_data.translations.back_to_my_courses, sr("span", {
-            className: "vicon vicon-angle-right"
+            className: "vicon vicon-angle-right hide"
         }, sr("a", {
             className: "link",
             onClick: () => F(!1)
@@ -6653,16 +6664,6 @@
                 }
             },
             rating: E.rating
-        }), sr("input", {
-            type: "text",
-            onChange: e => {
-                let t = {
-                    ...E
-                };
-                t.title = e.target.value, z(t)
-            },
-            value: E.title,
-            placeholder: window.wplms_course_data.translations.review_title
         }), sr("textarea", {
             onChange: e => {
                 let t = {
@@ -6695,7 +6696,7 @@
         }, window.wplms_course_data.translations.cancel), sr("a", {
             className: "button is-primary",
             onClick: () => {
-                E && E.hasOwnProperty("title") && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.title.length > 3 && E.review.length > 3 && E.rating > 1 ? (T(!0), E.comment_post_ID = e.course_id, E.course_id = e.course_id, E.token = Y.token, fetch(window.wplms_course_data.api_url + "/updatecourse/addreview", {
+                E && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.review.length > 3 && E.rating > 1 ? (T(!0), E.comment_post_ID = e.course_id, E.course_id = e.course_id, E.token = Y.token, fetch(window.wplms_course_data.api_url + "/updatecourse/addreview", {
                     method: "post",
                     body: JSON.stringify(E)
                 }).then(e => e.json()).then(e => {
@@ -6732,26 +6733,26 @@
         }, sr("div", {
             className: "action_points"
         }, sr("a", {
-            className: "vicon vicon-angle-left",
+            className: "arrow_right",
             onClick: e.back
         }), !s && !is(m) && m.hasOwnProperty("courseitems") && m.courseitems.length ? sr(or, null, sr("a", {
-            className: "vicon vicon-search",
+            className: "icon_search",
             onClick: () => {
                 u(!0)
             }
         }), m.courseitems[W].hasOwnProperty("meta") && m.courseitems[W].meta.hasOwnProperty("access") && m.courseitems[W].meta.access ? sr(or, null, sr("a", {
-            className: "vicon vicon-notepad",
+            className: "icon_notepad",
             onClick: () => {
                 O(!0)
             }
         }), sr("a", {
-            className: "vicon vicon-comments",
+            className: "icon_comments",
             onClick: () => {
                 y(!0)
             }
         })) : "") : "", document.querySelector("body").classList.contains("single-course") ? "" : sr("a", {
             title: document.querySelector("body").classList.contains("course_status_fullscreen") ? window.wplms_course_data.translations.minimise_screen : window.wplms_course_data.translations.maximise_screen,
-            className: "vicon vicon-fullscreen",
+            className: "icon_fullscreen",
             onClick: () => {
                 //document.querySelector("body").classList.contains("course_status_fullscreen") ? document.querySelector("body").classList.remove("course_status_fullscreen") : document.querySelector("body").classList.add("course_status_fullscreen")
             }
@@ -6913,12 +6914,7 @@
                         onClick: () => {
                             ae()
                         }
-                    }, sr("span", {
-                        className: "vicon vicon-check-box",
-                        style: {
-                            margin: "0 1rem"
-                        }
-                    }), window.wplms_course_data.translations.complete_course)));
+                    }, window.wplms_course_data.translations.complete_course)));
                 case "wplms-assignment":
                     return sr("div", {
                         className: "course_content_content_wrapper"
@@ -6954,12 +6950,8 @@
                         onClick: () => {
                             ae()
                         }
-                    }, sr("span", {
-                        className: "vicon vicon-check-box",
-                        style: {
-                            margin: "0 1rem"
-                        }
-                    }), window.wplms_course_data.translations.complete_course)));
+                    }, 
+                     window.wplms_course_data.translations.complete_course)));
                 case "unit":
                 default:
                     return sr("div", {
@@ -7003,9 +6995,9 @@
                             ae()
                         }
                     }, sr("span", {
-                        className: "vicon vicon-check-box",
+                        className: "",
                         style: {
-                            margin: "0 1rem"
+                            display: "none"
                         }
                     }), window.wplms_course_data.translations.complete_course)))
             }

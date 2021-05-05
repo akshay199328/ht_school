@@ -22,7 +22,7 @@
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
 				<p><?php _e( "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button.", 'vibe' ); ?></p>
-				<p><a class="button edit" href="<?php bp_avatar_delete_link(); ?>" title="<?php _e( 'Delete Avatar', 'vibe' ); ?>"><?php _e( 'Delete Avatar', 'vibe' ); ?></a></p>
+				<p><a class="button edit upload-image" href="<?php bp_avatar_delete_link(); ?>" title="<?php _e( 'Delete Avatar', 'vibe' ); ?>"><?php _e( 'Delete Avatar', 'vibe' ); ?></a></p>
 			<?php endif; ?>
 
 		<?php endif; ?>

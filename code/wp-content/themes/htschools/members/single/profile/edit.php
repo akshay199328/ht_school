@@ -60,11 +60,11 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			<input type="hidden" name="action" value="save_custom_profile">
 			<div class="form-group">
 				<label for="first_name">First Name</label>
-				<input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $currentUser->user_firstname; ?>">
+				<input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
 			</div>
 			<div class="form-group">
 				<label for="last_name">Last Name</label>
-				<input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>">
+				<input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" id="last_name">
 			</div>
 			<div class="form-group">
 				<label for="user_email">Email</label>
@@ -200,7 +200,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 		<?php } ?>
 		<form class="standard-form">
 			<input type="hidden" name="action">
-			<h1>Add your Childrens</h1>
+			<h1>Add your Child(ren)</h1>
 			<div class="content">
 				<p>Please add your child/ren’s detail by clicking the <strong>add a child</strong> button below</p>
 				<!-- <button type="button" class="btn" id="add-child-btn">Add a Child</button> -->

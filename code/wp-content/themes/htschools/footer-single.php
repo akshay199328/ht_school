@@ -332,14 +332,14 @@ border: 1px solid deepskyblue;
                                     <label>First Name*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="first_name"  value="<?php echo $currentUser->user_firstname; ?>" placeholder="First name" class=" in-class form-control user_field">
+                                    <input type="text" name="first_name"  value="<?php echo $currentUser->user_firstname; ?>" placeholder="First name" class=" in-class form-control user_field" id="user_firstname">
                                 </div>
 
                                 <div class="col-md-12">
                                     <label>Last Name*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" name="last_name"  value="<?php echo $currentUser->user_lastname; ?>" placeholder="Last name" class=" in-class form-control user_field">
+                                    <input type="text" name="last_name"  value="<?php echo $currentUser->user_lastname; ?>" placeholder="Last name" class=" in-class form-control user_field" id="last_name">
                                 </div>
 
                                 <div class="col-md-12">
@@ -508,6 +508,20 @@ border: 1px solid deepskyblue;
                       return false;
                   }
             }
+
+            $("#user_firstname").keypress(function(e) {
+              var key = e.keyCode;
+              if (key >= 48 && key <= 57) {
+                  e.preventDefault();
+              }
+            });
+            $("#user_lastname").keypress(function(e) {
+              var key = e.keyCode;
+              if (key >= 48 && key <= 57) {
+                  e.preventDefault();
+              }
+            });
+
             updateProgressBar();
             function updateProgressBar(){
               var count=0;

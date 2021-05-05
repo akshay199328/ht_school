@@ -44,9 +44,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_Footer_Billboard', [[728,90], [970,90], [970,250], [1290,250],[980,90], [970,90]], 'div-gpt-ad-1619596100543-17').addService(googletag.pubads()); 
 
  googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_Footer_Billboard', [[728,90], [970,90], [970,250], [1290,250],[980,90], [970,90]], 'div-gpt-ad-1619596100543-18').addService(googletag.pubads());
-  
- 
-
     googletag.pubads().enableSingleRequest();
     googletag.pubads().collapseEmptyDivs();
     googletag.enableServices();

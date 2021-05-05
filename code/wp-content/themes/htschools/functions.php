@@ -502,7 +502,7 @@ function reg_send_otp(){
     //remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
         if($sent) {
           $response['status'] = 1;
-          $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $requestEmail . '. Please enter the OTP to verify your email address.';
+          $response['message'] = 'We have sent you a verification code at ' . $requestEmail . '. Please enter the code to verify your email.';
         }//message sent!
         else  {
           $response['status'] = 0;
@@ -823,10 +823,6 @@ function wc_npr_filter_phone( $address_fields ) {
 
 }
 
-add_filter( 'wc_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
-function empty_wc_add_to_cart_message( $message, $products ) { 
-    return ''; 
-}; 
 
 // Filter will do its magic before the fields are passed to the template.
 add_filter('woocommerce_checkout_fields', function($fields) {

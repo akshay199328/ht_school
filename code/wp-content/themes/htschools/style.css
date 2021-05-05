@@ -1517,6 +1517,7 @@ Course Details
 }
 .instructor-detailsMini .profile-content h3{
   font-size: 15px;
+  word-break: break-word;
 }
 .instructor-detailsMini .profile-content h4{
   font-size: 11px;    letter-spacing: 0.55px;
@@ -5853,7 +5854,7 @@ h6:empty,
   /*opacity: 1!important;*/
 }
 .course_status .lesson_info>span+span {
-    margin-left: 14px!important;
+    /* margin-left: 14px!important; */
 }
 .course_status .course_content .course_content_content_wrapper h2{
   /*line-height: 1.32!important;*/

@@ -1898,14 +1898,14 @@
                     })(e, s)
                 }
             }, t.courseStatus.hasOwnProperty("lock") && t.courseStatus.lock && !t.courseStatus.courseitems[s].status && s != t.current_unit_key ? k("span", {
-                className: "vicon vicon-lock"
+                className: "icon_lock"
             }) : k(g, {
                 progress: n[s] && "unit" == n[s].type && n[s].hasOwnProperty("progressbar") ? n[s].progressbar : 0,
                 size: "xs"
             })) : k("div", {
                 className: "unit_progress_wrapper"
             }, t.courseStatus.hasOwnProperty("lock") && t.courseStatus.lock && !t.courseStatus.courseitems[s].status && s != t.current_unit_key ? k("span", {
-                className: "vicon vicon-lock"
+                className: "icon_lock"
             }) : k(g, {
                 progress: 100,
                 size: "xs"

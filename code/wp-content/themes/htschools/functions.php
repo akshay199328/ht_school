@@ -502,7 +502,7 @@ function reg_send_otp(){
     //remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
         if($sent) {
           $response['status'] = 1;
-          $response['message'] = 'We have sent you a verification code at ' . $requestEmail . '. Please enter the code to verify your email.';
+          $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $requestEmail . '. Please enter the OTP to verify your email address.';
         }//message sent!
         else  {
           $response['status'] = 0;

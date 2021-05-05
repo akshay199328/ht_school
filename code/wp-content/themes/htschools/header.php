@@ -18,10 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 <script>
-  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
- 
-}
-else{
+
   window.googletag = window.googletag || {cmd: []};
   googletag.cmd.push(function() {
     googletag.defineSlot('/1055314/HT_School_Desktop_Home/HT_School_Desk_HP_MID_A_Mrec', [[300,250]], 'div-gpt-ad-1619596100543-0').addService(googletag.pubads());
@@ -47,7 +44,6 @@ else{
  googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_Footer_Billboard', [[728,90], [970,90], [970,250], [1290,250],[980,90], [970,90]], 'div-gpt-ad-1619596100543-17').addService(googletag.pubads()); 
 
  googletag.defineSlot('/1055314/HT_School_Desktop_Story/HT_School_Desk_Story_Footer_Billboard', [[728,90], [970,90], [970,250], [1290,250],[980,90], [970,90]], 'div-gpt-ad-1619596100543-18').addService(googletag.pubads());
-}
   
  
 

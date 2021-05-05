@@ -823,6 +823,11 @@ function wc_npr_filter_phone( $address_fields ) {
 
 }
 
+add_filter( 'wc_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
+function empty_wc_add_to_cart_message( $message, $products ) { 
+    return ''; 
+}; 
+
 // Filter will do its magic before the fields are passed to the template.
 add_filter('woocommerce_checkout_fields', function($fields) {
    global $current_user;

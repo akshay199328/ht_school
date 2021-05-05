@@ -388,7 +388,8 @@ body.page-template-home , .page-template-home .pusher {
     display: block;
     top: 2px;
     position: relative;
-    right: 9px;
+    right:0px;
+    /* right: 9px; */
 }
 .dropdown-toggle::after{
   content: "\f282";
@@ -844,10 +845,10 @@ width: auto;
 }
 .learing_card{
   background: #d5ebff;
-  padding-top: 0px;
+  padding-top: 50px;
 }
 .learing_card h1 {
-  margin: 0;
+  margin-bottom: 5px;
     font-size: 60px;
     font-weight: bold;
     font-stretch: normal;
@@ -856,12 +857,13 @@ width: auto;
     letter-spacing: normal;
     text-align: left;
     color: #000000;
-        text-transform: capitalize;
-        margin-top: 60px;
+    text-transform: capitalize;
+        /* margin-top: 60px; */
 }
 
 .learing_card p {
-  margin: 15px 0 0 0;
+  /* margin: 15px 0 0 0; */
+  margin-bottom: 0;
   font-size: 30px;
   font-weight:normal;
   font-stretch: normal;
@@ -883,9 +885,9 @@ width: auto;
     width: 250px;
     height: 210.6px;
     margin-right: 19px;
-    margin-top: 21px;
+    margin-top: 20px;
     padding: 15px 20px;
-        word-break: break-word;
+    word-break: break-word;
     
 }
 .hero-list .hero-card:nth-child(1){
@@ -2032,6 +2034,7 @@ Course Details
     text-align: left;
     color: #0c5acc;
 }
+
 .Popular-Courses .section-header .exlore-link, .exlore-link.mobile-btn {
     padding: 12px 32px 16px 25px;
     background-color: #0c5acc;
@@ -2043,7 +2046,8 @@ Course Details
     letter-spacing: normal;
     text-align: left;
     color: #fade3b;
-    margin: 40px 0px;
+    /* margin: 40px 0px; */
+    margin: 25px 0px 45px;
     display: inline-block;
 }
 .mobile-btn{display: none!important;}
@@ -2055,7 +2059,8 @@ Course Details
 }
 .course-box {
   float: left;
-  padding:17.5px 15px 19.5px 15px;
+  /* padding:17.5px 15px 19.5px 15px; */
+  padding:20px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
   transition: 0.3s;
   height: 100%;
@@ -2069,6 +2074,7 @@ Course Details
     align-items: center !important;
     display: flex;*/
 }
+
 .course-box:after{
     content:'';
     background: #000000;
@@ -6661,7 +6667,10 @@ h6:empty,
     .news-listing .content-right .sidebar{margin-top: 15px;}
     .news-main .content-right .details .share-icon{width: auto;}
     .news-listing .content-right .sidebar{    margin-top: 10px;}
-    .home_slider .owl-dots, .home_slider .owl-nav{display: none;}
+    /* .home_slider .owl-dots, .home_slider .owl-nav{display: none;} */
+    .home_slider .owl-nav{display:none}
+    .home_slider .owl-dots{display: block;right: -15px;
+      left: auto;position: relative;}
     .content-left .content {padding-right: 0px !important;}
     .news-listing .blogpost{width: 100%;}
     .search_value span, .search_value .item{font-size: 11px;    line-height: 15px;}

@@ -25,11 +25,13 @@
     height: 100vh;
     background: rgba(0,0,0,.0);
     z-index: 999999;
-
+    /* opacity: .9;
+  backdrop-filter: blur(2px); */
+    
 }
 .navegacion .menu-back{
     background: #fff;
-    background: url(./assets/images/navigation-back.jpg) no-repeat, #fff;
+    /* background: url(./assets/images/navigation-back.jpg) no-repeat, #fff; */
     background-position: right;
     width: 455px;
     position: absolute;
@@ -39,6 +41,9 @@
     /* padding: 51px 50px 30px 155px; */
     padding: 40px 50px 30px 155px;
     height: 100%;
+    backdrop-filter: blur(35px);
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    background-color: rgba(255, 255, 255, 0.9);
 }
 /*.navegacion .menu-back:before{
     content:'';

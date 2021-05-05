@@ -157,10 +157,11 @@ vibe_include_template("profile/top$profile_layout.php");
 			                                            <h4><?php echo $author_company; ?></h4>
 			                                        </div>
 			                                        <div class="clearfix"></div>
-													<div class="download">
+													
+			                                    </div>
+												<div class="download">
 														<?php user_certificate($post->ID,$user->ID);?>
-													</div>
-			                                     </div>
+												</div>
 			                                </div>
 			                            </div>
 			                </div>

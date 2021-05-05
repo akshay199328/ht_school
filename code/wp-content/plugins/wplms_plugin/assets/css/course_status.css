@@ -463,6 +463,19 @@
 {
     padding: 0px 42px!important;
 }
+                    
+.course_status .reviewpopup_wrapper .reviewpopup_content .reviewform .review_heading {
+    font-size: 25px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    padding: 0px 140px 40px 42px;
+    margin: 0px;
+}
 .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea {
         background: url(../../assets/images/textarea_icon.png) no-repeat;
     background-position: 47px 4%;
@@ -473,11 +486,16 @@
     padding-top: 15.5px!important;
     border: 0;
     padding-left: 80px!important;
+    border-top: 1px dotted hsl(0deg 0% 44% / 50%)!important;
     
     
 }
+.course_status .incourse .question_wrapper .incorrect{
+    display: none!important;
+}
 .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea:focus{
     background: none;
+     background-color: #f8f8f8;
     padding-left: 45px!important;
 }
 .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform input:placeholder{
@@ -1869,6 +1887,7 @@
 .previous_results_wrapper{
     margin: 20px 0px;
     float: left;
+    display: none;
 }
 .previous_results_wrapper .message {
         padding: 12px 24px;
@@ -2055,10 +2074,13 @@
 .course_status .incourse .quiztimer .timer_amount span:nth-child(n+4),
 .course_status .incourse .quiztimer .timer_amount span:nth-child(n+4),
 .course_status .incourse .quiztimer .timer_unit span:nth-child(n+4),
-.course_status .incourse .quiztimer .timer_unit span:nth-child(n+4) {
-    display: none
+.course_status .incourse .quiztimer .timer_unit span:nth-child(n+4)
+{
+    display: none;
 }
-
+.marks_right .question_hint {
+    display: none!important;
+}
 .course_status .incourse .quiztimer .timer_amount {
     font-size: 2rem
 }
@@ -2288,12 +2310,13 @@
     border-top: none;
     width: 55%;
     float: left;
-    min-height: 250px;
+    min-height: auto;
 }
 
 .course_status .incourse .quiz_questions_content .question {
     position: relative;
     float: left;
+    margin-top: 20px;
 }
 .quiz_questions_content .question_content p {
     font-size: 38px !important;
@@ -3183,7 +3206,8 @@
 .wplms-course-star-rating {
     display: flex;
     align-items: center;
-    flex-direction: row
+    flex-direction: row;
+    margin-bottom: 27px!important;
 }
 
 .wplms-course-star-rating .vicon {
@@ -3514,4 +3538,9 @@ a.button.is-primary {
 	    width: 480px;
 	    /*margin: 30px auto;*/
 	}
+}
+@media (max-width: 1366px){
+    .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{
+        height: 240.8px;
+    }
 }

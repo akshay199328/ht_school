@@ -136,6 +136,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                            $logged_in_menu = wp_get_nav_menu_object( $logged_in_locations[ $logged_in_menu_name ] );
                            $logged_in_menuitems = wp_get_nav_menu_items( $logged_in_menu->term_id, array( 'order' => 'DESC' ) );
                            //print_r($menuitems);
+                           global $post;
+                            $post_slug = $post->post_name;
                            echo "<nav class='menu-primary-menu-container'><ul id='menu-primary-menu' class='menu'>";
                            foreach ($menuitems as $menu) {  
                             $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
@@ -143,6 +145,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 echo '<li class="border-menu ' . $current . ' "><a>' . $menu->title . '</a></li>';
                               }
                               else{
+                              if($post_slug != 'login-register'){
                                 if(is_user_logged_in()){
                                   foreach ($logged_in_menuitems as $loggedin_menu) { 
                                   $current_logged_in = ( $_SERVER['REQUEST_URI'] == parse_url( $loggedin_menu->url, PHP_URL_PATH ) ) ? 'active' : '';
@@ -153,8 +156,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                   echo '<li class="custom-dropdown ' . $current . '"><a href="' . $menu->url . '">'.$menu->title.'</a></li>';
                                 }
                               }
-                           }
+                           }}
                           echo "</ul></nav>";
+                        
                     ?>
                     <a id="trigger">
                         <span class="lines"></span>
@@ -181,6 +185,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     ?>
                 </div>
                 <div class="col-sm-10 col-lg-4 mrg right-menu">
+                <?php  global $post;
+                    $post_slug = $post->post_name;
+                    if($post_slug != 'login-register'){ ?>
+
                 <ul class="topmenu custom_topmenu">
 
                     <?php
@@ -214,23 +222,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 }
                 ?>
                 </ul>
-
+              <?php } ?>
                 <?php
                    $menu_name = 'top-menu'; //menu slug
                    $locations = get_nav_menu_locations();
                    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-                   //print_r($menuitems);
-                   echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img alt='Search' title='Search' src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
-                   do_action('woocommerce_add_to_cart_fragments'); 
-                   if (is_user_logged_in()){
-                       /*do_action('notification_fragments');*/
+
+                    global $post;
+                    $post_slug = $post->post_name;
+                    if($post_slug != 'login-register'){
+                     //print_r($menuitems);
+                     echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img alt='Search' title='Search' src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
+                     do_action('woocommerce_add_to_cart_fragments'); 
+                     if (is_user_logged_in()){
+                         /*do_action('notification_fragments');*/
+                      }
+                     echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/editorsdesk'><img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
+                     foreach ($menuitems as $menu) {  ?>
+                         <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
+                     <?php }
+                     echo "</ul>";
                     }
-                   echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/editorsdesk'><img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
-                   foreach ($menuitems as $menu) {  ?>
-                       <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
-                   <?php }
-                   echo "</ul>";
                    ?>
                 </div>
             </div>

@@ -629,7 +629,7 @@ function reg_new_user(){
 
         if($sent) {
           $response['status'] = 1;
-          $response['message'] = 'We have sent you a verification code on ' . $mobile . '. Please enter the code to verify your mobile number.';
+          $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $mobile . '. Please enter the OTP to verify your mobile number.';
         }//message sent!
         else  {
           $response['status'] = 0;
@@ -1894,3 +1894,18 @@ function cb_course_delivery($email, $courseId, $authToken){
         return false;
     }
 }
+
+/*add_filter( 'wpcf7_validate_text*', 'custom_website_validation_filter', 20, 2 );
+function custom_website_validation_filter( $result, $tag ) {
+  if ($tag->name == 'PinCode' ) {
+
+    $inPostalCode = $_POST['PinCode'];
+    if($inPostalCode != '') {
+        if(!preg_match('/^[0-9]{6,6}$/', $inPostalCode)) {
+            $result->invalidate($tag, "Enter 6 digits only" );
+        }
+    }
+  }
+
+  return $result;
+}*/

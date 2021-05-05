@@ -134,15 +134,33 @@ $topics = wp_get_post_tags(get_the_ID());
           </div>
           <div class="content-default-list">
             <div class="row">
-              <div class="col-sm-12 col-lg-6 pull-left mrg">
-                <?php the_content(); ?>
+              <div class="col-sm-12 col-lg-12 pull-left mrg">
+                <p><?php 
+                       $post_content = get_post_field('post_content', $post->ID);
+                                        
+                      ob_start();
+                       dynamic_sidebar('news_landing_mid_banner');
+                                        $addDisplay = ob_get_contents();
+                                        ob_end_clean();
+
+                                        $ad_code = '<div align="right" style="float: right;margin-left: 15px;">' . $addDisplay . '</div>';
+                                        
+                                        $post_content = $ad_code . $post_content;
+
+                                        echo $post_content;
+                                        /*if ( $post_content != '' ) {
+
+                                          $post_content = prefix_insert_after_words( $ad_code,75, $post_content );
+                                        }*/
+                                        ?></p>
+
               </div>
             </div>
         </div>
         <div class="topic_details">
           <?php
-          if ( is_active_sidebar( 'story-top-banner' ) ) : ?>
-            <?php dynamic_sidebar( 'story-top-banner' ); ?>      
+          if ( is_active_sidebar( 'story-footer-banner' ) ) : ?>
+            <?php dynamic_sidebar( 'story-footer-banner' ); ?>      
           <?php endif; ?>
           <br>
           <?php $tagsCount = count($topics);

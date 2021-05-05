@@ -1510,18 +1510,19 @@ function wpc_shortcode_contact_adwork() {
 
 //Insert ads after second paragraph of single post content.
  
-add_filter( 'the_content', 'prefix_insert_post_ads' );
+//add_filter( 'the_content', 'prefix_insert_post_ads' );
  
 function prefix_insert_post_ads( $content ) {
      
  
     if ( is_single() && ! is_admin() ) {
         ob_start();
-        dynamic_sidebar('banner-2');
+        dynamic_sidebar('news_landing_mid_banner');
         $addDisplay = ob_get_contents();
         ob_end_clean();
         
-        $ad_code = '</div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg">';
+       // $ad_code = '</div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg">';
+        $ad_code = '<div align="right" style="float: right;margin-left: 15px;">' . $addDisplay . '</div>';
         $content = prefix_insert_after_paragraph( $ad_code, 1, $content );
         //$content = prefix_insert_after_position( $ad_code,650, $content );
     }

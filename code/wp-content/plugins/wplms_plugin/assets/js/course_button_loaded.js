@@ -3603,7 +3603,7 @@
                 s = n,
                 a = [],
                 i = 0;
-            if (n > 1)
+            if (n > 1 && false)
                 for (; n;)
                     if (n) {
                         let e = n;
@@ -4151,7 +4151,7 @@
             })), e.hasOwnProperty("activity") ? t.submitted ? gn("h3", null, gn("span", {
                 className: "student_score"
             }, t.meta.auto ? t.marks + "/" + t.max_marks : ""), t.quiz_passing_score ? gn("span", null, t.marks > t.quiz_passing_score ? window.wplms_course_data.translations.passed : window.wplms_course_data.translations.failed) : "") : "" : gn("div", {
-                className: "up" == d ? "incoursequiz_details show_controls" : "incoursequiz_details hide_controls",
+                className: "up" == d ? "incoursequiz_details dev show_controls" : "incoursequiz_details hide_controls",
                 ref: l
             }, gn("div", null, t.submitted ? gn("strong", {
                 onClick: () => {
@@ -6732,10 +6732,10 @@
         }, sr("div", {
             className: "action_points"
         }, sr("a", {
-            className: "arrow_right",
+            className: "vicon vicon-angle-left",
             onClick: e.back
         }), !s && !is(m) && m.hasOwnProperty("courseitems") && m.courseitems.length ? sr(or, null, sr("a", {
-            className: "icon_search",
+            className: "vicon vicon-search",
             onClick: () => {
                 u(!0)
             }
@@ -6751,7 +6751,7 @@
             }
         })) : "") : "", document.querySelector("body").classList.contains("single-course") ? "" : sr("a", {
             title: document.querySelector("body").classList.contains("course_status_fullscreen") ? window.wplms_course_data.translations.minimise_screen : window.wplms_course_data.translations.maximise_screen,
-            className: "icon_fullscreen",
+            className: "vicon vicon-fullscreen",
             onClick: () => {
                 //document.querySelector("body").classList.contains("course_status_fullscreen") ? document.querySelector("body").classList.remove("course_status_fullscreen") : document.querySelector("body").classList.add("course_status_fullscreen")
             }
@@ -6913,7 +6913,12 @@
                         onClick: () => {
                             ae()
                         }
-                    }, window.wplms_course_data.translations.complete_course)));
+                    }, sr("span", {
+                        className: "vicon vicon-check-box",
+                        style: {
+                            margin: "0 1rem"
+                        }
+                    }), window.wplms_course_data.translations.complete_course)));
                 case "wplms-assignment":
                     return sr("div", {
                         className: "course_content_content_wrapper"
@@ -6949,8 +6954,12 @@
                         onClick: () => {
                             ae()
                         }
-                    }, 
-                     window.wplms_course_data.translations.complete_course)));
+                    }, sr("span", {
+                        className: "vicon vicon-check-box",
+                        style: {
+                            margin: "0 1rem"
+                        }
+                    }), window.wplms_course_data.translations.complete_course)));
                 case "unit":
                 default:
                     return sr("div", {
@@ -6994,9 +7003,9 @@
                             ae()
                         }
                     }, sr("span", {
-                        className: "",
+                        className: "vicon vicon-check-box",
                         style: {
-                            display: "none"
+                            margin: "0 1rem"
                         }
                     }), window.wplms_course_data.translations.complete_course)))
             }

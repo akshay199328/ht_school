@@ -83,8 +83,8 @@ get_header(vibe_get_header());
       <div class="col-sm-12 col-md-3 content-right mrg">
         <div class="category_topAD">
           <?php
-            if ( is_active_sidebar( 'banner-2' ) ) :
-                dynamic_sidebar( 'banner-2' );      
+            if ( is_active_sidebar( 'instructor_banner' ) ) :
+                dynamic_sidebar( 'instructor_banner' );      
             endif;
           ?>
         </div>
@@ -118,8 +118,8 @@ get_header(vibe_get_header());
           <div class="category_bottomAD">
             <?php
 
-              if ( is_active_sidebar( 'banner-2' ) ) :
-                  dynamic_sidebar( 'banner-2' );      
+              if ( is_active_sidebar( 'news_landing_mid_banner' ) ) :
+                  dynamic_sidebar( 'news_landing_mid_banner' );      
               endif;
              ?>
           </div>

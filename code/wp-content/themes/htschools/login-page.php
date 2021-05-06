@@ -357,6 +357,7 @@ jQuery(window).load(function(){
                     jQuery("#reg_submit").removeAttr("disabled");
                     jQuery("#verify-mob-otp-btn").prop("disabled", true);
                     if(response.status == 1){
+                        jQuery("#mobile-otp-message").html(response.message);
                         jQuery("#login-step-3").hide();
                         jQuery("#login-step-4").show();
                         startTimer2();

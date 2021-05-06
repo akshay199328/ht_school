@@ -488,10 +488,8 @@ function reg_send_otp(){
     $name = 'HT School';
     $fromEmail = get_option('admin_email');
     $message = "Your OTP for login or registration on Ht School is: " . $newOTP;
-    $email = "prashant.c@fortune4.in";
     $subject = "HT School | One Time Password";
-    $headers = 'From: '. $email . "\r\n" .
-      'Reply-To: ' . $email . "\r\n";
+    $headers = 'From: '. $fromEmail . "\r\n";
 
     // ob_start();
     // include('email-templates/otp-confirmation.php');
@@ -629,7 +627,7 @@ function reg_new_user(){
 
         if($sent) {
           $response['status'] = 1;
-          $response['message'] = 'We have sent you a verification code on ' . $mobile . '. Please enter the code to verify your mobile number.';
+          $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $mobile . '. Please enter the OTP to verify your mobile number.';
         }//message sent!
         else  {
           $response['status'] = 0;
@@ -1026,7 +1024,7 @@ function save_custom_profile(){
             && trim($_REQUEST['user_school']) != ""
       ){
             $response['profile_complete'] = 1;
-          }
+      }
 
         $response['status'] = 1;
         $response['message'] = 'Profile updated successfully.';
@@ -1894,3 +1892,45 @@ function cb_course_delivery($email, $courseId, $authToken){
         return false;
     }
 }
+
+add_filter( 'wpcf7_validate_text*', 'custom_website_validation_filter', 20, 2 );
+function custom_website_validation_filter( $result, $tag ) {
+  if ($tag->name == 'PinCode' ) {
+    $inPostalCode = $_POST['PinCode'];
+    if($inPostalCode != '') {
+        if(!preg_match('/^[0-9]{6,6}$/', $inPostalCode)) {
+            $result->invalidate($tag, "Enter 6 digits only" );
+        }
+    }
+  }
+
+  if ( 'your-name' == $tag->name ) {
+    $your_name = isset( $_POST['your-name'] ) ? trim( $_POST['your-name'] ) : '';
+
+    if (preg_match('/[0-9]/', $your_name)) {
+    $result->invalidate( $tag, "Please enter valid name" );
+
+    }
+  }
+
+  return $result;
+}
+
+function custom_phone_validation($result,$tag){
+
+    $type = $tag->type;
+    $name = $tag->MobileNumber;
+
+    if($type == 'tel' || $type == 'tel*'){
+
+        $phoneNumber = isset( $_POST[$name] ) ? trim( $_POST[$name] ) : '';
+
+        $phoneNumber = preg_replace('/[() .+-]/', '', $phoneNumber);
+            if (strlen((string)$phoneNumber) != 10) {
+                $result->invalidate( $tag, 'Please enter a valid mobile number.' );
+            }
+    }
+    return $result;
+}
+add_filter('wpcf7_validate_tel','custom_phone_validation', 10, 2);
+add_filter('wpcf7_validate_tel*', 'custom_phone_validation', 10, 2);

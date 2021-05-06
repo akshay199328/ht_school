@@ -170,13 +170,22 @@ vibe_include_template("profile/top$profile_layout.php");
 			    		</div>
 			 		</div>
 				<?php	}
-				}else{
-					echo '<h1>You have not completed any course till now</h1>';
+				}else{ ?>
+					<div class="empty_cart_div">
+		                <div class="empty_course_image"></div>
+		                <h4>You have not completed any course till now</h4>
+		                <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+		            </div>
+
+				<?php }
 				}
-				}
-				else{
-					echo '<h1>You have not completed any course till now</h1>';
-				}
+				else{?>
+					<div class="empty_cart_div">
+		                <div class="empty_course_image"></div>
+		                <h4>You have not completed any course till now</h4>
+		                <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+		            </div>
+				<?php }
 
 				?>
         </div>

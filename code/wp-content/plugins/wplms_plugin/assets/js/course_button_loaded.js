@@ -1978,7 +1978,7 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }), D("input", {
+        }),  J("div", {className: "question_list"},D("input", {
             type: "text",
             className: a,
             value: s,
@@ -1988,7 +1988,7 @@
                 };
                 s.marked_answer = t.target.value, n(s), e.update(s, e.index, "changed")
             }
-        }))
+        })))
     };
     const {
         createElement: J,
@@ -6652,7 +6652,11 @@
             className: "vicon vicon-close"
         })), I ? sr(p, null) : m.hasOwnProperty("comments_open") && m.comments_open ? sr(or, null, sr("div", {
             className: "reviewform"
-        }, sr("label", null, window.wplms_course_data.translations.rating), sr(la, {
+        },sr("div", {
+            className: "review_heading",
+            dangerouslySetInnerHTML: {
+                __html: c.name
+            }}), sr("label", null, window.wplms_course_data.translations.rating), sr(la, {
             update: (e, t) => {
                 if ("ratingchanged" == t) {
                     let t = 0;

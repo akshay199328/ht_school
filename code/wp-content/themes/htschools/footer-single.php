@@ -78,15 +78,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <div class="col-sm-12 middle-detils footer-links">
             <div class="col-lg-12 col-12 mrg">
               <ul>
-                  <li><a href="<?php echo get_site_url();?>/all-courses" title="Course Offerings">Course Offerings</a></li>
-                  <li><a href="<?php echo get_site_url();?>/editorsdesk" title="News Release">News Release</a></li>
+                  <li><a href="<?php echo get_site_url();?>/all-courses" title="Course Offerings">All Courses</a></li>
+                  <li><a href="<?php echo get_site_url();?>/editorsdesk" title="News Release">Editor's Desk</a></li>
               </ul>
             </div>
             <div class="col-lg-12 col-12 about-links mrg">
               <ul>
                 <li><a href="<?php echo get_bloginfo('url')?>/about" title="About HT School">About HT School</a></li>
                 <li><a href="https://www.hindustancareermate.com/" title="Career Mate" target="_blank">Career Mate</a></li>
-                <li><a href="https://www.htcodeathon.com/" title="Code-a-Thon" target="_blank">Code-a-Thon</a></li>
+                <li><a href="https://www.htcodeathon.com/" title="Code-a-Thon" target="_blank">Codeathon</a></li>
                 <li><a href="https://www.lenovoscholarship.com/" title="Scholarships" target="_blank">Scholarship</a></li>
                 <li><a href="https://www.hindustanolympiad.in/" title="Olympiads" target="_blank">Olympiad</a></li>
               </ul>
@@ -495,17 +495,19 @@ border: 1px solid deepskyblue;
             function phone_validate() 
             { 
               var mobNum = $('#user_mobile').val();
-                  var filter = /^\d*(?:\.\d{1,2})?$/;
+                  var filter = /^(?!0+$)\d{8,}$/;
 
-                  if (filter.test(mobNum)) {
-                      if(mobNum.length!=10){
-                        $("#errMobileMsg").text("Please enter 10 digit mobile number");
-                          return false;
-                      } 
-                  }
-                  else{
+                  if (!filter.test(mobNum)) {
                       $("#errMobileMsg").text('Not a valid number');
                       return false;
+                  }
+                  else if(mobNum.length!=10){
+                    $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                      return false;
+                  } 
+                  else{
+                    $("#errMobileMsg").text("");
+                    return true;
                   }
             }
 
@@ -627,6 +629,10 @@ border: 1px solid deepskyblue;
             }); 
 
             $("#profile_submit").click(function(){
+              if(phone_validate() != true){
+                return false;
+              }
+              else{
                 $("#profile_submit").html("Please wait...");
                 $("#profile_submit").attr("disabled", "disabled");
                 
@@ -676,7 +682,8 @@ border: 1px solid deepskyblue;
                             }, 5000);
                         }
                     }
-                });             
+                });       
+              }      
             });
 
         });

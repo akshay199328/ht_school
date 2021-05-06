@@ -212,10 +212,18 @@ vibe_include_template("profile/top$profile_layout.php");
             </div>
             </div>
         <?php  endwhile; else: ?>
-            <h1>You don’t have any recommended courses right now</h1>
+            <div class="empty_cart_div">
+                <div class="empty_course_image"></div>
+                <h4>You don’t have any recommended courses right now</h4>
+                <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+            </div>
         <?php endif; } else{
                 ?>
-                <h1>You don’t have any recommended courses right now</h1>
+                <div class="empty_cart_div">
+                    <div class="empty_course_image"></div>
+                    <h4>You don’t have any recommended courses right now</h4>
+                    <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+                </div>
             <?php } ?>
             </div>
         </section>

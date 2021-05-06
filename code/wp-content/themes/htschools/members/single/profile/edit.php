@@ -288,25 +288,26 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			});
 
 			$("#user_mobile").on("blur", function(){
-		        phone_validate()
-		    
-		  	});
-			function phone_validate() 
-			{ 
-				var mobNum = $('#user_mobile').val();
-		        var filter = /^\d*(?:\.\d{1,2})?$/;
+              phone_validate()
+            });
+            function phone_validate() 
+            { 
+              	var mobNum = $('#user_mobile').val();
+                  var filter = /^(?!0+$)\d{8,}$/;
 
-		        if (filter.test(mobNum)) {
-		            if(mobNum.length!=10){
-		              $("#errMobileMsg").text("Please enter 10 digit mobile number");
-		                return false;
-		            } 
-		        }
-		        else{
-		            $("#errMobileMsg").text('Not a valid number');
-		            return false;
-		        }
-			} 
+                  if (!filter.test(mobNum)) {
+                      $("#errMobileMsg").text('Not a valid number');
+                      return false;
+                  }
+                  else if(mobNum.length!=10){
+                    $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                      return false;
+                  } 
+                  else{
+                    $("#errMobileMsg").text("");
+                    return true;
+                  }
+            }
 
 			window.selectedCountry = "<?php echo $user_country; ?>";
 			$("#child_name").val('');
@@ -419,6 +420,10 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			});	
 
 			$("#profile_submit").click(function(e){
+				if(phone_validate() != true){
+	                return false;
+	            }
+              	else{
 					$("#profile_submit").html("Please wait...");
 	                $("#profile_submit").attr("disabled", "disabled");
 	                $('form#modalAjaxTrying :submit').trigger('click');
@@ -454,7 +459,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 		                    }
 		                }
 		            });	
-	            			
+	            }	
 			});
 
 		});

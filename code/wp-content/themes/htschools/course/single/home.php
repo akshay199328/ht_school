@@ -69,12 +69,14 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       if(get_post_meta($post->ID,'vibe_course_session_length',true) != '') {
                         $sessionLength = get_post_meta($post->ID,'vibe_course_session_length',true);
                       }
+                      if(get_post_meta($post->ID,'vibe_course_duration_parameter',true) != '') {
+                        $courseDurationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+                      }
                       $courseDetails = array();
-
                       $courseDetails[] = array(
                         'Age Group' => $ageGroup.' yrs',
                         'Certification' => $totalStudent,
-                        'Course Duration' => $duration,
+                        'Course Duration' => $duration.' '.calculate_duration_time($courseDurationParameter),
                         'Frequency' => $frequency,
                         'Number of Sessions' => $session ,
                         'Session Duration' => $sessionLength,
@@ -134,7 +136,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <a class="nav-link scrollto active" href="#overview">Overview</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#objective">Objective</a>
+                                    <a class="nav-link scrollto" href="#objective">Objectives</a>
                                   </li>
                                   <li class="nav-item">
                                     <a class="nav-link scrollto" href="#curriculum">Curriculum</a>

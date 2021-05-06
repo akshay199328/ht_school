@@ -857,7 +857,7 @@ width: auto;
     letter-spacing: normal;
     text-align: left;
     color: #000000;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
         /* margin-top: 60px; */
 }
 
@@ -1150,7 +1150,7 @@ Course Details
     transition: all 0.5s ease;
 }
 .fixed_banner .breadcrumbs {
-    padding: 0px 0 15px 0;
+    padding: 0px 0px;
 }
 .fixed_banner .breadcrumbs li a{
   /*text-decoration: underline;*/
@@ -1174,7 +1174,7 @@ Course Details
   line-height: 1.29!important;
   letter-spacing: normal!important;
   color: #fff!important;
-  margin:0px 0px 20px 0px!important;
+  margin:0px 0px 15px 0px!important;
 }
 /*.fixed_banner .courseDetail_border{
   display: block;
@@ -1185,10 +1185,10 @@ Course Details
     float: left;
 }*/
 .fixed_banner.course_fixedBanner ul {
-    
     display: block;
     float: left;
-    width: 100%;
+    width: 100%;    
+    margin: 0px;
 }
 .fixed_banner.course_fixedBanner .content li{
     display: block;
@@ -1203,7 +1203,7 @@ Course Details
     
 }
 
-.fixed_banner h2{margin-bottom: 30px;    /*margin-top: 20px;*/}
+.fixed_banner h2{margin-bottom: 0px;margin-top: 20px;}
 .fixed_banner li p{
   font-size: 14px!important;
   line-height: 1.36!important;
@@ -1451,11 +1451,13 @@ Course Details
     font-size: 17px;
     line-height: 22px;
     font-weight: 300;
+    
+    font-family: "GT-Walsheim-Pro"!important;
 }
 .learing-goals .list ul,
 .content-default-list ul
 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .learing-goals .list li,
 .content-default-list li
@@ -1490,6 +1492,7 @@ Course Details
     line-height: 1.29;
     letter-spacing: normal;
     text-align: left;
+    color: #000000;
     font-family: "GT-Walsheim-Pro"!important;
 }
 .content-default-list .widget_custom_html{
@@ -2059,9 +2062,9 @@ Course Details
 }
 .course-box {
   float: left;
-  /* padding:17.5px 15px 19.5px 15px; */
   padding:20px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  border-bottom: 1px dotted #00000080;
   transition: 0.3s;
   height: 100%;
   width: 100%;
@@ -2069,10 +2072,6 @@ Course Details
   margin-left: 5px;
   position: relative;
   margin-bottom: 20px;
-  /*-webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    display: flex;*/
 }
 
 .course-box:after{
@@ -2119,7 +2118,7 @@ Course Details
     letter-spacing: normal;
     text-align: left;
     color: #000000;
-    margin: 0px 0px 10px;
+    margin: 0px 0px 5px;
 }
 .course-box .middle-details h2 a{color: #000000;font-weight: bold;}
 .course-box .middle-details p {
@@ -2133,7 +2132,7 @@ Course Details
     color: #000000;
     margin-bottom: 0;
     margin: 0px!important;
-    margin-bottom: 20px!important;
+    margin-bottom: 10px!important;
 
 }
 
@@ -2167,10 +2166,11 @@ width: 60%;
     margin: 0px!important;
 }
 .duration h6{
-  font-size: 13px !important;
+  	font-size: 13px !important;
     line-height: 1.31!important;
     letter-spacing: normal!important;
-        text-transform: capitalize!important;
+    text-transform: capitalize!important;
+   	margin-bottom: 0px!important;
 }
 .duration h6 span{
   font-weight: normal!important;
@@ -2210,7 +2210,7 @@ width: 60%;
     float: left;
     /* width: 100%; */
     display: inline-block;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     padding-left: 4px;
     margin-top: 0px;
 }
@@ -2439,8 +2439,8 @@ section.latest-news{
 .details-middle ul li{
     display: inline-block;
     width: 100%;
-    border-bottom: 1px dashed rgb(112 112 112 / 50%);
-    padding: 20px 18px 8.5px 0px;
+    border-bottom: 1px dotted rgb(112 112 112 / 50%);
+    padding: 20px 18px 20px 0px;
     /*margin-right: 47px;*/
 }
 .details-middle ul li:last-child
@@ -2455,7 +2455,7 @@ section.latest-news{
     padding: 0px 0px 10px;
 }
 .homeDetails-left .link {
-    margin-top: 26.9px;
+    margin-top: 20px;
 }
 .details-middle ul li p{
     font-size: 11px;
@@ -2466,7 +2466,7 @@ section.latest-news{
     letter-spacing: 0.55px;
     text-align: left;
     color: #000000;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-transform:uppercase
 }
 .news_advertisment .pull-left {
@@ -4905,7 +4905,7 @@ border-color: transparent;
 }
 .news_three_data li:nth-last-child(2), .news_three_data li:nth-last-child(3){border-bottom: 0px}
 .details-middle ul li:nth-child(2), .details-middle ul li:nth-child(1){
-  border-bottom:1px dashed rgb(112 112 112 / 50%) !important
+  border-bottom:1px dotted rgb(112 112 112 / 50%) !important
 }
 /*------------CART CSS : START-------------*/
 
@@ -6785,10 +6785,11 @@ h6:empty,
       max-width: 16.666667%;
   }
   .course-box .col-lg-10, .blogpost .col-sm-10 {
-      -webkit-box-flex: 0;
-      -ms-flex: 0 0 83.333333%;
-      flex: 0 0 83.333333%;
-      max-width: 83.333333%;
+      	-webkit-box-flex: 0;
+      	-ms-flex: 0 0 83.333333%;
+      	flex: 0 0 83.333333%;
+      	max-width: 83.333333%;
+        position: relative;
   }
   .competitive .col-sm-8, .social-links .col-sm-8 {
       -webkit-box-flex: 0;
@@ -6841,7 +6842,7 @@ h6:empty,
 .paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}
 .start_time_none{display: none!important;}
 .all_course_page{    padding-top: 30px;}
-
+.all_course_page .course-box{margin-bottom: 10px;}
 #Popular-Courses.all_course_page .row {
     margin-right: 0px;
     margin-left: 0px;

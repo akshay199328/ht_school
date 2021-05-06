@@ -1359,18 +1359,19 @@ Course Details
 .about-details .course-for{
   float: left;
   margin: 30px 0 30px;
-  padding: 16px 80px 24px 20px;
+  padding: 16px 80px 40px 20px;
   
 }
 .course-for h5{
     font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1;
+	letter-spacing: normal;
+	text-align: left;
+	color: #000000;
+	margin-bottom: 2px;
 
 }
 .course-for p{
@@ -1457,7 +1458,7 @@ Course Details
 .learing-goals .list ul,
 .content-default-list ul
 {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .learing-goals .list li,
 .content-default-list li
@@ -1541,7 +1542,7 @@ Course Details
     width: 60%;
 }
 .course-curriculum, .learing-goals, .course-instructor, .other-courses{
-    padding: 30px 0px;
+    padding: 40px 0px;
     float: left;
     width: 100%;
 }
@@ -1580,7 +1581,9 @@ Course Details
   color: #0c5acc;
 }
 .other-courses .list{
-  padding-top: 28.5px
+      padding-top: 30px;
+    float: left;
+    width: 100%;
 }
 .other-courses .list .card{
   float: left;
@@ -1595,6 +1598,9 @@ Course Details
 .details{
     padding: 10px 0px;
 }
+.other-courses .list .details{
+	padding:0px;
+}
 .other-courses .list .card:first-child{
   padding-left: 0px;
 }
@@ -1607,21 +1613,22 @@ Course Details
   line-height: 1.36;
   letter-spacing: 0.55px;
   margin-bottom: 10px;
+  margin-top: 0;
   text-transform: uppercase;
 }
 .other-courses .list a img{
   /*height: 120px;*/
 }
 .other-courses .list h3{
-  position: relative;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  padding: 10px 0px 15px 0px;
-  min-height: 107px;
+  	position: relative;
+  	font-size: 20px;
+  	font-weight: bold;
+  	font-stretch: normal;
+  	font-style: normal;
+  	line-height: 1;
+  	letter-spacing: normal;
+    padding: 30px 0px 15px 0px;
+    min-height: auto;
 }
 .other-courses .list h3:after{
   content: '';
@@ -2441,7 +2448,11 @@ section.latest-news{
     width: 100%;
     border-bottom: 1px dotted rgb(112 112 112 / 50%);
     padding: 20px 18px 20px 0px;
+    float: left;
     /*margin-right: 47px;*/
+}
+.details-middle ul li:nth-child(2n+2){
+
 }
 .details-middle ul li:last-child
 {

@@ -198,26 +198,26 @@ $topics = wp_get_post_tags(get_the_ID());
 </div>
 </div>
 <!-- releted news -->
+<?php $tags = wp_get_post_tags(get_the_ID());
+  if ($tags) {
+    $first_tag = $tags[0]->term_id;
+
+    $args=array(
+      'tag__in' => array($first_tag),
+      'post__not_in' => array(get_the_ID()),
+      'posts_per_page'=>5,
+    );
+    $my_query = new WP_Query($args);
+    if ($my_query->have_posts()){
+  ?>
 <div class="releted_news_section">
   <div class="container">
     
     <div class="col-sm-12 col-md-9 mrg">
         <div class="related_post details">
           <?php
-                // Related Posts
-          $tags = wp_get_post_tags(get_the_ID());
-          if ($tags) {
-            $first_tag = $tags[0]->term_id;
-
-            $args=array(
-              'tag__in' => array($first_tag),
-              'post__not_in' => array(get_the_ID()),
-              'posts_per_page'=>5,
-            );
-            $my_query = new WP_Query($args);
                      // print_r($my_query);
             //echo "<pre>";print_r($my_query);exit;
-            if ($my_query->have_posts()):
             echo '<h2>Related News</h2>';
             ?>
               <div class="details-middle devide">
@@ -238,9 +238,7 @@ $topics = wp_get_post_tags(get_the_ID());
          
           ?>
         </ul>
-            <?php  endif;
-
-            wp_reset_query();  }?>
+           <?php wp_reset_query();  ?>
       </div>
       </div>
     </div>
@@ -254,8 +252,8 @@ $topics = wp_get_post_tags(get_the_ID());
     </div>
   </div>
 </div>
-          <!-- releted news -->
-  </div>
+<?php }}?>          <!-- releted news -->
+</div>
   
 
 

@@ -495,17 +495,19 @@ border: 1px solid deepskyblue;
             function phone_validate() 
             { 
               var mobNum = $('#user_mobile').val();
-                  var filter = /^\d*(?:\.\d{1,2})?$/;
+                  var filter = /^(?!0+$)\d{8,}$/;
 
-                  if (filter.test(mobNum)) {
-                      if(mobNum.length!=10){
-                        $("#errMobileMsg").text("Please enter 10 digit mobile number");
-                          return false;
-                      } 
-                  }
-                  else{
+                  if (!filter.test(mobNum)) {
                       $("#errMobileMsg").text('Not a valid number');
                       return false;
+                  }
+                  else if(mobNum.length!=10){
+                    $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                      return false;
+                  } 
+                  else{
+                    $("#errMobileMsg").text("");
+                    return true;
                   }
             }
 
@@ -627,6 +629,10 @@ border: 1px solid deepskyblue;
             }); 
 
             $("#profile_submit").click(function(){
+              if(phone_validate() != true){
+                return false;
+              }
+              else{
                 $("#profile_submit").html("Please wait...");
                 $("#profile_submit").attr("disabled", "disabled");
                 
@@ -676,7 +682,8 @@ border: 1px solid deepskyblue;
                             }, 5000);
                         }
                     }
-                });             
+                });       
+              }      
             });
 
         });

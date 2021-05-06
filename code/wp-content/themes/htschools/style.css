@@ -1155,7 +1155,7 @@ Course Details
 .fixed_banner .breadcrumbs li a{
   /*text-decoration: underline;*/
 }
-.fixed_banner .breadcrumbs ol li:after{color: #fff;}
+.fixed_banner .breadcrumbs ol li:after{color: #fff;display:none}
 .fixed_banner .content{padding: 0px;}
 .fixed_banner h2{
   font-size: 30px;
@@ -1174,7 +1174,7 @@ Course Details
   line-height: 1.29!important;
   letter-spacing: normal!important;
   color: #fff!important;
-  margin:0px 0px 15px 0px!important;
+  margin:0px 0px 0 0px!important;
 }
 /*.fixed_banner .courseDetail_border{
   display: block;
@@ -1188,7 +1188,7 @@ Course Details
     display: block;
     float: left;
     width: 100%;    
-    margin: 0px;
+    margin: 15px 0 0 0;
 }
 .fixed_banner.course_fixedBanner .content li{
     display: block;
@@ -2445,6 +2445,9 @@ padding-top: 50px;
     letter-spacing: normal;
     text-align: left;
     color: #000000;
+}
+.details-middle ul{
+  display: flex;flex-wrap: wrap;
 }
 .details-middle ul li{
     display: inline-block;
@@ -4614,8 +4617,9 @@ div.nsl-container .nsl-container-buttons{
     font-size: 42px;
     line-height: 34px;
     color: #fff;
-        margin: 15px 0px;
+        margin: 15px 0px 0;
 }
+.category-news .border_text{margin-bottom: 15px;}
 .news-main .category-news .content-left .pagetitle h5{
     font-size: 17px!important;
     line-height: 22px!important;

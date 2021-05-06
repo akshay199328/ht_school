@@ -857,7 +857,7 @@ width: auto;
     letter-spacing: normal;
     text-align: left;
     color: #000000;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
         /* margin-top: 60px; */
 }
 
@@ -1150,7 +1150,7 @@ Course Details
     transition: all 0.5s ease;
 }
 .fixed_banner .breadcrumbs {
-    padding: 0px 0 15px 0;
+    padding: 0px 0px;
 }
 .fixed_banner .breadcrumbs li a{
   /*text-decoration: underline;*/
@@ -1174,7 +1174,7 @@ Course Details
   line-height: 1.29!important;
   letter-spacing: normal!important;
   color: #fff!important;
-  margin:0px 0px 20px 0px!important;
+  margin:0px 0px 15px 0px!important;
 }
 /*.fixed_banner .courseDetail_border{
   display: block;
@@ -1185,10 +1185,10 @@ Course Details
     float: left;
 }*/
 .fixed_banner.course_fixedBanner ul {
-    
     display: block;
     float: left;
-    width: 100%;
+    width: 100%;    
+    margin: 0px;
 }
 .fixed_banner.course_fixedBanner .content li{
     display: block;
@@ -1203,7 +1203,7 @@ Course Details
     
 }
 
-.fixed_banner h2{margin-bottom: 30px;    /*margin-top: 20px;*/}
+.fixed_banner h2{margin-bottom: 0px;margin-top: 20px;}
 .fixed_banner li p{
   font-size: 14px!important;
   line-height: 1.36!important;
@@ -2439,8 +2439,8 @@ section.latest-news{
 .details-middle ul li{
     display: inline-block;
     width: 100%;
-    border-bottom: 1px dashed rgb(112 112 112 / 50%);
-    padding: 20px 18px 8.5px 0px;
+    border-bottom: 1px dotted rgb(112 112 112 / 50%);
+    padding: 20px 18px 20px 0px;
     /*margin-right: 47px;*/
 }
 .details-middle ul li:last-child
@@ -2455,7 +2455,7 @@ section.latest-news{
     padding: 0px 0px 10px;
 }
 .homeDetails-left .link {
-    margin-top: 26.9px;
+    margin-top: 20px;
 }
 .details-middle ul li p{
     font-size: 11px;
@@ -2466,7 +2466,7 @@ section.latest-news{
     letter-spacing: 0.55px;
     text-align: left;
     color: #000000;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-transform:uppercase
 }
 .news_advertisment .pull-left {
@@ -4905,7 +4905,7 @@ border-color: transparent;
 }
 .news_three_data li:nth-last-child(2), .news_three_data li:nth-last-child(3){border-bottom: 0px}
 .details-middle ul li:nth-child(2), .details-middle ul li:nth-child(1){
-  border-bottom:1px dashed rgb(112 112 112 / 50%) !important
+  border-bottom:1px dotted rgb(112 112 112 / 50%) !important
 }
 /*------------CART CSS : START-------------*/
 
@@ -6842,7 +6842,7 @@ h6:empty,
 .paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}
 .start_time_none{display: none!important;}
 .all_course_page{    padding-top: 30px;}
-
+.all_course_page .course-box{margin-bottom: 10px;}
 #Popular-Courses.all_course_page .row {
     margin-right: 0px;
     margin-left: 0px;

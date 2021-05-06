@@ -110,9 +110,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                        ?>
 
                     </ul>
-                    <ul class="border-link">
+                    <!-- <ul class="border-link">
                         <p>© HT Media Limited All rights reserved.</p>
-                    </ul>
+                    </ul> -->
                 </div>
             </ul>
         </div>

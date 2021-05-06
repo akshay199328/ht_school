@@ -491,13 +491,13 @@ function reg_send_otp(){
     $subject = "HT School | One Time Password";
     $headers = 'From: '. $fromEmail . "\r\n";
 
-    // ob_start();
-    // include('email-templates/otp-confirmation.php');
-    // $email_content = ob_get_contents();
-    // ob_end_clean();
-    // add_filter( 'wp_mail_content_type', 'set_html_content_type' );
-    $sent = wp_mail($requestEmail, $subject, $message, $headers);
-    //remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+    ob_start();
+    include('email-templates/otp-confirmation.php');
+    $email_content = ob_get_contents();
+    ob_end_clean();
+    add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+    $sent = wp_mail($requestEmail, $subject, $email_content, $headers);
+    remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
         if($sent) {
           $response['status'] = 1;
           $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $requestEmail . '. Please enter the OTP to verify your email address.';

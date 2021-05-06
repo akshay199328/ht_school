@@ -332,7 +332,7 @@
                                 <tr>
                                     <td class="logo" style="text-align: center;">
                                         <h1>
-                                            <a href="#"><img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/04/Header-logo-big_Web.png"/></a>
+                                            <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo-big_Web.png"/></a>
                                         </h1>
                                     </td>
                                 </tr>
@@ -342,7 +342,7 @@
                     <!-- end tr -->
                     <tr>
                         <td valign="middle" class="hero bg_white" style="padding: 0;">
-                            <img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/04/logo-news-letter.png" alt="" style="width: 100%; max-width: 341px; height: auto; margin: auto; display: block;" />
+                            <img src="https://ht.fortune4.org/wp-content/uploads/2021/04/logo-news-letter.png" alt="" style="width: 100%; max-width: 341px; height: auto; margin: auto; display: block;" />
                         </td>
                     </tr>
                     <!-- end tr -->
@@ -403,16 +403,16 @@
                                         <span style="display: block;">
                                             <ul style="display: flex; list-style-type: none; padding: 0;">
                                                 <li>
-                                                    <a href="#" style="margin-right: 13px;"><img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/04/icon-linkedin.svg" /></a>
+                                                    <a href="#" style="margin-right: 13px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/linkdin.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" style="margin-right: 15px;"><img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/04/icon-twitter.svg" /></a>
+                                                    <a href="#" style="margin-right: 15px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/twitter.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" style="margin-right: 15px;"><img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/04/icon-facebook.svg" /></a>
+                                                    <a href="#" style="margin-right: 15px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/facebook.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" style="margin-right: 15px;"><img src="<?php echo get_bloginfo('url')?>/wp-content/uploads/2021/04/icon-instagram.svg" /></a>
+                                                    <a href="#" style="margin-right: 15px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a>
                                                 </li>
                                             </ul>
                                         </span>

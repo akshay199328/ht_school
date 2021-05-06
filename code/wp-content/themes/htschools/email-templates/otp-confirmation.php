@@ -341,7 +341,7 @@
                                 <tr>
                                     <td class="logo" style="text-align: center;">
                                         <h1>
-                                            <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo-big_Web.png"/></a>
+                                            <a href="<?php echo get_bloginfo('url')?>"><img src="https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo-big_Web.png"/></a>
                                         </h1>
                                     </td>
                                 </tr>
@@ -411,10 +411,10 @@
                                         <span style="font-family: Arial; font-size: 10px; color: #d5ebff;">Copyright © 2021 HTDSL. All rights reserved.</span>
                                         <span style="display: block;">
                                             <ul style="font-family: Arial; display: flex; list-style-type: none; color: #d5ebff; padding: 0; font-size: 10px;">
-                                                <li style="margin-left:0px;"><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Terms and Conditions</a></li>
-                                                <li  style="margin-left:0px;" durationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Privacy Policy</a></li>
+                                                <li style="margin-left:0px;"><a href="<?php echo get_bloginfo('url')?>/terms-of-use" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Terms and Conditions</a></li>
+                                                <li  style="margin-left:0px;" durationParameter><a href="<?php echo get_bloginfo('url')?>/privacy-policy" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Privacy Policy</a></li>
                                                 <li  style="margin-left:0px;" durationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Disclaimer</a></li>
-                                                <li  style="margin-left:0px;" durationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Contact Us</a></li>
+                                                <li  style="margin-left:0px;" durationParameter><a href="<?php echo get_bloginfo('url')?>/contact-us" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Contact Us</a></li>
                                             </ul>
                                         </span>
                                     </td>
@@ -422,16 +422,16 @@
                                         <span style="display: block;">
                                             <ul style="display: flex; list-style-type: none; padding: 0;margin: 0;">
                                                 <li>
-                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/linkdin.png" /></a>
+                                                    <a href="https://www.linkedin.com/company/htschool"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/linkdin.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/twitter.png" /></a>
+                                                    <a href="https://twitter.com/htschool1"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/twitter.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/facebook.png" /></a>
+                                                    <a href="https://www.facebook.com/HTSchool-111960910982690/"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/facebook.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a>
+                                                    <a href="https://www.instagram.com/ht.school/"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a>
                                                 </li>
                                             </ul>
                                         </span>

@@ -1026,7 +1026,7 @@ function save_custom_profile(){
             && trim($_REQUEST['user_school']) != ""
       ){
             $response['profile_complete'] = 1;
-          }
+      }
 
         $response['status'] = 1;
         $response['message'] = 'Profile updated successfully.';
@@ -1895,10 +1895,9 @@ function cb_course_delivery($email, $courseId, $authToken){
     }
 }
 
-/*add_filter( 'wpcf7_validate_text*', 'custom_website_validation_filter', 20, 2 );
+add_filter( 'wpcf7_validate_text*', 'custom_website_validation_filter', 20, 2 );
 function custom_website_validation_filter( $result, $tag ) {
   if ($tag->name == 'PinCode' ) {
-
     $inPostalCode = $_POST['PinCode'];
     if($inPostalCode != '') {
         if(!preg_match('/^[0-9]{6,6}$/', $inPostalCode)) {
@@ -1907,5 +1906,33 @@ function custom_website_validation_filter( $result, $tag ) {
     }
   }
 
+  if ( 'your-name' == $tag->name ) {
+    $your_name = isset( $_POST['your-name'] ) ? trim( $_POST['your-name'] ) : '';
+
+    if (preg_match('/[0-9]/', $your_name)) {
+    $result->invalidate( $tag, "Please enter valid name" );
+
+    }
+  }
+
   return $result;
-}*/
+}
+
+function custom_phone_validation($result,$tag){
+
+    $type = $tag->type;
+    $name = $tag->MobileNumber;
+
+    if($type == 'tel' || $type == 'tel*'){
+
+        $phoneNumber = isset( $_POST[$name] ) ? trim( $_POST[$name] ) : '';
+
+        $phoneNumber = preg_replace('/[() .+-]/', '', $phoneNumber);
+            if (strlen((string)$phoneNumber) != 10) {
+                $result->invalidate( $tag, 'Please enter a valid mobile number.' );
+            }
+    }
+    return $result;
+}
+add_filter('wpcf7_validate_tel','custom_phone_validation', 10, 2);
+add_filter('wpcf7_validate_tel*', 'custom_phone_validation', 10, 2);

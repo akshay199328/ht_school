@@ -74,11 +74,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			.list li{border: 1px dotted #707070;padding: 10px;margin-right: 12px;}
 			.black{font-weight:700}
 			.order-title{    margin-right: 5px;font-weight: 500;}
-			.yellow-patch{    width: 15%;   height: 59%;
-			background-color: #FADE3B;
-			position: absolute;
-			top: 0;left: 0; 
-			
+			.yellow-patch{    
+				position: absolute;
+			    top: 0;
+			    width: 15%;
+			    height: 59%;
+			    background-color: #fade3b;
+			    writing-mode: tb-rl;
 			}
 			.yellow-patch h1{margin: 0;
 				text-align: left;
@@ -88,13 +90,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 			letter-spacing: 14px;}
 
-			.black-patch{background-color: #000;
-			    position: absolute;
-				bottom: 0;
-				width: 8%;
-				height: 41%;
-				text-align: center;
-				left:0;
+			.black-patch{
+				position: absolute;
+			    background-color: #000;
+			    width: 8%;
+			    height: 41%;
+			    bottom: 0;
+			    writing-mode: tb-rl;
 		}
 		.black-patch h4{color: #fff;
     letter-spacing: 2px;
@@ -212,7 +214,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             }
         </style>
     </head>
-    <body class="clean-body" style="margin: 0; padding: 0;position: relative; -webkit-text-size-adjust: 100%;  background-image: url('https://ht.fortune4.org/wp-content/uploads/2021/05/bg-2.png');background-size: auto;background-repeat: no-repeat;max-width: 600px;margin: 0 auto;background-position: bottom;">
+    
+    <body class="clean-body" style="margin: 0; padding: 0;position: relative; -webkit-text-size-adjust: 100%;  background-image: url('https://ht.fortune4.org/wp-content/uploads/2021/05/bg1-svg.jpg');background-size: auto;background-repeat: no-repeat;max-width: 58%;margin: 0 auto;background-position: top;">
         <!--[if IE]><div class="ie-browser"><![endif]-->
         <table
            
@@ -228,14 +231,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <tr style="vertical-align: top;" valign="top">
                     <td style="word-break: break-word; vertical-align: top;" valign="top">
 						<div>
-								<div class="yellow-patch" style="writing-mode: tb-rl;">
+								<!-- <div class="yellow-patch" style="writing-mode: tb-rl;">
 									<h1 style="transform: rotate(180deg);">INVOICE</h1>
 								</div>
 								<div class="black-patch" style="writing-mode: tb-rl;">
 									<h4 style="transform: rotate(180deg);">LEARNING FOR EVERYONE</h4>
 								</div>
 								<div style="font-family: Arial; font-size: 35px; color: #000; font-weight: bold; text-align: center; padding-bottom: 50px; margin-bottom: 0; margin-top: 0;"></div>
-								<div style="height:70%;width:60px;background-color: #78A1C6;position: absolute;bottom:0;right:0"></div>
+								<div style="height:70%;width:60px;background-color: #78A1C6;position: absolute;bottom:0;right:0"></div> -->
 
 								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#FFFFFF"><![endif]-->
 								<div style="padding: 20px 76px 86px 106px;">

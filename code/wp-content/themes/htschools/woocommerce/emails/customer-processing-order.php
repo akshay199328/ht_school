@@ -215,7 +215,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </style>
     </head>
     
-    <body class="clean-body" style="margin: 0; padding: 0;position: relative; -webkit-text-size-adjust: 100%;  background-image: url('https://ht.fortune4.org/wp-content/uploads/2021/05/bg1-svg.jpg');background-size: auto;background-repeat: no-repeat;max-width: 58%;margin: 0 auto;background-position: top;">
+    <body class="clean-body" style="margin: 0; padding: 0;position: relative; -webkit-text-size-adjust: 100%;  background-image: url('https://ht.fortune4.org/wp-content/uploads/2021/05/bg12-svg.jpg');background-size: auto;background-repeat: no-repeat;max-width: 58%;margin: 0 auto;background-position: top;">
         <!--[if IE]><div class="ie-browser"><![endif]-->
         <table
            

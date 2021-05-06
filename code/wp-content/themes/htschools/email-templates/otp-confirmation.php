@@ -342,11 +342,11 @@
                                                     <p style="margin: 0;">to register on HT School.</p> 
                                                   </td> 
                                                 </tr> 
-                                                <tr style="font-family: Arial; color: #ff2c2c;font-size: 12px; letter-spacing: 0.78px; text-align: center; margin-left: -7%;">  
+                                                <!-- <tr style="font-family: Arial; color: #ff2c2c;font-size: 12px; letter-spacing: 0.78px; text-align: center; margin-left: -7%;">  
                                                   <td colspan="3">  
                                                     Valid For 10 minutes only 
                                                   </td> 
-                                                </tr> 
+                                                </tr> --> 
                                               </tbody>  
                                             </table>  
                                               

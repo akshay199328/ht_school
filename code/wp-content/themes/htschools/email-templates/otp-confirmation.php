@@ -187,7 +187,7 @@
             a{
               color: #30e3ca;
             }
-
+           
             table{
             }
             /*LOGO*/
@@ -309,20 +309,26 @@
             .footer ul li a{
               color: rgba(0,0,0,1);
             }
+            .align_tr{
+              display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+            }
             table .adm {
                 margin: 0px;
                 display: none;
             }
 
-            @media screen and (max-width: 500px) {
-
+            @media screen and (max-width: 767px) {
+              .otp_td td{}
 
             }
         </style>
     </head>
 
     <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f1f1f1;">
-        <center style="width: 100%; background-color: #f1f1f1;">
+        <center style="width: 100%; background-color: #f1f1f1; padding: 50px 0px;">
             <div style="display: none; font-size: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
                 &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
             </div>
@@ -355,21 +361,25 @@
                                 <tr>
                                     <td>
                                         <div class="text" style="padding: 0 40px;">
-                                            <h2 style="font-family: Arial; font-size: 35px; font-weight: bold; text-align: center; padding-bottom: 50px; margin-bottom: 0; margin-top: 0;">Verify Your Email</h2>
+                                            <h2 style="font-family: Arial; font-size: 35px; color: #000; font-weight: bold; text-align: center; padding-bottom: 50px; margin-bottom: 0; margin-top: 0;">Verify Your Email</h2>
                                             <p style="font-family: Arial; font-size: 18px; margin-top: 0; color: #000;">Hi <?php echo $requestEmail;?>,</p>
-                                            <p style="font-family: Arial; font-size: 18px; margin-top: 0; color: #000; margin-bottom: 0;">
-                                                Please use the OTP
-                                                <span style="        font-family: Arial;
-    padding: 10px 15px;
-    background-color: #d5ebff;
-    color: #000000;
-    font-weight: bold;
-    margin: 0 10px;
-    letter-spacing: 12px;
-    width: 121px;
-    position: relative;
-    display: inline-block;">
-                                                  <?php echo $newOTP;?>
+                                            <table class="otp_td">
+                                              <tbody>
+                                                <tr style="font-family: Arial; font-size: 18px; color: #000000; font-weight: normal;  ">
+                                                  <td >
+                                                    <p style="margin: 0;">Please use the OTP</p>
+                                                  </td>
+                                                  <td >
+                                                    <p style="letter-spacing: 12px; padding: 10px 3px 10px 15px; margin: 0 10px; background-color: #d5ebff; font-weight: bold;"><?php  echo $newOTP;?></p>
+                                                  </td>
+                                                  <td>
+                                                    <p style="margin: 0;">to register on HT School.</p>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            
+                                                  
                                                     <!-- <span style="font-family: Arial; padding: 10px 15px; background-color: #d5ebff; color: #000000; font-weight: bold; margin: 0 10px;">
                                                         <span style="margin-right: 12px;">2</span>
                                                         <span style="margin-right: 12px;">0</span>
@@ -378,11 +388,8 @@
                                                         <span style="margin-right: 12px;">3</span>
                                                         <span>0</span>
                                                     </span> -->
-                                                </span>
-                                                to register on HT School.
-                                            </p>
-                                            <p style="margin-top: 9px; margin-left: -34px;">
-                                                <span style="font-family: Arial; color: #ff2c2c; font-weight: lighter; font-size: 12px; letter-spacing: 0.78px; text-align: center; display: block;position: relative;left: -31px;">Valid For 10 minutes only</span>
+                                            <p style="font-family: Arial; color: #ff2c2c;font-size: 12px; letter-spacing: 0.78px; text-align: center; margin-left: -7%;">
+                                                <span style="margin-left:-3%;">Valid For 10 minutes only</span>
                                             </p>
                                             <p style="font-family: Arial; font-size: 18px; margin-top: 0; margin-bottom: 0px; color: #000;">Happy Learning!</p>
                                             <p style="font-family: Arial; font-size: 18px; margin-top: 0; font-weight: bold; color: #000; margin-bottom: 0;">Team HT School</p>
@@ -399,19 +406,19 @@
                     <tr style="width:100%">
                         <td style="padding: 19px 40px;">
                             <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
-                                <tr style="display: flex;justify-content: space-between;align-items: center;">
-                                    <td valign="middle">
+                                <tr class="align_tr" style="display: block;">
+                                    <td valign="middle" style="float: left;">
                                         <span style="font-family: Arial; font-size: 10px; color: #d5ebff;">Copyright © 2021 HTDSL. All rights reserved.</span>
                                         <span style="display: block;">
                                             <ul style="font-family: Arial; display: flex; list-style-type: none; color: #d5ebff; padding: 0; font-size: 10px;">
                                                 <li style="margin-left:0px;"><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Terms and Conditions</a></li>
-                                                <lidurationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Privacy Policy</a></li>
-                                                <lidurationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Disclaimer</a></li>
-                                                <lidurationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Contact Us</a></li>
+                                                <li  style="margin-left:0px;" durationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Privacy Policy</a></li>
+                                                <li  style="margin-left:0px;" durationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Disclaimer</a></li>
+                                                <li  style="margin-left:0px;" durationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Contact Us</a></li>
                                             </ul>
                                         </span>
                                     </td>
-                                    <td valign="middle" style="background-color: #000000;">
+                                    <td valign="middle" style="background-color: #000000;float: right;">
                                         <span style="display: block;">
                                             <ul style="display: flex; list-style-type: none; padding: 0;margin: 0;">
                                                 <li>

@@ -71,7 +71,7 @@ get_header(vibe_get_header());
                               <?php if($duration == '') { ?>
                               <h6>--</h6>
                               <?php } else{ ?>
-                              <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration_time($durationParameter); }?> </span></h6>
+                              <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
                               <?php }?>
                             </div>
                             <div class="pull-right">

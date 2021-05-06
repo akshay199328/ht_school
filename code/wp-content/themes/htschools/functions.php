@@ -1934,3 +1934,21 @@ function custom_phone_validation($result,$tag){
 }
 add_filter('wpcf7_validate_tel','custom_phone_validation', 10, 2);
 add_filter('wpcf7_validate_tel*', 'custom_phone_validation', 10, 2);
+
+if(!function_exists('calculate_duration')){
+  function calculate_duration($seconds) {
+    switch($seconds){
+      case 1: $return = __('Seconds','wplms');break;
+      case 60: $return = __('Minutes','wplms');break;
+      case 3600: $return = __('Hours','wplms');break;
+      case 86400: $return = __('Days','wplms');break;
+      case 604800: $return = __('Weeks','wplms');break;
+      case 2592000: $return = __('Months','wplms');break;
+      case 31536000: $return = __('Years','wplms');break;
+      default:
+      $return = apply_filters('vibe_calculation_duration_default',$return,$seconds);
+      break;
+    }
+    return $return;
+  } 
+}

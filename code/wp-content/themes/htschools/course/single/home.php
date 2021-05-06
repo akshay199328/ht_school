@@ -134,7 +134,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <a class="nav-link scrollto active" href="#overview">Overview</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#objective">Objective</a>
+                                    <a class="nav-link scrollto" href="#objective">Objectives</a>
                                   </li>
                                   <li class="nav-item">
                                     <a class="nav-link scrollto" href="#curriculum">Curriculum</a>

@@ -1972,7 +1972,9 @@
     position: absolute;
     font-size: 30px;*/
     content: "";
-    background: url('../../assets/images/thums-up.svg')
+    background: url('../../assets/images/thums-up.svg');
+    width: 27.33px;
+    height: 25.97px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

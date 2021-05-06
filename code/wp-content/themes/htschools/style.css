@@ -6785,10 +6785,11 @@ h6:empty,
       max-width: 16.666667%;
   }
   .course-box .col-lg-10, .blogpost .col-sm-10 {
-      -webkit-box-flex: 0;
-      -ms-flex: 0 0 83.333333%;
-      flex: 0 0 83.333333%;
-      max-width: 83.333333%;
+      	-webkit-box-flex: 0;
+      	-ms-flex: 0 0 83.333333%;
+      	flex: 0 0 83.333333%;
+      	max-width: 83.333333%;
+        position: relative;
   }
   .competitive .col-sm-8, .social-links .col-sm-8 {
       -webkit-box-flex: 0;

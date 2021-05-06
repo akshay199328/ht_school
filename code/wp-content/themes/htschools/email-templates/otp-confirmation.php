@@ -382,7 +382,7 @@
                                                 to register on HT School.
                                             </p>
                                             <p style="margin-top: 9px; margin-left: -34px;">
-                                                <span style="font-family: Arial; color: #ff2c2c; font-weight: lighter; font-size: 12px; letter-spacing: 0.78px; text-align: center; display: block;">Valid For 10 minutes only</span>
+                                                <span style="font-family: Arial; color: #ff2c2c; font-weight: lighter; font-size: 12px; letter-spacing: 0.78px; text-align: center; display: block;position: relative;left: -31px;">Valid For 10 minutes only</span>
                                             </p>
                                             <p style="font-family: Arial; font-size: 18px; margin-top: 0; margin-bottom: 0px; color: #000;">Happy Learning!</p>
                                             <p style="font-family: Arial; font-size: 18px; margin-top: 0; font-weight: bold; color: #000; margin-bottom: 0;">Team HT School</p>
@@ -396,10 +396,10 @@
                     <!-- 1 Column Text + Button : END -->
                 </table>
                 <table style="background-color: #000000;">
-                    <tr>
+                    <tr style="width:100%">
                         <td style="padding: 19px 40px;">
                             <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
-                                <tr style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                                <tr style="display: flex;justify-content: space-between;align-items: center;">
                                     <td valign="middle">
                                         <span style="font-family: Arial; font-size: 10px; color: #d5ebff;">Copyright © 2021 HTDSL. All rights reserved.</span>
                                         <span style="display: block;">
@@ -415,16 +415,16 @@
                                         <span style="display: block;">
                                             <ul style="display: flex; list-style-type: none; padding: 0;margin: 0;">
                                                 <li>
-                                                    <a href="#" style="margin-right: 13px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/linkdin.png" /></a>
+                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/linkdin.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" style="margin-right: 15px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/twitter.png" /></a>
+                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/twitter.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" style="margin-right: 15px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/facebook.png" /></a>
+                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/facebook.png" /></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" style="margin-right: 15px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a>
+                                                    <a href="#"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a>
                                                 </li>
                                             </ul>
                                         </span>

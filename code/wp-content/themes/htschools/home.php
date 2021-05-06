@@ -64,7 +64,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
        <header class="section-header">
         <h2>TRENDING COURSES</h2> 
         <p>Access the world’s activities, anytime anywhere.</p>
-        <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover Courses</a>
+        <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover All Courses</a>
       </header>
       <div class="adworks">
         <?php

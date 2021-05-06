@@ -1155,7 +1155,7 @@ Course Details
 .fixed_banner .breadcrumbs li a{
   /*text-decoration: underline;*/
 }
-.fixed_banner .breadcrumbs ol li:after{color: #fff;}
+.fixed_banner .breadcrumbs ol li:after{color: #fff;display:none}
 .fixed_banner .content{padding: 0px;}
 .fixed_banner h2{
   font-size: 30px;
@@ -1174,7 +1174,7 @@ Course Details
   line-height: 1.29!important;
   letter-spacing: normal!important;
   color: #fff!important;
-  margin:0px 0px 15px 0px!important;
+  margin:0px 0px 0 0px!important;
 }
 /*.fixed_banner .courseDetail_border{
   display: block;
@@ -1188,7 +1188,7 @@ Course Details
     display: block;
     float: left;
     width: 100%;    
-    margin: 0px;
+    margin: 15px 0 0 0;
 }
 .fixed_banner.course_fixedBanner .content li{
     display: block;
@@ -1359,18 +1359,19 @@ Course Details
 .about-details .course-for{
   float: left;
   margin: 30px 0 30px;
-  padding: 16px 80px 24px 20px;
+  padding: 16px 80px 40px 20px;
   
 }
 .course-for h5{
     font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1;
+	letter-spacing: normal;
+	text-align: left;
+	color: #000000;
+	margin-bottom: 2px;
 
 }
 .course-for p{
@@ -1457,7 +1458,7 @@ Course Details
 .learing-goals .list ul,
 .content-default-list ul
 {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .learing-goals .list li,
 .content-default-list li
@@ -1541,7 +1542,7 @@ Course Details
     width: 60%;
 }
 .course-curriculum, .learing-goals, .course-instructor, .other-courses{
-    padding: 30px 0px;
+    padding: 40px 0px;
     float: left;
     width: 100%;
 }
@@ -1580,7 +1581,9 @@ Course Details
   color: #0c5acc;
 }
 .other-courses .list{
-  padding-top: 28.5px
+      padding-top: 30px;
+    float: left;
+    width: 100%;
 }
 .other-courses .list .card{
   float: left;
@@ -1595,6 +1598,9 @@ Course Details
 .details{
     padding: 10px 0px;
 }
+.other-courses .list .details{
+	padding:0px;
+}
 .other-courses .list .card:first-child{
   padding-left: 0px;
 }
@@ -1607,21 +1613,22 @@ Course Details
   line-height: 1.36;
   letter-spacing: 0.55px;
   margin-bottom: 10px;
+  margin-top: 0;
   text-transform: uppercase;
 }
 .other-courses .list a img{
   /*height: 120px;*/
 }
 .other-courses .list h3{
-  position: relative;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  padding: 10px 0px 15px 0px;
-  min-height: 107px;
+  	position: relative;
+  	font-size: 20px;
+  	font-weight: bold;
+  	font-stretch: normal;
+  	font-style: normal;
+  	line-height: 1;
+  	letter-spacing: normal;
+    padding: 30px 0px 15px 0px;
+    min-height: auto;
 }
 .other-courses .list h3:after{
   content: '';
@@ -2345,6 +2352,9 @@ button.progress_key_3
 section.latest-news{
     padding:0px 0px 20px;
 }
+.latest-news .latest-news .center{
+padding-top: 50px;
+}
 .customNews_tab .latest-news{
     background: #fff;
         float: left;
@@ -2436,12 +2446,19 @@ section.latest-news{
     text-align: left;
     color: #000000;
 }
+.details-middle ul{
+  display: flex;flex-wrap: wrap;
+}
 .details-middle ul li{
     display: inline-block;
     width: 100%;
     border-bottom: 1px dotted rgb(112 112 112 / 50%);
     padding: 20px 18px 20px 0px;
+    float: left;
     /*margin-right: 47px;*/
+}
+.details-middle ul li:nth-child(2n+2){
+
 }
 .details-middle ul li:last-child
 {
@@ -4600,8 +4617,9 @@ div.nsl-container .nsl-container-buttons{
     font-size: 42px;
     line-height: 34px;
     color: #fff;
-        margin: 15px 0px;
+        margin: 15px 0px 0;
 }
+.category-news .border_text{margin-bottom: 15px;}
 .news-main .category-news .content-left .pagetitle h5{
     font-size: 17px!important;
     line-height: 22px!important;
@@ -7079,3 +7097,4 @@ textarea:focus {
   margin-bottom: 16px;}
 
   .woocommerce-form-coupon-toggle{display: none;}
+  .new-add{margin-top: 20px!important;}

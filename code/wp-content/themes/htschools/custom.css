@@ -71,7 +71,8 @@ nav .menu li:last-child a{/*padding-right: 0px!important;*/}
 }
 .custom-dropdown.active a:after,
 .course-template-default .my-course a:after,
-.course-template-default .custom-dropdown a:after
+.course-template-default .custom-dropdown a:after,
+.my-course.active a:after
 {
     border-bottom: 1px solid #fff;
 }

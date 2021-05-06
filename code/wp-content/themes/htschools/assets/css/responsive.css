@@ -1,7 +1,4 @@
-.details-middle ul li{
-	/* padding: 20px 18px 18px 0px !important; */
-	padding: 18.5 18px 12.5 0px !important;
-}
+
 .details-middle ul li .link a{
 	min-height: auto;
 }
@@ -719,9 +716,6 @@ span.wpcf7-form-control-wrap.recaptcha {
 			.news_latest-news .details-middle ul li{
 				width: 100%;
 			}
-	/*section.latest-news{
-		padding: 20px 20px !important;
-		}*/
 		.col-sm-12.col-lg-8.Interview_blog {
 			padding: 0px;
 		}
@@ -747,9 +741,8 @@ span.wpcf7-form-control-wrap.recaptcha {
 		.search_section input{
 			padding: 0px 81px 10px !important;
 		}
-		.details-middle ul li:last-child{
-			/* padding-bottom: 0px!important; */
-		}
+		
+		
 		/*home slider*/
 		.hero-list .owl-nav button span {
 			padding: 4px 7px;

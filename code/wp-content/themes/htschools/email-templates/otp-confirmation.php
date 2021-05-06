@@ -309,7 +309,10 @@
             .footer ul li a{
               color: rgba(0,0,0,1);
             }
-
+            table .adm {
+                margin: 0px;
+                display: none;
+            }
 
             @media screen and (max-width: 500px) {
 
@@ -323,9 +326,9 @@
             <div style="display: none; font-size: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
                 &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
             </div>
-            <div style="max-width: 650px; margin: 0 auto; border: 2px solid #ddd; border-bottom: 0;" class="email-container">
+            <div style="max-width: 650px; margin: 50px auto; border: 2px solid #ddd; border-bottom: 0;" class="email-container">
                 <!-- BEGIN BODY -->
-                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
+                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;background: #fff;width:100%">
                     <tr>
                         <td valign="top" class="bg_white" style="padding: 30px 2.5em 0 2.5em;">
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -348,7 +351,7 @@
                     <!-- end tr -->
                     <tr>
                         <td valign="middle" class="hero bg_white" style="padding: 0em 0 50px 0;">
-                            <table>
+                            <table width="100%" style="width: 100%;">
                                 <tr>
                                     <td>
                                         <div class="text" style="padding: 0 40px;">
@@ -356,7 +359,16 @@
                                             <p style="font-family: Arial; font-size: 18px; margin-top: 0; color: #000;">Hi <?php echo $requestEmail;?>,</p>
                                             <p style="font-family: Arial; font-size: 18px; margin-top: 0; color: #000; margin-bottom: 0;">
                                                 Please use the OTP
-                                                <span>
+                                                <span style="        font-family: Arial;
+    padding: 10px 15px;
+    background-color: #d5ebff;
+    color: #000000;
+    font-weight: bold;
+    margin: 0 10px;
+    letter-spacing: 12px;
+    width: 121px;
+    position: relative;
+    display: inline-block;">
                                                   <?php echo $newOTP;?>
                                                     <!-- <span style="font-family: Arial; padding: 10px 15px; background-color: #d5ebff; color: #000000; font-weight: bold; margin: 0 10px;">
                                                         <span style="margin-right: 12px;">2</span>
@@ -392,16 +404,16 @@
                                         <span style="font-family: Arial; font-size: 10px; color: #d5ebff;">Copyright © 2021 HTDSL. All rights reserved.</span>
                                         <span style="display: block;">
                                             <ul style="font-family: Arial; display: flex; list-style-type: none; color: #d5ebff; padding: 0; font-size: 10px;">
-                                                <li><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Terms and Conditions</a></li>
-                                                <li><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Privacy Policy</a></li>
-                                                <li><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Disclaimer</a></li>
-                                                <li><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Contact Us</a></li>
+                                                <li style="margin-left:0px;"><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Terms and Conditions</a></li>
+                                                <lidurationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Privacy Policy</a></li>
+                                                <lidurationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Disclaimer</a></li>
+                                                <lidurationParameter><a href="#" style="color: #d5ebff; text-decoration: none; margin-right: 17px; display: block; line-height: 13px;">Contact Us</a></li>
                                             </ul>
                                         </span>
                                     </td>
                                     <td valign="middle" style="background-color: #000000;">
                                         <span style="display: block;">
-                                            <ul style="display: flex; list-style-type: none; padding: 0;">
+                                            <ul style="display: flex; list-style-type: none; padding: 0;margin: 0;">
                                                 <li>
                                                     <a href="#" style="margin-right: 13px;"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/linkdin.png" /></a>
                                                 </li>

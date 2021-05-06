@@ -63,6 +63,7 @@ get_header(vibe_get_header());
                     if($statuses[$post->ID]>2){$progress = 100;}
                     $custom_fields = get_post_custom();
                     $duration = $custom_fields['vibe_duration'][0];
+                    $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
                     $session = $custom_fields['vibe_course_sessions'][0]; ?>
                   <div class="course-box dotted-border">
                     <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
@@ -89,7 +90,7 @@ get_header(vibe_get_header());
                                 <?php if($duration == '') { ?>
                                 <h6>--</h6>
                                 <?php } else{ ?>
-                                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
+                                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration_time($durationParameter); }?> </span></h6>
                                 <?php }?>
                             </div>
                             <div class="pull-right">

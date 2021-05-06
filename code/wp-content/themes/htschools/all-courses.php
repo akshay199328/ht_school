@@ -39,6 +39,7 @@ get_header(vibe_get_header());
                     if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                       $custom_fields = get_post_custom();
                       $duration = $custom_fields['vibe_duration'][0];
+                      $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
                       $session = $custom_fields['vibe_course_sessions'][0];
                       $age_limit = $custom_fields['vibe_course_age_group'][0];
                       $category_array = get_the_terms( $post->ID, 'course-cat');
@@ -70,7 +71,7 @@ get_header(vibe_get_header());
                               <?php if($duration == '') { ?>
                               <h6>--</h6>
                               <?php } else{ ?>
-                              <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
+                              <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration_time($durationParameter); }?> </span></h6>
                               <?php }?>
                             </div>
                             <div class="pull-right">

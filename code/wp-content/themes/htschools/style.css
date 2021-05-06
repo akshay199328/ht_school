@@ -2352,6 +2352,9 @@ button.progress_key_3
 section.latest-news{
     padding:0px 0px 20px;
 }
+.latest-news .latest-news .center{
+padding-top: 50px;
+}
 .customNews_tab .latest-news{
     background: #fff;
         float: left;
@@ -7090,3 +7093,4 @@ textarea:focus {
   margin-bottom: 16px;}
 
   .woocommerce-form-coupon-toggle{display: none;}
+  .new-add{margin-top: 20px!important;}

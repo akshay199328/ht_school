@@ -1978,7 +1978,7 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }), D("input", {
+        }),  J("div", {className: "question_list"},D("input", {
             type: "text",
             className: a,
             value: s,
@@ -1988,7 +1988,7 @@
                 };
                 s.marked_answer = t.target.value, n(s), e.update(s, e.index, "changed")
             }
-        }))
+        })))
     };
     const {
         createElement: J,

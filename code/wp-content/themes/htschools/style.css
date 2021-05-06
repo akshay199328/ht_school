@@ -1451,11 +1451,13 @@ Course Details
     font-size: 17px;
     line-height: 22px;
     font-weight: 300;
+    
+    font-family: "GT-Walsheim-Pro"!important;
 }
 .learing-goals .list ul,
 .content-default-list ul
 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .learing-goals .list li,
 .content-default-list li
@@ -1490,6 +1492,7 @@ Course Details
     line-height: 1.29;
     letter-spacing: normal;
     text-align: left;
+    color: #000000;
     font-family: "GT-Walsheim-Pro"!important;
 }
 .content-default-list .widget_custom_html{
@@ -2059,9 +2062,9 @@ Course Details
 }
 .course-box {
   float: left;
-  /* padding:17.5px 15px 19.5px 15px; */
   padding:20px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  border-bottom: 1px dotted #00000080;
   transition: 0.3s;
   height: 100%;
   width: 100%;
@@ -2069,10 +2072,6 @@ Course Details
   margin-left: 5px;
   position: relative;
   margin-bottom: 20px;
-  /*-webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    display: flex;*/
 }
 
 .course-box:after{
@@ -2119,7 +2118,7 @@ Course Details
     letter-spacing: normal;
     text-align: left;
     color: #000000;
-    margin: 0px 0px 10px;
+    margin: 0px 0px 5px;
 }
 .course-box .middle-details h2 a{color: #000000;font-weight: bold;}
 .course-box .middle-details p {
@@ -2133,7 +2132,7 @@ Course Details
     color: #000000;
     margin-bottom: 0;
     margin: 0px!important;
-    margin-bottom: 20px!important;
+    margin-bottom: 10px!important;
 
 }
 
@@ -2167,10 +2166,11 @@ width: 60%;
     margin: 0px!important;
 }
 .duration h6{
-  font-size: 13px !important;
+  	font-size: 13px !important;
     line-height: 1.31!important;
     letter-spacing: normal!important;
-        text-transform: capitalize!important;
+    text-transform: capitalize!important;
+   	margin-bottom: 0px!important;
 }
 .duration h6 span{
   font-weight: normal!important;
@@ -2210,7 +2210,7 @@ width: 60%;
     float: left;
     /* width: 100%; */
     display: inline-block;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     padding-left: 4px;
     margin-top: 0px;
 }

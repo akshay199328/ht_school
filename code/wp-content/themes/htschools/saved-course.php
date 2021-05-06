@@ -54,6 +54,7 @@ vibe_include_template("profile/top$profile_layout.php");
       $age_limit = $custom_fields['vibe_course_age_group'][0];
       $category_array = get_the_terms( $post->ID, 'course-cat');
       $excerpt = get_post_field('post_excerpt', $post->ID);
+      $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
       if($post->post_type == "course"){
         ?>
         <div class="course-box dotted-border savedCourse_box">
@@ -82,7 +83,7 @@ vibe_include_template("profile/top$profile_layout.php");
                     <?php if($duration == '') { ?>
                     <h6>--</h6>
                     <?php } else{ ?>
-                    <h6><?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span></h6>
+                    <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration_time($durationParameter); }?> </span></h6>
                     <?php }?>
                   </div>
                   <div class="pull-right">

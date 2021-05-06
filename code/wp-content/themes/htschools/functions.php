@@ -488,10 +488,8 @@ function reg_send_otp(){
     $name = 'HT School';
     $fromEmail = get_option('admin_email');
     $message = "Your OTP for login or registration on Ht School is: " . $newOTP;
-    $email = "prashant.c@fortune4.in";
     $subject = "HT School | One Time Password";
-    $headers = 'From: '. $email . "\r\n" .
-      'Reply-To: ' . $email . "\r\n";
+    $headers = 'From: '. $fromEmail . "\r\n";
 
     // ob_start();
     // include('email-templates/otp-confirmation.php');

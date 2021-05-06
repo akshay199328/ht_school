@@ -1224,7 +1224,7 @@ Course Details
       margin: 0px;
 }
 .course-fees {
-    margin: 25px 0px;
+    margin: 20px 0px;
     float: left;
     width: 100%;
 }
@@ -1237,7 +1237,7 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #fbca00;
-  margin-bottom: 0px;
+  margin: 0px 0px 15px;
 }
 .course-fees a.link{
     padding: 12px 32px 12px 25px;
@@ -1358,7 +1358,7 @@ Course Details
 }
 .about-details .course-for{
   float: left;
-  margin: 10px 0 26px;
+  margin: 30px 0 30px;
   padding: 16px 80px 24px 20px;
   
 }
@@ -1487,9 +1487,9 @@ Course Details
     top: 9px;
 }
 .content-default-list{
-    font-size: 17px;
+    font-size: 15px;
     font-weight: normal;
-    line-height: 1.29;
+    line-height: 1.5;
     letter-spacing: normal;
     text-align: left;
     color: #000000;

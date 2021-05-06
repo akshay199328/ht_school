@@ -298,9 +298,8 @@ padding: 15px 0;
 .course-fees a.course_button , 
 .course-fees input.course_button,
 .course-fees button.course_button 
-
- {
-        padding: 12px 0px 12px 0px;
+{
+    padding: 12px 0px 12px 0px;
     background-color: #fbca00;
     width: 203px !important;
     font-size: 20px!important;
@@ -313,9 +312,9 @@ padding: 15px 0;
     color: #004135;
     width: auto;
     border-radius: 0;
-    margin: 5px 0px 0px;
+    margin: 0px 0px 0px;
     float: left;
-        border: 0px;
+    border: 0px;
 }
 .course-fees .course_button a{color: #004135;font-weight: bold;}
 .course-fees .course_button.progress_key_1,

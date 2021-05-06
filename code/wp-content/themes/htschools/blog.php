@@ -178,7 +178,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
           <div class="details-middle devide">
             <ul class="news_two_data">
               <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                      // if( $Query->current_post != 0 ) { 
+                if( $Query->current_post != 0 ) { 
                 ?>
                 <li>
                   <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -187,7 +187,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                   </div>
                 </li>
                 <?php 
-                  // }
+                }
               endwhile; endif; ?>
             </ul>
           </div>

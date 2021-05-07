@@ -70,8 +70,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			.billing-address{padding-top: 20px;}
 			.billing-address .gray-bg{background-color: #eee;padding: 15px;}
 			.list{list-style-type: none;padding: 0;margin: 0 0 20px 0;display: flex;}
-			.list li a{font-size: 14px;color:#000;text-decoration: none;}
-			.list li{border: 1px dotted #707070;padding: 10px;margin-right: 12px;}
+			.list td a{font-size: 14px;color:#000;text-decoration: none;}
+			.list td{border: 1px dotted #707070;padding: 10px;margin-right: 12px;}
 			.black{font-weight:700}
 			.order-title{    margin-right: 5px;font-weight: 500;}
 			.yellow-patch{    
@@ -215,7 +215,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </style>
     </head>
     
-    <body class="clean-body" style="margin: 0; padding: 0;position: relative; -webkit-text-size-adjust: 100%;  background-image: url('https://ht.fortune4.org/wp-content/uploads/2021/05/bg12-svg.jpg');background-size: auto;background-repeat: no-repeat;max-width: 58%;margin: 0 auto;background-position: top;">
+    <body class="clean-body" style="margin: 0px auto;max-width: 58%;">
         <!--[if IE]><div class="ie-browser"><![endif]-->
         <table
            
@@ -223,9 +223,19 @@ if ( ! defined( 'ABSPATH' ) ) {
             cellspacing="0"
             class="nl-container"
             role="presentation"
-            style="table-layout: fixed; vertical-align: top; min-width: 320px; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;  width: 100%;"
+            style="padding: 0;position: relative; -webkit-text-size-adjust: 100%;
+            background-image: url('<?php echo get_bloginfo('template_url')?>/assets/imges/bg12-svg.jpg')   background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 97%;
+    background-position: top;
+    table-layout: fixed;
+    vertical-align: bottom;
+    min-width: 93%;height: 915px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;"
             valign="top"
-            width="100%"
+            width="100%" class="image_table" style=""
         >
             <tbody>
                 <tr style="vertical-align: top;" valign="top">
@@ -242,22 +252,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#FFFFFF"><![endif]-->
 								<div style="padding: 20px 76px 86px 106px;">
-									<div><img src="https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo-big_Web.png"></div>
+									<table>
+										<tr>
+											<td>
+												<img src="https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo-big_Web.png" />
+											</td>
+										</tr>
+										<tr>
+											<td style="font-size: 14px;font-family: Arial;line-height: 21px;">
+												<p >Hi,<br> Just to let you know - we’ve received your order, and it is now being processed:</p>
+											</td>
+										</tr>
+									
+									<!-- <div>
+										<img src="https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo-big_Web.png" />
+									</div>
 									<div>
 										<p style="font-size: 14px;font-family: Arial;line-height: 21px;">Hi,<br> Just to let you know - we’ve received your order, and it is now being processed:</p>
-									</div>
-									<div>
-										<ul class="list">
-											<li>
-												<a href="#"><span class="order-title">ORDER #:</span> <span class="black"><?php echo esc_html( $order->get_order_number() )?></span></a>
-												
-											</li>
-											<li>
-												<a href=""><span class="order-title">Date :</span> <span class="black"><?php echo wc_format_datetime($order->get_date_created());?></span></a>
-												
-											</li>
-										</ul>
-									</div>
+									</div> -->
+									<tr class="list">
+										<td>
+											<a href="#">
+												<span class="order-title">ORDER #:</span> <span class="black"><?php echo esc_html( $order->get_order_number() )?></span>
+											</a>
+										</td>
+										<td>
+											<a href="">
+												<span class="order-title">Date :</span> <span class="black"><?php echo wc_format_datetime($order->get_date_created());?></span>
+											</a>
+										</td>
+									</tr>
+									</table>
 									<div>
 										<table class="product-table" style="text-align:left;width:100%">
 											<tr style="background-color: #DEF8FF;font-family: Arial;">
@@ -334,9 +359,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 													<br/><?php echo esc_html( $order->get_billing_email() ); ?>
 												<?php endif; ?></p>
 											</div>
-											<h2 style="color:#78A1C6;font-size: 18px;margin-top: 30px;">Thank you for your order</h2>
+											<h2 style="color:#78A1C6;font-size: 18px;margin-top:10px;">Thank you for your order</h2>
 										</div>
 									</div>
+									<table>
+										<tr style="background-image: url('<?php echo get_bloginfo('template_url')?>/assets/imges/invoice-footer.png');    background-size: cover;
+									    background-repeat: no-repeat;
+									    max-width: 97%;">
+											
+										</tr>
+									</table>
 								</div>
 								
 								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->

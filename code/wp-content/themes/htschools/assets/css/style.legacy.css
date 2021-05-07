@@ -24785,7 +24785,9 @@ body {
  	height: 100%;
 
  }
-
+ #buddypress .standard-form select{
+ 	border-bottom: 1px solid #a8a6a6!important;
+ }
  #buddypress .standard-form input::-webkit-input-placeholder { 
  	color: #A2A0A0;
  	font-weight: 500;

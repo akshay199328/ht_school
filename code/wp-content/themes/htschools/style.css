@@ -388,7 +388,7 @@ body.page-template-home , .page-template-home .pusher {
     display: block;
     top: 2px;
     position: relative;
-    right:0px;
+    right:3px;
     /* right: 9px; */
 }
 .dropdown-toggle::after{
@@ -1364,14 +1364,14 @@ Course Details
 }
 .course-for h5{
     font-size: 20px;
-	font-weight: bold;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: 1;
-	letter-spacing: normal;
-	text-align: left;
-	color: #000000;
-	margin-bottom: 2px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 2px;
 
 }
 .course-for p{
@@ -1599,7 +1599,7 @@ Course Details
     padding: 10px 0px;
 }
 .other-courses .list .details{
-	padding:0px;
+  padding:0px;
 }
 .other-courses .list .card:first-child{
   padding-left: 0px;
@@ -1620,13 +1620,13 @@ Course Details
   /*height: 120px;*/
 }
 .other-courses .list h3{
-  	position: relative;
-  	font-size: 20px;
-  	font-weight: bold;
-  	font-stretch: normal;
-  	font-style: normal;
-  	line-height: 1;
-  	letter-spacing: normal;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
     padding: 30px 0px 15px 0px;
     min-height: auto;
 }
@@ -2157,13 +2157,18 @@ Course Details
 }
 .duration {
     margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
 }
-.duration .pull-left{
+/*.duration .pull-left{
 width: 60%;
 }
 .duration .pull-right {
     width: 40%;
-}
+}*/
 .duration p{
  font-size: 10px!important;
   font-weight: normal;
@@ -2173,11 +2178,11 @@ width: 60%;
     margin: 0px!important;
 }
 .duration h6{
-  	font-size: 13px !important;
+    font-size: 13px !important;
     line-height: 1.31!important;
     letter-spacing: normal!important;
     text-transform: capitalize!important;
-   	margin-bottom: 0px!important;
+    margin-bottom: 0px!important;
 }
 .duration h6 span{
   font-weight: normal!important;
@@ -6535,7 +6540,9 @@ h6:empty,
     .hero-list .hero-card h6 {font-size: 12px;}
     .hero-list .hero-card h5 {font-size: 23px;margin:10px 0px!important;}
     .hero-list .hero-card p {font-size: 12px;}
-    .hero-list .hero-card a {/*font-size: 10px;*/}
+    .responsive_slider.owl-carousel .owl-stage-outer,
+    .coursesmobile_slider.owl-carousel .owl-stage-outer  
+    {overflow: inherit;}
     .pagetitle h1{line-height: 1.39!important;}
     #Popular-Courses{padding-left: 15px;padding-right: 15px;}
     #Popular-Courses.all_course_page {padding-top: 10px;}
@@ -6619,7 +6626,7 @@ h6:empty,
     .logged-in .right-menu ul.after_loginspace {margin-top: 3px;}
     .course-box .middle-details h2 {font-size: 15px;line-height: 15px;}
     .course-box .middle-details h6 {letter-spacing: 1px;margin-bottom: 5px;}
-    .course-box .middle-details p{font-size: 12px;line-height: 16px;margin-bottom: 13px;}
+    .course-box .middle-details p{font-size: 12px;line-height: 16px;margin-bottom: 13px;display: none;}
     .course-box .middle-details .duration p{font-size: 10px;}
     .course-box .col-lg-10, 
     .course-box .col-lg-10 .col-lg-9, 
@@ -6661,7 +6668,7 @@ h6:empty,
     .edit-profile-link img {display: block;float: left;padding-right: 12px;top: 4px;position: relative;}
     .dashboard_accountinfo .info-card {float: left;padding-left: 0px;margin-top: 20px;}
     .item-body .col-md-9{padding: 0px;}
-    .exlore-link.mobile-btn {margin: 10px 0px;font-size: 12px;line-height: 16px;}
+    .exlore-link.mobile-btn {margin: 10px 0px 0px 0px;padding: 12px 32px 12px 25px;font-size: 12px;line-height: 16px;}
     #otp { margin: 20px auto; float: none;display: table;}
     .otp_button{margin: 0px auto;display: table;width: 100%;text-align: center;}
     .otp_button .submit_btn {width: 80% !important;}
@@ -6803,10 +6810,10 @@ h6:empty,
       max-width: 16.666667%;
   }
   .course-box .col-lg-10, .blogpost .col-sm-10 {
-      	-webkit-box-flex: 0;
-      	-ms-flex: 0 0 83.333333%;
-      	flex: 0 0 83.333333%;
-      	max-width: 83.333333%;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
         position: relative;
   }
   .competitive .col-sm-8, .social-links .col-sm-8 {
@@ -7076,8 +7083,8 @@ textarea:focus {
     
     .course-box .right-details .course-button{justify-content: flex-end;width: 98%;}
     .course .widget_custom_html,
-	  .page-template-all-courses .widget_custom_html,	
-	  .page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
+    .page-template-all-courses .widget_custom_html, 
+    .page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
     .Popular-Courses .adworks{text-align: left;margin-bottom: 20px;}
    
 }
@@ -7094,11 +7101,10 @@ textarea:focus {
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  margin-bottom: 16px;}
+  margin-bottom: 16px;
+}
 
-  .woocommerce-form-coupon-toggle{display: none;}
-  .new-add{margin-top: 20px!important;}
-
-  span.coming_soon{display: none}
-
-  .woocommerce-message{display: none;}
+.woocommerce-form-coupon-toggle{display: none;}
+.new-add{margin-top: 20px!important;}
+span.coming_soon{display: none}
+.woocommerce-message{display: none;}

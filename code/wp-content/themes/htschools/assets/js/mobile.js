@@ -125,56 +125,21 @@ if($(window).width() >= 768) {
       })
     }
     $('.responsive_slider').owlCarousel({
+        margin:10,
         loop: false,
-        margin: 20,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayTimeout:5000,
-        autoplayHoverPause: true,
+        autoWidth: true,
+        items: 2,
         nav: false,
-        dots:false,
-        responsive: {
-          0: {
-            items: 1,
-            nav: true
-          },
-          767: {
-            items:1,
-            nav: true
-          },
-          991: {
-            items:2,
-            nav: true,
-            loop: false,
-            margin: 20
-          }
-        }
+        dots:false
       });
       $('.coursesmobile_slider').owlCarousel({
-        loop: true,
-        margin: 20,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayTimeout:5000,
-        autoplayHoverPause: true,
-        nav: false,
-        dots:false,
-        responsive: {
-          0: {
-            items: 1,
-            nav: false
-          },
-          767: {
-            items:1,
-            nav: false
-          },
-          991: {
-            items:1,
-            nav: false,
-            loop: true,
-            margin: 20
-          }
-        }
+        items:1,
+        loop:false,
+        center:true,
+        margin:10,
+        URLhashListener:true,
+        autoplayHoverPause:true,
+        // startPosition: 'URLHash'
       })
       $('.coursemobile_listslider').owlCarousel({
         margin: 0,

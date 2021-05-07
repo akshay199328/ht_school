@@ -205,7 +205,7 @@ $topics = wp_get_post_tags(get_the_ID());
     $args=array(
       'tag__in' => array($first_tag),
       'post__not_in' => array(get_the_ID()),
-      'posts_per_page'=>5,
+      'posts_per_page'=>6,
     );
     $my_query = new WP_Query($args);
     if ($my_query->have_posts()){
@@ -220,26 +220,53 @@ $topics = wp_get_post_tags(get_the_ID());
             //echo "<pre>";print_r($my_query);exit;
             echo '<h2>Related News</h2>';
             ?>
+            <div class="col-sm-12 col-md-6 mrg">
               <div class="details-middle devide">
-                <ul class="news_two_data">
-            <?php 
-            while ($my_query->have_posts()) : $my_query->the_post();
-                                  // if( $Query->current_post != 0 ) { 
-              ?>
-                  <li>
-                    <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                    <div class="link">
-                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                    </div>
-                  </li>
-              <?php 
-              
-               endwhile;               // }
-         
-          ?>
-        </ul>
-           <?php wp_reset_query();  ?>
-      </div>
+                <ul class="">
+                  <?php 
+                  $counter = 0; while ($my_query->have_posts()) : $my_query->the_post();
+                  if ($counter <= 2) :
+                                        // if( $Query->current_post != 0 ) { 
+                    ?>
+                        <li>
+                          <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                          <div class="link">
+                            <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                          </div>
+                        </li>
+                    <?php 
+                    endif; $counter++;
+                     endwhile;               // }
+               
+                ?>
+              </ul>
+              <?php wp_reset_query();  ?>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 mrg">
+              <div class="details-middle devide">
+                <ul class="">
+                  <?php 
+                  $counter1 = 0;
+                  while ($my_query->have_posts()) : $my_query->the_post();
+                    if ($counter1 > 2) :
+                                        // if( $Query->current_post != 0 ) { 
+                    ?>
+                        <li>
+                          <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                          <div class="link">
+                            <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                          </div>
+                        </li>
+                    <?php 
+                    endif; $counter1++;
+                     endwhile;               // }
+               
+                ?>
+              </ul>
+              <?php wp_reset_query();  ?>
+            </div>
+          </div>    
       </div>
     </div>
     <div class="col-sm-12 col-md-3 mrg">

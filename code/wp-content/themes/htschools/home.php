@@ -232,10 +232,11 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
           </div>
         <?php } endwhile; endif;?>
         <div class="col-sm-12 col-lg-8 home_news-leftspacing">
-          <div class="col-sm-12 col-lg-12 mrg">
+          <div class="col-sm-12 col-lg-6 mrg">
             <div class="details-middle">
-              <ul class="news_two_data">
-                <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+              <ul class="">
+                <?php  if ($Query->have_posts()) : $counter = 0; while ($Query->have_posts()) : $Query->the_post();
+                  if ($counter <= 4) :
                   if( $Query->current_post != 0 ) {
                     ?>
                     <li>
@@ -246,7 +247,26 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
                     </li>
                     <?php
                   }
-                endwhile; endif; ?>
+                endif; $counter++; endwhile; endif; ?>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-lg-6 mrg">
+            <div class="details-middle">
+              <ul class="">
+                <?php if ($Query->have_posts()) : $counter1 = 0; while ($Query->have_posts()) : $Query->the_post();
+                  if ($counter1 > 4) :
+                  if( $Query->current_post != 0 ) {
+                    ?>
+                    <li>
+                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                      <div class="link">
+                        <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                      </div>
+                    </li>
+                    <?php
+                  }
+                endif; $counter1++; endwhile; endif; ?>
               </ul>
             </div>
           </div>

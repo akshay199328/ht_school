@@ -7100,3 +7100,5 @@ textarea:focus {
   .new-add{margin-top: 20px!important;}
 
   span.coming_soon{display: none}
+
+  .woocommerce-message{display: none;}

@@ -7108,3 +7108,18 @@ textarea:focus {
 .new-add{margin-top: 20px!important;}
 span.coming_soon{display: none}
 .woocommerce-message{display: none;}
+.popup_dropdown select {
+    /* padding: 3px; */
+    background-image: url(./assets/images/profile-dropdown.svg);
+    /*/border-bottom: 1px solid #a8a6a6!important;*/
+        border-radius: 0px;
+        font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 25px 12px 0px;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+}

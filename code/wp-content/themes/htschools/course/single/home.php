@@ -212,31 +212,13 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         $post_content = $ad_code . $videoContent . $post_content;
 
                                         echo $post_content;
-                                        /*if ( $post_content != '' ) {
-
-                                          $post_content = prefix_insert_after_words( $ad_code,75, $post_content );
-                                        }*/
                                         ?></p>
                                     </div>
                                   </div>
                                   </div>
                                   <div class="col-sm-12 col-lg-6 mrg pull-right">
-                                    <!-- <div class="adworks">
-                                      <div class="col-sm-12 adworks-head mrg">
-                                        <?php
-                                          if ( is_active_sidebar( '' ) ) : ?>
-                                          <?php //dynamic_sidebar( 'banner-2' ); ?>      
-                                        <?php endif; ?>
-                                      </div>
-                                    </div> -->
                                       
                                   </div>
-<!--                                   <div class="col-sm-12 course-for background-yellow">
-                                    <h5>Who This Course Is For</h5>
-                                    <p>
-                                    <?php echo get_post_meta($post->ID,'vibe_course_message',true);?>
-                                    </p>
-                                  </div> -->
                                   <?php 
                                     $who_this_course = get_post_meta($post->ID,'vibe_who_this_course_Is_for_first_block',true);
                                   if(strlen(trim($who_this_course))) : 
@@ -251,13 +233,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <h5>Related Tags</h5>
                                     <div class="col-sm-12 course-listslider mrg">
                                       <?php echo get_the_term_list_search(get_the_ID(),'course-tag'); ?>
-                                      <!-- <span class="item"><a href="#"><h6>CSS</h6></a></span>
-                                      <span class="item"><a href="#"><h6>CSS3</h6></a></span>
-                                      <span class="item"><a href="#"><h6>Javascript</h6></a></span>
-                                      <span class="item"><a href="#"><h6>HTML5</h6></a></span>
-                                      <span class="item"><a href="#"><h6>BootStrap</h6></a></span>
-                                      <span class="item"><a href="#"><h6>Front End</h6></a></span>
-                                      <span class="item"><a href="#"><h6>PHP</h6></a></span> -->
                                     </div>  
                                   </div>
                                 <?php endif;?>
@@ -268,18 +243,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     </div>
                 </div>
             </div>
-<!--             <div class="learing-goals" id="benefits">
-              <div class="container">
-                <div class="">
-                  <div class="col-sm-12 col-lg-12 pull-right left-spacing">
-                    <?php echo get_post_meta($post->ID,'learning_goals',true);?>
-                    <div class="col-lg-12 mrg adworks-head">
-                     <div style="width: 728px; height: 90px; background: #428bca; color: #fff; line-height: 90px; text-align: center; ">banner</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
             <?php if(strlen(trim(get_post_meta($post->ID,'vibe_learning_goals',true)))) : ?>
             <div class="learing-goals" id="objective">
               <div class="container">
@@ -290,12 +253,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     </div>
                     <div class="content-default-list">
                       <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
-                      <!-- <?php echo get_post_meta($post->ID,'learning_goals_list',true); ?> -->
                     </div>
-                    <!-- <div class="col-lg-12 mrg adworks-head">
-                      <a href="#">Adworks</a>
-                      <img src="assets/img/adwork-4.jpg" class="img-fluid">
-                    </div> -->
                   </div>
                 </div>
               </div>
@@ -315,12 +273,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     </div>
                     
                     <div class="col-sm-12 col-lg-9 mrg pull-left">
-                      <!-- <div class="cv-detilslist">
-                        <?php $lectures = bp_course_get_curriculum_units(get_the_ID()); ?>
-                        <span><h6><?php echo get_post_meta($post->ID,'vibe_course_sessions',true)?> Sessions</h6></span>
-                        <span><h6><?php echo get_post_meta($post->ID,'vibe_course_lectures',true);?> lectures</h6></span>
-                        <span><h6><?php echo get_post_meta($post->ID,'vibe_duration',true);?> Days</h6></span>
-                      </div> -->
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-sm-12 mrg list">
@@ -358,9 +310,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $author_user_profile = get_avatar_url($author_id);
                         $author_company = get_the_author_meta( 'last_name', $author_id );
                         $student_count = get_the_author_meta( 'student_count', $author_id );
-                        //echo "<pre>";print_r($author_company);exit;
-                        //$author_biographical_info_array = split_string_by_words($author_biographical_info, 20);
-
                         ob_start();
                         dynamic_sidebar('instructor_banner');
                         $addDisplay = ob_get_contents();
@@ -453,11 +402,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           <h3><?php bp_course_title(); ?></h3>
                           <div class="col-sm-12 mrg session duration">
                             <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" />
-                              <!-- <?php if($duration == '' && $session == '') { ?>
-                                --
-                            <?php } else{ ?>
-                              <?php if($session != ''){echo $session.' Sessions ';} ?><span><?php if($duration != ''){echo $duration.' Days'; }?> </span>
-                            <?php }?> -->
                             <?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span>
                           </h6>
                           </div>

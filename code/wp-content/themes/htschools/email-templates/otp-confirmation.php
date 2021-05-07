@@ -307,7 +307,7 @@
                                 <tr>  
                                     <td class="logo" style="text-align: center;"> 
                                         <h1>  
-                                            <a href="<?php echo get_bloginfo('url')?>"><img src="https://ht.fortune4.org/wp-content/uploads/2021/04/Header-logo-big_Web.png"/></a>  
+                                            <a href="<?php echo get_bloginfo('url')?>"><img src="<?php echo get_bloginfo('template_url')?>/assets/images/Header-logo-big_Web.png"/></a>  
                                         </h1> 
                                     </td> 
                                 </tr> 
@@ -317,7 +317,7 @@
                     <!-- end tr --> 
                     <tr>  
                         <td valign="middle" class="hero bg_white" style="padding: 0;">  
-                            <img src="https://ht.fortune4.org/wp-content/uploads/2021/04/logo-news-letter.png" alt="" style="width: 100%; max-width: 341px; height: auto; margin: auto; display: block;" /> 
+                            <img src="<?php echo get_bloginfo('template_url')?>/assets/images/logo-news-letter.png" alt="" style="width: 100%; max-width: 341px; height: auto; margin: auto; display: block;" /> 
                         </td> 
                     </tr> 
                     <!-- end tr --> 
@@ -392,16 +392,16 @@
                                         <span style="display: block;">  
                                             <ul style="display: flex; list-style-type: none; padding: 0;margin: 0;">  
                                                 <li>  
-                                                    <a href="https://www.linkedin.com/company/htschool"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/linkdin.png" /></a>  
+                                                    <a href="https://www.linkedin.com/company/htschool"><img src="<?php echo get_bloginfo('template_url')?>/assets/images/linkdin.png" /></a>  
                                                 </li> 
                                                 <li>  
-                                                    <a href="https://twitter.com/htschool1"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/twitter.png" /></a>  
+                                                    <a href="https://twitter.com/htschool1"><img src="<?php echo get_bloginfo('template_url')?>/assets/images/twitter.png" /></a>  
                                                 </li> 
                                                 <li>  
-                                                    <a href="https://www.facebook.com/HTSchool-111960910982690/"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/facebook.png" /></a>  
+                                                    <a href="https://www.facebook.com/HTSchool-111960910982690/"><img src="<?php echo get_bloginfo('template_url')?>/assets/images/facebook.png" /></a>  
                                                 </li> 
                                                 <li>  
-                                                    <a href="https://www.instagram.com/htschool/"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a> 
+                                                    <a href="https://www.instagram.com/htschool/"><img src="<?php echo get_bloginfo('template_url')?>/assets/images/instagram.png" /></a> 
                                                 </li> 
                                             </ul> 
                                         </span> 

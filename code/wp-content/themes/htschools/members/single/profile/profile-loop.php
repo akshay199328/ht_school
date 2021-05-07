@@ -38,6 +38,7 @@ $dob = strtotime($user_birthday);
 // ht_parent_child_mapping
 
 $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE parent_id = " . $user_id );
+$child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
 
 /*
 	xprofile_set_field_data('Phone', $user_id, '8454946448');
@@ -102,6 +103,30 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<label for="user_school_data">School</label>
 				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>" readonly>
 			</div>
+			<div class="form-group profile_dropdown">
+	                <label for="">Grade / Standard</label>
+	                <select name="grade" disabled="true">
+	                  <option value="1st" <?php if($child[0]->grade=="1st") echo 'selected="selected"'; ?>>1st</option>
+	                  <option value="2nd" <?php if($child[0]->grade=="2nd") echo 'selected="selected"'; ?>>2nd</option>
+	                  <option value="3rd" <?php if($child[0]->grade=="3rd") echo 'selected="selected"'; ?>>3rd</option>
+	                  <option value="4th" <?php if($child[0]->grade=="4th") echo 'selected="selected"'; ?>>4th</option>
+	                  <option value="5th" <?php if($child[0]->grade=="5th") echo 'selected="selected"'; ?>>5th</option>
+	                  <option value="6th" <?php if($child[0]->grade=="6th") echo 'selected="selected"'; ?>>6th</option>
+	                  <option value="7th" <?php if($child[0]->grade=="7th") echo 'selected="selected"'; ?>>7th</option>
+	                  <option value="8th" <?php if($child[0]->grade=="8th") echo 'selected="selected"'; ?>>8th</option>
+	                  <option value="9th" <?php if($child[0]->grade=="9th") echo 'selected="selected"'; ?>>9th</option>
+	                  <option value="10th" <?php if($child[0]->grade=="10th") echo 'selected="selected"'; ?>>10th</option>
+	                </select>
+	            </div>
+	            <div class="form-group profile_dropdown">
+	                <label for="">Section / Division <?php echo $child->division?></label>
+	                <select name="division" disabled="true">
+	                  <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
+	                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
+	                  <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
+	                  <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
+	                </select>
+	            </div>
 			<div class="form-group">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>" readonly>

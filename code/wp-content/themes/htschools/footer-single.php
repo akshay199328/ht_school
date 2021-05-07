@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                   <!-- <img class="icon" src="/assets/images/footer-facebook.svg"/> -->
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-facebook.svg" alt="Facebook" title="Facebook"/>
                 </a>
-                <a href="https://www.instagram.com/ht.school/" target="_blank" class="instagram">
+                <a href="https://www.instagram.com/htschool/" target="_blank" class="instagram">
                   <!-- <img class="icon" src="/assets/images/footer-instagram.svg"/> -->
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/icon-instagram.svg" alt="Instagram" title="Instagram"/>
                 </a>
@@ -403,7 +403,7 @@ border: 1px solid deepskyblue;
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">  
+                                <!-- <div class="col-md-12">  
                                     <label>Country</label>
                                 </div>
                                 <div class="col-md-12">
@@ -412,7 +412,7 @@ border: 1px solid deepskyblue;
                                         <input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="col-md-12">  
                                     <label>State</label>
@@ -424,7 +424,7 @@ border: 1px solid deepskyblue;
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
+                                <!-- <div class="col-md-12">
                                     <label>City</label>
                                 </div>
                                 <div class="col-md-12">
@@ -432,7 +432,40 @@ border: 1px solid deepskyblue;
                                         <input type="type"  id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" class="s-class form-control user_field" />
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                     </div>
-                                </div> 
+                                </div>  -->
+                                <?php $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id ); ?>
+                                <div class="col-md-12">
+                                  <label for="">Grade / Standard</label>
+                                  <div class="col-md-12">
+                                    <div class="input-group">
+                                  <select name="grade">
+                                    <option value="1st" <?php if($child[0]->grade=="1st") echo 'selected="selected"'; ?>>1st</option>
+                                    <option value="2nd" <?php if($child[0]->grade=="2nd") echo 'selected="selected"'; ?>>2nd</option>
+                                    <option value="3rd" <?php if($child[0]->grade=="3rd") echo 'selected="selected"'; ?>>3rd</option>
+                                    <option value="4th" <?php if($child[0]->grade=="4th") echo 'selected="selected"'; ?>>4th</option>
+                                    <option value="5th" <?php if($child[0]->grade=="5th") echo 'selected="selected"'; ?>>5th</option>
+                                    <option value="6th" <?php if($child[0]->grade=="6th") echo 'selected="selected"'; ?>>6th</option>
+                                    <option value="7th" <?php if($child[0]->grade=="7th") echo 'selected="selected"'; ?>>7th</option>
+                                    <option value="8th" <?php if($child[0]->grade=="8th") echo 'selected="selected"'; ?>>8th</option>
+                                    <option value="9th" <?php if($child[0]->grade=="9th") echo 'selected="selected"'; ?>>9th</option>
+                                    <option value="10th" <?php if($child[0]->grade=="10th") echo 'selected="selected"'; ?>>10th</option>
+                                  </select>
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <label for="">Section / Division</label>
+                                  <div class="col-md-12">
+                                    <div class="input-group">
+                                      <select name="division">
+                                        <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
+                                        <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
+                                        <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
+                                        <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
 
                                 <div class="col-md-12">
                                     <p class="error" id="response_message" style="display: none;"></p>

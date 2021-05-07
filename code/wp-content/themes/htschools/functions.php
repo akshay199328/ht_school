@@ -500,7 +500,7 @@ function reg_send_otp(){
     remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
         if($sent) {
           $response['status'] = 1;
-          $response['message'] = 'We have sent you a verification code at ' . $requestEmail . '. Please enter the code to verify your email.';
+          $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $requestEmail . '. Please enter the OTP to verify your email address.';
         }//message sent!
         else  {
           $response['status'] = 0;
@@ -821,6 +821,10 @@ function wc_npr_filter_phone( $address_fields ) {
 
 }
 
+add_filter( 'wc_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
+function empty_wc_add_to_cart_message( $message, $products ) { 
+    return ''; 
+}; 
 
 // Filter will do its magic before the fields are passed to the template.
 add_filter('woocommerce_checkout_fields', function($fields) {
@@ -985,7 +989,7 @@ add_action("wp_ajax_save_custom_profile", "save_custom_profile");
 add_action( 'wp_ajax_nopriv_save_custom_profile', 'save_custom_profile' ); 
 
 function save_custom_profile(){
-    
+    global $wpdb;
     $response = array(
         'status' => 0,
         'message' => 'Unable to save profile, please try again',
@@ -1010,13 +1014,28 @@ function save_custom_profile(){
         xprofile_set_field_data('City', $user_id, trim($_REQUEST['user_city']));
         xprofile_set_field_data('Linked School', $user_id, trim($_REQUEST['user_school']));
 
+        $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
+        if(count($child) == 0){ 
+          $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
+              'parent_id' => 0,
+              'child_id' => $user_id,
+              'child_name' => esc_attr($_REQUEST['first_name']),
+              'school_id' => esc_attr($_REQUEST['user_school']),
+              'school_name' => esc_attr($_REQUEST['user_school_data']),
+              'grade' => esc_attr($_REQUEST['grade']),
+              'division' => esc_attr($_REQUEST['division'])
+          ));
+        }
+        else{
+          $wpdb->update( $wpdb->prefix . "parent_child_mapping", array( 'child_name' => esc_attr($_REQUEST['first_name']),'school_id' =>esc_attr($_REQUEST['user_school']),'grade' => esc_attr($_REQUEST['grade']),'division' => esc_attr($_REQUEST['division'])),array('child_id'=>$user_id));
+        }
+
         if(esc_attr( $_POST['first_name']) != "" 
           && esc_attr( $_POST['last_name']) != ""
             && trim($_REQUEST['user_dob']) != ""
             && trim($_REQUEST['user_gender']) != ""
-            && trim($_REQUEST['user_country']) != ""
-            && trim($_REQUEST['user_state']) != ""
-            && trim($_REQUEST['user_city']) != ""
+            && trim($_REQUEST['grade']) != ""
+            && trim($_REQUEST['division']) != ""
             && trim($_REQUEST['user_school']) != ""
       ){
             $response['profile_complete'] = 1;

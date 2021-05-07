@@ -401,7 +401,7 @@
                                                     <a href="https://www.facebook.com/HTSchool-111960910982690/"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/facebook.png" /></a>  
                                                 </li> 
                                                 <li>  
-                                                    <a href="https://www.instagram.com/ht.school/"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a> 
+                                                    <a href="https://www.instagram.com/htschool/"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/instagram.png" /></a> 
                                                 </li> 
                                             </ul> 
                                         </span> 

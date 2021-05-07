@@ -38,7 +38,7 @@ $dob = strtotime($user_birthday);
 // ht_parent_child_mapping
 
 $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE parent_id = " . $user_id );
-
+$child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
 /*
 	xprofile_set_field_data('Phone', $user_id, '8454946448');
   	
@@ -102,6 +102,35 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
 				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
 			</div>
+			<?php $profileType = get_profile_data('Profile Type'); 
+				if($profileType != 'Parent'){
+			?>
+
+				<div class="form-group profile_dropdown">
+	                <label for="">Grade / Standard</label>
+	                <select name="grade">
+	                  <option value="1st" <?php if($child[0]->grade=="1st") echo 'selected="selected"'; ?>>1st</option>
+	                  <option value="2nd" <?php if($child[0]->grade=="2nd") echo 'selected="selected"'; ?>>2nd</option>
+	                  <option value="3rd" <?php if($child[0]->grade=="3rd") echo 'selected="selected"'; ?>>3rd</option>
+	                  <option value="4th" <?php if($child[0]->grade=="4th") echo 'selected="selected"'; ?>>4th</option>
+	                  <option value="5th" <?php if($child[0]->grade=="5th") echo 'selected="selected"'; ?>>5th</option>
+	                  <option value="6th" <?php if($child[0]->grade=="6th") echo 'selected="selected"'; ?>>6th</option>
+	                  <option value="7th" <?php if($child[0]->grade=="7th") echo 'selected="selected"'; ?>>7th</option>
+	                  <option value="8th" <?php if($child[0]->grade=="8th") echo 'selected="selected"'; ?>>8th</option>
+	                  <option value="9th" <?php if($child[0]->grade=="9th") echo 'selected="selected"'; ?>>9th</option>
+	                  <option value="10th" <?php if($child[0]->grade=="10th") echo 'selected="selected"'; ?>>10th</option>
+	                </select>
+	            </div>
+	            <div class="form-group profile_dropdown">
+	                <label for="">Section / Division <?php echo $child->division?></label>
+	                <select name="division">
+	                  <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
+	                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
+	                  <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
+	                  <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
+	                </select>
+	            </div>
+        	<?php } ?>
 			<div class="form-group profile_search">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>">
@@ -147,7 +176,7 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			
 			<p id="response_message" class="" style="margin: 10px 0; display: none;"></p>
 			<div class="form-group">
-				<button type="button" class="btn btn-default" id="profile_submit">Submit</button>
+				<button type="button" class="btn btn-default" id="edit_profile_submit">Submit</button>
 				<button type="button" class=" btn-default button-border" id="profile_cancel"><a href="<?php echo get_bloginfo('url')?>/members-directory/<?php echo $currentUser->user_login?>" class="can_btn">Cancel</a></button>
 			</div>
 
@@ -419,13 +448,13 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 			    },
 			});	
 
-			$("#profile_submit").click(function(e){
+			$("#edit_profile_submit").click(function(e){
 				if(phone_validate() != true){
 	                return false;
 	            }
               	else{
-					$("#profile_submit").html("Please wait...");
-	                $("#profile_submit").attr("disabled", "disabled");
+					$("#edit_profile_submit").html("Please wait...");
+	                $("#edit_profile_submit").attr("disabled", "disabled");
 	                $('form#modalAjaxTrying :submit').trigger('click');
 	                var form_data = {'action' : 'acf/validate_save_post'};
 					$.ajax({
@@ -434,8 +463,8 @@ $childrens = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_chil
 		                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
 		                data : $("#profile-edit-form").serialize(),
 		                success: function(response) {
-		                    $("#profile_submit").html("Submit");
-		                    $("#profile_submit").removeAttr("disabled");
+		                    $("#edit_profile_submit").html("Submit");
+		                    $("#edit_profile_submit").removeAttr("disabled");
 		             		window.onbeforeunload = null;
 		                    if(response.status == 1){
 		                    	$("#response_message").html(response.message);

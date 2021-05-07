@@ -6292,6 +6292,7 @@ h6:empty,
     .fixedTop_tab .tablist{    width: 705px!important;padding: 40px 0px 20px!important;}
 }
 @media screen and (max-width:991px) and (min-width:320px){
+
     .header{    height: 80px;}
     .home .header {
         height: 80px;
@@ -7108,6 +7109,7 @@ textarea:focus {
 .new-add{margin-top: 20px!important;}
 span.coming_soon{display: none}
 .woocommerce-message{display: none;}
+
 .popup_dropdown select {
     /* padding: 3px; */
     background-image: url(./assets/images/profile-dropdown.svg);
@@ -7123,3 +7125,4 @@ span.coming_soon{display: none}
     height: 100%;
     width: 100%;
 }
+

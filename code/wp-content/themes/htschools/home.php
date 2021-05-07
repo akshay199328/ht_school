@@ -23,7 +23,7 @@ get_header(vibe_get_header());
     );
     $Query1 = new WP_Query( $args1 );
 
-    if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post(); 
+    if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
       $custom_fields = get_post_custom();
       $image_url = wp_get_attachment_url($custom_fields['banner_image'][0]);
       $mobile_image = wp_get_attachment_url($custom_fields['mobile_image'][0]);
@@ -42,7 +42,7 @@ get_header(vibe_get_header());
                 <p><?php print_r(the_content()); ?></p>
                 <a href="<?php echo $custom_fields['cta_link'][0];?>" class="learn_morebtn"><?php echo $custom_fields['cta_text'][0];?></a>
               </div>
-            </div>  
+            </div>
           </div>
         </div>
         <img alt="desktop" title="desktop" src="<?php echo $image_url; ?>" class="desktop_img" />
@@ -54,7 +54,7 @@ get_header(vibe_get_header());
 </section><!-- End Hero -->
 <?php
 if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
-  <?php dynamic_sidebar( 'home-hero-section' ); ?>      
+  <?php dynamic_sidebar( 'home-hero-section' ); ?>
 <?php endif; ?>
 <!-- ======= Features Section ======= -->
 <section id="Popular-Courses" class="Popular-Courses">
@@ -62,14 +62,14 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
     <div class="row">
       <div class="col-sm-12 col-lg-4 mrg">
           <header class="section-header">
-              <h2>TRENDING COURSES</h2> 
+              <h2>TRENDING COURSES</h2>
               <p>Access the world’s activities, anytime anywhere.</p>
               <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover All Courses</a>
           </header>
           <div class="adworks">
             <?php
             if ( is_active_sidebar( 'homepage-mid-banner' ) ) : ?>
-              <?php dynamic_sidebar( 'homepage-mid-banner' ); ?>      
+              <?php dynamic_sidebar( 'homepage-mid-banner' ); ?>
             <?php endif; ?>
           </div>
       </div>
@@ -93,8 +93,8 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
             <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
               <div class="course-box">
                 <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
-                  <?php 
-                  if ( has_post_thumbnail() ) { 
+                  <?php
+                  if ( has_post_thumbnail() ) {
                     $image_url = get_the_post_thumbnail_url();
                   }
                   ?>
@@ -153,11 +153,11 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
                               </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                             </div>
                           </li>
-                        </ul>  
+                        </ul>
                         <script async src="https://static.addtoany.com/menu/page.js"></script>
                       </div>
                       <div class="col-lg-12 course-button mrg">
-                        <h6 ><?php 
+                        <h6 ><?php
                         the_course_price();
                         ?>
                       </h6>
@@ -173,7 +173,13 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
 
       </div>
       <div class="col-sm-12 center mrg mobile-add new-add">
-              <img src="https://ht.fortune4.org/wp-content/uploads/2021/04/NT_Sugary-Beverages.jpg">
+        <!-- /1055314/HT_School_WAP_Story/HT_School_Desk_Story_MID_B_Mrec-->
+        <div id='div-gpt-ad-1619596100543-8'>
+          <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1619596100543-8'); });
+          </script>
+        </div>
+              <!-- <img src="https://ht.fortune4.org/wp-content/uploads/2021/04/NT_Sugary-Beverages.jpg"> -->
       </div>
       <a href="<?php echo get_home_url();?>/courses/" class="exlore-link mobile-btn">Discover Courses</a>
   </div>
@@ -205,16 +211,16 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
         );
         $Query = new WP_Query( $args );
         if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-          if( $Query->current_post == 0 ) { 
+          if( $Query->current_post == 0 ) {
             ?>
             <div class="col-sm-12 col-lg-4 homeDetails-left">
               <div class="details-left">
                <div class="news-date">
                 <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
               </div>
-              <?php if ( has_post_thumbnail() ) { 
+              <?php if ( has_post_thumbnail() ) {
                 $featured_image = get_the_post_thumbnail_url();
-              
+
               ?>
               <img alt="featured image" title="featured image" src="<?php echo $featured_image; ?>" class="img-fluid">
             <?php } ?>
@@ -230,7 +236,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
             <div class="details-middle">
               <ul class="news_two_data">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                  if( $Query->current_post != 0 ) { 
+                  if( $Query->current_post != 0 ) {
                     ?>
                     <li>
                       <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -238,7 +244,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
                         <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                       </div>
                     </li>
-                    <?php 
+                    <?php
                   }
                 endwhile; endif; ?>
               </ul>
@@ -272,7 +278,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
           <div class="col-lg-12 center">
             <?php
             if ( is_active_sidebar( 'homepage-footer-banner' ) ) : ?>
-              <?php dynamic_sidebar( 'homepage-footer-banner' ); ?>      
+              <?php dynamic_sidebar( 'homepage-footer-banner' ); ?>
             <?php endif; ?>
           </div>
         </div>
@@ -296,7 +302,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
               $Query1 = new WP_Query( $args1 );
 
           // print_r(get_post_custom());
-              if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post(); 
+              if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
                 print_r(get_post_custom());
                 $custom_fields = get_post_custom();
                 $url = wp_get_attachment_url($custom_fields['image'][0]);
@@ -321,7 +327,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
               </div><!-- End testimonial item -->
 
 
-              <?php 
+              <?php
             endwhile; endif; ?>
           </div>
           <div class="swiper-pagination"></div>
@@ -329,7 +335,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
         <div class="col-lg-12 center">
           <?php
           if ( is_active_sidebar( 'home-testimonial' ) ) : ?>
-            <?php dynamic_sidebar( 'home-testimonial' ); ?>      
+            <?php dynamic_sidebar( 'home-testimonial' ); ?>
           <?php endif; ?>
         </div>
       </div>

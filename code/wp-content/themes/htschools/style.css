@@ -7098,3 +7098,5 @@ textarea:focus {
 
   .woocommerce-form-coupon-toggle{display: none;}
   .new-add{margin-top: 20px!important;}
+
+  span.coming_soon{display: none}

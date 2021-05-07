@@ -103,6 +103,9 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<label for="user_school_data">School</label>
 				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>" readonly>
 			</div>
+			<?php $profileType = get_profile_data('Profile Type'); 
+				if($profileType != 'Parent'){
+			?>
 			<div class="form-group profile_dropdown">
 	                <label for="">Grade / Standard</label>
 	                <select name="grade" disabled="true">
@@ -118,15 +121,16 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	                  <option value="10th" <?php if($child[0]->grade=="10th") echo 'selected="selected"'; ?>>10th</option>
 	                </select>
 	            </div>
-	            <div class="form-group profile_dropdown">
-	                <label for="">Section / Division <?php echo $child->division?></label>
-	                <select name="division" disabled="true">
-	                  <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
-	                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
-	                  <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
-	                  <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
-	                </select>
-	            </div>
+            <div class="form-group profile_dropdown">
+                <label for="">Section / Division <?php echo $child->division?></label>
+                <select name="division" disabled="true">
+                  <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
+                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
+                  <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
+                  <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
+                </select>
+            </div>
+        	<?php } ?>
 			<div class="form-group">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>" readonly>

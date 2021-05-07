@@ -436,8 +436,8 @@ border: 1px solid deepskyblue;
                                 <?php $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id ); ?>
                                 <div class="col-md-12">
                                   <label for="">Grade / Standard</label>
-                                  <div class="col-md-12">
-                                    <div class="input-group">
+                                  <div class="col-md-12 mrg">
+                                    <div class="input-group popup_dropdown">
                                   <select name="grade">
                                     <option value="1st" <?php if($child[0]->grade=="1st") echo 'selected="selected"'; ?>>1st</option>
                                     <option value="2nd" <?php if($child[0]->grade=="2nd") echo 'selected="selected"'; ?>>2nd</option>
@@ -455,8 +455,8 @@ border: 1px solid deepskyblue;
                                 </div>
                                 <div class="col-md-12">
                                   <label for="">Section / Division</label>
-                                  <div class="col-md-12">
-                                    <div class="input-group">
+                                  <div class="col-md-12 mrg">
+                                    <div class="input-group popup_dropdown">
                                       <select name="division">
                                         <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
                                         <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>

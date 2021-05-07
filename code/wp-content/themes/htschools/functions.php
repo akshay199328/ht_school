@@ -1015,6 +1015,7 @@ function save_custom_profile(){
         xprofile_set_field_data('Linked School', $user_id, trim($_REQUEST['user_school']));
 
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
+        
         if(count($child) == 0){ 
           $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
               'parent_id' => 0,

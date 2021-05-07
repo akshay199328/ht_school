@@ -224,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             class="nl-container"
             role="presentation"
             style="padding: 0;position: relative; -webkit-text-size-adjust: 100%;
-            background-image: url('<?php echo get_bloginfo('template_url')?>/assets/imges/bg12-svg.jpg')   background-size: cover;
+            background-image: url('<?php echo get_bloginfo('template_url')?>/assets/images/bg12-svg.jpg')   background-size: cover;
     background-repeat: no-repeat;
     max-width: 97%;
     background-position: top;
@@ -363,7 +363,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										</div>
 									</div>
 									<table>
-										<tr style="background-image: url('<?php echo get_bloginfo('template_url')?>/assets/imges/invoice-footer.png');    background-size: cover;
+										<tr style="background-image: url('<?php echo get_bloginfo('template_url')?>/assets/images/invoice-footer.png');    background-size: cover;
 									    background-repeat: no-repeat;
 									    max-width: 97%;">
 											

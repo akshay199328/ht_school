@@ -1015,7 +1015,7 @@ function save_custom_profile(){
         xprofile_set_field_data('Linked School', $user_id, trim($_REQUEST['user_school']));
 
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
-        
+
         if(count($child) == 0){ 
           $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
               'parent_id' => 0,
@@ -1936,10 +1936,9 @@ function custom_phone_validation($result,$tag){
 
     $type = $tag->type;
     $name = $tag->MobileNumber;
-
     if($type == 'tel' || $type == 'tel*'){
 
-        $phoneNumber = isset( $_POST[$name] ) ? trim( $_POST[$name] ) : '';
+        $phoneNumber = isset( $_POST['MobileNumber'] ) ? trim( $_POST['MobileNumber'] ) : '';
 
         $phoneNumber = preg_replace('/[() .+-]/', '', $phoneNumber);
             if (strlen((string)$phoneNumber) != 10) {

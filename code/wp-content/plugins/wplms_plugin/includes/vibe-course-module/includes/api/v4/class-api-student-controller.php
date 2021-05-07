@@ -1042,9 +1042,11 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$user_school = get_profile_data('Linked School');
 			$user_grade = get_profile_data('Grade');
 			$user_division = get_profile_data('Division');
+			$last_name = get_profile_data('Last Name');
+			$first_name = get_profile_data('First Name');
 			$dob = strtotime($user_birthday);
 
-			if($dob > '2015-01-01' && $user_mobile != '' && $user_school != '' && $user_gender != '' && $user_grade != '' && $user_division != ''){
+			if($dob > '2015-01-01' && $user_mobile != '' && $user_school != '' && $user_gender != '' && $user_grade != '' && $user_division != '' && $first_name != '' && $last_name != ''){
 				$is_profile_complete = 1;
 			}
 

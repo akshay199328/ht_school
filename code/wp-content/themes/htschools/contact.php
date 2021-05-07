@@ -10,6 +10,8 @@ get_header(vibe_get_header());
 $contact_ll=vibe_get_option('contact_ll');
 $contact_style = vibe_get_option('contact_style');
 $map_zoom = vibe_get_option('map_zoom');
+$contact_form = WPCF7_ContactForm::get_current();
+$form_id = $contact_form -> id;
 if(have_posts()):while(have_posts()):the_post();
 ?>
 <div class="innerheader-space"></div>
@@ -22,6 +24,7 @@ if(have_posts()):while(have_posts()):the_post();
                   <ol class="breadcrumbs">
                     <li><a href="#"><span>Home</span></a></li><li class="current"><span>Contact us</span></li>
                   </ol>
+                  <input type="text" name="contact_form_id" id="contact_form_id" value="<?php echo $form_id;?>">
                      <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
                   <?php
                       the_content();
@@ -49,9 +52,10 @@ if(have_posts()):while(have_posts()):the_post();
 ?>
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script type='text/javascript'>
-  let baseUrl = "<?php echo get_home_url(); ?>"
+  let baseUrl = "<?php echo get_home_url(); ?>";
+  var contact_form_id = jQuery("input[name='_wpcf7']").val();
   document.addEventListener( 'wpcf7mailsent', function( event ) {
-   if ( '1024' == event.detail.contactFormId ) { // Change 123 to the ID of the form 
+   if ( contact_form_id == event.detail.contactFormId ) { // Change 123 to the ID of the form 
   
     jQuery('#exampleModal').modal('show'); 
  }

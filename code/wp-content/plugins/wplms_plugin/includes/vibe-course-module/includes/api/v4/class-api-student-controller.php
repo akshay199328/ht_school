@@ -1046,7 +1046,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$first_name = get_profile_data('First Name');
 			$dob = strtotime($user_birthday);
 
-			if($dob > '2015-01-01' && $user_mobile != '' && $user_school != '' && $user_gender != '' && $user_grade != '' && $user_division != '' && $first_name != '' && $last_name != ''){
+			if($dob != '' && $user_mobile != '' && $user_school != '' && $user_gender != '' && $user_grade != '' && $user_division != '' && $first_name != '' && $last_name != ''){
 				$is_profile_complete = 1;
 			}
 

@@ -1013,6 +1013,8 @@ function save_custom_profile(){
         xprofile_set_field_data('State', $user_id, trim($_REQUEST['user_state']));
         xprofile_set_field_data('City', $user_id, trim($_REQUEST['user_city']));
         xprofile_set_field_data('Linked School', $user_id, trim($_REQUEST['user_school']));
+        xprofile_set_field_data('Grade', $user_id, trim($_REQUEST['grade']));
+        xprofile_set_field_data('Division', $user_id, trim($_REQUEST['division']));
 
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
 

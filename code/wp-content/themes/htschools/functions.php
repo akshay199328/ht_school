@@ -1007,7 +1007,6 @@ function save_custom_profile(){
         wp_update_user( $args );
 
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
-        xprofile_set_field_data('Last Name', $user_id, trim($_REQUEST['last_name']));
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
         xprofile_set_field_data('Phone', $user_id, trim($_REQUEST['user_mobile']));
         xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
@@ -1038,8 +1037,6 @@ function save_custom_profile(){
           && esc_attr( $_POST['last_name']) != ""
             && trim($_REQUEST['user_dob']) != ""
             && trim($_REQUEST['user_gender']) != ""
-            && trim($_REQUEST['grade']) != ""
-            && trim($_REQUEST['division']) != ""
             && trim($_REQUEST['user_school']) != ""
             && trim($_REQUEST['user_mobile']) != ""
       ){

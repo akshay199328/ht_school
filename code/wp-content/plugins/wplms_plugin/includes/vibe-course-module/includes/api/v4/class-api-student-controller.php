@@ -1040,13 +1040,14 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$user_state = get_profile_data('State');
 			$user_city = get_profile_data('City');
 			$user_school = get_profile_data('Linked School');
-			$user_grade = get_profile_data('Grade');
-			$user_division = get_profile_data('Division');
-			$last_name = get_profile_data('Last Name');
-			$first_name = get_profile_data('First Name');
 			$dob = strtotime($user_birthday);
+			$currentUser = wp_get_current_user();
 
-			if($dob != '' && $user_mobile != '' && $user_school != '' && $user_gender != '' && $user_grade != '' && $user_division != '' && $first_name != '' && $last_name != ''){
+			/*if($dob > '1970-01-01' && $user_city != '' && $user_state != '' && $user_country != '' && $user_gender != ''){
+				$is_profile_complete = 1;
+			}*/
+
+			if($dob > '1970-01-01' && $user_gender != '' && $user_mobile != '' && $user_school != ''){
 				$is_profile_complete = 1;
 			}
 

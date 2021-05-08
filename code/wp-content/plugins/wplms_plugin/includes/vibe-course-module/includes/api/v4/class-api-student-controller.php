@@ -1047,7 +1047,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 				$is_profile_complete = 1;
 			}*/
 
-			if($dob > '1970-01-01' && $user_gender != '' && $user_mobile != ''){
+			if($dob > '1970-01-01' && $user_gender != '' && $user_mobile != '' && $user_school != ''){
 				$is_profile_complete = 1;
 			}
 

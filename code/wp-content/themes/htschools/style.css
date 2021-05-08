@@ -6837,6 +6837,15 @@ h6:empty,
       padding-left:0px;
     }
     .course-box.mycourse_box .border_button .course-button{grid-template-columns: auto;}
+    #menu-mobile-sidebar-menu .bp-logout-nav a:before{
+      content:'';
+      background: url('./assets/images/logout_mobile.svg');
+      display: inline-block;
+    width: 17px;
+    height: 18px;
+    float: left;
+    margin-right: 11px;
+    }
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

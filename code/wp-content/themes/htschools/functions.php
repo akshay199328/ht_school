@@ -1969,3 +1969,20 @@ if(!function_exists('calculate_duration')){
     return $return;
   } 
 }
+
+
+add_action('woocommerce_checkout_process', 'mobile_checkout_field_process');
+
+  function mobile_checkout_field_process() {
+
+    global $woocommerce;
+
+      // Check if set, if its not set add an error. This one is only requite for companies
+
+    if ( ! (preg_match('/^[0-9]{10}$/D', $_POST['billing_phone'] ))){
+
+        wc_add_notice( "Incorrect Phone Number! Please enter valid 10 digits phone number"  ,'error' );
+
+    }
+
+}

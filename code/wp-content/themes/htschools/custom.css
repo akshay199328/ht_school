@@ -361,7 +361,7 @@ padding: 15px 0;
     padding-top: 15px !important;
 }
 .right-details .course-button h6 .amount{font-size: 20px;}
-.course-box .middle-details{padding-right: 15px;}
+/*.course-box .middle-details{padding-right: 15px;}*/
 .dashboard_accountinfo .course-box .middle-details {padding-right: 75px;}
 /*.right-details .course-button h6 .subs{display: block;}*/
 
@@ -453,7 +453,7 @@ padding: 15px 0;
 }
 @media (min-width: 992px){
     .fixedmenu-tabs, .fixed_banner{z-index: 99!important;}
-    .right-details .course-button{padding-top: 25px!important;}
+    .right-details .course-button{padding-top: 0px!important;}
     .dashboard_accountinfo .right-details .course-button {
         padding-top: 0px!important;
         margin-left: 0px!important;

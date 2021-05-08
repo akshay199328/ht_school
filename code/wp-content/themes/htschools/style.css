@@ -258,6 +258,8 @@ ol.breadcrumbs  {
 }
 .breadcrumbs li:last-child::after{
   visibility: hidden;
+      top: 0;
+    padding: 0;
 }
 .white-bread.breadcrumbs li a {
     text-decoration: underline;
@@ -1155,7 +1157,7 @@ Course Details
 .fixed_banner .breadcrumbs li a{
   /*text-decoration: underline;*/
 }
-.fixed_banner .breadcrumbs ol li:after{color: #fff;display:none}
+.fixed_banner .breadcrumbs ol li:after{color: #fff;}
 .fixed_banner .content{padding: 0px;}
 .fixed_banner h2{
   font-size: 30px;
@@ -2099,8 +2101,33 @@ Course Details
   float: right;
   text-align: right;
 }
+.tableTd_left{
+  width: 16.6666666667%;
+  vertical-align: top;
+}
+.tableTd_middle{
+  width: 60%;
+  vertical-align: top;
+}
+.tableTd_right{
+  width: 50%;
+  vertical-align: bottom;
+  position: relative;
+}
+.tableTd_right .button_table {
+    width: 100%;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: flex-end;
+}
+.course-box table td{
+  padding: 0px!important;
+}
 .course-box .middle-details {
-    padding-left: 18px;
+    padding: 0px 18px 0px 15px!important;
 }
 .course-box .middle-details h6 {
     font-size: 11px;
@@ -2149,6 +2176,11 @@ Course Details
     white-space: nowrap;
     overflow: hidden;
 }
+.tableTd_right .share-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 .features .feature-box h3 {
   font-size: 18px;
   color: #012970;
@@ -2156,19 +2188,14 @@ Course Details
   margin: 0;
 }
 .duration {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
+        margin-top: 15px;
     flex-direction: row;
     flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 10px;
 
 }
-/*.duration .pull-left{
-width: 60%;
-}
-.duration .pull-right {
-    width: 40%;
-}*/
 .duration p{
  font-size: 10px!important;
   font-weight: normal;
@@ -2208,7 +2235,7 @@ width: 60%;
 .right-details .course-button{
     float: left;
     padding: 0px;
-    padding-top: 88px;
+    padding-top: 0px;
 }
 .right-details .course-button h6 {
     font-size: 20px;
@@ -2223,7 +2250,7 @@ width: 60%;
     /* width: 100%; */
     display: inline-block;
     margin-bottom: 5px;
-    padding-left: 4px;
+    padding-left: 0px;
     margin-top: 0px;
 }
 .right-details .course-button h6 .amount{ color: #000000;font-weight: bold;}
@@ -2237,8 +2264,10 @@ button.course-button,
 button.course-button .button 
 
  {
-    padding: 14px 5px 14px 5px;
+    padding: 14px 14px;
     width: 100%;
+    min-width: 135px;
+    min-height: 45px;
     background-color: #000000!important;
     font-size: 15px;
     font-weight: bold;
@@ -2249,9 +2278,9 @@ button.course-button .button
     text-align: center;
     color: #fade3b!important;
     float: left;
-    margin-left: 4px;
+    margin-left: 0px;
     border-radius: 0px !important;
-    display: inline-table;
+    display: inline-block;
         border: 0px;
 }
 a.progress_key_1, 
@@ -4859,10 +4888,13 @@ border-color: transparent;
 }
 .category_topAD{
   margin-bottom: 30px;
+  float: left;
+    width: 100%;
 }
 .category_bottomAD{
   margin-top: 30px;
   float: left;
+    width: 100%;
 }
 .news-listing .content-right .sidebar{
       padding: 22px;
@@ -5366,7 +5398,7 @@ font-size: 15px;
     box-shadow: none;
 }
 .course_home_progress{
-      padding-left: 5px;
+      padding-left: 0px;
 }
 .progress {
     background: #D5EBFF!important;
@@ -5423,6 +5455,10 @@ h6:empty,
     padding: 0;
     word-break: break-word;
     
+}
+.profilecou-instructor .profile-heading h3 strong{
+  color: #000;
+  font-weight: bold;
 }
 .profilecou-instructor .profile-heading {
     padding: 0px 0px;
@@ -5670,7 +5706,7 @@ h6:empty,
     margin: 30px auto 50px;
     text-align: center;
     display: table;
-        width: 45%;
+        width: 65%;
 }
 .empty_course_image {
     background-image: url(./assets/images/empty_course.svg);
@@ -6255,7 +6291,6 @@ h6:empty,
  .hero-list .hero-card h5 {font-size: 25px;}
   .details-middle ul li{width: 46%;margin-right: 20px;}
    ul.full_width_list li{width: 100%}
-  .right-details .course-button a{margin-left: 0px;}
   .right-details .course-button h6{padding-left: 0px;}
   .right-section .container {width: 565px;}
   .fixed_banner .container{width: 355px;padding-right: 21px;}
@@ -6272,7 +6307,6 @@ h6:empty,
   .home_slider .homecarousel_text p {font-size: 22px;line-height: 32px;}
   .infograph{border-top: solid 0px #b8b8b8;}
   .testimonials .testimonial-item{    padding: 0 10px 0 0;}
-  .right-details .course-button a{margin-left: 12px;}
   .right-details .course-button h6{padding-left: 30px;}
   .Popular-Courses .section-header h2 {font-size: 40px;}
   .Popular-Courses .section-header p {font-size: 22px;margin-bottom: 25px;}
@@ -6369,22 +6403,13 @@ h6:empty,
         margin-bottom:0px;
         
     }
-    .right-details .course-button {padding-left: 20px;float: left;padding-top: 10px!important;
-      -webkit-box-align: center !important;
-        -ms-flex-align: center !important;
-        align-items: center !important;
-        display: flex;
-    }
-    .course-box .right-details .course-button{
-      margin-left: 20px !important;padding-left: 0px;margin-top: 10px;width: 94%;
-      /* justify-content: space-between; */justify-content: flex-end;
-    }
+    
+    
     .course-curriculum .card{
       height: auto;width: 100%;margin: 0px 0px 15px 0px;word-break: break-word;}
     .cv-detilslist span { margin: 0px 10px 10px 12px;}
     .desktop-btn{display: none!important;}
     .mobile-btn{display: inline-block!important;}
-    .right-details .course-button a{margin-left: 0px;font-size: 12px;}
     .middle-details .share-icon{right: 0;}
     .sticky_content { display: block;}
     .fixed_banner, .right-section{
@@ -6469,7 +6494,7 @@ h6:empty,
     .profile-card.transprent .course-box .right-details{
       position: unset;
     }
-    .course-button a{width: auto!important;padding-left: 15px;padding-right: 15px;}
+
     .profile-card .news-listing,
     .profile-card .news-listing .blogpost:first-child {
       padding-top: 0px!important;
@@ -6489,19 +6514,10 @@ h6:empty,
     .course-aboutDetails .share-icon{
         margin-top: 0px;
     }
-    .course-button a, 
-    .course-button input, 
-    .course-button button, 
-    button.course-button, 
-    button.course-button .button{
-      width: auto;
-      margin-left: 0px;
-    }
 }
 
 @media screen and (max-width:767px) and (min-width:320px){
-    /*.header-space {margin-top: 90px;}*/
-    /*.hero{    padding-bottom: 30px;}*/
+    
     .mobile-display{display: inline-block!important;}
     .header .homeicon img{width: 96px;margin-left: -10px!important;}
     .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
@@ -6563,15 +6579,15 @@ h6:empty,
       }
     .course-box{display: block;margin-top: 10px;margin-bottom: 0;    margin-left: 0px;}
     .course_single_item:first-child .course-box{margin-top: 0px;}
-    .course-button {
+    .button_table tbody tr.border_button {
+        width: 80%;
+        display: block;
+        float: right;
         border-top: 1px solid #707070;
-        padding: 15px 0px 0px;
+        padding-top: 10px;
         margin-top: 10px;
-        float: left;
-        width: 100%;
     }
     .course-button .the_course_button{float: left;width: auto;}
-    /*.right-details .course-button { padding-left: 0px!important;}*/
     .course-box:after{width: 103.5px;right: 6px;}
     .middle-details .duration  {padding-top: 0px !important;}
     .competitive .comp-heading h1{font-size: 35px;}
@@ -6596,9 +6612,6 @@ h6:empty,
     .right-menu ul li #new_searchicon{display: block!important}
     .bootom-link{
       margin-top: 50px!important;   
-      /*height: 260px;
-      overflow-y: scroll;
-      margin-right: 0px;*/
       padding-right: 30px;
     }
     .login-box .login-right{    padding: 30px 25px;}
@@ -6627,6 +6640,7 @@ h6:empty,
     .logged-in .right-menu ul.after_loginspace {margin-top: 3px;}
     .course-box .middle-details h2 {font-size: 15px;line-height: 15px;}
     .course-box .middle-details h6 {letter-spacing: 1px;margin-bottom: 5px;}
+    .course_para{display: none}
     .course-box .middle-details p{font-size: 12px;line-height: 16px;margin-bottom: 13px;display: none;}
     .course-box .middle-details .duration p{font-size: 10px;}
     .course-box .col-lg-10, 
@@ -6643,25 +6657,14 @@ h6:empty,
     .share-icon img{width: 13.92px!important;}
     .bookmark-remove, .bookmark{
         height: 18.92px;
-        /*width: 13.92px;*/
         background-size: 13.92px 13.92px;
     }
     .fixedmenu-tabs .bookmark-remove, .post-creator .bookmark-remove,
     .post-creator .bookmark{top: 4px;}
     .dashboard_accountinfo .course-box .middle-details {padding: 0;padding-left: 10px;padding-right: 60px !important;}
-    .course_home_progress{padding-left: 10px;}
-    .dashboard_accountinfo .course-box .right-details .course-button {
-      margin-left: 0px !important;
-      border: 0px;
-      padding: 0px!important;
-      margin-top: 5px;
-    }
     .dashboard_accountinfo .right-details .course-button h6{/*padding: 0px!important;*/}
     .dashboard_accountinfo .course-box .learing-goals {padding: 10px 0px!important;}
-    .dashboard_accountinfo .profilecou-instructor{
-      padding-top: 30px;
-      padding-left: 10px;
-    }
+    
     .dashboard_accountinfo .profile-content {-webkit-box-align: center !important;-ms-flex-align: center !important;align-items: center !important;display: flex;}
     .dashboard_accountinfo .profilecou-instructor .profile-heading{padding-left: 20px;}
     .dashboard_accountinfo .profile-content .profile-img, .profile-content .profile-heading{float: left}
@@ -6693,7 +6696,6 @@ h6:empty,
     .news-listing .content-right .sidebar{margin-top: 15px;}
     .news-main .content-right .details .share-icon{width: auto;}
     .news-listing .content-right .sidebar{    margin-top: 10px;}
-    /* .home_slider .owl-dots, .home_slider .owl-nav{display: none;} */
     .home_slider .owl-nav{display:none}
     .home_slider .owl-dots{display: block;right: -15px;
       left: auto;position: relative;}
@@ -6731,7 +6733,6 @@ h6:empty,
         margin-bottom: 17px;
       }
       #exampleModal.modal{
-        /*padding:42px;*/
         padding: 17px
       }
       #exampleModal .modal-header {
@@ -6750,11 +6751,7 @@ h6:empty,
             font-size: 20px;
     }
     .hover_share{top: -5px;}
-    /* .savedCourse_box .hover_share{top: 0px;}
-    .right-details .hover_share{top: 6px;}
-    .fixedmenu-tabs .share-icon .hover_share{top: -5px!important;}
-    .dotted-border .share-icon .hover_share{top: -18px;}
-    .news_icons .hover_share{top: -2px;} */
+    
     .right_spacing{
       padding-left: 0px!important;
     }
@@ -6798,6 +6795,48 @@ h6:empty,
     .page_not_found .details {padding: 0px 15px;}
     .page_not_found .details h6 {font-size: 34px;line-height: 44px;}
     .page_not_found .details p {font-size: 16px;line-height: 22px;}
+    .course-box table td{    display: inline-block;}
+    .tableTd_middle { width: 80%;}
+    .tableTd_right{
+      width: 100%;
+      float: left;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: space-between;
+      justify-content: flex-start;
+          position: inherit;
+    }
+    .tableTd_right .button_table{
+      justify-content: flex-start;
+    }
+    .tableTd_middle table {text-align: left;}
+    .button_table tbody, .table_progressbar .right-details {width: 100%;}
+    .duration{grid-template-columns: repeat(2, 2fr);}
+    .border_button .course-button {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+    }
+    .course-button a, .course-button input, .course-button button, button.course-button, button.course-button .button{
+          font-size: 14px;
+    }
+    .table_progressbar, .dashboard_accountinfo tr.profilecou-instructor{
+          width: 80%;
+          display: block;
+          float: right;
+          padding-left: 0px;
+    }
+    .mycourse_box .button_table tbody tr.border_button{
+        border-top: 0px solid #707070;
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+    .dashboard_accountinfo .course-box.mycourse_box .middle-details{
+      padding-left:0px;
+    }
+    .course-box.mycourse_box .border_button .course-button{grid-template-columns: auto;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -7081,8 +7120,7 @@ textarea:focus {
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 1) {
-    
-    .course-box .right-details .course-button{justify-content: flex-end;width: 98%;}
+   
     .course .widget_custom_html,
     .page-template-all-courses .widget_custom_html, 
     .page-template-my-course .widget_custom_html{position: sticky;top: 80px;}
@@ -7107,7 +7145,7 @@ textarea:focus {
 
 .woocommerce-form-coupon-toggle{display: none;}
 .new-add{margin-top: 20px!important;}
-span.coming_soon{display: none}
+span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 .woocommerce-message{display: none;}
 
 .popup_dropdown select {

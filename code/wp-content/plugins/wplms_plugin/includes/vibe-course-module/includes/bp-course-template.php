@@ -807,13 +807,7 @@ if(!function_exists('bp_course_item_view')){
    			
 		<div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
           <div class="course-box dotted-border">
-            <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
-                <?php bp_course_avatar(); ?>
-            </div>
-            <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
-            	<div class="col-sm-12 col-lg-9 pull-left mrg">
-              	<div class="middle-details">
-                <?php 
+          	<?php 
                 	$category_array = get_the_terms( $post->ID, 'course-cat');
                 	$excerpt = get_post_field('post_excerpt', $post->ID);
                 	$custom_fields = get_post_custom();
@@ -821,63 +815,87 @@ if(!function_exists('bp_course_item_view')){
                     $session = $custom_fields['vibe_course_sessions'][0];
                     $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
                 ?>
-                <h6><?php echo $category_array[0]->name; ?></h6>
-                <h2><?php bp_course_title(); ?></h2>
-                <?php if ( $excerpt != '' ) {
-                    echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
-                }  ?>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-left mrg duration">
-	                <p>Duration</p>
-	                <?php if($duration == '') { ?>
-	                <h6>--</h6>
-	                <?php } else{ ?>
-	                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
-	                <?php }?>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-lg-6 pull-right mrg duration">
-                	<p>Age Group</p>
-                	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
-                		<h6>--</h6>
-                	<?php } else{ ?>
-                		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
-                	<?php }?>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 col-lg-3 pull-left mrg">
+                <table width="100%">
+                  <tbody>
+                    <tr>
+                      <td class="tableTd_left">
+                          <?php bp_course_avatar(); ?>
+                      </td>
+                      <td class="middle-details tableTd_middle">
+                        <table width="100%">
+                          <tr>
+                            <td>
+                              <h6><?php echo $category_array[0]->name; ?></h6>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h2><?php bp_course_title(); ?></h2>
+                            </td>
+                          </tr>
+                          <tr class="course_para">
+                            <td>
+	                            <?php if ( $excerpt != '' ) {
+				                    echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
+				                }  ?>
+                            </td>
+                          </tr>
+                          <tr class="duration">
+                            <td>
+                              	<p>Duration</p>
+				                <?php if($duration == '') { ?>
+				                <h6>--</h6>
+				                <?php } else{ ?>
+				                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
+				                <?php }?>
+                            </td>
+                            <td>
+                              	<p>Age Group</p>
+			                	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
+			                		<h6>--</h6>
+			                	<?php } else{ ?>
+			                		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
+			                	<?php }?>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="tableTd_right right-details">
+                        <table width="100%" class="button_table">
+                          <tr>
+                            <td class="share-icon">
+                              <ul>
+                              	<li class="hover_share">
+				                    <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+				                    <div class="display_icon">
+				                    	<h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
+				                      <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
+				                        <a class="a2a_button_facebook"></a>
+				                        <a class="a2a_button_twitter"></a>
+				                        <a class="a2a_button_pinterest"></a>
+				                        <a class="a2a_button_google_gmail"></a>
+				                        <a class="a2a_button_whatsapp"></a>
+				                        <a class="a2a_button_telegram"></a>
+				                      </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+				                    </div>
+				                  </li>
+				                </ul>  
+				                <script async src="https://static.addtoany.com/menu/page.js"></script>
+                            </td>
+                          </tr>
+                          <tr class="border_button">
+                            <td class="course-button">
+                              	<h6><?php the_course_price(); ?></h6>
+                      			<?php the_course_button(); ?> 
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                 
-                <div class="share-icon">
-	                <ul>
-	                  
-	                  <li class="hover_share">
-	                    <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
-	                    <div class="display_icon">
-	                    	<h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
-	                      <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
-	                        <a class="a2a_button_facebook"></a>
-	                        <a class="a2a_button_twitter"></a>
-	                        <a class="a2a_button_pinterest"></a>
-	                        <a class="a2a_button_google_gmail"></a>
-	                        <a class="a2a_button_whatsapp"></a>
-	                        <a class="a2a_button_telegram"></a>
-	                      </div><script async src="https://static.addtoany.com/menu/page.js"></script>
-	                    </div>
-	                  </li>
-	                </ul>  
-	                <script async src="https://static.addtoany.com/menu/page.js"></script>
-              	</div>
-              	<div class="col-lg-12 right-details pull-left mrg">
-                  
-                  <div class="col-lg-12 course-button">
-                      <h6><?php the_course_price(); ?>
-                     </h6>
-                      <?php the_course_button(); ?> 
-                  </div>
-                </div>
-              </div>
             </div>
-            
-          </div>
             
         </div>
    	<?php

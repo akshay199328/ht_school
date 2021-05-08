@@ -83,93 +83,109 @@ vibe_include_template("profile/top$profile_layout.php");
 						?>
 		
             	 	<div class="course-box">
-			            <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
-			                <?php bp_course_avatar(); ?>
-			            </div>
-			            <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
-			            	<div class="col-sm-12 col-lg-9 pull-left mrg">
-			              	<div class="middle-details">
-			                <?php 
-			                	$category_array = get_the_terms( $post->ID, 'course-cat');
-			                ?>
-			                <h6><?php echo $category_array[0]->name; ?></h6>
-			                <h2><?php bp_course_title(); ?></h2>
-			                <?php
-			                  $excerpt = get_post_field('post_excerpt', $post->ID);
-			                  if ( $excerpt != '' ) {
-			                    echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
-			                  }
-			                  else{
-			                    $content = wp_trim_words( $post->post_content, 20 );
-			                    echo "<p>".esc_html( $content )."</p>";
-			                  }
-			                ?>
-			                <div class="col-lg-7 duration mrg">
-				                <div class="pull-left">
-				                  <p>Duration</p>
-	                              <?php if($duration == '') { ?>
-	                              <h6>--</h6>
-	                              <?php } else{ ?>
-	                              <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
-	                              <?php }?>
-				                </div>
-				                <div class="pull-right">
-				                	<p>Age Group</p>
-				                	<?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
-				                		<h6>--</h6>
-				                	<?php } else{ ?>
-				                		<h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
-				                	<?php }?>
-				                </div>
-				            </div>
-			                        </div>
-			                    </div>
-			                    <div class="col-sm-12 col-lg-3 pull-left mrg">
-			                        <div class="col-lg-12 right-details pull-left mrg">
-			                            <div class="col-lg-12 course-button">
-			                                <h6><?php the_course_price(); ?></h6>
-			                                <?php the_course_button(); ?> 
-			                                <!-- <a href="<?php echo get_bloginfo('url')?>/certificates/my-certificate/?c=<?php echo $post->ID?>&u=<?php echo $user->ID?>">Certificate</a> -->
-			                            </div>
-			                            
-			                            <div class="profilecou-instructor">
-			                                <div class="heading">
-			                                    <h3>Instructor</h3>
-			                                </div>
-			                                <?php
-			                                
-			                                $course_id=get_the_ID();
-			                                $post_tmp = get_post($course_id);
-			                                $author_id = $post_tmp->post_author;
-			                                $author_info = get_userdata($author_id);
-			                                $author_name = get_the_author_meta( 'display_name', $author_id );
-			                                $author_url = get_the_author_meta( 'user_url', $author_id );
-			                                $author_user_profile = get_avatar_url($author_id);
-			                                $author_company = get_the_author_meta( 'last_name', $author_id );
-			                                ?>
-			                                <div class="col-sm-12 col-lg-12 mrg">
-			                                    <div class="profile-content mt-auto">
-			                                        <div class="profile-img">
-			                                            <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="Author User Profile" title="Author User Profile">
-			                                        </div>
-			                                        <div class="clearfix"></div>
-			                                        <div class="profile-heading">
-			                                            <h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
-			                                            <h4><?php echo $author_company; ?></h4>
-			                                        </div>
-			                                        <div class="clearfix"></div>
-													
-			                                    </div>
-												<div class="download">
-														<?php user_certificate($post->ID,$user->ID);?>
-												</div>
-			                                </div>
-			                            </div>
-			                </div>
-			            </div>
-			        
-			    		</div>
-			 		</div>
+                <table width="100%">
+                  <tbody>
+                    <tr>
+                      <td class="tableTd_left">
+                          <?php bp_course_avatar(); ?>
+                      </td>
+                      <td class="middle-details tableTd_middle">
+                        <table width="100%">
+	                        <tr>
+	                            <td>
+	                                <?php 
+				                        $category_array = get_the_terms( $post->ID, 'course-cat');
+				                    ?>
+				                    <h6><?php echo $category_array[0]->name; ?></h6>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td>
+	                              <h2><?php bp_course_title(); ?></h2>
+	                            </td>
+	                        </tr>
+                          	<tr class="course_para">
+	                            <td>
+	                              	<?php
+				                        $excerpt = get_post_field('post_excerpt', $post->ID);
+				                        if ( $excerpt != '' ) {
+				                          echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
+				                        }
+				                        else{
+				                          $content = wp_trim_words( $post->post_content, 20 );
+				                          echo "<p>".esc_html( $content )."</p>";
+				                        }
+				                    ?>
+	                            </td>
+                          	</tr>
+                          <tr class="duration">
+                            <td>
+                              	<p>Duration</p>
+                                <?php if($duration == '') { ?>
+                                <h6>--</h6>
+                                <?php } else{ ?>
+                                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
+                                <?php }?>
+                            </td>
+                            <td>
+                              	<p>Age Group</p>
+		                        <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
+		                        <h6>--</h6>
+		                        <?php } else{ ?>
+		                            <h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
+		                        <?php }?>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="tableTd_right right-details">
+                        <table width="100%" class="button_table">
+                            <tr class="border_button">
+                                <td class="course-button">
+                                    <h6><?php the_course_price(); ?></h6>
+                                      <?php the_course_button(); ?> 
+                                </td>
+                            </tr>
+                            <tr class="profilecou-instructor">
+                                <td>
+                                    <div class="heading">
+                                        <h3>Instructor</h3>
+                                    </div>
+                                    <?php
+                                    	$course_id=get_the_ID();
+	                                    $post_tmp = get_post($course_id);
+	                                    $author_id = $post_tmp->post_author;
+	                                    $author_info = get_userdata($author_id);
+	                                    $author_name = get_the_author_meta( 'display_name', $author_id );
+	                                    $author_url = get_the_author_meta( 'user_url', $author_id );
+	                                    $author_user_profile = get_avatar_url($author_id);
+	                                    $author_company = get_the_author_meta( 'last_name', $author_id );
+                                    ?>
+                                    <div class="col-sm-12 col-lg-12 mrg">
+                                        <div class="profile-content mt-auto">
+                                            <div class="profile-img">
+                                                <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="Author User Profile" title="Author User Profile">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="profile-heading">
+                                                <h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
+                                                <h4><?php echo $author_company; ?></h4>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+				                        <div class="download">
+				                            <?php user_certificate($post->ID,$user->ID);?>
+				                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+            </div>
 				<?php	}
 				}else{ ?>
 					<div class="empty_cart_div">

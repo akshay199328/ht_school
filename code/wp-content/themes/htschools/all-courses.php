@@ -46,49 +46,63 @@ get_header(vibe_get_header());
                       $excerpt = get_post_field('post_excerpt', $post->ID);
                   ?>
                   <div class="course-box dotted-border">
-                    <div class="col-xs-2 col-sm-2 col-lg-2 pull-left mrg">
-                        <?php 
-                        if ( has_post_thumbnail() ) { 
-                          $image_url = get_the_post_thumbnail_url();
-                        }
-                      ?>
-                     <a href="<?php echo get_permalink($post->ID);?>"> <img src="<?php echo $image_url; ?>" class="img-fluid" alt="" title=""></a>
-                    </div>
-                    <div class="col-xs-10 col-sm-10 col-lg-10 pull-left mrg">
-                      <div class="col-sm-12 col-lg-9 pull-left mrg">
-                        <div class="middle-details">
-                            <h6><?php echo $category_array[0]->name; ?></h6>
-                          <h2><?php echo bp_course_title(); ?></h2>
-                          <div class="col-lg-12 share-icon mrg">
-                            <i class="bi bi-share"></i>
-                          </div>
-                          <?php if ( $excerpt != '' ) {
-                            echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
-                          }  ?>
-                          <div class="col-lg-7 duration mrg">
-                            <div class="pull-left">
+                <table width="100%">
+                  <tbody>
+                    <tr>
+                      <td class="tableTd_left">
+                          <?php 
+                              if ( has_post_thumbnail() ) { 
+                                $image_url = get_the_post_thumbnail_url();
+                              }
+                          ?>
+                          <a href="<?php echo get_permalink($post->ID);?>"> 
+                            <img src="<?php echo $image_url; ?>" class="img-fluid" alt="" title="">
+                          </a>
+                      </td>
+                      <td class="middle-details tableTd_middle">
+                        <table width="100%">
+                          <tr>
+                            <td>
+                              <h6><?php echo $category_array[0]->name; ?></h6>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h2><?php echo bp_course_title(); ?></h2>
+                            </td>
+                          </tr>
+                          <tr class="course_para">
+                            <td>
+                              <?php if ( $excerpt != '' ) {
+                                echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
+                              }  ?>
+                            </td>
+                          </tr>
+                          <tr class="duration">
+                            <td>
                               <p>Duration</p>
                               <?php if($duration == '') { ?>
                               <h6>--</h6>
                               <?php } else{ ?>
                               <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
                               <?php }?>
-                            </div>
-                            <div class="pull-right">
+                            </td>
+                            <td>
                               <p>Age Group</p>
                               <?php if($age_limit == '') { ?>
                               <h6>--</h6>
                               <?php } else{ ?>
                               <h6><?php echo $age_limit;?><span> yrs</span></h6>
                               <?php }?>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12 col-lg-3 pull-left mrg">
-                        <div class="col-lg-12 right-details pull-left mrg">
-                          <div class="share-icon">
-                            <ul>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="tableTd_right right-details">
+                        <table width="100%" class="button_table">
+                          <tr>
+                            <td class="share-icon">
+                              <ul>
                               <li class="hover_share">
                                 <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg" alt="Share Icon" title="Share Icon">
                                 <div class="display_icon">
@@ -106,19 +120,24 @@ get_header(vibe_get_header());
                               </li>
                             </ul>  
                             <script async src="https://static.addtoany.com/menu/page.js"></script>
-                          </div>
-                          <div class="col-lg-12 course-button">
-
+                            </td>
+                          </tr>
+                          <tr class="border_button">
+                            <td class="course-button">
                               <h6 ><?php 
                                 the_course_price();
                             ?>
                             </h6>
                             <?php the_course_button(); ?>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+            </div>
                 <?php endwhile; endif; posts_pagination();?>
                 </div>
             </div>

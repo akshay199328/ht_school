@@ -424,15 +424,7 @@ border: 1px solid deepskyblue;
                                     </div>
                                 </div> -->
 
-                                <div class="col-md-12">
-                                    <label>City</label>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="input-group">
-                                        <input type="type"  id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" class="s-class form-control user_field" />
-                                        <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                    </div>
-                                </div> 
+                                
                                 <?php $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id ); ?>
                                 <div class="col-md-12">
                                   <label for="">Grade / Standard</label>
@@ -466,7 +458,15 @@ border: 1px solid deepskyblue;
                                     </div>
                                   </div>
                                 </div>
-
+                                <div class="col-md-12">
+                                    <label>City</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input type="type"  id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" class="s-class form-control user_field" />
+                                        <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                    </div>
+                                </div> 
                                 <div class="col-md-12">
                                     <p class="error" id="response_message" style="display: none;"></p>
                                     <button type="button" class="btn sl-btn"  id="profile_submit">Start Learning</button>

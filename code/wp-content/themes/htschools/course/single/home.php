@@ -331,7 +331,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <div class="col-xs-4 col-sm-2 col-lg-4 mrg profile-img pull-left">
                                       <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
                                     </div>
-                                    <div class="col-xs-8 col-sm-8 co-lg-8 pull-left">
+                                    <div class="col-xs-8 col-sm-8 co-lg-8 pull-left padding_right">
                                       <h3 class="name"><?php echo $author_name; ?></h3>
                                       <h4><?php echo $author_company; ?></h4>
                                       <div class="double-border"></div>

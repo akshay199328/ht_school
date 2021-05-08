@@ -240,6 +240,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <!--titular-->
               <?php
+                  $current_user = wp_get_current_user();
+                  $username = $current_user->user_login;    
                     $args = array(
                         'theme_location'  => 'sidebar-menu',
                     );
@@ -251,7 +253,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div class="mobile_menu">
                   <ul>
                       <li><a href='/?s'>Search</a></li>
-                      <li><a href="<?php echo get_bloginfo('url').'/login-register'?>">Login</a></li>
+                      <?php if (!is_user_logged_in()){ ?>
+                        <li><a href="<?php echo get_bloginfo('url').'/login-register'?>">Login</a></li>
+                      <?php }else{ 
+                          $args = array(
+                              'theme_location'  => 'mobile-sidebar-menu',
+                          );
+
+                        wp_nav_menu( $args );
+                      ?>
+                      <?php }?>
                   </ul>
                 </div>
                 <div class="bootom-link">

@@ -170,7 +170,7 @@ section {
     -ms-flex-pack: justify !important;
     justify-content: space-between !important;
     display: flex;
-    height: 75px;
+    height: 65px;
   }
   .footer .footer-top .social-links .pull-left, .footer .footer-top .social-links .pull-right{
       -webkit-box-pack: justify !important;
@@ -6750,7 +6750,7 @@ h6:empty,
             padding: 0px 12px 0px 3px;
             font-size: 20px;
     }
-    .hover_share{top: -5px;}
+    .hover_share{top: 0px;}
     
     .right_spacing{
       padding-left: 0px!important;

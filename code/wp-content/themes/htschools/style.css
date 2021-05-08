@@ -1523,6 +1523,9 @@ Course Details
 .profileimg-name .co-lg-3.pull-left {
     padding: 29px 0px 0px 20px;
 }
+.padding_right{
+  padding-right: 0px!important;
+}
 .instructor-detailsMini .profile-content h3{
   font-size: 15px;
   word-break: break-word;
@@ -4623,24 +4626,12 @@ div.nsl-container .nsl-container-buttons{
 # NEWS
 --------------------------------------------------------------*/
 .news-main{
-  /*background: #F8F8F8;*/
-  /*position: relative;*/
   padding-bottom: 0px;
 }
 .news-main .category-news .content-left{
   background: #000000;
   position: relative;
 }
-/*.news-main .category-news .content-left:before{
-  content: '';
-  background: #000000;
-  position: absolute;
-  left: -332px;
-  display: block;
-  height: 100%;
-  top: 0;
-  width: 100%;
-}*/
 .news-main .category-news .content-left {
     padding: 20px 20px 20px 0px!important;
 }
@@ -4653,7 +4644,7 @@ div.nsl-container .nsl-container-buttons{
     color: #fff;
         margin: 15px 0px 0;
 }
-.category-news .border_text{margin-bottom: 15px;}
+.category-news .border_text{margin-bottom: 15px;padding-top: 15px;}
 .news-main .category-news .content-left .pagetitle h5{
     font-size: 17px!important;
     line-height: 22px!important;

@@ -643,12 +643,13 @@ function reg_new_user(){
 
 }
 function send_sms($mobile, $message){
-    $myfile = fopen(__DIR__ . "/../../../otp.txt", "a") or die("Unable to open file!");
+   //$myfile = fopen(__DIR__ . "/../../../otp.txt", "a") or die("Unable to open file!");
     $txt = $mobile . " : " . $message . "\n";
-    fwrite($myfile, $txt);
-    fclose($myfile);
+   // fwrite($myfile, $txt);
+   // fclose($myfile);
     
-    $url = 'http://admagister.net/api/mt/SendSMS?channel=Trans&DCS=0&flashsms=0&number=91' . $mobile . '&text=' . urlencode($message) . '&route=30&APIKey=' . ADMAGISTER_API_KEY . '&senderid=' . ADMAGISTER_SENDER_ID;
+    $url = 'https://admagister.net/api/mt/SendSMS?channel=Trans&DCS=0&flashsms=0&number=91' . $mobile . '&text=' . urlencode($message) . '&route=30&APIKey=' . ADMAGISTER_API_KEY . '&senderid=' . ADMAGISTER_SENDER_ID;
+    //echo $url;exit;
     
     $ch = curl_init(); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -1970,19 +1971,10 @@ if(!function_exists('calculate_duration')){
   } 
 }
 
-
-add_action('woocommerce_checkout_process', 'mobile_checkout_field_process');
-
-  function mobile_checkout_field_process() {
-
-    global $woocommerce;
-
-      // Check if set, if its not set add an error. This one is only requite for companies
-
-    if ( ! (preg_match('/^[0-9]{10}$/D', $_POST['billing_phone'] ))){
-
-        wc_add_notice( "Incorrect Phone Number! Please enter valid 10 digits phone number"  ,'error' );
-
+add_action('woocommerce_checkout_process', 'custom_validate_billing_phone');
+    function custom_validate_billing_phone() {
+    $is_correct = preg_match('/^[0-9]{10}$/', $_POST['billing_phone']);
+    if ( $_POST['billing_phone'] && !$is_correct) {
+    wc_add_notice( __( 'The Phone field should be between 10 digits.' ), 'error' );
     }
-
 }

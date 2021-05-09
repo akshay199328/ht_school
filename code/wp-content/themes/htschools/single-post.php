@@ -200,13 +200,14 @@ $topics = wp_get_post_tags(get_the_ID());
 <!-- releted news -->
 <?php $tags = wp_get_post_tags(get_the_ID());
   if ($tags) {
-    $first_tag = $tags[0]->term_id;
 
-    $args=array(
-      'tag__in' => array($first_tag),
-      'post__not_in' => array(get_the_ID()),
-      'posts_per_page'=>6,
-    );
+    foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+                $args=array(
+                'tag__in' => $tag_ids,
+                'post__not_in' => array($post->ID),
+                'posts_per_page'=>6, 
+                );
+
     $my_query = new WP_Query($args);
     if ($my_query->have_posts()){
   ?>

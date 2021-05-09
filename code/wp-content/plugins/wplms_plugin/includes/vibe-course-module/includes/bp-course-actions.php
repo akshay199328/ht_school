@@ -1307,53 +1307,7 @@ class BP_Course_Action{
 		  }//End If courses
 		}// End Item for loop
 		
-		if(function_exists('vibe_get_option'))
-	      $instructor_commission = vibe_get_option('instructor_commission');
-	    
-	    if($instructor_commission == 0)
-	      		return;
-	      	
-	    if(!isset($instructor_commission) || !$instructor_commission)
-	      $instructor_commission = 70;
-
-	    $commissions = get_option('instructor_commissions');
-		foreach($commission_array as $item_id=>$commission_item){
-
-			foreach($commission_item['course'] as $course_id){
-				
-				if(count($commission_item['instructor'][$course_id]) > 1){     // Multiple instructors
-					
-					$calculated_commission_base=round(($commission_item['total']*($instructor_commission/100)/count($commission_item['instructor'][$course_id])),0); // Default Slit equal propertion
-
-					foreach($commission_item['instructor'][$course_id] as $instructor){
-						if(empty($commissions[$course_id][$instructor]) && !is_numeric($commissions[$course_id][$instructor])){
-							$calculated_commission_base = round(($commission_item['total']*$instructor_commission/100),2);
-						}else{
-							$calculated_commission_base = round(($commission_item['total']*$commissions[$course_id][$instructor]/100),2);
-						}
-						$calculated_commission_base = apply_filters('wplms_calculated_commission_base',$calculated_commission_base,$instructor);
-
-                        bp_course_record_instructor_commission($instructor,$calculated_commission_base,$course_id,array('origin'=>'woocommerce','order_id'=>$order_id,'item_id'=>$item_id,'currency'=>$commission_item['currency']));
-                        
-					}
-				}else{
-					if(is_array($commission_item['instructor'][$course_id]))                                    // Single Instructor
-						$instructor=$commission_item['instructor'][$course_id][0];
-					else
-						$instructor=$commission_item['instructor'][$course_id]; 
-					
-					if(isset($commissions[$course_id][$instructor]) && is_numeric($commissions[$course_id][$instructor]))
-						$calculated_commission_base = round(($commission_item['total']*$commissions[$course_id][$instructor]/100),2);
-					else
-						$calculated_commission_base = round(($commission_item['total']*$instructor_commission/100),2);
-
-					$calculated_commission_base = apply_filters('wplms_calculated_commission_base',$calculated_commission_base,$instructor);
-
-                    bp_course_record_instructor_commission($instructor,$calculated_commission_base,$course_id,array('origin'=>'woocommerce','order_id'=>$order_id,'item_id'=>$item_id,'currency'=>$commission_item['currency']));
-				}   
-			}
-
-		} // End Commissions_array  
+	
 	}
 
 	function bp_course_disable_access($order_id,$from_status,$to_status){

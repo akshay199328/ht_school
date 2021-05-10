@@ -2496,7 +2496,7 @@
     text-align: left;
     color: #000000;
 }
-
+.incoursequiz_details.show_controls strong .student_score{display: none}
 .course_status .incourse .incoursequiz_details>div .show_questions {
     display: flex;
     align-items: center

@@ -38,7 +38,7 @@ a {
 
 a:hover {
   color: #000;
-  text-decoration: none;
+  text-decoration: none!important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,7 +50,7 @@ p{
   font-weight:normal;
 }
 b, strong {
-    font-weight: bold;
+    font-weight: bold!important;
 }
 dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
 :focus {
@@ -371,7 +371,7 @@ body.page-template-home , .page-template-home .pusher {
 }
 .border-menu, .border-menu.active {
     border: 1px solid #000;
-    padding: 7px 15px !important;
+    padding: 11px 15px !important;
     background: transparent!important;
     margin-left: 0px;
     position: relative;

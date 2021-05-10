@@ -4292,6 +4292,7 @@ div.nsl-container-block .nsl-container-buttons a{
     font-size: 15px;
     font-weight: bold;
     width: 100%;
+    padding: 9px;
 }
 .login-box .btn.submit_btn a{color: #cdbe69;}
 .login-box .btn[disabled]{

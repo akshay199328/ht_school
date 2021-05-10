@@ -746,7 +746,7 @@ class WPLMS_Actions{
     			if(suser){
     				var user = JSON.parse(suser);	
     				if(Object.keys(user).length){
-	    				document.querySelector('.vibebp-login').innerHTML='<a class="loggedin_user"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.displayname+'</span></a>';
+	    				document.querySelector('.vibebp-login').innerHTML='<a class="loggedin_user"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.display_name+'</span></a>';
 
 	    				<?php 
 							if(function_exists('vibebp_get_setting') && !empty(vibebp_get_setting('bp_single_page')) && empty(vibebp_get_setting('global_login')) ){

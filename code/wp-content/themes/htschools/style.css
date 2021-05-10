@@ -184,6 +184,7 @@ section {
   {
     border-bottom: solid 0px #b8b8b8;
   }
+  .right-adwork.right_spacing{padding-right: 25px!important}
 }
 @media (max-width: 992px) {
   .breadcrumbs {

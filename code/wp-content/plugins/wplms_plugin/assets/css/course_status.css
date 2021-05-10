@@ -249,7 +249,8 @@
 }
 .course_status .reviewpopup_wrapper .reviewpopup_content,
 .course_status .course_instructions_wrapper .reviewpopup_content {
-    margin-top: 90px
+    margin-top: 90px;
+        position: relative;
 }
 
 .course_status .reviewpopup_wrapper .reviewpopup_content,
@@ -307,6 +308,8 @@
     border-radius: 0px;
     flex: 0 0 0px;
     font-weight: 500;
+    display: inline-table;
+    padding: 15px 16px;
 }
 .reviewpopup_wrapper .reviewpopup_content .popup-footer>a.button .vicon-angle-right{
     display: none;
@@ -408,7 +411,7 @@
     color: #d5ebff!important;
     background: #000;
     width: 210px;
-    /* display: flex; */
+     display: inline-table; 
     float: left;
     margin-top: 36px;
     padding: 12px 35px;
@@ -517,6 +520,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+        
+}
+.course_status .reviewpopup_wrapper .reviewpopup_content .custom-popup-footer{
+    position: absolute;
+    bottom: 0;
 }
 .course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer a:first-child {
     order: 2;

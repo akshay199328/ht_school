@@ -1997,3 +1997,16 @@ add_action('wp_logout', 'remove_custom_cookie');
 function remove_custom_cookie() {
       setcookie('LtpaToken2', '', time() - 3600);
 }
+
+function custom_pagination( $wp_query ) {
+
+    $custom_course_links = paginate_links( array(
+        'base' => esc_url( add_query_arg( 'vp', '%#%' ) ),
+        'format' => '',
+        'total' => ceil( (int) $wp_query->found_posts / (int) get_query_var('posts_per_page') ),
+        'current' => (int) get_query_var('paged'),
+    ) );
+
+    return apply_filters( 'custom_pagination', $custom_course_links );
+
+}

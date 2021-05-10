@@ -7,24 +7,24 @@ if ( !defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
 <main id="main">
-	<section class="breadcrumbs background-breadcrumbs">
+  <section class="breadcrumbs background-breadcrumbs">
       <div class="innerheader-space"></div>
       <div class="container">
         <?php
-        	$breadcrumbs=get_post_meta($id,'vibe_breadcrumbs',true);
+          $breadcrumbs=get_post_meta($id,'vibe_breadcrumbs',true);
             if(!isset($breadcrumbs) || !$breadcrumbs || vibe_validate($breadcrumbs)){
                 vibe_breadcrumbs();
             }
-        	echo '<h2>'.vibe_get_title($id).'</h2>';
-	        the_sub_title($id);
+          echo '<h2>'.vibe_get_title($id).'</h2>';
+          the_sub_title($id);
         ?>
       </div>
     </section>
     <section id="Popular-Courses" class="">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
-                	<?php
-		                $user = wp_get_current_user();
+                  <?php
+                    $user = wp_get_current_user();
                     // print_r($user->user_login);
                     // print_r($user->ID);
                     
@@ -41,8 +41,8 @@ get_header(vibe_get_header());
                         }
                         $statuses[$course->id]= intval($type);
                     }
-                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     if(!empty($args['post__in'])){
+                      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                       $query_args = apply_filters('wplms_mycourses',array(
                           'post_type'=>'course',
                           'post__in'=>$args['post__in'],
@@ -50,16 +50,14 @@ get_header(vibe_get_header());
                           'paged'=>$paged
                       ),$user->ID);
                       $wp_query = new WP_Query($query_args);
-                    }
+                    
 
-                    global $bp,$wpdb;
                     if(!empty($wp_query)){
                   ?>
                   <div class="col-lg-9 mrg">
                   <div class="">
                   <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
-                    <?php while($wp_query->have_posts()){
-                    $wp_query->the_post();
+                    <?php if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                     global $post;
                     $progress = bp_course_get_user_progress($user->id,$post->ID);
                     if($statuses[$post->ID]>2){$progress = 100;}
@@ -155,7 +153,7 @@ get_header(vibe_get_header());
                     </table>
                     
                 </div>
-                <?php } posts_pagination();?>
+                <?php endwhile; endif; posts_pagination();?>
                     </div>
                 </div>
                   </div>
@@ -165,7 +163,14 @@ get_header(vibe_get_header());
                         <?php dynamic_sidebar( 'course_section_rhs_banner' ); ?>      
                       <?php endif; ?>
                   </div>
-                <?php } else{ ?>
+                <?php }else{ ?>
+                    <div class="empty_cart_div">
+                        <div class="empty_course_image"></div>
+                        <h4>You have not bought any courses till now</h4>
+                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+                    </div>
+                    
+                <?php }}else{ ?>
                     <div class="empty_cart_div">
                         <div class="empty_course_image"></div>
                         <h4>You have not bought any courses till now</h4>
@@ -178,11 +183,11 @@ get_header(vibe_get_header());
 </div>
 </section>
 <div class="col-md-12 col-sm-12">
-		<?php
-			$sidebar = apply_filters('wplms_sidebar','competitive-section');
+    <?php
+      $sidebar = apply_filters('wplms_sidebar','competitive-section');
             if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
-       	<?php endif; ?>
-	</div>
+        <?php endif; ?>
+  </div>
 </main>
 <?php
 get_footer(vibe_get_footer());

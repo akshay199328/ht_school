@@ -41,25 +41,25 @@ vibe_include_template("profile/top$profile_layout.php");
             }
 
             if(!empty($args['post__in'])){
-                
+                $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
                 $query_args = apply_filters('wplms_mycourses',array(
                     'post_type'=>'course',
                     'post__in'=>$args['post__in'],
-                    'posts_per_page'=>50,
+                    'posts_per_page'=>2,
+                    'paged'=>$paged
                 ),$user->ID);
 
-                $course_query = new WP_Query($query_args);
-            }
-            global $bp,$wpdb;
-            if(!empty($course_query)){
+                $wp_query = new WP_Query($query_args);
+            
+            if(!empty($wp_query)){
             ?>
             
                 <section id="Popular-Courses" class="">
              
 
                 <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
-                    <?php while($course_query->have_posts()){
-                        $course_query->the_post();
+                    <?php while($wp_query->have_posts()){
+                        $wp_query->the_post();
                         global $post;
                         $progress = bp_course_get_user_progress($user->id,$post->ID);
                         if($statuses[$post->ID]>2){$progress = 100;}
@@ -179,7 +179,7 @@ vibe_include_template("profile/top$profile_layout.php");
                   </tbody>
                 </table>
             </div>
-        <?php } ?>
+        <?php } echo custom_pagination( $wp_query ); ?>
         </div>
     </div>
 </section>
@@ -189,14 +189,18 @@ vibe_include_template("profile/top$profile_layout.php");
             <h4>You have not bought any courses till now</h4>
             <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
         </div>
+    <?php } }else{ ?>
+        <div class="empty_cart_div">
+            <div class="empty_course_image"></div>
+            <h4>You have not bought any courses till now</h4>
+            <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+        </div>
     <?php }
     ?>
 
-
 </div><!-- #item-body -->
 
-<?php do_action( 'bp_after_member_settings_template' ); ?>
-        
+<?php do_action( 'bp_after_member_settings_template' ); ?>       
 <?php
 
 vibe_include_template("profile/bottom.php");  

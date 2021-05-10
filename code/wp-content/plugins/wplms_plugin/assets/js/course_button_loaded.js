@@ -6629,7 +6629,7 @@
         })),/* sr("div", {
             className: "popup-footer"
         }, window.wplms_course_data.translations.cancel),*/ sr("a", {
-            className: "button is-primary back-button",
+            className: "button back-button",
             onClick: e.back
         }, window.wplms_course_data.translations.back_to_my_courses, sr("span", {
             className: "vicon vicon-angle-right hide"
@@ -6678,7 +6678,7 @@
             value: E.review,
             placeholder: window.wplms_course_data.translations.your_review
         })), sr("div", {
-            className: "popup-footer"
+            className: "popup-footer custom-popup-footer"
         }, B ? sr(or, null, sr("a", {
             href: "#",
             onClick: () => {
@@ -6688,7 +6688,7 @@
             className: "vicon vicon-angle-left"
         }), " ", window.wplms_course_data.translations.skip_review_and_finish_course), sr("a", {
             href: "#",
-            className: I ? "button is-primary is-loading" : "button is-primary",
+            className: I ? "button is-loading" : "button",
             onClick: () => {
                 re()
             }
@@ -6698,7 +6698,7 @@
             className: "link",
             onClick: () => M(!1)
         }, window.wplms_course_data.translations.cancel), sr("a", {
-            className: "button is-primary",
+            className: "button",
             onClick: () => {
                 E && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.review.length > 3 && E.rating > 1 ? (T(!0), E.comment_post_ID = e.course_id, E.course_id = e.course_id, E.token = Y.token, fetch(window.wplms_course_data.api_url + "/updatecourse/addreview", {
                     method: "post",

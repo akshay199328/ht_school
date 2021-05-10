@@ -1275,7 +1275,7 @@ Course Details
     padding: 0;
 }
 .course-aboutDetails .details-right .content-about .about-details {
-    margin-top: 70px;
+    margin-top: 75px;
 }
 .nav-tabs {
     border-bottom: 1px solid transparent;
@@ -4634,18 +4634,22 @@ div.nsl-container .nsl-container-buttons{
   position: relative;
 }
 .news-main .category-news .content-left {
-    padding: 20px 20px 20px 0px!important;
+    padding: 0px 20px 0px 0px!important;
 }
 .news-main .category-news .content-left .pagetitle {
     padding-right: 15px;
 }
 .news-main .category-news .content-left .pagetitle h1{
     font-size: 42px;
-    line-height: 34px;
+    line-height: 1;
     color: #fff;
         margin: 15px 0px 0;
 }
-.category-news .border_text{margin-bottom: 15px;padding-top: 15px;}
+.category-news .border_text{
+  margin-bottom: 15px;    
+  font-size: 17px;
+    line-height: 22px;
+    margin-top: 5px;}
 .news-main .category-news .content-left .pagetitle h5{
     font-size: 17px!important;
     line-height: 22px!important;
@@ -4653,7 +4657,8 @@ div.nsl-container .nsl-container-buttons{
     font-weight: 300!important;
     margin-top: 25px;
 }
-.news-main .category-news .content-left .pagetitle h5:after{
+.news-main .category-news .content-left .pagetitle h5:after,
+.category-news .border_text:after{
   content:'';
   background: #808080;
   height: 1px;

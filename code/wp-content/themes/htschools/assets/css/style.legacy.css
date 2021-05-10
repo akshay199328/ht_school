@@ -22454,12 +22454,14 @@ body {
 
  .pagination {
  	clear: both;
- 	display: inline-block;
+ 	display: inline-block!important;
  	width: 100%;
  	margin: 20px 0;
  	font-size: 14px;
  	color: #444;
  	text-align: center;
+ 	    padding-left: 0!important;
+    border-radius: 4px!important;
  }
  .pagination li, .pagination-links span, .pagination-links a{
  	display: inline-block;

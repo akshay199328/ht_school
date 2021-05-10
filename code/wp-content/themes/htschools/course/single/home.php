@@ -337,12 +337,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     </div>
                                     <div class="col-xs-8 col-sm-8 co-lg-8 pull-left padding_right">
                                       <h3 class="name"><?php echo $author_name; ?></h3>
-                                      <h4><?php echo bp_profile_field_data( $args ); ?></h4>
+                                      <h4><?php echo $author_company; ?></h4>
                                       <div class="double-border"></div>
                                       <!-- <h6>2,192,534 <span>Students</span></h6> -->
                                     </div>
                                   </div>
-                                  <?php echo $author_biographical_info; ?>
+                                  <?php echo bp_profile_field_data( $args ); ?>
                                 <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>

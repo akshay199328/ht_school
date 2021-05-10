@@ -171,6 +171,7 @@ section {
     justify-content: space-between !important;
     display: flex;
     height: 65px;
+    margin: 0px;
   }
   .footer .footer-top .social-links .pull-left, .footer .footer-top .social-links .pull-right{
       -webkit-box-pack: justify !important;

@@ -44,7 +44,8 @@ vibe_include_template("profile/top$profile_layout.php");
                 
                 $query_args = apply_filters('wplms_mycourses',array(
                     'post_type'=>'course',
-                    'post__in'=>$args['post__in']
+                    'post__in'=>$args['post__in'],
+                    'posts_per_page'=>50,
                 ),$user->ID);
 
                 $course_query = new WP_Query($query_args);

@@ -41,23 +41,25 @@ get_header(vibe_get_header());
                         }
                         $statuses[$course->id]= intval($type);
                     }
-
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     if(!empty($args['post__in'])){
                       $query_args = apply_filters('wplms_mycourses',array(
                           'post_type'=>'course',
-                          'post__in'=>$args['post__in']
+                          'post__in'=>$args['post__in'],
+                          'posts_per_page'=>6,
+                          'paged'=>$paged
                       ),$user->ID);
-                      $course_query = new WP_Query($query_args);
+                      $wp_query = new WP_Query($query_args);
                     }
 
                     global $bp,$wpdb;
-                    if(!empty($course_query)){
+                    if(!empty($wp_query)){
                   ?>
                   <div class="col-lg-9 mrg">
                   <div class="">
                   <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
-                    <?php while($course_query->have_posts()){
-                    $course_query->the_post();
+                    <?php while($wp_query->have_posts()){
+                    $wp_query->the_post();
                     global $post;
                     $progress = bp_course_get_user_progress($user->id,$post->ID);
                     if($statuses[$post->ID]>2){$progress = 100;}
@@ -136,7 +138,7 @@ get_header(vibe_get_header());
                       </div>
                     </div>
                   </div>
-                <?php }?>
+                <?php } posts_pagination();?>
                     </div>
                 </div>
                   </div>

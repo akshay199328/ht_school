@@ -793,7 +793,7 @@
 }
 .course_status .course_content .course_content_content_wrapper .unit_videos {
     margin: 20px 0px;
-    height: 452px;
+    height: auto;
 }
 .course_content .course_content_content .message p{margin:0px!important;font-size: 14px!important;}
 .course_content .course_content_content p em {
@@ -991,7 +991,17 @@
     text-align: left;
     color: #412a2a;
 }
-
+.course_status .course_timeline .course_heading h6{
+    font-size: 12px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: 0.6px;
+    text-align: left;
+    color: #000000;
+    text-transform: uppercase;
+    margin-bottom: 23px;
+}
 .course_status .course_timeline .course_heading .course_progress>span {
     /*background: var(--primarycolor)*/
 }
@@ -2493,6 +2503,7 @@
 .course_status .incourse .incoursequiz_details .incourse_quiz_button>a {
     cursor: pointer;
 }
+.incourse_quiz_button .save_quiz {display: none!important}
 .incourse_quiz_button .submit_quiz.button{
     margin-left: 10px!important;
 }

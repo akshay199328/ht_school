@@ -4646,10 +4646,12 @@ div.nsl-container .nsl-container-buttons{
         margin: 15px 0px 0;
 }
 .category-news .border_text{
-  margin-bottom: 15px;    
-  font-size: 17px;
+    margin-bottom: 15px;    
+    font-size: 17px;
     line-height: 22px;
-    margin-top: 5px;}
+    margin-top: 5px;
+    font-family: 'GT-Walsheim-Pro'!important;
+}
 .news-main .category-news .content-left .pagetitle h5{
     font-size: 17px!important;
     line-height: 22px!important;
@@ -5401,7 +5403,7 @@ font-size: 15px;
     background: #D5EBFF!important;
     border-radius: 6px;
 }
-.dashboard_accountinfo .progress{top: -5px;}
+.dashboard_accountinfo .progress{    margin: 10px 0px 15px;height: 6px;}
 .progress .bar{    padding: 4px 0px!important;}
 .progress_value {
     font-size: 11px;
@@ -6321,6 +6323,9 @@ h6:empty,
     .static_content .sidebar li{padding: 15.5px 13px;}
     .fixedmenu-tabs .container{padding:0px!important;}
     .fixedTop_tab .tablist{    width: 705px!important;padding: 40px 0px 20px!important;}
+    .right_spacing{
+        padding-left: 25px!important;
+    }
 }
 @media screen and (max-width:991px) and (min-width:320px){
 
@@ -6513,7 +6518,7 @@ h6:empty,
     }
 }
 
-@media screen and (max-width:767px) and (min-width:320px){
+@media screen and (max-width:8) and (min-width:320px){
     
     .mobile-display{display: inline-block!important;}
     .header .homeicon img{width: 96px;margin-left: -10px!important;}
@@ -6930,6 +6935,7 @@ h6:empty,
     color: #000;
     white-space: inherit;
     word-break: break-word;
+    margin: 0;
 }
 .news-main .post-creator p span{
     font-size: 11px;
@@ -7155,11 +7161,8 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 .woocommerce-message{display: none;}
 
 .popup_dropdown select {
-    /* padding: 3px; */
-    background-image: url(./assets/images/profile-dropdown.svg);
-    /*/border-bottom: 1px solid #a8a6a6!important;*/
-        border-radius: 0px;
-        font-size: 14px;
+    background: url(./assets/images/profile-dropdown.svg) no-repeat right center;
+    border-radius: 0px;
     line-height: 1.428571429;
     color: #555;
     font-weight: 500;
@@ -7169,4 +7172,18 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
     height: 100%;
     width: 100%;
 }
-
+#profileModal .s-class {
+    border: none;
+    padding: 10px 25px 12px 0px;
+    background-color: white;
+    border: 0px !important;
+    border-radius: 0px;
+    box-shadow: none !important;
+    line-height: 1.428571429;
+    color: #555;
+    font-weight: 500;
+    font-size: 18px;
+}
+#profileModal {
+        background: #00000078;
+}

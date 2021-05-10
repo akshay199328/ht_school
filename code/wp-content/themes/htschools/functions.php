@@ -562,6 +562,7 @@ function reg_verify_otp(){
                 do_action( 'wp_login', $user->user_login, $user);
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
+             //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
             }else{
                 $reg = true;
@@ -719,6 +720,7 @@ function reg_verify_mob_otp(){
             do_action( 'wp_login', $user->user_login, $user);
             $userData = $user->data;
             $userData->avatar =  get_avatar_url( $user->ID );
+           // $userData->profile_link = get_edit_profile_url($user->ID);
             $response['user'] = json_encode($userData);
             $response['previous_page_url'] = $_SESSION['previousPageUrl'];
         }

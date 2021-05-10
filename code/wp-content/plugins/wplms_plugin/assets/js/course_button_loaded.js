@@ -6758,6 +6758,21 @@
             title: document.querySelector("body").classList.contains("course_status_fullscreen") ? window.wplms_course_data.translations.minimise_screen : window.wplms_course_data.translations.maximise_screen,
             className: "icon_fullscreen",
             onClick: () => {
+                // New logic is added here to enable fullscreen on click
+                let element = document.getElementById("wplms_the_course_button");
+                let fs_element = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
+
+                if(fs_element === null) {
+                    if(element.requestFullscreen)               element.requestFullscreen();
+                    else if(element.mozRequestFullScreen)       element.mozRequestFullScreen();
+                    else if(element.webkitRequestFullscreen)    element.webkitRequestFullscreen();
+                    else if(element.msRequestFullscreen)        element.msRequestFullscreen();
+                } else {
+                    if(document.exitFullscreen)                 document.exitFullscreen();
+                    else if(document.mozCancelFullScreen)       document.mozCancelFullScreen();
+                    else if(document.webkitExitFullscreen)      document.webkitExitFullscreen();
+                    else if(document.msExitFullscreen)          document.msExitFullscreen();
+                }
                 //document.querySelector("body").classList.contains("course_status_fullscreen") ? document.querySelector("body").classList.remove("course_status_fullscreen") : document.querySelector("body").classList.add("course_status_fullscreen")
             }
         })), l ? sr("div", {

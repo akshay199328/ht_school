@@ -310,10 +310,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $author_user_profile = get_avatar_url($author_id);
                         $author_company = get_the_author_meta( 'last_name', $author_id );
                         $student_count = get_the_author_meta( 'student_count', $author_id );
-                        $args = array(
-                          'field'   => 'About', // Field name or ID.
-                          'user_id' => $author_id // Default
-                          );
+                        // $args = array(
+                        //   'field'   => 'About', // Field name or ID.
+                        //   'user_id' => $author_id // Default
+                        //   );
                         ob_start();
                         dynamic_sidebar('instructor_banner');
                         $addDisplay = ob_get_contents();
@@ -342,7 +342,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                       <!-- <h6>2,192,534 <span>Students</span></h6> -->
                                     </div>
                                   </div>
-                                  <?php echo bp_profile_field_data( $args ); ?>
+                                  <p><?php echo $author_biographical_info_array[0]; ?></p>
                                 <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>

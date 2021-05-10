@@ -40,12 +40,12 @@ vibe_include_template("profile/top$profile_layout.php");
                 $statuses[$course->id]= intval($type);
             }
 
+            $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
             if(!empty($args['post__in'])){
-                $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
                 $query_args = apply_filters('wplms_mycourses',array(
                     'post_type'=>'course',
                     'post__in'=>$args['post__in'],
-                    'posts_per_page'=>2,
+                    'posts_per_page'=>20,
                     'paged'=>$paged
                 ),$user->ID);
 

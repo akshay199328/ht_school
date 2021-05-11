@@ -26,7 +26,7 @@ vibe_include_template("profile/top$profile_layout.php");
     </div>
     <div class="col-md-9 pull-left"> 
         <div class="profile-card">
-            <h1>Your Interests</h1>
+            <h1>What are your Interests / Hobbies?</h1>
             <div class="col-md-12 col-sm-12 profile_searchbox mrg">
                 <form action="" id="search-form" method="get">
                     
@@ -49,8 +49,8 @@ vibe_include_template("profile/top$profile_layout.php");
                           ),
                           'post_id' => "user_{$user->ID}",
                           'form' => true,
-                          'html_submit_button' => '<button type="submit" class="acf-button button button-primary button-large" value="Update Profile">Update Profile</button>',
-                          'updated_message' => __("Your Interest(s) has been updated", 'acf'),
+                          'html_submit_button' => '<button type="submit" class="acf-button button button-primary button-large" value="Update Profile">Update Interests</button>',
+                          'updated_message' => __("Your Interest(s) have been updated. Check out the Recommended Courses!", 'acf'),
                           'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
                         );
                         

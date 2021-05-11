@@ -145,7 +145,7 @@ get_footer(vibe_get_footer());
       </div>
       <div class="modal-body">
       <div class="body-text">
-        <p class="body-line1">We have received your message and one of our colleagues will get in touch with you soon. If your query is urgent, please use the telephone number: 11 60004242  to talk to one of our support executives.</p>
+        <p class="body-line1">We have received your message and one of our colleagues will get in touch with you soon.</p>
         <p class="body-line">Thanks, HTSchool</p>
         <!-- <p class="sec-line">Course Instructions are:</p>
         <ul class="custom-list">

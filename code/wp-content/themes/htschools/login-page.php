@@ -75,7 +75,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                   <span>OR</span>
                 </div>
                 <div class="form-group">
-                  <input type="email" name="email" class="form-control" placeholder="Email ID">
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Email ID">
                   <p class="error" style="display: none;" id="ht_otp_error"></p>
                 </div>
                 <button  id="ht_reg_email_btn" type="button" class="btn submit_btn">
@@ -89,7 +89,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
             </div>
 
             <div class="login-right otp-ontent" id="login-step-2" style="display: none;">
-              <form id="otp-verification-form">
+              <form method="POST" id="otp-verification-form">
                     <input type="hidden" name="action" value="reg_verify_otp">
                   <h4>OTP Verification</h4>
 
@@ -130,16 +130,16 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                 <div class="content">
                   <p>Please provide all information for <a href="javascript:void(0);" id="reg-email-wrap" style="color: #000;"></a></p>
                 </div>
-                <form id="reg_form">
+                <form method="POST" id="reg_form">
                     <input type="hidden" name="action" value="reg_new_user">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="first_name" placeholder="First Name">
+                        <input type="text" class="form-control reg_fields" name="first_name" id="first_name" placeholder="First Name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                        <input type="text" class="form-control reg_fields" name="last_name" id="last_name" placeholder="Last Name">
                     </div>
                     <div class="form-group from-countrynum">
-                        <input type="text" class="form-control" name="mobile" placeholder="Mobile Number">
+                        <input type="text" class="form-control reg_fields" name="mobile" id="mobile" placeholder="Mobile Number">
                         <span class="country-code">+91</span>
                     </div>
                     <div class="switch">
@@ -166,7 +166,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
 
 
             <div class="login-right otp-ontent" id="login-step-4" style="display: none;">
-                <form id="mobile-otp-verification-form">
+                <form method="POST" id="mobile-otp-verification-form">
                     <input type="hidden" name="action" value="reg_verify_mob_otp">
                     <h4>OTP Verification</h4>
 
@@ -415,6 +415,24 @@ jQuery(window).load(function(){
             if (e.keyCode === 13) {
               if($("#verify-otp-btn").is(":visible"))     $("#verify-otp-btn").trigger('click');
               if($("#verify-mob-otp-btn").is(":visible")) $("#verify-mob-otp-btn").trigger('click');
+              return false;
+            }
+        });
+
+        jQuery("#email").keydown(function(e){
+            if (e.keyCode === 13) {
+              $("#ht_reg_email_btn").trigger('click');
+              return false;
+            }
+        });
+
+        jQuery(".reg_fields").keydown(function(e){
+            if (e.keyCode === 13) {
+
+              if($("#first_name").val() != "" && $("#last_name").val() != "" && $("#mobile").val() != "") {
+                $("#reg_submit").trigger('click');
+              }
+
               return false;
             }
         });

@@ -26,7 +26,7 @@ vibe_include_template("profile/top$profile_layout.php");
   </div>
   <div class="col-md-9 pull-left"> 
     <div class="profile-card transprent">
-      <h1>Saved Courses</h1>
+      <h1>Course Wishlist</h1>
       <?php 
       $course_data = wpfp_get_users_favorites();
       $count_array = []; 
@@ -169,7 +169,7 @@ vibe_include_template("profile/top$profile_layout.php");
   <?php }else{ ?>
   <div class="empty_cart_div">
     <div class="empty_course_image"></div>
-    <h4>You Don’t Have Any Courses <br/>Saved Till Now. </h4>
+    <h4>No courses on your wishlist as yet!</h4>
     <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
   </div>
 <?php }?>

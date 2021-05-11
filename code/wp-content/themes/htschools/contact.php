@@ -24,7 +24,6 @@ if(have_posts()):while(have_posts()):the_post();
                   <ol class="breadcrumbs">
                     <li><a href="#"><span>Home</span></a></li><li class="current"><span>Contact us</span></li>
                   </ol>
-                  <input type="text" name="contact_form_id" id="contact_form_id" value="<?php echo $form_id;?>">
                      <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
                   <?php
                       the_content();

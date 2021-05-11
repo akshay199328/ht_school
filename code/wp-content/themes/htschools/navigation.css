@@ -47,9 +47,9 @@
 }
 
 .navegacion ul{
-     width: 100%;
-    height:auto;
-    max-height: 599px;
+    width: 100%;
+    height: 100%;
+    max-height: max-content;
     list-style: none;
     position: relative;
     top: 0;
@@ -194,11 +194,12 @@
 }
 .bootom-link{
     display: block;
-    position: relative;
-    margin-top: 280px;
+    position: absolute;
+    margin-top: 0;
+    bottom: 0;
     /* margin-top: 190px; */
-    /*height: 300px;*/
-    /*overflow-y: scroll;*/
+    /* height: 300px; */
+    /* overflow-y: scroll;*/
 
 }
 .mobile_menu{
@@ -248,9 +249,9 @@ font-size: 12px!important;
 }
 @media screen and (max-width: 767px){
     .mobile_menu{display: block}
-    .navegacion ul {
-        max-height: 528px!important;
-        overflow-y: scroll;
+    .navegacion ul.menu {
+            overflow-y: scroll;
+            max-height: 599%!important;
     }
 }
 @media screen and (max-width: 320px){

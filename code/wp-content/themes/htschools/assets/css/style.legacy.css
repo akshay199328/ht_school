@@ -14639,8 +14639,8 @@ body {
  }
 
  .modal.in .modal-dialog {
- 	-webkit-transform: translate(0, 0);
- 	transform: translate(0, 0)
+ 	-webkit-transform: translate(0, 0)!important;
+ 	transform: translate(0, 0)!important;
  }
 
  .modal-open .modal {
@@ -14739,7 +14739,7 @@ body {
  @media (min-width:768px) {
  	.modal-dialog {
  		width: 600px;
- 		margin: 30px auto
+ 		margin: 0px auto!important;
  	}
  	.modal-content {
  		-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -22454,12 +22454,14 @@ body {
 
  .pagination {
  	clear: both;
- 	display: inline-block;
+ 	display: inline-block!important;
  	width: 100%;
  	margin: 20px 0;
  	font-size: 14px;
  	color: #444;
  	text-align: center;
+ 	    padding-left: 0!important;
+    border-radius: 4px!important;
  }
  .pagination li, .pagination-links span, .pagination-links a{
  	display: inline-block;
@@ -24796,7 +24798,8 @@ body {
 
  #buddypress .standard-form select {
  	/*padding: 3px*/
- 	background-image: url('../images/profile-dropdown.svg');
+ 	/*background-image: url('../images/profile-dropdown.svg');*/
+ 	background: url('../images/profile-dropdown.svg') no-repeat right center;
  }
 
  #buddypress .standard-form input[type=password] {
@@ -36192,11 +36195,10 @@ width: 300px;
 		}
 @media screen and (min-width: 767px){
 	.about-details.mrg.right_content {
-			padding: 26px 0px 20px 0px !important;
-		}
-		.right_spacing{
-		    padding-left: 25px!important;
-		}
+		padding: 26px 0px 20px 0px !important;
+		margin: 0px;
+	}
+		
 }
 @media screen and (max-width: 1087px) and (min-width: 320px) {
 	.myprofile_content .flexMenu-viewMore.flexMenu-allInPopup, 
@@ -36472,6 +36474,7 @@ width: 300px;
 
 
 	/* profile model pop up */
+
 	#profileModal .modal-header {background-color: #d5ebff;padding: 33px 30px 18px;border-radius: 0px;}
 	#profileModal .b-class{padding: 20px 19px 26px 30px!important;}
 	#profileModal .n-btn{    padding: 10px 50px 10px 50px !important;margin-top: 22px!important;margin-bottom: 0!important;}
@@ -36651,9 +36654,10 @@ transform: translate3d(0%, 0, 0);
 }
 #edit-child-profile .child-form select{width: 57%;}
 #edit-child-profile .child-form select{
-	background-image: url(../images/profile-dropdown.svg);
+	background: url('../images/profile-dropdown.svg') no-repeat right center;
 }
-#edit-child-profile .modal-header .close{margin-top: -21px;color: #000;opacity: 1;font-weight: 500;}
+#edit-child-profile .modal-header .close{margin-top: -21px;color: #000;opacity: 1;
+	font-weight: 500;}
 #edit-child-profile #errMobileMsg{    position: relative;top: -8px;} 
 .releted_news_section{float:left;width:100%}
 .right-part-menu{display: flex;justify-content: flex-end;}

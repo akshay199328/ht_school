@@ -240,7 +240,9 @@ register_sidebar( array(
     ) );
 }
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
-if(!is_admin()){
+
+  function front_end_scripts(){
+    if(!is_admin()){
   wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
   wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css' );
   wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css' );
@@ -255,7 +257,10 @@ if(!is_admin()){
   wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
   wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
   wp_enqueue_script( 'wplms-circle', get_template_directory_uri(). '/assets/js/circle.js', '', '', true );
+   }
 }
+
+add_action( 'wp_enqueue_scripts', 'front_end_scripts' );
 function wpse_enqueue_datepicker() {
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'jquery-ui-datepicker' );
@@ -557,6 +562,7 @@ function reg_verify_otp(){
                 do_action( 'wp_login', $user->user_login, $user);
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
+             //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
             }else{
                 $reg = true;
@@ -643,10 +649,10 @@ function reg_new_user(){
 
 }
 function send_sms($mobile, $message){
-   //$myfile = fopen(__DIR__ . "/../../../otp.txt", "a") or die("Unable to open file!");
+   $myfile = fopen(__DIR__ . "/../../../otp.txt", "a") or die("Unable to open file!");
     $txt = $mobile . " : " . $message . "\n";
-   // fwrite($myfile, $txt);
-   // fclose($myfile);
+   fwrite($myfile, $txt);
+   fclose($myfile);
     
     $url = 'https://admagister.net/api/mt/SendSMS?channel=Trans&DCS=0&flashsms=0&number=91' . $mobile . '&text=' . urlencode($message) . '&route=30&APIKey=' . ADMAGISTER_API_KEY . '&senderid=' . ADMAGISTER_SENDER_ID;
     //echo $url;exit;
@@ -714,6 +720,7 @@ function reg_verify_mob_otp(){
             do_action( 'wp_login', $user->user_login, $user);
             $userData = $user->data;
             $userData->avatar =  get_avatar_url( $user->ID );
+           // $userData->profile_link = get_edit_profile_url($user->ID);
             $response['user'] = json_encode($userData);
             $response['previous_page_url'] = $_SESSION['previousPageUrl'];
         }
@@ -1973,8 +1980,33 @@ if(!function_exists('calculate_duration')){
 
 add_action('woocommerce_checkout_process', 'custom_validate_billing_phone');
     function custom_validate_billing_phone() {
-    $is_correct = preg_match('/^[0-9]{10}$/', $_POST['billing_phone']);
-    if ( $_POST['billing_phone'] && !$is_correct) {
+    $is_correct = preg_match('/^[0-9]{10}$/', $_POST['3']);
+    if ( $_POST['3'] && !$is_correct) {
     wc_add_notice( __( 'The Phone field should be between 10 digits.' ), 'error' );
     }
+}
+
+add_action('nsl_login', 'add_custom_cookie');
+add_action('wp_login', 'add_custom_cookie');
+function add_custom_cookie() {
+     setcookie('LtpaToken2', 'true', time() + 86400, '/'); // expire in a day
+
+}
+
+add_action('wp_logout', 'remove_custom_cookie');
+function remove_custom_cookie() {
+      setcookie('LtpaToken2', '', time() - 3600);
+}
+
+function custom_pagination( $wp_query ) {
+
+    $custom_course_links = paginate_links( array(
+        'base' => esc_url( add_query_arg( 'vp', '%#%' ) ),
+        'format' => '',
+        'total' => ceil( (int) $wp_query->found_posts / (int) get_query_var('posts_per_page') ),
+        'current' => (int) get_query_var('paged'),
+    ) );
+
+    return apply_filters( 'custom_pagination', $custom_course_links );
+
 }

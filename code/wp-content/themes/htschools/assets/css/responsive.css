@@ -68,7 +68,7 @@
     font-size: 18px;
     color: #A2A0A0;
     font-weight: 500;
-    background-image: url(../images/profile-dropdown.svg);
+    background: url('../images/profile-dropdown.svg');
     background-position: 98% 65%;
     background-repeat: no-repeat;
 }

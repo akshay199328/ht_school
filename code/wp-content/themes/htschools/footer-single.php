@@ -395,8 +395,9 @@ border: 1px solid deepskyblue;
                                     <label>School name*</label>
                                 </div> -->
                                 <div class="col-md-12">  
-                                    <div class="input-group">
-                                        <label for="user_school_data">School</label>
+                                  <label for="user_school_data">School</label>
+                                    <div class="col-md-12 input-group">
+                                        
                                         <input type="text" class="s-class form-control user_field" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                         <input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">

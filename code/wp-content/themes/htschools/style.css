@@ -38,7 +38,7 @@ a {
 
 a:hover {
   color: #000;
-  text-decoration: none;
+  text-decoration: none!important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,7 +50,7 @@ p{
   font-weight:normal;
 }
 b, strong {
-    font-weight: bold;
+    font-weight: bold!important;
 }
 dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;}
 :focus {
@@ -171,6 +171,7 @@ section {
     justify-content: space-between !important;
     display: flex;
     height: 65px;
+    margin: 0px;
   }
   .footer .footer-top .social-links .pull-left, .footer .footer-top .social-links .pull-right{
       -webkit-box-pack: justify !important;
@@ -184,6 +185,7 @@ section {
   {
     border-bottom: solid 0px #b8b8b8;
   }
+  .right-adwork.right_spacing{padding-right: 25px!important}
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -371,7 +373,7 @@ body.page-template-home , .page-template-home .pusher {
 }
 .border-menu, .border-menu.active {
     border: 1px solid #000;
-    padding: 7px 15px !important;
+    padding: 11px 15px !important;
     background: transparent!important;
     margin-left: 0px;
     position: relative;
@@ -1275,7 +1277,7 @@ Course Details
     padding: 0;
 }
 .course-aboutDetails .details-right .content-about .about-details {
-    margin-top: 70px;
+    margin-top: 75px;
 }
 .nav-tabs {
     border-bottom: 1px solid transparent;
@@ -4292,6 +4294,7 @@ div.nsl-container-block .nsl-container-buttons a{
     font-size: 15px;
     font-weight: bold;
     width: 100%;
+    padding: 9px;
 }
 .login-box .btn.submit_btn a{color: #cdbe69;}
 .login-box .btn[disabled]{
@@ -4633,18 +4636,24 @@ div.nsl-container .nsl-container-buttons{
   position: relative;
 }
 .news-main .category-news .content-left {
-    padding: 20px 20px 20px 0px!important;
+    padding: 0px 20px 0px 0px!important;
 }
 .news-main .category-news .content-left .pagetitle {
     padding-right: 15px;
 }
 .news-main .category-news .content-left .pagetitle h1{
     font-size: 42px;
-    line-height: 34px;
+    line-height: 1;
     color: #fff;
         margin: 15px 0px 0;
 }
-.category-news .border_text{margin-bottom: 15px;padding-top: 15px;}
+.category-news .border_text{
+    margin-bottom: 15px;    
+    font-size: 17px;
+    line-height: 22px;
+    margin-top: 5px;
+    font-family: 'GT-Walsheim-Pro'!important;
+}
 .news-main .category-news .content-left .pagetitle h5{
     font-size: 17px!important;
     line-height: 22px!important;
@@ -4652,7 +4661,8 @@ div.nsl-container .nsl-container-buttons{
     font-weight: 300!important;
     margin-top: 25px;
 }
-.news-main .category-news .content-left .pagetitle h5:after{
+.news-main .category-news .content-left .pagetitle h5:after,
+.category-news .border_text:after{
   content:'';
   background: #808080;
   height: 1px;
@@ -5395,7 +5405,7 @@ font-size: 15px;
     background: #D5EBFF!important;
     border-radius: 6px;
 }
-.dashboard_accountinfo .progress{top: -5px;}
+.dashboard_accountinfo .progress{    margin: 10px 0px 15px;height: 6px;}
 .progress .bar{    padding: 4px 0px!important;}
 .progress_value {
     font-size: 11px;
@@ -6315,6 +6325,9 @@ h6:empty,
     .static_content .sidebar li{padding: 15.5px 13px;}
     .fixedmenu-tabs .container{padding:0px!important;}
     .fixedTop_tab .tablist{    width: 705px!important;padding: 40px 0px 20px!important;}
+    .right_spacing{
+        padding-left: 25px!important;
+    }
 }
 @media screen and (max-width:991px) and (min-width:320px){
 
@@ -6507,7 +6520,7 @@ h6:empty,
     }
 }
 
-@media screen and (max-width:767px) and (min-width:320px){
+@media screen and (max-width:8) and (min-width:320px){
     
     .mobile-display{display: inline-block!important;}
     .header .homeicon img{width: 96px;margin-left: -10px!important;}
@@ -6924,6 +6937,7 @@ h6:empty,
     color: #000;
     white-space: inherit;
     word-break: break-word;
+    margin: 0;
 }
 .news-main .post-creator p span{
     font-size: 11px;
@@ -7149,11 +7163,8 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 .woocommerce-message{display: none;}
 
 .popup_dropdown select {
-    /* padding: 3px; */
-    background-image: url(./assets/images/profile-dropdown.svg);
-    /*/border-bottom: 1px solid #a8a6a6!important;*/
-        border-radius: 0px;
-        font-size: 14px;
+    background: url(./assets/images/profile-dropdown.svg) no-repeat right center;
+    border-radius: 0px;
     line-height: 1.428571429;
     color: #555;
     font-weight: 500;
@@ -7163,9 +7174,27 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
     height: 100%;
     width: 100%;
 }
+<<<<<<< HEAD
 
 
 
 /*added by noman*/
 .login-box{display:flex;align-items:center;flex-wrap:wrap;}
 .login-box .form-footer p, .login-box .form-footer a{color:#5E5E5E;}
+=======
+#profileModal .s-class {
+    border: none;
+    padding: 10px 25px 12px 0px;
+    background-color: white;
+    border: 0px !important;
+    border-radius: 0px;
+    box-shadow: none !important;
+    line-height: 1.428571429;
+    color: #555;
+    font-weight: 500;
+    font-size: 18px;
+}
+#profileModal {
+        background: #00000078;
+}
+>>>>>>> 1dc73807c5f1f49322ce7fe1af380c4f5454ab86

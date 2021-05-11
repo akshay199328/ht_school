@@ -740,16 +740,26 @@ class WPLMS_Actions{
 
     function show_loggedin(){
     	if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
+
+						
 	    	?>
 	    	<script> 
 	    		var suser = sessionStorage.getItem('bp_user');
+	    		
     			if(suser){
     				var user = JSON.parse(suser);	
+    				
     				if(Object.keys(user).length){
-	    				document.querySelector('.vibebp-login').innerHTML='<a class="loggedin_user"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.displayname+'</span></a>';
+	    				document.querySelector('.vibebp-login').innerHTML='<div class="loggedin_user_div"><a class="loggedin_user" data-id="1"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.display_name+'</span></a><div class="user_menu active"><div class="usermenu_content"><a href="/members-directory/'+user.user_nicename+'">Profile </a></div><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon vicon-power-off"></span>Logout </a></div></div>';
+
+						$(".vibebp-logout").on("click", function(){
+							localStorage.clear();
+							sessionStorage.clear();
+						});
+
 
 	    				<?php 
-							if(function_exists('vibebp_get_setting') && !empty(vibebp_get_setting('bp_single_page')) && empty(vibebp_get_setting('global_login')) ){
+							if(function_exists('vibebp_get_setting') && !empty(vibebp_get_setting('bp_single_page')) && empty(vibebp_get_setting('global_login')) || true){
 								echo "document.querySelector('.vibebp-login').setAttribute('href',user.profile_link);";
 							}
 						?>

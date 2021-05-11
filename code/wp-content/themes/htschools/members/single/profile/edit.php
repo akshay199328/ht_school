@@ -59,30 +59,30 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			
 			<input type="hidden" name="action" value="save_custom_profile">
 			<div class="form-group">
-				<label for="first_name">First Name</label>
+				<label for="first_name">First Name*</label>
 				<input type="text" class="form-control" name="first_name" placeholder="" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
 			</div>
 			<div class="form-group">
-				<label for="last_name">Last Name</label>
+				<label for="last_name">Last Name*</label>
 				<input type="text" class="form-control" name="last_name" placeholder="" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname">
 			</div>
 			<div class="form-group">
-				<label for="user_email">Email</label>
+				<label for="user_email">Email*</label>
 				<input type="email" class="form-control" name="user_email" placeholder="" value="<?php echo $currentUser->user_email; ?>" readonly>
 			</div>
 			<div class="form-group">
-				<label for="user_mobile">Mobile Number</label>
+				<label for="user_mobile">Mobile Number*</label>
 				<input type="text" class="form-control" name="user_mobile" id="user_mobile" placeholder="" maxlength="10" value="<?php echo $user_mobile ?>" >
 				<span id="errMobileMsg"></span>
 			</div>
 			<div class="form-group edit_DOB">
-				<label for="user_dob">Date of Birth</label>
+				<label for="user_dob">Date of Birth*</label>
 				<input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
 				<input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
 			</div>
 			<div class="form-group ">
 				
-				<label> Select Gender</label> 
+				<label> Select Gender*</label> 
 				<div class="radio_switch"> 
 					<div class="switch">
 	                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
@@ -98,7 +98,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	            </div>
 			</div>
 			<div class="form-group profile_search">
-				<label for="user_school_data">School</label>
+				<label for="user_school_data">School*</label>
 				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
 				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
 			</div>
@@ -144,19 +144,19 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			<div class="form-group profile_search">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="" value="<?php echo $user_country; ?>">
-				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
+				<input type="hidden" id="user_country" autocomplete="false" name="user_country" value="<?php echo $user_country; ?>">
 			</div>
 
 
 			<div class="form-group profile_search">
 				<label for="user_state">State</label>
-				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>">
+				<input type="text" class="form-control"  autocomplete="false" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>">
 			</div>
 
 
-			<div class="form-group profile_search">
+			<div class="form-group ">
 				<label for="user_city">City</label>
-				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
+				<input type="text" class="form-control"  autocomplete="false" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
 			</div>
 
 			

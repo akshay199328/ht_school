@@ -1108,8 +1108,8 @@ function get_countries(){
     
     $response = array();
 
-    $results = $wpdb->get_results( "SELECT country_id, country_name FROM " . $wpdb->prefix . "country_master WHERE country_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
-
+    $results = $wpdb->get_results( "SELECT country_id,  CONCAT(UPPER(SUBSTRING(country_name,1,1)),
+LOWER(SUBSTRING(country_name,2))) AS country_name  FROM " . $wpdb->prefix . "country_master WHERE country_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
     foreach ($results as $data) {
         $row = array();
         $row['label'] = $data->country_name;
@@ -1152,11 +1152,13 @@ function get_schools(){
     global $wpdb;
     
     $response = array();
-    $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,ht_users.display_name 
-    FROM ht_users INNER JOIN ht_usermeta 
-    ON ht_users.ID = ht_usermeta.user_id 
-    WHERE ht_usermeta.meta_key='ht_user_level' and ht_usermeta.meta_value='0' AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");
-    
+    $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
+  LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
+      FROM ht_users INNER JOIN ht_usermeta 
+  ON ht_users.ID = ht_usermeta.user_id 
+      WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");
+
+
     foreach ($results as $data) {
       $row = array();
       $row['label'] = $data->display_name;
@@ -1193,9 +1195,9 @@ function get_states(){
     
     $response = array();
 
-    $results = $wpdb->get_results( "SELECT state_id, state_name FROM " . $wpdb->prefix . "state_master WHERE country_id in(select country_id from " . $wpdb->prefix . "country_master where country_name = '" . esc_attr($_REQUEST['country']) . "') AND state_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
-
-    foreach ($results as $data) {
+    $results = $wpdb->get_results( "SELECT state_id, CONCAT(UPPER(SUBSTRING(state_name,1,1)),
+LOWER(SUBSTRING(state_name,2)))AS state_name FROM " . $wpdb->prefix . "state_master WHERE country_id in(select country_id from " . $wpdb->prefix . "country_master where country_name = '" . esc_attr($_REQUEST['country']) . "') AND state_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
+      foreach ($results as $data) {
         $row = array();
        /* $row['label'] = $data->state_name;
         $row['value'] = $data->state_id;*/

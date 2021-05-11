@@ -530,3 +530,29 @@ function custom_video($settings){
 }
 
 
+
+add_action('template_redirect','redirect_single_units');
+
+function redirect_single_units(){
+
+    if(!is_user_logged_in() && is_singular('unit')){
+
+    wp_redirect('link');
+
+    exit();
+
+    }
+  }
+
+  add_action('template_redirect','redirect_single_assignment');
+
+function redirect_single_assignment(){
+
+    if(!is_user_logged_in() && is_singular('assignment')){
+
+    wp_redirect('link');
+
+    exit();
+
+    }
+  }

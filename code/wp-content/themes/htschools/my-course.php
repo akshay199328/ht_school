@@ -119,6 +119,17 @@ get_header(vibe_get_header());
                               <tr>
                                 <td class="share-icon">
                                   <ul>
+                                    <?php
+                                     if(is_user_logged_in()){
+                                      ?>
+                                      <li style="list-style-type: none;"><?php wpfp_course_link(); ?></li>
+                                    <?php }else{
+                                      $url = "/login-register";
+                                      ?>
+                                      <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Add to Wishlist"></i></a></li> 
+                                      <?php
+                                    }
+                                    ?>
                                      <li class="hover_share">
                                       <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg" alt="share icon" title="share icon">
                                       <div class="display_icon">

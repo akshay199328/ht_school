@@ -374,8 +374,8 @@ function bp_page_nav(){
     ) );
     
      bp_core_new_subnav_item( array(
-    'name' => __( 'Saved Courses', 'buddypress' ), 
-    'slug' => 'saved-course',
+    'name' => __( 'Course Wishlist', 'buddypress' ), 
+    'slug' => 'course-wishlist',
     'parent_url' => $user_domain.'preference/',
     'parent_slug' => 'preference',
     'screen_function' => 'saved_course_template',

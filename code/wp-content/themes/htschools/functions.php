@@ -1486,8 +1486,8 @@ function wpfp_course_link( $return = 0, $action = "", $show_span = 1, $args = ar
     //print_r($post);
     $post_id = $post->ID;
     //$post_id = &$post->ID;
-    $title1 = "Bookmark this Course";
-    $title2 = "Remove Bookmark";
+    $title1 = "Add to Wishlist";
+    $title2 = "Remove from Wishlist";
     extract($args);
     $str = "";
     if ($show_span)

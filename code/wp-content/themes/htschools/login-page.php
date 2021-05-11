@@ -92,7 +92,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
               <form id="otp-verification-form">
                     <input type="hidden" name="action" value="reg_verify_otp">
                   <h4>OTP Verification</h4>
-                  
+
                   <div class="content">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/otp-verification.png" class="img-fluid">
                     <p id="email-otp-message"></p>
@@ -161,7 +161,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                         </button>
                     </div>
                 </form>
-                
+
             </div>
 
 
@@ -169,7 +169,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                 <form id="mobile-otp-verification-form">
                     <input type="hidden" name="action" value="reg_verify_mob_otp">
                     <h4>OTP Verification</h4>
-                    
+
                     <div class="content">
                       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/otp-verification.png" class="img-fluid">
                       <p id="mobile-otp-message"></p>
@@ -222,13 +222,13 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
             </div>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   </section><!-- End login -->
 </main>
 <?php
 endwhile;
-endif; 
+endif;
 /*if(!empty($_POST['signup_submit'])){ */
 ?>
 <!-- <script>
@@ -346,7 +346,7 @@ jQuery(window).load(function(){
         jQuery("#reg_submit").click(function(){
             jQuery("#reg_submit").html("Please wait...");
             jQuery("#reg_submit").attr("disabled", "disabled");
-            
+
             jQuery.ajax({
                 type : "POST",
                 dataType : "json",
@@ -372,7 +372,7 @@ jQuery(window).load(function(){
                 }
             });
         });
-            
+
         jQuery("#ht_reg_email_btn").click(function(e){
             jQuery("#ht_reg_email_btn").html("Please wait...");
             jQuery("#ht_reg_email_btn").attr("disabled", "disabled");
@@ -385,7 +385,7 @@ jQuery(window).load(function(){
                 success: function(response) {
                     jQuery("#ht_reg_email_btn").html("Next");
                     jQuery("#ht_reg_email_btn").removeAttr("disabled");
-                    
+
                     if(response.status == 1){
 
                         jQuery("#email-otp-message").html(response.message);
@@ -401,15 +401,22 @@ jQuery(window).load(function(){
                         }, 5000);
                     }
                 }
-            });               
+            });
         });
 
-        jQuery(".to_next").keyup(function(){
-            jQuery(this).next().focus();
+        jQuery(".to_next").keyup(function(e){
+            if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+              jQuery(this).next().focus();
+            }
         });
 
-        jQuery(".to_next").keydown(function(){
-            jQuery(this).val('');
+        jQuery(".to_next").keydown(function(e){
+            // jQuery(this).val('');
+            if (e.keyCode === 13) {
+              if($("#verify-otp-btn").is(":visible"))     $("#verify-otp-btn").trigger('click');
+              if($("#verify-mob-otp-btn").is(":visible")) $("#verify-mob-otp-btn").trigger('click');
+              return false;
+            }
         });
 
         jQuery("#resend-otp-link").click(function(){

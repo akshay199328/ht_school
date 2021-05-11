@@ -1031,7 +1031,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$course_id = $body['id'];
 			$is_cb_course = 0;
 			$cb_course_link = "";
-			$is_profile_complete = 1;
+			$is_profile_complete = 0;
 
 			$user_mobile = get_profile_data('Phone');
 			$user_birthday = get_profile_data('Birthday');

@@ -864,7 +864,7 @@ if(!function_exists('bp_course_item_view')){
                         <table width="100%" class="button_table">
                           <tr>
                             <td class="share-icon">
-                              <ul>
+                              <ul class="course-share-icon">
                               	<?php
                                    if(is_user_logged_in()){
                                     ?>

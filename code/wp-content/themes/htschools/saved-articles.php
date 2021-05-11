@@ -26,7 +26,7 @@ vibe_include_template("profile/top$profile_layout.php");
     </div>
     <div class="col-md-9 pull-left"> 
         <div class="profile-card transprent ">
-            <h1>Saved Articles</h1>
+            <h1>Reading List</h1>
             <div class="news-listing">
                 <?php 
                     $article_data = wpfp_get_users_favorites();
@@ -124,8 +124,7 @@ vibe_include_template("profile/top$profile_layout.php");
             ?>
             <div class="empty_cart_div">
                 <div class="empty_article_image"></div>
-                <h4>Nothing Here But Us!</h4>
-                <p>All your saved articles will appear here.</p>
+                <h4>Nothing here but Us!</h4>
                 <a href="<?php echo get_home_url();?>/editorsdesk/"><button class="empty_btn">Explore Editor’s Desk</button></a>
             </div>
             <?php } ?>

@@ -12,7 +12,7 @@
 		<?php if ( 'upload-image' == bp_get_avatar_admin_step() ) : ?>
 
 			<?php wp_nonce_field( 'bp_avatar_upload' ); ?>
-			<p><?php _e( 'Select a JPG, GIF  or PNG format from your system.', 'vibe' ); ?></p>
+			<p><?php _e( 'Select a JPG, GIF  or PNG format from your system, and click Upload Avatar.', 'vibe' ); ?></p>
 <!----Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.---->
 			<p id="avatar-upload">
 				<input type="file" name="file" id="file" />
@@ -21,7 +21,7 @@
 			</p>
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
-				<p><?php _e( "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button.", 'vibe' ); ?></p>
+				<p><?php _e( "If you'd like to delete your current Avatar but not upload a new one, click Delete Avatar.", 'vibe' ); ?></p>
 				<p><a class="button edit upload-image" href="<?php bp_avatar_delete_link(); ?>" title="<?php _e( 'Delete Avatar', 'vibe' ); ?>"><?php _e( 'Delete Avatar', 'vibe' ); ?></a></p>
 			<?php endif; ?>
 

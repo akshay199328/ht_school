@@ -57,8 +57,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         }else{
                           $totalStudent = "Yes";
                         }
-                      if(get_post_meta($post->ID,'vibe_duration',true) != '') {
-                        $duration = get_post_meta($post->ID,'vibe_duration',true);
+                      if(get_post_meta($post->ID,'vibe_validity',true) != '') {
+                        $duration = get_post_meta($post->ID,'vibe_validity',true);
                       }
                       if(get_post_meta($post->ID,'vibe_course_frequency',true) != '') {
                         $frequency = get_post_meta($post->ID,'vibe_course_frequency',true);
@@ -69,8 +69,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       if(get_post_meta($post->ID,'vibe_course_session_length',true) != '') {
                         $sessionLength = get_post_meta($post->ID,'vibe_course_session_length',true);
                       }
-                      if(get_post_meta($post->ID,'vibe_course_duration_parameter',true) != '') {
-                        $courseDurationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+                      if(get_post_meta($post->ID,'vibe_course_validity_parameter',true) != '') {
+                        $courseDurationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                       }
                       $courseDetails = array();
                       $courseDetails[] = array(

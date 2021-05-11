@@ -62,8 +62,8 @@ get_header(vibe_get_header());
                     $progress = bp_course_get_user_progress($user->id,$post->ID);
                     if($statuses[$post->ID]>2){$progress = 100;}
                     $custom_fields = get_post_custom();
-                    $duration = $custom_fields['vibe_duration'][0];
-                    $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+                    $duration = $custom_fields['vibe_validity'][0];
+                    $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                     $session = $custom_fields['vibe_course_sessions'][0]; ?>
                   <div class="course-box dotted-border">
                     <table width="100%">

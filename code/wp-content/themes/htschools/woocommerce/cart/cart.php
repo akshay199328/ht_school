@@ -2,7 +2,7 @@
 
     jQuery( function($) {       
     $('.remove').click( function( event ) {
-        if( ! confirm( 'Are you sure you want to remove the product?' ) ) {
+        if( ! confirm( 'Are you sure you want to remove this course from Your Cart' ) ) {
             event.preventDefault();
             event.stopPropagation();
         }  

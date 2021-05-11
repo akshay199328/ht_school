@@ -75,7 +75,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                   <span>OR</span>
                 </div>
                 <div class="form-group">
-                  <input type="email" name="email" class="form-control" placeholder="Email id">
+                  <input type="email" name="email" class="form-control" placeholder="Email ID">
                   <p class="error" style="display: none;" id="ht_otp_error"></p>
                 </div>
                 <button  id="ht_reg_email_btn" type="button" class="btn submit_btn">
@@ -84,7 +84,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
               </form>
               <div class="form-footer">
                 <!-- <a href="#">Already Registered?</a> <a href="#" class="login-link">Login</a> -->
-                <p>By logging in, you agree to our <a href="<?php echo get_bloginfo('url').'/terms-of-use'?>">Terms of Service</a> and<a href="<?php echo get_bloginfo('url').'/privacy-policy-2'?>"> Privacy Policy</a></p>
+                <p>By logging in, you agree to our <a href="<?php echo get_bloginfo('url').'/terms-of-use'?>">Terms of Service</a> and<a href="<?php echo get_bloginfo('url').'/privacy-policy-2'?>"> Privacy Policy.</a></p>
               </div>
             </div>
 

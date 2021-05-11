@@ -60,24 +60,24 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			<input type="hidden" name="action" value="save_custom_profile">
 			<div class="form-group">
 				<label for="first_name">First Name</label>
-				<input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
+				<input type="text" class="form-control" name="first_name" placeholder="" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
 			</div>
 			<div class="form-group">
 				<label for="last_name">Last Name</label>
-				<input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname">
+				<input type="text" class="form-control" name="last_name" placeholder="" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname">
 			</div>
 			<div class="form-group">
 				<label for="user_email">Email</label>
-				<input type="email" class="form-control" name="user_email" placeholder="Email Id" value="<?php echo $currentUser->user_email; ?>" readonly>
+				<input type="email" class="form-control" name="user_email" placeholder="" value="<?php echo $currentUser->user_email; ?>" readonly>
 			</div>
 			<div class="form-group">
 				<label for="user_mobile">Mobile Number</label>
-				<input type="text" class="form-control" name="user_mobile" id="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" >
+				<input type="text" class="form-control" name="user_mobile" id="user_mobile" placeholder="" maxlength="10" value="<?php echo $user_mobile ?>" >
 				<span id="errMobileMsg"></span>
 			</div>
 			<div class="form-group edit_DOB">
 				<label for="user_dob">Date of Birth</label>
-				<input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
+				<input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
 				<input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
 			</div>
 			<div class="form-group ">
@@ -99,7 +99,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			</div>
 			<div class="form-group profile_search">
 				<label for="user_school_data">School</label>
-				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
+				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
 				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
 			</div>
 			<?php $profileType = get_profile_data('Profile Type'); 
@@ -109,16 +109,20 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<div class="form-group profile_dropdown">
 	                <label for="">Grade / Standard</label>
 	                <select name="grade">
-	                  <option value="1st" <?php if($child[0]->grade=="1st") echo 'selected="selected"'; ?>>1st</option>
-	                  <option value="2nd" <?php if($child[0]->grade=="2nd") echo 'selected="selected"'; ?>>2nd</option>
-	                  <option value="3rd" <?php if($child[0]->grade=="3rd") echo 'selected="selected"'; ?>>3rd</option>
-	                  <option value="4th" <?php if($child[0]->grade=="4th") echo 'selected="selected"'; ?>>4th</option>
-	                  <option value="5th" <?php if($child[0]->grade=="5th") echo 'selected="selected"'; ?>>5th</option>
-	                  <option value="6th" <?php if($child[0]->grade=="6th") echo 'selected="selected"'; ?>>6th</option>
-	                  <option value="7th" <?php if($child[0]->grade=="7th") echo 'selected="selected"'; ?>>7th</option>
-	                  <option value="8th" <?php if($child[0]->grade=="8th") echo 'selected="selected"'; ?>>8th</option>
-	                  <option value="9th" <?php if($child[0]->grade=="9th") echo 'selected="selected"'; ?>>9th</option>
-	                  <option value="10th" <?php if($child[0]->grade=="10th") echo 'selected="selected"'; ?>>10th</option>
+	                	<option value="K1" <?php if($child[0]->grade=="K1") echo 'selected="selected"'; ?>>K1</option>
+	                	<option value="K2" <?php if($child[0]->grade=="K2") echo 'selected="selected"'; ?>>K2</option>
+	                  	<option value="1" <?php if($child[0]->grade=="1") echo 'selected="selected"'; ?>>1</option>
+	                  	<option value="2" <?php if($child[0]->grade=="2") echo 'selected="selected"'; ?>>2</option>
+	                  	<option value="3" <?php if($child[0]->grade=="3") echo 'selected="selected"'; ?>>3</option>
+	                  	<option value="4" <?php if($child[0]->grade=="4") echo 'selected="selected"'; ?>>4</option>
+	                  	<option value="5" <?php if($child[0]->grade=="5") echo 'selected="selected"'; ?>>5</option>
+	                  	<option value="6" <?php if($child[0]->grade=="6") echo 'selected="selected"'; ?>>6</option>
+	                  	<option value="7" <?php if($child[0]->grade=="7") echo 'selected="selected"'; ?>>7</option>
+	                  	<option value="8" <?php if($child[0]->grade=="8") echo 'selected="selected"'; ?>>8</option>
+	                  	<option value="9" <?php if($child[0]->grade=="9") echo 'selected="selected"'; ?>>9</option>
+	                  	<option value="10" <?php if($child[0]->grade=="10") echo 'selected="selected"'; ?>>10</option>
+	                  	<option value="11" <?php if($child[0]->grade=="11") echo 'selected="selected"'; ?>>11</option>
+	                  	<option value="12" <?php if($child[0]->grade=="12") echo 'selected="selected"'; ?>>12</option>
 	                </select>
 	            </div>
 	            <div class="form-group profile_dropdown">
@@ -128,25 +132,31 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
 	                  <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
 	                  <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
+	                  <option value="E" <?php if($child[0]->division=="E") echo 'selected="selected"'; ?>>E</option>
+	                  <option value="F" <?php if($child[0]->division=="F") echo 'selected="selected"'; ?>>F</option>
+	                  <option value="G" <?php if($child[0]->division=="G") echo 'selected="selected"'; ?>>G</option>
+	                  <option value="H" <?php if($child[0]->division=="H") echo 'selected="selected"'; ?>>H</option>
+	                  <option value="I" <?php if($child[0]->division=="I") echo 'selected="selected"'; ?>>I</option>
+	                  <option value="J" <?php if($child[0]->division=="J") echo 'selected="selected"'; ?>>J</option>
 	                </select>
 	            </div>
         	<?php } ?>
 			<div class="form-group profile_search">
 				<label for="user_country_data">Country</label>
-				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Select Country" value="<?php echo $user_country; ?>">
+				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="" value="<?php echo $user_country; ?>">
 				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
 			</div>
 
 
 			<div class="form-group profile_search">
 				<label for="user_state">State</label>
-				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="Select State" value="<?php echo $user_state; ?>">
+				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>">
 			</div>
 
 
 			<div class="form-group profile_search">
 				<label for="user_city">City</label>
-				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>">
+				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
 			</div>
 
 			
@@ -229,9 +239,10 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		<?php } ?>
 		<form class="standard-form">
 			<input type="hidden" name="action">
-			<h1>Add your Child(ren)</h1>
+			<h1>Add Your Child</h1>
 			<div class="content">
-				<p>Please add your child/ren’s detail by clicking the <strong>add a child</strong> button below</p>
+				<p>If you're a parent and want to add your child, click Add a Child.If you're a parent and want to add your child, click <strong>Add a Child</strong>.</p>
+				<p><i>However, note that adding a child will convert your profile to that of a 'Parent' and this change cannot be reversed.</i></p>
 				<!-- <button type="button" class="btn" id="add-child-btn">Add a Child</button> -->
 				<button type="button" class="btn" data-toggle="modal" data-target="#edit-child-profile">Add a Child</button>
 			</div>

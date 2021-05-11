@@ -167,18 +167,35 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 	        'options' => $sidebararray,
 	        'std'=>'coursesidebar'
 	        ),
-		$prefix.'duration'=>array( // Text Input
+		$prefix.'validity'=>array( // Text Input
 			'label'	=> __('Total Duration of Course','wplms'), // <label>
-			'desc'	=> sprintf(__('Duration of Course (in %s)','wplms'),calculate_duration_time($course_duration_parameter)), // description
-			'id'	=> $prefix.'duration', // field id and name
+			'desc'	=> sprintf(__('Duration of Course (in %s)','wplms'),calculate_duration_time($course_validity_parameter)), // description
+			'id'	=> $prefix.'validity', // field id and name
 			'type'	=> 'number', // type of field
 			'std'	=> 10,
 			'min'=> 0,
 			'max' =>100,
 		),
-		$prefix.'course_duration_parameter'=>array( // Text Input
+		$prefix.'course_validity_parameter'=>array( // Text Input
 			'label'	=> __('Course Duration parameter','wplms'), // <label>
 			'desc'	=> __('Duration parameter','wplms'), // description
+			'id'	=> $prefix.'course_validity_parameter', // field id and name
+			'type'	=> 'duration', // type of field
+			'std'	=>$course_validity_parameter
+		),
+
+		$prefix.'duration'=>array( // Text Input
+			'label'	=> __('Total validity of Course','wplms'), // <label>
+			'desc'	=> sprintf(__('validity of Course (in %s)','wplms'),calculate_duration_time($course_duration_parameter)), // description
+			'id'	=> $prefix.'duration', // field id and name
+			'type'	=> 'number', // type of field
+			'std'	=> 999,
+			'min'=> 0,
+			'max' =>100,
+		),
+		$prefix.'course_duration_parameter'=>array( // Text Input
+			'label'	=> __('Course validity parameter','wplms'), // <label>
+			'desc'	=> __('validity parameter','wplms'), // description
 			'id'	=> $prefix.'course_duration_parameter', // field id and name
 			'type'	=> 'duration', // type of field
 			'std'	=>$course_duration_parameter

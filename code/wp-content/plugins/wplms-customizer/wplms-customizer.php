@@ -384,8 +384,8 @@ function bp_page_nav(){
     ) );
 
     bp_core_new_subnav_item( array(
-    'name' => __( 'Saved Articles', 'buddypress' ), 
-    'slug' => 'saved-articles',
+    'name' => __( 'Reading List', 'buddypress' ), 
+    'slug' => 'reading-list',
     'parent_url' => $user_domain.'preference/',
     'parent_slug' => 'preference',
     'screen_function' => 'saved_articles_template',

@@ -25428,7 +25428,7 @@ body {
  #buddypress ul.item-list li {
  	border-bottom: 1px solid rgba(0, 0, 0, .08);
  	padding: 20px 0;
- 	margin: 0;
+ 	margin: 0 0 0 20px;
  	position: relative;
  	list-style: none;
  	clear: both;
@@ -25607,7 +25607,10 @@ body {
  ul.item-list.loading>li {
  	opacity: .2
  }
-
+ .course-share-icon{
+ 	display: flex;
+ }
+ .course-share-icon li{margin-left:20px}
  @-webkit-keyframes loader {
  	0% {
  		-webkit-transform: rotate(0);

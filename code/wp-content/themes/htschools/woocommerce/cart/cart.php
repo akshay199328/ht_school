@@ -1,3 +1,15 @@
+<script>
+
+    jQuery( function($) {       
+    $('.remove').click( function( event ) {
+        if( ! confirm( 'Are you sure you want to remove the product?' ) ) {
+            event.preventDefault();
+            event.stopPropagation();
+        }  
+
+    });
+});
+</script>
 <?php
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -282,7 +282,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         if($curriculum_count > 4) {
                       ?>
                       <div class="viewall-session">
-                        <a href="#" class="all-session" id="view_all_sessions">View all Sessions</a>
+                        <a href="#" class="all-session" id="view_all_sessions">View All Sessions</a>
                       </div>
                     <?php } ?>
                     </div>

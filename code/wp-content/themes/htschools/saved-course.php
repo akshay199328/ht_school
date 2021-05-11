@@ -169,7 +169,7 @@ vibe_include_template("profile/top$profile_layout.php");
   <?php }else{ ?>
   <div class="empty_cart_div">
     <div class="empty_course_image"></div>
-    <h4>You Don’t Have Any Courses <br/>Wishlist Till Now. </h4>
+    <h4>No courses on your wishlist as yet!</h4>
     <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
   </div>
 <?php }?>

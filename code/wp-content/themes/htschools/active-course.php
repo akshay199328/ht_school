@@ -186,14 +186,14 @@ vibe_include_template("profile/top$profile_layout.php");
     <?php } else{ ?>
         <div class="empty_cart_div">
             <div class="empty_course_image"></div>
-            <h4>You have not bought any courses till now</h4>
-            <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+            <h4>No Courses here! You're missing out on some cool stuff!</h4>
+            <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
         </div>
     <?php } }else{ ?>
         <div class="empty_cart_div">
             <div class="empty_course_image"></div>
-            <h4>You have not bought any courses till now</h4>
-            <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+            <h4>No Courses here! You're missing out on some cool stuff!</h4>
+            <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
         </div>
     <?php }
     ?>

@@ -811,9 +811,9 @@ if(!function_exists('bp_course_item_view')){
                 	$category_array = get_the_terms( $post->ID, 'course-cat');
                 	$excerpt = get_post_field('post_excerpt', $post->ID);
                 	$custom_fields = get_post_custom();
-                	$duration = $custom_fields['vibe_duration'][0];
+                	$duration = $custom_fields['vibe_validity'][0];
                     $session = $custom_fields['vibe_course_sessions'][0];
-                    $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+                    $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                 ?>
                 <table width="100%">
                   <tbody>

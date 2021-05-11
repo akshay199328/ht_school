@@ -7164,3 +7164,8 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
     width: 100%;
 }
 
+
+
+/*added by noman*/
+.login-box{display:flex;align-items:center;flex-wrap:wrap;}
+.login-box .form-footer p, .login-box .form-footer a{color:#5E5E5E;}

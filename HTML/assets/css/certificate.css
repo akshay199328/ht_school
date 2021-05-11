@@ -1,0 +1,68 @@
+.certificate-wrapper {
+  max-width: 1087px;
+  margin: auto;
+  background-image: url(../img/certificate-circle.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.certificate-wrapper h1 {
+  font-weight: 300 !important;
+}
+
+.certificate-wrapper .date {
+  display: block;
+  text-align: right;
+  color: #575757;
+  font-weight: 300 !important;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.certificate-wrapper .date span {
+  margin-left: 15px;
+}
+
+.certificate-wrapper .logo {
+  height: 90px;
+  margin-bottom: 50px;
+}
+
+.certificate-wrapper .copy {
+  margin: 80px 0;
+}
+
+.certificate-wrapper .copy .eyebrow {
+  letter-spacing: 3px;
+  color: #1A57A4;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.certificate-wrapper .copy h2 {
+  font-weight: 300 !important;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border-bottom: 1px dotted #000;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.certificate-wrapper .copy p {
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+
+.certificate-wrapper .logo img {
+  height: 95px;
+  margin: 0 10px;
+}
+/*# sourceMappingURL=certificate.css.map */

@@ -93,7 +93,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
           </div>
           <div class="col-sm-12 bottom-detils">
-          <p class="copyright">Copyright © 2021 HTDSL. All rights reserved.</p>
+          <p class="copyright">Copyright © 2021 HTML. All rights reserved.</p>
             <div class="col-lg-12 col-12 links mrg">
               <div id="footermenu">
                   <?php

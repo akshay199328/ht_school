@@ -239,9 +239,10 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		<?php } ?>
 		<form class="standard-form">
 			<input type="hidden" name="action">
-			<h1>Add your Child(ren)</h1>
+			<h1>Add Your Child</h1>
 			<div class="content">
-				<p>Please add your child/ren’s detail by clicking the <strong>add a child</strong> button below</p>
+				<p>If you're a parent and want to add your child, click Add a Child.If you're a parent and want to add your child, click <strong>Add a Child</strong>.</p>
+				<p><i>However, note that adding a child will convert your profile to that of a 'Parent' and this change cannot be reversed.</i></p>
 				<!-- <button type="button" class="btn" id="add-child-btn">Add a Child</button> -->
 				<button type="button" class="btn" data-toggle="modal" data-target="#edit-child-profile">Add a Child</button>
 			</div>

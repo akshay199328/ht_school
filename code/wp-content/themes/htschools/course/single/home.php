@@ -207,9 +207,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                                            </div>';
                                         }
 
-                                        $ad_code = '<div align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
+                                        $ad_code = '<div align="right" style="float: right; margin-top:15px; margin-left: 15px;margin-bottom: 15px;">' . $addDisplay . '</div>';
                                         
-                                        $post_content = $ad_code . $videoContent . $post_content;
+                                        $post_content =  $videoContent.$ad_code .$post_content;
 
                                         echo $post_content;
                                         ?></p>

@@ -5184,11 +5184,11 @@ border-color: transparent;
     background: url('./assets/images/profile-search.svg') no-repeat bottom right;
     position: absolute;
     right: 0px;
-    top: 0;
-    bottom: 15px;
+    top: 32px;
     display: block;
     /* height: 17px; */
     width: 19px;
+    height:18px;
 }
 .standard-form .btn {
     font-size: 15px;
@@ -7175,8 +7175,8 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
     width: 100%;
 }
 /*added by noman*/
-.login-box{display:flex;align-items:center;flex-wrap:wrap;}
-.login-box .form-footer p, .login-box .form-footer a{color:#5E5E5E;}
+/*.login-box{display:flex;align-items:center;flex-wrap:wrap;}
+.login-box .form-footer p, .login-box .form-footer a{color:#5E5E5E;}*/
 
 #profileModal .s-class {
     border: none;
@@ -7192,5 +7192,18 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 }
 #profileModal {
         background: #00000078;
+}
+.home-page .modal-content #errMobileMsg, .home-page .modal-content #errSchoolMsg, .home-page .modal-content #errFirstName, .home-page .modal-content #errLastName{margin-top:-8px !important;display:block;padding-bottom:10px;font-weight:400}
+
+.contact-popup{}
+.contact-popup .modal-header{padding:30px !important}
+.contact-popup .modal-title{padding-left:0 !important}
+.contact-popup .contact-title{font-weight:500 !important;font-size:25px;color:#000;margin-top:20px}
+.contact-popup .modal-body{padding:30px;}
+.contact-popup .modal-body p{font-size:18px;color:#000}
+
+@media (min-width: 576px){
+.contact-popup .modal-dialog{
+    max-width:480px;
 }
 

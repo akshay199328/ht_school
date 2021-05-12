@@ -157,7 +157,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			</div>
 
 
-			<div class="form-group profile_search">
+			<div class="form-group ">
 				<label for="user_city">City</label>
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
 			</div>
@@ -441,7 +441,8 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				altFormat: "yy-mm-dd",
 				changeMonth: true,
 				changeYear: true,
-				yearRange: '1980:-3'    
+				yearRange: '1980:-3',
+				defaultViewDate: {year: '2014'}    
 			});
 
 			var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';

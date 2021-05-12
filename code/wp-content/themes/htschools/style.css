@@ -6520,7 +6520,7 @@ h6:empty,
     }
 }
 
-@media screen and (max-width:8) and (min-width:320px){
+@media screen and (max-width:767px) and (min-width:320px){
     
     .mobile-display{display: inline-block!important;}
     .header .homeicon img{width: 96px;margin-left: -10px!important;}

@@ -442,7 +442,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				changeMonth: true,
 				changeYear: true,
 				yearRange: '1980:-3',
-				defaultViewDate: {year: '2014'}    
+				maxDate: '-3y',    
 			});
 
 			var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';

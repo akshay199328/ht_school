@@ -119,7 +119,7 @@ if(have_posts()):while(have_posts()):the_post();
     return isValid;
 
   });
-  jQuery('#emailAddress').on('keypress', function() {
+  jQuery('#emailAddress').on('change', function() {
     var testEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     if (testEmail.test(jQuery(this).val())){
       jQuery('#errEmailMsg').text("");
@@ -129,7 +129,7 @@ if(have_posts()):while(have_posts()):the_post();
     }
 })
 
-var maxWords = 400;
+var maxWords = 100;
 jQuery('#yourMessage').keypress(function() {
 var $this, wordcount;
 $this = $(this);

@@ -3521,15 +3521,15 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
     width: 24px;
     top: 0;
   }
-  .ui-datepicker .ui-datepicker-month,
+  /*.ui-datepicker .ui-datepicker-month,
   .ui-datepicker .ui-datepicker-year
-	{width: 38%!important;}
+	{width: 38%!important;}*/
 	.ui-datepicker .ui-datepicker-title select{
 		font-size: 22px!important;background-image: none;
 	}
-	.ui-datepicker .ui-datepicker-title{
+	/*.ui-datepicker .ui-datepicker-title{
 		margin: 8px 2.3em!important;
-	}
+	}*/
 	.ui-datepicker .ui-datepicker-header{margin-bottom: 8px!important;}
 .ui-datepicker a {
   text-decoration: none; }
@@ -3672,7 +3672,7 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
 .ui-datepicker-calendar .ui-state-active {
   background: #C4E5FF;
   color: #000;
-  font-weight: 600;
+  /*font-weight: 600; */
   position: relative; }
 
 .ui-datepicker-unselectable .ui-state-default {

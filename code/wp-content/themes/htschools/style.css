@@ -1835,7 +1835,7 @@ Course Details
   width: 16px;
   display: block;
   position: relative;
-  top: 7px;
+  /*top: 7px;*/
 }
 .bookmark{
   background: url('./assets/images/saved.svg') no-repeat;
@@ -1843,7 +1843,7 @@ Course Details
   width: 16px;
   display: block;
   position: relative;
-  top: 7px;
+  /*top: 7px;*/
 }
 .progress_new .left, .progress_new .right {
     width: 50%;
@@ -7206,4 +7206,14 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 .contact-popup .modal-dialog{
     max-width:480px;
 }
+}
+input[type=file]{font-family:"GT-Walsheim-Pro" !important;}
+.btn, .button{font-family:"GT-Walsheim-Pro" !important;border:1px solid red;letter-spacing:0 !important;font-size:15px !important}
 
+.ui-datepicker{border:1px solid red !important;}
+.ui-datepicker-calendar .ui-state-default,
+.ui-datepicker-calendar *{font-family:"GT-Walsheim-Pro" !important;}
+.ui-datepicker-title{line-height:60px !important}
+.ui-datepicker-title select{background-color:transparent !important; padding:0 5px !important;width:auto !important;font-family:"GT-Walsheim-Pro" !important;}
+.ui-datepicker .ui-datepicker-month{width:auto !important;}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{opacity:1 !important}

@@ -7217,3 +7217,6 @@ input[type=file]{font-family:"GT-Walsheim-Pro" !important;}
 .ui-datepicker-title select{background-color:transparent !important; padding:0 5px !important;width:auto !important;font-family:"GT-Walsheim-Pro" !important;}
 .ui-datepicker .ui-datepicker-month{width:auto !important;}
 .ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{opacity:1 !important}
+
+
+.tableTd_right .share-icon{display:flex;}

@@ -31,8 +31,6 @@ $userInfo['first_name']		= get_user_meta( $order->user_id, 'billing_first_name',
 $userInfo['last_name']		= get_user_meta( $order->user_id, 'billing_last_name', true );
 $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', true );
 
-file_put_contents('D:\xampp\htdocs\log.txt', json_encode($userInfo));
-
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +61,7 @@ file_put_contents('D:\xampp\htdocs\log.txt', json_encode($userInfo));
 						</tr>
 						<tr>
 							<td>
-								<span style="font-weight: bold;"><?php echo $customer_first_name." ".$customer_last_name; ?></span>
+								<span style="font-weight: bold;"><?php echo $userInfo['first_name']." ".$userInfo['last_name']; ?></span>
 							</td>
 							<td style="width: 50%; text-align: right;">
 								<span>Date: </span><span style="font-weight: bold;"><?php echo date("d/m/Y", strtotime($order->get_date_created()));?></span>
@@ -91,7 +89,7 @@ file_put_contents('D:\xampp\htdocs\log.txt', json_encode($userInfo));
 							</td>
 							<td colspan="2" style="width: 70%;">
 								<span style="margin-right: 20px;">:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-								<span style="font-weight: bold;"><?php echo $customer_billing_phone; ?></span>
+								<span style="font-weight: bold;"><?php echo $userInfo['billing_phone']; ?></span>
 							</td>
 						</tr>
 						<tr><td colspan="3" style="height: 10px;"></td></tr>
@@ -160,22 +158,30 @@ file_put_contents('D:\xampp\htdocs\log.txt', json_encode($userInfo));
 
 							if ( $item_totals ) {
 								foreach ( $item_totals as $total )
-								{ ?>
-									<tr>
-										<td style="width: 30%;">
-											<span><?php echo wp_kses_post( $total['label'] ); ?></span>
-										</td>
-										<td style="width: 30%;">
-											<span style="margin-right: 20px;">:</span>
-										</td>
-										<td style="width: 40%; text-align: right;">
-											<span style="font-weight: bold;"><?php echo wp_kses_post( $total['value'] ); ?></span>
-										</td>
-									</tr>
-									<tr><td colspan="3" style="height: 10px;"></td></tr>
-									<tr><td colspan="3" style="border-top: 1px solid #707070;"></td></tr>
-									<tr><td colspan="3" style="height: 10px;"></td></tr>
-								<?php
+								{
+									if (strpos(strtolower($total['label']), 'payment method') !== false)
+									{
+
+									}
+									else
+									{ ?>
+										<tr>
+											<td style="width: 30%;">
+												<span><?php echo wp_kses_post( $total['label'] ); ?></span>
+											</td>
+											<td style="width: 30%;">
+												<span style="margin-right: 20px;">:</span>
+											</td>
+											<td style="width: 40%; text-align: right;">
+												<span style="font-weight: bold;"><?php echo wp_kses_post( $total['value'] ); ?></span>
+											</td>
+										</tr>
+
+										<tr><td colspan="3" style="height: 10px;"></td></tr>
+										<tr><td colspan="3" style="border-top: 1px solid #707070;"></td></tr>
+										<tr><td colspan="3" style="height: 10px;"></td></tr>
+									<?php
+									}
 								}
 							}
 						?>
@@ -191,10 +197,10 @@ file_put_contents('D:\xampp\htdocs\log.txt', json_encode($userInfo));
 							<td style="width: 40%; text-align: right;">
 								<span style="font-weight: bold;">7182912</span>
 							</td>
-						</tr> -->
+						</tr>
 						<tr><td colspan="3" style="height: 10px;"></td></tr>
 						<tr><td colspan="3" style="border-top: 1px solid #707070;"></td></tr>
-						<tr><td colspan="3" style="height: 10px;"></td></tr>
+						<tr><td colspan="3" style="height: 10px;"></td></tr> -->
 						<tr>
 							<td colspan="3">
 								<span style="font-size:16px; color:#78A1C6;">Thank you for your payment</span>

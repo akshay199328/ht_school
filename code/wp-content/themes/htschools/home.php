@@ -84,8 +84,8 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
           $Query_course = new WP_Query( $args_course );
           if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
             $custom_fields = get_post_custom();
-            $duration = $custom_fields['vibe_duration'][0];
-            $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+            $duration = $custom_fields['vibe_validity'][0];
+            $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
             $session = $custom_fields['vibe_course_sessions'][0];
             $age_limit = $custom_fields['vibe_course_age_group'][0];
             $category_array = get_the_terms( $post->ID, 'course-cat');

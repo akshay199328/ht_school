@@ -108,7 +108,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                   <p class="error" style="display: none;" id="ht_resend_error"></p>
                   <div class="resend-info">
                     <div class="pull-left">
-                      <p>Valid For: <span class="timer" id="reg-otp-timer">00:30</span></p>
+                      <p>Valid For: <span class="timer" id="reg-otp-timer">01:00</span></p>
                     </div>
                     <div class="pull-right">
                       <a href="javascript:void(0)" class="resend-link" id="resend-otp-link" style="display: none;">Resend OTP</a>
@@ -185,7 +185,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                     <p class="error" style="display: none;" id="mobile_resend_error"></p>
                     <div class="resend-info">
                       <div class="pull-left">
-                        <p>Valid For: <span class="timer" id="mob-otp-timer">00:30</span></p>
+                        <p>Valid For: <span class="timer" id="mob-otp-timer">01:00</span></p>
                       </div>
                       <div class="pull-right">
                         <a href="javascript:void(0)" class="resend-link" id="resend-mob-link" style="display: none;">Resend OTP</a>

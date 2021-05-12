@@ -485,3 +485,12 @@ padding: 15px 0;
     background-color: transparent!important;
     opacity: 1;
 }
+
+td .bookmark-remove {
+    background: url(./assets/images/save.svg) no-repeat;
+    height: 20px;
+    width: 16px;
+    display: block;
+    position: relative;
+    top: 2px;
+}

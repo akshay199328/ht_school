@@ -1363,7 +1363,7 @@ Course Details
 .about-details .course-for{
   float: left;
   margin: 30px 0 30px;
-  padding: 16px 80px 40px 20px;
+  padding: 16px 20px 20px 20px;
   
 }
 .course-for h5{
@@ -1375,7 +1375,7 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
 
 }
 .course-for p{

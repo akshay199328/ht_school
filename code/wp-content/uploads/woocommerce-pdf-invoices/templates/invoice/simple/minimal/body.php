@@ -40,13 +40,13 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 		<tbody>
 			<tr>
 				<td style="width:10%">
-					<img src="https://ht.fortune4.org/wp-content/uploads/2021/05/invoice-left.png" style="height: 1000px;">
+					<img src="https://htschool.hindustantimes.com/wp-content/uploads/2021/05/inv_left_img.png" style="height: 1000px;">
 				</td>
 				<td valign="top" style="width:80%">
 					<table style="width: 100%; padding-right: 10px; padding-left: 10px;">
 						<tr>
 							<td style="width:100%">
-								<img src="https://ht.fortune4.org/wp-content/uploads/2021/05/black-logo.png">
+								<img src="https://htschool.hindustantimes.com/wp-content/uploads/2021/05/inv_header_logo.png">
 							</td>
 						</tr>
 					</table>
@@ -136,7 +136,7 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 
 										<tr>
 											<td valign="top" style="width: 5%;">
-												<span style="background-color: yellow; padding: 10px; border-radius: 20px;"><?php echo $count++; ?></span>
+												<span style="font-weight: bold;"><?php echo $count++; ?></span>
 											</td>
 											<td valign="top" style="width: 75%;">
 												<p style="margin-bottom: 0px; margin-top: 0px;">Course</p>
@@ -158,49 +158,25 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 
 							if ( $item_totals ) {
 								foreach ( $item_totals as $total )
-								{
-									if (strpos(strtolower($total['label']), 'payment method') !== false)
-									{
+								{ ?>
+									<tr>
+										<td style="width: 30%;">
+											<span><?php echo wp_kses_post( $total['label'] ); ?></span>
+										</td>
+										<td style="width: 30%;">
+											<span style="margin-right: 20px;">:</span>
+										</td>
+										<td style="width: 40%; text-align: right;">
+											<span style="font-weight: bold;"><?php echo wp_kses_post( $total['value'] ); ?></span>
+										</td>
+									</tr>
 
-									}
-									else
-									{ ?>
-										<tr>
-											<td style="width: 30%;">
-												<span><?php echo wp_kses_post( $total['label'] ); ?></span>
-											</td>
-											<td style="width: 30%;">
-												<span style="margin-right: 20px;">:</span>
-											</td>
-											<td style="width: 40%; text-align: right;">
-												<span style="font-weight: bold;"><?php echo wp_kses_post( $total['value'] ); ?></span>
-											</td>
-										</tr>
-
-										<tr><td colspan="3" style="height: 10px;"></td></tr>
-										<tr><td colspan="3" style="border-top: 1px solid #707070;"></td></tr>
-										<tr><td colspan="3" style="height: 10px;"></td></tr>
-									<?php
-									}
+									<tr><td colspan="3" style="height: 10px;"></td></tr>
+									<tr><td colspan="3" style="border-top: 1px solid #707070;"></td></tr>
+									<tr><td colspan="3" style="height: 10px;"></td></tr>
 								}
 							}
 						?>
-
-						<!-- <tr>
-							<td style="width: 30%;">
-								<span>GST (18%): </span>
-							</td>
-							<td style="width: 30%;">
-								<span style="margin-right: 20px;">:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-								<span><?php echo get_option("woocommerce_gstin_number"); ?></span>
-							</td>
-							<td style="width: 40%; text-align: right;">
-								<span style="font-weight: bold;">7182912</span>
-							</td>
-						</tr>
-						<tr><td colspan="3" style="height: 10px;"></td></tr>
-						<tr><td colspan="3" style="border-top: 1px solid #707070;"></td></tr>
-						<tr><td colspan="3" style="height: 10px;"></td></tr> -->
 						<tr>
 							<td colspan="3">
 								<span style="font-size:16px; color:#78A1C6;">Thank you for your payment</span>
@@ -210,13 +186,13 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 					<table style="width: 100%; padding-right: 10px; padding-left: 10px;">
 						<tr>
 							<td valign="bottom">
-								<img src="https://ht.fortune4.org/wp-content/uploads/2021/05/invoice-bottom.png" style="width: 550px;">
+								<img src="https://htschool.hindustantimes.com/wp-content/uploads/2021/05/inv_bottom_img.png" style="width: 550px;">
 							</td>
 						</tr>
 					</table>
 				</td>
 				<td style="width:10%">
-					<img src="https://ht.fortune4.org/wp-content/uploads/2021/05/invoice-right.png" style="height: 1000px;">
+					<img src="https://htschool.hindustantimes.com/wp-content/uploads/2021/05/inv_right_img.png" style="height: 1000px;">
 				</td>
 			</tr>
 		</tbody>

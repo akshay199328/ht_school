@@ -120,7 +120,7 @@ if(have_posts()):while(have_posts()):the_post();
 
   });
   jQuery('#emailAddress').on('keypress', function() {
-    var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    var testEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     if (testEmail.test(jQuery(this).val())){
       jQuery('#errEmailMsg').text("");
     }
@@ -225,7 +225,7 @@ if (wordcount > maxWords) {
 get_footer(vibe_get_footer());
 ?>
 <!-- Modal -->
-<div class="modal modal-box fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal modal-box fade contact-popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">        

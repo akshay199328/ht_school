@@ -665,8 +665,8 @@ border: 1px solid deepskyblue;
                 altFormat: "yy-mm-dd",
                 changeMonth: true,
                 changeYear: true,
-                dateFormat: "dd/mm/yy",
-                yearRange: '1980:-3'
+                yearRange: '1980:-3',
+                maxDate: '-3y',
             });
 
             $("#profile_next_step").click(function(){

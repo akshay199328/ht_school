@@ -415,6 +415,7 @@
 }
 .vicon-power-off:before {
 	content: "\e682";
+	display: none;
 }
 .vicon-plug:before {
 	content: "\e683";

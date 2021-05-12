@@ -1363,7 +1363,7 @@ Course Details
 .about-details .course-for{
   float: left;
   margin: 30px 0 30px;
-  padding: 16px 80px 40px 20px;
+  padding: 16px 20px 20px 20px;
   
 }
 .course-for h5{
@@ -1375,7 +1375,7 @@ Course Details
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
 
 }
 .course-for p{
@@ -1835,7 +1835,7 @@ Course Details
   width: 16px;
   display: block;
   position: relative;
-  top: 7px;
+  /*top: 7px;*/
 }
 .bookmark{
   background: url('./assets/images/saved.svg') no-repeat;
@@ -1843,7 +1843,7 @@ Course Details
   width: 16px;
   display: block;
   position: relative;
-  top: 7px;
+  /*top: 7px;*/
 }
 .progress_new .left, .progress_new .right {
     width: 50%;
@@ -5184,11 +5184,11 @@ border-color: transparent;
     background: url('./assets/images/profile-search.svg') no-repeat bottom right;
     position: absolute;
     right: 0px;
-    top: 0;
-    bottom: 15px;
+    top: 32px;
     display: block;
     /* height: 17px; */
     width: 19px;
+    height:18px;
 }
 .standard-form .btn {
     font-size: 15px;
@@ -7174,14 +7174,10 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
     height: 100%;
     width: 100%;
 }
-<<<<<<< HEAD
-
-
-
 /*added by noman*/
-.login-box{display:flex;align-items:center;flex-wrap:wrap;}
-.login-box .form-footer p, .login-box .form-footer a{color:#5E5E5E;}
-=======
+/*.login-box{display:flex;align-items:center;flex-wrap:wrap;}
+.login-box .form-footer p, .login-box .form-footer a{color:#5E5E5E;}*/
+
 #profileModal .s-class {
     border: none;
     padding: 10px 25px 12px 0px;
@@ -7197,4 +7193,27 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 #profileModal {
         background: #00000078;
 }
->>>>>>> 1dc73807c5f1f49322ce7fe1af380c4f5454ab86
+.home-page .modal-content #errMobileMsg, .home-page .modal-content #errSchoolMsg, .home-page .modal-content #errFirstName, .home-page .modal-content #errLastName{margin-top:-8px !important;display:block;padding-bottom:10px;font-weight:400}
+
+.contact-popup{}
+.contact-popup .modal-header{padding:30px !important}
+.contact-popup .modal-title{padding-left:0 !important}
+.contact-popup .contact-title{font-weight:500 !important;font-size:25px;color:#000;margin-top:20px}
+.contact-popup .modal-body{padding:30px;}
+.contact-popup .modal-body p{font-size:18px;color:#000}
+
+@media (min-width: 576px){
+.contact-popup .modal-dialog{
+    max-width:480px;
+}
+}
+input[type=file]{font-family:"GT-Walsheim-Pro" !important;}
+.btn, .button{font-family:"GT-Walsheim-Pro" !important;border:1px solid red;letter-spacing:0 !important;font-size:15px !important}
+
+.ui-datepicker{border:1px solid red !important;}
+.ui-datepicker-calendar .ui-state-default,
+.ui-datepicker-calendar *{font-family:"GT-Walsheim-Pro" !important;}
+.ui-datepicker-title{line-height:60px !important}
+.ui-datepicker-title select{background-color:transparent !important; padding:0 5px !important;width:auto !important;font-family:"GT-Walsheim-Pro" !important;}
+.ui-datepicker .ui-datepicker-month{width:auto !important;}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{opacity:1 !important}

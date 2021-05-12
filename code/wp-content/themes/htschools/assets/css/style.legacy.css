@@ -33579,9 +33579,11 @@ body {
  	border-radius: 2px;
  	letter-spacing: .1em;
  	position: relative;
- 	-webkit-transition: all .3s;
- 	transition: all .3s;
- 	z-index: 1
+ 	-webkit-transition:none;
+ 	transition: none;
+ 	box-shadow: none!important;
+ 	z-index: 1;
+ 	-webkit-transform:none!important;
  }
 
  input[type=button],
@@ -33593,7 +33595,11 @@ body {
  	border: none;
  	border-radius: 2px;
  	outline: 0;
- 	font-weight: 600
+ 	font-weight: 600;
+ 	transition: none;
+ 	box-shadow: none!important;
+ 	z-index: 1;
+ 	-webkit-transform:none!important;
  }
 
  .button.blue {
@@ -35513,7 +35519,7 @@ body {
  .user_menu.active a{color: #000000 !important;}
  .custom_topmenu .user_menu a:before{display: none!important}
  .custom_topmenu .user_menu a{text-align: left;float: left;justify-content: left!important;color: #000000 !important;}
- .user_menu span{margin-right: 10px!important;}
+ .user_menu span{margin-right: 0px!important; }
  #menu-secondary-menu {
  	/*margin-top: 15px;*/
  }
@@ -36684,7 +36690,7 @@ transform: translate3d(0%, 0, 0);
 .woocommerce .order_details_page{margin-bottom: 25px;}
 .woocommerce .woocommerce-order{margin-bottom: 25px;}
 .dotted-border .middle-details h6{text-transform: uppercase!important;}
-#errMobileMsg{color: #ff0000;font-size: 12px;font-weight: 500;}
+#errMobileMsg,#errSchoolMsg,#errFirstName,#errLastName,#errFullNameMsg,#errPinCode,#errEmailMsg,#errYourMessage{color: #ff0000;font-size: 12px;font-weight: 500;}
 
 /* add new pagnation css */
 

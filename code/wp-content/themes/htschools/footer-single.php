@@ -333,6 +333,7 @@ border: 1px solid deepskyblue;
                                 </div>
                                 <div class="col-md-12">
                                     <input type="text" name="first_name"  value="<?php echo $currentUser->user_firstname; ?>" placeholder="First name" class=" in-class form-control user_field" id="user_firstname">
+                                    <span id="errFirstName"></span>
                                 </div>
 
                                 <div class="col-md-12">
@@ -340,6 +341,7 @@ border: 1px solid deepskyblue;
                                 </div>
                                 <div class="col-md-12">
                                     <input type="text" name="last_name"  value="<?php echo $currentUser->user_lastname; ?>" placeholder="Last name" class=" in-class form-control user_field" id="user_lastname">
+                                    <span id="errLastName"></span>
                                 </div>
 
                                 <div class="col-md-12">
@@ -402,6 +404,7 @@ border: 1px solid deepskyblue;
                                         <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                                         <input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
                                     </div>
+                                    <span id="errSchoolMsg"></span>
                                 </div>
 
                                 <!-- <div class="col-md-12">  
@@ -524,13 +527,8 @@ border: 1px solid deepskyblue;
             });
 
             $("#user_mobile").on("blur", function(){
-              phone_validate()
-            });
-            function phone_validate() 
-            { 
               var mobNum = $('#user_mobile').val();
                   var filter = /^(?!0+$)\d{8,}$/;
-
                   if (!filter.test(mobNum)) {
                       $("#errMobileMsg").text('Not a valid number');
                       return false;
@@ -543,19 +541,88 @@ border: 1px solid deepskyblue;
                     $("#errMobileMsg").text("");
                     return true;
                   }
+            });
+            function validate() 
+            { 
+              $("#errMobileMsg").text("");
+              $("#errFirstName").text("");
+              $("#errLastName").text("");
+                var mobNum = $('#user_mobile').val();
+                var firstName = $('#user_firstname').val();
+                var lastName = $('#user_lastname').val();
+                  var filter = /^(?!0+$)\d{8,}$/;
+                  var isValid = true;
+                  if(mobNum == '' || mobNum == undefined){
+                    $("#errMobileMsg").text('Please enter mobile number');
+                    isValid = false;
+                  }
+                  else if (!filter.test(mobNum)) {
+                      $("#errMobileMsg").text('Not a valid number');
+                      isValid = false;
+                  }
+                  else if(mobNum.length!=10){
+                    $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                      isValid = false;
+                  } 
+
+                  if(firstName == '' || firstName == undefined){
+                    $("#errFirstName").text("Please enter first name");
+                    isValid = false;
+                  }
+
+                  if(lastName == '' || lastName == undefined){
+                    $("#errLastName").text("Please enter last name");
+                    isValid = false;
+                  }
+
+
+                  return isValid;
+            }
+
+            function schoolValidate(){
+              $("#errSchoolMsg").text("");
+              var userSchool = $('#user_school_data').val();
+              if(userSchool == '' || userSchool == undefined){
+                $("#errSchoolMsg").text("Please select school name");
+                isValid = false;
+              }
+
+              return isValid;
             }
 
             $("#user_firstname").keypress(function(e) {
-              var key = e.keyCode;
-              if (key >= 48 && key <= 57) {
-                  e.preventDefault();
+              var keyCode = e.keyCode || e.which;
+   
+              $("#errFirstName").text("");
+   
+              //Regex for Valid Characters i.e. Alphabets.
+              var regex = /^[A-Za-z]+$/;
+   
+              //Validate TextBox value against the Regex.
+              var isValid = regex.test(String.fromCharCode(keyCode));
+              if (!isValid) {
+                  $("#errFirstName").text("Please enter only alphabets");
               }
+   
+              return isValid;
+
             });
             $("#user_lastname").keypress(function(e) {
-              var key = e.keyCode;
-              if (key >= 48 && key <= 57) {
-                  e.preventDefault();
+              var keyCode = e.keyCode || e.which;
+   
+              $("#errLastName").text("");
+   
+              //Regex for Valid Characters i.e. Alphabets.
+              var regex = /^[A-Za-z]+$/;
+   
+              //Validate TextBox value against the Regex.
+              var isValid = regex.test(String.fromCharCode(keyCode));
+              if (!isValid) {
+                  $("#errLastName").text("Please enter only alphabets");
               }
+   
+              return isValid;
+
             });
 
             updateProgressBar();
@@ -598,11 +665,15 @@ border: 1px solid deepskyblue;
                 altFormat: "yy-mm-dd",
                 changeMonth: true,
                 changeYear: true,
-                dateFormat: "dd/mm/yy",
-                yearRange: '1980:-3'
+                yearRange: '1980:-3',
+                maxDate: '-3y',
             });
 
             $("#profile_next_step").click(function(){
+              if(validate() != true){
+                return false;
+              }
+              else{
                 $("#profile_step_2").click();
                 updateProgressBar();
                 var prefs = {
@@ -612,6 +683,7 @@ border: 1px solid deepskyblue;
                     prefs.element = $(this);
                     new Circlebar(prefs);
                 });
+              }
             });
 
             var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
@@ -663,7 +735,7 @@ border: 1px solid deepskyblue;
             }); 
 
             $("#profile_submit").click(function(){
-              if(phone_validate() != true){
+              if(schoolValidate() != true){
                 return false;
               }
               else{

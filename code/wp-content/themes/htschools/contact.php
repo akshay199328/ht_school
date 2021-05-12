@@ -51,6 +51,103 @@ if(have_posts()):while(have_posts()):the_post();
 ?>
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script type='text/javascript'>
+  jQuery("#mobileNumber").keypress(function(e) {
+    var mobNum = jQuery(this).val();
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        jQuery("#errMobileMsg").text("Please enter Digits Only");
+        return false;
+      }
+      else{
+        jQuery("#errMobileMsg").text('');
+      }
+
+  });
+  jQuery("#mobileNumber").on("blur", function(){
+    var mobNum = jQuery('#mobileNumber').val();
+        var filter = /^(?!0+$)\d{8,}$/;
+        if (!filter.test(mobNum)) {
+            jQuery("#errMobileMsg").text('Not a valid number');
+            return false;
+        }
+        else if(mobNum.length!=10){
+          jQuery("#errMobileMsg").text("Please enter 10 digit mobile number");
+            return false;
+        } 
+        else{
+          jQuery("#errMobileMsg").text("");
+          return true;
+        }
+  });
+
+  jQuery("#pincode").keypress(function(e) {
+    var mobNum = jQuery(this).val();
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        jQuery("#errPinCode").text("Enter digits only");
+        return false;
+      }
+      else{
+        jQuery("#errPinCode").text('');
+      }
+
+  });
+
+  jQuery("#pincode").on("blur", function(){
+    var pincode = jQuery('#pincode').val();
+        if(pincode.length!=6){
+          jQuery("#errPinCode").text("Enter 6 digits only");
+            return false;
+        } 
+        else{
+          jQuery("#errPinCode").text("");
+          return true;
+        }
+  });
+  jQuery("#fullName").keypress(function(e) {
+    var keyCode = e.keyCode || e.which;
+
+    jQuery("#errFullNameMsg").text("");
+
+    //Regex for Valid Characters i.e. Alphabets.
+    var regex = /^[A-Za-z ]+$/;
+
+    //Validate TextBox value against the Regex.
+    var isValid = regex.test(String.fromCharCode(keyCode));
+    if (!isValid) {
+        jQuery("#errFullNameMsg").text("Please enter only alphabets");
+    }
+
+    return isValid;
+
+  });
+  jQuery('#emailAddress').on('change', function() {
+    var testEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    if (testEmail.test(jQuery(this).val())){
+      jQuery('#errEmailMsg').text("");
+    }
+    else{
+      jQuery('#errEmailMsg').text("Please enter valid email address");
+    }
+})
+
+var maxWords = 100;
+jQuery('#yourMessage').keypress(function() {
+var $this, wordcount;
+$this = $(this);
+wordcount = $this.val().split(/\b[\s,\.-:;]*/).length;
+if (wordcount > maxWords) {
+    jQuery('#errYourMessage').text("You can only have 400 words.");
+    return false;
+} else {
+    jQuery('#errYourMessage').text("");
+}
+});
+
+  jQuery('.wpcf7-form-control').click(function(){
+    jQuery("#errMobileMsg").text("");
+    jQuery("#errFullNameMsg").html("");
+    jQuery("#errPinCode").text(""); 
+    jQuery('#errYourMessage').text("");
+  })
   let baseUrl = "<?php echo get_home_url(); ?>";
   var contact_form_id = jQuery("input[name='_wpcf7']").val();
   document.addEventListener( 'wpcf7mailsent', function( event ) {
@@ -128,13 +225,13 @@ if(have_posts()):while(have_posts()):the_post();
 get_footer(vibe_get_footer());
 ?>
 <!-- Modal -->
-<div class="modal modal-box fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal modal-box fade contact-popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
             <img src="https://ht.fortune4.org/wp-content/uploads/2021/04/logo-course.png" class="modal-img"/>
-           <p class="modal-text"> Thank you for getting in touch!</p>
+           <h2 class="contact-title"> Thank you for getting in touch!</h2>
             <!-- <p class="modal-text">Welcome to</p>
             <p class="modal-para">Data Science Masterclass for Non-Programmers</p> -->
             <!-- <p class="modal-text">Congratulations on completing the Data Science Masterclass for Non-Programmers successfully. </p> -->
@@ -144,10 +241,11 @@ get_footer(vibe_get_footer());
           </button>
       </div>
       <div class="modal-body">
-      <div class="body-text">
-        <p class="body-line1">We have received your message and one of our colleagues will get in touch with you soon.</p>
-        <p class="body-line">Thanks, HTSchool</p>
-        <!-- <p class="sec-line">Course Instructions are:</p>
+      <p>We have received your message and one of our colleagues will get in touch with you soon.</p>
+        <p>Thanks, HTSchool</p>
+        <!--<div class="body-text">
+        
+         <p class="sec-line">Course Instructions are:</p>
         <ul class="custom-list">
           <li>Learn to use Python professionally, learning both Python 2 and Python </li>
           <li>Create games with Python, like Tic Tac Toe and Blackjack!</li>
@@ -157,9 +255,9 @@ get_footer(vibe_get_footer());
           <li>Understand how to use both the Jupyter Notebook and create .py files</li>
           <li>Get an understanding of how to create GUIs in the Jupyter Notebook</li> 
           <li>Build a complete understanding of Python from the ground up!</li>
-        </ul> -->
-        <!-- <p>We hope you had a great learning throughout and must be excited to share your achievements. Happy Learning!</p> -->
-      </div>
+        </ul>
+         <p>We hope you had a great learning throughout and must be excited to share your achievements. Happy Learning!</p>
+      </div> -->
       <!-- <div class="third-btn">
           <button type="button" class="btn">Download Certificate  <i class="bi bi-download"></i></button>
             <button type="button" class="btn">Share Certificate <i class="bi bi-share"></i></button>

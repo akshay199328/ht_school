@@ -59,23 +59,23 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		<form id="profile-edit-form" name="profile-form" class="standard-form">
 			<input type="hidden" name="action" value="save_custom_profile">
 			<div class="form-group">
-				<label for="first_name">First Name</label>
+				<label for="first_name">First Name*</label>
 				<input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $currentUser->user_firstname; ?>" readonly>
 			</div>
 			<div class="form-group">
-				<label for="last_name">Last Name</label>
+				<label for="last_name">Last Name*</label>
 				<input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" readonly>
 			</div>
 			<div class="form-group">
-				<label for="user_email">Email</label>
+				<label for="user_email">Email*</label>
 				<input type="email" class="form-control" name="user_email" placeholder="Email Id" value="<?php echo $currentUser->user_email; ?>" readonly>
 			</div>
 			<div class="form-group">
-				<label for="user_mobile">Mobile Number</label>
+				<label for="user_mobile">Mobile Number*</label>
 				<input type="text" class="form-control" name="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" readonly>
 			</div>
 			<div class="form-group">
-				<label for="user_dob">Date of Birth</label>
+				<label for="user_dob">Date of Birth*</label>
 				<input id="user_dob" type="text" class="form-control" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
 				<input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>" readonly>
 			</div>
@@ -84,7 +84,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 					<input type="radio" name="gender"> Male<br/>
 					<input type="radio" name="gender"> Female<br/>
 				</label> -->
-				<label> Select Gender <br/>
+				<label> Select Gender* <br/>
 				<div class="radio_switch"> 
 					<div class="switch">
 	                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?> disabled>
@@ -100,14 +100,14 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	            </div>
 			</div>
 			<div class="form-group">
-				<label for="user_school_data">School</label>
+				<label for="user_school_data">School*</label>
 				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>" readonly>
 			</div>
 			<?php $profileType = get_profile_data('Profile Type'); 
 				if($profileType != 'Parent'){
 			?>
 			<div class="form-group profile_dropdown">
-	                <label for="">Grade / Standard</label>
+	                <label for="">Grade / Standard*</label>
 	                <select name="grade" disabled="true">
 	                  <option value="1st" <?php if($child[0]->grade=="1st") echo 'selected="selected"'; ?>>1st</option>
 	                  <option value="2nd" <?php if($child[0]->grade=="2nd") echo 'selected="selected"'; ?>>2nd</option>
@@ -122,7 +122,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	                </select>
 	            </div>
             <div class="form-group profile_dropdown">
-                <label for="">Section / Division <?php echo $child->division?></label>
+                <label for="">Section / Division* <?php echo $child->division?></label>
                 <select name="division" disabled="true">
                   <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
                   <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>

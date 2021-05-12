@@ -61,10 +61,12 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			<div class="form-group">
 				<label for="first_name">First Name*</label>
 				<input type="text" class="form-control" name="first_name" placeholder="" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
+				<span id="errFirstName"></span>
 			</div>
 			<div class="form-group">
 				<label for="last_name">Last Name*</label>
 				<input type="text" class="form-control" name="last_name" placeholder="" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname">
+				<span id="errLastName"></span>
 			</div>
 			<div class="form-group">
 				<label for="user_email">Email*</label>
@@ -101,13 +103,14 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<label for="user_school_data">School*</label>
 				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
 				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+				<span id="errSchoolMsg"></span>
 			</div>
 			<?php $profileType = get_profile_data('Profile Type'); 
 				if($profileType != 'Parent'){
 			?>
 
 				<div class="form-group profile_dropdown">
-	                <label for="">Grade / Standard</label>
+	                <label for="">Grade / Standard*</label>
 	                <select name="grade">
 	                	<option value="K1" <?php if($child[0]->grade=="K1") echo 'selected="selected"'; ?>>K1</option>
 	                	<option value="K2" <?php if($child[0]->grade=="K2") echo 'selected="selected"'; ?>>K2</option>
@@ -126,7 +129,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	                </select>
 	            </div>
 	            <div class="form-group profile_dropdown">
-	                <label for="">Section / Division <?php echo $child->division?></label>
+	                <label for="">Section / Division* <?php echo $child->division?></label>
 	                <select name="division">
 	                  <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
 	                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
@@ -144,19 +147,19 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			<div class="form-group profile_search">
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="" value="<?php echo $user_country; ?>">
-				<input type="hidden" id="user_country" autocomplete="false" name="user_country" value="<?php echo $user_country; ?>">
+				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
 			</div>
 
 
 			<div class="form-group profile_search">
 				<label for="user_state">State</label>
-				<input type="text" class="form-control"  autocomplete="false" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>">
+				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>">
 			</div>
 
 
-			<div class="form-group ">
+			<div class="form-group profile_search">
 				<label for="user_city">City</label>
-				<input type="text" class="form-control"  autocomplete="false" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
+				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
 			</div>
 
 			
@@ -313,6 +316,8 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			    })
 
 			})*/
+
+			
 			$("#user_mobile").keypress(function (e) {
 				var mobNum = $(this).val();
 			    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -328,25 +333,63 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			});
 
 			$("#user_mobile").on("blur", function(){
-              phone_validate()
-            });
-            function phone_validate() 
-            { 
-              	var mobNum = $('#user_mobile').val();
-                  var filter = /^(?!0+$)\d{8,}$/;
+              var mobNum = $('#user_mobile').val();
+              var filter = /^(?!0+$)\d{8,}$/;
 
-                  if (!filter.test(mobNum)) {
+              if (!filter.test(mobNum)) {
+                  $("#errMobileMsg").text('Not a valid number');
+                  return false;
+              }
+              else if(mobNum.length!=10){
+                $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                  return false;
+              } 
+              else{
+                $("#errMobileMsg").text("");
+                return true;
+              }
+            });
+            function validation() 
+            { 
+            	$("#errMobileMsg").text("");
+            	$("#errFirstName").text("");
+            	$("#errLastName").text("");
+            	$("#errSchoolMsg").text("");
+              	var mobNum = $('#user_mobile').val();
+              	var firstName = $('#user_firstname').val();
+              	var lastName = $('#user_lastname').val();
+              	var userSchool = $('#user_school_data').val();
+                  var filter = /^(?!0+$)\d{8,}$/;
+                  var isValid = true;
+                  if(mobNum == '' || mobNum == undefined){
+                  	$("#errMobileMsg").text('Please enter mobile number');
+                  	isValid = false;
+                  }
+                  else if (!filter.test(mobNum)) {
                       $("#errMobileMsg").text('Not a valid number');
-                      return false;
+                      isValid = false;
                   }
                   else if(mobNum.length!=10){
                     $("#errMobileMsg").text("Please enter 10 digit mobile number");
-                      return false;
+                      isValid = false;
                   } 
-                  else{
-                    $("#errMobileMsg").text("");
-                    return true;
+
+                  if(firstName == '' || firstName == undefined){
+                  	$("#errFirstName").text("Please enter first name");
+                  	isValid = false;
                   }
+
+                  if(lastName == '' || lastName == undefined){
+                  	$("#errLastName").text("Please enter last name");
+                  	isValid = false;
+                  }
+
+                  if(userSchool == '' || userSchool == undefined){
+                  	$("#errSchoolMsg").text("Please select school name");
+                  	isValid = false;
+                  }
+
+                  return isValid;
             }
 
 			window.selectedCountry = "<?php echo $user_country; ?>";
@@ -460,7 +503,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			});	
 
 			$("#edit_profile_submit").click(function(e){
-				if(phone_validate() != true){
+				if(validation() != true){
 	                return false;
 	            }
               	else{

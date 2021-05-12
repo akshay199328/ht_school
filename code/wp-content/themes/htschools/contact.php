@@ -78,25 +78,75 @@ if(have_posts()):while(have_posts()):the_post();
           return true;
         }
   });
-  $("#fullName").keypress(function(e) {
+
+  jQuery("#pincode").keypress(function(e) {
+    var mobNum = jQuery(this).val();
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        jQuery("#errPinCode").text("Enter digits only");
+        return false;
+      }
+      else{
+        jQuery("#errPinCode").text('');
+      }
+
+  });
+
+  jQuery("#pincode").on("blur", function(){
+    var pincode = jQuery('#pincode').val();
+        if(pincode.length!=6){
+          jQuery("#errPinCode").text("Enter 6 digits only");
+            return false;
+        } 
+        else{
+          jQuery("#errPinCode").text("");
+          return true;
+        }
+  });
+  jQuery("#fullName").keypress(function(e) {
     var keyCode = e.keyCode || e.which;
 
-    $("#errFullNameMsg").html("");
+    jQuery("#errFullNameMsg").text("");
 
     //Regex for Valid Characters i.e. Alphabets.
-    var regex = /^[A-Za-z]+$/;
+    var regex = /^[A-Za-z ]+$/;
 
     //Validate TextBox value against the Regex.
     var isValid = regex.test(String.fromCharCode(keyCode));
     if (!isValid) {
-        $("#errFullNameMsg").html("Please enter only alphabets");
+        jQuery("#errFullNameMsg").text("Please enter only alphabets");
     }
 
     return isValid;
 
   });
+  jQuery('#emailAddress').on('keypress', function() {
+    var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    if (testEmail.test(jQuery(this).val())){
+      jQuery('#errEmailMsg').text("");
+    }
+    else{
+      jQuery('#errEmailMsg').text("Please enter valid email address");
+    }
+})
+
+var maxWords = 400;
+jQuery('#yourMessage').keypress(function() {
+var $this, wordcount;
+$this = $(this);
+wordcount = $this.val().split(/\b[\s,\.-:;]*/).length;
+if (wordcount > maxWords) {
+    jQuery('#errYourMessage').text("You can only have 400 words.");
+    return false;
+} else {
+    jQuery('#errYourMessage').text("");
+}
+});
+
   jQuery('.wpcf7-form-control').click(function(){
     jQuery("#errMobileMsg").text("");
+    jQuery("#errFullNameMsg").html("");
+    jQuery("#errPinCode").text("");
+    jQuery('#errYourMessage').text("");
   })
   let baseUrl = "<?php echo get_home_url(); ?>";
   var contact_form_id = jQuery("input[name='_wpcf7']").val();

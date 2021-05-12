@@ -593,7 +593,7 @@ border: 1px solid deepskyblue;
             $("#user_firstname").keypress(function(e) {
               var keyCode = e.keyCode || e.which;
    
-              $("#errFirstName").html("");
+              $("#errFirstName").text("");
    
               //Regex for Valid Characters i.e. Alphabets.
               var regex = /^[A-Za-z]+$/;
@@ -601,7 +601,7 @@ border: 1px solid deepskyblue;
               //Validate TextBox value against the Regex.
               var isValid = regex.test(String.fromCharCode(keyCode));
               if (!isValid) {
-                  $("#errFirstName").html("Please enter only alphabets");
+                  $("#errFirstName").text("Please enter only alphabets");
               }
    
               return isValid;
@@ -610,7 +610,7 @@ border: 1px solid deepskyblue;
             $("#user_lastname").keypress(function(e) {
               var keyCode = e.keyCode || e.which;
    
-              $("#errLastName").html("");
+              $("#errLastName").text("");
    
               //Regex for Valid Characters i.e. Alphabets.
               var regex = /^[A-Za-z]+$/;
@@ -618,7 +618,7 @@ border: 1px solid deepskyblue;
               //Validate TextBox value against the Regex.
               var isValid = regex.test(String.fromCharCode(keyCode));
               if (!isValid) {
-                  $("#errLastName").html("Please enter only alphabets");
+                  $("#errLastName").text("Please enter only alphabets");
               }
    
               return isValid;

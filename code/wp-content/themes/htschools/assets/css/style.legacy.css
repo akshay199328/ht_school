@@ -33595,7 +33595,11 @@ body {
  	border: none;
  	border-radius: 2px;
  	outline: 0;
- 	font-weight: 600
+ 	font-weight: 600;
+ 	transition: none;
+ 	box-shadow: none!important;
+ 	z-index: 1;
+ 	-webkit-transform:none!important;
  }
 
  .button.blue {

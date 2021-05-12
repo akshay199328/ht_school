@@ -586,6 +586,10 @@ border: 1px solid deepskyblue;
                 $("#errSchoolMsg").text("Please select school name");
                 isValid = false;
               }
+              else{
+                $("#errSchoolMsg").text("");
+                isValid = true;
+              }
 
               return isValid;
             }

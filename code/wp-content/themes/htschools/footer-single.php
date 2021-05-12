@@ -468,7 +468,7 @@ border: 1px solid deepskyblue;
                                 <div class="col-md-12">
                                     <div class="input-group">
                                         <input type="type"  id="user_city" name="user_city" placeholder="Select City" value="<?php echo $user_city; ?>" class="s-class form-control user_field" />
-                                        <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                        <span class="input-group-addon"><i class="fa " aria-hidden="true"></i></span>
                                     </div>
                                 </div> 
                                 <div class="col-md-12">

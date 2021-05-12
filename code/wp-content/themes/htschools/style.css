@@ -7174,14 +7174,10 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
     height: 100%;
     width: 100%;
 }
-<<<<<<< HEAD
-
-
-
 /*added by noman*/
 .login-box{display:flex;align-items:center;flex-wrap:wrap;}
 .login-box .form-footer p, .login-box .form-footer a{color:#5E5E5E;}
-=======
+
 #profileModal .s-class {
     border: none;
     padding: 10px 25px 12px 0px;
@@ -7197,4 +7193,4 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 #profileModal {
         background: #00000078;
 }
->>>>>>> 1dc73807c5f1f49322ce7fe1af380c4f5454ab86
+

@@ -35519,7 +35519,7 @@ body {
  .user_menu.active a{color: #000000 !important;}
  .custom_topmenu .user_menu a:before{display: none!important}
  .custom_topmenu .user_menu a{text-align: left;float: left;justify-content: left!important;color: #000000 !important;}
- .user_menu span{margin-right: 10px!important;}
+ .user_menu span{margin-right: 0px!important; }
  #menu-secondary-menu {
  	/*margin-top: 15px;*/
  }

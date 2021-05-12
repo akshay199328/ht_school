@@ -174,6 +174,7 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 									<tr><td colspan="3" style="height: 10px;"></td></tr>
 									<tr><td colspan="3" style="border-top: 1px solid #707070;"></td></tr>
 									<tr><td colspan="3" style="height: 10px;"></td></tr>
+								<?php
 								}
 							}
 						?>

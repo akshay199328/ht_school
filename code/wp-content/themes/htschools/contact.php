@@ -51,6 +51,53 @@ if(have_posts()):while(have_posts()):the_post();
 ?>
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script type='text/javascript'>
+  jQuery("#mobileNumber").keypress(function(e) {
+    var mobNum = jQuery(this).val();
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        jQuery("#errMobileMsg").text("Please enter Digits Only");
+        return false;
+      }
+      else{
+        jQuery("#errMobileMsg").text('');
+      }
+
+  });
+  jQuery("#mobileNumber").on("blur", function(){
+    var mobNum = jQuery('#mobileNumber').val();
+        var filter = /^(?!0+$)\d{8,}$/;
+        if (!filter.test(mobNum)) {
+            jQuery("#errMobileMsg").text('Not a valid number');
+            return false;
+        }
+        else if(mobNum.length!=10){
+          jQuery("#errMobileMsg").text("Please enter 10 digit mobile number");
+            return false;
+        } 
+        else{
+          jQuery("#errMobileMsg").text("");
+          return true;
+        }
+  });
+  $("#fullName").keypress(function(e) {
+    var keyCode = e.keyCode || e.which;
+
+    $("#errFullNameMsg").html("");
+
+    //Regex for Valid Characters i.e. Alphabets.
+    var regex = /^[A-Za-z]+$/;
+
+    //Validate TextBox value against the Regex.
+    var isValid = regex.test(String.fromCharCode(keyCode));
+    if (!isValid) {
+        $("#errFullNameMsg").html("Please enter only alphabets");
+    }
+
+    return isValid;
+
+  });
+  jQuery('.wpcf7-form-control').click(function(){
+    jQuery("#errMobileMsg").text("");
+  })
   let baseUrl = "<?php echo get_home_url(); ?>";
   var contact_form_id = jQuery("input[name='_wpcf7']").val();
   document.addEventListener( 'wpcf7mailsent', function( event ) {

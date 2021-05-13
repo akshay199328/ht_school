@@ -738,9 +738,9 @@ span.wpcf7-form-control-wrap.recaptcha {
 		.col-sm-12.col-md-3.content-right.right_count {
 			padding: 0px;
 		}
-		.search_section input{
+		/*.search_section input{
 			padding: 0px 81px 10px !important;
-		}
+		}*/
 		
 		
 		/*home slider*/
@@ -1298,10 +1298,10 @@ span.wpcf7-form-control-wrap.recaptcha {
 		.woocommerce-cart table.cart td.actions .coupon button{
 			width: 40%;
 		}
-		.search_section input{
+		/*.search_section input{
 			padding: 0px 20px 10px 60px!important;
 			font-size: 20px !important;
-		}
+		}*/
 		.woocommerce-checkout #payment div.payment_box:before{
 			top: -6px !important;
 		}

@@ -143,7 +143,7 @@ $topics = wp_get_post_tags(get_the_ID());
                                         $addDisplay = ob_get_contents();
                                         ob_end_clean();
 
-                                        $ad_code = '<div align="right" style="float: right;margin-left: 15px;">' . $addDisplay . '</div>';
+                                        $ad_code = '<div class="adsense">' . $addDisplay . '</div>';
                                         
                                         $post_content = $ad_code . $post_content;
 

@@ -39,6 +39,24 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
       margin: 0px auto;
       background: #F8F8F8;
     }
+    .social_signin {
+       left: unset;
+       text-align: center;
+      }
+
+
+    .abcRioButton.abcRioButtonLightBlue {
+        /*! width: 100% !important; */
+        margin: 0 auto;
+        display: inline-block;
+        border-radius: 4px;
+      }
+
+      .abcRioButtonLightBlue {
+        background-color: #fff;
+        color: #757575;
+        margin: 0 auto;
+      }
 </style>
 <main id="main">
   <section class="login">
@@ -68,9 +86,13 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                 <input type="hidden" name="prevPageurl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
                 <?php
                 if(class_exists('NextendSocialLogin', false)){
-                  echo NextendSocialLogin::renderButtonsWithContainer();
+                  //echo NextendSocialLogin::renderButtonsWithContainer();
                 }
                 ?>
+                <div class="social_signin flw100" style="left: unset;">
+                    <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" data-onlogin="signup_facebook()" login_text="Sign up with Facebook" data-scope="email" style="margin-bottom: 15px;"></div>
+                    <div id="google-signup">Sign up with Google</div>
+                </div>
                 <div class="option_or">
                   <span>OR</span>
                 </div>
@@ -237,6 +259,7 @@ jQuery(window).load(function(){
 });
 </script> -->
 <script type="text/javascript">
+
     jQuery(document).ready(function(){
         jQuery("#verify-otp-btn").prop("disabled", true);
         jQuery("#verify-mob-otp-btn").prop("disabled", true);

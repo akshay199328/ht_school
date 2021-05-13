@@ -2079,3 +2079,97 @@ if ( get_next_posts_link() )
 
 echo '</ul></div>' . "\n";
 }
+
+
+
+
+
+
+
+add_action("wp_ajax_ht_social_login", "ht_social_login");
+add_action( 'wp_ajax_nopriv_ht_social_login', 'ht_social_login' ); 
+
+function ht_social_login(){
+
+    $response = array(
+        'status' => 0,
+        'message' => 'Unable to Login, please try again'
+    );
+
+    if(isset($_REQUEST['type']) && ( $_REQUEST['type'] == 'facebook' || $_REQUEST['type'] == 'google' )){
+
+        $users = get_users(array(
+            'meta_key'     => 'social_id',
+            'meta_value'   => $_REQUEST['id'],
+            'meta_compare' => '=',
+        ));
+
+        $first_name =  isset($_REQUEST['first_name']) ? trim($_REQUEST['first_name']) : "";
+        $last_name =  isset($_REQUEST['last_name']) ? trim($_REQUEST['last_name']) : "";
+        $name =  isset($_REQUEST['name']) ? trim($_REQUEST['name']) : "";
+        $email = trim($_REQUEST['email']);
+        $social_type = trim($_REQUEST['social_type']);
+        $social_id = trim($_REQUEST['social_id']);
+
+        if($first_name == ''){
+          $nameParts = explode(" ", $name);
+          $first_name = $nameParts[0];
+          if(count($nameParts) > 1){
+            $last_name = $nameParts[1];
+          }
+        }
+
+        if(count($users) > 0){
+
+        }else if(email_exists($email)){
+            $user = get_user_by( 'email', $email ); 
+            if( $user ) {
+                $response['is_registered'] = 1;
+                $user_id = $user->ID;
+                wp_set_current_user( $user_id, $user->user_login );
+                wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+             //   $userData->profile_link = get_edit_profile_url($user->ID);
+                $response['user'] = json_encode($userData);
+
+                 $response['status'] = 1;
+                $response['message'] = 'OTP verified successfully.';
+            }
+        }else{
+           
+            $user_id = wp_create_user( preg_replace('/[^A-Za-z0-9\-]/', '', $email), md5($email) . mt_rand(100000,999999), $email );
+
+            wp_update_user([
+                'ID' => $user_id,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+            ]);
+
+            add_user_meta( $user_id, 'social_id', $social_id);
+            add_user_meta( $user_id, 'social_type', $social_type);
+
+            $user = get_user_by( 'ID', $user_id ); 
+            if( $user ) {
+                $response['is_registered'] = 1;
+                wp_set_current_user( $user_id, $user->user_login );
+                wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+               // $userData->profile_link = get_edit_profile_url($user->ID);
+                $response['user'] = json_encode($userData);
+                $response['previous_page_url'] = $_SESSION['previousPageUrl'];
+                
+                $response['status'] = 1;
+                $response['previous_page_url'] = '';
+                $response['message'] = 'OTP verified successfully.';
+            }
+
+        }
+    }
+
+    echo json_encode($response); exit;
+
+}

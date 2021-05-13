@@ -745,24 +745,37 @@ class WPLMS_Actions{
 	    	?>
 	    	<script> 
 	    		var suser = sessionStorage.getItem('bp_user');
+
+				jQuery(document).on("click", ".loggedin_user_div", function(){
+					jQuery('.user_menu').is(":visible") ? jQuery('.user_menu').hide() : jQuery('.user_menu').show();
+				});
+
+				jQuery(document).on("click", ".vibebp-logout", function(e){
+					e.preventDefault();
+					localStorage.clear();
+					sessionStorage.clear();
+
+					var cookies = document.cookie.split(";");
+
+				    for (var i = 0; i < cookies.length; i++) {
+				        var cookie = cookies[i];
+				        var eqPos = cookie.indexOf("=");
+				        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+				        jQuery.cookie(name, null, {path: '/'})
+				    }
+
+				    window.location.href = "/wp-login.php?action=logout";
+				    return false;
+				});
+
+
+
 	    		
     			if(suser){
     				var user = JSON.parse(suser);	
     				
     				if(Object.keys(user).length){
 	    				document.querySelector('.vibebp-login').innerHTML='<div class="loggedin_user_div"><a class="loggedin_user" data-id="1"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.display_name+'</span></a><div class="user_menu active" style="display: none"><div class="usermenu_content"><a href="/members-directory/'+user.user_nicename+'">Profile </a></div><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon"></span>Logout </a></div></div>';
-
-						jQuery(window).load(function(){
-
-							$(".loggedin_user_div").on("click", function(){
-								$('.user_menu').is(":visible") ? $('.user_menu').hide() : $('.user_menu').show();
-							});
-
-							$(".vibebp-logout").on("click", function(){
-								localStorage.clear();
-								sessionStorage.clear();
-							});
-						});
 
 
 	    				<?php 

@@ -1517,11 +1517,7 @@ Course Details
     text-align: left;
     color: #000000;
 }
-.profileimg-name{
-  /*height: 110px;*/
-    display: flex;
-    align-items: center;
-}
+
 .profileimg-name .co-lg-3.pull-left {
     padding: 29px 0px 0px 20px;
 }
@@ -7236,7 +7232,9 @@ td .bookmark-remove{top:0 !important}
   .share-icon .hover_share{display:flex;align-items:flex-start;}
 
   .course-box .share-icon{top:17px !important;}
+  .Popular-Courses .adworks{display:none}
 }
+.share-icon .wpfp-span img{display:none !important;}
 .navegacion .menu-back{height:100vh}
 .navegacion .menu-back .menu-copy{display:flex;flex-direction:column;overflow:scroll}
 .navegacion .menu-back .menu-copy .bootom-link{margin-top:auto;position:relative;}
@@ -7275,4 +7273,80 @@ section#content.section_contact{padding-top:10px}
   section#content.section_contact {
        padding-top: 0 !important; 
   }
+}
+.aboutUs-wrapper{padding-left:30px;padding-right:30px;}
+.aboutUs-wrapper .vc_column_container>.vc_column-inner{padding-left:inherit;padding-right:inherit;}
+.joinus-section .wpb_content_element{padding:0 20px;margin-bottom:20px !important}
+
+.search_section{padding-top:0;margin-top:30px}
+.search_section .search_icon{transform:translateY(-50%);top:50%;width:45px;height:45px;margin-top:-5px;left:0;}
+.search_section input{padding:0 0 5px 60px !important;height:auto}
+@media (max-width: 1024px){
+  .search_icon{}
+  .search_section input{padding-right:0;padding-left:60px}
+}
+@media (max-width:767px){
+  .search_section .search_icon{height:25px;width:25px;}
+  .search_section input{padding-left:40px !important}
+}
+@media (max-width: 375px){
+  .search_section input{padding-left:40px !important;font-weight:500}
+}
+@media (max-width: 420px){
+  .fixed_banner.course_fixedBanner ul{}
+  .fixed_banner.course_fixedBanner ul li{padding:0 !important;display:flex !important;flex-wrap:wrap;justify-content:space-between;}
+  /*.fixed_banner.course_fixedBanner ul li:nth-child(1){border-top:none !important}*/
+  .fixed_banner.course_fixedBanner ul li .mrg{padding:15px 0 !important;border-bottom:solid 1px #a6a6a6;width:50%}
+  .fixed_banner.course_fixedBanner ul li .mrg p{letter-spacing:.4px;}
+}
+
+.single-course .about-course{display:flex;justify-content:space-between;flex-wrap:wrap;margin-bottom:20px}
+.single-course .about-course .copy{padding-right:20px;flex:0 0 50%}
+.single-course .about-course .video-ad{flex:0 0 50%;}
+.single-course .about-course .video-ad iframe{height:240px;margin-bottom:20px}
+.single-course .details-right .row{float:none}
+.profile-content{padding-right:0 !important;}
+.profile-content .co-lg-12{display:flex;justify-content:space-between;flex-wrap:wrap;}
+.instructor-detailsMini .profile-content p{flex:0 0 48%}
+.instructor-detailsMini .profile-content div:nth-child(2){margin:0 !important;order:3}
+.instructor-detailsMini .profile-content .profileimg-name{width:100% !important;display:flex;align-items:center;}
+.instructor-detailsMini .profile-content .profileimg-name .profile-img{padding-right:20px;width:auto !important;flex:0 0 auto !important}
+.instructor-detailsMini .profile-content .profileimg-name .profile-img img{height:110px;width:110px;}
+.instructor-detailsMini .profile-content .profileimg-name .padding_right{max-width:fit-content;flex:0 0 auto}
+.instructor-detailsMini .profile-content .profileimg-name .padding_right h4{font-weight:400 !important;text-transform:uppercase;letter-spacing:1px;}
+.details-right{}
+.news-main{}
+.news-main .content-right .adsense{float:right;margin-left:15px;margin-bottom:15px;}
+@media (max-width: 420px){
+  .instructor-detailsMini .profile-content p{flex:0 0 100%}
+  .about-course{flex-direction:column;}
+  body.my-profile #buddypress .item-list-tabs#subnav .owl-stage{display:flex;flex-wrap:wrap;width:auto !important}
+  #buddypress .item-list-tabs#subnav .owl-stage:after{display:none;}
+  #buddypress .item-list-tabs#subnav .owl-stage .owl-item{margin-right:0 !important;width:50% !important}
+  #buddypress .item-list-tabs#subnav .owl-stage .owl-item li{display:block !important;}
+  #buddypress .item-list-tabs#subnav .owl-stage .owl-item li a{text-align:center !important;padding:15px 0 !important}
+  #buddypress .item-list-tabs#subnav .owl-stage .owl-item li a:after{display:none;}
+  .border_button .course-button{align-items:center;}
+  .course_button{
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    min-width: 145px !important;
+    font-weight: 400 !important;
+  }
+  body.course #buddypress .item-list-tabs#subnav .owl-stage .owl-item,
+  body.preference #buddypress .item-list-tabs#subnav .owl-stage .owl-item{width:auto !important;}
+  body.course #buddypress .item-list-tabs#subnav .owl-stage .owl-item li a,
+  body.preference #buddypress .item-list-tabs#subnav .owl-stage .owl-item li a{padding:15px 15px !important}
+  .course-wishlist .button_table tbody tr.border_button{width:100%}
+  .course-wishlist .button_table tbody tr.border_button .course-button .the_course_button,
+  .course-wishlist .course-button .the_course_button,
+  .course-wishlist .right-details .course-button{float:none}
+  .course-wishlist .border_button .course-button a, .course-wishlist .course-button .button.progress_key_1{min-width:auto !important;min-height:auto !important;font-weight:400 !important;padding:7px 10px !important;font-size:14px !important}
+  .course-wishlist .border_button .course-button a strong{font-weight:400 !important;}
+  .course-wishlist .border_button .course-button .button.progress_key_1{}
+  .news-main .content-right .adsense{float:none;}
+  .news-main .content-right iframe{width:100%}
+  /*#buddypress .item-list-tabs#subnav ul{margin-right:0}*/
+  /*body.course #buddypress .item-list-tabs#subnav .owl-stage .owl-item{border:1px solid red;}*/
+  .my-account .right-part-menu #item-nav{border:1px solid red;padding-left:0 !important}
 }

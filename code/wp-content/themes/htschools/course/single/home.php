@@ -203,7 +203,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         $trailer_link = get_post_meta($post->ID,'vibe_trailer_link',true);
                                         if(strlen(trim($trailer_link))){
                                           $videoContent = '<div align="right" style="float: right;margin-left: 15px;">
-                                                              <iframe allowfullscreen="allowfullscreen" width="100%" height="240" src="' . get_post_meta($post->ID,'vibe_trailer_link',true) . '"></iframe>
+                                          <iframe allowfullscreen="allowfullscreen" width="100%" height="240" src="' . get_post_meta($post->ID,'vibe_trailer_link',true) . '"></iframe>
                                                            </div>';
                                         }
 

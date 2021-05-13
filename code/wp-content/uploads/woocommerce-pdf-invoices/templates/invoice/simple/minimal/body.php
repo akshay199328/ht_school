@@ -24,13 +24,6 @@ $formatted_billing_address  = $order->get_formatted_billing_address();
 $columns                    = $invoice->get_columns();
 $color                      = $templater->get_option( 'bewpi_color_theme' );
 $terms                      = $templater->get_option( 'bewpi_terms' );
-
-$userInfo = [];
-
-$userInfo['first_name']		= get_user_meta( $order->user_id, 'billing_first_name', true );
-$userInfo['last_name']		= get_user_meta( $order->user_id, 'billing_last_name', true );
-$userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', true );
-
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +54,7 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 						</tr>
 						<tr>
 							<td>
-								<span style="font-weight: bold;"><?php echo $userInfo['first_name']." ".$userInfo['last_name']; ?></span>
+								<span style="font-weight: bold;"><?php echo $order->get_billing_first_name()." ".$order->get_billing_last_name(); ?></span>
 							</td>
 							<td style="width: 50%; text-align: right;">
 								<span>Date: </span><span style="font-weight: bold;"><?php echo date("d/m/Y", strtotime($order->get_date_created()));?></span>
@@ -89,7 +82,7 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 							</td>
 							<td colspan="2" style="width: 70%;">
 								<span style="margin-right: 20px;">:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-								<span style="font-weight: bold;"><?php echo $userInfo['billing_phone']; ?></span>
+								<span style="font-weight: bold;"><?php echo $order->get_billing_phone(); ?></span>
 							</td>
 						</tr>
 						<tr><td colspan="3" style="height: 10px;"></td></tr>
@@ -124,6 +117,7 @@ $userInfo['billing_phone']	= get_user_meta( $order->user_id, 'billing_phone', tr
 								<span>Course/s Enrolled</span>
 							</td>
 							<td colspan="2" style="width: 70%;">
+								<span style="margin-right: 20px;">:&nbsp;&nbsp;&nbsp;&nbsp;</span>
 								<table style="width: 100%;">
 									<?php $count=1;
 									foreach ( $order->get_items() as $item_id => $item )

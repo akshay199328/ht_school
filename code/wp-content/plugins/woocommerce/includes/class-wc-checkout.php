@@ -1142,6 +1142,22 @@ class WC_Checkout {
 			$errors      = new WP_Error();
 			$posted_data = $this->get_posted_data();
 
+			// Custom code is added to solve missing fields issue in Invoice
+			if(isset($posted_data[0]) && !isset($posted_data['billing_first_name']))
+				$posted_data['billing_first_name'] = $posted_data[0];
+
+			if(isset($posted_data[1]) && !isset($posted_data['billing_last_name']))
+				$posted_data['billing_last_name'] = $posted_data[1];
+
+			if(isset($posted_data[2]) && !isset($posted_data['billing_email']))
+				$posted_data['billing_email'] = $posted_data[2];
+
+			if(isset($posted_data[3]) && !isset($posted_data['billing_phone']))
+				$posted_data['billing_phone'] = $posted_data[3];
+
+			if(isset($posted_data[4]) && !isset($posted_data['billing_country']))
+				$posted_data['billing_country'] = $posted_data[4];
+
 			// Update session for customer and totals.
 			$this->update_session( $posted_data );
 

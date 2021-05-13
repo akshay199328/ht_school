@@ -76,7 +76,7 @@ $total_results = $wp_query->found_posts;
                     else:
                         echo '<h3>'.__('Sorry, No results found.','vibe').'</h3>';
                     endif;
-                    pagination();
+                    custom_pagination_search();
                 ?>
             </div>
         </div>

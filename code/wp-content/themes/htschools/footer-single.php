@@ -875,7 +875,7 @@ border: 1px solid deepskyblue;
           <div class="modal-title" id="exampleModalLabel">
             <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img"/>
           </div>          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" id="close_popup" aria-label="Close">
             <span>&times;</span>
           </button>
       </div>
@@ -886,6 +886,11 @@ border: 1px solid deepskyblue;
   </div>
 </div>
 <!-- modal -->
+<script type="text/javascript">
+  jQuery('#close_popup').click(function(){
+    location.reload();
+  });
+</script>
 <?php
 wp_footer();
 ?> 

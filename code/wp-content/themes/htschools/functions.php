@@ -2041,7 +2041,7 @@ if ( ( $paged + 2 ) <= $max ) {
     $links[] = $paged + 1;
 }
 
-echo '<div><ul class="pagination">' . "\n";
+echo '<div class="pagination"><ul>' . "\n";
 
 /** Previous Post Link */
 if ( get_previous_posts_link() )

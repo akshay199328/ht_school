@@ -256,12 +256,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <?php if (!is_user_logged_in()){ ?>
                         <li><a href="<?php echo get_bloginfo('url').'/login-register'?>">Login</a></li>
                       <?php }else{ 
-                          $args = array(
+                          /*$args = array(
                               'theme_location'  => 'mobile-sidebar-menu',
                           );
 
-                        wp_nav_menu( $args );
+                        wp_nav_menu( $args );*/
                       ?>
+                      <li><a href="<?php echo bloginfo('url').'/members-directory/'.$username.'"'?>"><span class="vicon"></span>My Profile </a></li>
+                      <li><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon"></span>Logout </a></li>
                       <?php }?>
                   </ul>
                 </div>

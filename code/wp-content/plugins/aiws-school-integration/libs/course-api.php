@@ -142,7 +142,9 @@ if(is_array($responseDecode->records))
 				$res1		= wp_update_attachment_metadata( $attachID, $attachData );
 				$res2		= set_post_thumbnail( $postID, $attachID );
 
-				// Section & Unit
+				// Add Sections & Units
+				// Create 1st part of section name
+				// Avoided same unit name on both sides of -
 				if(strtolower($courseValue->coursename) == strtolower($programValue->fullname))
 				{
 					$sectionName = trim($courseValue->coursename);
@@ -154,10 +156,13 @@ if(is_array($responseDecode->records))
 
 				foreach ($courseValue->courseformat as $formatKey => $formatValue)
 				{
+					// Create full section names
 					$sectionNameFull = trim($sectionName . " - " . $formatValue->courseformatname);
 
 					foreach ($formatValue->courseformatmodules as $formatModuleKey => $formatModuleValue)
 					{
+						// Create a Unit name
+						// Avoided same unit name on both sides of -
 						if(strtolower($formatValue->courseformatname) == strtolower($formatModuleValue->activityname))
 						{
 							$unitNameFull = trim($formatModuleValue->activityname);
@@ -181,7 +186,10 @@ if(is_array($responseDecode->records))
 			}
 
 			// Update course category
-			wp_set_post_terms( $postID, $courseCategoryID, 'course-cat', true );
+			if($courseCategoryID > 0)
+			{
+				wp_set_post_terms( $postID, $courseCategoryID, 'course-cat', true );
+			}
 
 			// Update meta data
 			add_post_meta( $postID, 'aiws_program_id',			$programValue->programid );

@@ -471,7 +471,42 @@ function bp_core_get_user_displaynames( $user_ids ) {
 
 	return $retval;
 }
+/**
+ * Fetch the display name for a user.
+ *
+ * @since 1.0.1
+ *
+ * @param int|string|bool $user_id_or_username User ID or username.
+ * @return string|bool The display name for the user in question, or false if
+ *                     user not found.
+ */
+function bp_core_get_user_displayschool( $user_id ) {
+ 
+    $schoolid=my_bp_get_users_by_xprofile(23,$user_id);
+    $schoolname=bp_core_get_user_displayname($schoolid[0]);
+    return $schoolname;
+}
 
+
+function my_bp_get_users_by_xprofile( $field_id, $value ) {
+ 
+    global $wpdb;
+ 
+    $user_ids = $wpdb->get_col(
+        $wpdb->prepare(
+            "
+                SELECT  CONCAT(UPPER(SUBSTRING(value,1,1)),
+LOWER(SUBSTRING(value,2))) as value
+                FROM `{$wpdb->prefix}bp_xprofile_data`
+                WHERE `field_id` = %d
+                    AND `user_id` = %s
+            "
+            , $field_id
+            , $value
+        )
+    );
+    return $user_ids;
+}
 /**
  * Fetch the display name for a user.
  *
@@ -510,6 +545,7 @@ add_filter( 'bp_core_get_user_displayname', 'strip_tags', 1 );
 add_filter( 'bp_core_get_user_displayname', 'trim'          );
 add_filter( 'bp_core_get_user_displayname', 'stripslashes'  );
 add_filter( 'bp_core_get_user_displayname', 'esc_html'      );
+
 
 /**
  * Return the user link for the user based on user email address.

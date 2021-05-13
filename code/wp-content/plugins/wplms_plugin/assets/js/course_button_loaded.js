@@ -6749,12 +6749,15 @@
             onClick: () => {
                 O(!0)
             }
-        }), sr("a", {
+        }), 
+        /*sr("a", {
             className: "icon_comments",
             onClick: () => {
                 y(!0)
             }
-        })) : "") : "", document.querySelector("body").classList.contains("single-course") ? "" : sr("a", {
+        })*/
+        ) : ""
+        ) : "", document.querySelector("body").classList.contains("single-course") ? "" : sr("a", {
             title: document.querySelector("body").classList.contains("course_status_fullscreen") ? window.wplms_course_data.translations.minimise_screen : window.wplms_course_data.translations.maximise_screen,
             className: "icon_fullscreen",
             onClick: () => {

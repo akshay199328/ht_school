@@ -380,7 +380,7 @@ border: 1px solid deepskyblue;
                                     <label> Select Gender</label> <br/>
                                     <div class="radio_switch"> 
                                         <div class="switch" style="height: unset;">
-                                            <input type="radio" class="switch-input user_radio_btn user_field" name="user_gender" value="Female" id="one" <?php if($user_gender == 'Female'){ echo "checked"; } ?>>
+                                            <input type="radio" class="switch-input user_radio_btn user_field" name="user_gender" value="Female" id="one" <?php if($user_gender == '' || $user_gender == null){ echo "checked"; } else if($user_gender == 'Female'){ echo "checked"; } ?>>
                                             <label for="one" class="switch-label switch-label-off">
                                                 <span>Female</span>
                                             </label>

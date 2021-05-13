@@ -26,7 +26,7 @@
 	padding: 25px 35px!important;
     border: 1px solid #BEBEBE;
     margin: 42px 15px 0px;
-    width: 95%!important;
+    /*width: 95%!important;*/
         background: #fff;
 }
 .contact-us  .wpb_content_element{margin-bottom: 27px;}
@@ -139,7 +139,7 @@
     margin: 22px 0px 0px;
 }
 section#content.section_contact{
-	padding-top: 5px !important;
+	/*padding-top: 5px !important;*/
 	    background: #F8F8F8
 }
 
@@ -1050,7 +1050,7 @@ span.wpcf7-form-control-wrap.recaptcha {
 		/*contact us*/
 		.contact-us .vc_column-inner{
 			padding: 25px 25px!important;
-			margin: 20px 9px 0px;
+			margin: 20px 15px 0px !important;
 		}
 		.blogpost .excerpt.thumb{
 			margin-top: 0px !important;
@@ -1078,7 +1078,7 @@ span.wpcf7-form-control-wrap.recaptcha {
 			line-height: 24px;
 		}
 		section#content.section_contact {
-    		padding-top: 60px !important;
+    		padding-top: 10px !important;
 		}
 		/*contact us*/
 		.course_status .course_timeline {

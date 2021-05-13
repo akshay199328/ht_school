@@ -236,7 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="navegacion">
           <div class="menu-back">
             <span class="close-navigation"></span>
-            <ul class="menu">
+            <ul class="menu menu-copy">
 
                 <!--titular-->
               <?php

@@ -6615,7 +6615,7 @@ h6:empty,
     .other-courses .list h3{min-height: 100%;}
     .right-menu ul li #new_searchicon{display: block!important}
     .bootom-link{
-      margin-top: 50px!important;   
+      /*margin-top: 50px!important;   */
       padding-right: 30px;
     }
     .login-box .login-right{    padding: 30px 25px;}
@@ -7238,6 +7238,8 @@ td .bookmark-remove{top:0 !important}
   .course-box .share-icon{top:17px !important;}
 }
 .navegacion .menu-back{height:100vh}
+.navegacion .menu-back .menu-copy{display:flex;flex-direction:column;overflow:scroll}
+.navegacion .menu-back .menu-copy .bootom-link{margin-top:auto;position:relative;}
 .navegacion ul {
     width: 100%;
     height: 100%;
@@ -7265,4 +7267,12 @@ td .bookmark-remove{top:0 !important}
   /*.navegacion .menu-back{border:1px solid red;}*/
   .menu-back .bootom-link{position:relative;}
   .menu-back .menu{overflow-y:scroll;}
+}
+
+.contact-us .vc_column-inner{width:auto !important}
+section#content.section_contact{padding-top:10px}
+@media screen and (max-width: 767px) and (min-width: 320px){
+  section#content.section_contact {
+       padding-top: 0 !important; 
+  }
 }

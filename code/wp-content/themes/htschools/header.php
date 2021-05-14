@@ -353,7 +353,7 @@ console.log(response);
                 <!--titular-->
               <?php
                   $current_user = wp_get_current_user();
-                  $username = $current_user->user_login;    
+                  $username = $current_user->user_nicename;    
                     $args = array(
                         'theme_location'  => 'sidebar-menu',
                     );

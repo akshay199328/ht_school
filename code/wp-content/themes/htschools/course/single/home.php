@@ -205,7 +205,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
                                         <div class="about-course">
                                         <p><?php 
-                                        $post_content = '<div class="copy">'.get_post_field('post_content', $post->ID).'</div>';
+                                        $post_content = get_post_field('post_content', $post->ID);
                                         
                                         ob_start();
                                         dynamic_sidebar('news_landing_mid_banner');
@@ -224,7 +224,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         $ad_code = '<div class="adsense">' . $addDisplay . '</div>';
                                         $closeDiv = '</div>';
                                         
-                                        $post_content =  $post_content.$videoContent.$ad_code.$closeDiv;
+                                        $post_content =  $videoContent.$ad_code.$closeDiv.$post_content;
 
                                         echo $post_content;
                                         ?></p>

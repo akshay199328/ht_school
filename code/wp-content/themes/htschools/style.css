@@ -7300,10 +7300,10 @@ section#content.section_contact{padding-top:10px}
   .fixed_banner.course_fixedBanner ul li .mrg p{letter-spacing:.4px;}
 }
 
-.single-course .about-course{display:flex;justify-content:space-between;flex-wrap:wrap;margin-bottom:20px}
+.single-course .about-course{margin-bottom:20px}
 .single-course .about-course .copy{padding-right:20px;flex:0 0 50%}
-.single-course .about-course .video-ad{flex:0 0 50%;}
-.single-course .about-course .video-ad iframe{height:240px;margin-bottom:20px}
+.single-course .about-course .video-ad{float:right;padding-left:20px}
+.single-course .about-course .video-ad iframe{height:240px;margin-bottom:20px;width:300px;border:none;}
 .single-course .details-right .row{float:none}
 .profile-content{padding-right:0 !important;}
 .profile-content .co-lg-12{display:flex;justify-content:space-between;flex-wrap:wrap;}
@@ -7354,4 +7354,7 @@ section#content.section_contact{padding-top:10px}
   .my-account .right-part-menu #item-nav .flexMenu-popup li a{font-weight:400 !important;line-height:12px !important}
   .dashboard_accountinfo .profile-card .standard-form{width:100% !important}
   .changeavtar_details .btn{width:auto !important}
+
+  .single-course .about-course{display:flex;}
+  .single-course .about-course .video-ad{float:none;padding-left:0;order:2;margin-top:20px}
 }

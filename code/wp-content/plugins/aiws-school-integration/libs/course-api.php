@@ -86,61 +86,64 @@ if(is_array($responseDecode->records))
 			{
 				$courseArray[] = $courseValue->courseid;
 
-				// Image Insert
-				$imageURL	= $courseValue->imageurl;
-				$uploadDir	= wp_upload_dir();
-				$imageData	= file_get_contents($imageURL);
-				$filename	= basename($imageURL);
-
-				// Check if extension is in file name or not
-				// if not then check and add
-				$tempName		= explode('.', $filename);
-				$hasExtension	= false;
-
-				if(count($tempName) > 0)
+				if($courseKey == 0)
 				{
-					$lastElem = end($tempName);
+					// Image Insert
+					$imageURL	= $courseValue->imageurl;
+					$uploadDir	= wp_upload_dir();
+					$imageData	= file_get_contents($imageURL);
+					$filename	= basename($imageURL);
 
-					if($lastElem == "gif" || $lastElem == "jpg" || $lastElem == "jpeg" || $lastElem == "png")
+					// Check if extension is in file name or not
+					// if not then check and add
+					$tempName		= explode('.', $filename);
+					$hasExtension	= false;
+
+					if(count($tempName) > 0)
 					{
-						$hasExtension = true;
+						$lastElem = end($tempName);
+
+						if($lastElem == "gif" || $lastElem == "jpg" || $lastElem == "jpeg" || $lastElem == "png")
+						{
+							$hasExtension = true;
+						}
 					}
+
+					if(!$hasExtension)
+					{
+						$imgExt = '.jpg';
+
+						$imgTypeCode = exif_imagetype($imageURL);
+
+						if($imgTypeCode == 1)		$imgExt = '.gif';
+						else if($imgTypeCode == 2)	$imgExt = '.jpg';
+						else if($imgTypeCode == 3)	$imgExt = '.png';
+
+						$filename .= $imgExt;
+					}
+
+					if(wp_mkdir_p($uploadDir['path']))
+						$file = $uploadDir['path'] . '/' . $filename;
+					else
+						$file = $uploadDir['basedir'] . '/' . $filename;
+
+					file_put_contents($file, $imageData);
+
+					$wpFiletype = wp_check_filetype($filename, null);
+					$attachment = array(
+						'post_mime_type'	=> $wpFiletype['type'],
+						'post_title'		=> sanitize_file_name($filename),
+						'post_content'		=> '',
+						'post_status'		=> 'inherit'
+					);
+
+					require_once(ABSPATH . 'wp-admin/includes/image.php');
+
+					$attachID	= wp_insert_attachment( $attachment, $file, $postID );
+					$attachData	= wp_generate_attachment_metadata( $attachID, $file );
+					$res1		= wp_update_attachment_metadata( $attachID, $attachData );
+					$res2		= set_post_thumbnail( $postID, $attachID );
 				}
-
-				if(!$hasExtension)
-				{
-					$imgExt = '.jpg';
-
-					$imgTypeCode = exif_imagetype($imageURL);
-
-					if($imgTypeCode == 1)		$imgExt = '.gif';
-					else if($imgTypeCode == 2)	$imgExt = '.jpg';
-					else if($imgTypeCode == 3)	$imgExt = '.png';
-
-					$filename .= $imgExt;
-				}
-
-				if(wp_mkdir_p($uploadDir['path']))
-					$file = $uploadDir['path'] . '/' . $filename;
-				else
-					$file = $uploadDir['basedir'] . '/' . $filename;
-
-				file_put_contents($file, $imageData);
-
-				$wpFiletype = wp_check_filetype($filename, null);
-				$attachment = array(
-					'post_mime_type'	=> $wpFiletype['type'],
-					'post_title'		=> sanitize_file_name($filename),
-					'post_content'		=> '',
-					'post_status'		=> 'inherit'
-				);
-
-				require_once(ABSPATH . 'wp-admin/includes/image.php');
-
-				$attachID	= wp_insert_attachment( $attachment, $file, $postID );
-				$attachData	= wp_generate_attachment_metadata( $attachID, $file );
-				$res1		= wp_update_attachment_metadata( $attachID, $attachData );
-				$res2		= set_post_thumbnail( $postID, $attachID );
 
 				// Add Sections & Units
 				// Create 1st part of section name

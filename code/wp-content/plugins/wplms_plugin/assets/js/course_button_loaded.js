@@ -7155,6 +7155,8 @@
                     if(l.is_profile_complete || window.checkProfile == false){
                         if(l.is_cb_course){
                             window.location = l.cb_course_link;
+                        } else if(l.is_aiws_course){
+                            window.location = l.aiws_course_link;
                         }else{
                             f(!0)
                         }

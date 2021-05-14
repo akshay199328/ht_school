@@ -10,7 +10,7 @@ if(!defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
   define('WPLMS_THEME_FILE_INCLUDE_PATH',get_template_directory());
   //use this if you want to overwrite core functions from includes directory with your child theme
   //copy includes and _inc folder into your child them and define path constant to child theme
-  
+
   //define('WPLMS_THEME_FILE_INCLUDE_PATH',get_stylesheet_directory());
 }
 
@@ -25,7 +25,7 @@ if(defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/filters.php';
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/class.upgrade.php';
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/func.php';
-  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/ratings.php'; 
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/ratings.php';
   // Customizer
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/customizer.php';
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/css.php';
@@ -57,7 +57,7 @@ if(defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
   //SETUP
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/setup/wplms-install.php';
 }
-  
+
 /**
  * Register widget area.
  *
@@ -267,7 +267,7 @@ function wpse_enqueue_datepicker() {
     wp_enqueue_script( 'jquery-ui-autocomplete' );
     // You need styling for the datepicker. For simplicity I've linked to the jQuery UI CSS on a CDN.
     wp_register_style( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css' );
-    wp_enqueue_style( 'jquery-ui' );  
+    wp_enqueue_style( 'jquery-ui' );
 }
 add_action( 'wp_enqueue_scripts', 'wpse_enqueue_datepicker' );
 
@@ -300,7 +300,7 @@ function get_the_course_price($args=NULL){
   extract( $r, EXTR_SKIP );
 
   $precourse=get_post_meta($course_id,'vibe_pre_course',true);
-  $maximum = bp_course_get_max_students($course_id); 
+  $maximum = bp_course_get_max_students($course_id);
   $badge=get_post_meta($course_id,'vibe_course_badge',true);
   $certificate=get_post_meta($course_id,'vibe_course_certificate',true);
 
@@ -350,7 +350,7 @@ function get_the_course_price($args=NULL){
   $course_details = apply_filters('wplms_course_details_widget',$course_details,$course_id);
 
   global $post;
-  $return =''; 
+  $return ='';
   foreach($course_details as $course_detail){
     if(isset($course_detail) && strlen($course_detail) > 5)
       $return .=$course_detail;
@@ -384,9 +384,9 @@ if(!function_exists('ht_course_get_full_course_curriculum')){
           if($type == 'unit'){
             $vibe_type = get_post_meta($item,'vibe_type',true);
             $free_access = get_post_meta($item,'vibe_free',true);
-            $labels = (vibe_validate($free_access)?'<span class="free">'.__('FREE','wplms').'</span>':'');  
-          } 
-          
+            $labels = (vibe_validate($free_access)?'<span class="free">'.__('FREE','wplms').'</span>':'');
+          }
+
           $duration = get_post_meta($item,'vibe_duration',true);
           if( empty($duration) )
             $duration = 0;
@@ -413,19 +413,19 @@ if(!function_exists('ht_course_get_full_course_curriculum')){
             'icon'    =>  wplms_get_element_icon(wplms_get_element_type($item,$type)),
             'labels'  =>  apply_filters('bp_course_curriculum_item_labels',$labels,$item,$type),
             'title'   =>  get_the_title($item),
-            'link'    =>  $link,  
+            'link'    =>  $link,
             'duration'  =>  $duration,
             'extras'  =>  apply_filters('course_curriculum_extras',0,$item),
             'vibe_type'  =>  $vibe_type
-          );  
+          );
         }else{
           $curriculum[] = array(
             'type'  =>  'section',
             'key' =>  $key,
             'title' =>  $item
-          );  
+          );
         }
-        
+
       }
     }
 
@@ -473,7 +473,7 @@ if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['l
 
 // Login Functionality
 add_action("wp_ajax_reg_send_otp", "reg_send_otp");
-add_action( 'wp_ajax_nopriv_reg_send_otp', 'reg_send_otp' ); 
+add_action( 'wp_ajax_nopriv_reg_send_otp', 'reg_send_otp' );
 
 function reg_send_otp(){
 
@@ -484,7 +484,7 @@ function reg_send_otp(){
   );
 
   if (filter_var($requestEmail, FILTER_VALIDATE_EMAIL)) {
-    $newOTP = mt_rand(100000,999999); 
+    $newOTP = mt_rand(100000,999999);
 
     $_SESSION['user_otp'] = $newOTP;
     $_SESSION['user_otp_email'] = $requestEmail;
@@ -524,7 +524,7 @@ function set_html_content_type() {
 return 'text/html';
 }
 add_action("wp_ajax_reg_verify_otp", "reg_verify_otp");
-add_action( 'wp_ajax_nopriv_reg_verify_otp', 'reg_verify_otp' ); 
+add_action( 'wp_ajax_nopriv_reg_verify_otp', 'reg_verify_otp' );
 
 function reg_verify_otp(){
 
@@ -549,11 +549,11 @@ function reg_verify_otp(){
         $userEmail = $_SESSION['user_otp_email'];
         $_SESSION['user_email_verified'] = 1;
         $response['previous_page_url'] = $_SESSION['previousPageUrl'];
-    
+
         $reg = false;
 
         if(email_exists($userEmail)){
-            $user = get_user_by( 'email', $userEmail ); 
+            $user = get_user_by( 'email', $userEmail );
             if( $user ) {
                 $response['is_registered'] = 1;
                 $user_id = $user->ID;
@@ -586,7 +586,7 @@ function reg_verify_otp(){
 }
 
 add_action("wp_ajax_reg_new_user", "reg_new_user");
-add_action( 'wp_ajax_nopriv_reg_new_user', 'reg_new_user' ); 
+add_action( 'wp_ajax_nopriv_reg_new_user', 'reg_new_user' );
 
 function reg_new_user(){
 
@@ -617,7 +617,7 @@ function reg_new_user(){
     }
 
     if(empty($errorMsg)){
-        $newOTP = mt_rand(100000,999999); 
+        $newOTP = mt_rand(100000,999999);
         $_SESSION['user_otp'] = $newOTP;
         $_SESSION['user_otp_mobile'] = $mobile;
         $_SESSION['user_mobile_verified'] = 0;
@@ -653,11 +653,11 @@ function send_sms($mobile, $message){
     $txt = $mobile . " : " . $message . "\n";
    fwrite($myfile, $txt);
    fclose($myfile);
-    
+
     $url = 'https://admagister.net/api/mt/SendSMS?channel=Trans&DCS=0&flashsms=0&number=91' . $mobile . '&text=' . urlencode($message) . '&route=30&APIKey=' . ADMAGISTER_API_KEY . '&senderid=' . ADMAGISTER_SENDER_ID;
     //echo $url;exit;
-    
-    $ch = curl_init(); 
+
+    $ch = curl_init();
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_URL, $url);
     $response = curl_exec($ch);
@@ -669,7 +669,7 @@ function send_sms($mobile, $message){
 }
 
 add_action("wp_ajax_reg_verify_mob_otp", "reg_verify_mob_otp");
-add_action( 'wp_ajax_nopriv_reg_verify_mob_otp', 'reg_verify_mob_otp' ); 
+add_action( 'wp_ajax_nopriv_reg_verify_mob_otp', 'reg_verify_mob_otp' );
 
 function reg_verify_mob_otp(){
 
@@ -712,7 +712,7 @@ function reg_verify_mob_otp(){
         xprofile_set_field_data('Gender', $user_id, trim($userGender));
         xprofile_set_field_data('Phone', $user_id, trim($userMobile));
 
-        $user = get_user_by( 'ID', $user_id ); 
+        $user = get_user_by( 'ID', $user_id );
         if( $user ) {
             $response['is_registered'] = 1;
             wp_set_current_user( $user_id, $user->user_login );
@@ -750,7 +750,7 @@ function wplms_hide_course_credits_for_course_students($credits,$course_id){
  * Ensure cart contents update when products are added to the cart via AJAX
  */
 function my_header_add_to_cart_fragment( $fragments ) {
- 
+
     ob_start();
     $count = WC()->cart->cart_contents_count;
     ?><li><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
@@ -759,18 +759,18 @@ function my_header_add_to_cart_fragment( $fragments ) {
     if ( $count > 0 ) {
         ?>
         <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
-        <?php            
+        <?php
     }
         ?></a></li><?php
- 
+
     //$fragments['a.cart-contents'] = ob_get_clean();
-     
+
   //  return $fragments;
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );
 
 function my_header_notification_fragment( $fragments ) {
- 
+
     ob_start();
     $count = WC()->cart->cart_contents_count;
     ?><li><a class="cart-contents" title="<?php _e( 'View your notification' ); ?>">
@@ -779,12 +779,12 @@ function my_header_notification_fragment( $fragments ) {
     if ( $count > 0 ) {
         ?>
         <span class="notification-contents-count"></span>
-        <?php            
+        <?php
     }
         ?></a></li><?php
- 
+
     //$fragments['a.cart-contents'] = ob_get_clean();
-     
+
   //  return $fragments;
 }
 add_filter( 'notification_fragments', 'my_header_notification_fragment' );
@@ -831,16 +831,16 @@ function wc_npr_filter_phone( $address_fields ) {
 }
 
 add_filter( 'wc_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
-function empty_wc_add_to_cart_message( $message, $products ) { 
-    return ''; 
-}; 
+function empty_wc_add_to_cart_message( $message, $products ) {
+    return '';
+};
 
 // Filter will do its magic before the fields are passed to the template.
 add_filter('woocommerce_checkout_fields', function($fields) {
    global $current_user;
     $fname = get_user_meta( $current_user->ID, 'first_name', true );
     $lname = get_user_meta( $current_user->ID, 'last_name', true );
-    $address_1 = get_user_meta( $current_user->ID, 'billing_address_1', true ); 
+    $address_1 = get_user_meta( $current_user->ID, 'billing_address_1', true );
     $address_2 = get_user_meta( $current_user->ID, 'billing_address_2', true );
     $city = get_user_meta( $current_user->ID, 'billing_city', true );
     $state = get_user_meta( $current_user->ID, 'billing_state', true );
@@ -995,7 +995,7 @@ function get_profile_data( $field, $user_id = 0, $multi_format = 'array' ) {
 }
 
 add_action("wp_ajax_save_custom_profile", "save_custom_profile");
-add_action( 'wp_ajax_nopriv_save_custom_profile', 'save_custom_profile' ); 
+add_action( 'wp_ajax_nopriv_save_custom_profile', 'save_custom_profile' );
 
 function save_custom_profile(){
     global $wpdb;
@@ -1027,7 +1027,7 @@ function save_custom_profile(){
 
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
 
-        if(count($child) == 0){ 
+        if(count($child) == 0){
           $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
               'parent_id' => 0,
               'child_id' => $user_id,
@@ -1042,7 +1042,7 @@ function save_custom_profile(){
           $wpdb->update( $wpdb->prefix . "parent_child_mapping", array( 'child_name' => esc_attr($_REQUEST['first_name']),'school_id' =>esc_attr($_REQUEST['user_school']),'grade' => esc_attr($_REQUEST['grade']),'division' => esc_attr($_REQUEST['division'])),array('child_id'=>$user_id));
         }
 
-        if(esc_attr( $_POST['first_name']) != "" 
+        if(esc_attr( $_POST['first_name']) != ""
           && esc_attr( $_POST['last_name']) != ""
             && trim($_REQUEST['user_dob']) != ""
             && trim($_REQUEST['user_gender']) != ""
@@ -1054,7 +1054,7 @@ function save_custom_profile(){
 
         $response['status'] = 1;
         $response['message'] = 'Profile updated successfully.';
-        
+
     }catch(Exception $e){
 
     }
@@ -1063,7 +1063,7 @@ function save_custom_profile(){
 }
 
 add_action("wp_ajax_save_child_entry", "save_child_entry");
-add_action( 'wp_ajax_nopriv_save_child_entry', 'save_child_entry' ); 
+add_action( 'wp_ajax_nopriv_save_child_entry', 'save_child_entry' );
 
 function save_child_entry(){
     global $wpdb;
@@ -1076,7 +1076,7 @@ function save_child_entry(){
     $user_id = bp_loggedin_user_id();
 
     try{
-        
+
         $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
             'parent_id' => $user_id,
             'child_id' => 0,
@@ -1101,11 +1101,11 @@ function save_child_entry(){
 }
 
 add_action("wp_ajax_get_countries", "get_countries");
-add_action( 'wp_ajax_nopriv_get_countries', 'get_countries' ); 
+add_action( 'wp_ajax_nopriv_get_countries', 'get_countries' );
 
 function get_countries(){
     global $wpdb;
-    
+
     $response = array();
 
     $results = $wpdb->get_results( "SELECT country_id,  CONCAT(UPPER(SUBSTRING(country_name,1,1)),
@@ -1122,11 +1122,11 @@ LOWER(SUBSTRING(country_name,2))) AS country_name  FROM " . $wpdb->prefix . "cou
 }
 
 add_action("wp_ajax_get_schools", "get_schools");
-add_action( 'wp_ajax_nopriv_get_schools', 'get_schools' ); 
+add_action( 'wp_ajax_nopriv_get_schools', 'get_schools' );
 
 // function get_schools(){
 //     global $wpdb;
-    
+
 //     $response = array();
 
 //     $args = array(
@@ -1136,7 +1136,7 @@ add_action( 'wp_ajax_nopriv_get_schools', 'get_schools' );
 //     );
 //     $results = get_users( $args );
 
-    
+
 //     foreach ($results as $data) {
 //         $row = array();
 //         $row['label'] = $data->display_name;
@@ -1150,12 +1150,12 @@ add_action( 'wp_ajax_nopriv_get_schools', 'get_schools' );
 
 function get_schools(){
     global $wpdb;
-    
+
     $response = array();
     $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
   LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
-      FROM ht_users INNER JOIN ht_usermeta 
-  ON ht_users.ID = ht_usermeta.user_id 
+      FROM ht_users INNER JOIN ht_usermeta
+  ON ht_users.ID = ht_usermeta.user_id
       WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");
 
 
@@ -1171,7 +1171,7 @@ function get_schools(){
 
 function get_schools_old(){
     global $wpdb;
-    
+
     $response = array();
 
     $results = $wpdb->get_results( "SELECT school_id, school_name FROM " . $wpdb->prefix . "school_master WHERE school_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
@@ -1188,11 +1188,11 @@ function get_schools_old(){
 }
 
 add_action("wp_ajax_get_states", "get_states");
-add_action( 'wp_ajax_nopriv_get_states', 'get_states' ); 
+add_action( 'wp_ajax_nopriv_get_states', 'get_states' );
 
 function get_states(){
     global $wpdb;
-    
+
     $response = array();
 
     $results = $wpdb->get_results( "SELECT state_id, CONCAT(UPPER(SUBSTRING(state_name,1,1)),
@@ -1226,7 +1226,7 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
     // No updated status for orders delivered with Bank wire, Cash on delivery and Cheque payment methods.
     if ( ( 'bacs' == get_post_meta($order_id, '_payment_method', true) ) || ( 'cod' == get_post_meta($order_id, '_payment_method', true) ) || ( 'cheque' == get_post_meta($order_id, '_payment_method', true) ) ) {
         return;
-    } 
+    }
     // For paid Orders with all others payment methods (with paid status "processing")
     elseif( $order->get_status()  === 'processing' ) {
         $order->update_status( 'completed' );
@@ -1285,7 +1285,7 @@ function wpfp_hhtml($post_id, $opt, $action) {
 
 add_action( 'admin_post_adaptiveweb_save_profile_form', 'adaptiveweb_save_profile_form' );
 function adaptiveweb_save_profile_form() {
-  
+
   if(!isset($_REQUEST['user_id'])) return;
 
   do_action('acf/save_post', $_REQUEST['user_id']);
@@ -1330,7 +1330,7 @@ function prefix_load_cat_posts () {
         else{
           array_push($array2,$course);
         }
-        
+
       }
 
       $dashboard_data = array_merge($array1,$array2);
@@ -1357,9 +1357,9 @@ function prefix_load_cat_posts () {
       }
     }
 
-  wp_reset_postdata(); 
+  wp_reset_postdata();
 
-  die(1); 
+  die(1);
 }
 
 add_action( 'wp_ajax_nopriv_get-rank', 'get_rank' );
@@ -1385,7 +1385,7 @@ function get_rank () {
 }
 function change_woocommerce_order_number($order_id) {
   $order = new WC_Order( $order_id );
-  $items = $order->get_items(); 
+  $items = $order->get_items();
   foreach ($items as $item_id => $product ) {
     $gen_id = rand(1000,9999);
     return $order_id = $item_id.$gen_id;
@@ -1459,7 +1459,7 @@ function wplms_one_course_section($sections){
     $sections[1]['fields'][] = array(
     'id' => 'headertop_logo',
     'type' => 'upload',
-    'title' => __('Upload Logo for Course header', 'vibe'), 
+    'title' => __('Upload Logo for Course header', 'vibe'),
     'sub_desc' => __('Upload your logo', 'vibe'),
     'desc' => __('This Logo is shown in header.', 'vibe'),
     'std' => VIBE_URL.'/images/logo.png'
@@ -1563,69 +1563,69 @@ function wpc_shortcode_username() {
 
 add_shortcode( 'contact-adwork', 'wpc_shortcode_contact_adwork' );
 function wpc_shortcode_contact_adwork() {
-    
-      return dynamic_sidebar( 'banner-2' );      
-    
+
+      return dynamic_sidebar( 'banner-2' );
+
 }
 
 //Insert ads after second paragraph of single post content.
- 
+
 //add_filter( 'the_content', 'prefix_insert_post_ads' );
- 
+
 function prefix_insert_post_ads( $content ) {
-     
- 
+
+
     if ( is_single() && ! is_admin() ) {
         ob_start();
         dynamic_sidebar('news_landing_mid_banner');
         $addDisplay = ob_get_contents();
         ob_end_clean();
-        
+
        // $ad_code = '</div><div class="col-sm-12 col-lg-6 pull-right mrg">' . $addDisplay . '</div></div><div class="row"><div class="col-sm-12 col-lg-12 pull-left mrg">';
         $ad_code = '<div align="right" style="float: right;margin-left: 15px;">' . $addDisplay . '</div>';
         $content = prefix_insert_after_paragraph( $ad_code, 1, $content );
         //$content = prefix_insert_after_position( $ad_code,650, $content );
     }
-     
+
     return $content;
 }
-  
+
 // Parent Function that makes the magic happen
-  
+
 function prefix_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
     $closing_p = '</p>';
     $paragraphs = explode( $closing_p, $content );
     foreach ($paragraphs as $index => $paragraph) {
- 
+
         if ( trim( $paragraph ) ) {
             $paragraphs[$index] .= $closing_p;
         }
- 
+
         if ( $paragraph_id == $index + 1 ) {
             $paragraphs[$index] .= $insertion;
         }
     }
-     
+
     return implode( '', $paragraphs );
 }
-    
+
 function prefix_insert_after_words( $insertion, $count, $content ) {
     $closing_p = ' ';
     $paragraphs = explode( $closing_p, $content );
     foreach ($paragraphs as $index => $paragraph) {
- 
+
         if ( trim( $paragraph ) ) {
             $paragraphs[$index] .= $closing_p;
         }
- 
+
         if ( $count == $index + 1 ) {
             $paragraphs[$index] .= $insertion;
         }
     }
-     
+
     return implode( '', $paragraphs );
 }
-  
+
 function prefix_insert_after_position( $insertion, $position, $content ) {
     $content = substr_replace($content, $insertion, $position, 0);
     return $content;
@@ -1643,7 +1643,7 @@ function split_string_by_words($text, $splitLength = 25)
         $firstWordArray = array_slice($wordArray, 0, $splitLength);
         $lastWordArray = array_slice($wordArray, $splitLength+1, sizeof($wordArray));
 
-        // Turn array back into two split strings 
+        // Turn array back into two split strings
         $firstString = implode(' ', $firstWordArray);
         $lastString = implode(' ', $lastWordArray);
         return array($firstString, $lastString);
@@ -1665,79 +1665,79 @@ add_action( 'wp_ajax_nopriv_save_my_data', 'acf_form_head' );
 // }, 11, 1 );
 
 function posts_pagination() {
- 
+
     if( is_singular() )
         return;
- 
+
     global $wp_query;
- 
+
     /** Stop execution if there's only 1 page */
     if( $wp_query->max_num_pages <= 1 )
         return;
- 
+
     $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
     $max   = intval( $wp_query->max_num_pages );
     //print_r($paged);
- 
+
     /** Add current page to the array */
     if ( $paged >= 1 )
         $links[] = $paged;
- 
+
     /** Add the pages around the current page to the array */
     if ( $paged >= 3 ) {
         $links[] = $paged - 1;
         $links[] = $paged - 2;
     }
- 
+
     if ( ( $paged + 2 ) <= $max ) {
         $links[] = $paged + 2;
         $links[] = $paged + 1;
     }
- 
+
     echo '<div class="pagination"><ul>' . "\n";
-    
+
     if ( $paged != 1 )
         echo '<li class="page-num page-num-first pagination_arrow prev"><a href='.get_pagenum_link(1).'>'.__('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg>').' </a></li>';
 
     /** Previous Post Link */
     if ( get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') )
         printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg class="angle-prev">') );
- 
+
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
         $class = 1 == $paged ? ' class="active"' : '';
- 
+
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
- 
+
         if ( ! in_array( 2, $links ) )
             echo '<li>…</li>';
     }
- 
+
     /** Link to current page, plus 2 pages in either direction if necessary */
     sort( $links );
     foreach ( (array) $links as $link ) {
         $class = $paged == $link ? ' class="active"' : '';
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
     }
- 
+
     /** Link to last page, plus ellipses if necessary */
     if ( ! in_array( $max, $links ) ) {
         if ( ! in_array( $max - 1, $links ) )
             echo '<li>…</li>' . "\n";
- 
+
         $class = $paged == $max ? ' class="active"' : '';
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
     }
-    
+
 
     /** Next Post Link */
     if ( get_next_posts_link('<img  src='.get_bloginfo('template_url').'/assets/images/page-next.svg>') )
         printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg class="angle-next">') );
     if ( $paged != $max )
         echo '<li class="page-num page-num-last"><a href='.get_pagenum_link($max).'> '.__('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>').'</a></li>';
- 
+
     echo '</ul></div>' . "\n";
- 
+
 }
 
 
@@ -1760,7 +1760,7 @@ function start_cs_course(){
 
     if(!bp_course_is_member($courseId, $userId)){
         wp_redirect(get_bloginfo('url'));
-        exit;    
+        exit;
     }
 
     $cb_course_id = get_post_meta($courseId,'celeb_school_course_id',true);
@@ -1977,7 +1977,7 @@ if(!function_exists('calculate_duration')){
       break;
     }
     return $return;
-  } 
+  }
 }
 
 add_action('woocommerce_checkout_process', 'custom_validate_billing_phone');
@@ -2087,7 +2087,7 @@ echo '</ul></div>' . "\n";
 
 
 add_action("wp_ajax_ht_social_login", "ht_social_login");
-add_action( 'wp_ajax_nopriv_ht_social_login', 'ht_social_login' ); 
+add_action( 'wp_ajax_nopriv_ht_social_login', 'ht_social_login' );
 
 function ht_social_login(){
 
@@ -2122,7 +2122,7 @@ function ht_social_login(){
         if(count($users) > 0){
 
         }else if(email_exists($email)){
-            $user = get_user_by( 'email', $email ); 
+            $user = get_user_by( 'email', $email );
             if( $user ) {
                 $response['is_registered'] = 1;
                 $user_id = $user->ID;
@@ -2138,7 +2138,7 @@ function ht_social_login(){
                 $response['message'] = 'OTP verified successfully.';
             }
         }else{
-           
+
             $user_id = wp_create_user( preg_replace('/[^A-Za-z0-9\-]/', '', $email), md5($email) . mt_rand(100000,999999), $email );
 
             wp_update_user([
@@ -2150,7 +2150,7 @@ function ht_social_login(){
             add_user_meta( $user_id, 'social_id', $social_id);
             add_user_meta( $user_id, 'social_type', $social_type);
 
-            $user = get_user_by( 'ID', $user_id ); 
+            $user = get_user_by( 'ID', $user_id );
             if( $user ) {
                 $response['is_registered'] = 1;
                 wp_set_current_user( $user_id, $user->user_login );
@@ -2161,7 +2161,7 @@ function ht_social_login(){
                // $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
                 $response['previous_page_url'] = $_SESSION['previousPageUrl'];
-                
+
                 $response['status'] = 1;
                 $response['previous_page_url'] = '';
                 $response['message'] = 'OTP verified successfully.';
@@ -2172,4 +2172,253 @@ function ht_social_login(){
 
     echo json_encode($response); exit;
 
+}
+
+// AIWS Integration code
+add_action( 'woocommerce_api_start-aiws-course', 'start_aiws_course');
+function start_aiws_course()
+{
+    $courseId = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;
+
+    if($courseId <= 0){
+        wp_redirect(get_bloginfo('url'));
+        exit;
+    }
+
+    if(!is_user_logged_in()){
+        wp_redirect(get_bloginfo('url'));
+        exit;
+    }
+
+    $userId = get_current_user_id();
+
+    if(!bp_course_is_member($courseId, $userId)){
+        wp_redirect(get_bloginfo('url'));
+        exit;
+    }
+
+    $aiwsCourseID = get_post_meta($courseId, 'aiws_program_id', true);
+    $aiwsUserID   = get_user_meta($userId, 'aiws_user_login_id', true);
+
+    if($aiwsUserID != '')
+    {
+        $enrollCoursesList = get_user_meta($userId, 'aiws_enroll_courses', true);
+
+        if(!in_array($courseId, $enrollCoursesList))
+        {
+            $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsUserID);
+
+            if($enrollResponse)
+            {
+                $enrollCoursesList[] = $courseId;
+                update_user_meta($userId, 'aiws_enroll_courses', $enrollCoursesList);
+            }
+            else
+            {
+                echo "SSO Error occured while loading the course."; exit;
+            }
+        }
+
+        $ssoResponse = sso_user_to_aiws_course();
+            wp_redirect($ssoResponse);
+
+        /*if(isset($aiwsCourseResponseArray['page_url'])){
+            $cb_course_link = $aiwsCourseResponseArray['page_url'];
+            wp_redirect($cb_course_link);
+        }
+        else
+        {
+            echo "SSO Error occured while loading the course."; exit;
+        }*/
+    }
+    else
+    {
+        $aiwsUserEmail = "ht_user_" . $userId . "_" . rand(1000,9999) . "@htschools.com";
+
+        $userDetails = get_userdata($userId);
+
+        $aiwsUserID = create_new_aiws_user($userDetails->data->display_name, "", $aiwsUserEmail, md5($aiwsUserEmail));
+
+        if($aiwsUserID != false)
+        {
+            update_user_meta($userId, 'aiws_user_login_id', $aiwsUserID);
+            update_user_meta($userId, 'aiws_user_login_email', $aiwsUserEmail);
+
+            $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsUserID);
+
+            if($enrollResponse)
+            {
+                update_user_meta($userId, 'aiws_enroll_courses', array($courseId));
+                $ssoResponse = sso_user_to_aiws_course();
+                    wp_redirect($ssoResponse);
+
+                /*if(isset($aiwsCourseResponseArray['page_url'])){
+                    $cb_course_link = $aiwsCourseResponseArray['page_url'];
+                    wp_redirect($cb_course_link);
+                }
+                else
+                {
+                    echo "SSO Error occured while loading the course."; exit;
+                }*/
+            }
+            else
+            {
+                echo "SSO Error occured while loading the course."; exit;
+            }
+        }
+        else
+        {
+            echo "SSO Error occured while loading the course. Please Try again."; exit;
+        }
+    }
+}
+
+function create_new_aiws_user($firstName, $lastName, $email, $password)
+{
+    $wpaiws_options = get_option('wpaiws_options');
+
+    $usersData[] = array(
+        "firstname" => $firstName,
+        "lastname"  => $lastName,
+        "username"  => $email,
+        "password"  => $password,
+        "email"     => $email,
+        "lang"      => "en",
+    );
+
+    $params = array(
+        "wstoken"            => $wpaiws_options['access_token'],
+        "moodlewsrestformat" => "json",
+        "wsfunction"         => "core_user_create_users",
+        "users"              => $usersData,
+    );
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL             => $wpaiws_options['aiws_api_url'] . "webservice/rest/server.php?",
+        CURLOPT_RETURNTRANSFER  => true,
+        CURLOPT_ENCODING        => '',
+        CURLOPT_MAXREDIRS       => 10,
+        CURLOPT_TIMEOUT         => 0,
+        CURLOPT_FOLLOWLOCATION  => true,
+        CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST   => 'POST',
+        CURLOPT_POSTFIELDS      => http_build_query($params),
+    ));
+
+    $response = curl_exec($curl);
+    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    if($httpCode == 200)
+    {
+        $jsonDecoded = json_decode($response, true);
+
+        if(isset($jsonDecoded[0]))
+        {
+            return $jsonDecoded[0]["id"];
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function enroll_user_to_course($courseID, $aiwsUserID)
+{
+    $wpaiws_options = get_option('wpaiws_options');
+
+    $enrolment[] = array(
+        "courseid" => $courseID,
+        "userid"   => $aiwsUserID,
+        "roleid"   => 5,
+    );
+
+    $params = array(
+        "wstoken"            => $wpaiws_options['access_token'],
+        "moodlewsrestformat" => "json",
+        "wsfunction"         => "enrol_manual_enrol_users",
+        "enrolments"         => $enrolment,
+    );
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL             => $wpaiws_options['aiws_api_url'] . "webservice/rest/server.php?",
+        CURLOPT_RETURNTRANSFER  => true,
+        CURLOPT_ENCODING        => '',
+        CURLOPT_MAXREDIRS       => 10,
+        CURLOPT_TIMEOUT         => 0,
+        CURLOPT_FOLLOWLOCATION  => true,
+        CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST   => 'POST',
+        CURLOPT_POSTFIELDS      => http_build_query($params),
+    ));
+
+    $response = curl_exec($curl);
+    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    if($httpCode == 200)
+    {
+        $jsonDecoded = json_decode($response, true);
+
+        return isset($jsonDecoded["errorcode"]) ? FALSE : TRUE;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function sso_user_to_aiws_course()
+{
+    return "https://www.google.com/";
+    $wpaiws_options = get_option('wpaiws_options');
+
+    $enrolment[] = array(
+        "courseid" => $courseID,
+        "userid"   => $aiwsUserID,
+        "roleid"   => 5,
+    );
+
+    $params = array(
+        "wstoken"            => $wpaiws_options['access_token'],
+        "moodlewsrestformat" => "json",
+        "wsfunction"         => "auth_userkey_request_login_url",
+        "user"               => $enrolment,
+    );
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL             => $wpaiws_options['aiws_api_url'] . "webservice/rest/server.php?",
+        CURLOPT_RETURNTRANSFER  => true,
+        CURLOPT_ENCODING        => '',
+        CURLOPT_MAXREDIRS       => 10,
+        CURLOPT_TIMEOUT         => 0,
+        CURLOPT_FOLLOWLOCATION  => true,
+        CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST   => 'POST',
+        CURLOPT_POSTFIELDS      => http_build_query($params),
+    ));
+
+    $response = curl_exec($curl);
+    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    if($httpCode == 200)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

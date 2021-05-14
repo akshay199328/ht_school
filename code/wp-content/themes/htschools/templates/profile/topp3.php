@@ -42,7 +42,7 @@
 		    				<h3 id="profile_current_menu"></h3>
 		    			</div>
 		    			<div class="pull-right">
-		    				<a href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/profile/edit" class="edit-profile-link"><img src=<?php echo get_bloginfo('template_url').'/assets/images/profile-edit.svg'?>>Edit</a>
+		    				<a href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_nicename; ?>/profile/edit" class="edit-profile-link"><img src=<?php echo get_bloginfo('template_url').'/assets/images/profile-edit.svg'?>>Edit</a>
 		    			</div>
 	    			</div>
 	    		</div>

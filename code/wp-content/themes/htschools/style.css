@@ -6641,7 +6641,7 @@ h6:empty,
     .course-box .middle-details h2 {font-size: 15px;line-height: 15px;}
     .course-box .middle-details h6 {letter-spacing: 1px;margin-bottom: 5px;}
     .course_para{display: none}
-    .course-box .middle-details p{font-size: 12px;line-height: 16px;margin-bottom: 13px;display: none;}
+    .course-box .middle-details p{font-size: 12px;line-height: 16px;margin-bottom: 13px;}
     .course-box .middle-details .duration p{font-size: 10px;}
     .course-box .col-lg-10, 
     .course-box .col-lg-10 .col-lg-9, 
@@ -7348,5 +7348,10 @@ section#content.section_contact{padding-top:10px}
   .news-main .content-right iframe{width:100%}
   /*#buddypress .item-list-tabs#subnav ul{margin-right:0}*/
   /*body.course #buddypress .item-list-tabs#subnav .owl-stage .owl-item{border:1px solid red;}*/
-  .my-account .right-part-menu #item-nav{border:1px solid red;padding-left:0 !important}
+  .my-account .right-part-menu #item-nav{padding-left:0 !important;width:100% !important}
+  .my-account .right-part-menu #item-nav .flexMenu-popup{display:flex !important;justify-content:space-between;flex-wrap:wrap;}
+  .my-account .right-part-menu #item-nav .flexMenu-popup li{width:33% !important;margin:0 !important}
+  .my-account .right-part-menu #item-nav .flexMenu-popup li a{font-weight:400 !important;line-height:12px !important}
+  .dashboard_accountinfo .profile-card .standard-form{width:100% !important}
+  .changeavtar_details .btn{width:auto !important}
 }

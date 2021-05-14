@@ -6749,33 +6749,15 @@
             onClick: () => {
                 O(!0)
             }
-        }), 
-        /*sr("a", {
+        }), sr("a", {
             className: "icon_comments",
             onClick: () => {
                 y(!0)
             }
-        })*/
-        ) : ""
-        ) : "", document.querySelector("body").classList.contains("single-course") ? "" : sr("a", {
+        })) : "") : "", document.querySelector("body").classList.contains("single-course") ? "" : sr("a", {
             title: document.querySelector("body").classList.contains("course_status_fullscreen") ? window.wplms_course_data.translations.minimise_screen : window.wplms_course_data.translations.maximise_screen,
             className: "icon_fullscreen",
             onClick: () => {
-                // New logic is added here to enable fullscreen on click
-                let element     = document.getElementById("wplms_the_course_button");
-                let fs_element  = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
-
-                if(fs_element === null) {
-                    if(element.requestFullscreen)               element.requestFullscreen();
-                    else if(element.mozRequestFullScreen)       element.mozRequestFullScreen();
-                    else if(element.webkitRequestFullscreen)    element.webkitRequestFullscreen();
-                    else if(element.msRequestFullscreen)        element.msRequestFullscreen();
-                } else {
-                    if(document.exitFullscreen)                 document.exitFullscreen();
-                    else if(document.mozCancelFullScreen)       document.mozCancelFullScreen();
-                    else if(document.webkitExitFullscreen)      document.webkitExitFullscreen();
-                    else if(document.msExitFullscreen)          document.msExitFullscreen();
-                }
                 //document.querySelector("body").classList.contains("course_status_fullscreen") ? document.querySelector("body").classList.remove("course_status_fullscreen") : document.querySelector("body").classList.add("course_status_fullscreen")
             }
         })), l ? sr("div", {
@@ -7148,19 +7130,14 @@
                     window.checkProfile = true;
                 }
 
-                if(window.screen.availWidth <= 640){
-                   jQuery("#NomobileSuppportModal").modal("show");
-                }
-                else{
-                    if(l.is_profile_complete || window.checkProfile == false){
-                        if(l.is_cb_course){
-                            window.location = l.cb_course_link;
-                        }else{
-                            f(!0)
-                        }
+                if(l.is_profile_complete || window.checkProfile == false){
+                    if(l.is_cb_course){
+                        window.location = l.cb_course_link;
                     }else{
-                        jQuery("#profileModal").modal("show");
+                        f(!0)
                     }
+                }else{
+                    jQuery("#profileModal").modal("show");
                 }
             },
             className: "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id

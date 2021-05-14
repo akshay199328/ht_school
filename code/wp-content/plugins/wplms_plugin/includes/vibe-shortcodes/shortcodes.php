@@ -63,6 +63,7 @@ Class Vibe_Define_Shortcodes{
         add_shortcode('user_only', array($this,'vibe_useronly'));
         add_shortcode('instructor_only', array($this,'vibe_instructoronly'));
         add_shortcode('certificate_student_name', array($this,'vibe_certificate_student_name'));
+        add_shortcode('certificate_student_school', array($this,'vibe_certificate_student_school'));
         add_shortcode('certificate_student_photo', array($this,'vibe_certificate_student_photo'));
         add_shortcode('certificate_student_email', array($this,'vibe_certificate_student_email'));
         add_shortcode('certificate_course', array($this,'vibe_certificate_course'));
@@ -2831,6 +2832,18 @@ Class Vibe_Define_Shortcodes{
             return bp_core_get_user_displayname($id);
         else
             return '[certificate_student_name]';
+    }
+
+    /*-----------------------------------------------------------------------------------*/
+/*  CERTIFICATE SHORTCODES  : Student School
+/*-----------------------------------------------------------------------------------*/
+
+    function vibe_certificate_student_school( $atts, $content = null ) {
+        $id = $_GET['u'];
+        if(isset($id) && $id)
+            return bp_core_get_user_displayschool($id);
+        else
+            return '[certificate_student_school]';
     }
 
 /*-----------------------------------------------------------------------------------*/

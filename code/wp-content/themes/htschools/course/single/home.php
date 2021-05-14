@@ -189,10 +189,23 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                   </div>
 
                                   <div class="row content-default-list">
-                                    <div class="">
                                     <div class="col-sm-12 col-lg-12 mrg">
+                                        <!-- <div class="about-course">
+                                          <div class="copy">
+                                            <p>In his first-ever online class, Dabboo Ratnani, the iconic Fashion Photographer teaches his signature lighting techniques, camera settings and fine art compositing to help you capture iconic photos.</p>
+                                            <p>He practically shows his entire fashion portfolio shoot and shares his secret sauce for outdoor, indoor and mobile photography.</p>
+                                            <p>In this course, Dabboo Ratnani also shares his journey from an Assistant Photographer to an iconic Celebrity Photographer. He also shares how he got his first big assignment.</p>
+                                          </div>
+                                          <div class="video-ad">
+                                            <iframe allowfullscreen="allowfullscreen" width="100%" src="https://www.youtube.com/embed/PeMlRe2iCGM?enablejsapi=1&amp;origin=https%3A%2F%2Fht.fortune4.org" data-gtm-yt-inspected-44670490_15="true" id="189347671" data-gtm-yt-inspected-1_25="true"></iframe>
+
+                                            <div class="adsense">Google AdSense</div>
+                                          </div>
+                                        </div> -->
+
+                                        <div class="about-course">
                                         <p><?php 
-                                        $post_content = get_post_field('post_content', $post->ID);
+                                        $post_content = '<div class="copy">'.get_post_field('post_content', $post->ID).'</div>';
                                         
                                         ob_start();
                                         dynamic_sidebar('news_landing_mid_banner');
@@ -202,19 +215,21 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         $videoContent = '';
                                         $trailer_link = get_post_meta($post->ID,'vibe_trailer_link',true);
                                         if(strlen(trim($trailer_link))){
-                                          $videoContent = '<div align="right" style="float: right;margin-left: 15px;">
-                                          <iframe allowfullscreen="allowfullscreen" width="100%" height="240" src="' . get_post_meta($post->ID,'vibe_trailer_link',true) . '"></iframe>
-                                                           </div>';
+                                          $videoContent = '<div class="video-ad">
+                                                              <iframe allowfullscreen="allowfullscreen" width="100%" height="240" src="' . get_post_meta($post->ID,'vibe_trailer_link',true) . '"></iframe>
+
+                                                           ';
                                         }
 
-                                        $ad_code = '<div align="right" style="float: right; margin-top:15px; margin-left: 15px;margin-bottom: 15px;">' . $addDisplay . '</div>';
+                                        $ad_code = '<div class="adsense">' . $addDisplay . '</div>';
+                                        $closeDiv = '</div>';
                                         
-                                        $post_content =  $videoContent.$ad_code .$post_content;
+                                        $post_content =  $post_content.$videoContent.$ad_code.$closeDiv;
 
                                         echo $post_content;
                                         ?></p>
+                                        </div>
                                     </div>
-                                  </div>
                                   </div>
                                   <div class="col-sm-12 col-lg-6 mrg pull-right">
                                       
@@ -321,7 +336,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
                         $ad_code = '<div align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
                         
-                        $author_biographical_info = $ad_code .$author_biographical_info;
+                        $author_biographical_info = $ad_code .'<p>'.$author_biographical_info.'</p>';
 
                     ?>
                     <div class="instructor-detailsMini">

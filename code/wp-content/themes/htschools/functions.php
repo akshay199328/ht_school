@@ -2247,17 +2247,8 @@ function start_aiws_course()
             }
         }
 
-        $ssoResponse = sso_user_to_aiws_course();
-        wp_redirect($ssoResponse);
-
-        /*if(isset($aiwsCourseResponseArray['page_url'])){
-            $cb_course_link = $aiwsCourseResponseArray['page_url'];
-            wp_redirect($cb_course_link);
-        }
-        else
-        {
-            echo "SSO Error occured while loading the course."; exit;
-        }*/
+        $aiwsUserEmail = get_user_meta($userId, 'aiws_user_login_email', true);
+        sso_user_to_aiws_course($aiwsUserEmail, md5($aiwsUserEmail));
     }
     else
     {
@@ -2285,17 +2276,7 @@ function start_aiws_course()
                 update_user_meta($userId, 'aiws_enroll_courses', array($courseId));
                 update_user_meta($userId, 'aiws_enroll_courses_info', array($coursesInfo));
 
-                $ssoResponse = sso_user_to_aiws_course();
-                wp_redirect($ssoResponse);
-
-                /*if(isset($aiwsCourseResponseArray['page_url'])){
-                    $cb_course_link = $aiwsCourseResponseArray['page_url'];
-                    wp_redirect($cb_course_link);
-                }
-                else
-                {
-                    echo "SSO Error occured while loading the course."; exit;
-                }*/
+                sso_user_to_aiws_course($aiwsUserEmail, md5($aiwsUserEmail));
             }
             else
             {
@@ -2470,48 +2451,21 @@ function enroll_user_to_course($productID, $programType, $userID, $wpID)
     }
 }*/
 
-function sso_user_to_aiws_course()
-{
-    return "https://www.google.com/";
-    $wpaiws_options = get_option('wpaiws_options');
+function sso_user_to_aiws_course($username, $password)
+{ ?>
+    <html>
+        <head>
+            <script type="text/javascript">
+                function submitLogin() { document.login.submit(); }
+            </script>
+        </head>
+        <body onload="submitLogin()">
+            <form name="login" id="login" method="post" action="http://ht-meritus.eabyas.in/login/index.php">
+                <input type="hidden" name="username" value="<?php echo $username; ?>" />
+                <input type="hidden" name="password" value="<?php echo $password; ?>" />
+            </form>
+        </body>
+    </html>
 
-    $enrolment[] = array(
-        "courseid" => $courseID,
-        "userid"   => $aiwsUserID,
-        "roleid"   => 5,
-    );
-
-    $params = array(
-        "wstoken"            => $wpaiws_options['access_token'],
-        "moodlewsrestformat" => "json",
-        "wsfunction"         => "auth_userkey_request_login_url",
-        "user"               => $enrolment,
-    );
-
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-        CURLOPT_URL             => $wpaiws_options['aiws_api_url'] . "webservice/rest/server.php?",
-        CURLOPT_RETURNTRANSFER  => true,
-        CURLOPT_ENCODING        => '',
-        CURLOPT_MAXREDIRS       => 10,
-        CURLOPT_TIMEOUT         => 0,
-        CURLOPT_FOLLOWLOCATION  => true,
-        CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST   => 'POST',
-        CURLOPT_POSTFIELDS      => http_build_query($params),
-    ));
-
-    $response = curl_exec($curl);
-    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    curl_close($curl);
-
-    if($httpCode == 200)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    <?php exit;
 }

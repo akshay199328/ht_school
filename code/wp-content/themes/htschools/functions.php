@@ -2197,8 +2197,9 @@ function start_aiws_course()
         exit;
     }
 
-    $aiwsCourseID = get_post_meta($courseId, 'aiws_program_id', true);
-    $aiwsUserID   = get_user_meta($userId, 'aiws_user_login_id', true);
+    $aiwsCourseID    = get_post_meta($courseId, 'aiws_program_id', true);
+    $aiwsProgramType = get_post_meta($courseId, 'aiws_program_type', true);
+    $aiwsUserID      = get_user_meta($userId, 'aiws_user_login_id', true);
 
     if($aiwsUserID != '')
     {
@@ -2206,10 +2207,20 @@ function start_aiws_course()
 
         if(!is_array($enrollCoursesList) || !in_array($courseId, $enrollCoursesList))
         {
-            $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsUserID);
+            $wpID = $userId . rand(1000,9999);
+            $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsProgramType, $aiwsUserID, $wpID);
 
             if($enrollResponse)
             {
+                $enrollCoursesInfoList = get_user_meta($userId, 'aiws_enroll_courses_info', true);
+
+                $coursesInfo = array(
+                    "product_id"   => $aiwsCourseID,
+                    "program_type" => $aiwsProgramType,
+                    "user_id"      => $aiwsUserID,
+                    "wp_id"        => $wpID,
+                );
+
                 if(is_array($enrollCoursesList))
                 {
                     $enrollCoursesList[] = $courseId;
@@ -2219,6 +2230,16 @@ function start_aiws_course()
                 {
                     update_user_meta($userId, 'aiws_enroll_courses', array($courseId));
                 }
+
+                if(is_array($enrollCoursesInfoList))
+                {
+                    $enrollCoursesInfoList[] = $coursesInfo;
+                    update_user_meta($userId, 'aiws_enroll_courses_info', $enrollCoursesInfoList);
+                }
+                else
+                {
+                    update_user_meta($userId, 'aiws_enroll_courses_info', array($coursesInfo));
+                }
             }
             else
             {
@@ -2227,7 +2248,7 @@ function start_aiws_course()
         }
 
         $ssoResponse = sso_user_to_aiws_course();
-            wp_redirect($ssoResponse);
+        wp_redirect($ssoResponse);
 
         /*if(isset($aiwsCourseResponseArray['page_url'])){
             $cb_course_link = $aiwsCourseResponseArray['page_url'];
@@ -2249,13 +2270,23 @@ function start_aiws_course()
             update_user_meta($userId, 'aiws_user_login_id', $aiwsUserID);
             update_user_meta($userId, 'aiws_user_login_email', $aiwsUserEmail);
 
-            $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsUserID);
+            $wpID = $userId . rand(1000,9999);
+            $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsProgramType, $aiwsUserID, $wpID);
 
             if($enrollResponse)
             {
+                $coursesInfo[] = array(
+                    "product_id"   => $aiwsCourseID,
+                    "program_type" => $aiwsProgramType,
+                    "user_id"      => $aiwsUserID,
+                    "wp_id"        => $wpID,
+                );
+
                 update_user_meta($userId, 'aiws_enroll_courses', array($courseId));
+                update_user_meta($userId, 'aiws_enroll_courses_info', array($coursesInfo));
+
                 $ssoResponse = sso_user_to_aiws_course();
-                    wp_redirect($ssoResponse);
+                wp_redirect($ssoResponse);
 
                 /*if(isset($aiwsCourseResponseArray['page_url'])){
                     $cb_course_link = $aiwsCourseResponseArray['page_url'];
@@ -2335,7 +2366,63 @@ function create_new_aiws_user($firstName, $lastName, $email, $password)
     }
 }
 
-function enroll_user_to_course($courseID, $aiwsUserID)
+function enroll_user_to_course($productID, $programType, $userID, $wpID)
+{
+    $wpaiws_options = get_option('wpaiws_options');
+
+    $product[] = array(
+        "productid"   => $productID,
+        "programtype" => $programType,
+        "adminuser"   => $userID,
+        "wpid"        => $wpID,
+        "duration"    => "99",
+    );
+
+    $params = array(
+        "wstoken"            => $wpaiws_options['access_token'],
+        "moodlewsrestformat" => "json",
+        "wsfunction"         => "local_program_enrol_users",
+        "products"           => $product,
+    );
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL             => $wpaiws_options['aiws_api_url'] . "webservice/rest/server.php?",
+        CURLOPT_RETURNTRANSFER  => true,
+        CURLOPT_ENCODING        => '',
+        CURLOPT_MAXREDIRS       => 10,
+        CURLOPT_TIMEOUT         => 0,
+        CURLOPT_FOLLOWLOCATION  => true,
+        CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST   => 'POST',
+        CURLOPT_POSTFIELDS      => http_build_query($params),
+    ));
+
+    $response = curl_exec($curl);
+    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    if($httpCode == 200)
+    {
+        $jsonDecoded = json_decode($response, true);
+
+        if(isset($jsonDecoded['ErrorCode']) && $jsonDecoded['ErrorCode'] == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+/*function enroll_user_to_course($courseID, $aiwsUserID)
 {
     $wpaiws_options = get_option('wpaiws_options');
 
@@ -2381,7 +2468,7 @@ function enroll_user_to_course($courseID, $aiwsUserID)
     {
         return false;
     }
-}
+}*/
 
 function sso_user_to_aiws_course()
 {

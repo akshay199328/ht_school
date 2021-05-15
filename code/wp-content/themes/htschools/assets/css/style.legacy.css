@@ -7855,6 +7855,7 @@ body {
  video {
  	display: inline-block;
  	vertical-align: baseline
+ 	width:100%!important;
  }
 
  audio:not([controls]) {

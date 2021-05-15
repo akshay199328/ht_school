@@ -290,23 +290,6 @@ function custom_background_image($field1){
   return $field1;
 }
 
-add_filter('wplms_course_metabox','custom_course_recommended');
-function custom_course_recommended($field1){
-  $prefix = 'vibe_';
-  $field1[]=array(
-    'label'=> __('Recommended Course','vibe-recommended-course' ),
-    'text'=>__('Recommended Course','vibe-recommended-course' ),
-    'type'=> 'select',
-    'options'  => array('H'=>__('Yes','vibe-recommended-course' ),'S'=>__('No','vibe-recommended-course' )),
-    'style'=>'',
-    'id' => $prefix.'recommended_course',
-    'from'=> 'meta',
-    'default'=>'S',
-    'is_child'=>true,
-    'desc'=> __('Recommended Course.','vibe-recommended-course' )
-  );
-  return $field1;
-}
 
 // Set up Cutsom BP navigation
 add_action( 'bp_setup_nav', 'my_setup_nav' );

@@ -373,7 +373,7 @@ class custom_add_meta_box {
 							echo '<select name="' . $id . '" id="' . $id . '" class="select">';
                             if($meta == '' || !isset($meta)){$meta=$std;}
 							foreach ( $options as $option )
-							//	echo '<option' . selected( esc_attr( $meta ), $option['value'], false ) . ' value="' . $option['value'] . '">' . $option['label'] . '</option>';
+							echo '<option' . selected( esc_attr( $meta ), $option['value'], false ) . ' value="' . $option['value'] . '">' . $option['label'] . '</option>';
 							echo '</select><br />' . $desc;
 						break;
 						// select

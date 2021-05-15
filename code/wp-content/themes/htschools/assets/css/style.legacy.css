@@ -7854,8 +7854,8 @@ body {
  progress,
  video {
  	display: inline-block;
- 	vertical-align: baseline
- 	width:100%!important;
+ 	vertical-align: baseline;
+ 	width:100%;
  }
 
  audio:not([controls]) {

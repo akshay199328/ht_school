@@ -764,7 +764,8 @@ class WPLMS_Actions{
 				        jQuery.cookie(name, null, {path: '/'})
 				    }
 
-				    window.location.href = "/wp-login.php?action=logout";
+				    //window.location.href = "/wp-login.php?action=logout";
+				    window.location.href = "<?php echo html_entity_decode(wp_logout_url('/')); ?>";
 				    return false;
 				});
 

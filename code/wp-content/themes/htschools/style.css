@@ -7205,7 +7205,7 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 }
 }
 input[type=file]{font-family:"GT-Walsheim-Pro" !important;}
-.btn, .button{font-family:"GT-Walsheim-Pro" !important;border:1px solid red;letter-spacing:0 !important;font-size:15px !important}
+.btn, .button{font-family:"GT-Walsheim-Pro" !important;letter-spacing:0 !important;font-size:15px !important}
 
 .ui-datepicker{border:1px solid red !important;}
 .ui-datepicker-calendar .ui-state-default,
@@ -7220,7 +7220,7 @@ input[type=file]{font-family:"GT-Walsheim-Pro" !important;}
 td .bookmark-remove{top:0 !important}
 @media (max-width:420px){
   .navegacion .menu a{
-    padding:9px 14px !important;
+    padding:9px 9px !important;
     font-weight:500 !important;
   }
   .all_course_page{padding:0 !important}
@@ -7235,9 +7235,9 @@ td .bookmark-remove{top:0 !important}
   .Popular-Courses .adworks{display:none}
 }
 .share-icon .wpfp-span img{display:none !important;}
-.navegacion .menu-back{height:100vh}
-.navegacion .menu-back .menu-copy{display:flex;flex-direction:column;overflow:scroll}
-.navegacion .menu-back .menu-copy .bootom-link{margin-top:auto;position:relative;}
+.navegacion .menu-back{position:fixed !important;}
+.navegacion .menu-back .menu-copy{display:flex;flex-direction:column;overflow:scroll;position:initial;}
+.navegacion .menu-back .menu-copy .bootom-link{bottom:20px}
 .navegacion ul {
     width: 100%;
     height: 100%;
@@ -7265,6 +7265,9 @@ td .bookmark-remove{top:0 !important}
   /*.navegacion .menu-back{border:1px solid red;}*/
   .menu-back .bootom-link{position:relative;}
   .menu-back .menu{overflow-y:scroll;}
+}
+@media (max-width:420px){
+  .menu-back .menu{padding-bottom:0 !important}
 }
 
 .contact-us .vc_column-inner{width:auto !important}
@@ -7306,19 +7309,20 @@ section#content.section_contact{padding-top:10px}
 .single-course .about-course .video-ad iframe{height:240px;margin-bottom:20px;width:300px;border:none;}
 .single-course .details-right .row{float:none}
 .profile-content{padding-right:0 !important;}
-.profile-content .co-lg-12{display:flex;justify-content:space-between;flex-wrap:wrap;}
+.profile-content .co-lg-12{display:flex;justify-content:space-between;flex-wrap:wrap;top:0 !important}
 .instructor-detailsMini .profile-content p{flex:0 0 48%}
-.instructor-detailsMini .profile-content div:nth-child(2){margin:0 !important;order:3}
+.instructor-detailsMini .profile-content div:nth-child(2){margin:0 !important;order:3;position:relative;top:-42px;}
 .instructor-detailsMini .profile-content .profileimg-name{width:100% !important;display:flex;align-items:center;}
 .instructor-detailsMini .profile-content .profileimg-name .profile-img{padding-right:20px;width:auto !important;flex:0 0 auto !important}
 .instructor-detailsMini .profile-content .profileimg-name .profile-img img{height:110px;width:110px;}
-.instructor-detailsMini .profile-content .profileimg-name .padding_right{max-width:fit-content;flex:0 0 auto}
+.instructor-detailsMini .profile-content .profileimg-name .padding_right{max-width:fit-content;flex:0 0 auto;top:0;}
 .instructor-detailsMini .profile-content .profileimg-name .padding_right h4{font-weight:400 !important;text-transform:uppercase;letter-spacing:1px;}
 .details-right{}
 .news-main{}
 .news-main .content-right .adsense{float:right;margin-left:15px;margin-bottom:15px;}
 @media (max-width: 420px){
   .instructor-detailsMini .profile-content p{flex:0 0 100%}
+  .instructor-detailsMini .profile-content div:nth-child(2){top:0 !important}
   .about-course{flex-direction:column;}
   body.my-profile #buddypress .item-list-tabs#subnav .owl-stage{display:flex;flex-wrap:wrap;width:auto !important}
   #buddypress .item-list-tabs#subnav .owl-stage:after{display:none;}
@@ -7357,4 +7361,17 @@ section#content.section_contact{padding-top:10px}
 
   .single-course .about-course{display:flex;}
   .single-course .about-course .video-ad{float:none;padding-left:0;order:2;margin-top:20px}
+
+  .woocommerce-cart-form, .woocommerce-page .cart-collaterals{padding:20px;}
+  .cart_heading{padding-bottom:0}
+
+  .bootom-link{position:relative !important;margin-top:0 !important;bottom:0 !important;}
+  .bootom-link ul.border-link{padding-top:10px !important;margin-top:0px !important}
+  .bootom-link ul.border-link li a{padding:2px 5px !important}
+  .navegacion ul{max-height:none !important;padding-right:0 !important}
+  .navegacion ul.menu{max-height: none !important;height: auto !important;}
+  .navegacion .menu-back{padding-top:40px !important;}
+  .navegacion .menu-back .menu-copy{max-height:none !important}
+  .navegacion .menu-back{overflow:scroll;}
+  .mobile_menu{width:100% !important;}
 }

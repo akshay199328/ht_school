@@ -125,7 +125,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<p style="font-size:18px;color:#0087FF;font-weight:600;margin-bottom:0">Thank you for your order</p>
 		</div>
-		<img src="<?php echo bloginfo('template_url')?>/assets/img/invoice-bottom.png" width="100%">
+		<img src="<?php echo bloginfo('template_url')?>/assets/images/invoice-bottom.png" width="100%">
 	</div>
 </body>
 </html>

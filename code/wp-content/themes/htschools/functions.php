@@ -1390,7 +1390,7 @@ function change_woocommerce_order_number($order_id) {
   $items = $order->get_items();
   foreach ($items as $item_id => $product ) {
     $gen_id = rand(1000,9999);
-    return $order_id = $item_id.$gen_id;
+    return $order_id = 'HTS-'.$item_id.$gen_id;
 }
 }
 add_filter('woocommerce_order_number', 'change_woocommerce_order_number');
@@ -2511,3 +2511,4 @@ if(! function_exists( 'encryptString' ))
 
     <?php exit;
 }*/
+

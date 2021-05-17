@@ -28,15 +28,52 @@ get_header(vibe_get_header());
             <div class="">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                   <?php
+                  $featured_args_course = array(
+                    'post_type' => 'course',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 3,
+                    'meta_query'  => array(
+                    'relation'  => 'AND',
+                    array(
+                      'key'   =>'featured',
+                      'value'   => 1,
+                      'compare' => '='
+                      )
+                    )
+                  );
+                  $featured_query_course = new WP_Query( $featured_args_course );
+                  $course_id = array();
+                  if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
+                    $course_id[] = $post->ID;
+                  endwhile;
+                  endif;
+                  $args_all_course = array(
+                    'post_type' => 'course',
+                    'post_status' => 'publish',
+                  );  
+                  $all_course = new WP_Query( $args_all_course );
+                  if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();
+                    if (!in_array($post->ID, $course_id)){
+                      $course_id[] = $post->ID;
+                    }
+                  endwhile;
+                  endif;
                   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $args_course = array(
-                        'post_type' => 'course',
-                        'post_status' => 'publish',
+                  if(!empty($course_id)){
+                    $query_args = apply_filters('wplms_mycourses',array(
+                        'post_type'=>'course',
+                        'post__in'=>$course_id,
                         'posts_per_page'=>6,
-                        'paged'=>$paged
-                    );
-                    $wp_query = new WP_Query( $args_course );
-                    if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
+                        'orderby' => 'post__in', 
+                        'paged'=>$paged,
+                    ));
+
+                    $wp_query = new WP_Query($query_args);
+                  }
+                  if(!empty($wp_query)){
+                    while ($wp_query->have_posts()){
+                      $wp_query->the_post();
+                        global $post;
                       $custom_fields = get_post_custom();
                       $duration = $custom_fields['vibe_validity'][0];
                       $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
@@ -149,7 +186,7 @@ get_header(vibe_get_header());
                 </table>
                 
             </div>
-                <?php endwhile; endif; posts_pagination();?>
+                <?php }} posts_pagination();?>
                 </div>
             </div>
         </div>

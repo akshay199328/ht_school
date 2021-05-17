@@ -76,13 +76,51 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
       <div class="col-sm-12 col-lg-8 mrg">
         <div class="align-self-center courses-slider gy-4">
           <?php
-          $args_course = array(
+          $featured_args_course = array(
             'post_type' => 'course',
             'post_status' => 'publish',
             'posts_per_page' => 3,
+            'meta_query'  => array(
+            'relation'  => 'AND',
+            array(
+              'key'   =>'featured',
+              'value'   => 1,
+              'compare' => '='
+              )
+            )
           );
-          $Query_course = new WP_Query( $args_course );
-          if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
+          $featured_query_course = new WP_Query( $featured_args_course );
+          $course_id = array();
+          if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
+            $course_id[] = $post->ID;
+          endwhile;
+          endif;
+          $args_all_course = array(
+            'post_type' => 'course',
+            'post_status' => 'publish',
+            'posts_per_page' => 3,
+          );  
+          $all_course = new WP_Query( $args_all_course );
+          if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();
+            if (!in_array($post->ID, $course_id)){
+              $course_id[] = $post->ID;
+            }
+          endwhile;
+          endif;
+          if(!empty($course_id)){
+            $query_args = apply_filters('wplms_mycourses',array(
+                'post_type'=>'course',
+                'post__in'=>$course_id,
+                'posts_per_page'=>3,
+                'orderby' => 'post__in', 
+            ));
+
+            $Query_course = new WP_Query($query_args);
+          }
+          if(!empty($Query_course)){
+          while ($Query_course->have_posts()){
+          $Query_course->the_post();
+                        global $post;
             $custom_fields = get_post_custom();
             $duration = $custom_fields['vibe_validity'][0];
             $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
@@ -198,7 +236,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
                 
             </div>
           </div>
-        <?php endwhile; endif; ?>
+        <?php }}?>
 
       </div>
       <div class="col-sm-12 center mrg mobile-add new-add">

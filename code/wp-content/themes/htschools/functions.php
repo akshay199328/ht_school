@@ -2247,8 +2247,7 @@ function start_aiws_course()
             }
         }
 
-        $aiwsUserEmail = get_user_meta($userId, 'aiws_user_login_email', true);
-        sso_user_to_aiws_course($aiwsUserEmail, md5($aiwsUserEmail));
+        sso_user_to_aiws_course($aiwsUserID);
     }
     else
     {
@@ -2276,7 +2275,7 @@ function start_aiws_course()
                 update_user_meta($userId, 'aiws_enroll_courses', array($courseId));
                 update_user_meta($userId, 'aiws_enroll_courses_info', array($coursesInfo));
 
-                sso_user_to_aiws_course($aiwsUserEmail, md5($aiwsUserEmail));
+                sso_user_to_aiws_course($aiwsUserID);
             }
             else
             {
@@ -2403,6 +2402,47 @@ function enroll_user_to_course($productID, $programType, $userID, $wpID)
     }
 }
 
+function sso_user_to_aiws_course($aiwsUserID)
+{
+    $wpaiws_options = get_option('wpaiws_options');
+    $ssoSecretKey   = "meritusdev123$";     // to be common in moodle and wordpress and provide a setting to get value from config
+
+    $query = array(
+        'moodle_user_id'   => $aiwsUserID,
+        'moodle_course_id' => "",
+    );
+
+    $details  = http_build_query($query);
+
+    $finalURL = $wpaiws_options['aiws_api_url'] . "/auth/wdmwpmoodle/login.php?wdm_data=" . encryptString($details, $ssoSecretKey);
+    wp_redirect($finalURL);exit;
+}
+
+if(! function_exists( 'encryptString' ))
+{
+    function encryptString($value, $key)
+    {
+        $key = $key;
+        if (!$value) {
+            return '';
+        }
+
+        $token = $value;
+        $enc_method = 'AES-128-CTR';
+        $enc_key = openssl_digest("edwiser-bridge", 'SHA256', true);
+        $enc_iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($enc_method));
+        $crypted_token = openssl_encrypt($token, $enc_method, $enc_key, 0, $enc_iv) . "::" . bin2hex($enc_iv);
+        $newToken = $crypted_token;
+
+        $newToken = $newToken;
+
+        $data = base64_encode($crypted_token);
+        $data = str_replace(array('+', '/', '='), array('-', '_', ''), $data);
+
+        return trim($data);
+    }
+}
+
 /*function enroll_user_to_course($courseID, $aiwsUserID)
 {
     $wpaiws_options = get_option('wpaiws_options');
@@ -2451,7 +2491,7 @@ function enroll_user_to_course($productID, $programType, $userID, $wpID)
     }
 }*/
 
-function sso_user_to_aiws_course($username, $password)
+/*function sso_user_to_aiws_course($username, $password)
 { ?>
     <html>
         <head>
@@ -2468,4 +2508,4 @@ function sso_user_to_aiws_course($username, $password)
     </html>
 
     <?php exit;
-}
+}*/

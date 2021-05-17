@@ -77,33 +77,33 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
           <div class="new-footer-links">
             <div class="column">
-              <ul>
-                <li><a href="#!">Our Courses</a></li>
-                <li><a href="#!">News</a></li>
-                <li><a href="<?php echo get_bloginfo('url')?>/about">About Ht School</a></li>
-                <li><a href="#!">Contact Us</a></li>
-                <li><a href="#!">Become a Partner</a></li>
-                <li><a href="#!">Become a course partner</a></li>
-              </ul>
+              <?php
+                $args = array(
+                  'theme_location'  => 'footer-left-menu',
+                );
+                wp_nav_menu( $args );
+              ?>
             </div>
             <div class="column">
-              <ul>
-                <li><a href="https://www.hindustancareermate.com/">CareerMate</a></li>
-                <li><a href="https://www.htcodeathon.com/">Code-a-thon</a></li>
-                <li><a href="https://www.lenovoscholarship.com/">Scholarship</a></li>
-                <li><a href="https://www.hindustanolympiad.in/">Olympiad</a></li>
-              </ul>
+              <?php
+                $args = array(
+                  'theme_location'  => 'footer-middle-menu',
+                );
+                wp_nav_menu( $args );
+              ?>
             </div>
 
             <div class="column">
-              <ul>
-                <li><a href="">Terms and Conditions</a></li>
-                <li><a href="">Privacy Policy</a></li>
-                <li><a href="">Terms of Use</a></li>
-                <li><a href="">Code of Ethics</a></li>
-                <li><a href="">Disclaimer </a></li>
-                <li><a href="">Cancellation Policy</a></li>
-              </ul>
+              <?php
+                $args = array(
+                    'theme_location'  => 'footer-menu',
+                    'container'       => '',
+                    'depth'           => 1,
+                    'menu_class'      => '',
+                    'fallback_cb'     => 'vibe_set_menu',
+                );
+                wp_nav_menu( $args );
+              ?>
             </div>
 
             <div class="column newsletter">

@@ -439,6 +439,8 @@ function wpb_custom_new_menu() {
     'sidebar-menu' => esc_html__( 'Sidebar Menu'),
     'contact-menu' => esc_html__( 'Contact Menu'),
     'mobile-sidebar-menu' => esc_html__( 'Mobile Sidebar Menu'),
+    'footer-left-menu' => esc_html__( 'Footer Left Menu'),
+    'footer-middle-menu' => esc_html__( 'Footer Middle Menu'),
   ) );
 }
 add_action( 'init', 'wpb_custom_new_menu' );

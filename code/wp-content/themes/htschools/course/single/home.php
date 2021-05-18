@@ -334,9 +334,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $addDisplay = ob_get_contents();
                         ob_end_clean();
 
-                        $ad_code = '<div align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
+                        $ad_code = '<div class="google-adsense" align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
                         
-                        $author_biographical_info = $ad_code .'<p>'.$author_biographical_info.'</p>';
+                        $author_biographical_info = $ad_code . '<p>'.$author_biographical_info.'</p>';
 
                     ?>
                     <div class="instructor-detailsMini">
@@ -346,7 +346,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                               <div class="clearfix"></div>
                               <div class="co-lg-12">
                                 
-                                  <div class="profileimg-name" align="left" style="float: left; width: 260px;margin-bottom: 15px;">
+                                  <div class="profileimg-name" align="left">
                                     <div class="col-xs-4 col-sm-2 col-lg-4 mrg profile-img pull-left">
                                       <img src="<?php echo $author_user_profile; ?>" class="rounded-circle img-fluid" alt="">
                                     </div>
@@ -357,7 +357,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                       <!-- <h6>2,192,534 <span>Students</span></h6> -->
                                     </div>
                                   </div>
-                                  <?php echo $author_biographical_info; ?>
+                                  <div class="instructor-copy"><?php echo $author_biographical_info; ?></div>
                                 <!-- <span class="see-profilelink"><a href="<?php echo $author_url; ?>">See Profile</a></span> -->
                               </div>
                             </div>

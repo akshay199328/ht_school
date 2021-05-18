@@ -326,7 +326,10 @@ ol.breadcrumbs  {
     align-items: center !important;
     display: flex;
 }
-.home .header{height: 116px;background: #d5ebff!important;}
+.home .header{
+  /*height: 116px;*/
+  background: #d5ebff!important;
+}
 .inner-header{background: #fade3b;}
 .header.header-scrolled, 
 .header.fixed {
@@ -377,7 +380,7 @@ body.page-template-home , .page-template-home .pusher {
     background: transparent!important;
     margin-left: 0px;
     position: relative;
-    width: 121px;
+    width: 114px;
     height: 45px;
 }
 
@@ -7305,25 +7308,40 @@ section#content.section_contact{padding-top:10px}
 
 .single-course .about-course{margin-bottom:20px}
 .single-course .about-course .copy{padding-right:20px;flex:0 0 50%}
+.single-course .about-course p{font-size:15px;line-height:1.5;}
 .single-course .about-course .video-ad,
 .single-course .about-course > .adsense{float:right;padding-left:20px}
 .single-course .about-course .video-ad iframe{height:240px;margin-bottom:20px;width:300px;border:none;}
+.single-course .learing-goals h3{margin-bottom:0}
 .single-course .details-right .row{float:none}
 .profile-content{padding-right:0 !important;}
-.profile-content .co-lg-12{top:0 !important}
+.profile-content .co-lg-12{top:0 !important;padding-left:0 !important;}
 /*.instructor-detailsMini .profile-content p{flex:0 0 48%}*/
-.instructor-detailsMini .profile-content div:nth-child(2){margin:0 !important;order:3;position:relative;top:-42px;}
-.instructor-detailsMini .profile-content .profileimg-name{width:100% !important;display:flex;align-items:center;}
-.instructor-detailsMini .profile-content .profileimg-name .profile-img{padding-right:20px;width:auto !important;flex:0 0 auto !important}
+/*.instructor-detailsMini .profile-content div:nth-child(2){margin:0 !important;order:3;position:relative;top:-42px;padding-left:15px}*/
+.instructor-detailsMini .profile-content .profileimg-name{width:50% !important;display:flex;align-items:center;flex-wrap:wrap;}
+.instructor-detailsMini .profile-content .profileimg-name .profile-img{padding-right:20px;width:auto !important;flex:0 0 auto !important;max-width:110px;}
 .instructor-detailsMini .profile-content .profileimg-name .profile-img img{height:110px;width:110px;}
-.instructor-detailsMini .profile-content .profileimg-name .padding_right{max-width:fit-content;flex:0 0 auto;top:0;}
-.instructor-detailsMini .profile-content .profileimg-name .padding_right h4{font-weight:400 !important;text-transform:uppercase;letter-spacing:1px;}
+.instructor-detailsMini .profile-content .profileimg-name .padding_right{flex:1;top:0;}
+.instructor-detailsMini .profile-content .profileimg-name .padding_right h4{font-weight:400 !important;text-transform:uppercase;letter-spacing:1px;padding-right:10px;}
+.instructor-detailsMini .profile-content .google-adsense{margin-top: -110px;position: relative;}
+.instructor-detailsMini .profile-content .instructor-copy{}
+.instructor-detailsMini .profile-content .instructor-copy p{}
 .details-right{}
 .news-main{}
 .news-main .content-right .adsense{float:right;margin-left:15px;margin-bottom:15px;}
+
+
+.profile-marginminus.vc_row-o-content-top .wpb_column{margin-top:0 !important;}
+
 @media (max-width: 420px){
-  .instructor-detailsMini .profile-content p{flex:0 0 100%}
-  .instructor-detailsMini .profile-content div:nth-child(2){top:0 !important}
+  .instructor-detailsMini .profile-content .instructor-copy{
+    display:flex;flex-direction:column;
+  }
+  .instructor-detailsMini .profile-content .google-adsense{margin-top:0;float:none !important;order:4}
+  .instructor-detailsMini .profile-content .instructor-copy p{line-height:1.5;}
+  .instructor-detailsMini .profile-content .profileimg-name{width:100% !important}
+  /*.instructor-detailsMini .profile-content .profileimg-name .padding_right{flex:1 !important;}*/
+
   .about-course{flex-direction:column;}
   body.my-profile #buddypress .item-list-tabs#subnav .owl-stage{display:flex;flex-wrap:wrap;width:auto !important}
   #buddypress .item-list-tabs#subnav .owl-stage:after{display:none;}
@@ -7384,13 +7402,14 @@ section#content.section_contact{padding-top:10px}
 .course-curriculum .curriculum-wrapper .video-wrap{padding:0 5px !important;max-width:33.3333333333%;margin-bottom:10px}
 .course-curriculum .curriculum-wrapper .video-wrap .card{margin-bottom:10px;height:100%;}
 .course-curriculum .curriculum-wrapper .video-wrap .card h6{text-align:left;}
+.course-curriculum .curriculum-wrapper .video-wrap .card h5{line-height:22px;}
 .course-curriculum .curriculum-wrapper .video-wrap .card .default-background{margin-bottom:10px;display:inline-block;}
 .course-curriculum .curriculum-wrapper .video-wrap .card .description{display:none}
 @media (max-width:420px){
   .course-curriculum .curriculum-wrapper .video-wrap{max-width:50%;}
   .course-curriculum .left-spacing{padding-right:0}
 }
-
+section{}
 .new-footer{background-color:#000;padding:0}
 .new-footer .new-footer-copy{max-width:1118px;margin:auto;padding:0 15px}
 .new-footer .new-footer-copy .new-footer-top{display:flex;justify-content:space-between;align-items:center;padding-top:30px}
@@ -7426,3 +7445,95 @@ section#content.section_contact{padding-top:10px}
   .new-footer .new-footer-copy .new-footer-top .social{justify-content:center;}
   .new-footer .new-footer-copy .new-footer-top .social a{margin:0 5px;}
 }
+
+.header .left-menu .menu{display:flex;align-items:center;}
+.header .left-menu .menu li{height:auto;width:auto !important;padding:11px 15px !important}
+.header .left-menu .menu li.border-menu{width:114px !important;border:1px solid #000;}
+.header .left-menu .menu li.border-menu:after{margin-left:auto}
+.header .left-menu .menu li.my-course.active a:after,
+.single-course .header .left-menu .menu li.my-course a:after{border-color:#000 !important}
+
+.changeavtar_details{padding:30px;background-color:#FFF}
+#ui-id-2{box-shadow:rgb(0 0 0 / 16%) 0px 0px 10px}
+
+.woocommerce-order .order-again{margin-top:-40px;padding:20px 25px 20px 25px;background-color:#FFF;margin-bottom:0;}
+.woocommerce-order .order-again .button{border-radius:0;padding:15px 20px !important;background-color:#000 !important;}
+.woocommerce-cart-form,
+.woocommerce-billing-fields,
+.order_details_page,
+.woocommerce-order{padding:0 !important;margin-bottom:0}
+.woocommerce-cart-form .cart_heading,
+.woocommerce-billing-fields h3,
+.order_details_page .cart_heading,
+.woocommerce-order .woocommerce-notice,
+.woocommerce-order-details .woocommerce-order-details__title,
+.woocommerce-customer-details .woocommerce-column__title,
+.course-order-details-heading{padding:18px 25px !important;background-color:#D5EBFF !important;color:#000;margin-bottom:0 !important;font-size:25px;line-height:1;font-weight:600 !important;text-transform:inherit}
+.woocommerce-cart-form .table-copy,
+.woocommerce-billing-fields__field-wrapper,
+.order_details_page .table-responsive,
+.woocommerce-order-overview,
+.woocommerce-order-details .table-copy,
+.woocommerce-customer-details .table-copy,
+.woocommerce-order .course_order_details{padding:15px 25px !important;}
+.woocommerce-billing-fields__field-wrapper{margin-top:0}
+.woocommerce-cart-form .table-copy table{margin-bottom:0}
+.woocommerce-cart-form .table-copy table td,
+.woocommerce-cart-form .table-copy table th{padding:15px 5px}
+.woocommerce-cart-form .table-copy table th{padding-top:0;}
+
+.woocommerce-cart .cart-collaterals .cart_totals h2{margin-bottom:10px;padding-bottom:20px;}
+
+.woocommerce-order-overview{display:flex;flex-wrap:wrap;margin-bottom:20px !important;justify-content:space-between;background-color: #FFF;}
+.woocommerce-order-overview:before,
+.woocommerce-order-overview:after{content:"";display:none}
+.woocommerce-order-overview li{flex:1 0 auto;margin-right:0;padding-right:0 !important;margin-right:0 !important;font-size:14px !important;padding-top:10px;border-right:0 !important}
+.woocommerce-order-overview li strong{font-size:16px !important;word-break:break-all;margin-top:3px !important;font-weight:100 !important}
+
+
+.woocommerce-order-details{margin-bottom:30px !important}
+.woocommerce-order-details .table-copy{background-color:#FFF;}
+.woocommerce .woocommerce-order{background-color:transparent;}
+
+.woocommerce-customer-details{}
+.woocommerce-customer-details .woocommerce-column__title{}
+.woocommerce-customer-details .table-copy p{font-size:16px;}
+
+.woocommerce-order .course_order_details{}
+.woocommerce-order .course_order_details li{border-bottom:1px dotted #707070;display:flex;justify-content:space-between;align-items:center;}
+.woocommerce-order .course_order_details li .course_name{width:25%;font-size:17px}
+.woocommerce-order .course_order_details li .subscribed-name{font-size:17px}
+.woocommerce-order .course_order_details li .button{padding:15px 20px !important;border-radius:0 !important;margin-left:auto;margin-right:20px;text-transform:capitalize;}
+
+@media (max-width:767px){
+  .woocommerce-order-overview li{width:100%;margin-bottom:0 !important;padding:20px 0;border-bottom:1px dashed #707070;}
+
+  .woocommerce-cart-form .cart_heading,
+  .woocommerce-billing-fields h3,
+  .order_details_page .cart_heading,
+  .woocommerce-order .woocommerce-notice,
+  .woocommerce-order-details .woocommerce-order-details__title,
+  .woocommerce-customer-details .woocommerce-column__title,
+  .course-order-details-heading{font-size:20px}
+
+  .woocommerce-order .course_order_details li{align-items:flex-start;flex-wrap:wrap;}
+  .woocommerce-order .course_order_details li .course_name{width:45%;font-size:15px}
+  .woocommerce-order .course_order_details li .button{margin:5px 0 0 0;order:2;padding:10px 15px !important;font-weight:400;}
+  .woocommerce-order .course_order_details li .subscribed-name{text-align:right;width:42%;margin-left:auto;font-size:15px;}
+  .home_slider .owl-dots{right:0;left:0;margin-top:15px;}
+}
+
+.course_content_content{position:relative;}
+.course_status .incourse .incoursequiz_details{top:10px;}
+
+.course-aboutDetails .background-yellow{margin-top:20px;margin-bottom:40px;padding:30px;}
+.course-aboutDetails .background-yellow p{margin-bottom:0;}
+
+.share-icon .a2a_kit{}
+
+table .course-button .gst{font-size:14px;font-weight:400;color:#999;padding-left:5px;}
+
+.woocommerce-checkout-review-order-table .product-total{text-align:right;}
+.woocommerce-checkout-review-order-table tfoot td{text-align:right;}
+
+.woocommerce-cart .pusher, .woocommerce-checkout .pusher{margin-top:80px;}

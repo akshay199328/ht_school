@@ -2296,7 +2296,7 @@ function start_aiws_course()
 
 function create_wp_id_for_enrollment($userId)
 {
-    return "wp" . rand(1000, 9999) . "_" . date('ymdhis');
+    return "wp" . rand(100, 999) . "_" . date('ymdhis');
     // return $userId . rand(1000, 9999);
 }
 

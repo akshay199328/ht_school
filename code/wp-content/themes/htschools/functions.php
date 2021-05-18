@@ -2181,6 +2181,8 @@ function ht_social_login(){
 add_action( 'woocommerce_api_start-aiws-course', 'start_aiws_course');
 function start_aiws_course()
 {
+    echo "<pre>";print_r(create_wp_id_for_enrollment(5419));exit;
+
     $courseId = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;
 
     if($courseId <= 0){
@@ -2210,7 +2212,7 @@ function start_aiws_course()
 
         if(!is_array($enrollCoursesList) || !in_array($courseId, $enrollCoursesList))
         {
-            $wpID = $userId . rand(1000,9999);
+            $wpID = create_wp_id_for_enrollment($userId);
             $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsProgramType, $aiwsUserID, $wpID);
 
             if($enrollResponse)
@@ -2263,7 +2265,7 @@ function start_aiws_course()
             update_user_meta($userId, 'aiws_user_login_id', $aiwsUserID);
             update_user_meta($userId, 'aiws_user_login_email', $aiwsUserEmail);
 
-            $wpID = $userId . rand(1000,9999);
+            $wpID = create_wp_id_for_enrollment($userId);
             $enrollResponse = enroll_user_to_course($aiwsCourseID, $aiwsProgramType, $aiwsUserID, $wpID);
 
             if($enrollResponse)
@@ -2290,6 +2292,12 @@ function start_aiws_course()
             echo "SSO Error occured while loading the course. Please Try again."; exit;
         }
     }
+}
+
+function create_wp_id_for_enrollment($userId)
+{
+    return "wp" . rand(1000, 9999) . "_" . date('ymdhis');
+    // return $userId . rand(1000, 9999);
 }
 
 function create_new_aiws_user($firstName, $lastName, $email, $password)

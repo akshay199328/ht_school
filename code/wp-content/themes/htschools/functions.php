@@ -1216,8 +1216,7 @@ function cart_script_disabled(){
 add_action( 'wp_enqueue_scripts', 'cart_script_disabled' );
 
 /**
- * AUTO COMPLETE PAID ORDERS IN WOOCOMMERCE
- */
+
 add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_paid_order', 10, 1 );
 function custom_woocommerce_auto_complete_paid_order( $order_id ) {
     if ( ! $order_id )
@@ -1234,6 +1233,8 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
         $order->update_status( 'completed' );
     }
 }
+ * AUTO COMPLETE PAID ORDERS IN WOOCOMMERCE
+ */
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
       if(isset($_SESSION['previousPageUrl'])){

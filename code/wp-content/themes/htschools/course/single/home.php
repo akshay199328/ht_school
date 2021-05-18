@@ -216,15 +216,15 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                         $trailer_link = get_post_meta($post->ID,'vibe_trailer_link',true);
                                         if(strlen(trim($trailer_link))){
                                           $videoContent = '<div class="video-ad">
-                                                              <iframe allowfullscreen="allowfullscreen" width="100%" height="240" src="' . get_post_meta($post->ID,'vibe_trailer_link',true) . '"></iframe>
+                                                              <iframe allowfullscreen="allowfullscreen" width="100%" height="240" src="' . get_post_meta($post->ID,'vibe_trailer_link',true) . '"></iframe></div>
 
                                                            ';
                                         }
 
                                         $ad_code = '<div class="adsense">' . $addDisplay . '</div>';
-                                        $closeDiv = '</div>';
+                                        //$closeDiv = '</div>';
                                         
-                                        $post_content =  $videoContent.$ad_code.$closeDiv.$post_content;
+                                        $post_content =  $videoContent.$ad_code.$post_content;
 
                                         echo $post_content;
                                         ?></p>

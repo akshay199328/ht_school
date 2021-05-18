@@ -1112,6 +1112,7 @@ Course Details
     text-align: left;
     /* margin-left: 39.5%; */
 }
+.right-section .other-courses .duration{display:block;}
 .course-aboutDetails{
     padding:0px 0px;
     float: left;

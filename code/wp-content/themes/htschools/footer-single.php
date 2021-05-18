@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <a target="_blank" href="https://www.facebook.com/HTSchool-111960910982690/" class="facebook"><span class="name"></span></a>
             <a target="_blank" href="https://twitter.com/htschool1" class="twitter"><span class="name"></span></a>
             <a target="_blank" href="https://www.linkedin.com/company/htschool" class="linkedin"><span class="name"></span></a>
-            <a target="_blank" href="#!" class="youtube"><span class="name"></span></a>
+            <a target="_blank" href="https://www.youtube.com/user/ht" class="youtube"><span class="name"></span></a>
             <a target="_blank" href="https://www.instagram.com/htschool/" class="instagram"><span class="name"></span></a>
             <a target="_blank" href="<?php bloginfo('rss2_url'); ?>" class="rss"><span class="name"></span></a>
           </div>

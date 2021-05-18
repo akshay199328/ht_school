@@ -21,6 +21,7 @@ get_header(vibe_get_header());
       </div>
     </section>
     <section id="Popular-Courses" class="all_course_page">
+      
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
           <div class="sticky_content">
@@ -50,6 +51,7 @@ get_header(vibe_get_header());
                   $args_all_course = array(
                     'post_type' => 'course',
                     'post_status' => 'publish',
+                    'nopaging' => true
                   );  
                   $all_course = new WP_Query( $args_all_course );
                   if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();

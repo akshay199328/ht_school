@@ -4,6 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 <footer id="footer" class="new-footer">
       <div class="new-footer-copy">
+     <div class="footer-check" style="padding:0px;float: left;">
+          <h1 class="heading"></h1>
+      </div>
         <div class="new-footer-top">
           <svg viewBox="0 0 168.5 46.323" xmlns="http://www.w3.org/2000/svg">
           <defs>

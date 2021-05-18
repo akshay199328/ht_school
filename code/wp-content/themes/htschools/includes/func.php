@@ -1449,19 +1449,19 @@ function wplms_redirect_to_course($order_id){
               $duration=get_post_meta($product_id,'vibe_duration',true);
               $product_duration_parameter = apply_filters('vibe_product_duration_parameter',86400,$product_id);
               $date=tofriendlytime($duration*$product_duration_parameter);
-              $order_courses[$item['product_id']]['subs']='<strong>'.__('COURSE SUBSCRIBED FOR ','vibe').' : <span>'.$date.'</span></strong>';
+              $order_courses[$item['product_id']]['subs']='<span class="subscribed-name">'.__('Course Subscribed For ','vibe').' : <span>'.$date.'</span></span>';
             }else{  
-              $order_courses[$item['product_id']]['subs']= '<strong>'.__('SUBSCRIBED FOR FULL COURSE','vibe').'</strong>';
+              $order_courses[$item['product_id']]['subs']= '<span class="subscribed-name">'.__('Subscribed For Full Course','vibe').'</span>';
             }
         }
       }
 
       if(isset($order_courses) && is_array($order_courses) && count($order_courses)){
           echo 
-          '<h3 class="heading">'.__('Courses Subscribed','vibe').'</h3>
+          '<h3 class="heading course-order-details-heading">'.__('Courses Subscribed','vibe').'</h3>
           <ul class="course_order_details">
-            <li><a>'.__('COURSE','vibe').'</a>
-            <strong>'.__('SUBSCRIPTION','vibe').'</strong></li>';
+            <li><a>'.__('Course','vibe').'</a>
+            <span>'.__('Subscription','vibe').'</span></li>';
 
             if($order->status == 'completed' || $order->status == 'complete'){
               $ostatus=__('Start Learning','vibe');

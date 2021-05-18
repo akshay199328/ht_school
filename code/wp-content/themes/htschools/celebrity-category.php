@@ -34,7 +34,7 @@ $props = array();
 foreach ($responseCategory as $category) {
   $props[] = array(
   /*'thumb' => "https://www.origin.celebrityschool.in:1337/album_image/album_banner_4.jpg",*/
-  'thumb' => "https://ht.fortune4.org/wp-content/uploads/2021/03/thinkstartup.jpeg",
+  'thumb' => "https://htschool.hindustantimes.com/wp-content/uploads/2021/03/thinkstartup.jpeg",
   'name' => $category->cat_name,
   'description' => $category->meta_description,
   'slug' => $category->slug,  

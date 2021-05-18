@@ -240,13 +240,12 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
 
       </div>
       <div class="col-sm-12 center mrg mobile-add new-add">
-        <!-- /1055314/HT_School_WAP_Story/HT_School_Desk_Story_MID_B_Mrec-->
+        
         <div id='div-gpt-ad-1619596100543-8'>
           <script>
             googletag.cmd.push(function() { googletag.display('div-gpt-ad-1619596100543-8'); });
           </script>
-        </div>
-              <!-- <img src="https://ht.fortune4.org/wp-content/uploads/2021/04/NT_Sugary-Beverages.jpg"> -->
+        </div>              
       </div>
       <a href="<?php echo get_home_url();?>/courses/" class="exlore-link mobile-btn">Discover Courses</a>
   </div>

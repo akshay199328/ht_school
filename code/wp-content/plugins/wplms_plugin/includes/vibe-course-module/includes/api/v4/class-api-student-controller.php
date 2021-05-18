@@ -1308,7 +1308,9 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 
 
 							if(!empty($pid)){
+								$coming_soon = get_post_meta($course_id,'vibe_coming_soon',true);
 
+    
 					            if(is_numeric($pid)){
 					              $pid=get_permalink($pid);
 					              $check=vibe_get_option('direct_checkout');
@@ -1320,7 +1322,13 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 					            }
 					            $return['link'] = $pid;
 					            $return['course_status']=-1;
-					            $return['text'] = __('Join Course','wplms');
+					            if(vibe_validate($coming_soon)){
+					            	$return['text'] = __('Coming Soon','wplms');
+					            }
+					            else{
+					            	$return['text'] = __('Join Course','wplms');
+
+					            }
 
 							}else{
 								if ( in_array( 'paid-memberships-pro/paid-memberships-pro.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {

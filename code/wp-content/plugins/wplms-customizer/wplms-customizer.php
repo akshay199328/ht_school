@@ -539,3 +539,27 @@ function redirect_single_assignment(){
 
     }
   }
+add_filter('wplms_start_course_button','custom_coming_soon_label',99,2);
+
+add_filter('wplms_continue_course_button','custom_coming_soon_label',99,2);
+
+add_filter('wplms_evaluation_course_button','custom_coming_soon_label',99,2);
+
+add_filter('finish_course_button_html','custom_coming_soon_label',99,2);
+add_filter('wplms_take_this_course_button_label','custom_coming_soon_label',99,2);
+
+function custom_coming_soon_label($credits,$course_id){
+
+  $coming_soon = get_post_meta($course_id,'vibe_coming_soon',true);
+
+    if(vibe_validate($coming_soon)){
+
+      $label = 'Comming Soon';
+
+      return '<strong><span>'.$label.'</span></strong>';
+
+    }
+
+  return $credits;
+
+}

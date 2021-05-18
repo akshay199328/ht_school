@@ -29,6 +29,10 @@ $(document).ready(function(){
   }
 
 });
+$('.single-course ol li').click(function(){
+  window.location.href=site_url + "/courses";
+  return false;
+});
 $(document).ready(function($) { 
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');
   $('.loggedin_user_div').parent().parent().next().addClass('margin-ul');

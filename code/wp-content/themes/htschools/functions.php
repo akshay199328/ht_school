@@ -2512,3 +2512,12 @@ if(! function_exists( 'encryptString' ))
     <?php exit;
 }*/
 
+// Trim zeros in price decimals
+add_filter( 'woocommerce_price_trim_zeros', '__return_true' ); 
+
+function woo_text_after_price( $price ) {
+    $price .= "<span class='gst'>+ GST</span>";
+    return $price;
+}
+add_filter( 'woocommerce_get_price_html', 'woo_text_after_price' );
+add_filter( 'woocommerce_cart_item_price', 'woo_text_after_price' );

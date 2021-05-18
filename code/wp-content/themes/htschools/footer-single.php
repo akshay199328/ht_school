@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
           </div>
       </div>
-      <div class="copyright">Copyright &copy; <?php echo date("Y");?> HTDSL. All rights reserved.</div>
+      <div class="copyright">Copyright &copy; <?php echo date("Y");?> HTML. All rights reserved.</div>
 </footer>
 </div><!-- END PUSHER -->
 </div><!-- END MAIN -->

@@ -409,7 +409,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <div class="list mobile-slider">
                     <?php if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
                           $custom_fields = get_post_custom();
-                          $duration = $custom_fields['vibe_duration'][0];
+                          $duration = $custom_fields['vibe_validity'][0];
                           $age_limit = $custom_fields['vibe_course_age_group'][0];
                           $category_array = get_the_terms( $post->ID, 'course-cat');
                     ?>

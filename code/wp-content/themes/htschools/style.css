@@ -7433,7 +7433,7 @@ section{}
   .new-footer .new-footer-copy .new-footer-top .social{justify-content:center;}
   .new-footer .new-footer-copy .new-footer-top .social a{margin:0 5px;}
 
-  .Popular-Courses > .container > .row div:nth-child(2){display:flex;flex-direction:column;align-items:flex-start;flex-wrap:wrap;}
+  .Popular-Courses > .container > .row > div:nth-child(2){display:flex;flex-direction:column;align-items:flex-start;flex-wrap:wrap;}
   .Popular-Courses > .container > .row .mobile-add{order:5;}
 }
 

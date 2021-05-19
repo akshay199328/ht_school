@@ -6581,7 +6581,7 @@ h6:empty,
     .fixed_banner.course_fixedBanner .content li{
         border-bottom: 0px;
       }
-    .course-box{display: block;margin-top: 10px;margin-bottom: 0;    margin-left: 0px;padding:10px}
+    .course-box{display: block;margin-top: 10px;margin-bottom: 0;    margin-left: 0px;padding:10px;float:none;}
     .course_single_item:first-child .course-box{margin-top: 0px;}
     .button_table tbody tr.border_button {
         width: 80%;
@@ -7240,7 +7240,7 @@ td .bookmark-remove{top:0 !important}
 }
 .share-icon .wpfp-span img{display:none !important;}
 .navegacion .menu-back{position:fixed !important;}
-.navegacion .menu-back .menu-copy{display:flex;flex-direction:column;overflow:scroll;position:initial;}
+.navegacion .menu-back .menu-copy{display:flex;flex-direction:column;position:initial;overflow:none}
 .navegacion .menu-back .menu-copy .bootom-link{bottom:20px}
 .navegacion ul {
     width: 100%;
@@ -7311,7 +7311,7 @@ section#content.section_contact{padding-top:10px}
 .single-course .about-course .copy{padding-right:20px;flex:0 0 50%}
 .single-course .about-course p{font-size:15px;line-height:1.5;}
 .single-course .about-course .video-ad,
-.single-course .about-course > .adsense{float:right;padding-left:20px}
+.single-course .about-course .adsense{float:right;padding-left:20px}
 .single-course .about-course .video-ad iframe{height:240px;margin-bottom:20px;width:300px;border:none;}
 .single-course .learing-goals h3{margin-bottom:0}
 .single-course .details-right .row{float:none}
@@ -7335,6 +7335,7 @@ section#content.section_contact{padding-top:10px}
 .profile-marginminus.vc_row-o-content-top .wpb_column{margin-top:0 !important;}
 
 @media (max-width: 420px){
+  .navegacion .menu-back .menu-copy{overflow:scroll;}
   .instructor-detailsMini .profile-content .instructor-copy{
     display:flex;flex-direction:column;
   }
@@ -7447,7 +7448,7 @@ section{}
   .new-footer .new-footer-copy .new-footer-top .social a{margin:0 5px;}
 }
 
-.header .left-menu .menu{display:flex;align-items:center;}
+.header .left-menu .menu{display:flex;align-items:center;margin-bottom:0}
 .header .left-menu .menu li{height:auto;width:auto !important;padding:11px 15px !important}
 .header .left-menu .menu li.border-menu{width:114px !important;border:1px solid #000;}
 .header .left-menu .menu li.border-menu:after{margin-left:auto}

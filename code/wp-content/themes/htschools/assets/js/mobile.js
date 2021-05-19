@@ -113,11 +113,14 @@ if($(window).width() >= 768) {
 
     if($(window).width() <= 767) {
         // alert("hello");
-      $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-carousel');
-      $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-theme');
+      // $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-carousel');
+      // $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-theme');
+
+      $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-carousel');
+      $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-theme');
       $('.left_tab li').addClass('item');
       $('.mobile-slider').addClass('responsive_slider');
-      $('.courses-slider').addClass('coursesmobile_slider');
+      // $('.courses-slider').addClass('coursesmobile_slider');
       $('.course-listslider').addClass('coursemobile_listslider');
       $('.left_tab').owlCarousel({
           margin: 15,
@@ -136,15 +139,15 @@ if($(window).width() >= 768) {
         nav: false,
         dots:false
       });
-      $('.coursesmobile_slider').owlCarousel({
-        items:1,
-        loop:false,
-        center:true,
-        margin:10,
-        URLhashListener:true,
-        autoplayHoverPause:true,
-        // startPosition: 'URLHash'
-      })
+      // $('.coursesmobile_slider').owlCarousel({
+      //   items:1,
+      //   loop:false,
+      //   center:true,
+      //   margin:10,
+      //   URLhashListener:true,
+      //   autoplayHoverPause:true,
+      //   // startPosition: 'URLHash'
+      // })
       $('.coursemobile_listslider').owlCarousel({
         margin: 0,
         loop: true,

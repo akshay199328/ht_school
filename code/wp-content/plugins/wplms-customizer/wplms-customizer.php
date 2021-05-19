@@ -548,7 +548,7 @@ function custom_coming_soon_label($credits,$course_id){
 
     if(vibe_validate($coming_soon)){
 
-      $label = 'Comming Soon';
+      $label = 'Coming Soon';
 
       return '<strong><span>'.$label.'</span></strong>';
 

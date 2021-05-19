@@ -7433,7 +7433,7 @@ section{}
   .new-footer .new-footer-copy .new-footer-top .social{justify-content:center;}
   .new-footer .new-footer-copy .new-footer-top .social a{margin:0 5px;}
 
-  .Popular-Courses > .container > .row div:nth-child(2){border:1px solid blue;display:flex;flex-direction:column;align-items:flex-start;flex-wrap:wrap;}
+  .Popular-Courses > .container > .row div:nth-child(2){display:flex;flex-direction:column;align-items:flex-start;flex-wrap:wrap;}
   .Popular-Courses > .container > .row .mobile-add{order:5;}
 }
 
@@ -7586,6 +7586,8 @@ table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left
 .course_status .incourse .quiz_questions_content .question .question_list{margin-top:0 !important;}
 .course_status .incourse .quiz_questions_content .question_wrapper.loaded .result{}
 .course_status .incourse .question_wrapper{left:136px !important}
+
+.course_status .course_timeline>ul li.open_lesson .vicon-infinite{display:none}
 @media (max-width:767px){
   .course_content_content{padding:20px !important}
   .course_status.moveonside .course_timeline{display:block !important}

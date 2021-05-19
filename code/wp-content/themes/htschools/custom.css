@@ -295,10 +295,7 @@ padding: 15px 0;
 {
     display: none;
 }
-.course-fees .course_button,
-.course-fees a.course_button , 
-.course-fees input.course_button,
-.course-fees button.course_button 
+.course-fees .course_button a, .course-fees a.course_button, .course-fees input.course_button, .course-fees button.course_button
 {
     padding: 12px 0px 12px 0px;
     background-color: #fbca00;

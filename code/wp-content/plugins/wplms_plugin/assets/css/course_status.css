@@ -780,7 +780,7 @@
 }
 
 .course_status .course_content .course_content_content_wrapper h2 {
-    margin: 6px 0px 20px 0px!important;
+    margin: 6px 0px 20px 0px;
     font-size: 25px;
     line-height: 1.32;
     margin-bottom: 1rem;
@@ -1761,7 +1761,7 @@
     flex-direction: row-reverse;
     border-top: 0px dotted #707070;
     margin: 0!important;
-    padding-top: 10px;
+    padding-top: 20px;
     border-top: 1px dashed #707070;
 }
 
@@ -2419,7 +2419,7 @@
 
 .course_status .incourse .incoursequiz_details {
         display: flex;
-    flex: 0 0 0px !important;
+    flex: 0 0 0px;
     max-width: initial;
     justify-content: space-between;
     margin-bottom: 1.5rem;
@@ -2427,7 +2427,7 @@
     z-index: 9;
     padding: 0rem;
     /* position: sticky; */
-    position: absolute!important;
+    position: absolute;
     top: 13%;
     width: 400px;
     right: 2%;
@@ -2448,7 +2448,7 @@
 }
 
 .course_status .incourse .incoursequiz_details>div>* {
-    margin: 0.5rem
+    /*margin: 0.5rem*/
 }
 .course_status .incourse .incoursequiz_details .buttons.has-addons.small>.button {
     background: none;
@@ -2737,7 +2737,7 @@
 .course_status .incourse .incourse_quiz_button a {
     text-align: center;
     width: 115px;
-    margin: 0.25rem !important
+    margin: 0.25rem;
 }
 
 .course_status .incourse .quiz_retake {

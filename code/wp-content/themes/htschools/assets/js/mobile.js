@@ -118,6 +118,7 @@ if($(window).width() >= 768) {
 
       $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-carousel');
       $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-theme');
+      
       $('.left_tab li').addClass('item');
       $('.mobile-slider').addClass('responsive_slider');
       // $('.courses-slider').addClass('coursesmobile_slider');

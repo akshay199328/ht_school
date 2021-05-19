@@ -293,13 +293,13 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <div class="col-sm-12 mrg list">
                      
                       <?php locate_template( array( 'course/single/curriculum.php'  ), true );?>
-                      <?php $curriculum_count = count(bp_course_get_curriculum_units(get_the_ID())); 
-                        if($curriculum_count > 4) {
+                      <?php /*$curriculum_count = count(bp_course_get_curriculum_units(get_the_ID())); 
+                        if($curriculum_count > 4) {*/
                       ?>
-                      <div class="viewall-session">
+                      <!-- <div class="viewall-session">
                         <a href="#" class="all-session" id="view_all_sessions">View All Sessions</a>
-                      </div>
-                    <?php } ?>
+                      </div> -->
+                    <?php /*} */?>
                     </div>
                   </div>
                 </div>

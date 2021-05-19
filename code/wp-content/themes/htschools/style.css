@@ -7390,7 +7390,7 @@ section#content.section_contact{padding-top:10px}
 .course-curriculum .curriculum-wrapper .video-wrap{padding:0 5px !important;max-width:33.3333333333%;margin-bottom:10px}
 .course-curriculum .curriculum-wrapper .video-wrap .card{margin-bottom:10px;height:100%;}
 .course-curriculum .curriculum-wrapper .video-wrap .card h6{text-align:left;}
-.course-curriculum .curriculum-wrapper .video-wrap .card h5{line-height:22px;}
+.course-curriculum .curriculum-wrapper .video-wrap .card h5{line-height:20px;font-size: 18px;}
 .course-curriculum .curriculum-wrapper .video-wrap .card .default-background{margin-bottom:10px;display:inline-block;}
 .course-curriculum .curriculum-wrapper .video-wrap .card .description{display:none}
 @media (max-width:420px){

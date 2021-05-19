@@ -46,8 +46,8 @@ if(!empty($course_curriculum)){
 	$course_units_array = array_slice($course_units, 0, 4);
 	$counter=0;
 	?>
-	<div class="only-4" id="only-4">
-	<?php foreach($course_units_array as $lesson_units){ 
+	<div class="only-4 curriculum-wrapper" id="only-4">
+	<?php foreach($course_units as $lesson_units){ 
 		$lessonId = get_post($lesson['id']);
 		//echo "<pre>";
 		 //print_r($course_units_array);
@@ -57,15 +57,12 @@ if(!empty($course_curriculum)){
         <div class="card">
 
             <div class="col-sm-12 mrg">
-                <div class="co-sm-6 mrg pull-left">
+                <div class="co-sm-12 mrg">
                 <?php 
 
                 if($lesson_units['vibe_type'] == 'play'){ ?>
                   <span class="Lpink default-background"><i class="<?php echo vibe_sanitizer($lesson_units['icon'],'text'); ?>"></i> Video</span>
                   <?php }?>
-                </div>
-                <div class="co-sm-6 mrg pull-right">
-                  <h6>Session <?php echo $counter + 1; ?> / <?php echo $countunit; ?></h6>
                 </div>
             </div>
             <!-- <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5> -->
@@ -79,10 +76,11 @@ if(!empty($course_curriculum)){
         	<?php }else{
         		$sub_title = get_post_meta($course_units_array[$counter]['id'],'vibe_subtitle',true);
         		?>
+        		<h6>Session <?php echo $counter + 1; ?> / <?php echo $countunit; ?></h6>
         		<h5><?php echo $lesson_units['title'];?></h5>
-        		<p>
+        		<p class="description">
         		<?php 
-        			echo mb_strimwidth( $sub_title, 0, 130, '...' );?></p>
+        			//echo mb_strimwidth( $sub_title, 0, 130, '...' );?></p>
 
         		<?php /*$sub_title = the_sub_title($course_units_array[$counter]['id']);
         		wp_trim_words(strip_tags($sub_title), 5, NULL);*/
@@ -112,7 +110,7 @@ if(!empty($course_curriculum)){
 		$counter++;
 	}?>
 </div>
-<div class="all" id="all">
+<div class="all curriculum-wrapper" id="all">
 	<?php 
 	$counter1 = 0;
 	foreach($course_units as $lesson_units){ 
@@ -139,6 +137,7 @@ if(!empty($course_curriculum)){
 	            <video width="100%" height="163" controls="" poster="assets/img/Intersection-video.jpg">
 	                <source src="<?php echo $video1;?>" type="video/mp4">
 	            </video>
+	            <h6>Session <?php echo $counter1 + 1; ?> / <?php echo $countunit; ?></h6>
             	<h5><?php echo $lesson_units['title'];?></h5>
         		<?php }else{
         			$sub_title1 = get_post_meta($course_units[$counter1]['id'],'vibe_subtitle',true);
@@ -146,7 +145,7 @@ if(!empty($course_curriculum)){
         		<h5><?php echo $lesson_units['title'];?></h5>
         		<p>
         		<?php 
-        			echo mb_strimwidth( $sub_title1, 0, 130, '...' );?></p>
+        			//echo mb_strimwidth( $sub_title1, 0, 130, '...' );?></p>
 
         		<?php /*$sub_title = the_sub_title($course_units_array[$counter]['id']);
         		wp_trim_words(strip_tags($sub_title), 5, NULL);*/

@@ -29,7 +29,7 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 	<?php endif; ?>
 
 	<h2 class="woocommerce-column__title"><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h2>
-
+	<div class="table-copy">
 	<address>
 		<?php echo wp_kses_post( $order->get_formatted_billing_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
 
@@ -41,6 +41,7 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 			<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
 		<?php endif; ?>
 	</address>
+	</div>
 
 	<?php if ( $show_shipping ) : ?>
 

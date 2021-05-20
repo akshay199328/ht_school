@@ -41,7 +41,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 		<?php do_action( 'woocommerce_before_cart_table' ); ?>
 		
 				<h2 class="cart_heading">Your Cart</h2>
-				<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+				<div class="table-copy">
+					<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 					<thead>
 						<tr>
 							<th class="product-remove"></th>
@@ -175,6 +176,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 					</tbody>
 				</table>
+			</div>
 
 				<?php do_action( 'woocommerce_after_cart_table' ); ?>
 			

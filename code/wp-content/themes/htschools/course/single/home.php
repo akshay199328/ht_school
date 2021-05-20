@@ -334,7 +334,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $addDisplay = ob_get_contents();
                         ob_end_clean();
 
-                        $ad_code = '<div class="google-adsense" align="right" style="float: right;margin-left: 15px;;margin-bottom: 15px;">' . $addDisplay . '</div>';
+                        $ad_code = '<div class="google-adsense">' . $addDisplay . '</div>';
                         
                         $author_biographical_info = $ad_code . '<p>'.$author_biographical_info.'</p>';
 

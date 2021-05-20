@@ -54,7 +54,7 @@ get_header(vibe_get_header());
 
                     if(!empty($wp_query)){
                   ?>
-                  <div class="col-lg-9 mrg">
+                  <div class="col-lg-9 mrg all-courses-left">
                   <div class="">
                   <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                     <?php if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();

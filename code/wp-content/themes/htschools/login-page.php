@@ -327,8 +327,11 @@ jQuery(window).load(function(){
 
         jQuery("#reloadpage").click(function(){
             //window.location.reload();
-            let preUrl = jQuery("#preUrl").attr("data-preUrl");
-            window.location.replace(preUrl);
+            // let preUrl = jQuery("#preUrl").attr("data-preUrl");
+            // window.location.replace(preUrl);
+            var session = sessionStorage.getItem('bp_user');
+            var result = jQuery.parseJSON(session);
+            window.location.href = site_url + '/members-directory/' + result['user_nicename'];
         });
         jQuery("#verify-mob-otp-btn").click(function(){
             jQuery("#verify-mob-otp-btn").html("Please wait...");

@@ -6924,8 +6924,6 @@ h6:empty,
 .all_course_page{    padding-top: 30px;}
 .all_course_page .course-box{
   /*margin-bottom: 10px;*/
-  padding-left:0;
-  padding-right:0;
 }
 #Popular-Courses.all_course_page .row {
     margin-right: 0px;

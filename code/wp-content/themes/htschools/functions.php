@@ -1230,7 +1230,7 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
     }
     // For paid Orders with all others payment methods (with paid status "processing")
     elseif( $order->get_status()  === 'processing' ) {
-        $order->update_status( 'pending' );
+        $order->update_status( 'completed' );
     }
 }
 

@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="google-signin-client_id" content="1069538733355-auadal7qm5ob9cj7n33f7k8uurib3t9k.apps.googleusercontent.com">
 
 <?php
@@ -23,115 +22,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&autoLogAppEvents=1&version=v8.0&appId=294857988885507" nonce="bdrlZY2f"></script>
-<script async defer src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
- <script type="text/javascript">
-            function renderButton() {
-              gapi.signin2.render('google-signup', {
-                'scope': 'profile email',
-                'width': 225,
-                'height': 40,
-                'longtitle': true,
-                'theme': 'light',
-                'onsuccess': signup_google,
-                'onfailure': onFailure,
-              });
-            }
-
-            function onFailure(){
-              console.log("Login Failed");
-            }
-
-function setCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-
-    function signup_google(googleUser){
-        var profile = googleUser.getBasicProfile();
-      console.log(profile);
-        var name = profile.getName();
-        var email = profile.getEmail();
-        var id = profile.getId();
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.disconnect();
-        jQuery.ajax({
-            url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-            type: "POST",
-            data: "action=ht_social_login&type=google&id=" + id + "&name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email),
-            success: function (response) {
-                var obj = JSON.parse(response);
-                if(obj.status == 1){
-                  if(obj.is_registered == 1){
-                    sessionStorage.setItem('bp_user',obj.user);
-                    setCookie('LtpaToken2', 'true', 2);
-                    setTimeout(function(){
-                      window.location.reload();
-                    }, 500);
-                    
-                  }
-                }
-            },
-            error: function (response) {
-            }
-        });
-    }
-
-
-
-function signup_facebook(){
-        FB.getLoginStatus(function(resp) {
-            if (resp.status === 'connected') 
-            {
-                FB.api('/me', { fields: 'name, email' },
-                    function(response) {
-console.log(response);
-                        var name = response.name;
-                        var id = response.id;
-                        var email = "";
-                        if(response.email != undefined){
-                            email = response.email;
-                        }
-
-                        jQuery.ajax({
-                            url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-                            type: "POST",
-                            data: "action=ht_social_login&type=facebook&id=" + id + "&name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email),
-                            success: function (response) {
-                                var obj = JSON.parse(response);
-                                if(obj.status == 1){
-                                  if(obj.is_registered == 1){
-                                    sessionStorage.setItem('bp_user',obj.user);
-                                    setCookie('LtpaToken2', 'true', 2);
-                                    setTimeout(function(){
-                                      window.location.reload();
-                                    }, 500);
-                                    
-                                  }
-                                }
-                            },
-                            error: function (response) {
-                            }
-                        });
-                    }
-                );
-            }    
-            else if (resp.status === 'not_authorized') 
-            {
-                console.log("Failed to Connect");
-            } else 
-            {
-                console.log("Logged Out");
-            }
-        });
-    }
-
-
-        </script>
 <script>
 
   var isMobileDevice = (window.screen.availWidth <= 640) ? true : false;

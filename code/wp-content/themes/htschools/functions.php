@@ -1,5 +1,6 @@
 <?php
 
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 if (!session_id()) {
@@ -630,7 +631,7 @@ function reg_new_user(){
         $_SESSION['new_user_mobile'] = $mobile;
         $_SESSION['new_user_gender'] = $gender;
 
-        $message = 'Use this OTP ' . $newOTP . ' to complete registration on HT Schools.';
+        $message = 'Use this OTP ' . $newOTP . ' to complete registration on HT School.';
 
         $sent = send_sms($mobile, $message);
 

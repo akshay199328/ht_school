@@ -5,6 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+  
+<meta charset="UTF-8">
+
 <meta name="google-signin-client_id" content="1069538733355-auadal7qm5ob9cj7n33f7k8uurib3t9k.apps.googleusercontent.com">
 
 <?php

@@ -25,7 +25,7 @@ get_header(vibe_get_header());
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
           <div class="sticky_content">
-          <div class="col-sm-12 col-md-9 col-lg-9 mrg">
+          <div class="col-sm-12 col-md-9 col-lg-9 mrg all-courses-left">
             <div class="">
                 <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                   <?php

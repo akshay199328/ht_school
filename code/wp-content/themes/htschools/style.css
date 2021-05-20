@@ -2085,7 +2085,7 @@ Course Details
   height: 100%;
   width: 100%;
   background-color: #fff;
-  margin-left: 5px;
+  /*margin-left: 5px;*/
   position: relative;
   /*margin-bottom: 20px;*/
 }
@@ -7453,7 +7453,9 @@ section{}
   .Popular-Courses > .container > .row .mobile-add{order:5;}
 }
 
-.header .left-menu .menu{display:flex;align-items:center;}
+.header .right-menu ul{margin-bottom:0}
+.header .right-menu .after_loginspace{display:flex;align-items:center;justify-content:flex-end;}
+.header .left-menu .menu{display:flex;align-items:center;margin-bottom:0}
 .header .left-menu .menu li{height:auto;width:auto !important;padding:11px 15px !important}
 .header .left-menu .menu li.border-menu{width:114px !important;border:1px solid #000;}
 .header .left-menu .menu li.border-menu:after{margin-left:auto}
@@ -7641,3 +7643,10 @@ table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left
   .all-courses-left{padding-right:27px !important}
 }
 .woocommerce-checkout{margin-bottom:30px;}
+
+.right-menu .custom_topmenu li a{font-weight:400 !important}
+.user_menu{padding:15px !important;border:1px solid #E8E8E8;}
+.user_menu .usermenu_content{padding:0;}
+.user_menu .usermenu_content a{padding:0 !important;}
+.user_menu .usermenu_content a:hover{color:#000 !important}
+.user_menu .usermenu_content a .vicon{margin-right:10px !important}

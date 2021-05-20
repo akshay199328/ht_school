@@ -245,7 +245,7 @@ font-size: 12px!important;
     margin-top: 15px !important;
 }
 @media screen and (max-width: 1366px){
-    .bootom-link{margin-top: 240px;}
+    /*.bootom-link{margin-top: 240px;}*/
 }
 @media screen and (max-width: 767px){
     .mobile_menu{display: block}

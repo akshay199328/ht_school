@@ -1554,7 +1554,7 @@ Course Details
   font-weight:normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.35;
+  line-height: 1.5;
   letter-spacing: normal;
   text-align: left;
   color: #000000;
@@ -7314,12 +7314,15 @@ section#content.section_contact{padding-top:10px}
 .profile-content{padding-right:0 !important;}
 .profile-content .co-lg-12{top:0 !important;padding-left:0 !important;}
 /*.instructor-detailsMini .profile-content p{flex:0 0 48%}*/
-.instructor-detailsMini .profile-content div:nth-child(2){margin:0 !important;order:3;position:relative;top:-42px;padding-left:15px}
-.instructor-detailsMini .profile-content .profileimg-name{width:100% !important;display:flex;align-items:center;}
-.instructor-detailsMini .profile-content .profileimg-name .profile-img{padding-right:20px;width:auto !important;flex:0 0 auto !important}
+/*.instructor-detailsMini .profile-content div:nth-child(2){margin:0 !important;order:3;position:relative;top:-42px;padding-left:15px}*/
+.instructor-detailsMini .profile-content .profileimg-name{width:50% !important;display:flex;align-items:center;flex-wrap:wrap;}
+.instructor-detailsMini .profile-content .profileimg-name .profile-img{padding-right:20px;width:auto !important;flex:0 0 auto !important;max-width:110px;}
 .instructor-detailsMini .profile-content .profileimg-name .profile-img img{height:110px;width:110px;}
-.instructor-detailsMini .profile-content .profileimg-name .padding_right{max-width:fit-content;flex:0 0 auto;top:0;}
-.instructor-detailsMini .profile-content .profileimg-name .padding_right h4{font-weight:400 !important;text-transform:uppercase;letter-spacing:1px;}
+.instructor-detailsMini .profile-content .profileimg-name .padding_right{flex:1;top:0;}
+.instructor-detailsMini .profile-content .profileimg-name .padding_right h4{font-weight:400 !important;text-transform:uppercase;letter-spacing:1px;padding-right:10px;}
+.instructor-detailsMini .profile-content .google-adsense{margin:-110px 0 15px 15px;position: relative;float:right;}
+.instructor-detailsMini .profile-content .instructor-copy{}
+.instructor-detailsMini .profile-content .instructor-copy p{}
 .details-right{}
 .news-main{}
 .news-main .content-right .adsense{float:right;margin-left:15px;margin-bottom:15px;}
@@ -7328,6 +7331,11 @@ section#content.section_contact{padding-top:10px}
 .profile-marginminus.vc_row-o-content-top .wpb_column{margin-top:0 !important;}
 
 @media (max-width: 420px){
+  .instructor-detailsMini .profile-content .google-adsense{margin:0;float:none;}
+  .instructor-detailsMini .profile-content .profileimg-name{width:100% !important;}
+  .instructor-detailsMini .profile-content .instructor-copy{display:flex;justify-content:space-between;flex-wrap:wrap;}
+  .instructor-detailsMini .profile-content .google-adsense{order:5;margin-top:10px;}
+
   .instructor-detailsMini .profile-content p{flex:0 0 100%}
   .instructor-detailsMini .profile-content div:nth-child(2){top:0 !important}
   .about-course{flex-direction:column;}

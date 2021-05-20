@@ -7250,7 +7250,6 @@ td .bookmark-remove{top:0 !important}
 .navegacion ul {
     width: 100%;
     height: 100%;
-    max-height: max-content;
     list-style: none;
     position: relative;
     top: 0;

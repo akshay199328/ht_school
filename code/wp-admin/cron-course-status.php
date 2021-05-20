@@ -1,17 +1,13 @@
 <?php
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
-/*error_reporting(E_ALL);
-ini_set('display_errors', 'On');*/
-
 $getUsersSql = "SELECT user_id, meta_key, meta_value FROM ht_usermeta WHERE meta_key = 'aiws_user_login_id'";
-// $getUsersSql .= " ORDER BY user_id DESC ";
 
 $courses_with_types = $wpdb->prepare($getUsersSql);
 
 $usersList = $wpdb->get_results($courses_with_types);
 
-if(count($usersList) > 1)
+if(count($usersList) > 0)
 {
 	$wpaiws_options = get_option('wpaiws_options');
 
@@ -81,7 +77,11 @@ if(count($usersList) > 1)
 					{
 						$hasChange = true;
 						$totalCompletedCourses++;
-						$courseInfo[$courseKey]['course_completed'] = 1;
+
+						$courseInfo[$courseKey]['course_completed']	= 1;
+						$courseInfo[$courseKey]['completed_on']		= $courseStatus['completedtimestamp'];
+
+						update_user_meta($userValue->user_id, 'course_status'.$courseValue['course_id'], 3);
 					}
 				}
 			}

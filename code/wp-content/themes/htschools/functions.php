@@ -2181,8 +2181,6 @@ function ht_social_login(){
 add_action( 'woocommerce_api_start-aiws-course', 'start_aiws_course');
 function start_aiws_course()
 {
-    echo "<pre>";print_r(create_wp_id_for_enrollment(5419));exit;
-
     $courseId = isset($_GET['course_id']) ? intval($_GET['course_id']) : 0;
 
     if($courseId <= 0){
@@ -2220,6 +2218,7 @@ function start_aiws_course()
                 $enrollCoursesInfoList = get_user_meta($userId, 'aiws_enroll_courses_info', true);
 
                 $coursesInfo = array(
+                    "course_id"    => $courseId,
                     "product_id"   => $aiwsCourseID,
                     "program_type" => $aiwsProgramType,
                     "user_id"      => $aiwsUserID,
@@ -2258,7 +2257,10 @@ function start_aiws_course()
     {
         $aiwsUserEmail = "ht_user_" . $userId . "_" . rand(1000,9999) . "@htschools.com";
 
-        $aiwsUserID = create_new_aiws_user("John", "Doe", $aiwsUserEmail, md5($aiwsUserEmail));
+        $firstName = get_user_meta($userId, "first_name", true);
+        $lastName  = get_user_meta($userId, "last_name", true);
+
+        $aiwsUserID = create_new_aiws_user($firstName, $lastName, $aiwsUserEmail, md5($aiwsUserEmail));
 
         if($aiwsUserID != false)
         {
@@ -2271,6 +2273,7 @@ function start_aiws_course()
             if($enrollResponse)
             {
                 $coursesInfo[] = array(
+                    "course_id"    => $courseId,
                     "product_id"   => $aiwsCourseID,
                     "program_type" => $aiwsProgramType,
                     "user_id"      => $aiwsUserID,
@@ -2279,6 +2282,7 @@ function start_aiws_course()
 
                 update_user_meta($userId, 'aiws_enroll_courses', array($courseId));
                 update_user_meta($userId, 'aiws_enroll_courses_info', array($coursesInfo));
+                update_user_meta($userId, 'course_status'.$courseId, 2);
 
                 sso_user_to_aiws_course($aiwsUserID);
             }
@@ -2522,7 +2526,7 @@ if(! function_exists( 'encryptString' ))
 }*/
 
 // Trim zeros in price decimals
-add_filter( 'woocommerce_price_trim_zeros', '__return_true' ); 
+add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
 
 /*function woo_text_after_price( $price ) {
     $price .= "<span class='gst'>+ GST</span>";

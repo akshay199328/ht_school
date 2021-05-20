@@ -2022,8 +2022,14 @@ Course Details
 # Features
 --------------------------------------------------------------*/
 .Popular-Courses{
-  background: url(./assets/images/course-background.png) no-repeat;
+  /*background: url(./assets/images/course-background.png) no-repeat;*/
+  background-image: url(./assets/images/tending-course-bg.png);
+  background-color: #FADE3B;
+  background-repeat:no-repeat;
+  background-position:bottom -60px right 50%;
+  background-size:1366px
 }
+.Popular-Courses .course-box{margin-left:0}
 .Popular-Courses .section-header {
     padding-bottom: 0px;    text-align: left;
 }
@@ -6916,7 +6922,11 @@ h6:empty,
 .paid_course.button{padding: 0px!important;background: transparent!important;box-shadow: none!important;}
 .start_time_none{display: none!important;}
 .all_course_page{    padding-top: 30px;}
-.all_course_page .course-box{margin-bottom: 10px;}
+.all_course_page .course-box{
+  /*margin-bottom: 10px;*/
+  padding-left:0;
+  padding-right:0;
+}
 #Popular-Courses.all_course_page .row {
     margin-right: 0px;
     margin-left: 0px;

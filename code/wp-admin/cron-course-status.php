@@ -39,6 +39,8 @@ if(count($usersList) > 0)
 		$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		curl_close($curl);
 
+		logAiwsResponse($params, $response);
+
 		if($httpCode == 200)
 		{
 			return json_decode($response, true);

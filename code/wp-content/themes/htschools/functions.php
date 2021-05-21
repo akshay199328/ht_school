@@ -2342,6 +2342,8 @@ function create_new_aiws_user($firstName, $lastName, $email, $password)
     $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
 
+    logAiwsResponse($params, $response);
+
     if($httpCode == 200)
     {
         $jsonDecoded = json_decode($response, true);
@@ -2397,6 +2399,8 @@ function enroll_user_to_course($productID, $programType, $userID, $wpID)
     $response = curl_exec($curl);
     $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
+
+    logAiwsResponse($params, $response);
 
     if($httpCode == 200)
     {
@@ -2456,6 +2460,21 @@ if(! function_exists( 'encryptString' ))
 
         return trim($data);
     }
+}
+
+function logAiwsResponse($params, $apiResponse)
+{
+    $filePath = ABSPATH . "aiws_logs.txt";
+
+    $content  = date('Y-m-d H:i:s')."\n";
+    $content .= json_encode($params)."\n";
+    $content .= $apiResponse."\n";
+    $content .= "--------------------------------------------------\n";
+
+    $file = fopen($filePath, "a");
+    fwrite($file, $content);
+    fclose($file);
+    return true;
 }
 
 /*function enroll_user_to_course($courseID, $aiwsUserID)

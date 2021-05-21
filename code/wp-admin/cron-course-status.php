@@ -51,8 +51,8 @@ if(count($usersList) > 0)
 		}
 	}
 
-	$totalCoursesChecked = 0;
-	$totalCompletedCourses = 0;
+	$totalCoursesChecked	= 0;
+	$totalCompletedCourses	= 0;
 
 	foreach ($usersList as $userKey => $userValue)
 	{
@@ -64,9 +64,9 @@ if(count($usersList) > 0)
 
 			foreach ($courseInfo as $courseKey => $courseValue)
 			{
+				// If course complete flag is marked as completed then skip is user
 				if(isset($courseValue['course_completed']) && $courseValue['course_completed'] == 1)
 				{
-					// If course complete flag is marked as completed then skip is user
 					continue;
 				}
 

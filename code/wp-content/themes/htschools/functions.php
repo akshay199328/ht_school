@@ -2272,7 +2272,7 @@ function start_aiws_course()
 
             if($enrollResponse)
             {
-                $coursesInfo[] = array(
+                $coursesInfo = array(
                     "course_id"    => $courseId,
                     "product_id"   => $aiwsCourseID,
                     "program_type" => $aiwsProgramType,

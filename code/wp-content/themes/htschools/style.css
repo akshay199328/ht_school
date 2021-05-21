@@ -6616,10 +6616,6 @@ h6:empty,
     .instructor-detailsMini .profile-content p {font-size: 15px;}
     .other-courses .list h3{min-height: 100%;}
     .right-menu ul li #new_searchicon{display: block!important}
-    .bootom-link{
-      /*margin-top: 50px!important;   */
-      padding-right: 30px;
-    }
     .login-box .login-right{    padding: 30px 25px;}
     .login-box h4{    margin-top: 15px;}
     .login-left{display: none;}
@@ -7215,7 +7211,7 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 input[type=file]{font-family:"GT-Walsheim-Pro" !important;}
 .btn, .button{font-family:"GT-Walsheim-Pro" !important;letter-spacing:0 !important;font-size:15px !important}
 
-.ui-datepicker{border:1px solid red !important;}
+/*.ui-datepicker{border:1px solid red !important;}*/
 .ui-datepicker-calendar .ui-state-default,
 .ui-datepicker-calendar *{font-family:"GT-Walsheim-Pro" !important;}
 .ui-datepicker-title{line-height:60px !important}
@@ -7244,12 +7240,16 @@ td .bookmark-remove{top:0 !important}
 }
 .share-icon .wpfp-span img{display:none !important;}
 .navegacion .menu-back{position:fixed !important;}
-.navegacion .menu-back .menu-copy{display:flex;flex-direction:column;overflow:scroll;position:initial;}
-.navegacion .menu-back .menu-copy .bootom-link{bottom:20px}
+.navegacion .menu-back .menu-copy{display:flex;flex-direction:column;position:initial;
+  height: 100% !important;
+    margin: 0 !important;
+    justify-content:space-between;
+}
+.navegacion .menu-back .menu-copy .bootom-link{bottom:0;position:relative;}
+.navegacion .menu-back .menu-copy .mobile_menu{margin-bottom:auto;}
 .navegacion ul {
     width: 100%;
     height: 100%;
-    max-height: max-content;
     list-style: none;
     position: relative;
     top: 0;
@@ -7389,7 +7389,7 @@ section#content.section_contact{padding-top:10px}
   .woocommerce-cart-form, .woocommerce-page .cart-collaterals{padding:20px;}
   .cart_heading{padding-bottom:0}
 
-  .bootom-link{position:relative !important;margin-top:0 !important;bottom:0 !important;}
+  .bootom-link{position:relative !important;bottom:0 !important;}
   .bootom-link ul.border-link{padding-top:10px !important;margin-top:0px !important}
   .bootom-link ul.border-link li a{padding:2px 5px !important}
   .navegacion ul{max-height:none !important;padding-right:0 !important}

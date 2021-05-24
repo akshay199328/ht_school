@@ -126,7 +126,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                   <p class="error" style="display: none;" id="ht_resend_error"></p>
                   <div class="resend-info">
                     <div class="pull-left">
-                      <p>Valid For: <span class="timer" id="reg-otp-timer">01:00</span></p>
+                      <p>Valid For: <span class="timer" id="reg-otp-timer">03:00</span></p>
                     </div>
                     <div class="pull-right">
                       <a href="javascript:void(0)" class="resend-link" id="resend-otp-link" style="display: none;">Resend OTP</a>
@@ -203,7 +203,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                     <p class="error" style="display: none;" id="mobile_resend_error"></p>
                     <div class="resend-info">
                       <div class="pull-left">
-                        <p>Valid For: <span class="timer" id="mob-otp-timer">01:00</span></p>
+                        <p>Valid For: <span class="timer" id="mob-otp-timer">10:00</span></p>
                       </div>
                       <div class="pull-right">
                         <a href="javascript:void(0)" class="resend-link" id="resend-mob-link" style="display: none;">Resend OTP</a>
@@ -468,9 +468,12 @@ jQuery(window).load(function(){
                 success: function(response) {
                     if(response.status == 1){
                       $('#otp-verification-form').trigger("reset");
-                      document.getElementById('reg-otp-timer').innerHTML = "00:30";
+                      var otp_timer = $('#reg-otp-timer').text();
+                      if(otp_timer == '0:00'){
+                        document.getElementById('reg-otp-timer').innerHTML = "10:00";
+                      }
                       jQuery("#resend-otp-link").hide();
-                        startTimer();
+                      startTimer();
                     }else{
                         jQuery("#ht_resend_error").html(response.message);
                         jQuery("#ht_resend_error").show();
@@ -492,7 +495,10 @@ jQuery(window).load(function(){
                 success: function(response) {
                     if(response.status == 1){
                       $('#mobile-otp-verification-form').trigger("reset");
-                        document.getElementById('mob-otp-timer').innerHTML = "00:30";
+                      var otp_timer = $('#mob-otp-timer').text();
+                      if(otp_timer == '0:00'){
+                        document.getElementById('mob-otp-timer').innerHTML = "10:00";
+                      }
                         jQuery("#resend-mob-link").hide();
                         startTimer2();
                     }else{
@@ -554,13 +560,16 @@ jQuery(window).load(function(){
         var timeArray = presentTime.split(/[:]+/);
         var m = timeArray[0];
         var s = checkSecond((timeArray[1] - 1));
-
         if(m == 0 && s == 0){
           jQuery("#resend-otp-link").show();
           $('.to_next').find('input:text').val('');
           document.getElementById('reg-otp-timer').innerHTML = m + ":" + s;
             return;
         }
+        else if(m !=0 && s== 0){
+          jQuery("#resend-otp-link").show();
+          jQuery('.to_next').find('input:text').val('');
+        } 
 
         if(s == 59){
             m = m - 1;
@@ -568,6 +577,11 @@ jQuery(window).load(function(){
         document.getElementById('reg-otp-timer').innerHTML = m + ":" + s;
         setTimeout(startTimer, 1000);
     }
+
+    // window.setTimeout(function() {
+    //   jQuery("#resend-otp-link").show();
+    //   jQuery('.to_next').find('input:text').val('');
+    // },20 * 1000)
 
     function startTimer2() {
         var presentTime = document.getElementById('mob-otp-timer').innerHTML;
@@ -577,9 +591,14 @@ jQuery(window).load(function(){
 
         if(m == 0 && s == 0){
           jQuery("#resend-mob-link").show();
+          jQuery('.to_next').find('input:text').val('');
           document.getElementById('mob-otp-timer').innerHTML = m + ":" + s;
             return;
         }
+        else if(m !=0 && s== 0){
+          jQuery("#resend-mob-link").show();
+          jQuery('.to_next').find('input:text').val('');
+        } 
 
         if(s == 59){
             m = m - 1;

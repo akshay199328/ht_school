@@ -479,7 +479,7 @@ add_action("wp_ajax_reg_send_otp", "reg_send_otp");
 add_action( 'wp_ajax_nopriv_reg_send_otp', 'reg_send_otp' );
 
 function reg_send_otp(){
-
+  global $wpdb;
   $requestEmail = trim($_REQUEST['email']);
   $response = array(
     'status' => 0,
@@ -487,7 +487,15 @@ function reg_send_otp(){
   );
 
   if (filter_var($requestEmail, FILTER_VALIDATE_EMAIL)) {
-    $newOTP = mt_rand(100000,999999);
+    $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $_SESSION['user_otp'] . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
+    $array_otp=json_decode( json_encode($getotp), true);
+    $db_otp = $array_otp[0]['otp'];
+    if (count($array_otp) > 0) {
+      $newOTP = $db_otp;
+    }
+    else{
+      $newOTP = mt_rand(100000,999999);
+    }
 
     $_SESSION['user_otp'] = $newOTP;
     $_SESSION['user_otp_email'] = $requestEmail;
@@ -508,6 +516,10 @@ function reg_send_otp(){
     $sent = wp_mail($requestEmail, $subject, $email_content, $headers);
     remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
         if($sent) {
+          if (count($array_otp) == 0) {
+            $results = $wpdb->prepare("INSERT INTO ht_authentication(otp, email_id, expired, created) VALUES ('".$newOTP."', '".$requestEmail."', 0, NOW())");
+            $wpdb->query($results);
+          }
           $response['status'] = 1;
           $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $requestEmail . '. Please enter the OTP to verify your email address.';
         }//message sent!
@@ -530,7 +542,7 @@ add_action("wp_ajax_reg_verify_otp", "reg_verify_otp");
 add_action( 'wp_ajax_nopriv_reg_verify_otp', 'reg_verify_otp' );
 
 function reg_verify_otp(){
-
+    global $wpdb;
     $num1 = isset($_REQUEST['num_1']) ? intval($_REQUEST['num_1']) : 0;
     $num2 = isset($_REQUEST['num_2']) ? intval($_REQUEST['num_2']) : 0;
     $num3 = isset($_REQUEST['num_3']) ? intval($_REQUEST['num_3']) : 0;
@@ -546,8 +558,12 @@ function reg_verify_otp(){
         'email' => '',
         'message' => 'Unable to verify OTP, please try again'
     );
-
-    if ($otp == $_SESSION['user_otp']) {
+    $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
+    $array_otp=json_decode( json_encode($getotp), true);
+    $db_otp = $array_otp[0]['otp'];
+    if (!empty(count($array_otp))) {
+      $sqlUpdate = $wpdb->prepare("DELETE FROM ht_authentication WHERE otp = '" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."'");
+      $wpdb->query($sqlUpdate);
         unset($_SESSION['user_otp']);
         $userEmail = $_SESSION['user_otp_email'];
         $_SESSION['user_email_verified'] = 1;
@@ -592,7 +608,7 @@ add_action("wp_ajax_reg_new_user", "reg_new_user");
 add_action( 'wp_ajax_nopriv_reg_new_user', 'reg_new_user' );
 
 function reg_new_user(){
-
+    global $wpdb;
     $response = array(
         'status' => 0,
         'message' => 'Unable to send OTP, please try again'
@@ -620,7 +636,15 @@ function reg_new_user(){
     }
 
     if(empty($errorMsg)){
-        $newOTP = mt_rand(100000,999999);
+        $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $_SESSION['user_otp'] . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
+        $array_otp=json_decode( json_encode($getotp), true);
+        $db_otp = $array_otp[0]['otp'];
+        if (count($array_otp) > 0) {
+          $newOTP = $db_otp;
+        }
+        else{
+          $newOTP = mt_rand(100000,999999);
+        }
         $_SESSION['user_otp'] = $newOTP;
         $_SESSION['user_otp_mobile'] = $mobile;
         $_SESSION['user_mobile_verified'] = 0;
@@ -636,6 +660,10 @@ function reg_new_user(){
         $sent = send_sms($mobile, $message);
 
         if($sent) {
+          if (count($array_otp) == 0) {
+            $results = $wpdb->prepare("INSERT INTO ht_authentication(otp, email_id, expired, created) VALUES ('".$newOTP."', '".$_SESSION['user_otp_email']."', 0, NOW())");
+              $wpdb->query($results);
+          }
           $response['status'] = 1;
           $response['message'] = 'A One-Time Passcode (OTP) has been sent to ' . $mobile . '. Please enter the OTP to verify your mobile number.';
         }//message sent!
@@ -675,7 +703,7 @@ add_action("wp_ajax_reg_verify_mob_otp", "reg_verify_mob_otp");
 add_action( 'wp_ajax_nopriv_reg_verify_mob_otp', 'reg_verify_mob_otp' );
 
 function reg_verify_mob_otp(){
-
+    global $wpdb;
     $num1 = isset($_REQUEST['num_1']) ? intval($_REQUEST['num_1']) : 0;
     $num2 = isset($_REQUEST['num_2']) ? intval($_REQUEST['num_2']) : 0;
     $num3 = isset($_REQUEST['num_3']) ? intval($_REQUEST['num_3']) : 0;
@@ -690,7 +718,12 @@ function reg_verify_mob_otp(){
         'message' => 'Unable to verify OTP, please try again'
     );
 
-    if ($otp == $_SESSION['user_otp']) {
+    $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
+    $array_otp=json_decode( json_encode($getotp), true);
+    $db_otp = $array_otp[0]['otp'];
+    if (!empty(count($array_otp))) {
+      $sqlUpdate = $wpdb->prepare("DELETE FROM ht_authentication WHERE otp = '" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."'");
+      $wpdb->query($sqlUpdate);
         unset($_SESSION['user_otp']);
         $userEmail = $_SESSION['user_otp_email'];
         $_SESSION['user_mobile_verified'] = 1;

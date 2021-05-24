@@ -15,29 +15,23 @@ $form_id = $contact_form -> id;
 if(have_posts()):while(have_posts()):the_post();
 ?>
 <div class="innerheader-space"></div>
-<section id="content" class="section_contact">
+<section id="content" class="section_contact partner-wrapper">
+    <!-- <div class="<?php echo vibe_get_container(); ?>"> -->
+        <div class="content sec_cont">
+          <ol class="breadcrumbs">
+            <li><a href="#"><span>Home</span></a></li><li class="current"><span>Become a Course partner</span></li>
+          </ol>
+             <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
+          <?php
+              the_content();
 
-    <div class="<?php echo vibe_get_container(); ?>">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content sec_cont">
-                  <ol class="breadcrumbs">
-                    <li><a href="#"><span>Home</span></a></li><li class="current"><span>Become a Course partner</span></li>
-                  </ol>
-                     <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
-                  <?php
-                      the_content();
-
-                   ?>
-                </div>
-                <?php
-                
-                endwhile;
-                endif;
-                ?>
-            </div>
+           ?>
         </div>
-    </div>
+        <?php
+        
+        endwhile;
+        endif;
+        ?>
 
 </section>
 <!-- <?php

@@ -1811,6 +1811,27 @@ function start_cs_course(){
 
             $cbCourseResponseArray = json_decode($cbCourseResponse, true);
             if(isset($cbCourseResponseArray['page_url'])){
+
+                $enrollCoursesInfoList = get_user_meta($userId, 'cs_enroll_courses_info', true);
+
+                $coursesInfo = array(
+                    "course_id"    => $courseId,
+                    "cs_course_id" => $cb_course_id,
+                );
+
+                if(is_array($enrollCoursesInfoList))
+                {
+                    if(!in_array($courseId, array_column($enrollCoursesInfoList, "course_id")))
+                    {
+                        $enrollCoursesInfoList[] = $coursesInfo;
+                        update_user_meta($userId, 'cs_enroll_courses_info', $enrollCoursesInfoList);
+                    }
+                }
+                else
+                {
+                    update_user_meta($userId, 'cs_enroll_courses_info', array($coursesInfo));
+                }
+
                 $cb_course_link = $cbCourseResponseArray['page_url'];
                 wp_redirect($cb_course_link);
             }else{
@@ -1830,6 +1851,14 @@ function start_cs_course(){
 
             $cbCourseResponseArray = json_decode($cbCourseResponse, true);
             if(isset($cbCourseResponseArray['page_url'])){
+
+                $coursesInfo = array(
+                    "course_id"    => $courseId,
+                    "cs_course_id" => $cb_course_id,
+                );
+
+                update_user_meta($userId, 'cs_enroll_courses_info', array($coursesInfo));
+
                 $cb_course_link = $cbCourseResponseArray['page_url'];
                 wp_redirect($cb_course_link);
             }else{
@@ -1874,6 +1903,7 @@ function signup_cb_user($userName, $email, $password){
     $response = curl_exec($curl);
     $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
+    logCSResponse($wpcs_options['cs_api_url'] . '/api/user/manual/signup', $userData, $response);
     if($httpcode == 200){
         return $response;
     }else{
@@ -1910,6 +1940,7 @@ function login_cb_user($email, $password){
     $response = curl_exec($curl);
     $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
+    logCSResponse($wpcs_options['cs_api_url'] . '/api/user/manual/login', $userData, $response);
     if($httpcode == 200){
         return $response;
     }else{
@@ -1950,6 +1981,7 @@ function cb_course_delivery($email, $courseId, $authToken){
     $response = curl_exec($curl);
     $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
+    logCSResponse($wpcs_options['cs_api_url'] . '/api/order/htCourseDelivery', $postData, $response);
     if($httpcode == 200){
         return $response;
     }else{
@@ -2500,6 +2532,22 @@ function logAiwsResponse($params, $apiResponse)
     $filePath = ABSPATH . "aiws_logs.txt";
 
     $content  = date('Y-m-d H:i:s')."\n";
+    $content .= json_encode($params)."\n";
+    $content .= $apiResponse."\n";
+    $content .= "--------------------------------------------------\n";
+
+    $file = fopen($filePath, "a");
+    fwrite($file, $content);
+    fclose($file);
+    return true;
+}
+
+function logCSResponse($url, $params, $apiResponse)
+{
+    $filePath = ABSPATH . "cs_logs.txt";
+
+    $content  = date('Y-m-d H:i:s')."\n";
+    $content .= $url."\n";
     $content .= json_encode($params)."\n";
     $content .= $apiResponse."\n";
     $content .= "--------------------------------------------------\n";

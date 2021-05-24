@@ -1832,13 +1832,15 @@ function start_cs_course(){
                     update_user_meta($userId, 'cs_enroll_courses_info', array($coursesInfo));
                 }
 
+                update_user_meta($userId, 'course_status'.$courseId, 2);
+
                 $cb_course_link = $cbCourseResponseArray['page_url'];
                 wp_redirect($cb_course_link);
             }else{
-                echo "Error occured while loading the course."; exit;
+                echo "Error occurred while loading the course"; exit;
             }
         }else{
-            echo "Error occured while loading the course. Please Try again."; exit;
+            echo "Error occurred while loading the course"; exit;
         }
 
     }else{
@@ -1858,14 +1860,15 @@ function start_cs_course(){
                 );
 
                 update_user_meta($userId, 'cs_enroll_courses_info', array($coursesInfo));
+                update_user_meta($userId, 'course_status'.$courseId, 2);
 
                 $cb_course_link = $cbCourseResponseArray['page_url'];
                 wp_redirect($cb_course_link);
             }else{
-                echo "SSO Error occured while loading the course."; exit;
+                echo "Error occurred while loading the course"; exit;
             }
         }else{
-            echo "SSO Error occured while loading the course. Please Try again."; exit;
+            echo "Error occurred while loading the course"; exit;
         }
     }
 }
@@ -2312,7 +2315,7 @@ function start_aiws_course()
             }
             else
             {
-                echo "SSO Error occured while loading the course."; exit;
+                echo "Error occurred while loading the course"; exit;
             }
         }
 
@@ -2353,12 +2356,12 @@ function start_aiws_course()
             }
             else
             {
-                echo "SSO Error occured while loading the course."; exit;
+                echo "Error occurred while loading the course"; exit;
             }
         }
         else
         {
-            echo "SSO Error occured while loading the course. Please Try again."; exit;
+            echo "Error occurred while loading the course"; exit;
         }
     }
 }

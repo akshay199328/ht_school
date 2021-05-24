@@ -150,7 +150,7 @@ class ACUI_Email_Options{
 		$automatic_wordpress_email = sanitize_text_field( $form_data["automatic_wordpress_email"] );
 		$automatic_created_edited_wordpress_email = sanitize_text_field( $form_data["automatic_created_edited_wordpress_email"] );
 		$subject_mail = sanitize_text_field( stripslashes_deep( $form_data["subject_mail"] ) );
-		$body_mail = wp_kses_post( stripslashes( $form_data["body_mail"] ) );
+		$body_mail =  stripslashes( $form_data["body_mail"]);
 		$template_id = intval( $form_data["template_id"] );
 		$email_template_attachment_id = intval( $form_data["email_template_attachment_id"] );
 		$disable_wp_editor = isset( $form_data['disable_wp_editor'] ) && $form_data['disable_wp_editor'] == 'yes';
@@ -192,14 +192,27 @@ class ACUI_Email_Options{
 		$user_id = $user_object->ID;
 		$user_login= $user_object->user_login;
 		$user_email = $user_object->user_email;
+		global $wpdb;
+		$course_array= $wpdb->get_results( "SELECT posts.ID AS id, posts.post_title, meta.* FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key WHERE posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND   meta.user_id   = '".$user_id."'  AND  meta.meta_value > 1617292303");
+		$array = json_decode( json_encode($course_array), true);
+
+		$course_name=$array[0]['post_title'];
+
 		
-		$body = apply_filters( 'acui_import_email_body_source', get_option( "acui_mail_body" ), $headers, $data, $created, $user_id );
+		// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+	  $body = apply_filters( 'acui_import_email_body_source', get_option( "acui_mail_body" ), $headers, $data, $created, $user_id );
+
 		$subject = apply_filters( 'acui_import_email_subject_source', get_option( "acui_mail_subject" ), $headers, $data, $created, $user_id );
 								
 		$body = str_replace( "**loginurl**", wp_login_url(), $body );
 		$body = str_replace( "**username**", $user_login, $body );
+		$body = str_replace( "**course_name**", $course_name, $body );
 		$body = str_replace( "**lostpasswordurl**", wp_lostpassword_url(), $body );
 		$subject = str_replace( "**username**", $user_login, $subject );
+
+
 
 		if( !is_wp_error( $key ) ){
 			$passwordreseturl = apply_filters( 'acui_email_passwordreseturl', network_site_url( 'wp-login.php?action=rp&key=' . $key . '&login=' . rawurlencode( $user_login ), 'login' ) );
@@ -228,10 +241,10 @@ class ACUI_Email_Options{
 			$body = str_replace( "**" . $headers[ $i ] .  "**", $data[ $i ] , $body );
 			$subject = str_replace( "**" . $headers[ $i ] .  "**", $data[ $i ] , $subject );
 		}
-		
-		$body = apply_filters( 'acui_import_email_body_before_wpautop', $body, $headers, $data, $created, $user_id );
 
-		$body = wpautop( $body );
+	  //  $body = apply_filters( 'acui_import_email_body_before_wpautop', $body, $headers, $data, $created, $user_id );
+
+		$body =  $body;
 		
 		$attachments = array();
 		$attachment_id = get_option( 'acui_mail_attachment_id' );

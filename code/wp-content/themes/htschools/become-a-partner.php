@@ -224,7 +224,7 @@ get_footer(vibe_get_footer());
             <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img"/>
            <h2 class="contact-title"> Thank you for getting in touch!</h2>            
           </div>          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="window.location.href = '<?php echo bloginfo('url');?>'">
             <span>&times;</span>
           </button>
       </div>

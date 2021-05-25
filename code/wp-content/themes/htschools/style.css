@@ -7694,23 +7694,27 @@ table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left
 .partner-wrapper{background-color:#d5ebff !important;padding-top:0 !important;}
 .partner-wrapper .section_contact{padding-top:0 !important}
 .page-template-become-a-course-partner-php .header,
-.page-template-become-a-partner-php .header{background-color:#d5ebff !important;}
+.page-template-become-a-partner-php .header,
+.page-template-contact-php .header{background-color:#d5ebff !important;}
 .partner-wrapper.section_contact ol.breadcrumbs{max-width:1088px;margin:auto !important;padding:10px 15px}
 .partner-wrapper .section_contact .sec_cont{background-color:#d5ebff !important;}
-.partner-wrapper .partner-header{max-width:1088px;margin:auto !important;padding:20px 15px 30px;float:none;border:1px solid red;}
+.partner-wrapper .partner-header{max-width:1088px;margin:auto !important;padding:20px 15px 30px;float:none;}
 .partner-wrapper .partner-header .vc_column-inner{padding:0 !important;}
 .partner-wrapper .partner-header .vc_column-inner .wpb_text_column{margin-bottom:0 !important}
 .partner-wrapper .partner-header .vc_column-inner h1,
 .partner-wrapper .partner-header .vc_column-inner h2{color:rgb(40, 88, 197);line-height:1;}
 .partner-wrapper .partner-header .vc_column-inner h1{font-size:60px;font-weight:600;}
 .partner-wrapper .partner-header .vc_column-inner h2{font-size:40px;font-weight:400 !important}
+.page-template-contact-php .partner-wrapper .partner-header .vc_column-inner h2{font-size:27px;}
 .partner-wrapper .partner-copy{background-color:rgb(248, 248, 248);}
 .partner-wrapper .partner-copy .vc_column-inner{max-width:1088px;margin:auto !important;padding-top:30px;padding-bottom:50px;background-image:url("assets/images/partner.png");background-repeat:no-repeat;background-position:bottom 60px right;background-size:621px;}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper{background-color:#FFF;border:1px solid #c3c3c3;max-width:530px;padding:30px}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-submit{}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .ajax-loader{display:none}
-.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form-control{
-    border-bottom: 1px solid rgba(0, 0, 0, .08);
+.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form-control,
+.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper select,
+.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper textarea{
+    border-bottom: 1px solid rgba(0, 0, 0, .08) !important;
     color: #888;
     width: 100%;
     border-top: 0;
@@ -7718,10 +7722,13 @@ table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left
     border-right: 0;
     font-weight: 100;
     padding:8px 0 !important;
+    height:auto;
+    background-color:transparent;
+    font-size:18px !important
 }
-.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper label{font-size:14px !important;font-weight:400;margin-bottom:22px;}
+.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper label{font-size:14px !important;font-weight:400;margin-bottom:22px;max-width:350px;width:100%;}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper label::last-child{margin-bottom:0}
-.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form-control{font-size:18px !important}
+.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper textarea.wpcf7-form-control{background-color:#F8F8F8 !important;height:100px !important;background-position:15px 15px !important;padding:15px 15px 15px 45px !important;}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-submit{width:145px;line-height:49px !important;padding:0 !important;border-radius:0;margin-top:0}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-not-valid-tip{display:block;color:#e34c44;margin-top:4px;}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper br{display:none}
@@ -7738,4 +7745,50 @@ table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left
   .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper{}
   .partner-wrapper{padding-top: 0 !important;}
   .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form h3{font-size:20px}
+}
+
+/*.page-id-69 .container{border:1px solid red;}*/
+.page-id-69 .vc_row{margin:0 0 120px 0}
+.page-id-69 .imagination-wrap{margin-bottom:25px;}
+.page-id-69 .imagination-image{margin-bottom:120px !important}
+.page-id-69 .about-description{margin-bottom:44px;}
+.page-id-69 .Profile-topPadd{padding:0 !important;display:flex;justify-content:space-between;flex-wrap:wrap;margin:40px 0 130px 0;border:1px solid red;}
+.page-id-69 .Profile-topPadd .profile-secText{padding-left:0}
+.page-id-69 .Profile-topPadd .wpb_column{float:none;width:15%;}
+.page-id-69 .Profile-topPadd:after, .page-id-69 .Profile-topPadd:before{display:none;}
+.page-id-69 .learning-wrapper{margin-bottom:0;}
+.page-id-69 .learning-wrapper h2{font-size:60px;color:#000;line-height:1.1;}
+.page-id-69 .somestuff-sec{margin-bottom:47px}
+.page-id-69 .somestuff-sec h3{padding:0;margin-top:37px;margin-bottom:0;}
+.page-id-69 .customImage-padding{margin-bottom:70px}
+.page-id-69 .customImage-padding .wpb_column{margin-bottom:50px}
+.page-id-69 .customImage-padding .profile-secText{padding:0;}
+.page-id-69 .customImage-padding .profile-secText p{padding-right:40px}
+.page-id-69 .customImage-padding .vc_figure{}
+.page-id-69 .aboutUs-wrapper{padding:0}
+.page-id-69 .aboutUs-wrapper,
+.page-id-69 .joinus-section{margin-bottom:0}
+.page-id-69 .look-title{max-width:240px}
+.page-id-69 .mob-display{margin:0 -20px}
+@media (max-width:430px){
+  .page-id-69 .Profile-topPadd{margin-bottom:60px}
+  .page-id-69 .Profile-topPadd .wpb_column{width:48%}
+  .page-id-69 .Profile-topPadd .wpb_column .profile-secText p{font-size:15px}
+  .page-id-69 .about-description{margin-bottom:40px}
+  .page-id-69 .learning-wrapper h2{max-width:270px;}
+
+  .page-id-69 .customImage-padding{display:flex;justify-content:space-between;flex-wrap:wrap;}
+  .page-id-69 .customImage-padding .wpb_column{width:48%;}
+}
+.joinsec-padding{background-color:#d6eaff;background-position:top center;background-repeat:no-repeat;height:545px}
+.joinsec-padding .container{max-width:1170px !important;margin:auto !important;float:none;}
+.joinsec-padding h2{
+  font-size: 60px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000; 
 }

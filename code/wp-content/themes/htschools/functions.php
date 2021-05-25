@@ -517,6 +517,8 @@ function reg_send_otp(){
     remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
         if($sent) {
           if (count($array_otp) == 0) {
+            $sqlDelete = $wpdb->prepare("DELETE FROM ht_authentication WHERE email_id = '".$_SESSION['user_otp_email']."'");
+            $wpdb->query($sqlDelete);
             $results = $wpdb->prepare("INSERT INTO ht_authentication(otp, email_id, expired, created) VALUES ('".$newOTP."', '".$requestEmail."', 0, NOW())");
             $wpdb->query($results);
           }
@@ -661,6 +663,8 @@ function reg_new_user(){
 
         if($sent) {
           if (count($array_otp) == 0) {
+            $sqlDelete = $wpdb->prepare("DELETE FROM ht_authentication WHERE email_id = '".$_SESSION['user_otp_email']."'");
+            $wpdb->query($sqlDelete);
             $results = $wpdb->prepare("INSERT INTO ht_authentication(otp, email_id, expired, created) VALUES ('".$newOTP."', '".$_SESSION['user_otp_email']."', 0, NOW())");
               $wpdb->query($results);
           }

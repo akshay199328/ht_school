@@ -412,6 +412,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           $duration = $custom_fields['vibe_validity'][0];
                           $age_limit = $custom_fields['vibe_course_age_group'][0];
                           $category_array = get_the_terms( $post->ID, 'course-cat');
+                          $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                     ?>
 
                       <div class="col-sm-12 col-lg-4 mrg card item">
@@ -421,7 +422,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           <h3><?php bp_course_title(); ?></h3>
                           <div class="col-sm-12 mrg session duration">
                             <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" />
-                            <?php if($duration != ''){echo $duration; }?><span><?php if($duration != ''){echo ' Days'; }?> </span>
+                            <?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span>
                           </h6>
                           </div>
                           <div class="other-courses_join-btn">

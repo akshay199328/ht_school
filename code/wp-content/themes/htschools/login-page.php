@@ -126,7 +126,7 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
                   <p class="error" style="display: none;" id="ht_resend_error"></p>
                   <div class="resend-info">
                     <div class="pull-left">
-                      <p>Valid For: <span class="timer" id="reg-otp-timer">03:00</span></p>
+                      <p>Valid For: <span class="timer" id="reg-otp-timer">10:00</span></p>
                     </div>
                     <div class="pull-right">
                       <a href="javascript:void(0)" class="resend-link" id="resend-otp-link" style="display: none;">Resend OTP</a>
@@ -354,6 +354,7 @@ jQuery(window).load(function(){
             }*/
                        jQuery("#reloadpage").show();
                     }else{
+                        jQuery('#mobile-otp-verification-form').trigger("reset");
                         jQuery("#mobile_resend_error").html(response.message);
                         jQuery("#mobile_resend_error").show();
                         setTimeout(function(){
@@ -525,7 +526,6 @@ jQuery(window).load(function(){
                 success: function(response) {
                   jQuery("#verify-otp-btn").html("Verify OTP");
                     jQuery("#verify-otp-btn").removeAttr("disabled");
-
                     if(response.status == 1){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
@@ -541,6 +541,7 @@ jQuery(window).load(function(){
                             jQuery("#login-step-3").show();
                         }
                     }else{
+                        jQuery('#otp-verification-form').trigger("reset");
                         jQuery("#ht_resend_error").html(response.message);
                         jQuery("#ht_resend_error").show();
                         setTimeout(function(){

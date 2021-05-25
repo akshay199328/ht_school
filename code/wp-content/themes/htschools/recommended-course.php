@@ -39,37 +39,8 @@ vibe_include_template("profile/top$profile_layout.php");
                     $type = bp_course_get_user_course_status($user->ID,$course->id);
                     $statuses[$course->id]= intval($type);
                 }
-                //print_r($args['post__in']);
-                //  print_r(get_the_terms(196, 'course-tag' ));
-                // $categories = get_the_terms(196, 'course-tag'); 
-                // if ( ! empty( $categories ) ) {
-                //     $category = $categories;
-                //     $name = $category->name;
-                //     print_r($name);
-                // }
                 
-                    // $term_array = [];
-                    // foreach($args['post__in'] as $post_id) {
-                    //     $term_array[] = get_the_course_tags($post_id,'course-tag');
-                    // }
-                    //     //print_r($term_array);
-                    //     foreach ($term_array as $term) {
-                    //        foreach ($term as $test) {
-                    //            echo $test->slug;
-                    //        }
-                    //     }
-                // $query_args = apply_filters('wplms_mycourses',array(
-                //     'post_type'=>'course',
-                //     'post__in'=>$args['post__in']
-                // ),$user->ID);
-                // $course_query = new WP_Query($query_args);
-                // while($course_query->have_posts()){
-                //     $course_query->the_post();
-                //     global $post;
-                //     /*print_r($course_query);*/
-                //     //print_r($posttags);
-                //             }
-                            $tag_array = array();
+                    $tag_array = array();
                     if(!empty($args['post__in'])){
                         foreach ($args['post__in'] as $post_id) {
                             if(!empty(get_the_terms($post_id, 'course-tag' ))){
@@ -89,26 +60,19 @@ vibe_include_template("profile/top$profile_layout.php");
                     $coursearray = array();
                     if ($specialtopic) {
                       foreach($specialtopic as $tag) {
-                        //echo $tag->term_id . ' ';
-                        //$term_array[] = $tag->term_id; 
+                        /*echo $tag->term_id . ' ';
+                        $term_array[] = $tag->term_id; */
                         $ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = '".$tag."'") );
-                        // $ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", '193' ) );
-                        //$args['post__in'] = $ids;
+                        /* $ids = $wpdb->get_col( $wpdb->prepare( "SELECT object_id FROM $wpdb->term_relationships WHERE term_taxonomy_id = %d", '193' ) );
+                        //$args['post__in'] = $ids;*/
 
                         foreach ($ids as $course_id) {
-                            // echo "<pre>";
-                            // echo $tags;
                             $coursearray[] = $course_id;
                         }
                       }
-                            //print_r($coursearray);
-                            $args['post__in'] = $coursearray;
-                    //print_r($args['post__in']);
-                    //print_r($active_courses);
-                    $unique_courses = array_unique($args['post__in']);
-                    //print_r($unique_courses);
+                        $args['post__in'] = $coursearray;
+                        $unique_courses = array_unique($args['post__in']);
                         $recommended_courses = array_diff($unique_courses,$active_courses);
-                        //print_r($recommended_courses);
                         if( !empty( $recommended_courses ) ) {
                             $query_args = apply_filters('wplms_mycourses',array(
                             'post_type'=>'course',
@@ -118,8 +82,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             $Query_course = new WP_Query($query_args);
                         }
                     }
-                    //print_r($ids);
-                   
+                    
                     if($Query_course != NULL){
 
                     if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();

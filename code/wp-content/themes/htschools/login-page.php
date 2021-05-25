@@ -565,11 +565,15 @@ jQuery(window).load(function(){
           jQuery("#resend-otp-link").show();
           $('.to_next').find('input:text').val('');
           document.getElementById('reg-otp-timer').innerHTML = m + ":" + s;
-            return;
+          return;
         }
         else if(m !=0 && s== 0){
           jQuery("#resend-otp-link").show();
           jQuery('.to_next').find('input:text').val('');
+        }
+        else if(m < 0){
+          document.getElementById('reg-otp-timer').innerHTML = "0:00";
+          return;
         } 
 
         if(s == 59){
@@ -599,6 +603,10 @@ jQuery(window).load(function(){
         else if(m !=0 && s== 0){
           jQuery("#resend-mob-link").show();
           jQuery('.to_next').find('input:text').val('');
+        } 
+        else if(m < 0){
+          document.getElementById('mob-otp-timer').innerHTML = "0:00";
+          return;
         } 
 
         if(s == 59){

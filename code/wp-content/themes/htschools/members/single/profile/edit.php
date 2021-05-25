@@ -526,6 +526,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		                        $("#response_message").addClass('success');
 		                        $("#response_message").removeClass('error');
 		                        $("#response_message").show();
+		                        window.location.href='<?php echo get_bloginfo('url')?>/members-directory/<?php echo $currentUser->user_nicename?>';
 		                        setTimeout(function(){
 		                            $("#response_message").html('');
 		                            $("#response_message").hide();

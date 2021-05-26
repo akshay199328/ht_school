@@ -7541,7 +7541,7 @@ section{}
 
 .share-icon .a2a_kit{}
 
-table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left:5px;}
+table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left:5px;color:#585858}
 
 .woocommerce-checkout-review-order-table .product-total{text-align:right;}
 .woocommerce-checkout-review-order-table tfoot td{text-align:right;}
@@ -7746,7 +7746,10 @@ table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left
   .partner-wrapper{padding-top: 0 !important;}
   .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form h3{font-size:20px}
 }
-
+td.share-icon ul li{margin-right:18px}
+td .add-wishlist{top:0;
+height: 21px;
+    width: 23px;}
 /*.page-id-69 .container{border:1px solid red;}*/
 .page-id-69 .vc_row{margin:0 0 120px 0}
 .page-id-69 .imagination-wrap{margin-bottom:25px;}

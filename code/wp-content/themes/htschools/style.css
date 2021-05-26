@@ -7800,7 +7800,7 @@ table .course-button .gst{font-size:16px;font-weight:400;color:#999;padding-left
   .joinsec-padding .mob-display{margin-bottom:0 !important;margin-top:20px;}
   .page-id-69 .customImage-padding .profile-secText p{padding-right:0}
 }
-.about-us-hero{border:1px solid blue;margin-bottom:0 !important;background-color:#d5ebff !important;height:652px;background-repeat:no-repeat;background-position:center top;}
+.about-us-hero{margin-bottom:0 !important;background-color:#d5ebff !important;height:652px;background-repeat:no-repeat;background-position:center top;}
 @media (max-width:768px){
   .vc_custom_1622009032818.about-us-hero{background-image:none !important;height:auto !important;}
   .about-us-hero .wpb_single_image{margin-bottom:0 !important;}

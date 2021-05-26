@@ -320,18 +320,6 @@ function wpfp_shortcode_func() {
 add_shortcode('wp-favorite-posts', 'wpfp_shortcode_func');
 
 
-function wpfp_add_js_script() {
-	if (!wpfp_get_option('dont_load_js_file'))
-		wp_enqueue_script( "wp-favorite-posts", WPFP_PATH . "/script.js", array( 'jquery' ), WPFP_JS_VERSION );
-}
-add_action('wp_print_scripts', 'wpfp_add_js_script');
-
-function wpfp_wp_print_styles() {
-	if (!wpfp_get_option('dont_load_css_file'))
-		echo "<link rel='stylesheet' id='wpfp-css' href='" . WPFP_PATH . "/wpfp.css' type='text/css' />" . "\n";
-}
-add_action('wp_print_styles', 'wpfp_wp_print_styles');
-
 function wpfp_init() {
     $wpfp_options = array();
     $wpfp_options['add_favorite'] = "Add to favorites";

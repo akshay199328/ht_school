@@ -879,41 +879,53 @@ width: auto;
 }
 .hero .col-lg-9, .hero .col-lg-3{float: left}
 .learing_card .hero-list  {
-    float: left;
     width: 100%;
     margin-top: 0px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
 }
 .hero-list .hero-card{
  display: inline-block;
-    float: left;
-    width: 250px;
-    height: 210.6px;
-    margin-right: 19px;
+    width:24.3%;
+    flex:0 0 24.3%;
+    height:185px;
     margin-top: 20px;
     padding: 15px 20px;
     word-break: break-word;
-    
+    background-color:#FFF;
+    border-bottom:1px solid #707070;
+    background-repeat:no-repeat;
+    background-position:bottom 58% right 50%;
+    position:relative;
+    color:#000;
 }
+.hero-list .hero-card .started{position:absolute;bottom:23px;transform:translateX(-50%);left:50%;border-bottom:1px solid #000;padding-bottom:3px;line-height:1;font-size:16px;}
+.hero-list .hero-card:hover .started{border-bottom-color:#0C5ACC;color:#0C5ACC}
 .hero-list .hero-card:nth-child(1){
-  background: url("./assets/images/Scholarship-Programme.png"), #0521c4;
+  background-image: url("./assets/images/gateway/01.png");
+  /*background: url("./assets/images/Scholarship-Programme.png"), #0521c4;
   background-repeat: no-repeat;
-    background-position:23% 100%;
+    background-position:23% 100%;*/
 }
 .hero-list .hero-card:nth-child(2){
-  background: url("./assets/images/code.png"), #aa2061;
+  background-image: url("./assets/images/gateway/02.png");
+  /*background: url("./assets/images/code.png"), #aa2061;
   background-repeat: no-repeat;
-    background-position:23% 106%;
+    background-position:23% 106%;*/
 }
 .hero-list .hero-card:nth-child(3){
-  background: url("./assets/images/career.png"), #12756f;
+  background-image: url("./assets/images/gateway/03.png");
+  /*background: url("./assets/images/career.png"), #12756f;
   background-repeat: no-repeat;
-  background-position:23% 160%;
+  background-position:23% 160%;*/
 }
 .hero-list .hero-card:nth-child(4){
-  background: url("./assets/images/olympiad.png"), #001e03;
+  background-image: url("./assets/images/gateway/04.png");
+  /*background: url("./assets/images/olympiad.png"), #001e03;
   background-repeat: no-repeat;
   background-position:23% 111%;
-  margin-right: 0px;
+  margin-right: 0px;*/
 }
 .hero-list .hero-card h6{
   font-size: 20px;
@@ -6352,25 +6364,20 @@ h6:empty,
     .right-menu .icon{display: block}
     /*.right-menu ul li{margin-right: 15px;}*/
     .header .logo img{max-width: 100px;margin: 0;margin-left: 25px;}
+    .hero-list .owl-item .hero-card{
+      width:210px;
+    }
     .hero-list .owl-item:nth-child(1) .hero-card {
-      background: url(./assets/images/Scholarship-Programme.png), #0521c4;
-      background-repeat: no-repeat;
-      background-position: 23% 100%;
+      background-image: url("./assets/images/gateway/01.png");
     }
     .hero-list .owl-item:nth-child(2) .hero-card{
-      background: url("./assets/images/code.png"), #aa2061;
-      background-repeat: no-repeat;
-      background-position:23% 106%;
+      background-image: url("./assets/images/gateway/02.png");
     }
     .hero-list .owl-item:nth-child(3) .hero-card{
-      background: url("./assets/images/career.png"), #12756f;
-      background-repeat: no-repeat;
-      background-position:23% 160%;
+      background-image: url("./assets/images/gateway/03.png");
     }
     .hero-list .owl-item:nth-child(4) .hero-card{
-      background: url("./assets/images/olympiad.png"), #001e03;
-      background-repeat: no-repeat;
-      background-position: 23% 111%;
+      background-image: url("./assets/images/gateway/04.png");
     }
     .cart-contents-count{line-height: 16px;height: 15px;width: 15px;}
     .mobile-add{display:block;margin-bottom: 30px;}

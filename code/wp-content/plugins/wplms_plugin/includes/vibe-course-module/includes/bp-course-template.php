@@ -872,7 +872,7 @@ if(!function_exists('bp_course_item_view')){
                                   <?php }else{
                                     $url = "/login-register";
                                     ?>
-                                    <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="bookmark-remove" title="Add to Wishlist"></i></a></li> 
+                                    <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> 
                                     <?php
                                   }
                                   ?>

@@ -1543,13 +1543,13 @@ function wpfp_course_link( $return = 0, $action = "", $show_span = 1, $args = ar
     $str .= wpfp_before_link_img();
     $str .= wpfp_loading_img();
     if ($action == "remove"):
-        $str .= wpfp_course_link_html($post_id, wpfp_get_option('remove_favorite'), "remove",$title2);
+        $str .= wpfp_course_link_html($post_id, 'remove-wishlist', "remove",$title2);
     elseif ($action == "add"):
-        $str .= wpfp_course_link_html($post_id, wpfp_get_option('add_favorite'), "add",$title1);
+        $str .= wpfp_course_link_html($post_id, 'add-wishlist', "add",$title1);
     elseif (wpfp_check_favorited($post_id)):
-        $str .= wpfp_course_link_html($post_id, wpfp_get_option('remove_favorite'), "remove",$title2);
+        $str .= wpfp_course_link_html($post_id, 'remove-wishlist', "remove",$title2);
     else:
-        $str .= wpfp_course_link_html($post_id, wpfp_get_option('add_favorite'), "add",$title1);
+        $str .= wpfp_course_link_html($post_id, 'add-wishlist', "add",$title1);
     endif;
     if ($show_span)
         $str .= "</span>";
@@ -1557,7 +1557,7 @@ function wpfp_course_link( $return = 0, $action = "", $show_span = 1, $args = ar
 }
 
 function wpfp_course_link_html($post_id, $opt, $action, $title) {
-  $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $title ."' rel='nofollow'>". $opt ."</a>";
+  $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $title ."' rel='nofollow'><i class=". $opt ."></i></a>";
   $link = apply_filters( 'wpfp_course_link_html', $link );
   return $link;
 }

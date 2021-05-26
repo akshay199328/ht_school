@@ -31,8 +31,8 @@ if(defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/customizer.php';
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/css.php';
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/vibe-menu.php';
-  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/notes-discussions.php';
-  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/wplms-woocommerce-checkout.php';
+  //include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/notes-discussions.php';
+  //include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/wplms-woocommerce-checkout.php';
 
   if ( function_exists('bp_get_signup_allowed')) {
       include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/bp-custom.php';

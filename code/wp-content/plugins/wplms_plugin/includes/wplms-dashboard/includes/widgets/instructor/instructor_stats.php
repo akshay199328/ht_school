@@ -31,6 +31,8 @@ class wplms_instructor_stats extends WP_Widget {
     function enqueue_script(){
         if(is_active_widget(false, false, 'wplms_dash_instructing_modules', true) || apply_filters('vibebp_enqueue_profile_script',false)){
 
+        if(is_user_logged_in()){
+
             wp_enqueue_script('wplms_dashboard_instructor_stats',WPLMS_PLUGIN_URL.'/assets/js/instructorstats.js',array('wp-element','wp-data'),WPLMS_PLUGIN_VERSION,true);
             wp_enqueue_style('wplms_dashboard_css',WPLMS_PLUGIN_URL.'/assets/css/dashboard.css',array(),WPLMS_PLUGIN_VERSION);
           wp_localize_script('wplms_dashboard_instructor_stats','instructor_stats',array(
@@ -48,6 +50,7 @@ class wplms_instructor_stats extends WP_Widget {
               'load_curriculum'=> __('Load curriculum','wplms'),
             )
           ));
+        }
         }
     }
     /** @see WP_Widget::widget -- do not rename this */

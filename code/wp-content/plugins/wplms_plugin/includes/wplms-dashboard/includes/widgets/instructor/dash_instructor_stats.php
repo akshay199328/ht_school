@@ -38,6 +38,8 @@ class wplms_instructor_dash_stats extends WP_Widget {
       
         if(is_active_widget(false, false, 'wplms_dash_instructing_modules', true) || apply_filters('vibebp_enqueue_profile_script',false)){
 
+          if(is_user_logged_in()){
+
             wp_enqueue_script('wplms_dashboard_instructor_simple_stats',WPLMS_PLUGIN_URL.'/assets/js/instructorsimplestats.js',array('wp-element','wp-data'),WPLMS_PLUGIN_VERSION,true);
         
             wp_enqueue_style('wplms_dashboard_css',WPLMS_PLUGIN_URL.'/assets/css/dashboard.css',array(),WPLMS_PLUGIN_VERSION);
@@ -48,6 +50,9 @@ class wplms_instructor_dash_stats extends WP_Widget {
                 'translations'=>array(
                 )
             ));
+
+          }
+
         }
     }
 

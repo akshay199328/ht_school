@@ -30,16 +30,20 @@ class wplms_instructor_students_widget extends WP_Widget {
     
     function enqueue_script(){
         if(is_active_widget(false, false, 'wplms_dash_instructing_modules', true) || apply_filters('vibebp_enqueue_profile_script',false)){
-            wp_enqueue_script('wplms_instructor_students_widget', WPLMS_PLUGIN_URL.'/assets/js/instructor_students.js', array('wp-element', 'wp-data'), WPLMS_PLUGIN_VERSION,true);
-            wp_enqueue_style('wplms_dashboard_css',WPLMS_PLUGIN_URL.'/assets/css/dashboard.css',array(),WPLMS_PLUGIN_VERSION);
-            wp_localize_script('wplms_instructor_students_widget', 'instructor_students', array(
-                'settings' => array(),
-                'api' => rest_url(BP_COURSE_API_NAMESPACE . '/dashboard/widget'),
-                'translations' => array(
-                    'load_more' => __('Load More','wplms'),
-                    'no_student' => __('No Student','wplms'),
-                ),
-            ));
+
+            if(is_user_logged_in()){
+
+                wp_enqueue_script('wplms_instructor_students_widget', WPLMS_PLUGIN_URL.'/assets/js/instructor_students.js', array('wp-element', 'wp-data'), WPLMS_PLUGIN_VERSION,true);
+                wp_enqueue_style('wplms_dashboard_css',WPLMS_PLUGIN_URL.'/assets/css/dashboard.css',array(),WPLMS_PLUGIN_VERSION);
+                wp_localize_script('wplms_instructor_students_widget', 'instructor_students', array(
+                    'settings' => array(),
+                    'api' => rest_url(BP_COURSE_API_NAMESPACE . '/dashboard/widget'),
+                    'translations' => array(
+                        'load_more' => __('Load More','wplms'),
+                        'no_student' => __('No Student','wplms'),
+                    ),
+                ));
+            }
         }
     }    
 

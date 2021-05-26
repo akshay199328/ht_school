@@ -2647,3 +2647,8 @@ function woo_text_after_price( $price ) {
 }
 add_filter( 'woocommerce_get_price_html', 'woo_text_after_price' );
 add_filter( 'woocommerce_cart_item_price', 'woo_text_after_price' );
+
+function ht_remove_wp_block_library_css(){
+wp_dequeue_style( 'wp-block-library' );
+}
+add_action( 'wp_enqueue_scripts', 'ht_remove_wp_block_library_css' );

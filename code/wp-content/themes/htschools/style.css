@@ -7818,3 +7818,6 @@ height: 21px;
   .vc_custom_1622009032818.about-us-hero{background-image:none !important;height:auto !important;}
   .about-us-hero .wpb_single_image{margin-bottom:0 !important;}
 }
+
+.wpfp-hide { display: none; }
+.wpfp-img { border: 0; vertical-align: middle; margin-right: 2px; }

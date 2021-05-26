@@ -4224,17 +4224,20 @@ padding-top: 50px;
     padding: 6px 0px 40px;
 }
 .login-box{
-    width: 718px;
+    width: 740px;
     margin: 0px auto;
     background: #F8F8F8;
     box-shadow: 1px 14px 25px rgb(124 172 216 / 50%);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
 }
 .login-box .loginContent_left {
-    width: 317.89px;
+    width:330px;
     float: left;
 }
 .login-box .loginContent_right {
-    width: 400px;
+    flex:1;
     float: left;
         position: relative;
 }
@@ -4242,7 +4245,7 @@ padding-top: 50px;
 .login-box .login-right {
     float: left;
     width: 100%;
-    padding: 65px 40px;
+    padding:45px 40px;
 }
 .login-box h4{
   font-size: 25px;
@@ -6365,7 +6368,7 @@ h6:empty,
     /*.right-menu ul li{margin-right: 15px;}*/
     .header .logo img{max-width: 100px;margin: 0;margin-left: 25px;}
     .hero-list .owl-item .hero-card{
-      width:210px;
+      width:257px;
     }
     .hero-list .owl-item:nth-child(1) .hero-card {
       background-image: url("./assets/images/gateway/01.png");

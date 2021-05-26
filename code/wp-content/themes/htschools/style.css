@@ -7760,6 +7760,12 @@ td.share-icon ul li{margin-right:18px}
 td .add-wishlist{top:0;
 height: 21px;
     width: 23px;}
+@media (max-width:767px){
+  td.share-icon ul li{margin-right:13px;}
+  td .add-wishlist,
+  td .remove-wishlist{width:13px !important;height:14px !important;background-size:13px !important;}
+  .course-box .share-icon{top:15px !important;right:15px !important;}
+}
 /*.page-id-69 .container{border:1px solid red;}*/
 .page-id-69 .vc_row{margin:0 0 120px 0}
 .page-id-69 .imagination-wrap{margin-bottom:25px;}

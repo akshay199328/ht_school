@@ -243,32 +243,38 @@ register_sidebar( array(
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 
   function front_end_scripts(){
-    if(!is_admin()){
-  wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
-  wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css' );
-  wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css' );
-  wp_enqueue_style( 'wplms-bootstrap', get_template_directory_uri(). '/assets/vendor/bootstrap/css/bootstrap.css' );
-  wp_enqueue_style( 'wplms-font', get_template_directory_uri(). '/assets/css/font.css' );
-  wp_enqueue_style( 'wplms-owl-carousel', get_template_directory_uri(). '/assets/css/owl.carousel.min.css' );
-  wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css' );
-  wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css' );
-  wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
-  wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
-  wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
-  wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
-  wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
-  wp_enqueue_script( 'wplms-circle', get_template_directory_uri(). '/assets/js/circle.js', '', '', true );
-   }
+  if(!is_admin()){
+    wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
+    wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css' );
+    wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css' );
+    wp_enqueue_style( 'wplms-bootstrap', get_template_directory_uri(). '/assets/vendor/bootstrap/css/bootstrap.css' );
+    wp_enqueue_style( 'wplms-font', get_template_directory_uri(). '/assets/css/font.css' );
+    wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css' );
+    wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css' );
+    wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
+    if(is_front_page()){
+      wp_enqueue_style( 'wplms-owl-carousel', get_template_directory_uri(). '/assets/css/owl.carousel.min.css' );
+      wp_enqueue_script( 'wplms-carousel', 'https://cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
+    }
+    wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
+    wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
+    wp_enqueue_script( 'wplms-navigation', get_template_directory_uri(). '/assets/js/navigation-custom.js', '', '', true );
+    if(is_user_logged_in()){
+      wp_enqueue_script( 'wplms-circle', get_template_directory_uri(). '/assets/js/circle.js', '', '', true );
+    }
+  }
 }
 
 add_action( 'wp_enqueue_scripts', 'front_end_scripts' );
 function wpse_enqueue_datepicker() {
+  if(is_user_logged_in()){
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'jquery-ui-datepicker' );
     wp_enqueue_script( 'jquery-ui-autocomplete' );
     // You need styling for the datepicker. For simplicity I've linked to the jQuery UI CSS on a CDN.
     wp_register_style( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css' );
     wp_enqueue_style( 'jquery-ui' );
+  }
 }
 add_action( 'wp_enqueue_scripts', 'wpse_enqueue_datepicker' );
 

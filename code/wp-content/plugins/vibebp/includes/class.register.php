@@ -757,6 +757,7 @@ class VibeBP_Register{
 
 
     function enqueue_head(){
+if(is_user_logged_in()){
         
         wp_enqueue_script('localforage',plugins_url('../assets/js/localforage.min.js',__FILE__),array(),VIBEBP_VERSION);
 
@@ -1099,7 +1100,7 @@ class VibeBP_Register{
             )));
             wp_enqueue_style('vibe_editor',plugins_url('../assets/css/editor.css',__FILE__),array(),VIBEBP_VERSION);
         }
-    }
+    }}
 
 }
 VibeBP_Register::init();

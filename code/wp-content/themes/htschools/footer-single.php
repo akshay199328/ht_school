@@ -532,6 +532,7 @@ border: 1px solid deepskyblue;
     window.onbeforeunload = null;
     (function($) {
         $(document).ready(function(){
+
             $("#user_mobile").keypress(function (e) {
               var mobNum = $(this).val();
                 if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -858,7 +859,7 @@ border: 1px solid deepskyblue;
                       <div class="add-pic">
                           <span class="add-name">Add Pic</span>
                           <span class="pic">
-                            <img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg">
+                            <img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg" height="auto" width="auto">
                           </span>
                       </div>
                       <div class="form-group">
@@ -913,7 +914,7 @@ border: 1px solid deepskyblue;
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
-            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img"/>
+            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img" height="auto" width="auto"/>
           </div>          
           <button type="button" class="close" data-dismiss="modal" id="close_popup" aria-label="Close">
             <span>&times;</span>
@@ -930,6 +931,7 @@ border: 1px solid deepskyblue;
   jQuery('#close_popup').click(function(){
     location.reload();
   });
+  
 </script>
 <?php
 wp_footer();

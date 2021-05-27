@@ -323,11 +323,12 @@ jQuery(window).load(function(){
 
         jQuery("#reloadpage").click(function(){
             //window.location.reload();
-            // let preUrl = jQuery("#preUrl").attr("data-preUrl");
-            // window.location.replace(preUrl);
-            var session = sessionStorage.getItem('bp_user');
-            var result = jQuery.parseJSON(session);
-            window.location.href = site_url + '/members-directory/' + result['user_nicename'];
+            let preUrl = jQuery("#preUrl").attr("data-preUrl");
+            alert(preUrl);
+            window.location.replace(preUrl);
+            // var session = sessionStorage.getItem('bp_user');
+            // var result = jQuery.parseJSON(session);
+            // window.location.href = site_url + '/members-directory/' + result['user_nicename'];
         });
         jQuery("#verify-mob-otp-btn").click(function(){
             jQuery("#verify-mob-otp-btn").html("Please wait...");
@@ -347,11 +348,27 @@ jQuery(window).load(function(){
                         console.log("user login success");
                         jQuery("#login-step-4").hide();
                         jQuery("#login-step-5").show();
-/*            if(response.previous_page_url != ''){
-              window.location.replace(response.previous_page_url);
-            }else{
-              jQuery("#reloadpage").show();
-            }*/
+                        var session = sessionStorage.getItem('bp_user');
+                        var result = jQuery.parseJSON(session);
+                        var login_url = sessionStorage.getItem('login_url');
+                        console.log(login_url);
+                        if(login_url == 1){
+                          window.setTimeout(function() {
+                            window.location.href = site_url + '/members-directory/' + result['user_nicename'];
+                          }, 5000);
+                        }
+                        else{
+                          let preUrl = jQuery("#preUrl").attr("data-preUrl");
+                          window.setTimeout(function() {
+                            window.location.replace(preUrl);
+                          }, 5000);
+                          sessionStorage.setItem('login_url',0);
+                        }
+                        /* if(response.previous_page_url != ''){
+                            window.location.replace(response.previous_page_url);
+                          }else{
+                            jQuery("#reloadpage").show();
+                          }*/
                        jQuery("#reloadpage").show();
                     }else{
                         jQuery('#mobile-otp-verification-form').trigger("reset");

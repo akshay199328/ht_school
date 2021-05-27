@@ -63,14 +63,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		$userMetaKeys = array(
 			"first_name",
 			"last_name",
-			"role",
 			"gender",
 			"mobile",
 			"user_registered",
 		);
 
 		$fileName		= "users_".date("Y_m_d_H_i").".csv";
-		$fieldHeaders	= array("user_login", "user_email", "first_name", "last_name", "role", "gender", "mobile", "registered_on", "school_name");
+		$fieldHeaders	= array("user_login", "user_email", "first_name", "last_name", "gender", "mobile", "registered_on", "school_name");
 		$actualData		= array();
 
 		$schoolFieldID = 0;
@@ -84,11 +83,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 		foreach ($usersList as $key => $value)
 		{
-			$user		= get_user_by( 'id', 8609 );
-			$userRole	= implode( ',', $user->roles );
-
-			if(strtolower($userRole) != "student") continue;
-
 			$temp = array();
 
 			$temp[] = $value->user_login;
@@ -156,7 +150,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Export</title>
+	<title>Users Export &lsaquo; HT School &#8212; WordPress</title>
 </head>
 <body>
 	<form method="post">

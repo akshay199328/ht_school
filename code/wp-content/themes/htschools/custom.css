@@ -505,7 +505,7 @@ td .add-wishlist{
     width: 25px;
     display: block;
     position: relative;
-     top: 7px; 
+     /*top: 7px; */
 }
 .remove-wishlist{
   background: url('./assets/images/wishlist-fill.svg') no-repeat;
@@ -513,5 +513,5 @@ td .add-wishlist{
     width: 25px;
   display: block;
   position: relative;
-  /*top: 7px;
-}*/
+  /*top: 7px;*/
+}

@@ -2041,7 +2041,9 @@ Course Details
   background-color: #FADE3B;
   background-repeat:no-repeat;
   background-position:bottom -60px right 50%;
-  background-size:1366px
+  background-size:1366px;
+      height: auto;
+    width: 100%;
 }
 .Popular-Courses .course-box{margin-left:0}
 .Popular-Courses .section-header {

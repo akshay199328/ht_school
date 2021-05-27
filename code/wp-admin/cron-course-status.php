@@ -1,6 +1,8 @@
 <?php
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
+date_default_timezone_set("Asia/Kolkata");
+
 $cronResult['aiws_unique_users']		= 0;
 $cronResult['aiws_courses_check']		= 0;
 $cronResult['aiws_completed_courses']	= 0;
@@ -107,7 +109,8 @@ $csUsersList = $wpdb->get_results($wpdb->prepare($getUsersSql));
 
 if(count($csUsersList) > 0)
 {
-	$wpcs_options = get_option('wpcs_options');
+	$wpcs_options	= get_option('wpcs_options');
+	$xAuthToken		= "";
 
 	function generate_cs_token()
 	{
@@ -153,6 +156,8 @@ if(count($csUsersList) > 0)
 		$params["user_email"]	= $userEmail;
 		$params["album_id"]		= $albumID;
 
+		if($xAuthToken == "")	$xAuthToken = generate_cs_token();
+
 		$headers = array();
 		$headers[] = 'x-auth-token: ' . $xAuthToken;
 
@@ -186,8 +191,6 @@ if(count($csUsersList) > 0)
 			return false;
 		}
 	}
-
-	$xAuthToken = generate_cs_token();
 
 	foreach ($csUsersList as $userKey => $userValue)
 	{
@@ -231,5 +234,16 @@ if(count($csUsersList) > 0)
 		}
 	}
 }
+
+// Log cron result
+$filePath = ABSPATH . "cron_logs.txt";
+
+$content  = date('Y-m-d H:i:s')."\n";
+$content .= json_encode($cronResult)."\n";
+$content .= "--------------------------------------------------\n";
+
+$file = fopen($filePath, "a");
+fwrite($file, $content);
+fclose($file);
 
 echo json_encode($cronResult);exit;

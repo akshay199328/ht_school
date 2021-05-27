@@ -45,8 +45,8 @@ get_header(vibe_get_header());
             </div>
           </div>
         </div>
-        <img alt="desktop" title="desktop" src="<?php echo $image_url; ?>" class="desktop_img" width="auto" height="auto"/>
-        <img alt="mobile" title="mobile" src="<?php echo $mobile_image; ?>" class="mobile_img" width="auto" height="auto"/>
+        <img alt="desktop" title="desktop" src="<?php echo $image_url; ?>" class="desktop_img" width="100%" height="auto"/>
+        <img alt="mobile" title="mobile" src="<?php echo $mobile_image; ?>" class="mobile_img" width="100%" height="auto"/>
       </div>
     <?php endwhile;endif; ?>
   </div>

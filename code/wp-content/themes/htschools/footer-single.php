@@ -859,7 +859,7 @@ border: 1px solid deepskyblue;
                       <div class="add-pic">
                           <span class="add-name">Add Pic</span>
                           <span class="pic">
-                            <img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg" height="auto" width="auto">
+                            <img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg" height="auto" width="100%">
                           </span>
                       </div>
                       <div class="form-group">
@@ -914,7 +914,7 @@ border: 1px solid deepskyblue;
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
-            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img" height="auto" width="auto"/>
+            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img" height="auto" width="100%"/>
           </div>          
           <button type="button" class="close" data-dismiss="modal" id="close_popup" aria-label="Close">
             <span>&times;</span>

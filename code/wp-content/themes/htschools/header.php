@@ -22,7 +22,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MVTH49L');</script>
 <!-- End Google Tag Manager -->
 <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&autoLogAppEvents=1&version=v8.0&appId=294857988885507" nonce="bdrlZY2f"></script>
 <script>
 
   var isMobileDevice = (window.screen.availWidth <= 640) ? true : false;
@@ -298,9 +297,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                        ?>
 
                     </ul>
-                    <!-- <ul class="border-link">
-                        <p>© HT Media Limited All rights reserved.</p>
-                    </ul> -->
+                   
                 </div>
             </ul>
         </div>

@@ -901,7 +901,7 @@ width: auto;
     color:#000;
 }
 .hero-list .hero-card .started{
-  position:absolute;bottom:23px;transform:translateX(-50%);left:50%;border-bottom:1px solid #000;padding-bottom:2px;line-height:1;font-size:16px;font-weight:500;
+  position:absolute;bottom:23px;transform:translateX(-50%);left:50%;border-bottom:1px solid #000;padding-bottom:1px;line-height:1;font-size:16px;font-weight:600;
 }
 .hero-list .hero-card:hover .started{border-bottom-color:#0C5ACC;color:#0C5ACC}
 .hero-list .hero-card:nth-child(1){

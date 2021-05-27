@@ -212,17 +212,15 @@ if(count($csUsersList) > 0)
 				$cronResult['cs_courses_check']++;
 				$courseStatus = check_cs_course_status($csEmailID, $courseValue['cs_course_id']);
 
-				if(strtolower($courseStatus['success']) == "success")
+				if($courseStatus['status'] == "1")
 				{
-					if($courseStatus['program_status'] == 1)
-					{
-						$hasChange = true;
-						$cronResult['cs_completed_courses']++;
+					$hasChange = true;
+					$cronResult['cs_completed_courses']++;
 
-						$courseInfo[$courseKey]['course_completed']	= 1;
+					$courseInfo[$courseKey]['course_completed']			= 1;
+					$courseInfo[$courseKey]['course_complete_percent']	= $courseStatus['course_complete_percent'];
 
-						update_user_meta($userValue->user_id, 'course_status'.$courseValue['course_id'], 3);
-					}
+					update_user_meta($userValue->user_id, 'course_status'.$courseValue['course_id'], 3);
 				}
 			}
 

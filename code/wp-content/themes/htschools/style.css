@@ -4239,9 +4239,9 @@ padding-top: 50px;
     float: left;
 }
 .login-box .loginContent_right {
-    flex:1;
-    float: left;
-        position: relative;
+   float: left;
+    position: relative;
+    width: 410px;
 }
 .login-left img{width: 100%;height: 640px;}
 .login-box .login-right {

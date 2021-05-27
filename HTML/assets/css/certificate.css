@@ -8,10 +8,11 @@
   text-align: center;
   padding: 20px;
   border: 1px solid #ddd;
+  color:#000;
 }
 
 .certificate-wrapper h1 {
-  font-weight: 300 !important;
+  font-weight: 500 !important;
 }
 
 .certificate-wrapper .date {
@@ -39,14 +40,15 @@
 
 .certificate-wrapper .copy .eyebrow {
   letter-spacing: 3px;
-  color: #1A57A4;
+  color: #0B59CB;
   text-transform: uppercase;
   margin-bottom: 15px;
   display: block;
+  font-weight:500;
 }
 
 .certificate-wrapper .copy h2 {
-  font-weight: 300 !important;
+  font-weight: 500 !important;
   text-transform: uppercase;
   letter-spacing: 4px;
   border-bottom: 1px dotted #000;
@@ -74,4 +76,5 @@
 .certificate-wrapper .logos li .info{border-top:1px dotted #000;margin-top:8px;padding-top:8px;}
 .certificate-wrapper .logos li .info .name{font-weight:500}
 .certificate-wrapper .logos li span{display:block;}
+.certificate-wrapper .logos li .designation{font-size:15px;}
 /*# sourceMappingURL=certificate.css.map */

@@ -856,6 +856,8 @@ if(is_user_logged_in()){
         }
         
         if(apply_filters('vibebp_enqueue_profile_script',$enqueue_script)){
+
+            if(is_user_logged_in()){
             //wp_dequeue_script('jquery');
 
             wp_enqueue_script('tus',plugins_url('../assets/js/tus.min.js',__FILE__),array(),VIBEBP_VERSION,true);
@@ -875,7 +877,7 @@ if(is_user_logged_in()){
             wp_enqueue_style('plyr',plugins_url('../assets/css/plyr.css',__FILE__),array(),VIBEBP_VERSION);
             wp_enqueue_script('vibe_editor_mathjax','https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js');
             wp_enqueue_script('vibe_editor',plugins_url('../assets/js/editor.js',__FILE__),array(),VIBEBP_VERSION,true);
-
+        }
 
             ob_start();
             ?>

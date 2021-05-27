@@ -90,6 +90,7 @@ if(count($aiwsUsersList) > 0)
 						$courseInfo[$courseKey]['completed_on']		= $courseStatus['completedtimestamp'];
 
 						update_user_meta($userValue->user_id, 'course_status'.$courseValue['course_id'], 3);
+						update_user_meta($userValue->user_id, 'progress'.$courseValue['course_id'], 100);
 					}
 				}
 			}
@@ -224,6 +225,7 @@ if(count($csUsersList) > 0)
 					$courseInfo[$courseKey]['course_complete_percent']	= $courseStatus['course_complete_percent'];
 
 					update_user_meta($userValue->user_id, 'course_status'.$courseValue['course_id'], 3);
+					update_user_meta($userValue->user_id, 'progress'.$courseValue['course_id'], 100);
 				}
 			}
 

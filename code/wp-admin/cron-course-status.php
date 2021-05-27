@@ -199,6 +199,8 @@ if(count($csUsersList) > 0)
 		{
 			$hasChange = false;
 
+			$csEmailID = get_user_meta($userValue->user_id, 'cb_user_login_email', true);
+
 			foreach ($courseInfo as $courseKey => $courseValue)
 			{
 				// If course complete flag is marked as completed then skip is user
@@ -208,7 +210,7 @@ if(count($csUsersList) > 0)
 				}
 
 				$cronResult['cs_courses_check']++;
-				$courseStatus = check_cs_course_status($userValue->user_id, $courseValue['cs_course_id']);
+				$courseStatus = check_cs_course_status($csEmailID, $courseValue['cs_course_id']);
 
 				if(strtolower($courseStatus['success']) == "success")
 				{

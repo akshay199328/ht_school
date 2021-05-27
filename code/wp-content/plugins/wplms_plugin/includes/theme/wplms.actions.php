@@ -132,7 +132,9 @@ class WPLMS_Plugin_Actions{
   			wp_enqueue_script('plyr',VIBEBP_PLUGIN_URL.'/assets/js/plyr.js',array(),VIBEBP_VERSION,true);
   			 wp_enqueue_style('plyr',VIBEBP_PLUGIN_URL.'/assets/css/plyr.css',array(),VIBEBP_VERSION);
     	}
-    	wp_enqueue_script('wplms-course-video-js',plugins_url('../../assets/js/course_video.js',__FILE__),array('wp-element','plyr'),WPLMS_PLUGIN_VERSION,true);
+
+    	if(is_user_logged_in()){
+    	wp_enqueue_script('wplms-course-video-js',plugins_url('../../assets/js/course_video.js',__FILE__),array('wp-element','plyr'),WPLMS_PLUGIN_VERSION,true);}
 
     	$blog_id = '';
 	    if(function_exists('get_current_blog_id')){

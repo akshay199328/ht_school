@@ -28,13 +28,13 @@
   margin-left: 15px;
 }
 
-.certificate-wrapper .logo {
-  height: 90px;
+.certificate-wrapper .hero-logo {
+  height: 80px;
   margin-bottom: 50px;
 }
 
 .certificate-wrapper .copy {
-  margin: 8    0px 0;
+  margin: 80px 0;
 }
 
 .certificate-wrapper .copy .eyebrow {
@@ -61,8 +61,17 @@
   margin-bottom: 3px;
 }
 
-.certificate-wrapper .logo img {
-  height: 95px;
+.certificate-wrapper .logos{
+  padding:0;
+  margin:0 0 20px 0;
+  list-style-type:none;
+  display:flex;align-items:flex-start;justify-content:center;
+}
+.certificate-wrapper .logos li{
   margin: 0 10px;
 }
+.certificate-wrapper .logos li img{vertical-align:middle;}
+.certificate-wrapper .logos li .info{border-top:1px dotted #000;margin-top:8px;padding-top:8px;}
+.certificate-wrapper .logos li .info .name{font-weight:500}
+.certificate-wrapper .logos li span{display:block;}
 /*# sourceMappingURL=certificate.css.map */

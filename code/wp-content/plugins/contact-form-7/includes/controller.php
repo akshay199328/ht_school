@@ -27,7 +27,7 @@ function wpcf7_control_init() {
 	}
 }
 
-
+if(!is_front_page()){
 /**
  * Registers main scripts and styles.
  */
@@ -104,11 +104,14 @@ add_action(
 	10, 0
 );
 
-
+}
 /**
  * Enqueues scripts.
  */
+
+
 function wpcf7_enqueue_scripts() {
+if(!is_front_page()){
 	wp_enqueue_script( 'contact-form-7' );
 
 	$wpcf7 = array();
@@ -120,6 +123,7 @@ function wpcf7_enqueue_scripts() {
 	wp_localize_script( 'contact-form-7', 'wpcf7', $wpcf7 );
 
 	do_action( 'wpcf7_enqueue_scripts' );
+}
 }
 
 
@@ -135,6 +139,7 @@ function wpcf7_script_is() {
  * Enqueues styles.
  */
 function wpcf7_enqueue_styles() {
+if(!is_front_page()){
 	wp_enqueue_style( 'contact-form-7' );
 
 	if ( wpcf7_is_rtl() ) {
@@ -142,9 +147,10 @@ function wpcf7_enqueue_styles() {
 	}
 
 	do_action( 'wpcf7_enqueue_styles' );
+
 }
 
-
+}
 /**
  * Returns true if the main stylesheet is enqueued.
  */

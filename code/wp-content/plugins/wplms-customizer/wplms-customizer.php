@@ -557,3 +557,14 @@ function custom_coming_soon_label($credits,$course_id){
   return $credits;
 
 }
+
+add_filter('wplms_course_student_marks',function($u_marks,$id,$user_id){
+    $upload_course = get_post_meta($id,'vibe_course_package',true);
+    if(!empty($upload_course )){
+        if(function_exists('bp_course_update_user_progress')){
+            bp_course_update_user_progress($user_id,$id,100);
+        }
+        return 100;
+    }
+    return $u_marks;
+},10,3);

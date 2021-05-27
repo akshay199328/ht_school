@@ -376,7 +376,7 @@ class WPLMS_Register{
                   'good'                => __( 'Good', 'vibe' ),
                   'strong'              => __( 'Strong', 'vibe' ),
               );
-
+ 
           if(function_exists('is_wplms_4_0') && is_wplms_4_0() && vibe_get_option('offload_scripts')){
               if(vibe_get_option('offload_scripts') == 2){
                 wp_enqueue_script( 'wplms-js', VIBE_URL .'/assets/js/v4.js',array(),WPLMS_VERSION);    
@@ -390,6 +390,8 @@ class WPLMS_Register{
             
           }else{
 
+if(is_user_logged_in()){
+
             wp_enqueue_script( 'wplms', VIBE_URL.'/assets/js/wplms.legacy.js',array(),WPLMS_VERSION);
 
             if(function_exists('bp_is_active')){
@@ -400,7 +402,7 @@ class WPLMS_Register{
               
               // localise
               wp_localize_script( 'buddypress-js', 'BP_DTheme', $params );
-            
+        }    
             
 
             $wplms_strings = array(
@@ -417,11 +419,18 @@ class WPLMS_Register{
         }
     } 
     function wplms_force_enqueue_head(){
+
+
+if(is_user_logged_in()){
+
       $page_id = vibe_get_option('take_course_page');
       if(is_page($page_id) || is_singular('quiz')){
+
+
         wp_enqueue_style( 'wp-mediaelement' );
         wp_enqueue_script( 'wp-mediaelement' );
       }
+    }
     }
 
     /*============================================*/

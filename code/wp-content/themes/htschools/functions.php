@@ -31,8 +31,8 @@ if(defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/customizer.php';
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/customizer/css.php';
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/vibe-menu.php';
-  //include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/notes-discussions.php';
-  //include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/wplms-woocommerce-checkout.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/notes-discussions.php';
+  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/wplms-woocommerce-checkout.php';
 
   if ( function_exists('bp_get_signup_allowed')) {
       include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/bp-custom.php';
@@ -49,14 +49,11 @@ if(defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
       include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/pmpro-connect.php';
   }
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/advanced_woocommerce_widgets.php';
-  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/twitter.php';
-  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/widgets/flickr.php';
 
   //Misc
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/extras.php';
 
-  //SETUP
-  include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/setup/wplms-install.php';
+
 }
 
 /**
@@ -2648,7 +2645,10 @@ function woo_text_after_price( $price ) {
 add_filter( 'woocommerce_get_price_html', 'woo_text_after_price' );
 add_filter( 'woocommerce_cart_item_price', 'woo_text_after_price' );
 
-function ht_remove_wp_block_library_css(){
-wp_dequeue_style( 'wp-block-library' );
+// Remove jQuery Migrate Script from header and Load jQuery from Google API
+function ht_wp_embed() {
+  if (!is_admin()) {
+    wp_deregister_script('wp-embed');
+  }
 }
-add_action( 'wp_enqueue_scripts', 'ht_remove_wp_block_library_css' );
+add_action('init', 'ht_wp_embed');

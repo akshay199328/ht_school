@@ -4381,5 +4381,32 @@ h4.modal-title{
 }
   /*added by satish*/
 
+/*404 CSS*/
 
+.page_not_found .details {
+    width: 56%;
+    margin: 0px auto;
+    text-align: center;
+}
+.page_not_found .details h6{
+    font-size: 45px;
+    line-height: 60px;
+    color: #97C4EE;
+}
+.page_not_found .details p{
+      font-size: 18px;
+    line-height: 24px;
+    color: #000;
+}
+.page_not_found .details .btn{
+  font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #D5EBFF;
+    background: #000;
+    border-radius: 0px;
+    border: 0px;
+    padding: 12px 25px;
+    margin-top: 25px;
+}
 

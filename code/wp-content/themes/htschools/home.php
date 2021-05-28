@@ -66,7 +66,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
               <p>Access the world’s activities, anytime anywhere.</p>
               <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover All Courses</a>
           </header>
-          <div class="adworks">
+          <div class="adworks homecourse_adwork">
             <?php
             if ( is_active_sidebar( 'homepage-mid-banner' ) ) : ?>
               <?php dynamic_sidebar( 'homepage-mid-banner' ); ?>

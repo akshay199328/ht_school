@@ -2464,7 +2464,7 @@ button.progress_key_3
 .adworks-head img{
     width: 100%;
 }
-.adworks-head a {
+.adworks-head a , .adwork_text{
     font-size: 11px;
     font-weight:normal;
     font-stretch: normal;
@@ -2475,6 +2475,7 @@ button.progress_key_3
     text-decoration: underline;
     text-align: right;
 }
+
 section.latest-news{
     padding:0px 0px 20px;
 }
@@ -6354,6 +6355,7 @@ h6:empty,
   .footer .footer-top {
     background-position: center bottom;
   }
+
 }
 @media (min-width: 1200px){
   .container, .container-lg, .container-md, .container-sm, .container-xl {max-width: 1088px!important;}
@@ -7766,6 +7768,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 /*.all-courses-left .course-box{padding-left:0;padding-right:0;}*/
 @media (min-width:992px){
   .all-courses-left{padding-right:27px !important}
+  .homecourse_adwork {padding-right: 63px;}
 }
 .woocommerce-checkout{margin-bottom:30px;}
 

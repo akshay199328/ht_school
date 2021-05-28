@@ -1786,7 +1786,13 @@
     display: inline-block !important;
     height: auto !important
 }
-
+.course_status .incourse .quiz_pagination_wrapper>.button i{
+    font-size: 14px;
+    line-height: 1;
+    color: #000;
+    font-weight: bold;
+    opacity: 1;
+}
 .course_status .incourse .quiz_pagination_wrapper>.button {
         padding: 0;
     width: auto;

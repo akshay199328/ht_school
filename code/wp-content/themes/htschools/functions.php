@@ -2688,4 +2688,16 @@ function extra_user_profile_fields( $user ) {
     </tr>
     </table>
 <?php }
-?>
+if( !function_exists('redirect_404_to_homepage') ){
+
+    add_action( 'template_redirect', 'redirect_404_to_homepage' );
+
+    function redirect_404_to_homepage(){
+       if(is_404()):
+            wp_safe_redirect(get_template_part( 404 ));
+            exit;
+        endif;
+    }
+}
+
+

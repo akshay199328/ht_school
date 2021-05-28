@@ -33,8 +33,11 @@ $(document).ready(function(){
 
 });
 $('.single-course ol li').click(function(){
-  window.location.href=site_url + "/courses";
-  return false;
+  var current_click_text = $(this).text();
+  if(current_click_text == 'Course'){
+    window.location.href=site_url + "/courses";
+    return false;
+  }
 });
 $(document).ready(function($) { 
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');

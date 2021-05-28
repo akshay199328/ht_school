@@ -1129,12 +1129,41 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 
 						if($stop_course_status && is_array($stop_course_status) && !empty($stop_course_status['error_code'])){
 							$return['error'] = $stop_course_status;
-
 						}
 
+						if($is_cb_course == 1 || $is_aiws_course == 1)
+						{
+							$status = 0;
+							if($is_cb_course == 1) {
+								$coursesList = get_user_meta($this->user->id, 'cs_enroll_courses_info', true);
+							} else {
+								$coursesList = get_user_meta($this->user->id, 'aiws_enroll_courses_info', true);
+							}
+
+							if(is_array($coursesList))
+							{
+								foreach ($coursesList as $keyCourse => $valueCourse)
+								{
+									if(	$valueCourse['course_id'] == $course_id &&
+										isset($valueCourse['course_completed']) &&
+										$valueCourse['course_completed'] == 1)
+									{
+										$status = 4;
+									}
+								}
+							}
+
+							if($status == 0)
+							{
+								$status = bp_course_get_user_course_status($this->user->id,$course_id);
+							}
+						}
+						else
+						{
+							$status = bp_course_get_user_course_status($this->user->id,$course_id);
+						}
 
 						$statuses = bp_course_get_user_statuses();
-						$status = bp_course_get_user_course_status($this->user->id,$course_id);
 						$return['course_status']=$status;
 
 						$start_date = bp_course_get_start_date($post->ID,$this->user->id);

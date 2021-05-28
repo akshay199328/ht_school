@@ -10,6 +10,12 @@ $cronResult['cs_unique_users']			= 0;
 $cronResult['cs_courses_check']			= 0;
 $cronResult['cs_completed_courses']		= 0;
 
+function markUserCourseComplete($userID, $courseID)
+{
+	update_user_meta($userID, 'course_status' . $courseID, 	4);
+	update_user_meta($userID, 'progress' . $courseID, 		100);
+}
+
 // AIWS Courses
 $getUsersSql = "SELECT user_id, meta_key, meta_value FROM ht_usermeta WHERE meta_key = 'aiws_user_login_id'";
 
@@ -89,8 +95,7 @@ if(count($aiwsUsersList) > 0)
 						$courseInfo[$courseKey]['course_completed']	= 1;
 						$courseInfo[$courseKey]['completed_on']		= $courseStatus['completedtimestamp'];
 
-						update_user_meta($userValue->user_id, 'course_status'.$courseValue['course_id'], 3);
-						update_user_meta($userValue->user_id, 'progress'.$courseValue['course_id'], 100);
+						markUserCourseComplete($userValue->user_id, $courseValue['course_id']);
 					}
 				}
 			}
@@ -224,8 +229,7 @@ if(count($csUsersList) > 0)
 					$courseInfo[$courseKey]['course_completed']			= 1;
 					$courseInfo[$courseKey]['course_complete_percent']	= $courseStatus['course_complete_percent'];
 
-					update_user_meta($userValue->user_id, 'course_status'.$courseValue['course_id'], 3);
-					update_user_meta($userValue->user_id, 'progress'.$courseValue['course_id'], 100);
+					markUserCourseComplete($userValue->user_id, $courseValue['course_id']);
 				}
 			}
 

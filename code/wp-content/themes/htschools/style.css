@@ -16,6 +16,69 @@ Domain Path: /languages/
 /*=== ADD Your Custom Changes here ===*/
 
 
+@font-face {
+    font-family: 'GT-Walsheim-Pro';
+    src: url('assets/fonts/GTWalsheimPro-Black.eot');
+    src: local('assets/fonts/GT Walsheim Pro Black'), local(assets/fonts/'GTWalsheimPro-Black'),
+        url('assets/fonts/GTWalsheimPro-Black.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/GTWalsheimPro-Black.woff2') format('woff2'),
+        url('assets/fonts/GTWalsheimPro-Black.woff') format('woff'),
+        url('assets/fonts/GTWalsheimPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: url('assets/fonts/GTWalsheimPro-Light.eot');
+    src: url('assets/fonts/GTWalsheimPro-Light.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/GTWalsheimPro-Light.woff2') format('woff2'),
+        url('assets/fonts/GTWalsheimPro-Light.woff') format('woff'),
+        url('assets/fonts/GTWalsheimPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GT-Walsheim-Pro';
+    src: url('assets/fonts/GTWalsheimPro-Bold.eot');
+    src: local('assets/fonts/GT Walsheim Pro Bold'), local('assets/fonts/GTWalsheimPro-Bold'),
+        url('assets/fonts/GTWalsheimPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/GTWalsheimPro-Bold.woff2') format('woff2'),
+        url('assets/fonts/GTWalsheimPro-Bold.woff') format('woff'),
+        url('assets/fonts/GTWalsheimPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT-Walsheim-Pro';
+    src: url('assets/fonts/GTWalsheimPro-Regular.eot');
+    src: local('assets/fonts/GT Walsheim Pro Regular'), local('assets/fonts/GTWalsheimPro-Regular'),
+        url('assets/fonts/GTWalsheimPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/GTWalsheimPro-Regular.woff2') format('woff2'),
+        url('assets/fonts/GTWalsheimPro-Regular.woff') format('woff'),
+        url('assets/fonts/GTWalsheimPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT-Walsheim-Pro';
+    src: url('assets/fonts/GTWalsheimPro-Medium.eot');
+    src: local('assets/fonts/GT Walsheim Pro Medium'), local('assets/fonts/GTWalsheimPro-Medium'),
+        url('assets/fonts/GTWalsheimPro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/GTWalsheimPro-Medium.woff2') format('woff2'),
+        url('assets/fonts/GTWalsheimPro-Medium.woff') format('woff'),
+        url('assets/fonts/GTWalsheimPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/

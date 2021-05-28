@@ -515,3 +515,16 @@ td .add-wishlist{
   position: relative;
   /*top: 7px;*/
 }
+.page-template-static-pages section, 
+.page-template-static-pages .pusher,
+.page-template-static-pages 
+{
+    overflow: inherit;
+}
+.page-template-static-pages .static_content .details{
+    display: flex;
+}
+.page-template-static-pages .sidebar{
+    position: sticky;
+    top: 85px;
+}

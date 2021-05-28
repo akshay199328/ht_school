@@ -1789,8 +1789,8 @@
 
 .course_status .incourse .quiz_pagination_wrapper>.button {
         padding: 0;
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: auto;
     display: inline-block;
     border-radius: 100%;
     margin: 0px;
@@ -1798,13 +1798,19 @@
     text-transform: uppercase;
     font-weight: 300;
     color: #000;
-    border: 2px solid transparent;
+    border: 0;
     background: transparent;
     text-align: center;
-    line-height: 37px;
+    line-height: 20px;
     cursor: pointer;
+    margin-left: 20px;
 }
-
+.course_status .incourse .quiz_pagination_wrapper>.button:nth-child(1){
+    margin-left: 0px;
+}
+.course_status .incourse .quiz_pagination_wrapper>.button:nth-child(2){
+    margin-left: 0px;
+}
 .course_status .incourse .quiz_pagination_wrapper>.button.right {
     float: none
 }
@@ -2232,6 +2238,7 @@
     text-align: left;
     color: #4b4b4b;
     cursor: pointer;
+        min-height: 85px;
 }
 .course_status .incourse .question_option:hover {
     background-color: #eceaea;
@@ -2267,7 +2274,7 @@
     position: absolute;
     color: #FFF;
     left: 2px;
-    top: 5px;
+    top: 3px;
     line-height: 1;
     font-size: 14px;
 }
@@ -2277,12 +2284,12 @@
 .question_option.radio>input[type=radio]+label:before,
 .question_option input[type=checkbox]+label:before
 {
-        width: 18px;
+    width: 18px;
     height: 18px;
-    border: 1px solid #000;
+    border: 1px solid #4B4B4B;
     border-radius: 100%;
     display: inline-table;
-        top: 3px;
+        top: 1px;
     position: relative;
 }
 .question_option.radio>input[type=radio]:checked+label:before,
@@ -2357,8 +2364,8 @@
     width: 100%;
 }
 .quiz_questions_content .question_content p {
-    font-size: 38px !important;
-    line-height: 41px !important;
+    font-size: 25px !important;
+    line-height: 30px !important;
     font-weight: 300 !important;
 }
 .course_status .incourse .quiz_questions_content .question .question_hint {
@@ -2428,7 +2435,7 @@
     padding: 0rem;
     /* position: sticky; */
     position: absolute;
-    top: 13%;
+    top: 3%;
     width: 400px;
     right: 2%;
     background: #ffffff;
@@ -2467,7 +2474,9 @@
     border-color: transparent;
 }
 .course_status .incourse .incoursequiz_details>div strong {
-    flex: 1
+        flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .course_status .incourse .incoursequiz_details>div strong .student_score {
@@ -3341,6 +3350,10 @@ a.button.is-primary {
 .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{
     display: block;
     float: right;
+    background: #D5EBFF;
+    width: 100%;
+    text-align: right;
+    padding: 12px 17px;
 }
 .buttons.has-addons.small>.button {
     background: none;

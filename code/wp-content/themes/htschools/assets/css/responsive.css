@@ -566,7 +566,7 @@ section.woocommerce-customer-details{
 }
 .course_status .incourse .quiz_questions_content .question_actions span{
 	font-size: 22px !important;
-	font-weight: 600 !important;
+	font-weight: bold !important;
 	line-height: 30px !important;
 	color: #000 !important;
 }
@@ -577,8 +577,8 @@ section.woocommerce-customer-details{
 }*/
 
 .course_status .incourse .question_option label{
-	font-size: 17px !important;
-    line-height: 22px !important;
+	font-size: 16px !important;
+    line-height: 19px !important;
 }
 .course_status .incourse .quiz_questions_content .question_actions{
 	border-bottom: 1.5px solid #fade3b;

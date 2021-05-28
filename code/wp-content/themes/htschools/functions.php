@@ -2651,3 +2651,41 @@ function ht_wp_embed() {
   }
 }
 add_action('init', 'ht_wp_embed');
+
+//Added Profession field in wordpress admin for user profile
+function validate_profession_field(&$errors, $update = null, &$user  = null) {
+    global $wpdb,$user_id;
+    if ( ! current_user_can( 'edit_user', $user_id ) )
+        return false;
+
+    if($_POST['profession'] != ''){
+      $get_profession = $wpdb->get_results("SELECT * FROM ht_users INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id WHERE ht_usermeta.meta_key = 'profession' AND meta_value = '" . esc_attr($_POST['profession']) . "' AND ht_usermeta.user_id != '".$user_id."' ORDER BY ht_users.user_nicename");
+      $get_data=json_decode( json_encode($get_profession), true);
+    }
+    if ( count($get_data) > 0 ) {
+        $errors->add('empty_profession', '<strong>ERROR</strong>: Profession value is already exist');
+    }
+    else{
+      update_user_meta( $user_id, 'profession', $_POST['profession'] );
+    }
+}
+add_action( 'user_profile_update_errors', 'validate_profession_field' );
+
+add_action( 'show_user_profile', 'extra_user_profile_fields' );
+add_action( 'edit_user_profile', 'extra_user_profile_fields' );
+
+function extra_user_profile_fields( $user ) { 
+  ?>
+    <h3><?php _e("Profession information", "blank"); ?></h3>
+
+    <table class="form-table">
+    <tr>
+        <th><label for="profession"><?php _e("Profession Name"); ?></label></th>
+        <td>
+            <input type="text" name="profession" id="profession" value="<?php echo esc_attr( get_the_author_meta('profession', $user->ID ) ); ?>" class="regular-text" /><br />
+            <span class="description"><?php _e("Please enter your profession."); ?></span>
+        </td>
+    </tr>
+    </table>
+<?php }
+?>

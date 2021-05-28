@@ -12,8 +12,20 @@ $cronResult['cs_completed_courses']		= 0;
 
 function markUserCourseComplete($userID, $courseID)
 {
-	update_user_meta($userID, 'course_status' . $courseID, 	4);
-	update_user_meta($userID, 'progress' . $courseID, 		100);
+	$certificates = get_user_meta($userID, 'certificates', true);
+
+	if(isset($certificates) && is_array($certificates))
+	{
+		if(!in_array($courseID, $certificates)) $certificates[] = $courseID;
+	}
+	else
+	{
+	    $certificates = array($courseID);
+	}
+
+	update_user_meta($userID, "course_status" . $courseID, 4);
+	update_user_meta($userID, "progress" . $courseID, 100);
+	update_user_meta($userID, "certificates", $certificates);
 }
 
 // AIWS Courses

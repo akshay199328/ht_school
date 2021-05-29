@@ -386,7 +386,7 @@ ol.breadcrumbs  {
 .header {
   background: transparent!important;
   transition: all 0.5s ease;
-  z-index: 997;
+  z-index: 1030;
   /*padding: 15px 0;*/
   padding:0px 0px;
   height: 80px;

@@ -2293,7 +2293,7 @@
     border: 1px solid #4B4B4B;
     border-radius: 100%;
     display: inline-table;
-        top: 1px;
+    top: 0px;
     position: relative;
 }
 .question_option.radio>input[type=radio]:checked+label:before,

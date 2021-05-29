@@ -586,7 +586,7 @@ section.woocommerce-customer-details{
 }
 
 .course_status .course_content .course_content_content_wrapper .finish_course>.button{
-	min-height: 45px !important;
+	min-height: 50px !important;
 	background: #000 !important;
 	width: auto !important;
 	display: inline-block !important;

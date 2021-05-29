@@ -264,7 +264,7 @@ section {
   {
     border-bottom: solid 0px #b8b8b8;
   }
-  .right-adwork.right_spacing{padding-right: 25px!important}
+  .right-adwork.right_spacing{/*padding-right: 25px!important*/}
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -7691,7 +7691,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .course_status .incourse .incoursequiz_details>div{margin:0 !important;}
 .course_status .incourse .incourse_quiz_button a{margin:0 0 0 5px !important;}
 .course_status .incourse .incoursequiz_details .incourse_quiz_button > a{
-  padding:14px 20px !important;height:auto !important;color:#D5EBFF !important
+  padding:14px 14px !important;height:auto !important;color:#D5EBFF !important
 }
 .course_status .incourse .incoursequiz_details.show_controls .incourse_quiz_button{margin-left:15px;}
 .course_status .incourse .incoursequiz_details .incourse_quiz_button .retake_quiz{margin-left:0 !important;flex:0 0 auto !important;}

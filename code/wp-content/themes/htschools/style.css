@@ -5207,7 +5207,8 @@ border-color: transparent;
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a{
   color: #000!important;
   font-size: 15px!important;
-  font-weight: 300!important;
+  font-weight: 300;
+    font-family: 'GT-Walsheim-Pro';
   background: transparent!important;
   text-transform: initial!important;
   border-radius: 0px!important;
@@ -5689,6 +5690,7 @@ h6:empty,
     height: 50px;
     width: 100%!important;
     font-size: 15px;
+    font-family: 'GT-Walsheim-Pro';
     font-weight: bold;
     border-width: 0px 0px 3px !important;
     border-bottom-style: dotted !important;

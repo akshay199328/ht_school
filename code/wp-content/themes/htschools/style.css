@@ -77,7 +77,17 @@ Domain Path: /languages/
     font-style: normal;
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'opensans_regular';
+    src: url('assets/fonts/OpenSans-Regular.eot');
+    src: url('assets/fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/OpenSans-Regular.woff2') format('woff2'),
+        url('assets/fonts/OpenSans-Regular.woff') format('woff'),
+        url('assets/fonts/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 /*--------------------------------------------------------------
 # General
@@ -2465,15 +2475,17 @@ button.progress_key_3
     width: 100%;
 }
 .adworks-head a , .adwork_text{
-    font-size: 11px;
-    font-weight:normal;
+    font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.36;
     letter-spacing: normal;
-    color: #0c5acc;
-    text-decoration: underline;
-    text-align: right;
+    text-align: center;
+    display: block;
+    color: #777;
+    font-size: 10px;
+    line-height: 16px;
+    font-family: 'opensans_regular';
+        margin-bottom: 5px;
 }
 
 section.latest-news{

@@ -25,7 +25,6 @@ vibe_include_template("profile/top$profile_layout.php");
     </div>
     <div class="col-md-9">      
 	    <section id="Popular-Courses" class="">
-            <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
           	<?php
 
                 $user = wp_get_current_user();
@@ -92,6 +91,7 @@ vibe_include_template("profile/top$profile_layout.php");
                           $age_limit = $custom_fields['vibe_course_age_group'][0];
                           $category_array = get_the_terms( $post->ID, 'course-cat');
                 ?>
+              <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
                 <div class="course-box">
                 <table width="100%">
                   <tbody>
@@ -193,6 +193,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 </table>
                 
             </div>
+            </div>
         <?php  endwhile; else: ?>
             <div class="empty_cart_div">
                 <div class="empty_course_image"></div>
@@ -207,7 +208,6 @@ vibe_include_template("profile/top$profile_layout.php");
                     <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
                 </div>
             <?php } ?>
-            </div>
         </section>
 	
 

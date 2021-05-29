@@ -57,7 +57,6 @@ vibe_include_template("profile/top$profile_layout.php");
                 <section id="Popular-Courses" class="">
              
 
-                <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
                     <?php while($wp_query->have_posts()){
                         $wp_query->the_post();
                         global $post;
@@ -68,6 +67,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                         $session = $custom_fields['vibe_course_sessions'][0];
                     ?>
+                <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
             <div class="course-box mycourse_box">
                 <table width="100%">
                   <tbody>
@@ -179,8 +179,8 @@ vibe_include_template("profile/top$profile_layout.php");
                   </tbody>
                 </table>
             </div>
+            </div>
         <?php } echo custom_pagination( $wp_query ); ?>
-        </div>
     </div>
 </section>
     <?php } else{ ?>

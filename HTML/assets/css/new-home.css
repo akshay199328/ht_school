@@ -16,6 +16,12 @@ body {
   }
 }
 
+.medium-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 .large-button {
   background-color: #0C5ACC;
   color: #FFF;
@@ -831,6 +837,45 @@ body {
     -webkit-transform: rotate(45deg) translateY(-0.5px);
             transform: rotate(45deg) translateY(-0.5px);
   }
+}
+
+.cards-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto 40px auto;
+  padding: 0;
+}
+
+.cards-wrapper .cards-copy {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 422px;
+          flex: 0 0 422px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.cards-wrapper .cards-copy img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 281px;
+}
+
+.cards-wrapper .cards-copy .caption {
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+  left: 30px;
+  color: #FFF;
+  max-width: 200px;
 }
 
 .new-footer {

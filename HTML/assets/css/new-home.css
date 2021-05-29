@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-  font-weight: 400 !important;
+  font-weight: 300 !important;
   color: #000;
 }
 
@@ -103,7 +103,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 17px 0;
+  padding: 17px 15px;
 }
 
 .header-global .header-copy .header-left .home-button {
@@ -117,6 +117,21 @@ body {
   text-align: left;
   font-weight: 600;
   margin-right: 30px;
+}
+
+@media (max-width: 430px) {
+  .header-global .header-copy .header-left .link {
+    display: none;
+  }
+  .header-global .header-copy .header-left .home-button {
+    height: 12px;
+    width: 16px;
+    padding: 0;
+    margin-right: 13px;
+  }
+  .header-global .header-copy .header-left .home-button .text {
+    display: none;
+  }
 }
 
 .header-global .header-copy .logo {
@@ -162,13 +177,13 @@ body {
 }
 
 @media (max-width: 430px) {
-  .header-global .header-left, .header-global .header-right {
+  .header-global .header-right {
     display: none;
   }
   .header-global .header-copy {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     top: 0;
     height: 56px;
   }
@@ -178,6 +193,7 @@ body {
     -webkit-transform: none;
             transform: none;
     height: 32px;
+    margin-right: auto;
   }
   .header-global .header-copy .logo svg {
     height: 100%;
@@ -206,6 +222,8 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   margin-bottom: 46px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .section .section-copy .section-head p {
@@ -214,8 +232,8 @@ body {
 
 @media (max-width: 430px) {
   .section .section-copy .section-head p {
-    font-size: 16px;
-    max-width: 280px;
+    font-size: 17px;
+    max-width: 300px;
   }
 }
 
@@ -418,6 +436,7 @@ body {
 @media (max-width: 430px) {
   .section .courses-wrapper {
     border-right: none;
+    margin-bottom: 0;
   }
 }
 
@@ -426,8 +445,10 @@ body {
   line-height: 1;
 }
 
-.learning-wrapper .ad {
-  height: 300px;
+@media (max-width: 430px) {
+  .popular-wrapper .section-copy .section-head {
+    margin-bottom: 18px;
+  }
 }
 
 .learning-wrapper .learning-copy {
@@ -449,6 +470,12 @@ body {
 .learning-wrapper .learning-copy .section-head .larger-title {
   font-size: 55px;
   margin-bottom: 15px;
+}
+
+@media (max-width: 430px) {
+  .learning-wrapper .learning-copy .section-head .larger-title {
+    font-size: 35px;
+  }
 }
 
 .learning-wrapper .learning-copy .logos {
@@ -493,6 +520,24 @@ body {
 .learning-wrapper .learning-copy .logos .column:hover {
   -webkit-box-shadow: 0 5px 17px rgba(120, 188, 252, 0.45);
           box-shadow: 0 5px 17px rgba(120, 188, 252, 0.45);
+}
+
+@media (max-width: 430px) {
+  .learning-wrapper .learning-copy {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .learning-wrapper .learning-copy .ad {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .learning-wrapper {
+    padding-bottom: 0;
+  }
 }
 
 .home_slider {
@@ -573,6 +618,7 @@ body {
   margin: 0 5px;
   border-radius: 50px;
   background-color: rgba(45, 49, 112, 0.3);
+  padding: 0;
 }
 
 .home_slider .owl-dots .owl-dot.active {
@@ -860,6 +906,28 @@ body {
         -ms-flex-order: -1;
             order: -1;
     margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .new-footer .new-footer-copy .new-footer-links .newsletter .new-footer-title {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+  .new-footer .new-footer-copy .new-footer-links .newsletter input {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .new-footer .new-footer-copy .new-footer-links .newsletter button {
+    width: 85px;
+    margin-left: 15px;
   }
   .new-footer .new-footer-copy .new-footer-top svg {
     margin-bottom: 20px;

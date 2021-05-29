@@ -19,7 +19,7 @@ if(vibe_validate($title) || empty($title)){
             <?php
             $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
             if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
-              vibe_breadcrumbs(); 
+              vibe_breadcrumbs();
             ?>
             <h2><?php the_title(); ?></h2>
             <?php the_sub_title(); ?>
@@ -54,7 +54,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       foreach ($menuitems as $menu) {
         ?>
         <li id="<?php echo $menu->ID; ?>" class="news-li" data-scroll="<?php echo $menu->ID; ?>"><a href="<?php echo $menu->url; ?> " data-id="<?php echo $menu->ID; ?>"><?php echo $menu->title; ?></a></li>
-        <?php 
+        <?php
       }
       ?>
       </ul>
@@ -71,12 +71,12 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     );
     $Query = new WP_Query( $args );
     if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-      if( $Query->current_post == 0 ) { 
+      if( $Query->current_post == 0 ) {
         ?>
         <div class="col-sm-12 col-md-4 col-lg-4 mrg">
           <div class="details-left">
 
-            <?php if ( has_post_thumbnail() ) { 
+            <?php if ( has_post_thumbnail() ) {
               $featured_image = get_the_post_thumbnail_url();
             }
             ?>
@@ -95,7 +95,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             <div class="details-middle">
               <ul class="full_width_list">
                 <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                          if( $Query->current_post != 0 ) { 
+                          if( $Query->current_post != 0 ) {
                   ?>
                   <li>
                     <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -103,7 +103,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                       <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                     </div>
                   </li>
-                  <?php 
+                  <?php
                        }
                 endwhile; endif; ?>
               </ul>
@@ -113,16 +113,16 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
           <div class="details-middle adwork">
             <?php
             if ( is_active_sidebar( 'news_landing_mid_banner' ) ) : ?>
-             <?php dynamic_sidebar( 'news_landing_mid_banner' ); ?>      
+             <?php dynamic_sidebar( 'news_landing_mid_banner' ); ?>
            <?php endif; ?>
           </div>
         </div>
       </div>
-      
+
       <div class="col-lg-12 center">
         <?php
         if ( is_active_sidebar( 'news_landing_top_banner' ) ) : ?>
-         <?php dynamic_sidebar( 'news_landing_top_banner' ); ?>      
+         <?php dynamic_sidebar( 'news_landing_top_banner' ); ?>
        <?php endif; ?>
      </div>
     </div>
@@ -132,11 +132,11 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <div class="wrapper">
 <section class="latest-news">
 
-<?php $count=12;foreach ($menuitems as $menu) { ?>
+<?php $count=12;foreach ($menuitems as $key => $menu) { ?>
 
   <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
     <div class="container">
-      <?php 
+      <?php
         $args = array(
         'post_type' => 'post',
         'post_status' => 'publish',
@@ -144,21 +144,21 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         'posts_per_page' => 7,
       );
       $Query = new WP_Query( $args );
-      if ($Query->have_posts()) : 
+      if ($Query->have_posts()) :
       ?>
       <div class="featured_headeing">
         <h1><?php echo $menu->title; ?></h1>
-        
+
       </div>
       <?php
       endif;
       if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-        if( $Query->current_post == 0 ) { 
+        if( $Query->current_post == 0 ) {
           ?>
           <div class="col-sm-12 col-lg-4 mrg">
             <div class="details-left">
-              
-              <?php if ( has_post_thumbnail() ) { 
+
+              <?php if ( has_post_thumbnail() ) {
                 $featured_image = get_the_post_thumbnail_url();
               }
               ?>
@@ -167,7 +167,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               <div class="news-date">
                 <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
               </div>
-              
+
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
@@ -180,7 +180,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               <ul class="">
                 <?php if ($Query->have_posts()) : $counter = 0; while ($Query->have_posts()) : $Query->the_post();
                   if ($counter <= 3) :
-                  if( $Query->current_post != 0 ){ 
+                  if( $Query->current_post != 0 ){
                   ?>
                   <li>
                     <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -188,7 +188,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                       <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                     </div>
                   </li>
-                  <?php 
+                  <?php
                   }
                 endif; $counter++; endwhile; endif; ?>
               </ul>
@@ -199,7 +199,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               <ul class="">
                 <?php if ($Query->have_posts()) : $counter1 = 0; while ($Query->have_posts()) : $Query->the_post();
                   if ($counter1 > 3) :
-                  if( $Query->current_post != 0 ){ 
+                  if( $Query->current_post != 0 ){
                   ?>
                   <li>
                     <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -207,19 +207,19 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                       <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
                     </div>
                   </li>
-                  <?php 
+                  <?php
                   }
                 endif; $counter1++; endwhile; endif; ?>
               </ul>
             </div>
           </div>
         </div>
-        <?php if ($Query->have_posts()) :?>
+        <?php if ($Query->have_posts() && ($key % 2 == 1)) :?>
           <div class="col-lg-12 center">
             <?php /*
             if ( is_active_sidebar( 'news_landing_footer_banner' ) ) : ?>
-             <?php dynamic_sidebar( 'news_landing_footer_banner' ); ?>      
-           <?php endif; */?>          
+             <?php dynamic_sidebar( 'news_landing_footer_banner' ); ?>
+           <?php endif; */?>
 
           <!-- //1055314/HT_School_Desktop_Section/HT_School_Desk_Section_Footer_Billboard-->
             <div id='div-gpt-ad-1619596100543-<?php echo $count;?>'>
@@ -228,10 +228,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               </script>
             </div>
           </div>
-        <?php endif;?>
+        <?php $count++; endif;?>
       </div>
     </div>
-  <?php $count++;}?>
+  <?php } ?>
   </section>
 </div>
   <!-- End Most Interview -->
@@ -246,15 +246,15 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                   $args1 = array(
                       'post_type' => 'infographics',
                       'post_status' => 'publish',
-                      
+
                   );
                   $Query1 = new WP_Query( $args1 );
-                  
+
                   // print_r(get_post_custom());
-                  if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post(); 
+                  if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
                       $custom_fields = get_post_custom();
                       $image_url = wp_get_attachment_url($custom_fields['image'][0]);
-                    
+
                 ?>
                   <div class="co-sm-12 col-lg-4 item" data-aos="zoom-in" data-aos-delay="100">
                       <a href="<?php the_permalink(); ?>"> <img src="<?php echo $image_url; ?>" class="img-fluid" /></a>

@@ -10,10 +10,10 @@ get_header(vibe_get_header());
 
 <main id="main">
  <!-- ======= Hero Section ======= -->
- <section id="hero" class="hero">
-  <div class="header-space"></div>
-  <div class="col-lg-12 mrg home_slider owl-carousel owl-theme">
-    <?php
+
+<!-- End Hero -->
+<div class="owl-carousel owl-theme home_slider">
+  <?php
     $args1 = array(
       'post_type' => 'banner',
       'post_status' => 'publish',
@@ -28,34 +28,54 @@ get_header(vibe_get_header());
       $image_url = wp_get_attachment_url($custom_fields['banner_image'][0]);
       $mobile_image = wp_get_attachment_url($custom_fields['mobile_image'][0]);
       ?>
-      <div class="col-lg-12 mrg item">
-        <div class="container">
-          <div class="homecarousel_text">
-            <div class="col-sm-12 col-md-6 mrg">
-              <div class="pull-left">
-
-                <h1><?php echo $custom_fields['banner_title'][0];?></h1>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-6 mrg">
-              <div class="pull-right">
-                <p><?php print_r(the_content()); ?></p>
-                <a href="<?php echo $custom_fields['cta_link'][0];?>" class="learn_morebtn"><?php echo $custom_fields['cta_text'][0];?></a>
-              </div>
-            </div>
-          </div>
+    <div class="item">
+        <img src="<?php echo $image_url; ?>">
+        <div class="caption">
+            <h3 class="caption-title"><?php echo $custom_fields['banner_title'][0];?></h3>
+            <span class="name"><?php print_r(the_content()); ?></span>
+            <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>"><?php echo $custom_fields['cta_text'][0];?></a>
         </div>
-        <img alt="desktop" title="desktop" src="<?php echo $image_url; ?>" class="desktop_img" width="100%" height="auto"/>
-        <img alt="mobile" title="mobile" src="<?php echo $mobile_image; ?>" class="mobile_img" width="100%" height="auto"/>
+    </div>
+  <?php endwhile;endif; ?>
+</div>
+<section class="section learning-wrapper">
+  <div class="section-copy learning-copy">
+      <div class="section-head">
+        <?php
+        /*if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
+          <?php dynamic_sidebar( 'home-hero-section' ); ?>
+        <?php endif; */?>
+          <div class="header-copy">
+              <h3 class="larger-title">Learning for everyone</h3>
+              <p class="intro">supporting education through our products, programs, and philanthropy.</p>
+          </div>
+          <div class="logos">
+              <a href="https://www.hindustancareermate.com/" class="column">
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/career-mate.png">
+                  <span>Get Started</span>
+              </a>
+              <a href="https://www.htcodeathon.com/" class="column">
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/code-thon.png">
+                  <span>Get Started</span>
+              </a>
+              <a href="https://www.lenovoscholarship.com/" class="column">
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/scholarships.png">
+                  <span>Get Started</span>
+              </a>
+              <a href="https://www.hindustanolympiad.in/" class="column">
+                  <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/olympiad.png">
+                  <span>Get Started</span>
+              </a>
+          </div>
       </div>
-    <?php endwhile;endif; ?>
+      <div class="ad homecourse_adwork">
+        <?php
+        if ( is_active_sidebar( 'homepage-mid-banner' ) ) : ?>
+          <?php dynamic_sidebar( 'homepage-mid-banner' ); ?>
+        <?php endif; ?>
+      </div>
   </div>
-
-</section><!-- End Hero -->
-<?php
-if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
-  <?php dynamic_sidebar( 'home-hero-section' ); ?>
-<?php endif; ?>
+</section>
 <!-- ======= Features Section ======= -->
 <section class="section popular-wrapper">
   <div class="section-copy">
@@ -237,6 +257,14 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
             </div>
+            <ul class="">
+              <li>
+                <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
+                <div class="link">
+                    <a href="#">Maharashtra: 600 teachers, non-teaching staff protest</a>
+                </div>
+              </li>
+            </ul>
           </div>
         <?php } endwhile; endif;?>
         <div class="col-sm-12 col-lg-8 home_news-leftspacing">

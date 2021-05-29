@@ -72,29 +72,28 @@ $(document).ready(function($) {
 
 $(document).ready(function() {
   $('.home_slider').owlCarousel({
-    loop: false,
-    margin: 0,
-    items: 1,
-    responsiveClass: true,
+    margin:0,
+    loop:true,
+    nav:true,
+    mouseDrag:false,
+    dots:true,
+    //autoWidth:true,
+    items:2,
     autoplay: true,
     autoplayTimeout:5000,
     autoplayHoverPause: true,
-    dots:true,
-    responsive: {
-      0: {
-        items: 1,
-        nav: true
-      },
-      600: {
-        items:1,
-        nav: false
-      },
-      1000: {
-        items: 1,
-        nav: false,
-        loop: false,
-        margin: 0
-      }
+    responsive : {
+        0 : {
+            items:1,
+        },
+        // breakpoint from 480 up
+        480 : {
+            items:1,
+        },
+        // breakpoint from 768 up
+        768 : {
+            items:2,
+        }
     }
   })
 })

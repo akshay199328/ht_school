@@ -57,29 +57,21 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
   <?php dynamic_sidebar( 'home-hero-section' ); ?>
 <?php endif; ?>
 <!-- ======= Features Section ======= -->
-<section id="Popular-Courses" class="Popular-Courses">
-  <div class="container" data-aos="fade-up">
-    <div class="row">
-      <div class="col-sm-12 col-lg-4 mrg">
-          <header class="section-header">
-              <h2>TRENDING COURSES</h2>
-              <p>Access the world’s activities, anytime anywhere.</p>
-              <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover All Courses</a>
-          </header>
-          <div class="adworks homecourse_adwork">
-            <?php
-            if ( is_active_sidebar( 'homepage-mid-banner' ) ) : ?>
-              <?php dynamic_sidebar( 'homepage-mid-banner' ); ?>
-            <?php endif; ?>
-          </div>
-      </div>
-      <div class="col-sm-12 col-lg-8 mrg">
-        <div class="align-self-center courses-slider gy-4">
-          <?php
+<section class="section popular-wrapper">
+  <div class="section-copy">
+    <div class="section-head">
+        <div class="header-copy">
+            <h3 class="larger-title">TRENDING COURSES</h3>
+            <p class="intro">Access the world’s activities, anytime anywhere.</p>
+        </div>
+        <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover All Courses</a>
+    </div>
+    <div class="courses-wrapper">
+      <?php
           $featured_args_course = array(
             'post_type' => 'course',
             'post_status' => 'publish',
-            'posts_per_page' => 3,
+            'posts_per_page' => 8,
             'meta_query'  => array(
             'relation'  => 'AND',
             array(
@@ -98,7 +90,7 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
           $args_all_course = array(
             'post_type' => 'course',
             'post_status' => 'publish',
-            'posts_per_page' => 3,
+            'posts_per_page' => 8,
           );  
           $all_course = new WP_Query( $args_all_course );
           if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();
@@ -111,150 +103,100 @@ if ( is_active_sidebar( 'home-hero-section' ) ) : ?>
             $query_args = apply_filters('wplms_mycourses',array(
                 'post_type'=>'course',
                 'post__in'=>$course_id,
-                'posts_per_page'=>3,
+                'posts_per_page'=>8,
                 'orderby' => 'post__in', 
             ));
 
             $Query_course = new WP_Query($query_args);
           }
           if(!empty($Query_course)){
+            $i = 0;
           while ($Query_course->have_posts()){
           $Query_course->the_post();
-                        global $post;
+            global $post;
             $custom_fields = get_post_custom();
             $duration = $custom_fields['vibe_validity'][0];
             $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
             $session = $custom_fields['vibe_course_sessions'][0];
             $age_limit = $custom_fields['vibe_course_age_group'][0];
             $category_array = get_the_terms( $post->ID, 'course-cat');
-            ?>
-            <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
-              <div class="course-box">
-                <table width="100%">
-                  <tbody>
-                    <tr>
-                      <td class="tableTd_left">
-                          <?php
-                            if ( has_post_thumbnail() ) {
-                              $image_url = get_the_post_thumbnail_url();
-                            }
-                          ?>
-                          <a href="<?php echo get_permalink($post->ID);?>"> 
-                            <img alt="Celebrity Course" src="<?php echo $image_url; ?>" class="img-fluid"  height="auto" width="auto"/>
-                          </a>
-                      </td>
-                      <td class="middle-details tableTd_middle">
-                        <table width="100%">
-                          <tr>
-                            <td>
-                              <h6><?php echo $category_array[0]->name; ?></h6>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <h2><?php echo bp_course_title(); ?></h2>
-                            </td>
-                          </tr>
-                          <tr class="course_para">
-                            <td>
-                              <?php
-                                $excerpt = get_post_field('post_excerpt', $post->ID);
-                                ?>
-                                <?php if ( $excerpt != '' ) {
-                                  echo "<p>".wp_trim_words( $excerpt, 20, NULL )."</p>";
-                              } ?>
-                            </td>
-                          </tr>
-                          <tr class="duration">
-                            <td>
-                              <p>Duration</p>
-                              <?php if($duration == '') { ?>
-                                <h6>--</h6>
-                              <?php } else{ ?>
-                                <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
-                              <?php }?>
-                            </td>
-                            <td>
-                              <p>Age Group</p>
-                              <?php if($age_limit == '') { ?>
-                                <h6>--</h6>
-                              <?php } else{ ?>
-                                <h6><?php echo $age_limit;?><span> yrs</span></h6>
-                              <?php }?>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td class="tableTd_right right-details">
-                        <table width="100%" class="button_table">
-                          <tr>
-                            <td class="share-icon">
-                              <ul>
-                                <?php
-                                   if(is_user_logged_in()){
-                                    ?>
-                                    <li style="list-style-type: none;"><?php wpfp_course_link(); ?></li>
-                                  <?php }else{
-                                    $url = "/login-register";
-                                    ?>
-                                    <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> 
-                                    <?php
-                                  }
-                                  ?>
-                                <li class="hover_share">
-                                  <img alt="share icon" title="share icon" src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
-                                  <div class="display_icon">
-                                    <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
-                                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
-                                      <a class="a2a_button_facebook"></a>
-                                      <a class="a2a_button_twitter"></a>
-                                      <a class="a2a_button_pinterest"></a>
-                                      <a class="a2a_button_google_gmail"></a>
-                                      <a class="a2a_button_whatsapp"></a>
-                                      <a class="a2a_button_telegram"></a>
-                                    </div><script async src="https://static.addtoany.com/menu/page.js"></script>
-                                  </div>
-                                </li>
-                              </ul>
-                              <script async src="https://static.addtoany.com/menu/page.js"></script>
-                            </td>
-                          </tr>
-                          <tr class="border_button">
-                            <td class="course-button">
-                              <h6 ><?php
-                                the_course_price();
-                                ?>
-                              </h6>
-                              <?php the_course_button(); ?>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                
+            if($i%4 == 0){
+              if ($i != 0){
+          ?>
             </div>
-          </div>
-        <?php }}?>
-
-      </div>
-      <div class="col-sm-12 center mrg mobile-add new-add">
-        
-        <div id='div-gpt-ad-1619596100543-8'>
-          <script>
-            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1619596100543-8'); });
-          </script>
-        </div>              
-      </div>
-      <a href="<?php echo get_home_url();?>/courses/" class="exlore-link mobile-btn">Discover Courses</a>
+          <?php }?>
+          <div class="courses-wrapper">
+          <?php } ?>
+        <div class="column">
+            <span class="category"><?php echo $category_array[0]->name; ?></span>
+            <?php
+              if ( has_post_thumbnail() ) {
+                $image_url = get_the_post_thumbnail_url();
+              }
+            ?>
+            <a href="<?php echo get_permalink($post->ID);?>"><figure class="course-hero"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></figure></a>
+            <div class="course-copy">
+            <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
+            <ul class="data">
+                <li>
+                    <span class="attribute">Duration</span>
+                    <?php if($duration == '') { ?>
+                      <span class="value">--</span>
+                    <?php } else{ ?>
+                      <span class="value"><?php if($duration != ''){echo $duration; }?><strong><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </strong></span>
+                    <?php }?>
+                </li>
+                <li>
+                    <span class="attribute">Age Limit</span>
+                    <?php if($age_limit == '') { ?>
+                      <span class="value">--</span>
+                    <?php } else{ ?>
+                      <span class="value"><?php if($age_limit != ''){echo $age_limit.' ' ; }?><strong>yrs</strong></span>
+                    <?php }?>
+                </li>
+            </ul>
+            <div class="action">
+                <div class="price"><?php the_course_price(); ?></div>
+                <?php the_course_button(); ?>
+            </div>
+            <div class="share">
+                <ul>
+                  <?php
+                     if(is_user_logged_in()){
+                      ?>
+                      <li style="list-style-type: none;"><?php wpfp_course_link(); ?></li>
+                    <?php }else{
+                      $url = "/login-register";
+                      ?>
+                      <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> 
+                      <?php
+                    }
+                    ?>
+                  <li class="hover_share">
+                    <img alt="share icon" title="share icon" src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+                    <div class="display_icon">
+                      <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
+                      <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_pinterest"></a>
+                        <a class="a2a_button_google_gmail"></a>
+                        <a class="a2a_button_whatsapp"></a>
+                        <a class="a2a_button_telegram"></a>
+                      </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+                    </div>
+                  </li>
+                </ul>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>
+            </div>
+            </div>
+        </div>
+      <?php $i++; }}?>
+    </div>
+    </div>
   </div>
-
-</div> <!-- / row -->
-
-</div>
-
-</section><!-- End Features Section -->
+</section>
+<!-- End Features Section -->
 
 
   <!-- ======= Latest News Section ======= -->

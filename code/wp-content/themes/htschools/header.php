@@ -114,9 +114,9 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
 </div>
 
 
-            <div class="<?php echo vibe_get_container(); ?> d-flex align-items-center justify-content-between" >
+            <div class="header-copy">
 
-                <div class="col-lg-4 mrg left-menu">
+                <div class="mrg left-menu">
                     <?php
 
 
@@ -158,7 +158,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                         <span class="lines"></span>
                     </a>
                 </div>
-                <div class="middle-menu col-sm-2 col-lg-4">
+                <div class="middle-menu">
                     <i class="bi bi-list mobile-nav-toggle"></i>
                     <?php
                     $template_file = get_post_meta( get_the_ID(), '_wp_page_template', TRUE );
@@ -178,7 +178,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                         }
                     ?>
                 </div>
-                <div class="col-sm-10 col-lg-4 mrg right-menu">
+                <div class="mrg right-menu">
                 <?php  global $post;
                     $post_slug = $post->post_name;
                     if($post_slug != 'login-register'){ ?>

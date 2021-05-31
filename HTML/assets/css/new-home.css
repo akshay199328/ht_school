@@ -63,7 +63,7 @@ body {
   margin: auto;
 }
 
-.new-button {
+.new-button, .the_course_button .the_course_button .course_button {
   line-height: 45px;
   background-color: #000;
   color: #FADE3B;
@@ -75,10 +75,14 @@ body {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
+  border-radius: 0;
+  width: auto;
+  border: none;
 }
 
-.new-button:hover {
+.new-button:hover, .the_course_button .the_course_button .course_button:hover {
   background-color: #FADE3B;
+  color: #000;
 }
 
 .yellow-button {
@@ -239,8 +243,21 @@ body {
   height: 50px;
 }
 
+.header-global .header-copy .header-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .header-global .header-copy .header-right a {
   margin-left: 20px;
+}
+
+.header-global .header-copy .header-right a svg {
+  vertical-align: middle;
 }
 
 .header-global .header-copy .header-right a:hover {
@@ -300,11 +317,11 @@ body {
 }
 
 .header-global .header-copy .link {
-  font-weight: 500;
   color: #FFF;
   position: relative;
   font-weight: 600;
   letter-spacing: .5px;
+  font-size: inherit;
 }
 
 .header-global .header-copy .link:after {
@@ -337,6 +354,55 @@ body {
   .header-global .header-copy .logo svg {
     height: 100%;
   }
+}
+
+.header {
+  height: 80px !important;
+}
+
+.header .header-copy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1118px;
+  margin: auto;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.header .header-copy .right-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .header-copy .right-menu .custom_topmenu {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+@media (max-width: 430px) {
+  .header {
+    height: 56px !important;
+  }
+  .header .homeicon img {
+    margin-left: 15px !important;
+  }
+}
+
+.home .header {
+  height: inherit;
+  background-color: #000;
 }
 
 .yellow-header .header-global {

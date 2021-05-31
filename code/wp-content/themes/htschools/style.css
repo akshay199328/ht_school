@@ -1134,7 +1134,7 @@ width: auto;
   .hero .hero-img img {
     width: 100%;
   }
-  .other-courses .list .card:nth-child(4+4n){
+  .other-courses .list .card:nth-child(4n+4){
     clear: left;
   }
 

@@ -802,6 +802,7 @@
 .course_status .course_content .course_content_content_wrapper .unit_videos {
     margin: 20px 0px;
     height: auto;
+    padding-bottom: 5px;
 }
 .course_content .course_content_content .message p{margin:0px!important;font-size: 14px!important;}
 .course_content .course_content_content p em {
@@ -2242,10 +2243,12 @@
     text-align: left;
     color: #4b4b4b;
     cursor: pointer;
-        min-height: 85px;
+    min-height: 85px;
+    box-shadow: 0px 2px 8px hsl(0deg 0% 0% / 0%);
 }
 .course_status .incourse .question_option:hover {
     background-color: #eceaea;
+    box-shadow: 0px 2px 8px hsl(0deg 0% 0% / 8%);
 }
 .question .resetq_answer.button, 
 .question .bookmark.button{
@@ -2260,6 +2263,11 @@
     /* flex-wrap: wrap; */
     align-content: center;
     flex-direction: row;
+    color: #4B4B4B;
+    font-weight: normal;
+}
+.question_option.radio input[type=radio]:checked+label{
+    font-weight: 500;
 }
 .question_option.radio input[type=radio]:checked+label:after,
 .question_option input[type=checkbox]:checked+label:after

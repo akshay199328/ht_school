@@ -15,19 +15,55 @@ get_header(vibe_get_header());
             if(!isset($breadcrumbs) || !$breadcrumbs || vibe_validate($breadcrumbs)){
                 vibe_breadcrumbs();
             }
-          echo '<h2>'.vibe_get_title($id).'</h2>';
-          the_sub_title($id);
         ?>
       </div>
     </section>
-    <section id="Popular-Courses" class="all_course_page">
-      
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-        <div class="row">
-          <div class="sticky_content">
-          <div class="col-sm-12 col-md-9 col-lg-9 mrg all-courses-left">
-            <div class="">
-                <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
+  <div class="owl-carousel owl-theme course_slider home_slider">
+    <?php
+      $args1 = array(
+        'post_type' => 'banner',
+        'post_status' => 'publish',
+        'orderby' => 'id',
+        'order'   => 'ASC',
+
+      );
+      $Query1 = new WP_Query( $args1 );
+
+      if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+        $custom_fields = get_post_custom();
+        $image_url = wp_get_attachment_url($custom_fields['banner_image'][0]);
+        $mobile_image = wp_get_attachment_url($custom_fields['mobile_image'][0]);
+        ?>
+      <div class="item">
+          <img src="<?php echo $image_url; ?>">
+          <div class="caption">
+              <h3 class="caption-title"><?php echo $custom_fields['banner_title'][0];?></h3>
+              <span class="name"><?php print_r(the_content()); ?></span>
+              <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>"><?php echo $custom_fields['cta_text'][0];?></a>
+          </div>
+      </div>
+    <?php endwhile;endif; ?>
+  </div>
+    <section class="section popular-wrapper">
+      <div class="section-copy">
+        <div class="course-header">
+          <h2 class="course-title">All Courses</h2>
+          <div class="right-side">
+            <button class="filter-button" type="button">Filters
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                  <g id="Group_339" data-name="Group 339" transform="translate(-1071.5 -533.5)">
+                  <line id="Line_92" data-name="Line 92" x2="12" transform="translate(1071.5 535.5)" fill="none" stroke="#000" stroke-width="1"/>
+                  <line id="Line_93" data-name="Line 93" x2="12" transform="translate(1071.5 543.5)" fill="none" stroke="#000" stroke-width="1"/>
+                  <line id="Line_94" data-name="Line 94" x2="12" transform="translate(1071.5 539.5)" fill="none" stroke="#000" stroke-width="1"/>
+                  <circle id="Ellipse_174" data-name="Ellipse 174" cx="2" cy="2" r="2" transform="translate(1073 533.5)"/>
+                  <circle id="Ellipse_175" data-name="Ellipse 175" cx="2" cy="2" r="2" transform="translate(1078 537.5)"/>
+                  <circle id="Ellipse_176" data-name="Ellipse 176" cx="2" cy="2" r="2" transform="translate(1075 541.5)"/>
+                  </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="courses-wrapper">
                   <?php
                   $featured_args_course = array(
                     'post_type' => 'course',
@@ -65,7 +101,7 @@ get_header(vibe_get_header());
                     $query_args = apply_filters('wplms_mycourses',array(
                         'post_type'=>'course',
                         'post__in'=>$course_id,
-                        'posts_per_page'=>6,
+                        'posts_per_page'=>8,
                         'orderby' => 'post__in', 
                         'paged'=>$paged,
                     ));
@@ -73,6 +109,7 @@ get_header(vibe_get_header());
                     $wp_query = new WP_Query($query_args);
                   }
                   if(!empty($wp_query)){
+                    $i=0;
                     while ($wp_query->have_posts()){
                       $wp_query->the_post();
                         global $post;
@@ -83,131 +120,230 @@ get_header(vibe_get_header());
                       $age_limit = $custom_fields['vibe_course_age_group'][0];
                       $category_array = get_the_terms( $post->ID, 'course-cat');
                       $excerpt = get_post_field('post_excerpt', $post->ID);
-                  ?>
-                  <div class="course-box dotted-border">
-                <table width="100%">
-                  <tbody>
-                    <tr>
-                      <td class="tableTd_left">
-                          <?php 
-                              if ( has_post_thumbnail() ) { 
-                                $image_url = get_the_post_thumbnail_url();
-                              }
-                          ?>
-                          <a href="<?php echo get_permalink($post->ID);?>"> 
-                            <img src="<?php echo $image_url; ?>" class="img-fluid" alt="" title="">
-                          </a>
-                      </td>
-                      <td class="middle-details tableTd_middle">
-                        <table width="100%">
-                          <tr>
-                            <td>
-                              <h6><?php echo $category_array[0]->name; ?></h6>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <h2><?php echo bp_course_title(); ?></h2>
-                            </td>
-                          </tr>
-                          <tr class="course_para">
-                            <td>
-                              <?php if ( $excerpt != '' ) {
-                                echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
-                              }  ?>
-                            </td>
-                          </tr>
-                          <tr class="duration">
-                            <td>
-                              <p>Duration</p>
-                              <?php if($duration == '') { ?>
-                              <h6>--</h6>
-                              <?php } else{ ?>
-                              <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
-                              <?php }?>
-                            </td>
-                            <td>
-                              <p>Age Group</p>
-                              <?php if($age_limit == '') { ?>
-                              <h6>--</h6>
-                              <?php } else{ ?>
-                              <h6><?php echo $age_limit;?><span> yrs</span></h6>
-                              <?php }?>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td class="tableTd_right right-details">
-                        <table width="100%" class="button_table">
-                          <tr>
-                            <td class="share-icon">
-                              <ul>
-                              <?php
-                                 if(is_user_logged_in()){
-                                  ?>
-                                  <li style="list-style-type: none;"><?php wpfp_course_link(); ?></li>
-                                <?php }else{
-                                  $url = "/login-register";
-                                  ?>
-                                  <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> 
-                                  <?php
-                                }
-                                ?>
-                              <li class="hover_share">
-                                <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg" alt="Share Icon" title="Share Icon">
-                                <div class="display_icon">
-                                  <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
-                                  <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
-                                    <a class="a2a_button_facebook"></a>
-                                    <a class="a2a_button_twitter"></a>
-                                    <a class="a2a_button_pinterest"></a>
-                                    <a class="a2a_button_google_gmail"></a>
-                                    <a class="a2a_button_whatsapp"></a>
-                                    <a class="a2a_button_telegram"></a>
-                                    
-                                  </div><script async src="https://static.addtoany.com/menu/page.js"></script>
-                                </div>
-                              </li>
-                            </ul>  
-                            <script async src="https://static.addtoany.com/menu/page.js"></script>
-                            </td>
-                          </tr>
-                          <tr class="border_button">
-                            <td class="course-button">
-                              <h6 ><?php 
-                                the_course_price();
-                            ?>
-                            </h6>
-                            <?php the_course_button(); ?>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                
+                  if($i%4 == 0){
+                    if ($i != 0){
+                    ?>
+                      </div>
+                    <?php }?>
+                    <div class="courses-wrapper">
+                  <?php } ?>
+                  <div class="column">
+            <span class="category"><?php echo $category_array[0]->name; ?></span>
+            <?php
+              if ( has_post_thumbnail() ) {
+                $image_url = get_the_post_thumbnail_url();
+              }
+            ?>
+            <a href="<?php echo get_permalink($post->ID);?>"><figure class="course-hero"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></figure></a>
+            <div class="course-copy">
+            <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
+            <ul class="data">
+                <li>
+                    <span class="attribute">Duration</span>
+                    <?php if($duration == '') { ?>
+                      <span class="value">--</span>
+                    <?php } else{ ?>
+                      <span class="value"><?php if($duration != ''){echo $duration; }?><strong><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </strong></span>
+                    <?php }?>
+                </li>
+                <li>
+                    <span class="attribute">Age Limit</span>
+                    <?php if($age_limit == '') { ?>
+                      <span class="value">--</span>
+                    <?php } else{ ?>
+                      <span class="value"><?php if($age_limit != ''){echo $age_limit.' ' ; }?><strong>yrs</strong></span>
+                    <?php }?>
+                </li>
+            </ul>
+            <div class="action">
+                <div class="price"><?php the_course_price(); ?></div>
+                <?php the_course_button(); ?>
             </div>
-                <?php }} posts_pagination();?>
+            <div class="share">
+                <ul>
+                  <?php
+                     if(is_user_logged_in()){
+                      ?>
+                      <li style="list-style-type: none;"><?php wpfp_course_link(); ?></li>
+                    <?php }else{
+                      $url = "/login-register";
+                      ?>
+                      <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> 
+                      <?php
+                    }
+                    ?>
+                  <li class="hover_share">
+                    <img alt="share icon" title="share icon" src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
+                    <div class="display_icon">
+                      <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
+                      <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>">
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_pinterest"></a>
+                        <a class="a2a_button_google_gmail"></a>
+                        <a class="a2a_button_whatsapp"></a>
+                        <a class="a2a_button_telegram"></a>
+                      </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+                    </div>
+                  </li>
+                </ul>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>
+            </div>
+            </div>
+        </div>
+                <?php $i++; }} ?>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
-            <?php
-              if ( is_active_sidebar( 'course_section_rhs_banner' ) ) : ?>
-              <?php dynamic_sidebar( 'course_section_rhs_banner' ); ?>      
-            <?php endif; ?>
-        </div>
+        <?php posts_pagination(); ?>
       </div>
+      <div class="course-filter-wrapper">
+    <div class="course-filter-header">
+        <h3 class="filter-title">Filter By</h3>
+        <button class="course-close" type="button"></button>
     </div>
-  </div>
+    <div class="course-filter-copy">
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session3" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session3">
+                </label>
+            </li>
+            <li>
+                <label for="session4" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session4">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session5" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session5">
+                </label>
+            </li>
+            <li>
+                <label for="session6" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session6">
+                </label>
+            </li>
+            <li>
+                <label for="session7" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session7">
+                </label>
+            </li>
+            <li>
+                <label for="session8" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session8">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session9" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session9">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="filter-action">
+        <button class="white-button" type="button">Apply Filters</button>
+        <button class="reset" type="button">Reset</button>
+    </div>
+</div>
 </section>
-<div class="col-md-12 col-sm-12">
-    <?php
-      $sidebar = apply_filters('wplms_sidebar','competitive-section');
-            if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
-        <?php endif; ?>
-  </div>
 </main>
 <?php
 get_footer(vibe_get_footer());

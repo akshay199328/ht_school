@@ -96,6 +96,32 @@ $(document).ready(function() {
         }
     }
   })
+  $('.course_slider .home_slider').owlCarousel({
+    margin:0,
+    loop:true,
+    nav:true,
+    mouseDrag:false,
+    dots:true,
+    //autoWidth:true,
+    startPosition: 3,
+    items:2,
+    autoplay: true,
+    autoplayTimeout:5000,
+    autoplayHoverPause: true,
+    responsive : {
+        0 : {
+            items:1,
+        },
+        // breakpoint from 480 up
+        480 : {
+            items:1,
+        },
+        // breakpoint from 768 up
+        768 : {
+            items:2,
+        }
+    }
+  })
 })
 if($(window).width() >= 768) {
   // alert(1234);
@@ -190,7 +216,12 @@ if($(window).width() >= 768) {
                 }
               })
 
-        
+    $(".filter-button").click(function () {
+      $("body").toggleClass('filter-opened');
+      $('.course-close').click(function() {
+          $('body').removeClass('filter-opened');
+      });
+    });     
 });
 
 

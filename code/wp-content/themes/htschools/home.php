@@ -218,6 +218,30 @@ get_header(vibe_get_header());
 </section>
 <!-- End Features Section -->
 
+<section class="cards-wrapper">
+  <?php
+    $args1 = array(
+      'post_type' => 'home_course_banner',
+      'post_status' => 'publish',
+      'orderby' => 'id',
+      'order'   => 'ASC',
+
+    );
+    $Query1 = new WP_Query( $args1 );
+
+    if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+      $custom_fields = get_post_custom();
+      $image_url = wp_get_attachment_url($custom_fields['banner_image'][0]);
+      ?>
+    <figure class="cards-copy">
+        <img src="<?php echo $image_url; ?>">
+        <figcaption class="caption">
+            <h3 class="medium-title"><?php echo $custom_fields['banner_title'][0];?></h3>
+            <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>"><?php echo $custom_fields['cta_text'][0];?></a>
+        </figcaption>
+    </figure>
+    <?php endwhile;endif; ?>
+</section>
 
   <!-- ======= Latest News Section ======= -->
   <section id="" class="latest-news home_latest_news">

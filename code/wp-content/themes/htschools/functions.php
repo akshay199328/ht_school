@@ -240,6 +240,8 @@ register_sidebar( array(
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 
   function front_end_scripts(){
+    global $wp;
+    $current_slug = add_query_arg( array(), $wp->request );
   if(!is_admin()){
     wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
     wp_enqueue_style( 'wplms-customizer-css-v1', get_template_directory_uri(). '/style-v1.css' );
@@ -250,10 +252,8 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css');
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
 
-    if( is_front_page() ){  
     wp_enqueue_style( 'wplms-owl-carousel', '//cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css' );
     wp_enqueue_script( 'wplms-carousel', '//cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
-    }
 
     wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
     wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );

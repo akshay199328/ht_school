@@ -273,7 +273,7 @@ input.wpcf7-form-control.wpcf7-submit:hover{
 }
 .course_status .course_timeline>ul li.active .lesson_title{
 	font-size: 15px !important;
-	font-weight: 600 !important;
+	font-weight: bold !important;
 	line-height: 20px !important;
 }
 .course_content_content h3{
@@ -577,8 +577,8 @@ section.woocommerce-customer-details{
 }*/
 
 .course_status .incourse .question_option label{
-	font-size: 16px !important;
-    line-height: 19px !important;
+	font-size: 16px;
+    line-height: 19px;
 }
 .course_status .incourse .quiz_questions_content .question_actions{
 	border-bottom: 1.5px solid #fade3b;

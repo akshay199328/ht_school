@@ -926,6 +926,153 @@ border: 1px solid deepskyblue;
     </div>
   </div>
 </div>
+<div class="course-filter-wrapper">
+    <div class="course-filter-header">
+        <h3 class="filter-title">Filter By</h3>
+        <button class="course-close" type="button"></button>
+    </div>
+    <div class="course-filter-copy">
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session3" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session3">
+                </label>
+            </li>
+            <li>
+                <label for="session4" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session4">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session5" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session5">
+                </label>
+            </li>
+            <li>
+                <label for="session6" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session6">
+                </label>
+            </li>
+            <li>
+                <label for="session7" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session7">
+                </label>
+            </li>
+            <li>
+                <label for="session8" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session8">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session9" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session9">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="filter-action">
+        <button class="white-button" type="button">Apply Filters</button>
+        <button class="reset" type="button">Reset</button>
+    </div>
+</div>
 <!-- modal -->
 <script type="text/javascript">
   jQuery('#close_popup').click(function(){

@@ -374,7 +374,7 @@ padding: 15px 0;
 .other-courses .list h4 a{color: #000;font-weight: bold;padding-right: 4px;}
 .other-courses .list h3 a{color: #000;font-weight: bold;}
 .other-courses .list h4 a:last-child{padding-right: 0px;}
-.other-courses .list .session {padding: 15px 0px 25px 0px!important;}
+.other-courses .list .session {padding: 15px 0px 25px 0px!important;display: block;}
 .other-courses .list .session h6 .vicon{
     padding-right: 15px;
     float: left;

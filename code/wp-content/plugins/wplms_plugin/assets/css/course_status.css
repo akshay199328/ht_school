@@ -802,6 +802,7 @@
 .course_status .course_content .course_content_content_wrapper .unit_videos {
     margin: 20px 0px;
     height: auto;
+    padding-bottom: 5px;
 }
 .course_content .course_content_content .message p{margin:0px!important;font-size: 14px!important;}
 .course_content .course_content_content p em {
@@ -975,8 +976,8 @@
     transition: 0.2s all;
     flex: 1 0 220px;
     margin: 0;
-    background: var(--highlight) !important;
-    border-right: 1px solid var(--border) !important;
+    background: #F7F7F7!important;
+    border-right: 1px solid #E8E8E8 !important;
     background: none;
     border: none
 }
@@ -1443,7 +1444,7 @@
     align-items: flex-start;
     margin: 0 !important;
     padding: 18px 29px 18px 30px;
-    border-bottom: 1px solid #70707080;
+    border-bottom: 1px solid #E8E8E8;
     -webkit-box-align: center !important;
     -ms-flex-align: center !important;
     align-items: center !important;
@@ -1459,7 +1460,7 @@
     display: flex
 }
 .course_status .course_timeline>ul li{
-    background: #f7f7f7;
+    background: #ffffff;
 }
 .course_status .course_timeline>ul li.active  {
     background: #fff;
@@ -1762,7 +1763,7 @@
     border-top: 0px dotted #707070;
     margin: 0!important;
     padding-top: 20px;
-    border-top: 1px dashed #707070;
+    border-top: 1px dotted #707070;
 }
 
 .course_status .incourse>* {
@@ -2242,10 +2243,12 @@
     text-align: left;
     color: #4b4b4b;
     cursor: pointer;
-        min-height: 85px;
+    min-height: 85px;
+    box-shadow: 0px 2px 8px hsl(0deg 0% 0% / 0%);
 }
 .course_status .incourse .question_option:hover {
     background-color: #eceaea;
+    box-shadow: 0px 2px 8px hsl(0deg 0% 0% / 8%);
 }
 .question .resetq_answer.button, 
 .question .bookmark.button{
@@ -2260,6 +2263,17 @@
     /* flex-wrap: wrap; */
     align-content: center;
     flex-direction: row;
+    color: #4B4B4B;
+    font-weight: normal;
+}
+.question_option.radio input[type=radio]:checked+label{
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 22px;
+    color: #000;
+}
+.question_option.radio + input[type=radio]:checked {
+  background: yellow;
 }
 .question_option.radio input[type=radio]:checked+label:after,
 .question_option input[type=checkbox]:checked+label:after
@@ -2278,11 +2292,11 @@
     position: absolute;
     color: #FFF;
     left: 2px;
-    top: 3px;
+    top: 2px;
     line-height: 1;
     font-size: 14px;
 }
-.question_option.radio>input[type=radio]:checked + .question_option.radio{
+.question_option.radio>input[type=radio]:checked~.question_option.radio{
 
 }
 .question_option.radio>input[type=radio]+label:before,

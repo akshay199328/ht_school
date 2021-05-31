@@ -28,8 +28,11 @@ $currentSlug = add_query_arg( array(), $wp->request );
 $currentSlug = $currentSlug ? $currentSlug : "home";
 $currentSlug = explode('/', $currentSlug)[0];
 
-$allowAdsPageList = array("home", "courses", "course", "editorsdesk", "my-courses");
-if(in_array($currentSlug, $allowAdsPageList) || strlen($currentSlug)) require_once('google-ads.php');
+// If current page is news detail page
+if(strlen($currentSlug) > 20)   $currentSlug = "news_details";
+
+$allowAdsPageList = array("home", "courses", "course", "editorsdesk", "my-courses", "news_details");
+if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
 ?>
 
 </head>

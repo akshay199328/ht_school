@@ -650,6 +650,11 @@ body {
   color: #0C5ACC;
 }
 
+.popular-wrapper .section-copy .section-head p {
+  color: #0C5ACC;
+  margin: 0;
+}
+
 @media (max-width: 430px) {
   .popular-wrapper .section-copy .section-head {
     margin-bottom: 18px;
@@ -1012,6 +1017,12 @@ body {
   font-weight: 600;
 }
 
+.course-header .right-side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .course-header .right-side .filter-button {
   border: 1px solid #000;
   background-color: #fff;
@@ -1028,6 +1039,17 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.course-header .right-side .sort {
+  border: 1px solid #000;
+  line-height: 35px;
+  padding: 0 15px;
+  margin-right: 12px;
+}
+
+.course-header .right-side .sort:before {
+  content: "Sort by:";
 }
 
 body:before {

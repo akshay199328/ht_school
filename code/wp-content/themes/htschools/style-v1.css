@@ -650,6 +650,11 @@ body {
   color: #0C5ACC;
 }
 
+.popular-wrapper .section-copy .section-head p {
+  color: #0C5ACC;
+  margin: 0;
+}
+
 @media (max-width: 430px) {
   .popular-wrapper .section-copy .section-head {
     margin-bottom: 18px;

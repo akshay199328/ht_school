@@ -84,7 +84,7 @@ get_header(vibe_get_header());
             <h3 class="larger-title">Popular Courses</h3>
             <p class="intro">Access the world’s activities, anytime anywhere.</p>
         </div>
-        <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover All Courses</a>
+        <a href="<?php echo get_home_url();?>/courses/" class="large-button">Discover All Courses</a>
     </div>
     <div class="courses-wrapper">
       <?php
@@ -154,7 +154,7 @@ get_header(vibe_get_header());
                 $image_url = get_the_post_thumbnail_url();
               }
             ?>
-            <a href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
+            <a class="course-hero" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
             <div class="course-copy">
             <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
             <ul class="data">

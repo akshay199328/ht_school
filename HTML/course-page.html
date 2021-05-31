@@ -31,11 +31,11 @@
 
 </head>
 
-<body>
+<body class="yellow-header">
     <header class="header-global">
         <div class="header-copy">
             <div class="header-left">
-                <button class="home-button" type="submit">
+                <button class="home-button" type="button" data-toggle="modal" data-target="#globalnavigation">
                     <span class="text">Home</span>
                     <span class="burger"></span>
                 </button>
@@ -173,14 +173,23 @@
             </div>
         </div>
     </header>
-
+<div class="modal fade" id="globalnavigation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        fsdfds
+      </div>
+    </div>
+  </div>
+</div>
     <div class="owl-carousel owl-theme home_slider">
         <div class="item">
             <img src="assets/img/slider/01.jpg">
             <div class="caption">
                 <h3 class="caption-title">Makeup & Hairstyling Lessons </h3>
                 <span class="name">Ojas Rajani</span>
-                <a class="yellow-button" href="course-page.html">Explore Course</a>
+                <a class="yellow-button" href="#!">Explore Course</a>
             </div>
         </div>
         <div class="item">
@@ -192,10 +201,10 @@
             </div>
         </div>
         <div class="item">
-            <img src="https://www.muscleandfitness.com/wp-content/uploads/2019/04/dwayne-the-rock-johnson-back-row.jpg?w=1109&quality=86&strip=all">
+            <img src="assets/img/slider/01.jpg">
             <div class="caption">
-                <h3 class="caption-title">Rock is an American actor</h3>
-                <span class="name">Dwayne Johnson</span>
+                <h3 class="caption-title">Makeup & Hairstyling Lessons </h3>
+                <span class="name">Ojas Rajani</span>
                 <a class="yellow-button" href="#!">Explore Course</a>
             </div>
         </div>
@@ -217,47 +226,25 @@
         </div>
     </div>
 
-    <section class="section learning-wrapper">
-        <div class="section-copy learning-copy">
-            <div class="section-head">
-                <div class="header-copy">
-                    <h3 class="larger-title">Learning for everyone</h3>
-                    <p class="intro">supporting education through our products, programs, and philanthropy.</p>
-                </div>
-                <div class="logos">
-                    <a href="#!" class="column">
-                        <img src="assets/img/learning/career-mate.png">
-                        <span>Get Started</span>
-                    </a>
-                    <a href="#!" class="column">
-                        <img src="assets/img/learning/scholarships.png">
-                        <span>Get Started</span>
-                    </a>
-                    <a href="#!" class="column">
-                        <img src="assets/img/learning/code-thon.png">
-                        <span>Get Started</span>
-                    </a>
-                    <a href="#!" class="column">
-                        <img src="assets/img/learning/olympiad.png">
-                        <span>Get Started</span>
-                    </a>
-                </div>
-            </div>
-            <div class="ad">
-                <img src="assets/img/new-page-google-ad.png">
-            </div>
-        </div>
-    </section>
     <section class="section popular-wrapper">
         <div class="section-copy">
-            <div class="section-head">
-                <div class="header-copy">
-                    <h3 class="larger-title">Popular Courses</h3>
-                    <p class="intro">We offer classes for all ages throughout the year.</p>
+            <div class="course-header">
+                <h2 class="course-title">All Courses</h2>
+                <div class="right-side">
+                    <button class="filter-button" type="button">Filters
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                            <g id="Group_339" data-name="Group 339" transform="translate(-1071.5 -533.5)">
+                            <line id="Line_92" data-name="Line 92" x2="12" transform="translate(1071.5 535.5)" fill="none" stroke="#000" stroke-width="1"/>
+                            <line id="Line_93" data-name="Line 93" x2="12" transform="translate(1071.5 543.5)" fill="none" stroke="#000" stroke-width="1"/>
+                            <line id="Line_94" data-name="Line 94" x2="12" transform="translate(1071.5 539.5)" fill="none" stroke="#000" stroke-width="1"/>
+                            <circle id="Ellipse_174" data-name="Ellipse 174" cx="2" cy="2" r="2" transform="translate(1073 533.5)"/>
+                            <circle id="Ellipse_175" data-name="Ellipse 175" cx="2" cy="2" r="2" transform="translate(1078 537.5)"/>
+                            <circle id="Ellipse_176" data-name="Ellipse 176" cx="2" cy="2" r="2" transform="translate(1075 541.5)"/>
+                            </g>
+                        </svg>
+                    </button>
                 </div>
-                <a href="course-page.html" class="large-button">Explore all Courses</a>
             </div>
-
             <div class="courses-wrapper">
                 <div class="column">
                     <span class="category">Data Science</span>
@@ -436,9 +423,9 @@
             <div class="courses-wrapper">
                 <div class="column">
                     <span class="category">Data Science</span>
-                    <a href="#!" class="course-hero"><img alt="Celebrity Course" src="http://localhost:3000/fortune/Htschools-git/code/wp-content/uploads/2014/02/img3-1.jpg"></a>
+                    <a href="#!" class="course-hero"><img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2019/01/nawazuddin-siddiqui-z-d-1547781170.jpg"></a>
                     <div class="course-copy">
-                    <h3 class="course-title"><a href="#!">Acting Lessons by Nawazuddin Siddiqui</a></h3>
+                    <h3 class="course-title">Acting Lessons by Nawazuddin Siddiqui</h3>
                     <ul class="data">
                         <li>
                             <span class="attribute">Duration</span>
@@ -481,7 +468,50 @@
                     <span class="category">Data Science</span>
                     <a href="#!" class="course-hero"><img src="https://ht.fortune4.org/wp-content/uploads/2021/05/cyber-sathi.webp"></a>
                     <div class="course-copy">
-                    <h3 class="course-title">Acting Lessons by Nawazuddin Siddiqui</h3>
+                    <h3 class="course-title">Cyber Safety with Cyber Saathi©</h3>
+                    <ul class="data">
+                        <li>
+                            <span class="attribute">Duration</span>
+                            <span class="value"><strong>60 days</strong></span>
+                        </li>
+                        <li>
+                            <span class="attribute">Age Limit</span>
+                            <span class="value"><strong>7 - 12</strong> yrs</span>
+                        </li>
+                    </ul>
+                    <div class="action">
+                        <div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        <a class="new-button" href="#!">Join Course</a>
+                    </div>
+                    <div class="share">
+                        <a href="#!" class="wishlist active">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.076" viewBox="0 0 20 18.076">
+                              <g id="Group_18582" data-name="Group 18582" transform="translate(-0.192 -0.2)">
+                                <g id="Group_18582-2" data-name="Group 18582" transform="translate(1.192 1.2)">
+                                  <path id="Path_35223" data-name="Path 35223" d="M5.84,1.2a4.54,4.54,0,0,0-3.3,1.414,4.974,4.974,0,0,0,0,6.82l7.329,7.644a.441.441,0,0,0,.608,0l7.352-7.636a4.971,4.971,0,0,0,0-6.828,4.573,4.573,0,0,0-6.426-.172q-.089.083-.173.172L10.189,3.709,9.147,2.614A4.612,4.612,0,0,0,5.84,1.2Z" transform="translate(-1.192 -1.2)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2"/>
+                                </g>
+                              </g>
+                            </svg>
+                        </a>
+                        <a href="#!">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                              <g id="Group_448" data-name="Group 448" transform="translate(-64 -107)">
+                                <circle id="Ellipse_186" data-name="Ellipse 186" cx="3.176" cy="3.176" r="3.176" transform="translate(65 113.824)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+                                <circle id="Ellipse_187" data-name="Ellipse 187" cx="3.176" cy="3.176" r="3.176" transform="translate(76.647 108)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+                                <circle id="Ellipse_188" data-name="Ellipse 188" cx="3.176" cy="3.176" r="3.176" transform="translate(76.647 119.647)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+                                <line id="Line_127" data-name="Line 127" x2="5.294" y2="2.647" transform="translate(71.353 118.588)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+                                <line id="Line_128" data-name="Line 128" x1="5.294" y2="2.647" transform="translate(71.353 112.765)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
+                              </g>
+                            </svg>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <span class="category">Data Science</span>
+                    <a href="#!" class="course-hero"><img src="https://i2.wp.com/macdailynews.com/wp-content/uploads/2021/04/210413_apple_event.png?resize=640%2C747&ssl=1"></a>
+                    <div class="course-copy">
+                    <h3 class="course-title">Entrepreneurship Essentials</h3>
                     <ul class="data">
                         <li>
                             <span class="attribute">Duration</span>
@@ -522,9 +552,9 @@
                 </div>
                 <div class="column">
                     <span class="category">Data Science</span>
-                    <a href="#!" class="course-hero"><img src="https://dummyimage.com/140x144/000/fff"></a>
+                    <a href="#!" class="course-hero"><img src="https://localist-images.azureedge.net/photos/31583518696354/original/0135374d81d3481dd24228d0deea271b904000a5.png"></a>
                     <div class="course-copy">
-                    <h3 class="course-title">Acting Lessons by Nawazuddin Siddiqui</h3>
+                    <h3 class="course-title">Online Business Lessons by Siddharth Prabhakar</h3>
                     <ul class="data">
                         <li>
                             <span class="attribute">Duration</span>
@@ -563,76 +593,8 @@
                     </div>
                     </div>
                 </div>
-                <div class="column">
-                    <span class="category">Data Science</span>
-                    <a href="#!" class="course-hero"><img src="https://dummyimage.com/140x144/000/fff"></a>
-                    <div class="course-copy">
-                    <h3 class="course-title">Acting Lessons by Nawazuddin Siddiqui</h3>
-                    <ul class="data">
-                        <li>
-                            <span class="attribute">Duration</span>
-                            <span class="value"><strong>60 days</strong></span>
-                        </li>
-                        <li>
-                            <span class="attribute">Age Limit</span>
-                            <span class="value"><strong>7 - 12</strong> yrs</span>
-                        </li>
-                    </ul>
-                    <div class="action">
-                        <div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
-                        <a class="new-button" href="#!">Join Course</a>
-                    </div>
-                    <div class="share">
-                        <a href="#!" class="wishlist">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.076" viewBox="0 0 20 18.076">
-                              <g id="Group_18582" data-name="Group 18582" transform="translate(-0.192 -0.2)">
-                                <g id="Group_18582-2" data-name="Group 18582" transform="translate(1.192 1.2)">
-                                  <path id="Path_35223" data-name="Path 35223" d="M5.84,1.2a4.54,4.54,0,0,0-3.3,1.414,4.974,4.974,0,0,0,0,6.82l7.329,7.644a.441.441,0,0,0,.608,0l7.352-7.636a4.971,4.971,0,0,0,0-6.828,4.573,4.573,0,0,0-6.426-.172q-.089.083-.173.172L10.189,3.709,9.147,2.614A4.612,4.612,0,0,0,5.84,1.2Z" transform="translate(-1.192 -1.2)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2"/>
-                                </g>
-                              </g>
-                            </svg>
-                        </a>
-                        <a href="#!">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                              <g id="Group_448" data-name="Group 448" transform="translate(-64 -107)">
-                                <circle id="Ellipse_186" data-name="Ellipse 186" cx="3.176" cy="3.176" r="3.176" transform="translate(65 113.824)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-                                <circle id="Ellipse_187" data-name="Ellipse 187" cx="3.176" cy="3.176" r="3.176" transform="translate(76.647 108)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-                                <circle id="Ellipse_188" data-name="Ellipse 188" cx="3.176" cy="3.176" r="3.176" transform="translate(76.647 119.647)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-                                <line id="Line_127" data-name="Line 127" x2="5.294" y2="2.647" transform="translate(71.353 118.588)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-                                <line id="Line_128" data-name="Line 128" x1="5.294" y2="2.647" transform="translate(71.353 112.765)" fill="none" stroke="#14171c" stroke-miterlimit="10" stroke-width="2"/>
-                              </g>
-                            </svg>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
-
-    <section class="cards-wrapper">
-        <figure class="cards-copy">
-            <img src="https://i.ytimg.com/vi/7gQTP7jnH0U/maxresdefault.jpg">
-            <figcaption class="caption">
-                <h3 class="medium-title">Film Direction Lessons by Jon Favreau</h3>
-                <a class="yellow-button" href="#!">Join Course</a>
-            </figcaption>
-        </figure>
-        <figure class="cards-copy">
-            <img src="https://i.ytimg.com/vi/7gQTP7jnH0U/maxresdefault.jpg">
-            <figcaption class="caption">
-                <h3 class="medium-title">Computing with Arduino</h3>
-                <a class="yellow-button" href="#!">Join Course</a>
-            </figcaption>
-        </figure>
-        <figure class="cards-copy">
-            <img src="https://www.celebrityschool.in/images/album_image/album_banner_6.webp">
-            <figcaption class="caption">
-                <h3 class="medium-title">Communication Skill Lessons by Sabira Merchant</h3>
-                <a class="yellow-button" href="#!">Join Course</a>
-            </figcaption>
-        </figure>
     </section>
 
     <footer id="footer" class="new-footer">
@@ -733,10 +695,12 @@
             </div>
 
             <div class="column">
-              <ul id="menu-footer-right-menu" class=""><li id="menu-item-2063" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2063"><a title="Cookie Policy" href="https://ht.fortune4.org/cookie-policy/">Cookie Policy</a></li>
-<li id="menu-item-886" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-886"><a title="Privacy Policy" href="https://ht.fortune4.org/privacy-policy/">Privacy Policy</a></li>
-<li id="menu-item-887" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-887"><a title="Terms of Use" href="https://ht.fortune4.org/terms-of-use/">Terms of Use</a></li>
-</ul>            </div>
+                <ul id="menu-footer-right-menu" class="">
+                    <li id="menu-item-2063" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2063"><a title="Cookie Policy" href="https://ht.fortune4.org/cookie-policy/">Cookie Policy</a></li>
+                    <li id="menu-item-886" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-886"><a title="Privacy Policy" href="https://ht.fortune4.org/privacy-policy/">Privacy Policy</a></li>
+                    <li id="menu-item-887" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-887"><a title="Terms of Use" href="https://ht.fortune4.org/terms-of-use/">Terms of Use</a></li>
+                </ul>
+            </div>
 
             <div class="column newsletter">
               <h6 class="new-footer-title">Subscribe Now</h6>
@@ -748,6 +712,153 @@
         <div class="copyright">Copyright © 2021 HTML. All rights reserved.</div>
     </footer>
 
+<div class="course-filter-wrapper">
+    <div class="course-filter-header">
+        <h3 class="filter-title">Filter By</h3>
+        <button class="course-close" type="button"></button>
+    </div>
+    <div class="course-filter-copy">
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session3" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session3">
+                </label>
+            </li>
+            <li>
+                <label for="session4" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="checkbox" name="rdoWeight" id="session4">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session5" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session5">
+                </label>
+            </li>
+            <li>
+                <label for="session6" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session6">
+                </label>
+            </li>
+            <li>
+                <label for="session7" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session7">
+                </label>
+            </li>
+            <li>
+                <label for="session8" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session8">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session9" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session9">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+        <span class="section-title">Sessions</span>
+        <ul>
+            <li>
+                <label for="session1" id="">
+                    <span class="copy">1 - 10 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session1">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">11 - 20 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">21 - 30 Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+            <li>
+                <label for="session2" id="">
+                    <span class="copy">31+ Sessions</span>
+                    <input type="radio" name="rdoWeight" id="session2">
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="filter-action">
+        <button class="white-button" type="button">Apply Filters</button>
+        <button class="reset" type="button">Reset</button>
+    </div>
+</div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -781,6 +892,15 @@
                 }
             }
         })
+    $(document).ready(function(){
+        //$(".more-link").addClass("learnMore");
+        $(".filter-button").click(function () {
+            $("body").toggleClass('filter-opened');
+            $('.course-close').click(function() {
+                $('body').removeClass('filter-opened');
+            });
+        });
+    });
   </script>
 </body>
 

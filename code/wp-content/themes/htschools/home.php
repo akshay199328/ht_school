@@ -257,14 +257,6 @@ get_header(vibe_get_header());
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
             </div>
-            <ul class="">
-              <li>
-                <p><strong>DELHI Oct 13, 2020 20:04 IST</strong></p>
-                <div class="link">
-                    <a href="#">Maharashtra: 600 teachers, non-teaching staff protest</a>
-                </div>
-              </li>
-            </ul>
           </div>
         <?php } endwhile; endif;?>
         <div class="col-sm-12 col-lg-8 home_news-leftspacing">

@@ -224,6 +224,7 @@ get_header(vibe_get_header());
       'post_type' => 'home_course_banner',
       'post_status' => 'publish',
       'orderby' => 'id',
+      'posts_per_page' => 3
       'order'   => 'ASC',
 
     );

@@ -401,8 +401,30 @@ body {
   }
 }
 
+.home {
+  padding-top: 80px !important;
+}
+
 .home .header {
   height: inherit;
+  background-color: #000 !important;
+  color: #FFF;
+}
+
+.home .header .header-copy .left-menu .menu li.border-menu {
+  border-color: currentColor;
+}
+
+.home .header .header-copy .left-menu .menu li.border-menu:after {
+  color: currentColor;
+}
+
+.home .header .header-copy .left-menu .menu li.border-menu a {
+  color: currentColor !important;
+}
+
+.home .header .header-copy .left-menu .menu li a {
+  color: currentColor;
 }
 
 .yellow-header .header-global {
@@ -1122,7 +1144,7 @@ body:before {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 51;
+  z-index: 105;
   background-color: #fff;
   overflow: scroll;
 }
@@ -1313,7 +1335,7 @@ body:before {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 51;
+  z-index: 105;
   visibility: visible;
   opacity: 1;
 }

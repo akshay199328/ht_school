@@ -437,7 +437,7 @@ ol.breadcrumbs  {
 body.page-template-home , .page-template-home .pusher {
     background-color: #d5ebff;
 }
-.home .header.header-scrolled .logo img{
+.header.header-scrolled .logo img{
     -webkit-transform: scale(.9);
     transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
@@ -505,6 +505,8 @@ body.page-template-home , .page-template-home .pusher {
 .border-menu i{padding-left: 20px;}
 .header .logo {
   line-height: 0;
+  transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
 }
 
 .header .logo img {
@@ -517,20 +519,32 @@ body.page-template-home , .page-template-home .pusher {
    /* width: 182px;
     height: 50px;*/
 }
-/*.home-page .header .logo img{
-width: auto;
-    height: auto;
-}*/
+
+.home-page .header a.logo img,
 .single-course .header .logo img{
   display: none;
 }
 .single-course .header a.logo {
-        background: url('./assets/images/logo_yellow.png') no-repeat;
+        background: url('./assets/images/course-logo.svg') no-repeat;
     display: block;
-    width: 157px;
-    height: 42px;
+    width: 195px;
+    height: 59px;
     text-align: center;
     margin: 0px auto;
+}
+.home-page .header a.logo {
+        background: url('./assets/images/logo-news-big.svg') no-repeat;
+    display: block;
+    width: 195px;
+    height: 59px;
+    text-align: center;
+    margin: 0px auto;
+}
+.home-page .header.header-scrolled a.logo,
+.single-course .header.header-scrolled a.logo {
+    -webkit-transform: scale(.9);
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
 }
 .header .logo span {
   font-size: 30px;

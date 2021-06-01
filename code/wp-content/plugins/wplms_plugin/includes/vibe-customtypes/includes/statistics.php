@@ -1157,7 +1157,13 @@ function lms_stats_student_content($subtab='overview'){
 						<ul>
 						<?php
 							foreach($student_info as $info){
-								echo '<li style="float: left; width: 100%;"><label>'.$info['user'].'</label><span>'.$info['avg'].'</span><span>'.$info['score'].'</span><span style="width:200px">'.$info['course'].'</span><span>'.$info['school'].'</span>';
+								echo '<li style="float: left; width: 100%;">';
+									echo '<label>'.$info['user'].'</label>';
+									echo '<span>'.$info['avg'].'</span>';
+									echo '<span>'.$info['score'].'</span>';
+									echo '<span style="width:200px">'.$info['course'].'</span>';
+									echo '<span>'.$info['school'].'</span>';
+								echo '</li>';
 							}
 						?>
 						</ul>
@@ -1596,7 +1602,7 @@ function getStudentListQuery($returnType, $pageNum = null, $num = null)
 	}
 	else if($returnType == 3)
 	{
-		$sql .= "SELECT ht_users.ID, ht_users.user_nicename FROM ht_users ";
+		$sql .= "SELECT ht_users.ID, ht_users.user_nicename, ht_users.user_email FROM ht_users ";
 		$sql .= "INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id ";
 		$sql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
 		$sql .= "AND ht_usermeta.meta_value LIKE '%student%' ";
@@ -1642,6 +1648,7 @@ function lms_student_school_info_data($page_num, $num)
 		}
 
 		$student_info[$i]['user_id']	= $st->ID;
+		$student_info[$i]['user_email']	= $st->user_email;
 		$student_info[$i]['user']		= get_user_meta($st->ID, 'first_name', true).' '.get_user_meta($st->ID, 'last_name', true);
 		$student_info[$i]['school']		= $schoolName;
 		$i++;
@@ -1706,12 +1713,16 @@ function lms_stats_student_school_content()
 		</div>
 		<div class="vibe-reports-main">
 				<div class="postbox course_info">
-					<h3><label>Student</label><span style="width: 350px;">School</span></h3>
+					<h3><label>Student</label><span style="width: 250px;">School</span><span style="width: 250px;">Email ID</span></h3>
 					<div class="inside">
 						<ul>
 						<?php
 							foreach($page_info as $info) {
-								echo '<li style="float: left; width: 100%;"><label>'.$info['user'].'</label><span style="width: 350px;">'.$info['school'].'</span>';
+								echo '<li style="float: left; width: 100%;">';
+									echo '<label>'.$info['user'].'</label>';
+									echo '<span style="width: 250px;">'.($info['school'] ? $info['school'] : "n/a").'</span>';
+									echo '<span style="width: 250px;">'.($info['user_email'] ? $info['user_email'] : "n/a").'</span>';
+								echo '</li>';
 							}
 						?>
 						</ul>
@@ -1797,7 +1808,12 @@ function lms_stats_school_course_content()
 						<?php
 							foreach($page_info as $info) {
 								if($info['school'])
-									echo '<li style="float: left; width: 100%;"><label style="width: 350px;">'.$info['school'].'</label><span style="width: 350px;">'.$info['course'].'</span>';
+								{
+									echo '<li style="float: left; width: 100%;">';
+										echo '<label style="width: 350px;">'.$info['school'].'</label>';
+										echo '<span style="width: 350px;">'.$info['course'].'</span>';
+									echo '</li>';
+								}
 							}
 						?>
 						</ul>

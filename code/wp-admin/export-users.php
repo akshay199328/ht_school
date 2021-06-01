@@ -57,8 +57,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 {
 	if(isset($_POST['user_id']) && $_POST['user_id'] > 0)
 	{
-		$usersSql	= "SELECT ID, user_login, user_email, user_registered FROM ht_users WHERE ID >= '%s' ORDER BY ID ASC";
-		$usersList	= $wpdb->get_results($wpdb->prepare($usersSql, [$_POST['user_id']]));
+		$usersSql  = "SELECT users.ID, users.user_login, users.user_email, users.user_registered ";
+		$usersSql .= "FROM ht_users AS users ";
+		$usersSql .= "INNER JOIN ht_usermeta AS meta ON users.ID = meta.user_id ";
+		$usersSql .= "WHERE meta.meta_key = 'ht_capabilities' AND meta.meta_value LIKE '%student%' AND users.ID >= '".$_POST['user_id']."' ";
+		$usersSql .= "ORDER BY users.ID ASC";
+
+		$usersList	= $wpdb->get_results($usersSql);
 
 		$userMetaKeys = array(
 			"first_name",

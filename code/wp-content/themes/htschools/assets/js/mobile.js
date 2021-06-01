@@ -76,7 +76,6 @@ $(document).ready(function() {
     loop:true,
     nav:true,
     mouseDrag:false,
-    dots:true,
     //autoWidth:true,
     items:2,
     autoplay: true,

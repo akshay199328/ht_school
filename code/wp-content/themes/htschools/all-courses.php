@@ -38,7 +38,9 @@ get_header(vibe_get_header());
           <img src="<?php echo $image_url; ?>">
           <div class="caption">
               <h3 class="caption-title"><?php echo $custom_fields['banner_title'][0];?></h3>
-              <span class="name"><?php print_r(the_content()); ?></span>
+              <?php $sub_title = $custom_fields['banner_sub_title'][0]; if($sub_title != '') { ?>
+                <span class="name"><?php echo $sub_title; ?></span>
+              <?php } ?>
               <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>"><?php echo $custom_fields['cta_text'][0];?></a>
           </div>
       </div>
@@ -49,6 +51,11 @@ get_header(vibe_get_header());
         <div class="course-header">
           <h2 class="course-title">All Courses</h2>
           <div class="right-side">
+            <select class="sort">
+              <option selected="selected">Sort by: Most Popular</option>
+              <option>Highest Rated</option>
+              <option>Newly Added</option>
+            </select>
             <button class="filter-button" type="button">Filters
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
                   <g id="Group_339" data-name="Group 339" transform="translate(-1071.5 -533.5)">

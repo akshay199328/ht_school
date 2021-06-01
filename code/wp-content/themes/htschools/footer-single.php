@@ -990,32 +990,26 @@ border: 1px solid deepskyblue;
                 </label>
             </li>
         </ul>
-        <span class="section-title">Sessions</span>
-        <ul>
+        <span class="section-title">Course Categories</span>
+         <ul>
+        <?php 
+        $args = apply_filters('wplms_course_nav_cats',array(
+            'taxonomy'=>'course-cat',
+            'hide_empty'=>false,
+            'hierarchial'=>1,
+          ));
+
+        $course_category_array = get_terms($args);
+        $course_category = json_decode( json_encode($course_category_array), true);
+        foreach($course_category as $category){
+        ?>
             <li>
                 <label for="session1" id="">
-                    <span class="copy">1 - 10 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session1">
+                    <span class="copy"><?php echo $category['name']?></span>
+                    <input type="checkbox" name="rdoWeight" id="session1" value="<?php echo $category['term_id'];?>">
                 </label>
             </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">11 - 20 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">21 - 30 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">31+ Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
+      <?php }?>
         </ul>
     </div>
     <div class="filter-action">

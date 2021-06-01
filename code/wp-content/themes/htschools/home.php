@@ -32,7 +32,9 @@ get_header(vibe_get_header());
         <img src="<?php echo $image_url; ?>">
         <div class="caption">
             <h3 class="caption-title"><?php echo $custom_fields['banner_title'][0];?></h3>
-            <span class="name"><?php print_r(the_content()); ?></span>
+            <?php $sub_title = $custom_fields['banner_sub_title'][0]; if($sub_title != '') { ?>
+            <span class="name"><?php echo $sub_title; ?></span>
+          <?php } ?>
             <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>"><?php echo $custom_fields['cta_text'][0];?></a>
         </div>
     </div>

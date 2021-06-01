@@ -63,7 +63,6 @@ get_header(vibe_get_header());
             </button>
           </div>
         </div>
-        <div class="courses-wrapper">
                   <?php
                   $featured_args_course = array(
                     'post_type' => 'course',

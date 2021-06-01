@@ -84,9 +84,8 @@ get_header(vibe_get_header());
             <h3 class="larger-title">Popular Courses</h3>
             <p class="intro">Access the world’s activities, anytime anywhere.</p>
         </div>
-        <a href="<?php echo get_home_url();?>/courses/" class="exlore-link desktop-btn">Discover All Courses</a>
+        <a href="<?php echo get_home_url();?>/courses/" class="large-button">Discover All Courses</a>
     </div>
-    <div class="courses-wrapper">
       <?php
           $featured_args_course = array(
             'post_type' => 'course',
@@ -154,7 +153,7 @@ get_header(vibe_get_header());
                 $image_url = get_the_post_thumbnail_url();
               }
             ?>
-            <a href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
+            <a class="course-hero" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
             <div class="course-copy">
             <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
             <ul class="data">
@@ -218,6 +217,30 @@ get_header(vibe_get_header());
 </section>
 <!-- End Features Section -->
 
+<section class="cards-wrapper">
+  <?php
+    $args1 = array(
+      'post_type' => 'home_course_banner',
+      'post_status' => 'publish',
+      'orderby' => 'id',
+      'posts_per_page' => 3,
+      'order'   => 'ASC',
+    );
+    $Query1 = new WP_Query( $args1 );
+
+    if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+      $custom_fields = get_post_custom();
+      $image_url = wp_get_attachment_url($custom_fields['banner_image'][0]);
+      ?>
+    <figure class="cards-copy">
+        <img src="<?php echo $image_url; ?>">
+        <figcaption class="caption">
+            <h3 class="medium-title"><?php echo $custom_fields['banner_title'][0];?></h3>
+            <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>"><?php echo $custom_fields['cta_text'][0];?></a>
+        </figcaption>
+    </figure>
+    <?php endwhile;endif; ?>
+</section>
 
   <!-- ======= Latest News Section ======= -->
   <section id="" class="latest-news home_latest_news">

@@ -114,9 +114,9 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
 </div>
 
 
-            <div class="<?php echo vibe_get_container(); ?> d-flex align-items-center justify-content-between" >
+            <div class="header-copy">
 
-                <div class="col-lg-4 mrg left-menu">
+                <div class="mrg left-menu">
                     <?php
 
 
@@ -158,7 +158,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                         <span class="lines"></span>
                     </a>
                 </div>
-                <div class="middle-menu col-sm-2 col-lg-4">
+                <div class="middle-menu">
                     <i class="bi bi-list mobile-nav-toggle"></i>
                     <?php
                     $template_file = get_post_meta( get_the_ID(), '_wp_page_template', TRUE );
@@ -178,7 +178,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                         }
                     ?>
                 </div>
-                <div class="col-sm-10 col-lg-4 mrg right-menu">
+                <div class="mrg right-menu">
                 <?php  global $post;
                     $post_slug = $post->post_name;
                     if($post_slug != 'login-register'){ ?>
@@ -232,9 +232,12 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                      if (is_user_logged_in()){
                          /*do_action('notification_fragments');*/
                       }
-                     echo "<li class='mobile-display'><a href='".get_bloginfo('url')."/editorsdesk'><img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg></a></li>";
+                     echo "<li class='mobile-display news'><a href='".get_bloginfo('url')."/editorsdesk'>
+                      <img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg>
+                     </a>
+                     </li>";
                      foreach ($menuitems as $menu) {  ?>
-                         <li><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
+                         <li class="epaper"><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
                      <?php }
                      echo "</ul>";
                     }

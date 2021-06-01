@@ -271,7 +271,7 @@ function wpse_enqueue_datepicker() {
     wp_enqueue_script( 'jquery-ui-datepicker' );
     wp_enqueue_script( 'jquery-ui-autocomplete' );
     // You need styling for the datepicker. For simplicity I've linked to the jQuery UI CSS on a CDN.
-    wp_register_style( 'jquery-ui', 'https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css' );
+    wp_register_style( 'jquery-ui', '//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css' );
     wp_enqueue_style( 'jquery-ui' );
   }
 }
@@ -1276,6 +1276,10 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
         $order->update_status( 'completed' );
     }
 }
+
+add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted ) {  
+    update_post_meta( $order_id, 'orderdetailsflag', 0 );  
+} , 10, 2);
 
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){

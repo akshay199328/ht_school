@@ -86,7 +86,6 @@ get_header(vibe_get_header());
         </div>
         <a href="<?php echo get_home_url();?>/courses/" class="large-button">Discover All Courses</a>
     </div>
-    <div class="courses-wrapper">
       <?php
           $featured_args_course = array(
             'post_type' => 'course',

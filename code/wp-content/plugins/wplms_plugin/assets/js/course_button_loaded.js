@@ -1856,7 +1856,12 @@
                             behavior: "smooth"
                         }), t.update({
                             index: n
-                        }, "loadunit"))
+                        }, "loadunit")) ,
+                        setTimeout(function(){
+                            if(window.innerWidth < 768){
+                                jQuery(".course_content").insertAfter(".open_lesson.active");
+                            }
+                        },1000);
                     })(e, e.key)
                 }
             }, e.icon && e.icon.length > 200 ? k("span", {

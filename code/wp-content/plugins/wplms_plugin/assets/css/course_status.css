@@ -3228,6 +3228,10 @@
     .course_status .course_timeline .course_action_points .search-course {
         padding: 0 0.5rem
     }
+
+    .course_status .course_content .course_content_header{
+        display: none !important;
+    }
 }
 
 .course_progress_wrapper {

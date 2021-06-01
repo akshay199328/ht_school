@@ -7501,12 +7501,12 @@ section#content.section_contact{padding-top:10px}
   #buddypress .item-list-tabs#subnav .owl-stage .owl-item li a{text-align:center !important;padding:15px 0 !important}
   #buddypress .item-list-tabs#subnav .owl-stage .owl-item li a:after{display:none;}
   .border_button .course-button{align-items:center;}
-  .course_button{
+  /*.course_button{
     padding-left: 7px !important;
     padding-right: 7px !important;
     min-width: 145px !important;
     font-weight: 400 !important;
-  }
+  }*/
   body.course #buddypress .item-list-tabs#subnav .owl-stage .owl-item,
   body.preference #buddypress .item-list-tabs#subnav .owl-stage .owl-item{width:auto !important;}
   body.course #buddypress .item-list-tabs#subnav .owl-stage .owl-item li a,

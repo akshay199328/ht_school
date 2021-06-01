@@ -1642,7 +1642,7 @@ function lms_student_school_info_data($page_num, $num)
 		}
 
 		$student_info[$i]['user_id']	= $st->ID;
-		$student_info[$i]['user']		= get_the_author_meta('display_name', $st->user);
+		$student_info[$i]['user']		= get_user_meta($st->ID, 'first_name', true).' '.get_user_meta($st->ID, 'last_name', true);
 		$student_info[$i]['school']		= $schoolName;
 		$i++;
 	}

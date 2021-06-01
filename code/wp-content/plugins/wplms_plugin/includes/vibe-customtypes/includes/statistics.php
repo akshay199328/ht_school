@@ -6,7 +6,7 @@
 function vibe_lms_stats() {
     $tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'overview';
     $subtab = isset( $_GET['subtab'] ) ? $_GET['subtab'] : 'overview';
-	lms_stats_tabs($tab);    
+	lms_stats_tabs($tab);
 	lms_stats_sub_tabs($tab,$subtab);
 	lms_stats_tab_content($tab,$subtab);
 }
@@ -14,23 +14,25 @@ function vibe_lms_stats() {
 function lms_stats_tabs( $current = 'overview' ) {
 
 	if(current_user_can('manage_options')){
-	 	$tabs =  array( 
+	 	$tabs =  array(
     		'overview' => __('Overview','wplms'),
-    		'course' => __('Course','wplms'), 
-    		'instructor' => __('Instructor','wplms'), 
+    		'course' => __('Course','wplms'),
+    		'instructor' => __('Instructor','wplms'),
     		'students' => __('Students','wplms'),
-    		'download' => __('Download Stats','wplms'), 
+    		'student_school' => __('Student <> Schools','wplms'),
+    		'school_course' => __('Schools <> Course','wplms'),
+    		'download' => __('Download Stats','wplms'),
     		'report' => __('Administrator Report','wplms'),
-    		);
+    	);
 	}else{
-		$tabs = array( 
+		$tabs = array(
     		'my-overview' => __('Overview','wplms'),
-    		'my-course' => __('My Courses','wplms'), 
+    		'my-course' => __('My Courses','wplms'),
     		);
 	}
-	
+
 	$tabs = apply_filters('lms_stats_tabs',$tabs);
-	
+
     echo '<div id="icon-themes" class="icon32"><br></div>';
     echo '<h2 class="nav-tab-wrapper">';
     foreach( $tabs as $tab => $name ){
@@ -50,9 +52,15 @@ function lms_stats_tab_content($tab = 'overview',$subtab='day'){
         	break;
         	case 'instructor':
         		lms_stats_instructor_content($subtab);
-        	break;	
+        	break;
         	case 'students':
         		lms_stats_student_content($subtab);
+        	break;
+        	case 'student_school':
+        		lms_stats_student_school_content($subtab);
+        	break;
+        	case 'school_course':
+        		lms_stats_school_course_content($subtab);
         	break;
         	case 'download':
         		lms_stats_download($subtab);
@@ -188,9 +196,9 @@ function vibe_course_module_overview($subtab='') {
 
 	if($subtab =='custom'){
 		 echo '<form method="post" action=""><h3>'.__('Custom Date Selection','wplms').'</h3>
-				<p><label for="from">From:</label> 
+				<p><label for="from">From:</label>
 				<input type="text" name="start_date" id="from" value="'.(isset($start_date)?$start_date:'2014-01-01').'" class="date-picker-field">
-				 <label for="to">&nbsp;&nbsp; To:</label> 
+				 <label for="to">&nbsp;&nbsp; To:</label>
 				<input type="text" name="end_date" id="to" value="'.(isset($end_date)?$end_date:'2014-02-01').'" class="date-picker-field">
 				<input type="submit" class="button" value="Show"></p>
 			</form>';
@@ -203,8 +211,8 @@ function vibe_course_module_overview($subtab='') {
 			$total_instructors=$count;
 		}
 	}
-    
-   
+
+
 
 	$ct=apply_filters('vibe_course_module_overview_reports', $wpdb->get_results("
 		SELECT SUM(rel.meta_value) as total_students
@@ -215,7 +223,7 @@ function vibe_course_module_overview($subtab='') {
 		AND 	rel.meta_key   = 'vibe_students'
 	"));
 	$total_coursetaken=$ct[0]->total_students;
-	
+
 
 	$bg=apply_filters('vibe_course_module_overview_reports', $wpdb->get_results("
 		SELECT SUM(rel.meta_value) as total_badge
@@ -225,7 +233,7 @@ function vibe_course_module_overview($subtab='') {
 		AND 	posts.post_status 	= 'publish'
 		AND 	rel.meta_key   = 'badge'
 	"));
-	
+
 
 	$total_badges = $bg[0]->total_badge;
 
@@ -288,25 +296,25 @@ function vibe_course_module_overview($subtab='') {
 	</div>
 	<?php
 
-	
+
 	if(isset($start_date) && $start_date !=0){
 		$start_date = strtotime( date('Ymd', strtotime( $start_date ) ) );
-		$end_date = strtotime( date('Ymd', strtotime( $end_date ) ) );		
+		$end_date = strtotime( date('Ymd', strtotime( $end_date ) ) );
 	}else{
 		$start_date = strtotime( date('Ymd', strtotime( date('Ym', current_time('timestamp') ) . '01' ) ) );
-		$end_date = strtotime( date('Ymd', current_time( 'timestamp' ) ) );	
+		$end_date = strtotime( date('Ymd', current_time( 'timestamp' ) ) );
 	}
-	
 
-	
+
+
 
 	// Blank date ranges to begin
 	$subscription_counts = $student_nos = array();
 	$count = 0;
 	$days = ( $end_date - $start_date ) / ( 60 * 60 * 24 );
-	
-	
-	
+
+
+
 	if ( $days == 0 )
 		$days = 1;
 
@@ -322,9 +330,9 @@ function vibe_course_module_overview($subtab='') {
 	}
 
 	// Get order ids and dates in range
-	// 
+	//
 	// Activity Table prefix -> No solution found in BuddyPress, so hardcoding this :((
-	
+
 	$table_name = $wpdb->prefix.'bp_'.'activity';
 	$courses_started = apply_filters('vibe_reports_sales_overview_orders', $wpdb->get_results( "
 		SELECT activity.user_id, activity.date_recorded FROM $table_name AS activity
@@ -335,11 +343,11 @@ function vibe_course_module_overview($subtab='') {
 		ORDER BY date_recorded ASC
 	" ) );
 
-	
+
 	if ( $courses_started ) {
 		foreach ( $courses_started as $course_start ) {
 
-			
+
 			$time = strtotime( date( 'Ymd', strtotime( $course_start->date_recorded ) ) ) . '000';
 			if ( isset( $subscription_counts[ $time ] ) )
 				$subscription_counts[ $time ]++;
@@ -350,7 +358,7 @@ function vibe_course_module_overview($subtab='') {
 		}
 	}
 
-	
+
 	//print_r($subscription_counts);
 
 	$subscription_counts_array =  array();
@@ -358,7 +366,7 @@ function vibe_course_module_overview($subtab='') {
 	foreach ( $subscription_counts as $key => $count )
 		$subscription_counts_array[] = array( esc_js( $key ), esc_js( $count ) );
 
-	
+
 	$subscription_data = array( 'subscription_counts' => $subscription_counts_array, );
 
 	$chart_data = json_encode( $subscription_data );
@@ -473,29 +481,29 @@ function lms_stats_course_data($subtab='popular',$paged,$num){
 			);
 	}
 	foreach($bg_num as $bg){
-		if(isset($bg->badge))	
+		if(isset($bg->badge))
 			$course_info[$bg->ID]['badge']=$bg->badge;
 	}
 	foreach($pass_num as $pass){
-		if(isset($pass->pass))	
+		if(isset($pass->pass))
 		$course_info[$pass->ID]['pass']=$pass->pass;
 	}
 	foreach($avg_num as $avg){
-		if(isset($avg->avg))	
+		if(isset($avg->avg))
 		$course_info[$avg->ID]['avg']=$avg->avg;
 	}
-	return $course_info;						
+	return $course_info;
 }
 
 function lms_stats_administrator_report($subtab='overview'){
 	?>
 	<div class="wplms_main_reports">
-		<div id="wplms_reports">Coming Soon</div>	
+		<div id="wplms_reports">Coming Soon</div>
 	</div>
 	<?php
 }
 function lms_stats_course_content($subtab='overview'){
-	
+
 	global $wpdb;
 
 	$num = 20;
@@ -507,7 +515,7 @@ function lms_stats_course_content($subtab='overview'){
 	if(isset($_GET['paged']) && is_numeric($_GET['paged']) && $_GET['paged'])
 			$page_num=($_GET['paged'])*$num;
 
-	
+
 
 	if($subtab == 'popular')
 		$orderby='CAST(students AS UNSIGNED)';
@@ -551,7 +559,7 @@ function lms_stats_course_content($subtab='overview'){
 		AND 	posts.post_status 	= 'publish'
 		AND 	rel.meta_key   = 'average'
 	"));
-	
+
    /* Count Queries ===*/
    $ct=apply_filters('vibe_course_module_overview_reports', $wpdb->get_results("
 		SELECT SUM(rel.meta_value) as total_students
@@ -645,22 +653,22 @@ function lms_stats_course_content($subtab='overview'){
 									);
 							}
 							foreach($bg_num as $bg){
-								if(isset($bg->badge))	
+								if(isset($bg->badge))
 									$course_info[$bg->ID]['badge']=$bg->badge;
 							}
 							foreach($pass_num as $pass){
-								if(isset($pass->pass))	
+								if(isset($pass->pass))
 								$course_info[$pass->ID]['pass']=$pass->pass;
 							}
 							foreach($avg_num as $avg){
-								if(isset($avg->avg))	
+								if(isset($avg->avg))
 								$course_info[$avg->ID]['avg']=$avg->avg;
 							}
 
 
 							foreach($course_info as $course){
 								if(isset($course['title']))
-								echo '<li><label>'.$course['title'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span>';	
+								echo '<li><label>'.$course['title'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span>';
 							}
 						?>
 						</ul>
@@ -677,7 +685,7 @@ function lms_stats_course_content($subtab='overview'){
 							}
 							echo '<a href="?page=lms-stats&tab=course&subtab='.$_GET['subtab'].'&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
 						}
-						
+
 						?>
 					</div>
 				</div>
@@ -690,7 +698,7 @@ function lms_stats_course_content($subtab='overview'){
 							$terms_array=array();
 							foreach($st_num as $st){
 								$terms = get_the_terms($st->ID,'course-cat');
-								
+
 								if(!empty($terms) && count($terms)){
 
 									foreach($terms as $term){
@@ -709,33 +717,33 @@ function lms_stats_course_content($subtab='overview'){
 									}
 
 									foreach($bg_num as $bg){
-										if($st->ID == $bg->ID){ 
+										if($st->ID == $bg->ID){
 											foreach($terms as $term){
 												$terms_array[$term->slug]['badge'] +=$bg->badge;
 											}
 										}
-									}	
+									}
 									foreach($pass_num as $pass){
-										if($st->ID == $pass->ID){ 
+										if($st->ID == $pass->ID){
 											foreach($terms as $term){
 												$terms_array[$term->slug]['pass'] +=$pass->pass;
 											}
-										}	
+										}
 									}
 									foreach($avg_num as $avg){
-										if($st->ID == $avg->ID){ 
+										if($st->ID == $avg->ID){
 											foreach($terms as $term){
 												if(!is_array($terms_array[$term->slug]['avg'])){
 													$terms_array[$term->slug]['avg'] = array();
 												}
 												$terms_array[$term->slug]['avg'][]=$avg->avg;
 											}
-										}	
+										}
 									}
 								}
 
 								foreach($terms_array as $k=>$term){
-									if(isset($term['avg']) && is_Array($term['avg'])){ 
+									if(isset($term['avg']) && is_Array($term['avg'])){
 										$x = (count($term['avg'])?count($term['avg']):1);
 										$d=array_sum($term['avg']) / $x;
 										$terms_array[$k]['avg'] = round($d,2);
@@ -743,7 +751,7 @@ function lms_stats_course_content($subtab='overview'){
 								}
 
 							}
-								
+
 							foreach ($terms_array as $term){
 								echo '<li><label>'.$term['name'].'</label><span>'.$term['students'].'</span><span>'.$term['badge'].'</span><span>'.$term['pass'].'</span><span>'.$term['avg'].'</span><span>'.$term['count'].'</span></li>';
 							}
@@ -772,7 +780,7 @@ function lms_stats_download(){
 							<option value="student" <?php selected('student',$_POST['module']); ?>><?php _e( 'Students', 'wplms' ); ?></option>
 							<?php do_action('wplms_download_stats_modules'); ?>
 					</select><br /><hr />
-					<?php 
+					<?php
 					if($_POST['generate_report']){
 						switch($_POST['module']){
 							case 'course':
@@ -793,11 +801,11 @@ function lms_stats_download(){
 							break;
 							case 'student':
 								$csv_title=array(
-										'Student','Average Marks','Marks','Course'
+										'Student','School','Average Marks','Marks','Course'
 									);
 							   $csv=lms_student_info_data(0,999);
 							break;
-							default: 
+							default:
 							$post = $_POST;
 								$csv_title = 	apply_filters('generate_report_csv_title', array(), $post);
 							    $csv = 			apply_filters('generate_report_csv_data', array(), $post);
@@ -814,13 +822,13 @@ function lms_stats_download(){
 					  $file = $filepath.$file_name;
 					  if(file_exists($file))
 					  unlink($file);
-					  
+
 
 					  if (($handle = fopen($file, "w")) !== FALSE) {
 					    fputcsv($handle,$csv_title);
 					    $rows = count($csv_title);
 					    foreach($csv as $arr)
-				        	fputcsv($handle, $arr);  
+				        	fputcsv($handle, $arr);
 					    }
 					    fclose($handle);
 					  	$file_url = $dir['baseurl']. '/stats/'.$file_name;
@@ -833,8 +841,8 @@ function lms_stats_download(){
 					</form>
 				</div>
 			</div>
-		</div>	
-	</div>		
+		</div>
+	</div>
 	<?php
 }
 
@@ -854,10 +862,10 @@ function lms_instructor_data($subtab){
 	    WHERE 	posts.post_type 	= 'course'
 		AND 	posts.post_status 	= 'publish'
 		AND 	rel.meta_key   = 'vibe_students'
-		GROUP BY posts.post_author ORDER BY $orderby DESC 
+		GROUP BY posts.post_author ORDER BY $orderby DESC
 	"));
 
-	
+
 
 	$bg_num=apply_filters('vibe_course_module_overview_reports', $wpdb->get_results("
 		SELECT posts.post_author as instructor,rel.meta_value as badge
@@ -875,7 +883,7 @@ function lms_instructor_data($subtab){
 	    WHERE 	posts.post_type 	= 'course'
 		AND 	posts.post_status 	= 'publish'
 		AND 	rel.meta_key   = 'pass'
-		GROUP BY posts.post_author 
+		GROUP BY posts.post_author
 	"));
 	$avg_num=apply_filters('vibe_course_module_overview_reports', $wpdb->get_results("
 		SELECT posts.post_author as instructor,rel.meta_value as avg
@@ -884,7 +892,7 @@ function lms_instructor_data($subtab){
 	    WHERE 	posts.post_type 	= 'course'
 		AND 	posts.post_status 	= 'publish'
 		AND 	rel.meta_key   = 'average'
-		GROUP BY posts.post_author 
+		GROUP BY posts.post_author
 	"));
 	foreach($st_num as $st){
 		$course_info[$st->instructor]=array(
@@ -896,17 +904,17 @@ function lms_instructor_data($subtab){
 			'courses'=>$st->courses
 			);
 	}
-	
+
 	foreach($bg_num as $bg){
-		if(isset($bg->badge))	
+		if(isset($bg->badge))
 			$course_info[$st->instructor]['badge']=$bg->badge;
 	}
 	foreach($pass_num as $pass){
-		if(isset($pass->pass))	
+		if(isset($pass->pass))
 		$course_info[$st->instructor]['pass']=$pass->pass;
 	}
 	foreach($avg_num as $avg){
-		if(isset($avg->avg))	
+		if(isset($avg->avg))
 		$course_info[$st->instructor]['avg']=$avg->avg;
 	}
 
@@ -914,9 +922,9 @@ function lms_instructor_data($subtab){
 }
 function lms_stats_instructor_content($subtab='overview'){
 
-global $wpdb;
-	
-	
+	global $wpdb;
+
+
 	$result = count_users();
 	foreach($result['avail_roles'] as $role => $count){
 		if($role == 'instructor'){
@@ -924,8 +932,8 @@ global $wpdb;
 		}
 	}
 
-	
-	
+
+
 	/* Count Queries */
 
 	$table_name = $wpdb->prefix.'bp_'.'activity';
@@ -944,7 +952,7 @@ global $wpdb;
 	" ) );
 	$quiz_evaluated = $qe[0]->total;
 
-	
+
 	?>
 	<div id="poststuff" class="vibe-reports-wrap">
 		<div class="vibe-reports-sidebar">
@@ -977,7 +985,7 @@ global $wpdb;
 
 							foreach($course_info as $course){
 								if(isset($course['instructor']))
-								echo '<li><label>'.$course['instructor'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span><span>'.$course['courses'].'</span>';	
+								echo '<li><label>'.$course['instructor'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span><span>'.$course['courses'].'</span>';
 							}
 						?>
 						</ul>
@@ -998,22 +1006,48 @@ function lms_student_info_data($page_num,$num){
 	    WHERE 	posts.post_type 	= 'course'
 		AND 	posts.post_status 	= 'publish'
 		AND     rel.meta_key REGEXP '^[0-9]+$'
+		AND     rel.meta_key IN (".getStudentListQuery(2).")
 		ORDER BY rel.meta_key
 		LIMIT $page_num, $num
 	"));
 
-	
+	$schoolFieldID		= 0;
+	$schoolFieldIDSql	= "SELECT ID FROM ht_bp_xprofile_fields WHERE name = 'Linked School'";
+	$schoolFieldIDList	= $wpdb->get_results($wpdb->prepare($schoolFieldIDSql, []));
+
+	if(count($schoolFieldIDList) > 0)	$schoolFieldID = $schoolFieldIDList[0]->ID;
+
+	$schoolList = array();
 	$student_info=array();
+
 	$i=0;
 	foreach($st_stats as $st){
 
 		$avg=get_post_meta($st->course_id,'average',true);
 		$status = get_user_meta($st->user,'course_status'.$st->course_id,true);
 		if(isset($status)){
-			$student_info[$i]['user'] = get_the_author_meta('display_name',$st->user);
-			$student_info[$i]['avg'] =(is_numeric($avg)?$avg:'n/a');
-			$student_info[$i]['score'] =((isset($st->score) && $status >= 3)?$st->score:'n/a');
-			$student_info[$i]['course'] = (isset($st->course)?$st->course:'n/a');
+			$schoolName		= "";
+			$schoolIDSql	= "SELECT value FROM ht_bp_xprofile_data WHERE user_id = '%s' AND field_id = '%s'";
+			$schoolIDList	= $wpdb->get_results($wpdb->prepare($schoolIDSql, [$st->user, $schoolFieldID]));
+
+			if(count($schoolIDList) > 0)
+			{
+				if(isset($schoolList[$schoolIDList[0]->value]))
+				{
+					$schoolName = $schoolList[$schoolIDList[0]->value];
+				}
+				else
+				{
+					$schoolName = get_user_meta( $schoolIDList[0]->value, "nickname", true );
+					$schoolList[$schoolIDList[0]->value] = $schoolName;
+				}
+			}
+
+			$student_info[$i]['user']	= get_the_author_meta('display_name',$st->user);
+			$student_info[$i]['school']	= $schoolName;
+			$student_info[$i]['avg']	= (is_numeric($avg)?$avg:'n/a');
+			$student_info[$i]['score']	= ((isset($st->score) && $status >= 3)?$st->score:'n/a');
+			$student_info[$i]['course']	= (isset($st->course)?$st->course:'n/a');
 		}
 		$i++;
 	}
@@ -1024,8 +1058,7 @@ function lms_student_info_data($page_num,$num){
 function lms_stats_student_content($subtab='overview'){
 
 	global $wpdb;
-	
-	
+
 	$result = count_users();
 	$total_students=$result['total_users'];
 	foreach($result['avail_roles'] as $role => $count){
@@ -1051,7 +1084,7 @@ function lms_stats_student_content($subtab='overview'){
 			$page_num=($_GET['paged'])*$num;
 
 	$student_info = lms_student_info_data($page_num,$num);
-	
+
 	$total = count($student_info);
 	/* Count Queries */
 
@@ -1069,6 +1102,26 @@ function lms_stats_student_content($subtab='overview'){
 	" ) );
 	$course_students = $qe[0]->total;
 
+	$studentCountResult = $wpdb->get_results(getStudentListQuery(1));
+
+	if(count($studentCountResult) > 0)
+	{
+		$total_students = $studentCountResult[0]->total;
+	}
+
+	$total_schools = 0;
+
+	$schoolCountSql  = "SELECT COUNT(1) AS total FROM ht_users ";
+	$schoolCountSql .= "INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id ";
+	$schoolCountSql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
+	$schoolCountSql .= "AND ht_usermeta.meta_value LIKE '%school%' ";
+	$schoolCountResult = $wpdb->get_results($schoolCountSql);
+
+	if(count($schoolCountResult) > 0)
+	{
+		$total_schools = $schoolCountResult[0]->total;
+	}
+
 	?>
 	<div id="poststuff" class="vibe-reports-wrap">
 		<div class="vibe-reports-sidebar">
@@ -1076,6 +1129,12 @@ function lms_stats_student_content($subtab='overview'){
 				<h3><span><?php _e( 'Total Students', 'wplms' ); ?></span></h3>
 				<div class="inside">
 					<p class="stat"><?php if ( $total_students > 0 ) echo $total_students; else _e( 'n/a', 'wplms' ); ?></p>
+				</div>
+			</div>
+			<div class="postbox">
+				<h3><span><?php _e( 'Total Schools', 'wplms' ); ?></span></h3>
+				<div class="inside">
+					<p class="stat"><?php if ( $total_schools > 0 ) echo $total_schools; else _e( 'n/a', 'wplms' ); ?></p>
 				</div>
 			</div>
 			<div class="postbox">
@@ -1093,16 +1152,16 @@ function lms_stats_student_content($subtab='overview'){
 		</div>
 		<div class="vibe-reports-main">
 				<div class="postbox course_info">
-					<h3><label>Student</label><span>Average</span><span>Score</span><span style="width:200px">Course</span></h3>
+					<h3><label>Student</label><span>Average</span><span>Score</span><span style="width:200px">Course</span><span>School</span></h3>
 					<div class="inside">
 						<ul>
 						<?php
 							foreach($student_info as $info){
-								echo '<li><label>'.$info['user'].'</label><span>'.$info['avg'].'</span><span>'.$info['score'].'</span><span style="width:200px">'.$info['course'].'</span>';		
+								echo '<li style="float: left; width: 100%;"><label>'.$info['user'].'</label><span>'.$info['avg'].'</span><span>'.$info['score'].'</span><span style="width:200px">'.$info['course'].'</span><span>'.$info['school'].'</span>';
 							}
-							
 						?>
 						</ul>
+						<div class="clearfix"></div>
 						<?php
 						if(isset($_GET['paged']) && $_GET['paged']){
 							echo '<a href="?page=lms-stats&tab=students&subtab=overview&paged='.($_GET['paged']-1).'" class="button">&lsaquo; '.__('Prev','wplms').'</a>';
@@ -1116,7 +1175,7 @@ function lms_stats_student_content($subtab='overview'){
 							}
 							echo '<a href="?page=lms-stats&tab=students&subtab=overview&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
 						}
-						
+
 						?>
 					</div>
 				</div>
@@ -1132,22 +1191,22 @@ function vibe_my_course_module_overview($subtab='') {
 	$total_students = $start_date = $end_date = $total_coursetaken = $total_coursefinished = $total_badges = $total_certificates = 0;
 
 	$user_id = get_current_user_id();
-	
+
 
 	$start_date = isset( $_POST['start_date'] ) ? $_POST['start_date'] : 0;
 	$end_date	= isset( $_POST['end_date'] ) ? $_POST['end_date'] : 0;
 
 	if($subtab =='custom'){
 		 echo '<form method="post" action=""><h3>Custom Date Selection</h3>
-				<p><label for="from">From:</label> 
+				<p><label for="from">From:</label>
 				<input type="text" name="start_date" id="from" value="'.(isset($start_date)?$start_date:'2014-01-01').'" class="date-picker-field">
-				 <label for="to">&nbsp;&nbsp; To:</label> 
+				 <label for="to">&nbsp;&nbsp; To:</label>
 				<input type="text" name="end_date" id="to" value="'.(isset($end_date)?$end_date:'2014-02-01').'" class="date-picker-field">
 				<input type="submit" class="button" value="Show"></p>
 			</form>';
 	}
 
-   
+
 
 	$ct=apply_filters('vibe_course_module_overview_reports', $wpdb->get_results("
 		SELECT SUM(rel.meta_value) as total_students
@@ -1160,7 +1219,7 @@ function vibe_my_course_module_overview($subtab='') {
 	"));
 
 	$total_coursetaken=$ct[0]->total_students;
-	
+
 
 	$bg=apply_filters('vibe_course_module_overview_reports', $wpdb->get_results("
 		SELECT SUM(rel.meta_value) as total_badge
@@ -1171,7 +1230,7 @@ function vibe_my_course_module_overview($subtab='') {
 		AND 	rel.meta_key   = 'badge'
 		AND     posts.post_author = $user_id
 	"));
-	
+
 
 	$total_badges = $bg[0]->total_badge;
 
@@ -1223,13 +1282,13 @@ function vibe_my_course_module_overview($subtab='') {
 	</div>
 	<?php
 
-	
+
 	if(isset($start_date) && $start_date !=0){
 		$start_date = strtotime( date('Ymd', strtotime( $start_date ) ) );
-		$end_date = strtotime( date('Ymd', strtotime( $end_date ) ) );		
+		$end_date = strtotime( date('Ymd', strtotime( $end_date ) ) );
 	}else{
 		$start_date = strtotime( date('Ymd', strtotime( date('Ym', current_time('timestamp') ) . '01' ) ) );
-		$end_date = strtotime( date('Ymd', current_time( 'timestamp' ) ) );	
+		$end_date = strtotime( date('Ymd', current_time( 'timestamp' ) ) );
 	}
 
 	// Blank date ranges to begin
@@ -1252,13 +1311,13 @@ function vibe_my_course_module_overview($subtab='') {
 	}
 
 	// Get order ids and dates in range
-	// 
+	//
 	// Activity Table prefix -> No solution found in BuddyPress, so hardcoding this :((
-	
+
 	$table_name = $wpdb->prefix.'bp_'.'activity';
 	$meta_table_name = $wpdb->prefix.'bp_'.'activity_meta';
 	$courses_started = apply_filters('vibe_reports_sales_overview_orders', $wpdb->get_results( "
-		SELECT activity.user_id, activity.date_recorded 
+		SELECT activity.user_id, activity.date_recorded
 		FROM $table_name AS activity
 		LEFT JOIN $meta_table_name AS rel ON activity.id = rel.activity_id
 		WHERE 	activity.component 	= 'course'
@@ -1273,7 +1332,7 @@ function vibe_my_course_module_overview($subtab='') {
 	if ( $courses_started ) {
 		foreach ( $courses_started as $course_start ) {
 
-			
+
 			$time = strtotime( date( 'Ymd', strtotime( $course_start->date_recorded ) ) ) . '000';
 			if ( isset( $subscription_counts[ $time ] ) )
 				$subscription_counts[ $time ]++;
@@ -1411,7 +1470,7 @@ function lms_stats_my_course_content($subtab='overview'){
 	$courses_started=$cs[0]->total;
 
 	$cf = apply_filters('vibe_reports_course_evaluated_overview_orders', $wpdb->get_results( "
-		SELECT count(activity.id) as total 
+		SELECT count(activity.id) as total
 		FROM $table_name AS activity
 		LEFT JOIN $meta_table_name AS rel ON activity.id = rel.activity_id
 		WHERE 	activity.component 	= 'course'
@@ -1423,7 +1482,7 @@ function lms_stats_my_course_content($subtab='overview'){
 	$courses_finished=$cf[0]->total;
 
 	$qe = apply_filters('vibe_reports_sales_overview_orders', $wpdb->get_results( "
-		SELECT count(activity.id) as total 
+		SELECT count(activity.id) as total
 		FROM $table_name AS activity
 		LEFT JOIN $meta_table_name AS rel ON activity.id = rel.activity_id
 		WHERE 	activity.component 	= 'course'
@@ -1434,7 +1493,7 @@ function lms_stats_my_course_content($subtab='overview'){
 	$quiz_evaluated = $qe[0]->total;
 
 	$uc = apply_filters('vibe_reports_sales_overview_orders', $wpdb->get_results( "
-		SELECT count(activity.id) as total 
+		SELECT count(activity.id) as total
 		FROM $table_name AS activity
 		LEFT JOIN $meta_table_name AS rel ON activity.id = rel.activity_id
 		WHERE 	activity.component 	= 'course'
@@ -1488,20 +1547,20 @@ function lms_stats_my_course_content($subtab='overview'){
 									);
 							}
 							foreach($bg_num as $bg){
-								if(isset($bg->badge))	
+								if(isset($bg->badge))
 									$course_info[$bg->ID]['badge']=$bg->badge;
 							}
 							foreach($pass_num as $pass){
-								if(isset($pass->pass))	
+								if(isset($pass->pass))
 								$course_info[$pass->ID]['pass']=$pass->pass;
 							}
 							foreach($avg_num as $avg){
-								if(isset($avg->avg))	
+								if(isset($avg->avg))
 								$course_info[$avg->ID]['avg']=$avg->avg;
 							}
 							foreach($course_info as $course){
 								if(isset($course['title']))
-								echo '<li><label>'.$course['title'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span>';	
+								echo '<li><label>'.$course['title'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span>';
 							}
 						?>
 						</ul>
@@ -1513,8 +1572,255 @@ function lms_stats_my_course_content($subtab='overview'){
 	<?php
 }
 
+/* 1. Return count of students
+ * 2. Return Only user id's of user
+ * 3. Return info of user
+ */
+function getStudentListQuery($returnType, $pageNum = null, $num = null)
+{
+	$sql = "";
 
+	if($returnType == 1)
+	{
+		$sql .= "SELECT COUNT(1) AS total FROM ht_users ";
+		$sql .= "INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id ";
+		$sql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
+		$sql .= "AND ht_usermeta.meta_value LIKE '%student%' ";
+	}
+	else if($returnType == 2)
+	{
+		$sql .= "SELECT ht_users.ID FROM ht_users ";
+		$sql .= "INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id ";
+		$sql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
+		$sql .= "AND ht_usermeta.meta_value LIKE '%student%' ";
+	}
+	else if($returnType == 3)
+	{
+		$sql .= "SELECT ht_users.ID, ht_users.user_nicename FROM ht_users ";
+		$sql .= "INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id ";
+		$sql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
+		$sql .= "AND ht_usermeta.meta_value LIKE '%student%' ";
+		$sql .= "ORDER BY ht_users.user_nicename ";
+		$sql .= "LIMIT $pageNum, $num";
+	}
 
+	return $sql;
+}
+
+function lms_student_school_info_data($page_num, $num)
+{
+	global $wpdb;
+
+	$st_stats=$wpdb->get_results(getStudentListQuery(3, $page_num, $num));
+
+	$schoolFieldID		= 0;
+	$schoolFieldIDSql	= "SELECT ID FROM ht_bp_xprofile_fields WHERE name = 'Linked School'";
+	$schoolFieldIDList	= $wpdb->get_results($wpdb->prepare($schoolFieldIDSql, []));
+
+	if(count($schoolFieldIDList) > 0)	$schoolFieldID = $schoolFieldIDList[0]->ID;
+
+	$schoolList = $student_info	= array();
+
+	$i=0;
+	foreach($st_stats as $st)
+	{
+		$schoolName		= "";
+		$schoolIDSql	= "SELECT value FROM ht_bp_xprofile_data WHERE user_id = '%s' AND field_id = '%s'";
+		$schoolIDList	= $wpdb->get_results($wpdb->prepare($schoolIDSql, [$st->ID, $schoolFieldID]));
+
+		if(count($schoolIDList) > 0)
+		{
+			if(isset($schoolList[$schoolIDList[0]->value]))
+			{
+				$schoolName = $schoolList[$schoolIDList[0]->value];
+			}
+			else
+			{
+				$schoolName = get_user_meta( $schoolIDList[0]->value, "nickname", true );
+				$schoolList[$schoolIDList[0]->value] = $schoolName;
+			}
+		}
+
+		$student_info[$i]['user_id']	= $st->ID;
+		$student_info[$i]['user']		= get_user_meta($st->ID, 'first_name', true).' '.get_user_meta($st->ID, 'last_name', true);
+		$student_info[$i]['school']		= $schoolName;
+		$i++;
+	}
+
+	return $student_info;
+}
+
+function lms_stats_student_school_content()
+{
+	global $wpdb;
+
+	$total_students = $total_schools = 0;
+
+	$num	= 20;
+	$paged	= 0;
+
+	if($_REQUEST['paged'] && is_numeric($_REQUEST['paged'])){
+		$paged=$_REQUEST['paged'];
+	}
+	$page_num = 0;
+	if(isset($_GET['paged']) && is_numeric($_GET['paged']) && $_GET['paged'])
+			$page_num=($_GET['paged'])*$num;
+
+	$page_info = lms_student_school_info_data($page_num, $num);
+
+	$total = count($page_info);
+
+	$studentCountResult = $wpdb->get_results(getStudentListQuery(1));
+
+	if(count($studentCountResult) > 0)
+	{
+		$total_students = $studentCountResult[0]->total;
+	}
+
+	$schoolCountSql  = "SELECT COUNT(1) AS total FROM ht_users ";
+	$schoolCountSql .= "INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id ";
+	$schoolCountSql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
+	$schoolCountSql .= "AND ht_usermeta.meta_value LIKE '%school%' ";
+	$schoolCountResult = $wpdb->get_results($schoolCountSql);
+
+	if(count($schoolCountResult) > 0)
+	{
+		$total_schools = $schoolCountResult[0]->total;
+	}
+
+	?>
+	<div id="poststuff" class="vibe-reports-wrap">
+		<div class="vibe-reports-sidebar">
+			<div class="postbox">
+				<h3><span><?php _e( 'Total Students', 'wplms' ); ?></span></h3>
+				<div class="inside">
+					<p class="stat"><?php if ( $total_students > 0 ) echo $total_students; else _e( 'n/a', 'wplms' ); ?></p>
+				</div>
+			</div>
+			<div class="postbox">
+				<h3><span><?php _e( 'Total Schools', 'wplms' ); ?></span></h3>
+				<div class="inside">
+					<p class="stat"><?php if ( $total_schools > 0 ) echo $total_schools; else _e( 'n/a', 'wplms' ); ?></p>
+				</div>
+			</div>
+		</div>
+		<div class="vibe-reports-main">
+				<div class="postbox course_info">
+					<h3><label>Student</label><span style="width: 350px;">School</span></h3>
+					<div class="inside">
+						<ul>
+						<?php
+							foreach($page_info as $info) {
+								echo '<li style="float: left; width: 100%;"><label>'.$info['user'].'</label><span style="width: 350px;">'.$info['school'].'</span>';
+							}
+						?>
+						</ul>
+						<div class="clearfix"></div>
+						<?php
+						if(isset($_GET['paged']) && $_GET['paged']){
+							echo '<a href="?page=lms-stats&tab=student_school&subtab=overview&paged='.($_GET['paged']-1).'" class="button">&lsaquo; '.__('Prev','wplms').'</a>';
+						}
+						if($total == $num){
+							if(isset($_GET['paged']) && $_GET['paged']){
+								$paged =$_GET['paged'];
+								echo '&nbsp;&nbsp;';
+							}else{
+								$paged = 0;
+							}
+							echo '<a href="?page=lms-stats&tab=student_school&subtab=overview&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
+						} ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php
+}
+
+function lms_stats_school_course_content()
+{
+	global $wpdb;
+
+	$total_courses = $total_schools = 0;
+
+	$num	= 20;
+	$paged	= 0;
+
+	if($_REQUEST['paged'] && is_numeric($_REQUEST['paged'])){
+		$paged=$_REQUEST['paged'];
+	}
+	$page_num = 0;
+	if(isset($_GET['paged']) && is_numeric($_GET['paged']) && $_GET['paged'])
+			$page_num=($_GET['paged'])*$num;
+
+	$page_info = lms_student_info_data($page_num,$num);
+
+	$total = count($page_info);
+
+	$courseCountSql  = "SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts ";
+	$courseCountSql .= "WHERE posts.post_type = 'course' AND posts.post_status = 'publish' ";
+	$courseCountResult = $wpdb->get_results($courseCountSql);
+
+	$total_courses = count($courseCountResult);
+
+	$schoolCountSql  = "SELECT COUNT(1) AS total FROM ht_users ";
+	$schoolCountSql .= "INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id ";
+	$schoolCountSql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
+	$schoolCountSql .= "AND ht_usermeta.meta_value LIKE '%school%' ";
+	$schoolCountResult = $wpdb->get_results($schoolCountSql);
+
+	if(count($schoolCountResult) > 0)
+	{
+		$total_schools = $schoolCountResult[0]->total;
+	}
+
+	?>
+	<div id="poststuff" class="vibe-reports-wrap">
+		<div class="vibe-reports-sidebar">
+			<div class="postbox">
+				<h3><span><?php _e( 'Total Schools', 'wplms' ); ?></span></h3>
+				<div class="inside">
+					<p class="stat"><?php if ( $total_schools > 0 ) echo $total_schools; else _e( 'n/a', 'wplms' ); ?></p>
+				</div>
+			</div>
+			<div class="postbox">
+				<h3><span><?php _e( 'Total Courses', 'wplms' ); ?></span></h3>
+				<div class="inside">
+					<p class="stat"><?php if ( $total_courses > 0 ) echo $total_courses; else _e( 'n/a', 'wplms' ); ?></p>
+				</div>
+			</div>
+		</div>
+		<div class="vibe-reports-main">
+				<div class="postbox course_info">
+					<h3><label style="width: 350px;">School</label><span style="width: 350px;">Course</span></h3>
+					<div class="inside">
+						<ul>
+						<?php
+							foreach($page_info as $info) {
+								if($info['school'])
+									echo '<li style="float: left; width: 100%;"><label style="width: 350px;">'.$info['school'].'</label><span style="width: 350px;">'.$info['course'].'</span>';
+							}
+						?>
+						</ul>
+						<div class="clearfix"></div>
+						<?php
+						if(isset($_GET['paged']) && $_GET['paged']){
+							echo '<a href="?page=lms-stats&tab=school_course&subtab=overview&paged='.($_GET['paged']-1).'" class="button">&lsaquo; '.__('Prev','wplms').'</a>';
+						}
+						if($total == $num){
+							if(isset($_GET['paged']) && $_GET['paged']){
+								$paged =$_GET['paged'];
+								echo '&nbsp;&nbsp;';
+							}else{
+								$paged = 0;
+							}
+							echo '<a href="?page=lms-stats&tab=school_course&subtab=overview&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
+						} ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php
+}
 
 if(!class_exists('WPLMS_Admin_Reports')){
 	class WPLMS_Admin_Reports{
@@ -1587,12 +1893,12 @@ if(!class_exists('WPLMS_Admin_Reports')){
 					)
 				)
 			);
-			
+
 	    }
 
 	    function get_user_permissions($request){
 	    	$security = $request->get_param('security');
-	    	
+
 	    	if(!vibe_get_option('security') == 'security' && (function_exists('bp_is_active') && !bp_is_active('activity'))){
 	    		return false;
 	    	}
@@ -1604,14 +1910,14 @@ if(!class_exists('WPLMS_Admin_Reports')){
 	    	$user_id = $request->get_param('security');
 	    	$role = $request->get_param('role');
 	    	$number = $request->get_param('number');
-	    	
+
 	    	global $wpdb,$bp;
 
 	    	$results = $wpdb->get_results("
 	    		SELECT item_id,count(id) as count
-	    		FROM {$bp->activity->table_name} 
+	    		FROM {$bp->activity->table_name}
 	    		WHERE type='submit_course'
-	    		group by item_id 
+	    		group by item_id
 	    		LIMIT 0, $number
     		");
 	    	$data = array();
@@ -1624,7 +1930,7 @@ if(!class_exists('WPLMS_Admin_Reports')){
 							'count'=> intval($result->count)
     					);
     				}
-    				
+
     			}
     		}
 	    	return new WP_REST_Response( $data, 200 );
@@ -1635,12 +1941,12 @@ if(!class_exists('WPLMS_Admin_Reports')){
 	    	$user_id = $request->get_param('security');
 	    	$role = $request->get_param('role');
 	    	$number = $request->get_param('number');
-	    	
+
 	    	global $wpdb,$bp;
 
 	    	$results = $wpdb->get_results("
 	    		SELECT user_id,count(id) as count
-	    		FROM {$bp->activity->table_name} 
+	    		FROM {$bp->activity->table_name}
 	    		WHERE type='submit_course'
 	    		group by user_id
 	    		order by count desc
@@ -1657,7 +1963,7 @@ if(!class_exists('WPLMS_Admin_Reports')){
     					$data['labels'][] = $name;
     					$data['data'][] = $result->count;
     				}
-    				
+
     			}
     		}
 

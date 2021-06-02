@@ -432,7 +432,7 @@ jQuery(window).load(function(){
                         var session = sessionStorage.getItem('bp_user');
                         var result = jQuery.parseJSON(session);
                         var login_url = sessionStorage.getItem('login_url');
-                        ga('send', 'event', 'Signup', 'successfull', result['user_id']);
+                        ga('send', 'event', 'Signup', 'successful', result['user_id']);
 
                         console.log(login_url);
                         if(login_url == 1){
@@ -629,6 +629,9 @@ jQuery(window).load(function(){
                     if(response.status == 1){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
+
+                        var user = jQuery.parseJSON(response.user);
+                        ga('send', 'event', 'Login', 'successful', user.ID);
 
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);

@@ -6660,7 +6660,7 @@ h6:empty,
         -webkit-transform: none!important;
     }
     .mobile-display{display: inline-block!important;}
-    .header .homeicon img{width: 96px;margin-left: -10px!important;}
+    .header .homeicon img{width: 108px;margin-left: 0px!important;}
     .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
     .right-menu{margin-top: -7px!important;}
     .home_slider .homecarousel_text .pull-left {width: 100%;}

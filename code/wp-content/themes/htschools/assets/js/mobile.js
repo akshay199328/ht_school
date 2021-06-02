@@ -251,5 +251,3 @@ $(window).scroll(function() {
     }
 
 }).scroll();
-
-

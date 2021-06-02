@@ -432,6 +432,8 @@ jQuery(window).load(function(){
                         var session = sessionStorage.getItem('bp_user');
                         var result = jQuery.parseJSON(session);
                         var login_url = sessionStorage.getItem('login_url');
+                        ga('send', 'event', 'Signup', 'successfull', result['user_id']);
+
                         console.log(login_url);
                         if(login_url == 1){
                           window.setTimeout(function() {

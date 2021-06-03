@@ -421,7 +421,8 @@ ol.breadcrumbs  {
 .course-template-default .header-scrolled, 
 .page-template-all-courses .header-scrolled,
 .page-template-my-courses .header-scrolled,
-.page-template-my-course .header-scrolled
+.page-template-my-course .header-scrolled,
+.tax-course-cat
 {
   background:#fade3b!important;
 }
@@ -521,10 +522,13 @@ body.page-template-home , .page-template-home .pusher {
 }
 
 .home-page .header a.logo img,
-.single-course .header .logo img{
+.single-course .header .logo img,
+.tax-course-cat .header .logo img{
   display: none;
 }
-.single-course .header a.logo {
+.single-course .header a.logo,
+.tax-course-cat .header a.logo
+ {
         background: url('./assets/images/course-logo.svg') no-repeat;
     display: block;
     width: 195px;
@@ -6660,7 +6664,8 @@ h6:empty,
 @media screen and (max-width:767px) and (min-width:320px){
     
     .home-page .header a.logo img,
-    .single-course .header .logo img{
+    .single-course .header .logo img,
+    .tax-course-cat .header a.logo img{
         display: none!important;
     }
     .home-page .header a.logo{
@@ -6669,7 +6674,8 @@ h6:empty,
         height: 33px!important;
         margin-left: 50px;
     }
-    .single-course .header .logo{
+    .single-course .header .logo,
+    .tax-course-cat .header a.logo{
         background: url(/wp-content/themes/htschools/assets/images/logoheader_course_mobile.svg) no-repeat!important;
         width: 108px!important;
         height: 33px!important;

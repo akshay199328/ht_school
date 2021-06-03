@@ -655,9 +655,7 @@
             </div>
 
             <div class="column newsletter">
-              <h6 class="new-footer-title">Subscribe Now</h6>
-              <input type="text" name="" placeholder="Email">
-              <button type="submit">Send</button>
+              <iframe id="newsletter" src="https://cdn.forms-content.sg-form.com/7b11fe32-b6d1-11eb-b6a6-aa3b694c35b0" />
             </div>
           </div>
       </div>
@@ -800,6 +798,15 @@
         });
     });
   </script>
+              <script type="text/javascript">
+                $(document).ready(function(){
+              $("#newsletter").on("load", function() {
+  let head=$("#newsletter").contents().find("head");
+  let css="<style type='text/css'>.form_15iP5{background-color:red}</style>";
+  $(head).append(css);
+});
+              });
+            </script>
 </body>
 
 </html>

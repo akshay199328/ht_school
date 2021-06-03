@@ -61,7 +61,7 @@ $(document).ready(function($) {
 
     if (scroll >= 10) {
       // alert("HELLO");
-        $(".innerheader-space").next(".sticky_content").children(".right-section").css({ "margin-top": "-20px"});
+        $(".innerheader-space").next(".sticky_content").children(".right-section").css({ "margin-top": "0px"});
         $(".innerheader-space.course-space").css({ "margin-top": "96px"});
     } else {
       // alert("HELLO123");
@@ -157,7 +157,7 @@ if($(window).width() >= 768) {
       $('.course-listslider').addClass('coursemobile_listslider');
       $('.logos').owlCarousel({
         margin: 20,
-        loop: false,
+        loop: true,
         autoWidth: true,
         items: 1,
         nav: false,

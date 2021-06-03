@@ -28,7 +28,7 @@ get_header(vibe_get_header());
 
       );
       $Query1 = new WP_Query( $args1 );
-
+      
       if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
         $custom_fields = get_post_custom();
         $image_url = wp_get_attachment_url($custom_fields['banner_image'][0]);
@@ -51,10 +51,11 @@ get_header(vibe_get_header());
         <div class="course-header">
           <h2 class="course-title">All Courses</h2>
           <div class="right-side">
-            <select class="sort">
-              <option selected="selected">Sort by: Most Popular</option>
-              <option>Highest Rated</option>
-              <option>Newly Added</option>
+            <select class="sort" id="sort_by">
+              <option selected="selected" value="">Sort by:</option>
+              <option value="popular" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "popular") echo 'selected="selected"';?>>Most Popular</option>
+              <option value="rated" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "rated") echo 'selected="selected"';?>>Highest Rated</option>
+              <option value="newest" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "newest") echo 'selected="selected"';?>>Newly Added</option>
             </select>
             <button class="filter-button" type="button">Filters
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
@@ -70,11 +71,14 @@ get_header(vibe_get_header());
             </button>
           </div>
         </div>
+
                   <?php
+
+                
+                // exit;
                   $featured_args_course = array(
                     'post_type' => 'course',
                     'post_status' => 'publish',
-                    'posts_per_page' => 3,
                     'meta_query'  => array(
                     'relation'  => 'AND',
                     array(
@@ -103,7 +107,7 @@ get_header(vibe_get_header());
                   endwhile;
                   endif;
                   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                  if(!empty($course_id)){
+                  /*if(!empty($course_id)){
                     $query_args = apply_filters('wplms_mycourses',array(
                         'post_type'=>'course',
                         'post__in'=>$course_id,
@@ -113,7 +117,108 @@ get_header(vibe_get_header());
                     ));
 
                     $wp_query = new WP_Query($query_args);
+                  }*/
+                  if (empty($_GET)) {
+                    if(!empty($course_id)){
+                      $query_args = apply_filters('wplms_mycourses',array(
+                          'post_type'=>'course',
+                          'post__in'=>$course_id,
+                          'posts_per_page'=>8,
+                          'orderby' => 'post__in', 
+                          'paged'=>$paged,
+                      ));
+
+                      $wp_query = new WP_Query($query_args);
+                    }
                   }
+                  if(isset($_GET['sort_by'])){
+                    $args=array('post_type' => 'course');
+          
+                    $sort_by = $_GET;
+                      $filter = $sort_by['sort_by'];
+                      switch($filter){
+                        case 'popular':
+                          $args['orderby'] = 'meta_value_num';
+                          $args['meta_key'] = 'vibe_students';
+                          $args['posts_per_page'] = 8;
+                          $args['paged'] = $paged;
+                        break;
+                        case 'newest':
+                          $args['orderby'] = 'date';
+                          $args['posts_per_page'] = 8;
+                          $args['paged'] = $paged;
+                        break;
+                        case 'rated':
+                          $args['orderby'] = 'meta_value_num';
+                          $args['meta_key'] = 'average_rating';
+                          $args['posts_per_page'] = 8;
+                          $args['paged'] = $paged;
+                        break;
+                        default:
+                          $args['post__in'] = $course_id;
+                          $args['posts_per_page'] = 8;
+                          $args['orderby'] = 'post__in';
+                          $args['paged'] = $paged;
+                        break;
+                      }
+                    $wp_query = new WP_Query( $args );
+                  }
+
+                  if(isset($_GET['category'])){
+                    $category_filter = explode(",",$_GET['category']);
+                    $args = array(
+                        'post_type' => 'course',
+                        'posts_per_page'=>8,
+                        'paged'=>$paged,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'course-cat',
+                                'field'    => 'term_id',
+                                'terms'    => $category_filter
+                            )
+                        ),
+                    );
+                    $wp_query = new WP_Query( $args );
+                  }
+
+                  if(isset($_GET['sort_by']) && isset($_GET['category'])){
+                    $category_filter = explode(",",$_GET['category']);
+                    $sort_by = $_GET;
+                      $filter = $sort_by['sort_by'];
+                      switch($filter){
+                        case 'popular':
+                          $args['orderby'] = 'meta_value_num';
+                          $args['meta_key'] = 'vibe_students';
+                          $args['posts_per_page'] = 8;
+                          $args['paged'] = $paged;
+                        break;
+                        case 'newest':
+                          $args['orderby'] = 'date';
+                          $args['posts_per_page'] = 8;
+                          $args['paged'] = $paged;
+                        break;
+                        case 'rated':
+                          $args['orderby'] = 'meta_value_num';
+                          $args['meta_key'] = 'average_rating';
+                          $args['posts_per_page'] = 8;
+                          $args['paged'] = $paged;
+                        break;
+                      }
+                    $args = array(
+                        'post_type' => 'course',
+                        'posts_per_page'=>8,
+                        'paged'=>$paged,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'course-cat',
+                                'field'    => 'term_id',
+                                'terms'    => $category_filter
+                            )
+                        ),
+                    );
+                    $wp_query = new WP_Query( $args );
+                  }
+
                   if(!empty($wp_query)){
                     $i=0;
                     while ($wp_query->have_posts()){

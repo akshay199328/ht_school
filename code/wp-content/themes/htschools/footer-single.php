@@ -911,7 +911,6 @@ border: 1px solid deepskyblue;
               </li>
           </ul>
           <span class="section-title">Sessions</span>
-          <span class="section-title">Sessions</span>
           <ul>
               <li>
                   <label for="session1" id="">
@@ -967,7 +966,7 @@ border: 1px solid deepskyblue;
     applyFilter();
   });
 
-  jQuery('#sort_by').click(function(){
+  jQuery('#sort_by').change(function(){
     applyFilter();
   });
 

@@ -432,9 +432,9 @@ jQuery(window).load(function(){
                         var session = sessionStorage.getItem('bp_user');
                         var result = jQuery.parseJSON(session);
                         var login_url = sessionStorage.getItem('login_url');
-                        ga('send', 'event', 'Signup', 'successful', result['user_id']);
+                        /*ga('send', 'event', 'Signup', 'successful', result['user_id']);
 
-                        console.log(login_url);
+                        console.log(login_url);*/
                         if(login_url == 1){
                           window.setTimeout(function() {
                             window.location.href = site_url + '/members-directory/' + result['user_nicename'];
@@ -630,8 +630,8 @@ jQuery(window).load(function(){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
 
-                        var user = jQuery.parseJSON(response.user);
-                        ga('send', 'event', 'Login', 'successful', user.ID);
+                        /*var user = jQuery.parseJSON(response.user);
+                        ga('send', 'event', 'Login', 'successful', user.ID);*/
 
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);

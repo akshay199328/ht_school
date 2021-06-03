@@ -604,7 +604,7 @@ function lms_stats_course_content($subtab='overview'){
 	" ) );
 	$unit_complete = $uc[0]->total;
 	?>
-	<div id="poststuff" class="vibe-reports-wrap">
+	<div id="poststuff" class="vibe-reports-wrap datatable-fix">
 		<div class="vibe-reports-sidebar">
 			<div class="postbox">
 				<h3><span><?php _e( 'Total Students taking courses', 'wplms' ); ?></span></h3>
@@ -638,60 +638,20 @@ function lms_stats_course_content($subtab='overview'){
 			</div>
 		</div>
 		<div class="vibe-reports-main">
-				<div class="postbox course_info">
-					<div class="custom_datatable">
-						<table id="datatable" style="width:100%">
-							<thead>
-								<tr>
-									<th>Course Title</th>
-									<th>Average</th>
-									<th># Certificates</th>
-									<th># Badges</th>
-									<th># Students</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php $course_info=array();
-								foreach($st_num as $st){
-									$course_info[$st->ID]=array(
-										'title' => $st->post_title,
-										'students' => $st->students,
-										'badge'=> 'n/a',
-										'pass'=>'n/a',
-										'avg'=>'n/a'
-										);
-								}
-								foreach($bg_num as $bg){
-									if(isset($bg->badge))
-										$course_info[$bg->ID]['badge']=$bg->badge;
-								}
-								foreach($pass_num as $pass){
-									if(isset($pass->pass))
-									$course_info[$pass->ID]['pass']=$pass->pass;
-								}
-								foreach($avg_num as $avg){
-									if(isset($avg->avg))
-									$course_info[$avg->ID]['avg']=$avg->avg;
-								}
-								foreach($course_info as $course){
-									echo '<tr>';
-										echo '<td>'.$course['title'].'</td>';
-										echo '<td>'.$course['avg'].'</td>';
-										echo '<td>'.$course['pass'].'</td>';
-										echo '<td>'.$course['badge'].'</td>';
-										echo '<td>'.$course['students'].'</td>';
-									echo '</tr>';
-								}
-							?>
-							</tbody>
-						</table>
-					</div>
-					<?php if(FALSE) { ?>
-					<h3><label>Course Title</label><span># Students</span><span># Badges</span><span># Certificates</span><span>Average</span></h3>
-					<div class="inside">
-						<ul>
-						<?php
-							$course_info=array();
+			<div class="postbox course_info">
+				<div class="custom_datatable">
+					<table id="datatable" style="width:100%">
+						<thead>
+							<tr>
+								<th>Course Title</th>
+								<th>Average</th>
+								<th># Certificates</th>
+								<th># Badges</th>
+								<th># Students</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $course_info=array();
 							foreach($st_num as $st){
 								$course_info[$st->ID]=array(
 									'title' => $st->post_title,
@@ -713,103 +673,143 @@ function lms_stats_course_content($subtab='overview'){
 								if(isset($avg->avg))
 								$course_info[$avg->ID]['avg']=$avg->avg;
 							}
-
-
 							foreach($course_info as $course){
-								if(isset($course['title']))
-								echo '<li><label>'.$course['title'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span>';
+								echo '<tr>';
+									echo '<td>'.$course['title'].'</td>';
+									echo '<td>'.$course['avg'].'</td>';
+									echo '<td>'.$course['pass'].'</td>';
+									echo '<td>'.$course['badge'].'</td>';
+									echo '<td>'.$course['students'].'</td>';
+								echo '</tr>';
 							}
 						?>
-						</ul>
-						<?php
-						if(isset($_GET['paged']) && $_GET['paged']){
-							echo '<a href="?page=lms-stats&tab=course&subtab='.$_GET['subtab'].'&paged='.($_GET['paged']-1).'" class="button">&lsaquo; '.__('Prev','wplms').'</a>';
-						}
-						if($total == $num){
-							if(isset($_GET['paged']) && $_GET['paged']){
-								$paged =$_GET['paged'];
-								echo '&nbsp;&nbsp;';
-							}else{
-								$paged = 0;
-							}
-							echo '<a href="?page=lms-stats&tab=course&subtab='.$_GET['subtab'].'&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
-						}
-
-						?>
-					</div>
-					<?php } ?>
+						</tbody>
+					</table>
 				</div>
+				<?php if(FALSE) { ?>
+				<h3><label>Course Title</label><span># Students</span><span># Badges</span><span># Certificates</span><span>Average</span></h3>
+				<div class="inside">
+					<ul>
+					<?php
+						$course_info=array();
+						foreach($st_num as $st){
+							$course_info[$st->ID]=array(
+								'title' => $st->post_title,
+								'students' => $st->students,
+								'badge'=> 'n/a',
+								'pass'=>'n/a',
+								'avg'=>'n/a'
+								);
+						}
+						foreach($bg_num as $bg){
+							if(isset($bg->badge))
+								$course_info[$bg->ID]['badge']=$bg->badge;
+						}
+						foreach($pass_num as $pass){
+							if(isset($pass->pass))
+							$course_info[$pass->ID]['pass']=$pass->pass;
+						}
+						foreach($avg_num as $avg){
+							if(isset($avg->avg))
+							$course_info[$avg->ID]['avg']=$avg->avg;
+						}
+
+
+						foreach($course_info as $course){
+							if(isset($course['title']))
+							echo '<li><label>'.$course['title'].'</label><span>'.$course['students'].'</span><span>'.$course['badge'].'</span><span>'.$course['pass'].'</span><span>'.$course['avg'].'</span>';
+						}
+					?>
+					</ul>
+					<?php
+					if(isset($_GET['paged']) && $_GET['paged']){
+						echo '<a href="?page=lms-stats&tab=course&subtab='.$_GET['subtab'].'&paged='.($_GET['paged']-1).'" class="button">&lsaquo; '.__('Prev','wplms').'</a>';
+					}
+					if($total == $num){
+						if(isset($_GET['paged']) && $_GET['paged']){
+							$paged =$_GET['paged'];
+							echo '&nbsp;&nbsp;';
+						}else{
+							$paged = 0;
+						}
+						echo '<a href="?page=lms-stats&tab=course&subtab='.$_GET['subtab'].'&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
+					}
+
+					?>
+				</div>
+				<?php } ?>
 			</div>
-			<div class="vibe-reports-main">
-				<div class="postbox course_info">
-					<h3><label>Course Category</label><span># Students</span><span># Badges</span><span># Certificates</span><span>Average</span><span># Courses</span></h3>
-					<div class="inside"><ul>
-						<?php
-							$terms_array=array();
-							foreach($st_num as $st){
-								$terms = get_the_terms($st->ID,'course-cat');
+		</div>
+		<div class="vibe-reports-main">
+			<div class="postbox course_info">
+				<h3><label>Course Category</label><span># Students</span><span># Badges</span><span># Certificates</span><span>Average</span><span># Courses</span></h3>
+				<div class="inside"><ul>
+					<?php
+						$terms_array=array();
+						foreach($st_num as $st){
+							$terms = get_the_terms($st->ID,'course-cat');
 
-								if(!empty($terms) && count($terms)){
+							if(!empty($terms) && count($terms)){
 
-									foreach($terms as $term){
-										if(!isset($terms_array[$term->slug])){
-											$terms_array[$term->slug]=array(
-												'name' => $term->name,
-												'count' => 1,
-												'badge'=>0,
-												'pass'=>0,
-												'avg'=>array(),
-												);
-										}else{
-											$terms_array[$term->slug]['count']++;
-										}
-										$terms_array[$term->slug]['students'] +=$st->students;
+								foreach($terms as $term){
+									if(!isset($terms_array[$term->slug])){
+										$terms_array[$term->slug]=array(
+											'name' => $term->name,
+											'count' => 1,
+											'badge'=>0,
+											'pass'=>0,
+											'avg'=>array(),
+											);
+									}else{
+										$terms_array[$term->slug]['count']++;
 									}
+									$terms_array[$term->slug]['students'] +=$st->students;
+								}
 
-									foreach($bg_num as $bg){
-										if($st->ID == $bg->ID){
-											foreach($terms as $term){
-												$terms_array[$term->slug]['badge'] +=$bg->badge;
-											}
-										}
-									}
-									foreach($pass_num as $pass){
-										if($st->ID == $pass->ID){
-											foreach($terms as $term){
-												$terms_array[$term->slug]['pass'] +=$pass->pass;
-											}
-										}
-									}
-									foreach($avg_num as $avg){
-										if($st->ID == $avg->ID){
-											foreach($terms as $term){
-												if(!is_array($terms_array[$term->slug]['avg'])){
-													$terms_array[$term->slug]['avg'] = array();
-												}
-												$terms_array[$term->slug]['avg'][]=$avg->avg;
-											}
+								foreach($bg_num as $bg){
+									if($st->ID == $bg->ID){
+										foreach($terms as $term){
+											$terms_array[$term->slug]['badge'] +=$bg->badge;
 										}
 									}
 								}
-
-								foreach($terms_array as $k=>$term){
-									if(isset($term['avg']) && is_Array($term['avg'])){
-										$x = (count($term['avg'])?count($term['avg']):1);
-										$d=array_sum($term['avg']) / $x;
-										$terms_array[$k]['avg'] = round($d,2);
+								foreach($pass_num as $pass){
+									if($st->ID == $pass->ID){
+										foreach($terms as $term){
+											$terms_array[$term->slug]['pass'] +=$pass->pass;
+										}
 									}
 								}
-
+								foreach($avg_num as $avg){
+									if($st->ID == $avg->ID){
+										foreach($terms as $term){
+											if(!is_array($terms_array[$term->slug]['avg'])){
+												$terms_array[$term->slug]['avg'] = array();
+											}
+											$terms_array[$term->slug]['avg'][]=$avg->avg;
+										}
+									}
+								}
 							}
 
-							foreach ($terms_array as $term){
-								echo '<li><label>'.$term['name'].'</label><span>'.$term['students'].'</span><span>'.$term['badge'].'</span><span>'.$term['pass'].'</span><span>'.$term['avg'].'</span><span>'.$term['count'].'</span></li>';
+							foreach($terms_array as $k=>$term){
+								if(isset($term['avg']) && is_Array($term['avg'])){
+									$x = (count($term['avg'])?count($term['avg']):1);
+									$d=array_sum($term['avg']) / $x;
+									$terms_array[$k]['avg'] = round($d,2);
+								}
 							}
-						?></ul>
-					</div>
+
+						}
+
+						foreach ($terms_array as $term){
+							echo '<li><label>'.$term['name'].'</label><span>'.$term['students'].'</span><span>'.$term['badge'].'</span><span>'.$term['pass'].'</span><span>'.$term['avg'].'</span><span>'.$term['count'].'</span></li>';
+						}
+					?></ul>
 				</div>
 			</div>
 		</div>
+	</div>
 	<?php
 }
 
@@ -1177,7 +1177,7 @@ function lms_stats_student_content($subtab='overview'){
 	}
 
 	?>
-	<div id="poststuff" class="vibe-reports-wrap">
+	<div id="poststuff" class="vibe-reports-wrap datatable-fix">
 		<div class="vibe-reports-sidebar">
 			<div class="postbox">
 				<h3><span><?php _e( 'Total Students', 'wplms' ); ?></span></h3>
@@ -1205,69 +1205,69 @@ function lms_stats_student_content($subtab='overview'){
 			</div>
 		</div>
 		<div class="vibe-reports-main">
-				<div class="postbox course_info">
-					<div class="custom_datatable">
-						<table id="datatable" style="width:100%">
-							<thead>
-								<tr>
-									<th>Student</th>
-									<th>School</th>
-									<th>Course</th>
-									<th>Score</th>
-									<th>Average</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach($student_info as $info){
-									echo '<tr>';
-										echo '<td>'.$info['user'].'</td>';
-										echo '<td>'.($info['school'] ? $info['school'] : "n/a").'</td>';
-										echo '<td>'.$info['course'].'</td>';
-										echo '<td>'.$info['score'].'</td>';
-										echo '<td>'.$info['avg'].'</td>';
-									echo '</tr>';
-								}
-							?>
-							</tbody>
-						</table>
-					</div>
-					<?php if(FALSE) { ?>
-					<h3><label>Student</label><span>Average</span><span>Score</span><span style="width:200px">Course</span><span>School</span></h3>
-					<div class="inside">
-						<ul>
-						<?php
-							foreach($student_info as $info){
-								echo '<li style="float: left; width: 100%;">';
-									echo '<label>'.$info['user'].'</label>';
-									echo '<span>'.$info['avg'].'</span>';
-									echo '<span>'.$info['score'].'</span>';
-									echo '<span style="width:200px">'.$info['course'].'</span>';
-									echo '<span>'.$info['school'].'</span>';
-								echo '</li>';
+			<div class="postbox course_info">
+				<div class="custom_datatable">
+					<table id="datatable" style="width:100%">
+						<thead>
+							<tr>
+								<th>Student</th>
+								<th>School</th>
+								<th>Course</th>
+								<th>Score</th>
+								<th>Average</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($student_info as $info){
+								echo '<tr>';
+									echo '<td>'.$info['user'].'</td>';
+									echo '<td>'.($info['school'] ? $info['school'] : "n/a").'</td>';
+									echo '<td>'.$info['course'].'</td>';
+									echo '<td>'.$info['score'].'</td>';
+									echo '<td>'.$info['avg'].'</td>';
+								echo '</tr>';
 							}
 						?>
-						</ul>
-						<div class="clearfix"></div>
-						<?php
-						if(isset($_GET['paged']) && $_GET['paged']){
-							echo '<a href="?page=lms-stats&tab=students&subtab=overview&paged='.($_GET['paged']-1).'" class="button">&lsaquo; '.__('Prev','wplms').'</a>';
-						}
-						if($total == $num){
-							if(isset($_GET['paged']) && $_GET['paged']){
-								$paged =$_GET['paged'];
-								echo '&nbsp;&nbsp;';
-							}else{
-								$paged = 0;
-							}
-							echo '<a href="?page=lms-stats&tab=students&subtab=overview&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
-						}
-
-						?>
-					</div>
-				<?php } ?>
+						</tbody>
+					</table>
 				</div>
+				<?php if(FALSE) { ?>
+				<h3><label>Student</label><span>Average</span><span>Score</span><span style="width:200px">Course</span><span>School</span></h3>
+				<div class="inside">
+					<ul>
+					<?php
+						foreach($student_info as $info){
+							echo '<li style="float: left; width: 100%;">';
+								echo '<label>'.$info['user'].'</label>';
+								echo '<span>'.$info['avg'].'</span>';
+								echo '<span>'.$info['score'].'</span>';
+								echo '<span style="width:200px">'.$info['course'].'</span>';
+								echo '<span>'.$info['school'].'</span>';
+							echo '</li>';
+						}
+					?>
+					</ul>
+					<div class="clearfix"></div>
+					<?php
+					if(isset($_GET['paged']) && $_GET['paged']){
+						echo '<a href="?page=lms-stats&tab=students&subtab=overview&paged='.($_GET['paged']-1).'" class="button">&lsaquo; '.__('Prev','wplms').'</a>';
+					}
+					if($total == $num){
+						if(isset($_GET['paged']) && $_GET['paged']){
+							$paged =$_GET['paged'];
+							echo '&nbsp;&nbsp;';
+						}else{
+							$paged = 0;
+						}
+						echo '<a href="?page=lms-stats&tab=students&subtab=overview&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
+					}
+
+					?>
+				</div>
+			<?php } ?>
 			</div>
 		</div>
+	</div>
 	<?php
 }
 
@@ -1777,7 +1777,7 @@ function lms_stats_student_school_content()
 	}
 
 	?>
-	<div id="poststuff" class="vibe-reports-wrap">
+	<div id="poststuff" class="vibe-reports-wrap datatable-fix">
 		<div class="vibe-reports-sidebar">
 			<div class="postbox">
 				<h3><span><?php _e( 'Total Students', 'wplms' ); ?></span></h3>
@@ -1889,7 +1889,7 @@ function lms_stats_school_course_content()
 	}
 
 	?>
-	<div id="poststuff" class="vibe-reports-wrap">
+	<div id="poststuff" class="vibe-reports-wrap datatable-fix">
 		<div class="vibe-reports-sidebar">
 			<div class="postbox">
 				<h3><span><?php _e( 'Total Schools', 'wplms' ); ?></span></h3>

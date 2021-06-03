@@ -194,7 +194,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               </ul>
             </div>
           </div>
-          <div class="col-sm-12 col-lg-6 mrg">
+          <div class="col-sm-12 col-lg-6 mrg newsRight_sect">
             <div class="details-middle devide">
               <ul class="">
                 <?php if ($Query->have_posts()) : $counter1 = 0; while ($Query->have_posts()) : $Query->the_post();

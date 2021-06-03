@@ -121,17 +121,7 @@ $(document).ready(function() {
         }
     }
   })
-  $('.learning-copy .learning_logos').owlCarousel({
-    margin:0,
-    loop:true,
-    nav:true,
-    mouseDrag:false,
-    dots:true,
-    //autoWidth:true,
-    startPosition: 3,
-    items:2,
-    autoplay: true,
-  })
+  
 })
 if($(window).width() >= 768) {
   // alert(1234);
@@ -157,9 +147,9 @@ if($(window).width() >= 768) {
       // $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-carousel');
       // $('.mobile-slider, .courses-slider, .course-listslider, .left_tab').addClass('owl-theme');
 
-      $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-carousel');
-      $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-theme');
-      $('.learning-copy .logos').addClass('learning_logos');
+      $('.mobile-slider, .course-listslider, .left_tab, .learning-copy .logos').addClass('owl-carousel');
+      $('.mobile-slider, .course-listslider, .left_tab, .learning-copy .logos').addClass('owl-theme');
+      
       
       $('.left_tab li').addClass('item');
       $('.mobile-slider').addClass('responsive_slider');
@@ -232,7 +222,16 @@ if($(window).width() >= 768) {
       $('.course-close').click(function() {
           $('body').removeClass('filter-opened');
       });
-    });     
+    });   
+
+    $('.logos').owlCarousel({
+        margin: 20,
+        loop: false,
+        autoWidth: true,
+        items: 1,
+        nav: false,
+        dots:false
+  })  
 });
 
 

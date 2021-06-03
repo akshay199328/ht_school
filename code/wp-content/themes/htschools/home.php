@@ -52,15 +52,15 @@ get_header(vibe_get_header());
               <p class="intro">supporting education through our products, programs, and philanthropy.</p>
           </div>
           <div class="logos">
-              <a href="https://www.hindustancareermate.com/" class="column">
+              <a href="https://www.hindustancareermate.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/career-mate.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.htcodeathon.com/" class="column">
+              <a href="https://www.htcodeathon.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/code-thon.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.lenovoscholarship.com/" class="column">
+              <a href="https://www.lenovoscholarship.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/scholarships.png">
                   <span>Get Started</span>
               </a>
@@ -266,25 +266,27 @@ get_header(vibe_get_header());
         if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
           if( $Query->current_post == 0 ) {
             ?>
-            <div class="col-sm-12 col-lg-4 homeDetails-left">
+            <div class="col-sm-12 col-lg-5 homeDetails-left">
               <div class="details-left">
-               <div class="news-date">
-                <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-              </div>
+               
               <?php if ( has_post_thumbnail() ) {
                 $featured_image = get_the_post_thumbnail_url();
 
               ?>
+
               <img alt="featured image" title="featured image" src="<?php echo $featured_image; ?>" class="img-fluid" height="auto" width="auto">
             <?php } ?>
               <br/>
+              <div class="news-date">
+                <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+              </div>
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
             </div>
           </div>
         <?php } endwhile; endif;?>
-        <div class="col-sm-12 col-lg-8 home_news-leftspacing">
+        <div class="col-sm-12 col-lg-7 home_news-leftspacing">
           <div class="col-sm-12 col-lg-6 mrg">
             <div class="details-middle">
               <ul class="">
@@ -304,7 +306,7 @@ get_header(vibe_get_header());
               </ul>
             </div>
           </div>
-          <div class="col-sm-12 col-lg-6 mrg">
+          <div class="col-sm-12 col-lg-6 mrg newsRight_sect">
             <div class="details-middle">
               <ul class="">
                 <?php if ($Query->have_posts()) : $counter1 = 0; while ($Query->have_posts()) : $Query->the_post();

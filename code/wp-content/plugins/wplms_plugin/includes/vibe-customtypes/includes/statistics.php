@@ -9,6 +9,7 @@ function vibe_lms_stats() {
 	lms_stats_tabs($tab);
 	lms_stats_sub_tabs($tab,$subtab);
 	lms_stats_tab_content($tab,$subtab);
+	lms_stats_extra_js_content($tab);
 }
 
 function lms_stats_tabs( $current = 'overview' ) {
@@ -638,6 +639,54 @@ function lms_stats_course_content($subtab='overview'){
 		</div>
 		<div class="vibe-reports-main">
 				<div class="postbox course_info">
+					<div class="custom_datatable">
+						<table id="datatable" style="width:100%">
+							<thead>
+								<tr>
+									<th>Course Title</th>
+									<th>Average</th>
+									<th># Certificates</th>
+									<th># Badges</th>
+									<th># Students</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php $course_info=array();
+								foreach($st_num as $st){
+									$course_info[$st->ID]=array(
+										'title' => $st->post_title,
+										'students' => $st->students,
+										'badge'=> 'n/a',
+										'pass'=>'n/a',
+										'avg'=>'n/a'
+										);
+								}
+								foreach($bg_num as $bg){
+									if(isset($bg->badge))
+										$course_info[$bg->ID]['badge']=$bg->badge;
+								}
+								foreach($pass_num as $pass){
+									if(isset($pass->pass))
+									$course_info[$pass->ID]['pass']=$pass->pass;
+								}
+								foreach($avg_num as $avg){
+									if(isset($avg->avg))
+									$course_info[$avg->ID]['avg']=$avg->avg;
+								}
+								foreach($course_info as $course){
+									echo '<tr>';
+										echo '<td>'.$course['title'].'</td>';
+										echo '<td>'.$course['avg'].'</td>';
+										echo '<td>'.$course['pass'].'</td>';
+										echo '<td>'.$course['badge'].'</td>';
+										echo '<td>'.$course['students'].'</td>';
+									echo '</tr>';
+								}
+							?>
+							</tbody>
+						</table>
+					</div>
+					<?php if(FALSE) { ?>
 					<h3><label>Course Title</label><span># Students</span><span># Badges</span><span># Certificates</span><span>Average</span></h3>
 					<div class="inside">
 						<ul>
@@ -688,6 +737,7 @@ function lms_stats_course_content($subtab='overview'){
 
 						?>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 			<div class="vibe-reports-main">
@@ -998,9 +1048,18 @@ function lms_stats_instructor_content($subtab='overview'){
 }
 
 function lms_student_info_data($page_num,$num){
+
 	global $wpdb;
+
+	$schoolFieldID		= 0;
+	$schoolFieldIDSql	= "SELECT ID FROM ht_bp_xprofile_fields WHERE name = 'Linked School'";
+	$schoolFieldIDList	= $wpdb->get_results($wpdb->prepare($schoolFieldIDSql, []));
+
+	if(count($schoolFieldIDList) > 0)	$schoolFieldID = $schoolFieldIDList[0]->ID;
+
 	$st_stats=apply_filters('wplms_report_student_stats', $wpdb->get_results("
-		SELECT posts.post_title as course,rel.meta_key as user,rel.meta_value as score,posts.ID as course_id
+		SELECT posts.post_title as course,rel.meta_key as user,rel.meta_value as score,posts.ID as course_id,
+		(SELECT meta_value FROM ht_usermeta WHERE meta_key = 'nickname' AND user_id = (SELECT value FROM ht_bp_xprofile_data WHERE user_id = rel.meta_key AND field_id = '".$schoolFieldID."')) as 'school'
 	    FROM {$wpdb->posts} AS posts
 	    LEFT JOIN {$wpdb->postmeta} AS rel ON posts.ID = rel.post_id
 	    WHERE 	posts.post_type 	= 'course'
@@ -1008,14 +1067,8 @@ function lms_student_info_data($page_num,$num){
 		AND     rel.meta_key REGEXP '^[0-9]+$'
 		AND     rel.meta_key IN (".getStudentListQuery(2).")
 		ORDER BY rel.meta_key
-		LIMIT $page_num, $num
+		#LIMIT $page_num, $num
 	"));
-
-	$schoolFieldID		= 0;
-	$schoolFieldIDSql	= "SELECT ID FROM ht_bp_xprofile_fields WHERE name = 'Linked School'";
-	$schoolFieldIDList	= $wpdb->get_results($wpdb->prepare($schoolFieldIDSql, []));
-
-	if(count($schoolFieldIDList) > 0)	$schoolFieldID = $schoolFieldIDList[0]->ID;
 
 	$schoolList = array();
 	$student_info=array();
@@ -1026,7 +1079,8 @@ function lms_student_info_data($page_num,$num){
 		$avg=get_post_meta($st->course_id,'average',true);
 		$status = get_user_meta($st->user,'course_status'.$st->course_id,true);
 		if(isset($status)){
-			$schoolName		= "";
+
+			/*$schoolName		= "";
 			$schoolIDSql	= "SELECT value FROM ht_bp_xprofile_data WHERE user_id = '%s' AND field_id = '%s'";
 			$schoolIDList	= $wpdb->get_results($wpdb->prepare($schoolIDSql, [$st->user, $schoolFieldID]));
 
@@ -1041,10 +1095,10 @@ function lms_student_info_data($page_num,$num){
 					$schoolName = get_user_meta( $schoolIDList[0]->value, "nickname", true );
 					$schoolList[$schoolIDList[0]->value] = $schoolName;
 				}
-			}
+			}*/
 
 			$student_info[$i]['user']	= get_the_author_meta('display_name',$st->user);
-			$student_info[$i]['school']	= $schoolName;
+			$student_info[$i]['school']	= $st->school;
 			$student_info[$i]['avg']	= (is_numeric($avg)?$avg:'n/a');
 			$student_info[$i]['score']	= ((isset($st->score) && $status >= 3)?$st->score:'n/a');
 			$student_info[$i]['course']	= (isset($st->course)?$st->course:'n/a');
@@ -1152,6 +1206,32 @@ function lms_stats_student_content($subtab='overview'){
 		</div>
 		<div class="vibe-reports-main">
 				<div class="postbox course_info">
+					<div class="custom_datatable">
+						<table id="datatable" style="width:100%">
+							<thead>
+								<tr>
+									<th>Student</th>
+									<th>School</th>
+									<th>Course</th>
+									<th>Score</th>
+									<th>Average</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach($student_info as $info){
+									echo '<tr>';
+										echo '<td>'.$info['user'].'</td>';
+										echo '<td>'.($info['school'] ? $info['school'] : "n/a").'</td>';
+										echo '<td>'.$info['course'].'</td>';
+										echo '<td>'.$info['score'].'</td>';
+										echo '<td>'.$info['avg'].'</td>';
+									echo '</tr>';
+								}
+							?>
+							</tbody>
+						</table>
+					</div>
+					<?php if(FALSE) { ?>
 					<h3><label>Student</label><span>Average</span><span>Score</span><span style="width:200px">Course</span><span>School</span></h3>
 					<div class="inside">
 						<ul>
@@ -1184,6 +1264,7 @@ function lms_stats_student_content($subtab='overview'){
 
 						?>
 					</div>
+				<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -1607,7 +1688,7 @@ function getStudentListQuery($returnType, $pageNum = null, $num = null)
 		$sql .= "WHERE ht_usermeta.meta_key = 'ht_capabilities' ";
 		$sql .= "AND ht_usermeta.meta_value LIKE '%student%' ";
 		$sql .= "ORDER BY ht_users.user_nicename ";
-		$sql .= "LIMIT $pageNum, $num";
+		// $sql .= "LIMIT $pageNum, $num";
 	}
 
 	return $sql;
@@ -1713,6 +1794,28 @@ function lms_stats_student_school_content()
 		</div>
 		<div class="vibe-reports-main">
 				<div class="postbox course_info">
+					<div class="custom_datatable">
+						<table id="datatable" style="width:100%">
+							<thead>
+								<tr>
+									<th>Student</th>
+									<th>Email ID</th>
+									<th>School</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach($page_info as $info){
+									echo '<tr>';
+										echo '<td>'.$info['user'].'</td>';
+										echo '<td>'.($info['user_email'] ? $info['user_email'] : "n/a").'</td>';
+										echo '<td>'.($info['school'] ? $info['school'] : "n/a").'</td>';
+									echo '</tr>';
+								}
+							?>
+							</tbody>
+						</table>
+					</div>
+					<?php if(FALSE) { ?>
 					<h3><label>Student</label><span style="width: 250px;">School</span><span style="width: 250px;">Email ID</span></h3>
 					<div class="inside">
 						<ul>
@@ -1741,6 +1844,7 @@ function lms_stats_student_school_content()
 							echo '<a href="?page=lms-stats&tab=student_school&subtab=overview&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
 						} ?>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -1802,6 +1906,26 @@ function lms_stats_school_course_content()
 		</div>
 		<div class="vibe-reports-main">
 				<div class="postbox course_info">
+					<div class="custom_datatable">
+						<table id="datatable" style="width:100%">
+							<thead>
+								<tr>
+									<th>School</th>
+									<th>Course</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach($page_info as $info){
+									echo '<tr>';
+										echo '<td>'.($info['school'] ? $info['school'] : "n/a").'</td>';
+										echo '<td>'.($info['course'] ? $info['course'] : "n/a").'</td>';
+									echo '</tr>';
+								}
+							?>
+							</tbody>
+						</table>
+					</div>
+					<?php if(FALSE) { ?>
 					<h3><label style="width: 350px;">School</label><span style="width: 350px;">Course</span></h3>
 					<div class="inside">
 						<ul>
@@ -1832,10 +1956,25 @@ function lms_stats_school_course_content()
 							echo '<a href="?page=lms-stats&tab=school_course&subtab=overview&paged='.($paged+1).'" class="button">'.__('Next','wplms').' &rsaquo;</a>';
 						} ?>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
 	<?php
+}
+
+function lms_stats_extra_js_content($tab)
+{
+	$allowTabList = array("course", "students", "student_school", "school_course");
+
+	if(in_array($tab, $allowTabList))
+	{?>
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()."/assets/css/datatables.min.css"; ?>"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()."/assets/css/datatable-custom.css"; ?>"/>
+		<script type="text/javascript" src="<?php echo get_template_directory_uri()."/assets/js/datatables.min.js"; ?>"></script>
+		<script type="text/javascript" src="<?php echo get_template_directory_uri()."/assets/js/apply-datatable.js"; ?>"></script>
+	<?php
+	}
 }
 
 if(!class_exists('WPLMS_Admin_Reports')){

@@ -1,0 +1,18 @@
+.custom_datatable {
+	padding: 15px;
+}
+.custom_datatable span{
+	width: unset;
+}
+.custom_datatable input[type=search], .wp-core-ui select {
+	line-height: 1;
+}
+.wp-core-ui select {
+	width: 50px;
+}
+.custom_datatable td {
+	border-bottom: 1px solid #ccc;
+}
+.table-search {
+	font-weight: normal;
+}

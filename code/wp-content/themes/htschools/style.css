@@ -6641,6 +6641,7 @@ h6:empty,
 }
 
 @media screen and (max-width:767px) and (min-width:320px){
+    
     .home-page .header a.logo img,
     .single-course .header .logo img{
         display: none!important;
@@ -6649,18 +6650,21 @@ h6:empty,
         background: url(/wp-content/themes/htschools/assets/images/logoheader_mobile.svg) no-repeat;
         width: 108px!important;
         height: 33px!important;
+        margin-left: 50px;
     }
     .single-course .header .logo{
         background: url(/wp-content/themes/htschools/assets/images/logoheader_course_mobile.svg) no-repeat!important;
         width: 108px!important;
         height: 33px!important;
+        margin-left: 50px;
     }
+
    .header.header-scrolled .logo,
    .header.header-scrolled .logo img {
         -webkit-transform: none!important;
     }
     .mobile-display{display: inline-block!important;}
-    .header .homeicon img{width: 108px;margin-left: 0px!important;}
+    .header .homeicon img{width: 108px;margin-left: 25px;}
     .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
     .right-menu{margin-top: -7px!important;}
     .home_slider .homecarousel_text .pull-left {width: 100%;}

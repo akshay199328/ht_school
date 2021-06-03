@@ -881,139 +881,79 @@ border: 1px solid deepskyblue;
         <h3 class="filter-title">Filter By</h3>
         <button class="course-close" type="button"></button>
     </div>
-    <div class="course-filter-copy">
-        <span class="section-title">Sessions</span>
-        <ul>
-            <li>
-                <label for="session1" id="">
-                    <span class="copy">1 - 10 Sessions</span>
-                    <input type="checkbox" name="rdoWeight" id="session1">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">11 - 20 Sessions</span>
-                    <input type="checkbox" name="rdoWeight" id="session2">
-                </label>
-            </li>
-            <li>
-                <label for="session3" id="">
-                    <span class="copy">21 - 30 Sessions</span>
-                    <input type="checkbox" name="rdoWeight" id="session3">
-                </label>
-            </li>
-            <li>
-                <label for="session4" id="">
-                    <span class="copy">31+ Sessions</span>
-                    <input type="checkbox" name="rdoWeight" id="session4">
-                </label>
-            </li>
-        </ul>
-        <span class="section-title">Sessions</span>
-        <ul>
-            <li>
-                <label for="session5" id="">
-                    <span class="copy">1 - 10 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session5">
-                </label>
-            </li>
-            <li>
-                <label for="session6" id="">
-                    <span class="copy">11 - 20 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session6">
-                </label>
-            </li>
-            <li>
-                <label for="session7" id="">
-                    <span class="copy">21 - 30 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session7">
-                </label>
-            </li>
-            <li>
-                <label for="session8" id="">
-                    <span class="copy">31+ Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session8">
-                </label>
-            </li>
-        </ul>
-        <span class="section-title">Sessions</span>
-        <ul>
-            <li>
-                <label for="session9" id="">
-                    <span class="copy">1 - 10 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session9">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">11 - 20 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">21 - 30 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">31+ Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-        </ul>
-        <span class="section-title">Sessions</span>
-        <ul>
-            <li>
-                <label for="session1" id="">
-                    <span class="copy">1 - 10 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session1">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">11 - 20 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">21 - 30 Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-            <li>
-                <label for="session2" id="">
-                    <span class="copy">31+ Sessions</span>
-                    <input type="radio" name="rdoWeight" id="session2">
-                </label>
-            </li>
-        </ul>
-        <span class="section-title">Course Categories</span>
-         <ul>
-        <?php 
-        $args = apply_filters('wplms_course_nav_cats',array(
-            'taxonomy'=>'course-cat',
-            'hide_empty'=>false,
-            'hierarchial'=>1,
-          ));
+    <form action="<?php echo site_url('/'); ?>" method="get" id="searchform">
+      <div class="course-filter-copy">
+          <span class="section-title">Sessions</span>
+          <ul>
+              <li>
+                  <label for="session1" id="">
+                      <span class="copy">1 - 10 Sessions</span>
+                      <input type="checkbox" name="rdoWeight" id="session1">
+                  </label>
+              </li>
+              <li>
+                  <label for="session2" id="">
+                      <span class="copy">11 - 20 Sessions</span>
+                      <input type="checkbox" name="rdoWeight" id="session2">
+                  </label>
+              </li>
+              <li>
+                  <label for="session3" id="">
+                      <span class="copy">21 - 30 Sessions</span>
+                      <input type="checkbox" name="rdoWeight" id="session3">
+                  </label>
+              </li>
+              <li>
+                  <label for="session4" id="">
+                      <span class="copy">31+ Sessions</span>
+                      <input type="checkbox" name="rdoWeight" id="session4">
+                  </label>
+              </li>
+          </ul>
+          <span class="section-title">Sessions</span>
+          <span class="section-title">Sessions</span>
+          <ul>
+              <li>
+                  <label for="session1" id="">
+                      <span class="copy">1 - 10 Sessions</span>
+                      <input type="checkbox" name="session" value="session1">
+                  </label>
+              </li>
+              <li>
+                  <label for="session2" id="">
+                      <span class="copy">11 - 20 Sessions</span>
+                      <input type="checkbox" name="session" value="session2">
+                  </label>
+              </li>
+          </ul>
+          <span class="section-title">Course Categories</span>
+           <ul>
+          <?php 
+          $args = apply_filters('wplms_course_nav_cats',array(
+              'taxonomy'=>'course-cat',
+              'hide_empty'=>false,
+              'hierarchial'=>1,
+            ));
 
-        $course_category_array = get_terms($args);
-        $course_category = json_decode( json_encode($course_category_array), true);
-        foreach($course_category as $category){
-        ?>
-            <li>
-                <label for="session1" id="">
-                    <span class="copy"><?php echo $category['name']?></span>
-                    <input type="checkbox" name="rdoWeight" id="session1" value="<?php echo $category['term_id'];?>">
-                </label>
-            </li>
-      <?php }?>
-        </ul>
-    </div>
+          $course_category_array = get_terms($args);
+          $course_category = json_decode( json_encode($course_category_array), true);
+          //array
+          //if isset != ""
+            //array = explode
+          foreach($course_category as $category){
+          ?>
+              <li>
+                  <label for="session1" id="">
+                      <span class="copy"><?php echo $category['name']?></span>
+                      <input type="checkbox" name="category" id="session1" value="<?php echo $category['term_id'];?>" >
+                  </label>
+              </li>
+        <?php }?>
+          </ul>
+      </div>
+    </form>
     <div class="filter-action">
-        <button class="white-button" type="button">Apply Filters</button>
+        <button class="white-button" type="button" id="apply_filters">Apply Filters</button>
         <button class="reset" type="button">Reset</button>
     </div>
 </div>
@@ -1022,6 +962,42 @@ border: 1px solid deepskyblue;
   jQuery('#close_popup').click(function(){
     location.reload();
   });
+
+  jQuery('#apply_filters').click(function(){
+    applyFilter();
+  });
+
+  jQuery('#sort_by').click(function(){
+    applyFilter();
+  });
+
+  function applyFilter() {
+    var form_data = {};
+    
+    var temp1 = [];
+    jQuery("input:checkbox[name=category]:checked").each(function () {
+      temp1.push(jQuery(this).val());
+    });
+    
+    var temp2 = [];
+    jQuery("input:checkbox[name=session]:checked").each(function () {
+      temp2.push(jQuery(this).val());
+    });
+
+    var sort_by = jQuery("#sort_by").val();
+
+    if(temp1.length > 0)  form_data.category = temp1.join(",");
+    if(temp2.length > 0)  form_data.session = temp2.join(",");
+    if(sort_by != '' && sort_by != undefined) form_data.sort_by = sort_by;
+
+    var site_url = window.location.href.split('?')[0];
+
+    if(Object.keys(form_data).length === 0) {
+      window.location.href = site_url;
+    } else {
+      window.location.href = site_url + '?' + jQuery.param(form_data);
+    }
+  }
   
 </script>
 <?php

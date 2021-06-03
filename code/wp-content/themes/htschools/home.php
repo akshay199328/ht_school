@@ -83,7 +83,7 @@ get_header(vibe_get_header());
   <div class="section-copy">
     <div class="section-head">
         <div class="header-copy">
-            <h3 class="larger-title">Popular Courses</h3>
+            <h3 class="larger-title">Trending Courses</h3>
             <p class="intro">Access the world’s activities, anytime anywhere.</p>
         </div>
         <a href="<?php echo get_home_url();?>/courses/" class="large-button">Discover All Courses</a>

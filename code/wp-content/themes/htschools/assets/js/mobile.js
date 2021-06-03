@@ -121,6 +121,17 @@ $(document).ready(function() {
         }
     }
   })
+  $('.learning-copy .learning_logos').owlCarousel({
+    margin:0,
+    loop:true,
+    nav:true,
+    mouseDrag:false,
+    dots:true,
+    //autoWidth:true,
+    startPosition: 3,
+    items:2,
+    autoplay: true,
+  })
 })
 if($(window).width() >= 768) {
   // alert(1234);
@@ -148,6 +159,7 @@ if($(window).width() >= 768) {
 
       $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-carousel');
       $('.mobile-slider, .course-listslider, .left_tab').addClass('owl-theme');
+      $('.learning-copy .logos').addClass('learning_logos');
       
       $('.left_tab li').addClass('item');
       $('.mobile-slider').addClass('responsive_slider');

@@ -155,6 +155,14 @@ if($(window).width() >= 768) {
       $('.mobile-slider').addClass('responsive_slider');
       // $('.courses-slider').addClass('coursesmobile_slider');
       $('.course-listslider').addClass('coursemobile_listslider');
+      $('.logos').owlCarousel({
+        margin: 20,
+        loop: false,
+        autoWidth: true,
+        items: 1,
+        nav: false,
+        dots:false
+  })  
       $('.left_tab').owlCarousel({
           margin: 15,
         loop: false,
@@ -224,14 +232,7 @@ if($(window).width() >= 768) {
       });
     });   
 
-    $('.logos').owlCarousel({
-        margin: 20,
-        loop: false,
-        autoWidth: true,
-        items: 1,
-        nav: false,
-        dots:false
-  })  
+    
 });
 
 

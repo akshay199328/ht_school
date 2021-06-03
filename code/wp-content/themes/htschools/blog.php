@@ -155,7 +155,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
         if( $Query->current_post == 0 ) {
           ?>
-          <div class="col-sm-12 col-lg-4 mrg">
+          <div class="col-sm-12 col-lg-5 mrg">
             <div class="details-left">
 
               <?php if ( has_post_thumbnail() ) {
@@ -174,7 +174,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             </div>
           </div>
         <?php } endwhile; endif;?>
-        <div class="col-sm-12 col-lg-8 Interview_blog mrg">
+        <div class="col-sm-12 col-lg-7 Interview_blog mrg">
           <div class="col-sm-12 col-lg-6 mrg">
             <div class="details-middle devide">
               <ul class="">

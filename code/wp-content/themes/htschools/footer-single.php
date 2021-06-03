@@ -330,7 +330,7 @@ border: 1px solid deepskyblue;
                                     <label>Date of Birth*</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <input id="user_dob_display" type="text" class="in-class form-control user_field" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>">
+                                    <input id="user_dob_display" type="text" class="in-class form-control user_field" name="user_dob_display" placeholder="Date of Birth" value="<?php echo date("d/m/Y", $dob); ?>" readonly>
                                     <input id="user_dob" type="hidden" name="user_dob" value="<?php echo date("Y-m-d", $dob); ?>">
                                     <!-- <input type="date" name=""  placeholder="DD / MM / YYYY" class="in-class form-control" />              -->
                                 </div>
@@ -888,39 +888,51 @@ border: 1px solid deepskyblue;
               <li>
                   <label for="session1" id="">
                       <span class="copy">1 - 10 Sessions</span>
-                      <input type="checkbox" name="rdoWeight" id="session1">
+                      <input type="checkbox" name="sessions" id="session1" value="1,10">
                   </label>
               </li>
               <li>
                   <label for="session2" id="">
                       <span class="copy">11 - 20 Sessions</span>
-                      <input type="checkbox" name="rdoWeight" id="session2">
+                      <input type="checkbox" name="sessions" id="session2" value="11,20">
                   </label>
               </li>
               <li>
                   <label for="session3" id="">
                       <span class="copy">21 - 30 Sessions</span>
-                      <input type="checkbox" name="rdoWeight" id="session3">
+                      <input type="checkbox" name="sessions" id="session3" value="21,30">
                   </label>
               </li>
               <li>
                   <label for="session4" id="">
                       <span class="copy">31+ Sessions</span>
-                      <input type="checkbox" name="rdoWeight" id="session4">
+                      <input type="checkbox" name="sessions" id="session4" value="31">
                   </label>
               </li>
           </ul>
-          <span class="section-title">Sessions</span>
+          <span class="section-title">Age</span>
           <ul>
               <li>
                   <label for="session1" id="">
-                      <span class="copy">1 - 10 Sessions</span>
+                      <span class="copy">3 - 7 Years</span>
                       <input type="checkbox" name="session" value="session1">
                   </label>
               </li>
               <li>
                   <label for="session2" id="">
-                      <span class="copy">11 - 20 Sessions</span>
+                      <span class="copy">8 - 11 Years</span>
+                      <input type="checkbox" name="session" value="session2">
+                  </label>
+              </li>
+              <li>
+                  <label for="session2" id="">
+                      <span class="copy">12 - 16 Years</span>
+                      <input type="checkbox" name="session" value="session2">
+                  </label>
+              </li>
+              <li>
+                  <label for="session2" id="">
+                      <span class="copy">17+ Years</span>
                       <input type="checkbox" name="session" value="session2">
                   </label>
               </li>
@@ -979,7 +991,7 @@ border: 1px solid deepskyblue;
     });
     
     var temp2 = [];
-    jQuery("input:checkbox[name=session]:checked").each(function () {
+    jQuery("input:checkbox[name=sessions]:checked").each(function () {
       temp2.push(jQuery(this).val());
     });
 

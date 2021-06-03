@@ -881,8 +881,7 @@ border: 1px solid deepskyblue;
         <h3 class="filter-title">Filter By</h3>
         <button class="course-close" type="button"></button>
     </div>
-    <form action="<?php echo site_url('/'); ?>" method="get" id="searchform">
-      <div class="course-filter-copy">
+    <form action="<?php echo site_url('/'); ?>" method="get" id="searchform" class="course-filter-copy">
           <span class="section-title">Sessions</span>
           <ul>
               <li>
@@ -961,7 +960,6 @@ border: 1px solid deepskyblue;
               </li>
         <?php }?>
           </ul>
-      </div>
     </form>
     <div class="filter-action">
         <button class="white-button" type="button" id="apply_filters">Apply Filters</button>

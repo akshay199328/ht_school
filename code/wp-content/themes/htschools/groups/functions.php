@@ -387,13 +387,13 @@ if ( (isset($_GET['action']) && $_GET['action'] != 'logout') || (isset($_POST['l
     }
 }
 
-//   if(is_user_logged_in()){
-// add_filter('wplms_take_this_course_button_label',function($credits){
+/*  if(is_user_logged_in()){
+add_filter('wplms_take_this_course_button_label',function($credits){
 
-//   return '<strong><span class="coming_soon">Join Course</span></strong>';
+  return '<strong><span class="coming_soon">Join Course</span></strong>';
 
-// });
-// }
+});
+}*/
 
 // Login Functionality
 add_action("wp_ajax_reg_send_otp", "reg_send_otp");

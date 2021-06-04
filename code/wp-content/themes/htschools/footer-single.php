@@ -859,12 +859,12 @@ border: 1px solid deepskyblue;
 </div>
 <!-- modal -->
 <!--no mobile support pop up Modal -->
-<div class="modal modal-box fade contact-popup" id="NomobileSuppportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal modal-box fade contact-popup overlayCenter_popup" id="NomobileSuppportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
-            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img" height="auto" width="100%"/>
+            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.svg'?>" class="modal-img" height="auto" width="100%"/>
           </div>          
           <button type="button" class="close" data-dismiss="modal" id="close_popup" aria-label="Close">
             <span>&times;</span>

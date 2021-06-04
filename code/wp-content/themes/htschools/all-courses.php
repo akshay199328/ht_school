@@ -454,8 +454,13 @@ get_header(vibe_get_header());
                   }
 
                   if(isset($_GET['age']) && isset($_GET['category'])){
-                    $age_filter = explode(",",$_GET['age']);
-                    
+                    if($_GET['age'] == 17){
+                      $custom_age = '17,100';
+                      $age_filter = explode(",",$custom_age);
+                    }
+                    else{
+                      $age_filter = explode(",",$_GET['age']);
+                    }
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     global $wpdb; 
@@ -475,7 +480,13 @@ get_header(vibe_get_header());
                     $wp_query = new WP_Query($query_args);
                   }
                   if(isset($_GET['age']) && isset($_GET['category']) && isset($_GET['session'])){
-                    $age_filter = explode(",",$_GET['age']);
+                    if($_GET['age'] == 17){
+                      $custom_age = '17,100';
+                      $age_filter = explode(",",$custom_age);
+                    }
+                    else{
+                      $age_filter = explode(",",$_GET['age']);
+                    }
                     $sessions_filter = explode(",",$_GET['session']);
                     $firstEle = $sessions_filter[0];
                     $lastEle = $sessions_filter[count($sessions_filter) - 1];
@@ -500,7 +511,13 @@ get_header(vibe_get_header());
 
                   if(isset($_GET['age']) && isset($_GET['category']) && isset($_GET['session']) && isset($_GET['sort_by'])){
                     $sortby_filter = $_GET['sort_by'];
-                    $age_filter = explode(",",$_GET['age']);
+                    if($_GET['age'] == 17){
+                      $custom_age = '17,100';
+                      $age_filter = explode(",",$custom_age);
+                    }
+                    else{
+                      $age_filter = explode(",",$_GET['age']);
+                    }
                     $sessions_filter = explode(",",$_GET['session']);
                     $firstEle = $sessions_filter[0];
                     $lastEle = $sessions_filter[count($sessions_filter) - 1];
@@ -531,7 +548,13 @@ get_header(vibe_get_header());
                   }
 
                   if(isset($_GET['age']) && isset($_GET['session'])){
-                    $age_filter = explode(",",$_GET['age']);
+                    if($_GET['age'] == 17){
+                      $custom_age = '17,100';
+                      $age_filter = explode(",",$custom_age);
+                    }
+                    else{
+                      $age_filter = explode(",",$_GET['age']);
+                    }
                     $sessions_filter = explode(",",$_GET['session']);
                     $firstEle = $sessions_filter[0];
                     $lastEle = $sessions_filter[count($sessions_filter) - 1];
@@ -555,7 +578,13 @@ get_header(vibe_get_header());
                   }
 
                   if(isset($_GET['age']) && isset($_GET['sort_by'])){
-                    $age_filter = explode(",",$_GET['age']);
+                    if($_GET['age'] == 17){
+                      $custom_age = '17,100';
+                      $age_filter = explode(",",$custom_age);
+                    }
+                    else{
+                      $age_filter = explode(",",$_GET['age']);
+                    }
                     $sortby_filter = $_GET['sort_by'];
                     // $firstEle = $sessions_filter[0];
                     // $lastEle = $sessions_filter[count($sessions_filter) - 1];
@@ -591,7 +620,13 @@ get_header(vibe_get_header());
                   }
 
                   if(isset($_GET['age']) && isset($_GET['sort_by']) && isset($_GET['session'])){
-                    $age_filter = explode(",",$_GET['age']);
+                    if($_GET['age'] == 17){
+                      $custom_age = '17,100';
+                      $age_filter = explode(",",$custom_age);
+                    }
+                    else{
+                      $age_filter = explode(",",$_GET['age']);
+                    }
                     $sortby_filter = $_GET['sort_by'];
                     $sessions_filter = explode(",",$_GET['session']);
                     $firstEle = $sessions_filter[0];
@@ -629,7 +664,13 @@ get_header(vibe_get_header());
                   }
 
                   if(isset($_GET['age']) && isset($_GET['sort_by']) && isset($_GET['category'])){
-                    $age_filter = explode(",",$_GET['age']);
+                    if($_GET['age'] == 17){
+                      $custom_age = '17,100';
+                      $age_filter = explode(",",$custom_age);
+                    }
+                    else{
+                      $age_filter = explode(",",$_GET['age']);
+                    }
                     $sortby_filter = $_GET['sort_by'];
                     $sessions_filter = explode(",",$_GET['session']);
                     $firstEle = $sessions_filter[0];

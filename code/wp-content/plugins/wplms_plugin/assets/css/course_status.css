@@ -3618,3 +3618,15 @@ a.button.is-primary {
         height: 240.8px;
     }
 }
+@media (max-width: 767px){
+    .course_action_points .arrow_right,
+    .course_action_points .icon_search,
+    .course_action_points .icon_notepad,
+    .course_action_points .icon_fullscreen
+    {
+        background-size: 18.95px;
+    }
+    .course_status .course_timeline .course_action_points{height: 50px;}
+    .course_status .course_timeline .course_heading h6, .leftheader-logo{margin-bottom: 10px;}
+    .course_status .course_timeline .course_heading .leftheader-logo{background-image: url(assets/images/course-journey-logomobile.svg);}
+}

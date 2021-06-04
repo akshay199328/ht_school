@@ -6672,14 +6672,14 @@ h6:empty,
         background: url(/wp-content/themes/htschools/assets/images/logoheader_mobile.svg) no-repeat;
         width: 108px!important;
         height: 33px!important;
-        margin-left: 50px;
+        margin-left: 50px!important;
     }
     .single-course .header .logo,
     .tax-course-cat .header a.logo{
         background: url(/wp-content/themes/htschools/assets/images/logoheader_course_mobile.svg) no-repeat!important;
         width: 108px!important;
         height: 33px!important;
-        margin-left: 50px;
+        margin-left: 50px!important;
     }
 
    .header.header-scrolled .logo,
@@ -7258,7 +7258,7 @@ section {
 
 /*-----PAGE NOT FOUND : CSS-----*/
 
-.page_not_found{padding: 122px 0px 90px;}
+.page_not_found{padding: 0px 0px 90px;}
 .page_not_found .details {
     padding: 0px 0px;
     margin: 0px auto;
@@ -7891,9 +7891,9 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .page-template-become-a-course-partner-php .header,
 .page-template-become-a-partner-php .header,
 .page-template-contact-php .header{background-color:#d5ebff !important;}
-.partner-wrapper.section_contact ol.breadcrumbs{max-width:1118px;margin:auto !important;padding:10px 15px}
+.partner-wrapper.section_contact ol.breadcrumbs{max-width:1088px;margin:auto !important;padding:10px 15px 10px 0px}
 .partner-wrapper .section_contact .sec_cont{background-color:#d5ebff !important;}
-.partner-wrapper .partner-header{max-width:1088px;margin:auto !important;padding:20px 0 30px;float:none;}
+.partner-wrapper .partner-header{max-width:1088px;margin:auto !important;padding:20px 15px 30px 0px;float:none;}
 .partner-wrapper .partner-header .vc_column-inner{padding:0 !important;}
 .partner-wrapper .partner-header .vc_column-inner .wpb_text_column{margin-bottom:0 !important}
 .partner-wrapper .partner-header .vc_column-inner h1,
@@ -7902,8 +7902,8 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .partner-wrapper .partner-header .vc_column-inner h2{font-size:40px;font-weight:400 !important}
 .page-template-contact-php .partner-wrapper .partner-header .vc_column-inner h2{font-size:27px;}
 .partner-wrapper .partner-copy{background-color:rgb(248, 248, 248);}
-.partner-wrapper .partner-copy .vc_column-inner{max-width:1118px;margin:auto !important;padding-top:30px;padding-bottom:50px;background-image:url("assets/images/partner.png");background-repeat:no-repeat;background-position:top 90px right;background-size:621px;}
-.page-template-contact .partner-wrapper .partner-copy .vc_column-inner{background-image:url("assets/images/contact-us.png");}
+.partner-wrapper .partner-copy .vc_column-inner{max-width:1088px;margin:auto !important;padding-top:30px;padding-bottom:50px;background-image:url("assets/images/partner.png");background-repeat:no-repeat;background-position:bottom 60px right;background-size:621px;}
+.page-template-contact .partner-wrapper .partner-copy .vc_column-inner{background-image:url("assets/images/contactus.png");background-repeat:no-repeat;padding-left: 0;}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper{background-color:#FFF;border:1px solid #c3c3c3;max-width:530px;padding:30px}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-submit{}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .ajax-loader{display:none}
@@ -7944,13 +7944,18 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 }
 td.share-icon ul li{margin-right:18px}
 td .add-wishlist{top:0;
-height: 21px;
-    width: 23px;}
+    height: 21px;
+    width: 23px;
+}
 @media (max-width:767px){
   td.share-icon ul li{margin-right:13px;}
   td .add-wishlist,
   td .remove-wishlist{width:13px !important;height:14px !important;background-size:13px !important;}
   .course-box .share-icon{top:15px !important;right:15px !important;}
+  .page_not_found .details {width: 90%;}
+  .page_not_found .details h6 {font-size: 30px;line-height: 40px;}
+  .page_not_found .details p {font-size: 16px;line-height: 21px;}
+  .page_not_found .details .btn{margin-top: 0;}
 }
 /*.page-id-69 .container{border:1px solid red;}*/
 .page-id-69 .vc_row{margin:0 0 120px 0}

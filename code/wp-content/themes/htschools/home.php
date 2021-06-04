@@ -52,19 +52,19 @@ get_header(vibe_get_header());
               <p class="intro">supporting education through our products, programs, and philanthropy.</p>
           </div>
           <div class="logos">
-              <a href="https://www.hindustancareermate.com/" class="column item">
+              <a target="_blank" href="https://www.hindustancareermate.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/career-mate.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.htcodeathon.com/" class="column item">
+              <a target="_blank" href="https://www.htcodeathon.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/code-thon.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.lenovoscholarship.com/" class="column item">
+              <a target="_blank" href="https://www.lenovoscholarship.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/scholarships.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.hindustanolympiad.in/" class="column">
+              <a target="_blank" href="https://www.hindustanolympiad.in/" class="column">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/olympiad.png">
                   <span>Get Started</span>
               </a>

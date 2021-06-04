@@ -859,12 +859,12 @@ border: 1px solid deepskyblue;
 </div>
 <!-- modal -->
 <!--no mobile support pop up Modal -->
-<div class="modal modal-box fade contact-popup" id="NomobileSuppportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal modal-box fade contact-popup overlayCenter_popup" id="NomobileSuppportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
-            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img" height="auto" width="100%"/>
+            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.svg'?>" class="modal-img" height="auto" width="100%"/>
           </div>          
           <button type="button" class="close" data-dismiss="modal" id="close_popup" aria-label="Close">
             <span>&times;</span>
@@ -914,25 +914,25 @@ border: 1px solid deepskyblue;
               <li>
                   <label for="session1" id="">
                       <span class="copy">3 - 7 Years</span>
-                      <input type="checkbox" name="session" value="session1">
+                      <input type="checkbox" name="age" value="3,7">
                   </label>
               </li>
               <li>
                   <label for="session2" id="">
                       <span class="copy">8 - 11 Years</span>
-                      <input type="checkbox" name="session" value="session2">
+                      <input type="checkbox" name="age" value="8,11">
                   </label>
               </li>
               <li>
                   <label for="session2" id="">
                       <span class="copy">12 - 16 Years</span>
-                      <input type="checkbox" name="session" value="session2">
+                      <input type="checkbox" name="age" value="12,16">
                   </label>
               </li>
               <li>
                   <label for="session2" id="">
                       <span class="copy">17+ Years</span>
-                      <input type="checkbox" name="session" value="session2">
+                      <input type="checkbox" name="age" value="17">
                   </label>
               </li>
           </ul>
@@ -993,10 +993,16 @@ border: 1px solid deepskyblue;
       temp2.push(jQuery(this).val());
     });
 
+    var temp3 = [];
+    jQuery("input:checkbox[name=age]:checked").each(function () {
+      temp3.push(jQuery(this).val());
+    });
+
     var sort_by = jQuery("#sort_by").val();
 
     if(temp1.length > 0)  form_data.category = temp1.join(",");
     if(temp2.length > 0)  form_data.session = temp2.join(",");
+    if(temp3.length > 0)  form_data.age = temp3.join(",");
     if(sort_by != '' && sort_by != undefined) form_data.sort_by = sort_by;
 
     var site_url = window.location.href.split('?')[0];

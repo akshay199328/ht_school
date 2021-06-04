@@ -16,3 +16,20 @@
 .table-search {
 	font-weight: normal;
 }
+.datatable-fix {
+	width: 100%;
+	min-width: 100% !important;
+	margin-left: 0;
+}
+
+.datatable-fix .vibe-reports-sidebar {
+	margin-left: 0;
+	width: 24%;
+}
+
+.datatable-fix .vibe-reports-main {
+	float: left;
+	width: 70%;
+	margin-left: 25px;
+	min-width: 72%;
+}

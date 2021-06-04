@@ -52,24 +52,25 @@ get_header(vibe_get_header());
               <p class="intro">supporting education through our products, programs, and philanthropy.</p>
           </div>
           <div class="logos">
-              <a href="https://www.hindustancareermate.com/" class="column item">
+              <a target="_blank" href="https://www.hindustancareermate.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/career-mate.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.htcodeathon.com/" class="column item">
+              <a target="_blank" href="https://www.htcodeathon.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/code-thon.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.lenovoscholarship.com/" class="column item">
+              <a target="_blank" href="https://www.lenovoscholarship.com/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/scholarships.png">
                   <span>Get Started</span>
               </a>
-              <a href="https://www.hindustanolympiad.in/" class="column">
+              <a target="_blank" href="https://www.hindustanolympiad.in/" class="column">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/olympiad.png">
                   <span>Get Started</span>
               </a>
           </div>
       </div>
+      <!--  -->
       <div class="ad homecourse_adwork">
         <?php
         if ( is_active_sidebar( 'homepage-mid-banner' ) ) : ?>
@@ -149,37 +150,8 @@ get_header(vibe_get_header());
           <div class="courses-wrapper">
           <?php } ?>
         <div class="column">
+          <div class="column-header">
             <span class="category"><?php echo $category_array[0]->name; ?></span>
-            <?php
-              if ( has_post_thumbnail() ) {
-                $image_url = get_the_post_thumbnail_url();
-              }
-            ?>
-            <a class="course-hero" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
-            <div class="course-copy">
-            <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
-            <ul class="data">
-                <li>
-                    <span class="attribute">Duration</span>
-                    <?php if($duration == '') { ?>
-                      <span class="value">--</span>
-                    <?php } else{ ?>
-                      <span class="value"><?php if($duration != ''){echo $duration; }?><strong><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </strong></span>
-                    <?php }?>
-                </li>
-                <li>
-                    <span class="attribute">Age Limit</span>
-                    <?php if($age_limit == '') { ?>
-                      <span class="value">--</span>
-                    <?php } else{ ?>
-                      <span class="value"><?php if($age_limit != ''){echo $age_limit.' ' ; }?><strong>yrs</strong></span>
-                    <?php }?>
-                </li>
-            </ul>
-            <div class="action">
-                <div class="price"><?php the_course_price(); ?></div>
-                <?php the_course_button(); ?>
-            </div>
             <div class="share">
                 <ul>
                   <?php
@@ -209,6 +181,37 @@ get_header(vibe_get_header());
                   </li>
                 </ul>
                 <script async src="https://static.addtoany.com/menu/page.js"></script>
+            </div>
+          </div>
+            <?php
+              if ( has_post_thumbnail() ) {
+                $image_url = get_the_post_thumbnail_url();
+              }
+            ?>
+            <a class="course-hero" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
+            <div class="course-copy">
+            <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
+            <ul class="data">
+                <li>
+                    <span class="attribute">Duration</span>
+                    <?php if($duration == '') { ?>
+                      <span class="value">--</span>
+                    <?php } else{ ?>
+                      <span class="value"><?php if($duration != ''){echo $duration; }?><strong><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </strong></span>
+                    <?php }?>
+                </li>
+                <li>
+                    <span class="attribute">Age Limit</span>
+                    <?php if($age_limit == '') { ?>
+                      <span class="value">--</span>
+                    <?php } else{ ?>
+                      <span class="value"><?php if($age_limit != ''){echo $age_limit.' ' ; }?><strong>yrs</strong></span>
+                    <?php }?>
+                </li>
+            </ul>
+            <div class="action">
+                <div class="price"><?php the_course_price(); ?></div>
+                <?php the_course_button(); ?>
             </div>
             </div>
         </div>

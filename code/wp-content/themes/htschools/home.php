@@ -70,6 +70,7 @@ get_header(vibe_get_header());
               </a>
           </div>
       </div>
+      <!--  -->
       <div class="ad homecourse_adwork">
         <?php
         if ( is_active_sidebar( 'homepage-mid-banner' ) ) : ?>

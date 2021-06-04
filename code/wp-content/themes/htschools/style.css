@@ -7959,7 +7959,7 @@ td .add-wishlist{top:0;
   .page_not_found .details h6 {font-size: 30px;line-height: 40px;}
   .page_not_found .details p {font-size: 16px;line-height: 21px;}
   .page_not_found .details .btn{margin-top: 0;}
-  .course-fees h4 .gst {font-size: 12px;font-weight: 500;top: -1px;padding-left: 13px;}
+  .course-fees h4 .gst {font-size: 12px!important;font-weight: 500!important;top: -1px!important;padding-left: 13px!important;}
 }
 /*.page-id-69 .container{border:1px solid red;}*/
 .page-id-69 .vc_row{margin:0 0 120px 0}

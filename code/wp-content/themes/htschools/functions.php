@@ -534,7 +534,6 @@ function reg_send_otp(){
           $response['status'] = 0;
           $response['message'] = 'Unable to send OTP on email. Please contact site administrator.';
         }//message wasn't sent
-
   } else {
     $response['message'] = 'Invalid email address entered.';
   }

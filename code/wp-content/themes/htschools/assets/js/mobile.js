@@ -159,6 +159,7 @@ if($(window).width() >= 768) {
         margin: 0,
         loop: true,
         autoWidth: true,
+        mouseDrag:true,
         items: 1,
         nav: false,
         dots:false

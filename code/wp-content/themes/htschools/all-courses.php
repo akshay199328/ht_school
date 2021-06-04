@@ -709,6 +709,7 @@ get_header(vibe_get_header());
 
                   if(!empty($wp_query)){
                     $i=0;
+                    if ($wp_query->have_posts()){
                     while ($wp_query->have_posts()){
                       $wp_query->the_post();
                         global $post;
@@ -794,7 +795,9 @@ get_header(vibe_get_header());
             
             </div>
         </div>
-                <?php $i++; }} ?>
+                <?php $i++; }}else{
+                  echo 'There are no courses as per the selected filters. Please select different Filters';
+                }} ?>
                 </div>
             </div>
         <?php posts_pagination(); ?>

@@ -963,11 +963,16 @@ border: 1px solid deepskyblue;
     </form>
     <div class="filter-action">
         <button class="white-button" type="button" id="apply_filters">Apply Filters</button>
-        <button class="reset" type="button">Reset</button>
+        <button class="reset" type="button" id="reset">Reset</button>
     </div>
 </div>
 <!-- modal -->
 <script type="text/javascript">
+  jQuery('#reset').click(function(){
+    jQuery("input[name='category']:checkbox").prop('checked',false);
+    jQuery("input[name='sessions']:checkbox").prop('checked',false);
+    jQuery("input[name='age']:checkbox").prop('checked',false);
+  })
   jQuery('#close_popup').click(function(){
     location.reload();
   });

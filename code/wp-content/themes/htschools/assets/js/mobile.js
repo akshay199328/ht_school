@@ -162,7 +162,8 @@ if($(window).width() >= 768) {
         mouseDrag:true,
         items: 1,
         nav: false,
-        dots:false
+        dots:false,
+        autoplay: true,
   })  
       $('.left_tab').owlCarousel({
           margin: 15,

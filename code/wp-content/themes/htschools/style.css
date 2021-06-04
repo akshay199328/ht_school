@@ -1359,6 +1359,9 @@ Course Details
   color: #fbca00;
   margin: 0px 0px 15px;
 }
+.course-fees h4 .woocommerce-Price-amount.amount{
+  color: #fbca00!important;
+}
 .course-fees a.link{
     padding: 12px 32px 12px 25px;
   background-color: #fbca00;
@@ -8023,7 +8026,10 @@ td .add-wishlist{top:0;
     -webkit-box-align: center !important;
     -ms-flex-align: center !important;
     align-items: center !important;
-    display: flex;
+    
+}
+.overlayCenter_popup.in{
+  display: flex!important;
 }
 .overlayCenter_popup .close_popup{
       padding: 0;

@@ -497,34 +497,43 @@ jQuery(window).load(function(){
         });
 
         jQuery("#ht_reg_email_btn").click(function(e){
-            jQuery("#ht_reg_email_btn").html("Please wait...");
-            jQuery("#ht_reg_email_btn").attr("disabled", "disabled");
+            if(jQuery('#email').val() == ''){
+              jQuery("#ht_otp_error").html('Please enter Email Id');
+              jQuery("#ht_otp_error").show();
+              return false;
+            }
+            else{
+              jQuery("#ht_otp_error").html('');
+              jQuery("#ht_otp_error").hide();
+              jQuery("#ht_reg_email_btn").html("Please wait...");
+              jQuery("#ht_reg_email_btn").attr("disabled", "disabled");
 
-            jQuery.ajax({
-                type : "POST",
-                dataType : "json",
-                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-                data : jQuery("#ht_reg_email").serialize(),
-                success: function(response) {
-                    jQuery("#ht_reg_email_btn").html("Next");
-                    jQuery("#ht_reg_email_btn").removeAttr("disabled");
+              jQuery.ajax({
+                  type : "POST",
+                  dataType : "json",
+                  url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                  data : jQuery("#ht_reg_email").serialize(),
+                  success: function(response) {
+                      jQuery("#ht_reg_email_btn").html("Next");
+                      jQuery("#ht_reg_email_btn").removeAttr("disabled");
 
-                    if(response.status == 1){
+                      if(response.status == 1){
 
-                        jQuery("#email-otp-message").html(response.message);
-                        jQuery("#login-step-1").hide();
-                        jQuery("#login-step-2").show();
-                        startTimer();
-                    }else{
-                        jQuery("#ht_otp_error").html(response.message);
-                        jQuery("#ht_otp_error").show();
-                        setTimeout(function(){
-                            jQuery("#ht_otp_error").html('');
-                            jQuery("#ht_otp_error").hide();
-                        }, 5000);
-                    }
-                }
-            });
+                          jQuery("#email-otp-message").html(response.message);
+                          jQuery("#login-step-1").hide();
+                          jQuery("#login-step-2").show();
+                          startTimer();
+                      }else{
+                          jQuery("#ht_otp_error").html(response.message);
+                          jQuery("#ht_otp_error").show();
+                          setTimeout(function(){
+                              jQuery("#ht_otp_error").html('');
+                              jQuery("#ht_otp_error").hide();
+                          }, 5000);
+                      }
+                  }
+              });
+            }
         });
 
         jQuery(".to_next").keyup(function(e){

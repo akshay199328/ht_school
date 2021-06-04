@@ -10,6 +10,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 $current_user = wp_get_current_user();
 
+if($current_user->user_firstname != '')
+	$first_name = $current_user->user_firstname;
+if($current_user->user_lastname != '')
+	$last_name = $current_user->user_lastname;
 ?>
 <style type="text/css">
 	.simple-link{
@@ -33,7 +37,8 @@ $current_user = wp_get_current_user();
 					</div><!-- #item-header-avatar -->
 					<div class="Profile_details">
 						<h3>
-							<a href="<?php bp_displayed_user_link(); ?>"><?php bp_displayed_user_fullname(); ?></a>
+							<a href="<?php bp_displayed_user_link(); ?>"><?php echo $first_name.' '.$last_name;
+							?></a>
 						</h3>
 						<p><?php bp_displayed_user_email(); ?></p>
 						<a class="simple-link" href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_nicename; ?>/profile/change-avatar">Change Avatar</a>

@@ -7837,7 +7837,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 
   .course_status .incourse .quiz_questions_content .question .question_content,
   .course_status .incourse .quiz_questions_content .question .question_list{width:100%;padding:0;}
-  .course_status .incourse .quiz_questions_content .quiz_pagination_wrapper{display:flex !important;justify-content:center;margin-left:0 !important;width:100%;}
+  .course_status .incourse .quiz_questions_content .quiz_pagination_wrapper{display:flex !important;justify-content:flex-end;margin-left:0 !important;width:100%;}
   .incourse .incoursequiz_details.hide_controls>div>strong, .incourse .incoursequiz_details.hide_controls>div .quiztimer_wrapper{background-color:transparent !important;border:none !important;}
   .course_status .incourse .incoursequiz_details>div strong .student_score{display:none !important}
   .course_status .incourse .incoursequiz_details>div strong .student_quiz_status{margin-left:0 !important}

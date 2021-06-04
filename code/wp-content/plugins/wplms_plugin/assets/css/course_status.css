@@ -3628,5 +3628,13 @@ a.button.is-primary {
     }
     .course_status .course_timeline .course_action_points{height: 50px;}
     .course_status .course_timeline .course_heading h6, .leftheader-logo{margin-bottom: 10px;}
-    .course_status .course_timeline .course_heading .leftheader-logo{background-image: url(assets/images/course-journey-logomobile.svg);}
+    .course_status .course_timeline .course_heading .leftheader-logo{
+        background-image: url('assets/images/course-journey-logomobile.svg');
+    }
+    .course_status .incourse .incoursequiz_details{border-bottom: 0px}
+    .question_option.radio input[type=radio]:checked+label:after, .question_option input[type=checkbox]:checked+label:after{
+        top: 3px;
+    }
+    .course_status .incourse .question_option{min-height: 70px;}
+    .finish_course {padding-left: 20px;}
 }

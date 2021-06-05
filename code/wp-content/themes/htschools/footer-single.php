@@ -886,59 +886,78 @@ border: 1px solid deepskyblue;
     </div>
     <form action="<?php echo site_url('/'); ?>" method="get" id="searchform" class="course-filter-copy">
           <span class="section-title">Sessions</span>
+          <?php 
+            $session_array = array(array("name"=>"1 - 10 Sessions",
+              "value"=>"1,10"),
+              array("name"=>"11 - 20 Sessions",
+              "value"=>"11,20"),
+              array("name"=>"21 - 30 Sessions",
+              "value"=>"21,30"),
+              array("name"=>"31+ Sessions",
+              "value"=>"31"),
+            );
+            $i = 0;
+            if(isset($_GET['session'])){
+              $get_session = $_GET['session'];
+            }
+            $selected_session = explode(",",$get_session);
+            $sessionFirstEle = $selected_session[0];
+            $sessionLastEle = $selected_session[count($selected_session) - 1];
+            $sessions_combine = $sessionFirstEle.','.$sessionLastEle;
+          ?>
           <ul>
+            <?php foreach($session_array as $sessions){ 
+              if($sessions['value'] == $sessions_combine){
+                $session_selected = 'checked';
+              }
+              else{
+                $session_selected = '';
+              }
+
+            ?>
               <li>
-                  <label for="session1" id="">
-                      <span class="copy">1 - 10 Sessions</span>
-                      <input type="checkbox" name="sessions" value="1,10">
+                  <label for="session<?php echo $i;?>" id="">
+                      <span class="copy"><?php echo $sessions['name']?></span>
+                      <input type="checkbox" name="sessions" value="<?php echo $sessions['value']?>" <?php echo $session_selected;?>>
                   </label>
               </li>
-              <li>
-                  <label for="session2" id="">
-                      <span class="copy">11 - 20 Sessions</span>
-                      <input type="checkbox" name="sessions" value="11,20">
-                  </label>
-              </li>
-              <li>
-                  <label for="session3" id="">
-                      <span class="copy">21 - 30 Sessions</span>
-                      <input type="checkbox" name="sessions" value="21,30">
-                  </label>
-              </li>
-              <li>
-                  <label for="session4" id="">
-                      <span class="copy">31+ Sessions</span>
-                      <input type="checkbox" name="sessions" value="31">
-                  </label>
-              </li>
+            <?php $i++; } ?>
           </ul>
           <span class="section-title">Age</span>
+          <?php 
+            $age_array = array(array("name"=>"3 - 7 Years",
+              "value"=>"3,7"),
+              array("name"=>"8 - 11 Years",
+              "value"=>"8,11"),
+              array("name"=>"12 - 16 Years",
+              "value"=>"12,16"),
+              array("name"=>"17+ Years",
+              "value"=>"17"),
+            );
+            $i = 0;
+            if(isset($_GET['age'])){
+              $get_age = $_GET['age'];
+            }
+            $selected_age = explode(",",$get_age);
+            $ageFirstEle = $selected_age[0];
+            $ageLastEle = $selected_age[count($selected_age) - 1];
+            $age_combine = $ageFirstEle.','.$ageLastEle;
+          ?>
           <ul>
+            <?php foreach($age_array as $age){ 
+              if($age['value'] == $age_combine){
+                $age_selected = 'checked';
+              }
+              else{
+                $age_selected = '';
+              }?>
               <li>
-                  <label for="age1" id="">
-                      <span class="copy">3 - 7 Years</span>
-                      <input type="checkbox" name="age" value="3,7">
-                  </label>
+                <label for="age<?php echo $i;?>" id="">
+                    <span class="copy"><?php echo $age['name']?></span>
+                    <input type="checkbox" name="age" value="<?php echo $age['value']?>" <?php echo $session_selected;?> <?php echo $age_selected;?>>
+                </label>
               </li>
-              <li>
-                  <label for="age2" id="">
-                      <span class="copy">8 - 11 Years</span>
-                      <input type="checkbox" name="age" value="8,11">
-                  </label>
-              </li>
-              <li>
-                  <label for="age3" id="">
-                      <span class="copy">12 - 16 Years</span>
-                      <input type="checkbox" name="age" value="12,16">
-                  </label>
-              </li>
-              <li>
-                  <label for="age4" id="">
-                      <span class="copy">17+ Years</span>
-                      <input type="checkbox" name="age" value="17">
-                  </label>
-              </li>
-          </ul>
+            <?php $i++; } ?>
           <span class="section-title">Course Categories</span>
            <ul>
           <?php 
@@ -950,16 +969,24 @@ border: 1px solid deepskyblue;
 
           $course_category_array = get_terms($args);
           $course_category = json_decode( json_encode($course_category_array), true);
-          //array
-          //if isset != ""
-            //array = explode
+      
           $i = 0;
+          if(isset($_GET['category'])){
+            $get_category = $_GET['category'];
+          }
+          $selected_category = explode(",",$get_category);
           foreach($course_category as $category){
+            if(in_array($category['term_id'],$selected_category)){
+              $category_selected = 'checked';
+            }
+            else{
+              $category_selected = '';
+            }
           ?>
               <li>
                   <label for="category<?php echo $i;?>" id="">
                       <span class="copy"><?php echo $category['name']?></span>
-                      <input type="checkbox" name="category" id="session1" value="<?php echo $category['term_id'];?>" >
+                      <input type="checkbox" name="category" id="session1" value="<?php echo $category['term_id'];?>" <?php echo $category_selected;?>>
                   </label>
               </li>
         <?php $i++;}?>

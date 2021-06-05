@@ -1013,12 +1013,12 @@ border: 1px solid deepskyblue;
     if(temp3.length > 0)  form_data.age = temp3.join(",");
     if(sort_by != '' && sort_by != undefined) form_data.sort_by = sort_by;
 
-    var site_url = window.location.href.split('?')[0];
+    var current_url = site_url+'/courses/'.split('?')[0];
 
     if(Object.keys(form_data).length === 0) {
-      window.location.href = site_url;
+      window.location.href = current_url;
     } else {
-      window.location.href = site_url + '?' + jQuery.param(form_data);
+      window.location.href = current_url + '?' + jQuery.param(form_data);
     }
   }
   

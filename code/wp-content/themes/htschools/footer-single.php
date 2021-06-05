@@ -890,50 +890,50 @@ border: 1px solid deepskyblue;
               <li>
                   <label for="session1" id="">
                       <span class="copy">1 - 10 Sessions</span>
-                      <input type="checkbox" name="sessions" id="session1" value="1,10">
+                      <input type="checkbox" name="sessions" value="1,10">
                   </label>
               </li>
               <li>
                   <label for="session2" id="">
                       <span class="copy">11 - 20 Sessions</span>
-                      <input type="checkbox" name="sessions" id="session2" value="11,20">
+                      <input type="checkbox" name="sessions" value="11,20">
                   </label>
               </li>
               <li>
                   <label for="session3" id="">
                       <span class="copy">21 - 30 Sessions</span>
-                      <input type="checkbox" name="sessions" id="session3" value="21,30">
+                      <input type="checkbox" name="sessions" value="21,30">
                   </label>
               </li>
               <li>
                   <label for="session4" id="">
                       <span class="copy">31+ Sessions</span>
-                      <input type="checkbox" name="sessions" id="session4" value="31">
+                      <input type="checkbox" name="sessions" value="31">
                   </label>
               </li>
           </ul>
           <span class="section-title">Age</span>
           <ul>
               <li>
-                  <label for="session1" id="">
+                  <label for="age1" id="">
                       <span class="copy">3 - 7 Years</span>
                       <input type="checkbox" name="age" value="3,7">
                   </label>
               </li>
               <li>
-                  <label for="session2" id="">
+                  <label for="age2" id="">
                       <span class="copy">8 - 11 Years</span>
                       <input type="checkbox" name="age" value="8,11">
                   </label>
               </li>
               <li>
-                  <label for="session2" id="">
+                  <label for="age3" id="">
                       <span class="copy">12 - 16 Years</span>
                       <input type="checkbox" name="age" value="12,16">
                   </label>
               </li>
               <li>
-                  <label for="session2" id="">
+                  <label for="age4" id="">
                       <span class="copy">17+ Years</span>
                       <input type="checkbox" name="age" value="17">
                   </label>
@@ -953,15 +953,16 @@ border: 1px solid deepskyblue;
           //array
           //if isset != ""
             //array = explode
+          $i = 0;
           foreach($course_category as $category){
           ?>
               <li>
-                  <label for="session1" id="">
+                  <label for="category<?php echo $i;?>" id="">
                       <span class="copy"><?php echo $category['name']?></span>
                       <input type="checkbox" name="category" id="session1" value="<?php echo $category['term_id'];?>" >
                   </label>
               </li>
-        <?php }?>
+        <?php $i++;}?>
           </ul>
     </form>
     <div class="filter-action">

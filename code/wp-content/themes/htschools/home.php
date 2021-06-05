@@ -262,7 +262,7 @@ get_header(vibe_get_header());
           'post_type' => 'post',
           'post_status' => 'publish',
           //'category_name' => 'Expert','Interview','Featured',
-          'posts_per_page' => 9,
+          'posts_per_page' => 10,
           'order'=>'DESC',
         );
         $Query = new WP_Query( $args );
@@ -286,16 +286,28 @@ get_header(vibe_get_header());
               <div class="link">
                 <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
               </div>
+            
+              <?php } if( $Query->current_post == 1 ) {?>
+              <div class="details-middle">
+                <ul class="">
+                  <li>
+                    <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
+                    <div class="link">
+                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        <?php } endwhile; endif;?>
+        <?php  } endwhile; endif;?>
         <div class="col-sm-12 col-lg-7 home_news-leftspacing">
           <div class="col-sm-12 col-lg-6 mrg">
             <div class="details-middle">
               <ul class="">
                 <?php  if ($Query->have_posts()) : $counter = 0; while ($Query->have_posts()) : $Query->the_post();
-                  if ($counter <= 4) :
-                  if( $Query->current_post != 0 ) {
+                  if ($counter <= 5) :
+                  if( $Query->current_post != 0 &&  $Query->current_post != 1) {
                     ?>
                     <li>
                       <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -313,8 +325,8 @@ get_header(vibe_get_header());
             <div class="details-middle">
               <ul class="">
                 <?php if ($Query->have_posts()) : $counter1 = 0; while ($Query->have_posts()) : $Query->the_post();
-                  if ($counter1 > 4) :
-                  if( $Query->current_post != 0 ) {
+                  if ($counter1 > 5) :
+                  if( $Query->current_post != 0 &&  $Query->current_post != 1) {
                     ?>
                     <li>
                       <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>

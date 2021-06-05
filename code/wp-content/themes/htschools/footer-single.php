@@ -496,14 +496,6 @@ border: 1px solid deepskyblue;
                   $("#errMobileMsg").text('');
                 }
             });
-            var contact_form_id = jQuery("input[name='_wpcf7']").val();
-  alert(contact_form_id);
-  document.addEventListener( 'wpcf7mailsent', function( event ) {
-   alert("test");
-  
-    jQuery('.Subscribe Form').hide(); 
-
-  }, false );
 
             $("#user_mobile").on("blur", function(){
               var mobNum = $('#user_mobile').val();
@@ -1034,7 +1026,6 @@ border: 1px solid deepskyblue;
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script type="text/javascript">
   document.addEventListener( 'wpcf7mailsent', function( event ) {
-
     jQuery('#submit-email').hide();
     jQuery('#emailAddress').hide();
   }, false );

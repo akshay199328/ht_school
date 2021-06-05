@@ -133,7 +133,6 @@ get_header(vibe_get_header());
                     }
                   }
                   if(isset($_GET['sort_by']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['category'])){
-                    echo "test";
                     $args=array('post_type' => 'course');
           
                     $sort_by = $_GET;
@@ -168,7 +167,6 @@ get_header(vibe_get_header());
                   }
 
                   if(isset($_GET['category']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['sort_by']) ){
-                    echo "test2";
                     $category_filter = explode(",",$_GET['category']);
                     $args = array(
                         'post_type' => 'course',
@@ -187,7 +185,6 @@ get_header(vibe_get_header());
                   }
 
                   if(isset($_GET['sort_by']) && isset($_GET['category']) && empty($_GET['age']) && empty($_GET['session'])){
-                    echo "test3";
                     $category_filter = explode(",",$_GET['category']);
                     $sort_by = $_GET;
                     $filter = $sort_by['sort_by'];

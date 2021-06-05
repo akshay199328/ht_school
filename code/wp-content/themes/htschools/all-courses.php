@@ -124,7 +124,7 @@ get_header(vibe_get_header());
                       $query_args = apply_filters('wplms_mycourses',array(
                           'post_type'=>'course',
                           'post__in'=>$course_id,
-                          'posts_per_page'=>4,
+                          'posts_per_page'=>16,
                           'post_status' => 'publish',
                           'orderby' => 'post__in', 
                           'paged'=>$paged,

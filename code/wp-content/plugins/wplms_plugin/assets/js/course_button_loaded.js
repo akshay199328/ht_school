@@ -7153,22 +7153,18 @@
                     window.checkProfile = true;
                 }
 
-                if(window.screen.availWidth <= 640){
-                   jQuery("#NomobileSuppportModal").modal("show");
-                }
-                else{
-                    if(l.is_profile_complete || window.checkProfile == false){
-                        if(l.is_cb_course){
-                            window.location = l.cb_course_link;
-                        } else if(l.is_aiws_course){
-                            window.location = l.aiws_course_link;
-                        }else{
-                            f(!0)
-                        }
+                if(l.is_profile_complete || window.checkProfile == false){
+                    if(l.is_cb_course){
+                        window.location = l.cb_course_link;
+                    } else if(l.is_aiws_course){
+                        window.location = l.aiws_course_link;
                     }else{
-                        jQuery("#profileModal").modal("show");
+                        f(!0)
                     }
+                }else{
+                    jQuery("#profileModal").modal("show");
                 }
+                
             },
             className: "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id
         }, a)) : Array.isArray(i) ? mr("strong", {

@@ -123,7 +123,7 @@ get_header(vibe_get_header());
                       $query_args = apply_filters('wplms_mycourses',array(
                           'post_type'=>'course',
                           'post__in'=>$course_id,
-                          'posts_per_page'=>8,
+                          'posts_per_page'=>16,
                           'post_status' => 'publish',
                           'orderby' => 'post__in', 
                           'paged'=>$paged,
@@ -141,23 +141,23 @@ get_header(vibe_get_header());
                         case 'popular':
                           $args['orderby'] = 'meta_value_num';
                           $args['meta_key'] = 'vibe_students';
-                          $args['posts_per_page'] = 8;
+                          $args['posts_per_page'] = 16;
                           $args['paged'] = $paged;
                         break;
                         case 'newest':
                           $args['orderby'] = 'date';
-                          $args['posts_per_page'] = 8;
+                          $args['posts_per_page'] = 16;
                           $args['paged'] = $paged;
                         break;
                         case 'rated':
                           $args['orderby'] = 'meta_value_num';
                           $args['meta_key'] = 'average_rating';
-                          $args['posts_per_page'] = 8;
+                          $args['posts_per_page'] = 16;
                           $args['paged'] = $paged;
                         break;
                         default:
                           $args['post__in'] = $course_id;
-                          $args['posts_per_page'] = 8;
+                          $args['posts_per_page'] = 16;
                           $args['orderby'] = 'post__in';
                           $args['paged'] = $paged;
                         break;
@@ -170,7 +170,7 @@ get_header(vibe_get_header());
                     $category_filter = explode(",",$_GET['category']);
                     $args = array(
                         'post_type' => 'course',
-                        'posts_per_page'=>8,
+                        'posts_per_page'=>16,
                         'paged'=>$paged,
                         'tax_query' => array(
                             array(
@@ -190,7 +190,7 @@ get_header(vibe_get_header());
                     $filter = $sort_by['sort_by'];
                     $args = array(
                         'post_type' => 'course',
-                        'posts_per_page'=>8,
+                        'posts_per_page'=>16,
                         'paged'=>$paged,
                         'tax_query' => array(
                           array(
@@ -204,16 +204,16 @@ get_header(vibe_get_header());
                       case 'popular':
                         $args['orderby'] = 'meta_value_num';
                         $args['meta_key'] = 'vibe_students';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                       case 'newest':
                         $args['orderby'] = 'date';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                       case 'rated':
                         $args['orderby'] = 'meta_value_num';
                         $args['meta_key'] = 'average_rating';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                     }
                     $wp_query = new WP_Query( $args );
@@ -233,7 +233,7 @@ get_header(vibe_get_header());
                     $meta_query = array();
                     $args = array(
                      'post_type' => 'course',
-                      'posts_per_page'=>8,
+                      'posts_per_page'=>16,
                       'paged'=>$paged,
                        'orderby'  => 'meta_value_num', 
                       );
@@ -275,7 +275,7 @@ get_header(vibe_get_header());
                     $meta_query = array();
                     $args = array(
                      'post_type' => 'course',
-                      'posts_per_page'=>8,
+                      'posts_per_page'=>16,
                       'paged'=>$paged,
                        'orderby'  => 'meta_value_num', 
                       );
@@ -283,16 +283,16 @@ get_header(vibe_get_header());
                       case 'popular':
                         $args['orderby'] = 'meta_value_num';
                         $args['meta_key'] = 'vibe_students';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                       case 'newest':
                         $args['orderby'] = 'date';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                       case 'rated':
                         $args['orderby'] = 'meta_value_num';
                         $args['meta_key'] = 'average_rating';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                     }
                     $args['meta_query'] = $meta_query;
@@ -331,7 +331,7 @@ get_header(vibe_get_header());
                     $meta_query = array();
                     $args = array(
                      'post_type' => 'course',
-                      'posts_per_page'=>8,
+                      'posts_per_page'=>16,
                       'paged'=>$paged,
                        'orderby'  => 'meta_value_num', 
                        'tax_query' => array(
@@ -378,7 +378,7 @@ get_header(vibe_get_header());
                     $meta_query = array();
                     $args = array(
                      'post_type' => 'course',
-                      'posts_per_page'=>8,
+                      'posts_per_page'=>16,
                       'paged'=>$paged,
                        'orderby'  => 'meta_value_num', 
                        'tax_query' => array(
@@ -394,16 +394,16 @@ get_header(vibe_get_header());
                       case 'popular':
                         $args['orderby'] = 'meta_value_num';
                         $args['meta_key'] = 'vibe_students';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                       case 'newest':
                         $args['orderby'] = 'date';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                       case 'rated':
                         $args['orderby'] = 'meta_value_num';
                         $args['meta_key'] = 'average_rating';
-                        $args['posts_per_page'] = 8;
+                        $args['posts_per_page'] = 16;
                       break;
                     }
                     $args['meta_query'] = $meta_query;
@@ -438,19 +438,22 @@ get_header(vibe_get_header());
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     global $wpdb; 
-                    $courses_with_types = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts INNER JOIN ht_postmeta ON ( ht_posts.ID = ht_postmeta.post_id ) LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_postmeta.meta_value+0 DESC LIMIT 0, 8 ");
-                    $wps_query = $wpdb->get_results($courses_with_types);
-                    foreach($wps_query as $course){
-                      $args['post__in'][]=$course->ID;
+                    $age = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts INNER JOIN ht_postmeta ON ( ht_posts.ID = ht_postmeta.post_id ) LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_postmeta.meta_value+0 DESC LIMIT 0, 16 ");
+                    $age_result = $wpdb->get_results($age);
+                    foreach($age_result as $course){
+                      $age_args['post__in'][]=$course->ID;
                     }
-                    $query_args = array(
-                     'post_type' => 'course',
-                      'posts_per_page'=>8,
-                      'paged'=>$paged,
-                      'post__in'=>$args['post__in'],
-                      
-                      );
-                    $wp_query = new WP_Query($query_args);
+                    if(!empty($age_args['post__in'])){
+                      echo "test";
+                      $query_args = array(
+                       'post_type' => 'course',
+                        'posts_per_page'=>16,
+                        'paged'=>$paged,
+                        'post__in'=>$age_args['post__in'],
+                        
+                        );
+                      $wp_query = new WP_Query($query_args);
+                    }
                   }
 
                   if(isset($_GET['age']) && isset($_GET['category'])){
@@ -464,20 +467,22 @@ get_header(vibe_get_header());
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     global $wpdb; 
-                    $age_with_category = $wpdb->prepare("SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 8");
+                    $age_with_category = $wpdb->prepare("SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 16");
                     
                     $age_with_category_result = $wpdb->get_results($age_with_category);
                     foreach($age_with_category_result as $course){
                       $age_with_category_args['post__in'][]=$course->ID;
                     }
-                    $query_args = array(
-                             'post_type' => 'course',
-                              'posts_per_page'=>8,
-                              'paged'=>$paged,
-                              'post__in'=>$age_with_category_args['post__in'],
-                              
-                              );
-                    $wp_query = new WP_Query($query_args);
+                    if(!empty($age_with_category_args['post__in'])){
+                      $query_args = array(
+                               'post_type' => 'course',
+                                'posts_per_page'=>16,
+                                'paged'=>$paged,
+                                'post__in'=>$age_with_category_args['post__in'],
+                                
+                                );
+                      $wp_query = new WP_Query($query_args);
+                    }
                   }
                   if(isset($_GET['age']) && isset($_GET['category']) && isset($_GET['session'])){
                     if($_GET['age'] == 17){
@@ -493,19 +498,27 @@ get_header(vibe_get_header());
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     global $wpdb; 
-                    $age_with_category = $wpdb->prepare("SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions' AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) ) AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 8");
+                    $age_with_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions'";
+                    if(in_array(31, $sessions_filter)){
+                      $age_session_sortby_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
+                    }else{
+                      $age_with_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) )";
+                    }
+                      $age_with_category .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 16";
                     $age_with_category_result = $wpdb->get_results($age_with_category);
                     foreach($age_with_category_result as $course){
                       $age_with_category_args['post__in'][]=$course->ID;
                     }
-                    $query_args = array(
-                             'post_type' => 'course',
-                              'posts_per_page'=>8,
-                              'paged'=>$paged,
-                              'post__in'=>$age_with_category_args['post__in'],
-                              
-                              );
-                    $wp_query = new WP_Query($query_args);
+                    if(!empty($age_with_category_args['post__in'])){
+                      $query_args = array(
+                               'post_type' => 'course',
+                                'posts_per_page'=>16,
+                                'paged'=>$paged,
+                                'post__in'=>$age_with_category_args['post__in'],
+                                
+                                );
+                      $wp_query = new WP_Query($query_args);
+                    }
                     
                   }
 
@@ -525,25 +538,34 @@ get_header(vibe_get_header());
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     global $wpdb; 
-                    $age_session_sortby_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_postmeta AS meta2 ON ht_posts.ID = meta2.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( rel.meta_key = 'vibe_course_sessions' AND CAST(rel.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) ) AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.")";
+                    $age_session_sortby_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_postmeta AS meta2 ON ht_posts.ID = meta2.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( rel.meta_key = 'vibe_course_sessions'";
+                    if(in_array(31, $sessions_filter)){
+                      $age_session_sortby_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
+                    }
+                    else{
+                      $age_session_sortby_category .= "  AND CAST(rel.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) )";
+                    }
+                    $age_session_sortby_category .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.")";
                     if($sortby_filter == 'rated')
                     $age_session_sortby_category .= " AND ( meta2.meta_key = 'average_rating' )"; 
                     if($sortby_filter == 'popular')
                     $age_session_sortby_category .= " AND ( meta2.meta_key = 'vibe_students' )";
-                    $age_session_sortby_category .= " GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 8";
+                    $age_session_sortby_category .= " GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 16";
                     //print_r($age_session_sortby_category);
                     $age_session_sortby_category_result = $wpdb->get_results($age_session_sortby_category);
                     foreach($age_session_sortby_category_result as $course){
                       $age_session_sortby_category_args['post__in'][]=$course->ID;
                     }
-                    $query_args = array(
-                             'post_type' => 'course',
-                              'posts_per_page'=>8,
-                              'paged'=>$paged,
-                              'post__in'=>$age_session_sortby_category_args['post__in'],
-                              
-                              );
-                    $wp_query = new WP_Query($query_args);
+                    if(!empty($age_session_sortby_category_args['post__in'])){
+                      $query_args = array(
+                               'post_type' => 'course',
+                                'posts_per_page'=>16,
+                                'paged'=>$paged,
+                                'post__in'=>$age_session_sortby_category_args['post__in'],
+                                
+                                );
+                      $wp_query = new WP_Query($query_args);
+                    }
                     
                   }
 
@@ -562,19 +584,29 @@ get_header(vibe_get_header());
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     global $wpdb; 
-                    $age_with_session = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts INNER JOIN ht_postmeta ON ( ht_posts.ID = ht_postmeta.post_id ) LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions' AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_postmeta.meta_value+0 DESC LIMIT 0, 8 ");
+                    $age_with_session = "SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts INNER JOIN ht_postmeta ON ( ht_posts.ID = ht_postmeta.post_id ) LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions' ";
+                    if(in_array(31, $sessions_filter)){
+                      $age_with_session .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
+                    }
+                    else{
+                      $age_with_session .= " AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) )";
+                    }
+                    $age_with_session .= " AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_postmeta.meta_value+0 DESC LIMIT 0, 16 ";
                     $age_with_session_result = $wpdb->get_results($age_with_session);
+
                     foreach($age_with_session_result as $course){
                       $age_with_session_args['post__in'][]=$course->ID;
                     }
-                    $query_args = array(
-                     'post_type' => 'course',
-                      'posts_per_page'=>8,
-                      'paged'=>$paged,
-                      'post__in'=>$age_with_session_args['post__in'],
-                      
-                      );
-                    $wp_query = new WP_Query($query_args);
+                    if(!empty($age_with_session_args['post__in'])){
+                      $query_args = array(
+                       'post_type' => 'course',
+                        'posts_per_page'=>16,
+                        'paged'=>$paged,
+                        'post__in'=>$age_with_session_args['post__in'],
+                        
+                        );
+                      $wp_query = new WP_Query($query_args);
+                    }
                   }
 
                   if(isset($_GET['age']) && isset($_GET['sort_by'])){
@@ -599,24 +631,26 @@ get_header(vibe_get_header());
                     if($sortby_filter == 'popular')
                     $age_with_sortby .= " AND ( ( ht_postmeta.meta_key = 'vibe_students' ) )";
                     $age_with_sortby .= " AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled')"; 
-                    $age_with_sortby .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY rel.meta_value+0 DESC LIMIT 0, 8";
+                    $age_with_sortby .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY rel.meta_value+0 DESC LIMIT 0, 16";
                     $age_with_sortby_result = $wpdb->get_results($age_with_sortby);
 
                     if($sortby_filter == 'newest')
-                    $age_with_sortby = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") ORDER BY ht_posts.post_date DESC LIMIT 0, 8");
+                    $age_with_sortby = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") ORDER BY ht_posts.post_date DESC LIMIT 0, 16");
                     $age_with_sortby_result = $wpdb->get_results($age_with_sortby);
                    
                     foreach($age_with_sortby_result as $course){
                       $age_with_sortby_args['post__in'][]=$course->ID;
                     }
-                    $query_args = array(
-                             'post_type' => 'course',
-                              'posts_per_page'=>8,
-                              'paged'=>$paged,
-                              'post__in'=>$age_with_sortby_args['post__in'],
-                              
-                              );
-                    $wp_query = new WP_Query($query_args);
+                    if(!empty($age_with_sortby_args['post__in'])){
+                      $query_args = array(
+                               'post_type' => 'course',
+                                'posts_per_page'=>16,
+                                'paged'=>$paged,
+                                'post__in'=>$age_with_sortby_args['post__in'],
+                                
+                                );
+                      $wp_query = new WP_Query($query_args);
+                    }
                   }
 
                   if(isset($_GET['age']) && isset($_GET['sort_by']) && isset($_GET['session'])){
@@ -642,25 +676,32 @@ get_header(vibe_get_header());
                     if($sortby_filter == 'popular')
                     $age_sortby_session .= " AND ( ( ht_postmeta.meta_key = 'vibe_students' ) )";
                     $age_sortby_session .= " AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled')"; 
-                    $age_sortby_session .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") ";
-                    $age_sortby_session .= " AND ( ( meta2.meta_key = 'vibe_course_sessions' AND CAST(meta2.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) ) ";
-                    $age_sortby_session .= " GROUP BY ht_posts.ID ORDER BY rel.meta_value+0 DESC LIMIT 0, 8";
+                    $age_sortby_session .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") AND ( ( meta2.meta_key = 'vibe_course_sessions'";
+                    if(in_array(31, $sessions_filter)){
+                      $age_with_session .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
+                    }
+                    else{
+                      $age_sortby_session .= " AND CAST(meta2.meta_value AS SIGNED) BETWEEN '".$firstEle."' AND '".$lastEle."' ) ) ";
+                    }
+                    $age_sortby_session .= " GROUP BY ht_posts.ID ORDER BY rel.meta_value+0 DESC LIMIT 0, 16";
                     $age_sortby_session_result = $wpdb->get_results($age_sortby_session);
                     if($sortby_filter == 'newest')
-                    $age_sortby_session = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") ORDER BY ht_posts.post_date DESC LIMIT 0, 8");
+                    $age_sortby_session = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") ORDER BY ht_posts.post_date DESC LIMIT 0, 16");
                     $age_sortby_session_result = $wpdb->get_results($age_sortby_session);
                    
                     foreach($age_sortby_session_result as $course){
                       $age_sortby_session_args['post__in'][]=$course->ID;
                     }
-                    $query_args = array(
-                             'post_type' => 'course',
-                              'posts_per_page'=>8,
-                              'paged'=>$paged,
-                              'post__in'=>$age_sortby_session_args['post__in'],
-                              
-                              );
-                    $wp_query = new WP_Query($query_args);
+                    if(!empty($age_sortby_session_args['post__in'])){
+                      $query_args = array(
+                               'post_type' => 'course',
+                                'posts_per_page'=>16,
+                                'paged'=>$paged,
+                                'post__in'=>$age_sortby_session_args['post__in'],
+                                
+                                );
+                      $wp_query = new WP_Query($query_args);
+                    }
                   }
 
                   if(isset($_GET['age']) && isset($_GET['sort_by']) && isset($_GET['category'])){
@@ -687,18 +728,18 @@ get_header(vibe_get_header());
                     $age_sortbycategory .= " AND ( ( ht_postmeta.meta_key = 'vibe_students' ) )";
                     $age_sortbycategory .= " AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled')"; 
                     $age_sortbycategory .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.")";
-                    $age_sortbycategory .= " GROUP BY ht_posts.ID ORDER BY rel.meta_value+0 DESC LIMIT 0, 8";
+                    $age_sortbycategory .= " GROUP BY ht_posts.ID ORDER BY rel.meta_value+0 DESC LIMIT 0, 16";
                     $age_sortbycategory_result = $wpdb->get_results($age_sortbycategory);
                     if($sortby_filter == 'newest')
-                    $age_sortbycategory = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") ORDER BY ht_posts.post_date DESC LIMIT 0, 8");
+                    $age_sortbycategory = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") ORDER BY ht_posts.post_date DESC LIMIT 0, 16");
                     $age_sortbycategory_result = $wpdb->get_results($age_sortbycategory);
-                    if(!empty($age_sortbycategory_result)){
                       foreach($age_sortbycategory_result as $course){
                         $age_sortbycategory_args['post__in'][]=$course->ID;
                       }
+                      if(!empty($age_sortbycategory_args['post__in'])){
                       $query_args = array(
                                'post_type' => 'course',
-                                'posts_per_page'=>8,
+                                'posts_per_page'=>16,
                                 'paged'=>$paged,
                                 'post__in'=>$age_sortbycategory_args['post__in'],
                                 

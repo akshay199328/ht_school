@@ -72,8 +72,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
             <div class="column newsletter">
               <h6 class="new-footer-title">Subscribe Now</h6>
-              <input type="text" name="" placeholder="Email">
-              <button type="submit">Send</button>
+              <!--<input type="text" name="" placeholder="Email">
+              <button type="submit">Send</button> -->
+
+                <?php echo do_shortcode( '[contact-form-7 id="1610" title="Subscribe Form"]') ?>    
             </div>
           </div>
       </div>
@@ -493,6 +495,14 @@ border: 1px solid deepskyblue;
                   $("#errMobileMsg").text('');
                 }
             });
+            var contact_form_id = jQuery("input[name='_wpcf7']").val();
+  alert(contact_form_id);
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+   alert("test");
+  
+    jQuery('.Subscribe Form').hide(); 
+
+  }, false );
 
             $("#user_mobile").on("blur", function(){
               var mobNum = $('#user_mobile').val();

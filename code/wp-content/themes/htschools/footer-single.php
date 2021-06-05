@@ -1024,7 +1024,6 @@ border: 1px solid deepskyblue;
   }
   
 </script>
-<script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script type="text/javascript">
   document.addEventListener( 'wpcf7mailsent', function( event ) {
     jQuery('#submit-email').hide();

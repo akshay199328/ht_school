@@ -530,3 +530,7 @@ td .add-wishlist{
     position: sticky;
     top: 85px;
 }
+
+.newsletter .wpcf7 form.sent .wpcf7-response-output{
+    display: block;
+}

@@ -74,8 +74,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               <h6 class="new-footer-title">Subscribe Now</h6>
               <!--<input type="text" name="" placeholder="Email">
               <button type="submit">Send</button> -->
-
-                <?php echo do_shortcode( '[contact-form-7 id="1610" title="Subscribe Form"]') ?>    
+              <?php
+              if ( is_active_sidebar( 'newsletter-form' ) ) : ?>
+                <?php /*echo do_shortcode( '[contact-form-7 id="1609" title="Subscribe Form"]')*/ ?>    
+                <?php echo do_shortcode( dynamic_sidebar( 'newsletter-form' );) ?>   
+              <?php endif; ?> 
             </div>
           </div>
       </div>
@@ -1029,6 +1032,14 @@ border: 1px solid deepskyblue;
     }
   }
   
+</script>
+<script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
+<script type="text/javascript">
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+
+    jQuery('#submit-email').hide();
+    jQuery('#emailAddress').hide();
+  }, false );
 </script>
 <?php
 wp_footer();

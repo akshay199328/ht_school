@@ -2663,6 +2663,12 @@ padding-top: 50px;
     margin-bottom: 10px;
     text-transform:uppercase
 }
+.homeDetails-left .details-middle{
+    border-top: 1px dotted rgb(112 112 112 / 50%);
+    padding-top: 22px;
+    margin-top: 27px;
+}
+.homeDetails-left .details-middle li:after{display: none;}
 .news_advertisment .pull-left {
     float: left;
     padding: 3px 7px 4px 8px;
@@ -7013,6 +7019,13 @@ h6:empty,
     float: left;
     margin-right: 11px;
     }
+    .homeDetails-left .details-middle {
+      border:0px!important;
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+    .homeDetails-left .details-middle ul li:after{display: block}
+    .homeDetails-left .details-middle ul li:last-child {padding-bottom: 35px;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

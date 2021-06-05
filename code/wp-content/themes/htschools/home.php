@@ -288,7 +288,9 @@ get_header(vibe_get_header());
               </div>
             
               <?php } if( $Query->current_post == 1 ) {?>
-              <div class="details-middle">
+              
+            </div>
+            <div class="details-middle">
                 <ul class="">
                   <li>
                     <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
@@ -298,7 +300,6 @@ get_header(vibe_get_header());
                   </li>
                 </ul>
               </div>
-            </div>
           </div>
         <?php  } endwhile; endif;?>
         <div class="col-sm-12 col-lg-7 home_news-leftspacing">

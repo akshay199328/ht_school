@@ -680,7 +680,7 @@ border: 1px solid deepskyblue;
                 select: function(event, ui) {
                     event.preventDefault();
                     $("#user_school_data").val(ui.item.label);
-                    $("#user_school").val(ui.item.label);
+                    $("#user_school").val(ui.item.value);
                 },
             }); 
 

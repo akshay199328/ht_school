@@ -3637,4 +3637,7 @@ a.button.is-primary {
     }
     .course_status .incourse .question_option{min-height: 70px;}
     .finish_course {padding-left: 20px;}
+    .course_status .course_content .course_content_content_wrapper h2{font-size: 21px;line-height: 27px;}
+    .course_status .course_timeline{background: #ffffff!important;}
+    .course_status .reviewpopup_wrapper .reviewpopup_content{width: calc(100% - 0%) !important;}
 }

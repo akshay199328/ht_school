@@ -72,13 +72,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
             <div class="column newsletter">
               <h6 class="new-footer-title">Subscribe Now</h6>
-              <!--<input type="text" name="" placeholder="Email">
-              <button type="submit">Send</button> -->
-              <?php
-              if ( is_active_sidebar( 'newsletter-form' ) ) : ?>
-                <?php /*echo do_shortcode( '[contact-form-7 id="1609" title="Subscribe Form"]')*/ ?>    
-                <?php echo do_shortcode( dynamic_sidebar( 'newsletter-form' );) ?>   
-              <?php endif; ?> 
+             <?php
+              if ( is_active_sidebar( 'newsletter-form' ) ) : 
+                dynamic_sidebar( 'newsletter-form' );
+                ?>  
+              <?php endif; ?>
             </div>
           </div>
       </div>

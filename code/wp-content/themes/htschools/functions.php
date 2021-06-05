@@ -2716,5 +2716,5 @@ if( !function_exists('redirect_to_404') ){
         endif;
     }
 }
-
+add_filter('widget_text', 'do_shortcode');
 

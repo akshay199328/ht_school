@@ -828,9 +828,20 @@ get_header(vibe_get_header());
             
             </div>
         </div>
-                <?php }else{echo 'There are no courses as per the selected filters. Please select different Filters';} $i++; endwhile;}else{
-                  echo 'There are no courses as per the selected filters. Please select different Filters';
-                }} ?>
+                <?php }else{
+                  ?>
+                  <div class="no-data">
+                    <img src="<?php echo bloginfo('template_url')?>/assets/images/nofilter-icon.png">
+                    <p>No courses that match the selected filters! Please reset filters and try again.</p>
+                    <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
+                  </div>
+                <?php } $i++; endwhile;}else{?>
+                  <div class="no-data">
+                    <img src="<?php echo bloginfo('template_url')?>/assets/images/nofilter-icon.png">
+                    <p>No courses that match the selected filters! Please reset filters and try again.</p>
+                    <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
+                  </div>
+                <?php }} ?>
                 </div>
             </div>
         <?php posts_pagination(); ?>

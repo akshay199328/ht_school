@@ -478,8 +478,7 @@ get_header(vibe_get_header());
                     }
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
-                    $age_with_category = $wpdb->prepare("SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 16");
-                    
+                    $age_with_category = $wpdb->prepare("SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN (".$_GET['category'].") ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 16");
                     $age_with_category_result = $wpdb->get_results($age_with_category);
                     foreach($age_with_category_result as $course){
                       $age_with_category_args['post__in'][]=$course->ID;
@@ -508,7 +507,7 @@ get_header(vibe_get_header());
                     $lastEle = $sessions_filter[count($sessions_filter) - 1];
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
-                    $age_with_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions'";
+                    $age_with_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN (".$_GET['category'].") ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions'";
                     if(in_array(31, $sessions_filter)){
                       $age_session_sortby_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
                     }else{
@@ -547,7 +546,7 @@ get_header(vibe_get_header());
                     
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
-                    $age_session_sortby_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_postmeta AS meta2 ON ht_posts.ID = meta2.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( rel.meta_key = 'vibe_course_sessions'";
+                    $age_session_sortby_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_postmeta AS meta2 ON ht_posts.ID = meta2.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN (".$_GET['category'].") ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( rel.meta_key = 'vibe_course_sessions'";
                     if(in_array(31, $sessions_filter)){
                       $age_session_sortby_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
                     }
@@ -726,7 +725,7 @@ get_header(vibe_get_header());
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
 
-                    $age_sortbycategory = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta ON ht_posts.ID = ht_postmeta.post_id LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN ('".$_GET['category']."') ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') ";
+                    $age_sortbycategory = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta ON ht_posts.ID = ht_postmeta.post_id LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN (".$_GET['category'].") ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') ";
                     if($sortby_filter == 'rated')
                     $age_sortbycategory .= " AND ( ( ht_postmeta.meta_key = 'average_rating' ) )"; 
                     if($sortby_filter == 'popular')

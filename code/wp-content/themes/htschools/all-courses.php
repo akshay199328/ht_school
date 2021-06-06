@@ -134,7 +134,7 @@ get_header(vibe_get_header());
                     }
                   }
                   if(isset($_GET['sort_by']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['category'])){
-                    $args=array('post_type' => 'course');
+                    $args=array('post_type' => 'course','post_status' => 'publish','posts_per_page' => 16,'paged' => $paged);
           
                     $sort_by = $_GET;
                       $filter = $sort_by['sort_by'];
@@ -142,28 +142,41 @@ get_header(vibe_get_header());
                         case 'popular':
                           $args['orderby'] = 'meta_value_num';
                           $args['meta_key'] = 'vibe_students';
-                          $args['posts_per_page'] = 16;
-                          $args['paged'] = $paged;
                         break;
                         case 'newest':
                           $args['orderby'] = 'date';
-                          $args['posts_per_page'] = 16;
-                          $args['paged'] = $paged;
                         break;
                         case 'rated':
                           $args['orderby'] = 'meta_value_num';
                           $args['meta_key'] = 'average_rating';
-                          $args['posts_per_page'] = 16;
-                          $args['paged'] = $paged;
-                        break;
-                        default:
-                          $args['post__in'] = $course_id;
-                          $args['posts_per_page'] = 16;
-                          $args['orderby'] = 'post__in';
-                          $args['paged'] = $paged;
                         break;
                       }
-                    $wp_query = new WP_Query( $args );
+                    $sortby_query = new WP_Query( $args );
+                    $allcourse_id = array();
+                    if ($sortby_query->have_posts()) : while ($sortby_query->have_posts()) : $sortby_query->the_post();
+                      $allcourse_id[] = $post->ID;
+                    endwhile;
+                    endif;
+                    $args_all_course = array(
+                      'post_type' => 'course',
+                      'post_status' => 'publish',
+                      'nopaging' => true
+                    );   
+                    $all_course = new WP_Query( $args_all_course );
+                    if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();
+                      if (!in_array($post->ID, $allcourse_id)){
+                        $allcourse_id[] = $post->ID;
+                      }
+                    endwhile;
+                    endif;
+                    $args_all_course = array(
+                      'post_type'=>'course',
+                      'post__in'=>$allcourse_id,
+                      'posts_per_page'=>16,
+                      'paged'=>$paged,
+                      'orderby' => 'post__in',
+                    );   
+                    $wp_query = new WP_Query( $args_all_course );
                     //echo "Last SQL-Query: {$wp_query->request}";
                   }
 

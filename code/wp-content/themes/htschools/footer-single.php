@@ -986,7 +986,7 @@ border: 1px solid deepskyblue;
               <li>
                   <label for="category<?php echo $i;?>" id="">
                       <span class="copy"><?php echo $category['name']?></span>
-                      <input type="checkbox" name="category" id="session1" value="<?php echo $category['term_id'];?>" <?php echo $category_selected;?>>
+                      <input type="checkbox" name="category" id="category<?php echo $i;?>" value="<?php echo $category['term_id'];?>" <?php echo $category_selected;?>>
                   </label>
               </li>
         <?php $i++;}?>

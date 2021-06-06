@@ -70,7 +70,7 @@ defined( 'ABSPATH' ) || exit;
 					</li>
 				<?php endif; ?>
 
-				<li class="woocommerce-order-overview__total total">
+				<li class="woocommerce-order-overview__total total course_total">
 					<?php esc_html_e( 'Total:', 'woocommerce' ); ?>
 					<strong><?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
 				</li>

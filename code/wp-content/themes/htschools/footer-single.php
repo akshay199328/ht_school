@@ -900,20 +900,78 @@ border: 1px solid deepskyblue;
             if(isset($_GET['session'])){
               $get_session = $_GET['session'];
             }
-            $selected_session = explode(",",$get_session);
-            $sessionFirstEle = $selected_session[0];
-            $sessionLastEle = $selected_session[count($selected_session) - 1];
-            $sessions_combine = $sessionFirstEle.','.$sessionLastEle;
+            if(isset($_GET['session'])){
+              $session_selected_array = array();
+              $get_session = $_GET['session'];
+              $selected_session = explode(",",$get_session);
+              if(count($selected_session) == 1 ){
+                $sessionFirstEle = $selected_session[0];
+                $session_selected_array['0'] =  $sessionFirstEle;
+              }
+              else if(count($selected_session) == 2 ){
+                $sessionFirstEle = $selected_session[0];
+                $sessionSecondEle = $selected_session[1];
+                $session_selected_array['0'] =  $sessionFirstEle.','.$sessionSecondEle;
+              }
+              else if(count($selected_session) == 3 ){
+                $sessionFirstEle = $selected_session[0];
+                $sessionSecondEle = $selected_session[1];
+                $sessionThirdEle = $selected_session[2];
+                $session_selected_array['0'] =  $sessionFirstEle.','.$sessionSecondEle;
+                $session_selected_array['1'] =  $sessionThirdEle;
+              }
+              else if(count($selected_session) == 4){
+                $sessionFirstEle = $selected_session[0];
+                $sessionSecondEle = $selected_session[1];
+                $sessionThirdEle = $selected_session[2];
+                $sessionFourthEle = $selected_session[3];
+                $session_selected_array['0'] =  $sessionFirstEle.','.$sessionSecondEle;
+                $session_selected_array['1'] =  $sessionThirdEle.','.$sessionFourthEle;
+              }
+              else if(count($selected_session) == 5){
+                $sessionFirstEle = $selected_session[0];
+                $sessionSecondEle = $selected_session[1];
+                $sessionThirdEle = $selected_session[2];
+                $sessionFourthEle = $selected_session[3];
+                $sessionFifthEle = $selected_session[4];
+                $session_selected_array['0'] =  $sessionFirstEle.','.$sessionSecondEle;
+                $session_selected_array['1'] =  $sessionThirdEle.','.$sessionFourthEle;
+                $session_selected_array['2'] =  $sessionFifthEle;
+              }
+              else if(count($selected_session) == 6){
+                $sessionFirstEle = $selected_session[0];
+                $sessionSecondEle = $selected_session[1];
+                $sessionThirdEle = $selected_session[2];
+                $sessionFourthEle = $selected_session[3];
+                $sessionFifthEle = $selected_session[4];
+                $sessionSixthEle = $selected_session[5];
+                $session_selected_array['0'] =  $sessionFirstEle.','.$sessionSecondEle;
+                $session_selected_array['1'] =  $sessionThirdEle.','.$sessionFourthEle;
+                $session_selected_array['2'] =  $sessionFifthEle.','.$sessionSixthEle;
+              }
+              else if(count($selected_session) == 7){
+                $sessionFirstEle = $selected_session[0];
+                $sessionSecondEle = $selected_session[1];
+                $sessionThirdEle = $selected_session[2];
+                $sessionFourthEle = $selected_session[3];
+                $sessionFifthEle = $selected_session[4];
+                $sessionSixthEle = $selected_session[5];
+                $sessionSeventhEle = $selected_session[6];
+                $session_selected_array['0'] =  $sessionFirstEle.','.$sessionSecondEle;
+                $session_selected_array['1'] =  $sessionThirdEle.','.$sessionFourthEle;
+                $session_selected_array['2'] =  $sessionFifthEle.','.$sessionSixthEle;
+                $session_selected_array['3'] =  $sessionSeventhEle;
+              }
+            }
           ?>
           <ul>
             <?php foreach($session_array as $sessions){ 
-              if($sessions['value'] == $sessions_combine){
+              if( $session_selected_array && in_array( $sessions['value'], $session_selected_array ) ){
                 $session_selected = 'checked';
               }
               else{
                 $session_selected = '';
               }
-
             ?>
               <li>
                   <label for="session<?php echo $i;?>" id="">
@@ -936,28 +994,86 @@ border: 1px solid deepskyblue;
             );
             $i = 0;
             if(isset($_GET['age'])){
+              $age_selected_array = array();
               $get_age = $_GET['age'];
+              $selected_age = explode(",",$get_age);
+              if(count($selected_age) == 1 ){
+                $ageFirstEle = $selected_age[0];
+                $age_selected_array['0'] =  $ageFirstEle;
+              }
+              else if(count($selected_age) == 2 ){
+                $ageFirstEle = $selected_age[0];
+                $ageSecondEle = $selected_age[1];
+                $age_selected_array['0'] =  $ageFirstEle.','.$ageSecondEle;
+              }
+              else if(count($selected_age) == 3 ){
+                $ageFirstEle = $selected_age[0];
+                $ageSecondEle = $selected_age[1];
+                $ageThirdEle = $selected_age[2];
+                $age_selected_array['0'] =  $ageFirstEle.','.$ageSecondEle;
+                $age_selected_array['1'] =  $ageThirdEle;
+              }
+              else if(count($selected_age) == 4){
+                $ageFirstEle = $selected_age[0];
+                $ageSecondEle = $selected_age[1];
+                $ageThirdEle = $selected_age[2];
+                $ageFourthEle = $selected_age[3];
+                $age_selected_array['0'] =  $ageFirstEle.','.$ageSecondEle;
+                $age_selected_array['1'] =  $ageThirdEle.','.$ageFourthEle;
+              }
+              else if(count($selected_age) == 5){
+                $ageFirstEle = $selected_age[0];
+                $ageSecondEle = $selected_age[1];
+                $ageThirdEle = $selected_age[2];
+                $ageFourthEle = $selected_age[3];
+                $ageFifthEle = $selected_age[4];
+                $age_selected_array['0'] =  $ageFirstEle.','.$ageSecondEle;
+                $age_selected_array['1'] =  $ageThirdEle.','.$ageFourthEle;
+                $age_selected_array['2'] =  $ageFifthEle;
+              }
+              else if(count($selected_age) == 6){
+                $ageFirstEle = $selected_age[0];
+                $ageSecondEle = $selected_age[1];
+                $ageThirdEle = $selected_age[2];
+                $ageFourthEle = $selected_age[3];
+                $ageFifthEle = $selected_age[4];
+                $ageSixthEle = $selected_age[5];
+                $age_selected_array['0'] =  $ageFirstEle.','.$ageSecondEle;
+                $age_selected_array['1'] =  $ageThirdEle.','.$ageFourthEle;
+                $age_selected_array['2'] =  $ageFifthEle.','.$ageSixthEle;
+              }
+              else if(count($selected_age) == 7){
+                $ageFirstEle = $selected_age[0];
+                $ageSecondEle = $selected_age[1];
+                $ageThirdEle = $selected_age[2];
+                $ageFourthEle = $selected_age[3];
+                $ageFifthEle = $selected_age[4];
+                $ageSixthEle = $selected_age[5];
+                $ageSeventhEle = $selected_age[6];
+                $age_selected_array['0'] =  $ageFirstEle.','.$ageSecondEle;
+                $age_selected_array['1'] =  $ageThirdEle.','.$ageFourthEle;
+                $age_selected_array['2'] =  $ageFifthEle.','.$ageSixthEle;
+                $age_selected_array['3'] =  $ageSeventhEle;
+              }
             }
-            $selected_age = explode(",",$get_age);
-            $ageFirstEle = $selected_age[0];
-            $ageLastEle = $selected_age[count($selected_age) - 1];
-            $age_combine = $ageFirstEle.','.$ageLastEle;
           ?>
           <ul>
             <?php foreach($age_array as $age){ 
-              if($age['value'] == $age_combine){
+              if( $age_selected_array && in_array( $age['value'], $age_selected_array ) ){
                 $age_selected = 'checked';
               }
               else{
                 $age_selected = '';
-              }?>
+              }
+            ?>
               <li>
                 <label for="age<?php echo $i;?>" id="">
                     <span class="copy"><?php echo $age['name']?></span>
-                    <input type="checkbox" name="age" value="<?php echo $age['value']?>" <?php echo $session_selected;?> <?php echo $age_selected;?>>
+                    <input type="checkbox" name="age" value="<?php echo $age['value']?>" <?php echo $age_selected;?>>
                 </label>
               </li>
             <?php $i++; } ?>
+          </ul>
           <span class="section-title">Course Categories</span>
            <ul>
           <?php 

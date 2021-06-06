@@ -7953,7 +7953,8 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
   .partner-wrapper .partner-header .vc_column-inner h1{font-size:40px}
   .partner-wrapper .partner-header .vc_column-inner h2{font-size:23px;}
   .partner-wrapper .partner-header{padding-left:30px;padding-right:30px;}
-  .partner-wrapper .partner-copy .vc_column-inner{background-image:none;padding:20px 30px;}
+  .partner-wrapper .partner-copy .vc_column-inner,
+  .page-template-contact .partner-wrapper .partner-copy .vc_column-inner{background-image:none;padding:20px 30px;}
   .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper{}
   .partner-wrapper{padding-top: 0 !important;}
   .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form h3{font-size:20px}

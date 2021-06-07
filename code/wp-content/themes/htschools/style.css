@@ -6680,20 +6680,21 @@ h6:empty,
 }
 
 @media screen and (max-width:767px) and (min-width:320px){
-  
+
     .page-template-all-courses .header a.logo img,
     .home-page .header a.logo img,
     .single-course .header .logo img,
     .tax-course-cat .header a.logo img{
         display: none!important;
     }
-    .page-template-all-courses .header a.logo,
+    
     .home-page .header a.logo{
         background: url(/wp-content/themes/htschools/assets/images/logoheader_mobile.svg) no-repeat;
         width: 108px!important;
         height: 33px!important;
         margin-left: 50px!important;
     }
+    .page-template-all-courses .header a.homeicon,
     .single-course .header .logo,
     .tax-course-cat .header a.logo{
         background: url(/wp-content/themes/htschools/assets/images/logoheader_course_mobile.svg) no-repeat!important;
@@ -6709,7 +6710,7 @@ h6:empty,
         -webkit-transform: none!important;
     }
     .mobile-display{display: inline-block!important;}
-    .header .homeicon img{width: 108px;margin-left: 25px;}
+    /*.header .homeicon img{width: 108px;margin-left: 25px;}*/
     .right-menu ul .search-icon, .right-menu .topmenu.custom_topmenu{display: none!important}
     .right-menu{margin-top: -7px!important;}
     .home_slider .homecarousel_text .pull-left {width: 100%;}

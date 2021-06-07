@@ -438,7 +438,9 @@ ol.breadcrumbs  {
 body.page-template-home , .page-template-home .pusher {
     background-color: #d5ebff;
 }
-.header.header-scrolled .logo img{
+.header.header-scrolled .logo img,
+.header.header-scrolled .homeicon img
+{
     -webkit-transform: scale(.9);
     transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
@@ -504,13 +506,17 @@ body.page-template-home , .page-template-home .pusher {
     font-weight: bold;position: relative;
 }
 .border-menu i{padding-left: 20px;}
-.header .logo {
+.header .logo,
+.header .homeicon
+ {
   line-height: 0;
   transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
 }
 
-.header .logo img {
+.header .logo img,
+.header .homeicon img
+ {
   /*max-height: 40px; */
     /* margin-right: 6px; */
     text-align: center;
@@ -5606,6 +5612,7 @@ h6:empty,
     color: #000;
     padding: 0;
     word-break: break-word;
+    width: 100%;
     
 }
 .profilecou-instructor .profile-heading h3 strong{
@@ -6692,7 +6699,9 @@ h6:empty,
     }
 
    .header.header-scrolled .logo,
-   .header.header-scrolled .logo img {
+   .header.header-scrolled .logo img,
+   .header.header-scrolled .homeicon,
+   .header.header-scrolled .homeicon img {
         -webkit-transform: none!important;
     }
     .mobile-display{display: inline-block!important;}

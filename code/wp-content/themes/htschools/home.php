@@ -12,13 +12,13 @@ get_header(vibe_get_header());
  <!-- ======= Hero Section ======= -->
 
 <!-- End Hero -->
-<div class="owl-carousel owl-theme home_slider">
+<div class="owl-carousel owl-theme home_slider" id="home_slider">
   <?php
     $args1 = array(
       'post_type' => 'banner',
       'post_status' => 'publish',
-      'orderby' => 'id',
-      'order'   => 'ASC',      
+      'orderby' => 'publish_date',
+      'order' => 'DESC',      
       'nopaging' => true
 
 

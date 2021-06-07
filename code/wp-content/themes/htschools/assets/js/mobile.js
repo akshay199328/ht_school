@@ -71,15 +71,14 @@ $(document).ready(function($) {
 });
 
 $(document).ready(function() {
-  $('.home_slider').owlCarousel({
+  $('#home_slider').owlCarousel({
     margin:0,
     loop:false,
     nav:true,
     mouseDrag:false,
     //autoWidth:true,
+    slideBy: 2,
     items:2,
-    autoplay: true,
-    autoplayTimeout:5000,
     autoplayHoverPause: true,
     responsive : {
         0 : {
@@ -95,17 +94,16 @@ $(document).ready(function() {
         }
     }
   })
-  $('.course_slider .home_slider').owlCarousel({
+  $('#course_slider').owlCarousel({
     margin:0,
     loop:true,
     nav:true,
     mouseDrag:false,
     dots:true,
     //autoWidth:true,
-    startPosition: 3,
+    slideBy: 2,
+    startPosition: 5,
     items:2,
-    autoplay: true,
-    autoplayTimeout:5000,
     autoplayHoverPause: true,
     responsive : {
         0 : {

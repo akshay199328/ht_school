@@ -270,7 +270,7 @@ get_header(vibe_get_header());
                     }
                     $args['meta_query'] = $meta_query;
                     $wp_query = new WP_Query( $args );
-                    echo "Last SQL-Query: {$wp_query->request}";
+                    //echo "Last SQL-Query: {$wp_query->request}";
                   }
 
                   if(isset($_GET['session']) && isset($_GET['sort_by']) && empty($_GET['category']) && empty($_GET['age'])){

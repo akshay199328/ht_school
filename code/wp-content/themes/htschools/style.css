@@ -527,13 +527,13 @@ body.page-template-home , .page-template-home .pusher {
    /* width: 182px;
     height: 50px;*/
 }
-.page-template-all-courses .header a.logo img,
+.page-template-all-courses .header a.homeicon img,
 .home-page .header a.logo img,
 .single-course .header .logo img,
 .tax-course-cat .header .logo img{
   display: none;
 }
-.page-template-all-courses .header a.logo
+.page-template-all-courses .header a.homeicon
 .single-course .header a.logo,
 .tax-course-cat .header a.logo
  {

@@ -5,6 +5,7 @@
         if( ! confirm( 'Are you sure you want to remove this course from Your Cart' ) ) {
             event.preventDefault();
             event.stopPropagation();
+            refresh_cart_fragment();
         }  
 
     });

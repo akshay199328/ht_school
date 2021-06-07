@@ -24,7 +24,9 @@ get_header(vibe_get_header());
         'post_type' => 'banner',
         'post_status' => 'publish',
         'orderby' => 'id',
-        'order'   => 'ASC',
+        'order'   => 'ASC',       
+        'nopaging' => true
+
 
       );
       $Query1 = new WP_Query( $args1 );

@@ -2720,9 +2720,9 @@ add_filter('widget_text', 'do_shortcode');
 
 function SearchFilter($query) {
    if ( $query->is_search && !is_admin() ){
-        $query->set('post_type', 'post');
-        $query->set('post_type', 'course');
+        $query->set('post_type', array('post', 'course'));
     }
     return $query;
 }
 add_filter('pre_get_posts','SearchFilter');
+

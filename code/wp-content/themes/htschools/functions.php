@@ -1294,7 +1294,7 @@ add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
       if(isset($_SESSION['previousPageUrl'])){
-        $redirectUrl = $_SESSION['previousPageUrl'];
+        $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
       }
     return $redirectUrl;
 }, 10, 2);
@@ -1304,7 +1304,7 @@ add_filter('google_login_redirect_url', function($redirectUrl, $provider){
 
  // print_r($_SESSION);exit;
   if(isset($_SESSION['previousPageUrl'])){
-    $redirectUrl = $_SESSION['previousPageUrl'];
+    $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
        return $redirectUrl;
   }
 }, 10, 2);
@@ -2726,3 +2726,13 @@ function SearchFilter($query) {
 }
 add_filter('pre_get_posts','SearchFilter');
 
+
+function no_cache_with_no_store( $headers ) {
+$headers = array(
+'Expires' => 'Wed, 11 Jan 1984 05:00:00 GMT',
+'Cache-Control' => 'no-cache, must-revalidate, no-store, max-age=0',
+);
+return $headers;
+}
+
+add_filter( 'nocache_headers', 'no_cache_with_no_store', 9999 );

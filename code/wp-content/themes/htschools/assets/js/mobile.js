@@ -73,7 +73,7 @@ $(document).ready(function($) {
 $(document).ready(function() {
   $('.home_slider').owlCarousel({
     margin:0,
-    loop:true,
+    loop:false,
     nav:true,
     mouseDrag:false,
     //autoWidth:true,

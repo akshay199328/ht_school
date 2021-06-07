@@ -199,6 +199,7 @@ section {
   /*margin-top: 82px;*/
   color: #fff;
 }
+.static_content div.breadcrumbs {padding: 14px 0 11px 0;}
 .background-breadcrumbs{background: #fade3b;}
 .background-breadcrumbs li, .background-breadcrumbs li a{color: #0c5acc!important;}
 .header-space{margin-top:116px;}

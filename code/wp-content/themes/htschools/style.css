@@ -533,7 +533,7 @@ body.page-template-home , .page-template-home .pusher {
 .tax-course-cat .header .logo img{
   display: none;
 }
-.page-template-all-courses .header a.homeicon
+.page-template-all-courses .header a.homeicon,
 .single-course .header a.logo,
 .tax-course-cat .header a.logo
  {
@@ -6680,12 +6680,14 @@ h6:empty,
 }
 
 @media screen and (max-width:767px) and (min-width:320px){
-    
+  
+    .page-template-all-courses .header a.logo img,
     .home-page .header a.logo img,
     .single-course .header .logo img,
     .tax-course-cat .header a.logo img{
         display: none!important;
     }
+    .page-template-all-courses .header a.logo,
     .home-page .header a.logo{
         background: url(/wp-content/themes/htschools/assets/images/logoheader_mobile.svg) no-repeat;
         width: 108px!important;

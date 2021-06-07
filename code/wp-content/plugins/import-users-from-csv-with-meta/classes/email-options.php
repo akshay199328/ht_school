@@ -195,8 +195,8 @@ class ACUI_Email_Options{
 		global $wpdb;
 		$course_array= $wpdb->get_results( "SELECT posts.ID AS id, posts.post_title, meta.* FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key WHERE posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND   meta.user_id   = '".$user_id."'  AND  meta.meta_value > 1617292303");
 		$array = json_decode( json_encode($course_array), true);
-
-		$course_name=$array[0]['post_title'];
+        $current_course_name = end($array);
+        $course_name = $current_course_name['post_title'];
 
 		
 		// Set content-type header for sending HTML email 

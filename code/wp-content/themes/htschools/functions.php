@@ -2718,3 +2718,11 @@ if( !function_exists('redirect_to_404') ){
 }
 add_filter('widget_text', 'do_shortcode');
 
+
+add_action('pre_get_posts','SearchFilter');
+
+function SearchFilter($query) {
+    $query->set('post_type', 'course');
+    $query->set('post_type', 'post');
+    return $query;
+}

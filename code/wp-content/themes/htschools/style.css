@@ -199,7 +199,7 @@ section {
   /*margin-top: 82px;*/
   color: #fff;
 }
-.static_content div.breadcrumbs {padding: 14px 0 11px 0;}
+.static_content div.breadcrumbs, .news-listing div.breadcrumbs{padding: 14px 0 11px 0;}
 .background-breadcrumbs{background: #fade3b;}
 .background-breadcrumbs li, .background-breadcrumbs li a{color: #0c5acc!important;}
 .header-space{margin-top:116px;}
@@ -527,12 +527,13 @@ body.page-template-home , .page-template-home .pusher {
    /* width: 182px;
     height: 50px;*/
 }
-
+.page-template-all-courses .header a.logo img,
 .home-page .header a.logo img,
 .single-course .header .logo img,
 .tax-course-cat .header .logo img{
   display: none;
 }
+.page-template-all-courses .header a.logo
 .single-course .header a.logo,
 .tax-course-cat .header a.logo
  {
@@ -7268,7 +7269,7 @@ section {
 }
 .fixedTop_tab .tablist {
       padding:30px 0px 15px;
-    width: 1050px;
+    width: 1080px;
     margin: 0px auto;
 }
 .profile-card .news-listing .blogpost:first-child {
@@ -7917,7 +7918,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .page-template-become-a-course-partner-php .header,
 .page-template-become-a-partner-php .header,
 .page-template-contact-php .header{background-color:#d5ebff !important;}
-.partner-wrapper.section_contact ol.breadcrumbs{max-width:1118px;margin:auto !important;padding:10px 15px}
+.partner-wrapper.section_contact ol.breadcrumbs{max-width:1118px;margin:auto !important;padding:0px 15px 10px 15px}
 .partner-wrapper .section_contact .sec_cont{background-color:#d5ebff !important;}
 .partner-wrapper .partner-header{max-width:1088px;margin:auto !important;padding:20px 0 30px;float:none;}
 .partner-wrapper .partner-header .vc_column-inner{padding:0 !important;}

@@ -235,21 +235,21 @@ get_header(vibe_get_header());
 
                   if(isset($_GET['session']) && empty($_GET['sort_by']) && empty($_GET['category']) && empty($_GET['age'])){
                     $sessions_filter = explode(",",$_GET['session']);
-                    if(count($sessions_filter) > 2){
                       $firstEle = $sessions_filter[0];
                       $lastEle = $sessions_filter[count($sessions_filter) - 1];
-                      $filter_value = $firstEle.','.$lastEle;
+                      if($lastEle == 31){
+                        $filter_value = $firstEle.',500';
+                      }
+                      else{
+                        $filter_value = $firstEle.','.$lastEle;
+                      }
                       $session_filter_value = explode(",",$filter_value);
-                    }
-                    else{
-                      $session_filter_value = $sessions_filter;
-                    }
                     $meta_query = array();
                     $args = array(
-                     'post_type' => 'course',
+                      'post_type' => 'course',
                       'posts_per_page'=>16,
                       'paged'=>$paged,
-                       'orderby'  => 'meta_value_num', 
+                      'orderby'  => 'meta_value_num', 
                       );
                     $args['meta_query'] = $meta_query;
                     if(in_array('31', $session_filter_value)){
@@ -270,22 +270,22 @@ get_header(vibe_get_header());
                     }
                     $args['meta_query'] = $meta_query;
                     $wp_query = new WP_Query( $args );
-                    //echo "Last SQL-Query: {$wp_query->request}";
+                    echo "Last SQL-Query: {$wp_query->request}";
                   }
 
                   if(isset($_GET['session']) && isset($_GET['sort_by']) && empty($_GET['category']) && empty($_GET['age'])){
                     $sort_by = $_GET;
                     $filter = $sort_by['sort_by'];
                     $sessions_filter = explode(",",$_GET['session']);
-                    if(count($sessions_filter) > 2){
-                      $firstEle = $sessions_filter[0];
-                      $lastEle = $sessions_filter[count($sessions_filter) - 1];
-                      $filter_value = $firstEle.','.$lastEle;
-                      $session_filter_value = explode(",",$filter_value);
+                    $firstEle = $sessions_filter[0];
+                    $lastEle = $sessions_filter[count($sessions_filter) - 1];
+                    if($lastEle == 31){
+                      $filter_value = $firstEle.',500';
                     }
                     else{
-                      $session_filter_value = $sessions_filter;
+                      $filter_value = $firstEle.','.$lastEle;
                     }
+                    $session_filter_value = explode(",",$filter_value);
                     $meta_query = array();
                     $args = array(
                      'post_type' => 'course',
@@ -333,15 +333,15 @@ get_header(vibe_get_header());
                   if(isset($_GET['session']) && isset($_GET['category']) && empty($_GET['age']) && empty($_GET['sort_by'])){
                     $sessions_filter = explode(",",$_GET['session']);
                     $category_filter = explode(",",$_GET['category']);
-                    if(count($sessions_filter) > 2){
-                      $firstEle = $sessions_filter[0];
-                      $lastEle = $sessions_filter[count($sessions_filter) - 1];
-                      $filter_value = $firstEle.','.$lastEle;
-                      $session_filter_value = explode(",",$filter_value);
+                    $firstEle = $sessions_filter[0];
+                    $lastEle = $sessions_filter[count($sessions_filter) - 1];
+                    if($lastEle == 31){
+                      $filter_value = $firstEle.',500';
                     }
                     else{
-                      $session_filter_value = $sessions_filter;
+                      $filter_value = $firstEle.','.$lastEle;
                     }
+                    $session_filter_value = explode(",",$filter_value);
                     $meta_query = array();
                     $args = array(
                      'post_type' => 'course',
@@ -380,15 +380,15 @@ get_header(vibe_get_header());
                   if(isset($_GET['session']) && isset($_GET['category']) && isset($_GET['sort_by']) && empty($_GET['age'])){
                     $sessions_filter = explode(",",$_GET['session']);
                     $category_filter = explode(",",$_GET['category']);
-                    if(count($sessions_filter) > 2){
-                      $firstEle = $sessions_filter[0];
-                      $lastEle = $sessions_filter[count($sessions_filter) - 1];
-                      $filter_value = $firstEle.','.$lastEle;
-                      $session_filter_value = explode(",",$filter_value);
+                    $firstEle = $sessions_filter[0];
+                    $lastEle = $sessions_filter[count($sessions_filter) - 1];
+                    if($lastEle == 31){
+                      $filter_value = $firstEle.',500';
                     }
                     else{
-                      $session_filter_value = $sessions_filter;
+                      $filter_value = $firstEle.','.$lastEle;
                     }
+                    $session_filter_value = explode(",",$filter_value);
                     $meta_query = array();
                     $args = array(
                      'post_type' => 'course',

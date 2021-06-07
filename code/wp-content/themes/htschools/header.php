@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <head>
   
 <meta charset="UTF-8">
-
+<link rel="icon" type="image/svg" href="<?php echo bloginfo('template_url')?>/assets/images/favicon.svg"/>
 <?php
     wp_head();
 ?>

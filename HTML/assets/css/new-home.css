@@ -2466,3 +2466,11 @@ body.search-results section#title {
 .news-listing .blogpost {
   width: 100%;
 }
+
+.dashboard_accountinfo .share-icon li {
+  line-height: 1;
+}
+
+.dashboard_accountinfo .share-icon li img {
+  vertical-align: baseline;
+}

@@ -57,6 +57,7 @@ vibe_include_template("profile/top$profile_layout.php");
       $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
       if($post->post_type == "course"){
         ?>
+        <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
         <div class="course-box dotted-border savedCourse_box">
                 <table width="100%">
                   <tbody>
@@ -162,6 +163,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 </table>
                 
             </div>
+        </div>
       <?php }
     }
     ?>

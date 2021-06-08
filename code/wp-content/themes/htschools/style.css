@@ -536,6 +536,7 @@ body.page-template-home , .page-template-home .pusher {
 }
 .page-template-all-courses .header a.homeicon,
 .page-template-my-course .header .homeicon,
+.single-course .header a.homeicon,
 .single-course .header a.logo,
 .tax-course-cat .header a.logo
  {

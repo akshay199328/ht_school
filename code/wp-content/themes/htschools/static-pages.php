@@ -31,7 +31,7 @@ if(vibe_validate($title) || empty($title)){
             <div class="details">
                 <div class="col-md-3 col-sm-12">
                     <div class="sidebar">
-                       <ul class="border-link left_tab">
+                       <ul class="border-link left_tab course-listslider">
                             <?php
                                $menu_name = 'footer-menu'; //menu slug
                                $locations = get_nav_menu_locations();
@@ -41,7 +41,7 @@ if(vibe_validate($title) || empty($title)){
                                foreach ($menuitems as $menu) { 
                                $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : ''; 
                                 if($menu->title != 'Contact Us'){
-                                   echo '<li class="' . $current . '"><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
+                                   echo '<li class="' . $current . ' item"><a href="' . $menu->url . '">' . $menu->title . '</a></li>';
                                 }
                                }
                            ?>

@@ -549,7 +549,7 @@ body.page-template-home , .page-template-home .pusher {
     margin: 0px auto;
 }
 .home-page .header a.logo {
-        background: url('./assets/images/logo-news-big.svg') no-repeat;
+        background: url('./assets/images/home-logo.svg') no-repeat;
     display: block;
     width: 195px;
     height: 59px;

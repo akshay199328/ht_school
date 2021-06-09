@@ -111,7 +111,6 @@ add_action(
 
 
 function wpcf7_enqueue_scripts() {
-if(!is_front_page()){
 	wp_enqueue_script( 'contact-form-7' );
 
 	$wpcf7 = array();
@@ -123,7 +122,7 @@ if(!is_front_page()){
 	wp_localize_script( 'contact-form-7', 'wpcf7', $wpcf7 );
 
 	do_action( 'wpcf7_enqueue_scripts' );
-}
+
 }
 
 

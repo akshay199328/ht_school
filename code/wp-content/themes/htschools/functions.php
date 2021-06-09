@@ -2678,12 +2678,13 @@ function validate_profession_field(&$errors, $update = null, &$user  = null) {
     if($_POST['profession'] != ''){
       $get_profession = $wpdb->get_results("SELECT * FROM ht_users INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id WHERE ht_usermeta.meta_key = 'profession' AND meta_value = '" . esc_attr($_POST['profession']) . "' AND ht_usermeta.user_id != '".$user_id."' ORDER BY ht_users.user_nicename");
       $get_data=json_decode( json_encode($get_profession), true);
-    }
-    if ( count($get_data) > 0 ) {
-        $errors->add('empty_profession', '<strong>ERROR</strong>: Profession value is already exist');
-    }
-    else{
-      update_user_meta( $user_id, 'profession', $_POST['profession'] );
+    
+      if ( count($get_data) > 0 ) {
+          $errors->add('empty_profession', '<strong>ERROR</strong>: Profession value is already exist');
+      }
+      else{
+        update_user_meta( $user_id, 'profession', $_POST['profession'] );
+      }
     }
 }
 add_action( 'user_profile_update_errors', 'validate_profession_field' );

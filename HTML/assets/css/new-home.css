@@ -2481,3 +2481,11 @@ body.search-results section#title {
       -ms-flex-direction: row !important;
           flex-direction: row !important;
 }
+
+@media (max-width: 430px) {
+  .course_status .incourse .quiz_questions_content .question .question_list .question_option {
+    -webkit-box-flex: 0 !important;
+        -ms-flex: 0 0 auto !important;
+            flex: 0 0 auto !important;
+  }
+}

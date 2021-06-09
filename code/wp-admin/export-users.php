@@ -120,11 +120,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 			$temp[] = $schoolName;
 
 			// Courses List
-			$courseListSql  = "SELECT meta.user_id, meta.meta_key AS course_id, posts.post_title AS course_name ";
-			$courseListSql .= "FROM ht_usermeta AS meta ";
-			$courseListSql .= "LEFT JOIN ht_posts AS posts ON posts.ID = meta.meta_key ";
-			$courseListSql .= "WHERE user_id = '%s' AND meta_key REGEXP '^[0-9]+$' ";
-			$courseListSql .= "ORDER BY meta.umeta_id ASC";
+			$courseListSql  = "SELECT rel.meta_key AS user_id,posts.ID AS course_id,posts.post_title AS course_name ";
+			$courseListSql .= "FROM ht_posts AS posts ";
+			$courseListSql .= "LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id ";
+			$courseListSql .= "WHERE rel.meta_key = '%s' AND posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' ";
+			$courseListSql .= "ORDER BY rel.meta_key ASC";
 
 			$coursesList = $wpdb->get_results($wpdb->prepare($courseListSql, [$value->ID]));
 

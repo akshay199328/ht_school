@@ -2474,3 +2474,10 @@ body.search-results section#title {
 .dashboard_accountinfo .share-icon li img {
   vertical-align: baseline;
 }
+
+.course_status .incourse .quiz_questions_content .question {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+}

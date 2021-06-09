@@ -40,6 +40,7 @@ $('.single-course ol li').click(function(){
   }
 });
 $(document).ready(function($) { 
+  $('.new-footer .screen-reader-response').hide();
   // $('.button full.course_button span:contains("Continue Course")').css('color', 'red');
   $('.loggedin_user_div').parent().parent().next().addClass('margin-ul');
   $('.course-button').removeClass('button');

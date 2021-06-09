@@ -535,7 +535,6 @@ border: 1px solid deepskyblue;
     window.onbeforeunload = null;
     (function($) {
         $(document).ready(function(){
-
             $("#user_mobile").keypress(function (e) {
               var mobNum = $(this).val();
                 if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -1152,7 +1151,7 @@ border: 1px solid deepskyblue;
               <li>
                   <label for="category<?php echo $i;?>" id="">
                       <span class="copy"><?php echo $category['name']?></span>
-                      <input type="checkbox" name="category" id="category<?php echo $i;?>" value="<?php echo $category['term_id'];?>" <?php echo $category_selected;?>>
+                      <input type="checkbox" name="category" value="<?php echo $category['term_id'];?>" <?php echo $category_selected;?>>
                   </label>
               </li>
         <?php $i++;}?>
@@ -1219,8 +1218,9 @@ border: 1px solid deepskyblue;
 </script>
 <script type="text/javascript">
   document.addEventListener( 'wpcf7mailsent', function( event ) {
-    jQuery('#submit-email').hide();
-    jQuery('#emailAddress').hide();
+    jQuery('.new-footer #submit-email').hide();
+    jQuery('.new-footer #emailAddress').hide();
+    jQuery('.new-footer .screen-reader-response').hide();
   }, false );
 </script>
 <?php

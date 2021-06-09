@@ -300,6 +300,7 @@ ol.breadcrumbs  {
   padding: 0 0 0px 0;
   margin: 0;
   font-size: 11px;
+  color:transparent;
 }
 .breadcrumbs  li{
     font-size: 11px;
@@ -6850,9 +6851,10 @@ h6:empty,
     }
     .share-icon img{width: 13.92px!important;}
     .bookmark-remove, .bookmark{
-        height: 18.92px;
-        background-size: 13.92px 13.92px;
+        height: 18px;
+        background-size: 18px;
     }
+    .add-wishlist{height: 18px;width: 18px;background-size: 18px;}
     /*.fixedmenu-tabs .bookmark-remove, .post-creator .bookmark-remove,
     .post-creator .bookmark{top: 4px;}*/
     .dashboard_accountinfo .course-box .middle-details {padding: 0;padding-left: 10px;padding-right: 60px !important;}

@@ -26,12 +26,13 @@ defined( 'ABSPATH' ) || exit;
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
 
 		$orderflag = get_post_meta($order->get_id(),'orderdetailsflag',true);
-
+	
 		if ($orderflag==1):
 			wp_redirect(home_url());
 		endif;
         update_post_meta( $order->get_id(), 'orderdetailsflag', 1 );
 		if ($orderflag<=0):
+
 
 
 		?>
@@ -70,7 +71,7 @@ defined( 'ABSPATH' ) || exit;
 					</li>
 				<?php endif; ?>
 
-				<li class="woocommerce-order-overview__total total course_total">
+				<li id="course_total" class="woocommerce-order-overview__total total">
 					<?php esc_html_e( 'Total:', 'woocommerce' ); ?>
 					<strong><?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
 				</li>
@@ -99,4 +100,7 @@ defined( 'ABSPATH' ) || exit;
 
     endif; ?>
 
+
+
 </div>
+

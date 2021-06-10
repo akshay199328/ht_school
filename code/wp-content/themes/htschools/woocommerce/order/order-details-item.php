@@ -51,7 +51,7 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 		?>
 	</td>
 
-	<td class="woocommerce-table__product-total product-total course_price">
+	<td id="course_price" class="woocommerce-table__product-total product-total ">
 		<?php echo $order->get_formatted_line_subtotal( $item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</td>
 
@@ -66,3 +66,12 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 </tr>
 
 <?php endif; ?>
+<input id="course_name" type="hidden" value="<?php $item->get_name();?>">
+
+<script>
+var course_namevalue = document.getElementsByClassName("course_name").value;
+var course_pricevalue = document.getElementsByClassName("course_price").value;
+dataLayer.push({ 
+'coursename': course_namevalue,
+'course_price': course_pricevalue }); 
+</script>

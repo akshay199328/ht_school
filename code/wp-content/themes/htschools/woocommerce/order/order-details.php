@@ -102,6 +102,17 @@ if ( $show_downloads ) {
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 </section>
 
+<input id="course_name" type="hidden" value="<?php $item->get_name();?>">
+<input id="course_price" type="hidden" value="<?php echo $order->get_order_number(); ?>">
+
+<script>
+var course_namevalue = document.getElementById("course_name").value;
+var course_price = document.getElementById("wooorderid").value;
+dataLayer.push({ 
+'coursename': course_namevalue,
+'course_price': course_price }); 
+</script>
+
 <?php
 /**
  * Action hook fired after the order details.

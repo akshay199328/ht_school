@@ -1058,15 +1058,14 @@ function lms_student_info_data($page_num,$num){
 	if(count($schoolFieldIDList) > 0)	$schoolFieldID = $schoolFieldIDList[0]->ID;
 
 	$st_stats=apply_filters('wplms_report_student_stats', $wpdb->get_results("
-		SELECT posts.post_title as course,rel.meta_key as user,rel.meta_value as score,posts.ID as course_id,
-		(SELECT meta_value FROM ht_usermeta WHERE meta_key = 'nickname' AND user_id = (SELECT value FROM ht_bp_xprofile_data WHERE user_id = rel.meta_key AND field_id = '".$schoolFieldID."')) as 'school'
-	    FROM {$wpdb->posts} AS posts
-	    LEFT JOIN {$wpdb->postmeta} AS rel ON posts.ID = rel.post_id
+		SELECT posts.post_title as course,umeta.user_id as user,(SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key = umeta.user_id AND post_id = posts.ID) as score,posts.ID as course_id
+	    FROM {$wpdb->usermeta} AS umeta
+	    LEFT JOIN {$wpdb->posts} AS posts ON umeta.meta_key = posts.ID
 	    WHERE 	posts.post_type 	= 'course'
 		AND 	posts.post_status 	= 'publish'
-		AND     rel.meta_key REGEXP '^[0-9]+$'
-		AND     rel.meta_key IN (".getStudentListQuery(2).")
-		ORDER BY rel.meta_key
+		AND     umeta.meta_key REGEXP '^[0-9]+$'
+		AND     umeta.user_id IN (".getStudentListQuery(2).")
+		ORDER BY umeta.user_id DESC
 		#LIMIT $page_num, $num
 	"));
 
@@ -1080,7 +1079,7 @@ function lms_student_info_data($page_num,$num){
 		$status = get_user_meta($st->user,'course_status'.$st->course_id,true);
 		if(isset($status)){
 
-			/*$schoolName		= "";
+			$schoolName		= "";
 			$schoolIDSql	= "SELECT value FROM ht_bp_xprofile_data WHERE user_id = '%s' AND field_id = '%s'";
 			$schoolIDList	= $wpdb->get_results($wpdb->prepare($schoolIDSql, [$st->user, $schoolFieldID]));
 
@@ -1095,10 +1094,10 @@ function lms_student_info_data($page_num,$num){
 					$schoolName = get_user_meta( $schoolIDList[0]->value, "nickname", true );
 					$schoolList[$schoolIDList[0]->value] = $schoolName;
 				}
-			}*/
+			}
 
 			$student_info[$i]['user']	= get_the_author_meta('display_name',$st->user);
-			$student_info[$i]['school']	= $st->school;
+			$student_info[$i]['school']	= $schoolName;
 			$student_info[$i]['avg']	= (is_numeric($avg)?$avg:'n/a');
 			$student_info[$i]['score']	= ((isset($st->score) && $status >= 3)?$st->score:'n/a');
 			$student_info[$i]['course']	= (isset($st->course)?$st->course:'n/a');

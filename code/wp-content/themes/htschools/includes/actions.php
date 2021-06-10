@@ -761,7 +761,7 @@ class WPLMS_Actions{
 				        var cookie = cookies[i];
 				        var eqPos = cookie.indexOf("=");
 				        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-				        jQuery.cookie(name, null, {path: '/'})
+				        //jQuery.cookie(name, null, {path: '/'})
 				    }
 
 				    //window.location.href = "/wp-login.php?action=logout";

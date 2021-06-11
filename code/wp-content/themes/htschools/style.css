@@ -7397,14 +7397,14 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 }
 .home-page .modal-content #errMobileMsg, .home-page .modal-content #errSchoolMsg, .home-page .modal-content #errFirstName, .home-page .modal-content #errLastName{margin-top:-8px !important;display:block;padding-bottom:10px;font-weight:400}
 
-.contact-popup{}
+.contact-popup{background: #00000075;}
 .contact-popup .modal-header{padding:30px !important}
 .contact-popup .modal-title{padding-left:0 !important}
 .contact-popup .contact-title{font-weight:500 !important;font-size:25px;color:#000;margin-top:20px;margin-bottom:0}
 .contact-popup .close{font-weight:100 !important;text-shadow:none !important;opacity:1 !important;}
 .contact-popup .modal-body{padding:30px;}
-.contact-popup .modal-body p{font-size:18px;color:#000}
-
+.contact-popup .modal-body p{font-size:18px;color:#000;line-height: 30px;}
+.contact-popup .modal-body p.modalfooter_text{margin-top: 35px;}
 @media (min-width: 576px){
 .contact-popup .modal-dialog{
     max-width:480px;

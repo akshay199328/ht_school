@@ -1,12 +1,12 @@
 <script>
 
-    jQuery( function($) {       
+    jQuery( function($) {
     $('.remove').click( function( event ) {
         if( ! confirm( 'Are you sure you want to remove this course from Your Cart' ) ) {
             event.preventDefault();
             event.stopPropagation();
             refresh_cart_fragment();
-        }  
+        }
 
     });
 });
@@ -40,7 +40,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 			<div class="col-md-8">
 				<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 		<?php do_action( 'woocommerce_before_cart_table' ); ?>
-		
+
 				<h2 class="cart_heading">Your Cart</h2>
 				<div class="table-copy">
 					<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
@@ -55,7 +55,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					<tbody>
 						<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
-						<?php
+						<?php $itemIndex = 1; $dataLayerItems = array();
 						foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 							$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 							$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
@@ -67,10 +67,22 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 							$courseslug=get_site_url().'/?p='.$course_id;
 
 
-
 							if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 								$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
-								?>
+
+								$courseCatInfo = get_the_terms($course_id, 'course-cat');
+
+								$dataLayerItems[] = array(
+									"item_name"			=> $_product->get_name(),
+									"item_id"			=> $course_id,
+									"price"				=> $cart_item['line_total'],
+									"item_category"		=> count($courseCatInfo) > 0 ? $courseCatInfo[0]->name : "",
+									"item_list_name"	=> 'User Cart',
+									"item_list_id"		=> $cart_item_key,
+									"index"				=> $itemIndex++,
+									"quantity"			=> $cart_item['quantity']
+								); ?>
+
 								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
 									<td class="product-remove">
@@ -180,34 +192,48 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 			</div>
 
 				<?php do_action( 'woocommerce_after_cart_table' ); ?>
-			
+
 			</form>
 			<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
-			<?php 
+			<?php
 			/**
 			 * Cart collaterals hook.
 			 *
 			 * @hooked woocommerce_cross_sell_display
 			 * @hooked woocommerce_cart_totals - 10
 			 */
-			do_action( 'woocommerce_cart_collaterals' ); 
+			do_action( 'woocommerce_cart_collaterals' );
 			?>
 		</div>
 		<div class="col-md-4">
 			<div class="cart-collaterals">
-				<?php 
+				<?php
 
-				
+
 				if(!did_action('woocommerce_cart_totals')){
 					do_action('woocommerce_cart_totals');
 				}
-				
+
 				?>
 
 			</div>
 		</div>
-	</div> 
-			
+	</div>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			let dataLayerObj = {
+				"event"		: 'view_item_list',
+				"ecommerce"	: {
+					"items"	: JSON.parse('<?php echo json_encode($dataLayerItems); ?>'),
+				}
+			};
+			jQuery('.checkout-button').click(function(){
+				dataLayer.push(dataLayerObj);
+			});
+		});
+	</script>
+
 	<?php do_action( 'woocommerce_after_cart' ); ?>
 
 <?php
@@ -238,8 +264,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 
 		<?php do_action( 'woocommerce_before_cart_table' ); ?>
-			
-				
+
+
 				<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 					<thead>
 						<tr>
@@ -369,7 +395,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				</table>
 
 				<?php do_action( 'woocommerce_after_cart_table' ); ?>
-			
+
 			</form>
 			<?php do_action( 'woocommerce_cart_collaterals' ); ?>
 		</div>
@@ -380,8 +406,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 			</div>
 		</div>
-	</div> 
-			
+	</div>
+
 	<?php do_action( 'woocommerce_after_cart' ); ?>
     <?php
 }

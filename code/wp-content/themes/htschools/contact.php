@@ -225,7 +225,7 @@ get_footer(vibe_get_footer());
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
-            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img"/>
+            <img src="<?php echo bloginfo('template_url').'/assets/images/logo_popup_web.svg'?>" class="modal-img"/>
            <h2 class="contact-title"> Thank you for getting in touch!</h2>
             <!-- <p class="modal-text">Welcome to</p>
             <p class="modal-para">Data Science Masterclass for Non-Programmers</p> -->

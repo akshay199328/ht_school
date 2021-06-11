@@ -7743,7 +7743,7 @@ section{}
 .woocommerce-customer-details .table-copy p{font-size:16px;font-family: 'GT-Walsheim-Pro'!important;color:#000000;}
 
 
-.woocommerce-order .course_order_details{}
+.woocommerce-order .course_order_details{font-family: 'GT-Walsheim-Pro'!important;color:#000000;}
 .woocommerce-order .course_order_details li{border-bottom:1px dotted #707070;display:flex;justify-content:space-between;align-items:center;}
 .woocommerce-order .course_order_details li .course_name{width:25%;font-size:17px}
 .woocommerce-order .course_order_details li .subscribed-name{font-size:17px}

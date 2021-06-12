@@ -55,7 +55,21 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					<tbody>
 						<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
-						<?php $itemIndex = 1; $dataLayerItems = array();
+						<?php
+						$currentUser	= wp_get_current_user();
+						$usersFavorites	= wpfp_get_users_favorites();
+						$dataLayerItems	= array();
+						$userIdentifier	= "";
+
+						if(isset($currentUser->ID) && $currentUser->ID > 0)
+						{
+							$userIdentifier = $currentUser->ID;
+						}
+						else if(isset($_COOKIE['PHPSESSID']))
+						{
+							$userIdentifier = $_COOKIE['PHPSESSID'];
+						}
+
 						foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 							$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 							$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
@@ -66,21 +80,39 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 							$courseslug=get_site_url().'/?p='.$course_id;
 
-
 							if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+
 								$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 
 								$courseCatInfo = get_the_terms($course_id, 'course-cat');
+								$coursePartner = "";
+
+								$cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
+								if ($cb_course_id) {
+									$coursePartner = "Celebrity School";
+								}
+
+								$aiws_course_id = get_post_meta($course_id,'aiws_program_id',true);
+								if ($aiws_course_id) {
+									$coursePartner = "AIWS";
+								}
 
 								$dataLayerItems[] = array(
-									"item_name"			=> $_product->get_name(),
-									"item_id"			=> $course_id,
-									"price"				=> $cart_item['line_total'],
-									"item_category"		=> count($courseCatInfo) > 0 ? $courseCatInfo[0]->name : "",
-									"item_list_name"	=> 'User Cart',
-									"item_list_id"		=> $cart_item_key,
-									"index"				=> $itemIndex++,
-									"quantity"			=> $cart_item['quantity']
+									"User identifier"	=> $userIdentifier,
+									"Session source"	=> "",
+									"Timestamp"			=> date('c', time()),
+									"UTM tags"			=> "",
+									"Course name"		=> $_product->get_name(),
+									"Course URL"		=> $courseslug,
+									"Course category"	=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
+									"Course partner"	=> $coursePartner,
+									"Category ID"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : 0),
+									"Course ID"			=> $course_id,
+									"Course price"		=> $cart_item['line_total'],
+									"Age group"			=> get_post_meta($course_id, "vibe_course_age_group", true),
+									"Course duration"	=> get_post_meta($course_id, "vibe_validity", true),
+									"Session duration"	=> get_post_meta($course_id, "vibe_course_session_length", true),
+									"Wishlisted course"	=> in_array($course_id, $usersFavorites) ? true : false,
 								); ?>
 
 								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
@@ -166,7 +198,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						?>
 
 						<?php do_action( 'woocommerce_cart_contents' ); ?>
-<?php /*
+						<?php /*
 						<tr>
 							<td colspan="6" class="actions coupon_td">
 
@@ -223,7 +255,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
 			let dataLayerObj = {
-				"event"		: 'view_item_list',
+				"event"		: 'gtm.load',
 				"ecommerce"	: {
 					"items"	: JSON.parse('<?php echo json_encode($dataLayerItems); ?>'),
 				}

@@ -349,7 +349,8 @@
 .course_status .reviewpopup_wrapper.complete_course_popup .reviewpopup_content .close {
     right: 30px;
 }
-.course_status .reviewpopup_wrapper.complete_course_popup .finish-course-content .completion_message a {
+.course_status .reviewpopup_wrapper.complete_course_popup .finish-course-content .completion_message a,
+.student_score {
     display: none!important;
 }
 .finish-course-content{

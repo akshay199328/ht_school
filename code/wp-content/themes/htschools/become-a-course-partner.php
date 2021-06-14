@@ -242,7 +242,7 @@ get_footer(vibe_get_footer());
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">
-            <img src="<?php echo bloginfo('template_url').'/assets/images/logo-modal.png'?>" class="modal-img"/>
+            <img src="<?php echo bloginfo('template_url').'/assets/images/logo_popup_web.svg'?>" class="modal-img"/>
            <h2 class="contact-title"> Thank you for getting in touch!</h2>            
           </div>          
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="window.location.href = '<?php echo bloginfo('url');?>'">
@@ -251,7 +251,7 @@ get_footer(vibe_get_footer());
       </div>
       <div class="modal-body">
       <p>We have received your message and one of our colleagues will get in touch with you soon.</p>
-        <p>Thanks, <span>HTSchool</span></p>
+        <p class="modalfooter_text">Thanks, <span>HTSchool</span></p>
     </div>
     </div>
   </div>

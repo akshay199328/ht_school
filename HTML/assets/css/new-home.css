@@ -2502,6 +2502,9 @@ body.search-results section#title {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .school-wrapper .section-copy .school-listing {
@@ -2510,6 +2513,7 @@ body.search-results section#title {
 
 .school-wrapper .section-copy .courses-wrapper .column {
   width: 33.333333333333333%;
+  padding-top: 30px;
 }
 
 .school-wrapper .section-copy .courses-wrapper .column .course-title {
@@ -2522,6 +2526,13 @@ body.search-results section#title {
 }
 
 .school-wrapper .partner-form {
-  border: 1px solid blue;
-  max-width: 300px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 300px;
+          flex: 0 0 300px;
+  background-color: #F3F8FF;
+  padding: 30px;
+}
+
+.school-wrapper .partner-form .partner-title {
+  font-size: 25px;
 }

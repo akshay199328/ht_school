@@ -808,7 +808,7 @@ class WPLMS_Course_Component_Init{
                 'complete_course'=>_x('Complete Course',' manage submission','wplms'),
                 'complete_assignment'=>_x('Complete Assignment',' manage assignment','wplms'),
                 'view_submission'=>_x('View Submission',' manage submission','wplms'),
-                'question_explanation'=>_x('Question Explanation',' manage submission','wplms'),
+                'question_explanation'=>_x('Answer Explanation',' manage submission','wplms'),
                 'correct_answer'=>_x('Correct Answer',' manage submission','wplms'), 
                 'marked_answer'=>_x('Marked Answer',' manage submission','wplms'),
                 'select_file' => _x('Select File','','wplms'),

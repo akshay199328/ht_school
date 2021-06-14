@@ -230,7 +230,7 @@ get_footer(vibe_get_footer());
       </div>
       <div class="modal-body">
       <p>We have received your message and one of our colleagues will get in touch with you soon.</p>
-        <p>Thanks, HTSchool</p>
+        <p class="modalfooter_text">Thanks, <span>HTSchool</span></p>
     </div>
     </div>
   </div>

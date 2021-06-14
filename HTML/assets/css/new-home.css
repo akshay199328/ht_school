@@ -2489,3 +2489,39 @@ body.search-results section#title {
             flex: 0 0 auto !important;
   }
 }
+
+.school-wrapper {
+  border: 1px solid red;
+}
+
+.school-wrapper .section-copy {
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.school-wrapper .section-copy .school-listing {
+  max-width: 768px;
+}
+
+.school-wrapper .section-copy .courses-wrapper .column {
+  width: 33.333333333333333%;
+}
+
+.school-wrapper .section-copy .courses-wrapper .column .course-title {
+  border-bottom: none;
+}
+
+.school-wrapper .section-copy .courses-wrapper .column .black-button:hover {
+  background-color: #FADE3B;
+  color: #000;
+}
+
+.school-wrapper .partner-form {
+  border: 1px solid blue;
+  max-width: 300px;
+}

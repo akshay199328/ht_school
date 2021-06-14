@@ -4166,7 +4166,9 @@
                 }
             }, gn("span", {
                 className: "student_score"
-            }, t.meta.auto ? t.marks + "/" + t.max_marks : ""), t.quiz_passing_score ? gn("span", null, t.marks > t.quiz_passing_score ? window.wplms_course_data.translations.passed : window.wplms_course_data.translations.failed) : "", gn("span", {
+            }, t.meta.auto ? t.marks + "/" + t.max_marks : ""), t.quiz_passing_score ? gn("span",{
+                className: "student_resultmsg"
+            }, null, t.marks > t.quiz_passing_score ? window.wplms_course_data.translations.passed : window.wplms_course_data.translations.failed) : "", gn("span", {
                 className: "student_quiz_status"
             }, window.wplms_course_data.translations.quiz_submitted)) : gn("div", {
                 className: "quiztimer_wrapper",
@@ -5867,6 +5869,7 @@
                 notimediff: 1
             })), $a("h2", {
                 dangerouslySetInnerHTML: {
+                    
                     __html: s.title
                 }
             })), $a("div", null, s.meta.hasOwnProperty("access") && s.meta.access || !s.meta.hasOwnProperty("drip_time") ? s.meta.hasOwnProperty("video") && "object" == typeof s.meta.video && !Array.isArray(s.meta.video) ? "youtube" == s.meta.video.type ? $a("div", null, v && v.length ? $a(Sa, {

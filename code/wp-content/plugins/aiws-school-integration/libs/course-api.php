@@ -66,7 +66,7 @@ if(is_array($responseDecode->records))
 			'post_type' => 'course',
 			'meta_query' => array(
 				array(
-					'key'	=> 'aiws_course_id',
+					'key'	=> 'aiws_program_id',
 					'value'	=> $programValue->programid,
 				),
 			),

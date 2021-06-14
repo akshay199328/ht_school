@@ -7405,6 +7405,9 @@ span.coming_soon, .wpcf7 form.sent .wpcf7-response-output{display: none}
 .contact-popup .modal-body{padding:30px;}
 .contact-popup .modal-body p{font-size:18px;color:#000;line-height: 30px;}
 .contact-popup .modal-body p.modalfooter_text{margin-top: 35px;}
+.modalfooter_text span{
+  display: block;
+}
 @media (min-width: 576px){
 .contact-popup .modal-dialog{
     max-width:480px;

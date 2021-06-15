@@ -21,17 +21,100 @@ if(have_posts()):while(have_posts()):the_post();
             <ol class="breadcrumbs">
               <li><a href="#"><span>Home</span></a></li><li class="current"><span>Become a Partner</span></li>
             </ol>
-               <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
-            <?php
-                the_content();
-             ?>
+               <div class="pagetitle"><h1><?php the_title(); ?></h1></div>
+               <div class="pagesubtitle"><h1><?php the_sub_title(); ?></h1></div>
           </div>
-          <?php
-          
-          endwhile;
-          endif;
-          ?>
+
 </section>
+
+<section class="section popular-wrapper school-wrapper">
+          <div class="section-copy">
+            <div class="school-listing">
+                    <div class="section-head">
+                      <div class="header-copy">
+                          <h3 class="medium-title">Our Partner Schools</h3>
+                      </div>
+                      <!--<form class="right">
+                            <div class="search">
+                                <input class="form-control" placeholder="Search">
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25.707" height="25.707" viewBox="0 0 25.707 25.707">
+                                      <g id="Group_18782" data-name="Group 18782" transform="translate(-308 -1243)">
+                                        <g id="Group_15752" data-name="Group 15752" transform="translate(308 1243)">
+                                          <g id="Ellipse_31" data-name="Ellipse 31" fill="none" stroke="#000" stroke-width="2">
+                                            <circle cx="11.667" cy="11.667" r="11.667" stroke="none"/>
+                                            <circle cx="11.667" cy="11.667" r="10.667" fill="none"/>
+                                          </g>
+                                          <path id="Path_9" data-name="Path 9" d="M26,26l5.333,5.333" transform="translate(-6.333 -6.333)" fill="#fff" stroke="#000" stroke-width="2"/>
+                                        </g>
+                                      </g>
+                                    </svg>
+                                </button>
+                            </div>
+                            <select class="sort">
+                                <option selected="selected">Sort by:</option>
+                                <option>Low to Hight</option>
+                                <option>High to Low</option>
+                        </select>
+                      </form>-->
+                  </div>
+                  <div class="courses-wrapper">
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://www.prokerala.com/education/imgs/logo/school/ryan-international-school.jpg"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Ryan International School</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Oxford-University-Circlet.svg"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Oxford University, in Oxford, England, United Kingdom.</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://i.pinimg.com/originals/72/6a/30/726a303f6704bc2f24401db85e65f984.png"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Harvard University, Research University in Cambridge</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="courses-wrapper">
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Stanford_University_seal_2003.svg/1200px-Stanford_University_seal_2003.svg.png"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Stanford University, Private Research University in Stanford</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Boston_University_seal.svg/1200px-Boston_University_seal.svg.png"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Boston University is a Private Research University in Boston</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+                      
+                  </div>
+              </div>
+
+            <div class="partner-form">
+                  
+                  <?php the_content(); ?>
+                  
+                  <?php
+          
+                  endwhile;
+                  endif;
+                  ?>
+              </div>
+    </div>
+</section>
+
+
 
 <!-- <?php
   $protocol = is_ssl() ? 'https' : 'http';

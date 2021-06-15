@@ -86,8 +86,8 @@ vibe_include_template("profile/top$profile_layout.php");
 
                     if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
                           $custom_fields = get_post_custom();
-                          $duration = $custom_fields['vibe_duration'][0];
-                          $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+                          $duration = $custom_fields['vibe_validity'][0];
+                          $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                           $age_limit = $custom_fields['vibe_course_age_group'][0];
                           $category_array = get_the_terms( $post->ID, 'course-cat');
                 ?>
@@ -139,7 +139,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             </td>
                             <td>
                               <p>Age Group</p>
-                                <?php if($age_limit) { ?>
+                                <?php if($age_limit == ''){  ?>
                                     <h6>--</h6>
                                 <?php } else{ ?>
                                     <h6><?php echo $age_limit;?><span> yrs</span></h6>

@@ -568,3 +568,25 @@ add_filter('wplms_course_student_marks',function($u_marks,$id,$user_id){
     }
     return $u_marks;
 },10,3);
+
+
+
+add_action('wp_head', 'add_unit_auto_complete', 9);
+
+function add_unit_auto_complete() {
+?>
+
+<script>
+jQuery(document).ready(function ($) {
+
+$('.unit_content').on('unit_traverse',function(){
+
+$('.unit_progress_wrapper').trigger('click');
+
+});
+});
+</script>
+
+<?php
+
+}

@@ -7,34 +7,34 @@
  * @subpackage bp-default
  */
 
-get_header( vibe_get_header() ); 
+get_header( vibe_get_header() );
 
 $profile_layout = vibe_get_customizer('profile_layout');
 
-vibe_include_template("profile/top$profile_layout.php"); 
+vibe_include_template("profile/top$profile_layout.php");
 /*do_action( 'bp_before_member_course_content' ); */
 ?>
 <div id="item-body">
     <div class="col-md-3 left_tabs">
         <div class="item-list-tabs no-ajax <?php if ( !bp_is_my_profile() ) echo 'notmyprofile'; ?>" id="subnav" role="navigation">
             <ul class="left_tab">
-                <?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
+                <?php if ( bp_is_my_profile() ) bp_get_options_nav();
                 do_action('bp_course_get_options_sub_nav');
                 ?>
             </ul>
         </div><!-- .item-list-tabs -->
     </div>
 
-    <div class="col-md-9">      
+    <div class="col-md-9">
         <?php
             $user = wp_get_current_user();
-            global $wpdb;    
+            global $wpdb;
             $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
             $result = $wpdb->get_results($courses_with_types);
             foreach($result as $course){
-                    
+
                 $type = bp_course_get_user_course_status($user->ID,$course->id);
-                if($type != 4){    
+                if($type != 4){
                     $args['post__in'][]=$course->id;
                 }
                 $statuses[$course->id]= intval($type);
@@ -50,12 +50,12 @@ vibe_include_template("profile/top$profile_layout.php");
                 ),$user->ID);
 
                 $wp_query = new WP_Query($query_args);
-            
+
             if(!empty($wp_query)){
             ?>
-            
+
                 <section id="Popular-Courses" class="">
-             
+
 
                     <?php while($wp_query->have_posts()){
                         $wp_query->the_post();
@@ -79,7 +79,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         <table width="100%">
                           <tr>
                             <td>
-                                <?php 
+                                <?php
                                     $category_array = get_the_terms( $post->ID, 'course-cat');
                                 ?>
                                 <h6><?php echo $category_array[0]->name; ?></h6>
@@ -131,15 +131,15 @@ vibe_include_template("profile/top$profile_layout.php");
                                     <?php
                                         $course_progress = empty($progress)?0:intval($progress);
                                     ?>
-                                    <?php  
-                                        echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span class="progress_value">'.$course_progress.' % Complete</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'%; background: #00D98E;"></div></div></div>'; 
+                                    <?php
+                                        echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span class="progress_value">'.$course_progress.' % Complete</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'%; background: #00D98E;"></div></div></div>';
                                     ?>
                                 </td>
                             </tr>
                             <tr class="border_button">
                                 <td class="course-button">
                                     <h6><?php the_course_price(); ?></h6>
-                                    <?php the_course_button(); ?> 
+                                    <?php the_course_button(); ?>
                                 </td>
                             </tr>
                             <tr class="profilecou-instructor">
@@ -148,7 +148,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                         <h3>Instructor</h3>
                                     </div>
                                     <?php
-                                    
+
                                     $course_id=get_the_ID();
                                     $post_tmp = get_post($course_id);
                                     $author_id = $post_tmp->post_author;
@@ -169,7 +169,10 @@ vibe_include_template("profile/top$profile_layout.php");
                                                 <h4><?php echo $author_company; ?></h4>
                                             </div>
                                             <div class="clearfix"></div>
-                                         </div>
+                                        </div>
+                                        <div class="download">
+                                            <?php user_certificate($post->ID,$user->ID);?>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -200,9 +203,9 @@ vibe_include_template("profile/top$profile_layout.php");
 
 </div><!-- #item-body -->
 
-<?php do_action( 'bp_after_member_settings_template' ); ?>       
+<?php do_action( 'bp_after_member_settings_template' ); ?>
 <?php
 
-vibe_include_template("profile/bottom.php");  
+vibe_include_template("profile/bottom.php");
 
-get_footer( vibe_get_footer() );  
+get_footer( vibe_get_footer() );

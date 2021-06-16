@@ -255,7 +255,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
 			let dataLayerObj = {
-				"event"		: 'gtm.load',
+				"event"		: 'begin_checkout',
 				"ecommerce"	: {
 					"items"	: JSON.parse('<?php echo json_encode($dataLayerItems); ?>'),
 				}

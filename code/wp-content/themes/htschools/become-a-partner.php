@@ -15,12 +15,12 @@ $form_id = $contact_form -> id;
 if(have_posts()):while(have_posts()):the_post();
 ?>
 <div class="innerheader-space"></div>
-<section id="content" class="section_contact partner-wrapper">
+<section id="content" class="section_contact">
     <!-- <div class="<?php echo vibe_get_container(); ?>"> -->
+      <ol class="breadcrumbs">
+            <li><a href="#"><span>Home</span></a></li><li class="current"><span>Become a Partner</span></li>
+          </ol>
           <div class="content sec_cont">
-            <ol class="breadcrumbs">
-              <li><a href="#"><span>Home</span></a></li><li class="current"><span>Become a Partner</span></li>
-            </ol>
                <div class="pagetitle"><h1><?php the_title(); ?></h1></div>
                <div class="pagesubtitle"><h1><?php the_sub_title(); ?></h1></div>
           </div>

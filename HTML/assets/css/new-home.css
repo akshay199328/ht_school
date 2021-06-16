@@ -2495,7 +2495,7 @@ body.search-results section#title {
 }
 
 .school-wrapper:after {
-  background-image: url("../img/school-bottom-bg.png");
+  background-image: url("assets/images/school-bottom-bg.png");
   content: "";
   height: 257px;
   display: block;
@@ -2514,7 +2514,7 @@ body.search-results section#title {
 @media (max-width: 767px) {
   .school-wrapper:after {
     height: 160px;
-    background-image: url("../img/school-bottom-bg-mobile.png");
+    background-image: url("assets/images/school-bottom-bg-mobile.png");
   }
 }
 
@@ -2681,11 +2681,12 @@ body.search-results section#title {
 }
 
 .school-wrapper .partner-form {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 300px;
-          flex: 0 0 300px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   background-color: #F3F8FF;
   padding: 30px;
+  max-width: 300px;
 }
 
 .school-wrapper .partner-form .partner-title {
@@ -2694,18 +2695,25 @@ body.search-results section#title {
   margin-bottom: 25px;
 }
 
-.school-wrapper .partner-form .form-group {
-  margin-bottom: 23px;
+.school-wrapper .partner-form br {
+  display: none;
 }
 
-.school-wrapper .partner-form .form-group label {
+.school-wrapper .partner-form .form-group, .school-wrapper .partner-form label {
+  margin-bottom: 23px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #A2A0A0;
+}
+
+.school-wrapper .partner-form .form-group label, .school-wrapper .partner-form label label {
   margin-bottom: 0;
   color: #A2A0A0;
   vertical-align: middle;
   line-height: 1;
 }
 
-.school-wrapper .partner-form .form-group .form-control {
+.school-wrapper .partner-form .form-group .form-control, .school-wrapper .partner-form .form-group .wpcf7-form-control, .school-wrapper .partner-form label .form-control, .school-wrapper .partner-form label .wpcf7-form-control {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid rgba(38, 38, 38, 0.25);
@@ -2715,28 +2723,26 @@ body.search-results section#title {
   color: #000;
 }
 
-.school-wrapper .partner-form .form-group .form-control::-webkit-input-placeholder {
+.school-wrapper .partner-form .form-group .form-control::-webkit-input-placeholder, .school-wrapper .partner-form .form-group .wpcf7-form-control::-webkit-input-placeholder, .school-wrapper .partner-form label .form-control::-webkit-input-placeholder, .school-wrapper .partner-form label .wpcf7-form-control::-webkit-input-placeholder {
   color: #A2A0A0;
 }
 
-.school-wrapper .partner-form .form-group .form-control:-ms-input-placeholder {
+.school-wrapper .partner-form .form-group .form-control:-ms-input-placeholder, .school-wrapper .partner-form .form-group .wpcf7-form-control:-ms-input-placeholder, .school-wrapper .partner-form label .form-control:-ms-input-placeholder, .school-wrapper .partner-form label .wpcf7-form-control:-ms-input-placeholder {
   color: #A2A0A0;
 }
 
-.school-wrapper .partner-form .form-group .form-control::-ms-input-placeholder {
+.school-wrapper .partner-form .form-group .form-control::-ms-input-placeholder, .school-wrapper .partner-form .form-group .wpcf7-form-control::-ms-input-placeholder, .school-wrapper .partner-form label .form-control::-ms-input-placeholder, .school-wrapper .partner-form label .wpcf7-form-control::-ms-input-placeholder {
   color: #A2A0A0;
 }
 
-.school-wrapper .partner-form .form-group .form-control::placeholder {
+.school-wrapper .partner-form .form-group .form-control::placeholder, .school-wrapper .partner-form .form-group .wpcf7-form-control::placeholder, .school-wrapper .partner-form label .form-control::placeholder, .school-wrapper .partner-form label .wpcf7-form-control::placeholder {
   color: #A2A0A0;
 }
 
 @media (max-width: 767px) {
   .school-wrapper .partner-form {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
     width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -2755,4 +2761,60 @@ body.search-results section#title {
   font-size: 40px;
   font-weight: 300 !important;
   color: #0C5ACC;
+}
+
+.page-template-become-a-partner .section_contact {
+  padding-top: 0 !important;
+  background-color: #D5EBFF !important;
+}
+
+.page-template-become-a-partner .section_contact .breadcrumbs {
+  margin-top: 0 !important;
+  max-width: 1118px;
+  padding: 0px 15px 10px 15px;
+  margin-left: auto !important;
+  margin-right: auto;
+}
+
+.page-template-become-a-partner .section_contact .sec_cont {
+  max-width: 1118px;
+  margin: auto;
+  display: block;
+  padding: 20px 15px 30px;
+}
+
+.page-template-become-a-partner .section_contact .sec_cont .pagetitle {
+  position: static !important;
+  margin-bottom: 8px;
+}
+
+.page-template-become-a-partner .section_contact .sec_cont .pagetitle h1 {
+  font-size: 60px;
+  color: #0C5ACC;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .page-template-become-a-partner .section_contact .sec_cont .pagetitle h1 {
+    font-size: 40px;
+    line-height: 1 !important;
+  }
+}
+
+.page-template-become-a-partner .section_contact .sec_cont .pagesubtitle h1 {
+  font-size: 40px;
+  color: #0C5ACC;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.page-template-become-a-partner .section_contact .sec_cont .pagesubtitle h1 p {
+  font-size: inherit;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .page-template-become-a-partner .section_contact .sec_cont .pagesubtitle h1 {
+    font-size: 23px;
+  }
 }

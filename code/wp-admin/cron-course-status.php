@@ -23,8 +23,8 @@ function markUserCourseComplete($userID, $courseID)
 	    $certificates = array($courseID);
 	}
 
-	update_user_meta($userID, "course_status" . $courseID, 4);
-	update_user_meta($userID, "progress" . $courseID, 100);
+	// update_user_meta($userID, "course_status" . $courseID, 4);
+	// update_user_meta($userID, "progress" . $courseID, 100);
 	update_user_meta($userID, "certificates", $certificates);
 }
 

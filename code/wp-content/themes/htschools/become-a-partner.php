@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Partner Page
+ * Template Name: Become A Partner Page
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

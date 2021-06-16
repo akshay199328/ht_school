@@ -188,15 +188,19 @@ class ACUI_Email_Options{
 		
 		$key = get_password_reset_key( $user_object );
 		$wp_users_fields = $acui_helper->get_wp_users_fields();
+		if($user_object->ID == $_SESSION['course_user_id']){
+			$course_count = count(array_keys($_SESSION['course_data'], 1));
+		}
 
 		$user_id = $user_object->ID;
 		$user_login= $user_object->user_login;
 		$user_email = $user_object->user_email;
 		global $wpdb;
-		$course_array= $wpdb->get_results("SELECT posts.ID AS id, posts.post_title, meta.* FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key WHERE posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND   meta.user_id   = '".$user_id."'  AND  meta.meta_value > '".strtotime("-5 minutes", time())."'");
-        $array = json_decode( json_encode($course_array), true);
-        $course_name = implode(', ', array_column($array, 'post_title'));
+		$course_array= $wpdb->get_results("SELECT posts.ID AS id, posts.post_title, meta.* FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key WHERE posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND   meta.user_id   = '".$user_id."'  AND  meta.meta_value > '".time()."'");
 		
+		$arr = array_slice($course_array, count($course_array) - $course_count, $course_count);
+        $array = json_decode( json_encode($arr), true);
+        $course_name = implode(', ', array_column($array, 'post_title'));
 		// Set content-type header for sending HTML email 
 $headers = "MIME-Version: 1.0" . "\r\n"; 
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 

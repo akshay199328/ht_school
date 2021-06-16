@@ -158,6 +158,7 @@ class ACUI_Import{
     }
 
     public function import_users( $file, $form_data, $attach_id = 0, $is_cron = false, $is_frontend = false ){
+        unset($_SESSION['course_data']);
         if ( ! function_exists( 'get_editable_roles' ) ) {
             require_once ABSPATH . 'wp-admin/includes/user.php';
         }
@@ -592,7 +593,8 @@ class ACUI_Import{
                                 }
                             endfor;
                         }
-
+                        $_SESSION['course_data'] = $data;
+                        $_SESSION['course_user_id'] = $user_id;
                         $acui_helper->print_row_imported( $row, $data, $errors );
     
                         do_action('post_acui_import_single_user', $headers, $data, $user_id, $role, $positions, $form_data, $is_frontend, $is_cron );

@@ -1069,7 +1069,24 @@ function save_custom_profile(){
             'last_name' => esc_attr( $_POST['last_name'] )
         );
         wp_update_user( $args );
-
+        $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
+          LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
+          FROM ht_users INNER JOIN ht_usermeta
+          ON ht_users.ID = ht_usermeta.user_id
+          WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name ='" . esc_attr($_REQUEST['user_school_data']) . "'");
+        if(count($results) == 0){
+          $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login, 
+          user_nicename, display_name) VALUES ( 
+          '".$_REQUEST['user_school_data']."', '".$_REQUEST['user_school_data']."', '".$_REQUEST['user_school_data']."')");
+          $wpdb->query($user_insert);
+          $userid = $wpdb->insert_id;
+          $_REQUEST['user_school'] = $userid;
+          $role = 'school';
+          $usermeta_insert = $wpdb->prepare("INSERT INTO ht_usermeta (user_id, meta_key,
+          meta_value) VALUES (".$userid.",'ht_capabilities', 
+          'a:1:{s:6:".$role.";b:1;}')");
+          $wpdb->query($usermeta_insert);
+        }
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
         xprofile_set_field_data('Phone', $user_id, trim($_REQUEST['user_mobile']));

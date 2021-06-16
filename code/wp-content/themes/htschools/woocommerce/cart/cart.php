@@ -1,16 +1,3 @@
-<script>
-
-    jQuery( function($) {
-    $('.remove').click( function( event ) {
-        if( ! confirm( 'Are you sure you want to remove this course from Your Cart' ) ) {
-            event.preventDefault();
-            event.stopPropagation();
-            refresh_cart_fragment();
-        }
-
-    });
-});
-</script>
 <?php
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,7 +42,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					<tbody>
 						<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
-						<?php
+						<?php $count = 0; $totalAmount = 0;
 						$currentUser	= wp_get_current_user();
 						$usersFavorites	= wpfp_get_users_favorites();
 						$dataLayerItems	= array();
@@ -97,6 +84,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 									$coursePartner = "AIWS";
 								}
 
+								$totalAmount += $cart_item['line_total'];
+
 								$dataLayerItems[] = array(
 									"User identifier"	=> $userIdentifier,
 									"Session source"	=> "",
@@ -109,6 +98,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 									"Category ID"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : 0),
 									"Course ID"			=> $course_id,
 									"Course price"		=> $cart_item['line_total'],
+									"Course tax"		=> $cart_item['line_tax'],
 									"Age group"			=> get_post_meta($course_id, "vibe_course_age_group", true),
 									"Course duration"	=> get_post_meta($course_id, "vibe_validity", true),
 									"Session duration"	=> get_post_meta($course_id, "vibe_course_session_length", true),
@@ -120,11 +110,12 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 									<td class="product-remove">
 										<?php
 											echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-												'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+												'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s" data-count="%s">&times;</a>',
 												esc_url(wc_get_cart_remove_url( $cart_item_key ) ),
 												esc_html__( 'Remove this item', 'woocommerce' ),
 												esc_attr( $product_id ),
-												esc_attr( $_product->get_sku() )
+												esc_attr( $_product->get_sku() ),
+												$count++
 											), $cart_item_key );
 										?>
 									</td>
@@ -254,14 +245,84 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-			let dataLayerObj = {
+
+			var allItems = JSON.parse('<?php echo json_encode($dataLayerItems); ?>');
+
+			var totalItems = allItems.length;
+			var beginCheckoutItems = [];
+
+			for (var i = 0; i < allItems.length; i++) {
+				beginCheckoutItems.push({
+					"User identifier"	: allItems[i]["User identifier"],
+					"Session source"	: allItems[i]["Session source"],
+					"Timestamp"			: allItems[i]["Timestamp"],
+					"UTM tags"			: allItems[i]["UTM tags"],
+					"Course name"		: allItems[i]["Course name"],
+					"Course URL"		: allItems[i]["Course URL"],
+					"Course category"	: allItems[i]["Course category"],
+					"Course partner"	: allItems[i]["Course partner"],
+					"Category ID"		: allItems[i]["Category ID"],
+					"Course ID"			: allItems[i]["Course ID"],
+					"Course price"		: allItems[i]["Course price"],
+					"Age group"			: allItems[i]["Age group"],
+					"Course duration"	: allItems[i]["Course duration"],
+					"Session duration"	: allItems[i]["Session duration"],
+					"Wishlisted course"	: allItems[i]["Wishlisted course"],
+				});
+			}
+
+			let beginCheckoutObj = {
 				"event"		: 'begin_checkout',
 				"ecommerce"	: {
-					"items"	: JSON.parse('<?php echo json_encode($dataLayerItems); ?>'),
+					"items"	: beginCheckoutItems,
 				}
 			};
+
 			jQuery('.checkout-button').click(function(){
-				dataLayer.push(dataLayerObj);
+				dataLayer.push(beginCheckoutObj);
+			});
+
+			$('.remove').click( function( event ) {
+
+				if( ! confirm( 'Are you sure you want to remove this course from Your Cart' ) ) {
+					event.preventDefault();
+					event.stopPropagation();
+					refresh_cart_fragment();
+				}
+
+				var removeFromCartItem = [];
+				var removingItem	= allItems[$(this).attr("data-count")];
+				var totalAmount		= '<?php echo $totalAmount; ?>';
+				var resultingAmont	= totalAmount - removingItem['Course price'];
+
+				removeFromCartItem.push({
+					"User identifier"					: removingItem['User identifier'],
+					"Session source"					: removingItem['Session source'],
+					"Timestamp"							: '<?php echo date('c', time()); ?>',
+					"UTM tags"							: "",
+					"All cart items"					: totalItems,
+					"Removed course name"				: removingItem['Course name'],
+					"Removed course URL"				: removingItem['Course URL'],
+					"Removed course category"			: removingItem['Course category'],
+					"Removed course partner"			: removingItem['Course partner'],
+					"Removed course price"				: removingItem['Course price'],
+					"Starting cart value"				: totalAmount,
+					"Resulting cart value"				: resultingAmont,
+					"Removed course age group"			: removingItem['Age group'],
+					"Removed course duration"			: removingItem['Course duration'],
+					"Removed course session duration"	: removingItem['Session duration'],
+					"Removed Category ID"				: removingItem['Category ID'],
+					"Removed Course ID"					: removingItem['Course ID'],
+					"Removed Wishlisted course?"		: removingItem['Wishlisted course'],
+				});
+
+				let removeFromCartObj = {
+					"event"		: 'remove_from_cart',
+					"ecommerce"	: {
+						"items"	: removeFromCartItem,
+					}
+				};
+				dataLayer.push(removeFromCartObj);
 			});
 		});
 	</script>

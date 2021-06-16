@@ -26,14 +26,12 @@ defined( 'ABSPATH' ) || exit;
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
 
 		$orderflag = get_post_meta($order->get_id(),'orderdetailsflag',true);
-	
+
 		if ($orderflag==1):
 			wp_redirect(home_url());
 		endif;
         update_post_meta( $order->get_id(), 'orderdetailsflag', 1 );
 		if ($orderflag<=0):
-
-
 
 		?>
 
@@ -84,6 +82,84 @@ defined( 'ABSPATH' ) || exit;
 				<?php endif; ?>
 
 			</ul>
+
+			<?php
+				$items = array();
+				$dataLayerItems = array();
+				$usersFavorites	= wpfp_get_users_favorites();
+				$currentUser	= wp_get_current_user();
+
+				if(isset($currentUser->ID) && $currentUser->ID > 0)
+				{
+					$userIdentifier = $currentUser->ID;
+				}
+				else if(isset($_COOKIE['PHPSESSID']))
+				{
+					$userIdentifier = $_COOKIE['PHPSESSID'];
+				}
+
+				foreach($order->get_items() as $item_id => $item)
+				{
+					$vcourses = vibe_sanitize(get_post_meta($item['product_id'],'vibe_courses', false));
+					$courseID = $vcourses[0];
+
+					$courseCatInfo	= get_the_terms($courseID, 'course-cat');
+					$courseslug		= get_site_url().'/?p='.$courseID;
+					$coursePartner	= "";
+
+					$cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+					if ($cb_course_id) {
+						$coursePartner = "Celebrity School";
+					}
+
+					$aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+					if ($aiws_course_id) {
+						$coursePartner = "AIWS";
+					}
+
+					$items[] = array(
+						"Courses purchased"			=> $item['name'],
+						"Amount paid"				=> ($item['total'] + $item['total_tax']),
+						"Course partners"			=> $coursePartner,
+						"Course prices"				=> $item['total'],
+						"Course URLs"				=> $courseslug,
+						"Course categories"			=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
+						"Category ID"				=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : ""),
+						"Course ID"					=> $courseID,
+						"Coupon applied"			=> false,
+						"Course age groups"			=> get_post_meta($courseID, "vibe_course_age_group", true),
+						"Course durations"			=> get_post_meta($courseID, "vibe_validity", true),
+						"Session durations"			=> get_post_meta($courseID, "vibe_course_session_length", true),
+						"Purchased on"				=> date('c', strtotime($order->get_date_created())),
+						"Repeat purchase"			=> false,
+						"Wishlisted course?"		=> in_array($courseID, $usersFavorites) ? true : false,
+					);
+			    }
+
+				$ecommerce = array(
+					"User identifier"	=> $userIdentifier,
+					"Session source"	=> "",
+					"Timestamp"			=> date('c', time()),
+					"UTM tags"			=> "",
+					"Order ID"			=> $order->get_id(),
+					"Payment mode"		=> $order->get_payment_method_title(),
+					"Coupon code"		=> "",
+					"items"				=> $items,
+				);
+			?>
+
+			<script type="text/javascript">
+				jQuery(document).ready(function(){
+
+					var allItems = JSON.parse('<?php echo json_encode($ecommerce); ?>');
+
+					let purchaseObj = {
+						"event"		: 'purchase',
+						"ecommerce"	: allItems,
+					};
+					dataLayer.push(purchaseObj);
+				});
+			</script>
 
 		<?php endif; ?>
 

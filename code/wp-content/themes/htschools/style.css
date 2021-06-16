@@ -6758,7 +6758,12 @@ h6:empty,
     .hero-list .hero-card p {font-size: 12px;}
     .responsive_slider.owl-carousel .owl-stage-outer,
     .coursesmobile_slider.owl-carousel .owl-stage-outer  
-    {overflow: inherit;}
+    {
+      overflow: inherit;
+    }
+    .other-courses .responsive_slider.owl-carousel .owl-stage-outer{
+      overflow: inherit;
+    }
     .pagetitle h1{line-height: 1.39!important;}
     #Popular-Courses{padding-left: 15px;padding-right: 15px;}
     #Popular-Courses.all_course_page {padding-top: 10px;}
@@ -7050,6 +7055,8 @@ h6:empty,
     .homeDetails-left .details-middle ul li:after{display: block}
     .homeDetails-left .details-middle ul li:last-child {padding-bottom: 35px;}
     .static_content .details{display: block!important;}
+    .instructor-detailsMini .profile-content .google-adsense{margin-top:0px!important;}
+    .instructor-detailsMini .profile-content .profileimg-name {width: 100% !important;}
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{

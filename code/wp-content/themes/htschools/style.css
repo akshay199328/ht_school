@@ -7833,7 +7833,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .course_status .incourse .quiz_questions_content ol+h5,
 .course_status .incourse .quiz_questions_content p+h6,
 .course_status .incourse .quiz_questions_content ul+h6,
-.course_status .incourse .quiz_questions_content ol+h6{margin-top: 30px !important;}
+.course_status .incourse .quiz_questions_content ol+h6{/*margin-top: 30px !important;*/}
 .course_status .incourse .quiz_questions_content > div{display:flex;justify-content:space-between;flex-wrap:wrap;}
 .course_status .incourse .quiz_questions_content > div .quiz_pagination_wrapper{margin-left:auto}
 .course_status .incourse .quiz_questions_content .question{
@@ -8063,7 +8063,7 @@ td .add-wishlist{top:0;
   .about-us-hero .wpb_single_image{margin-bottom:0 !important;}
 }
 
-.wpfp-hide { display: none; }
+.wpfp-hide, #vibebp_login_wrapper .loginpopup_wrapper { display: none; }
 .wpfp-img { border: 0; vertical-align: middle; margin-right: 2px; }
 .overlayCenter_popup{
   background: #00000047;

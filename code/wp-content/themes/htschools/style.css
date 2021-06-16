@@ -6762,7 +6762,7 @@ h6:empty,
       overflow: inherit;
     }
     .other-courses .responsive_slider.owl-carousel .owl-stage-outer{
-      overflow: inherit;
+      overflow: hidden;
     }
     .pagetitle h1{line-height: 1.39!important;}
     #Popular-Courses{padding-left: 15px;padding-right: 15px;}

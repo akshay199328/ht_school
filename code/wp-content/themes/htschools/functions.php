@@ -971,6 +971,56 @@ function get_the_term_list_search( $post_id, $taxonomy, $before = '', $sep = '',
     $links[] = '<a href="' . $homeurl . '" rel="tag">' . $term->name . '</a>';
   }
 
+
+// Add Checkboxes
+add_action('woocommerce_after_checkout_billing_form', 'my_custom_checkout_fields');
+function my_custom_checkout_fields($checkout)
+{
+  echo '<p>'.__('Where Did You Hear About Course(s)*? ').'</p>';
+    woocommerce_form_field('check_confirm1', array(
+        'type' => 'checkbox',
+        'class' => array('input-checkbox'),
+        'label' => __('Online Platform'),
+        'required' => true,
+    ), WC()->checkout->get_value('check_confirm1'));
+     
+
+    woocommerce_form_field('check_confirm2', array(
+        'type' => 'checkbox',
+        'class' => array('input-checkbox'),
+        'label' => __('School'),
+        'required' => true,
+    ), WC()->checkout->get_value('check_confirm2'));
+     
+}
+
+// Process the checkout
+add_action('woocommerce_checkout_process', 'my_custom_checkout_fields_process');
+function my_custom_checkout_fields_process()
+{
+    if (!$_POST['check_confirm1'] && !$_POST['check_confirm2']) {
+        wc_add_notice(__('Please Select One Checkbox Option'), 'error');
+    }
+     
+    /*if (!$_POST['school_confirm']) {
+        wc_add_notice(__('Please Select One Option'), 'error');
+    }*/
+}
+
+//Update the order meta with field values
+add_action('woocommerce_checkout_update_order_meta', 'my_custom_checkout_fields_update_order_meta');
+function my_custom_checkout_fields_update_order_meta($order_id)
+{
+    if ($_POST['check_confirm1']) {
+        update_post_meta($order_id, 'check_confirm1', esc_attr($_POST['check_confirm1']));
+    }
+    if ($_POST['check_confirm2']) {
+        update_post_meta($order_id, 'check_confirm2', esc_attr($_POST['check_confirm2']));
+    }
+}
+
+
+
   /**
    * Filters the term links for a given taxonomy.
    *

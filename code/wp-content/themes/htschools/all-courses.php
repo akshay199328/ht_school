@@ -499,6 +499,7 @@ get_header(vibe_get_header());
                   if(isset($_GET['age']) && isset($_GET['category']) && isset($_GET['session']) && empty($_GET['sort_by'])){
                     if($_GET['age'] == 17){
                       $custom_age = '17,100';
+                      
                       $age_filter = explode(",",$custom_age);
                     }
                     else{
@@ -507,14 +508,22 @@ get_header(vibe_get_header());
                     $sessions_filter = explode(",",$_GET['session']);
                     $firstEle = $sessions_filter[0];
                     $lastEle = $sessions_filter[count($sessions_filter) - 1];
+                    if($lastEle == 31){
+                      $first_value = $firstEle;
+                      $second_value = "500";
+                    }
+                    else{
+                      $first_value = $firstEle;
+                      $second_value = $lastEle;
+                    }
+                    $session_filter_value = explode(",",$filter_value);
+                    
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     $age_with_category = "SELECT  ht_posts.post_title AS course,ht_posts.ID FROM ht_posts LEFT JOIN ht_postmeta ON ht_posts.ID = ht_postmeta.post_id LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id LEFT JOIN ht_term_relationships ON (ht_posts.ID = ht_term_relationships.object_id) WHERE 1=1 AND ( ht_term_relationships.term_taxonomy_id IN (".$_GET['category'].") ) AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled' OR ht_posts.post_author = 2 AND ht_posts.post_status = 'private') AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions'";
-                    if(in_array(31, $sessions_filter)){
-                      $age_session_sortby_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
-                    }else{
-                      $age_with_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN ".$firstEle." AND ".$lastEle." ) )";
-                    }
+                   
+                      $age_with_category .= " AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN ".$first_value." AND ".$second_value." ) )";
+                   
                       $age_with_category .= " AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(rel.meta_value, '-', 2) != '' AND (SUBSTRING_INDEX(rel.meta_value, '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(rel.meta_value, '-', 2) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_posts.post_date DESC LIMIT 0, 16";
                     $age_with_category_result = $wpdb->get_results($age_with_category);
                     foreach($age_with_category_result as $course){
@@ -766,6 +775,21 @@ get_header(vibe_get_header());
                       $age_limit = $custom_fields['vibe_course_age_group'][0];
                       $category_array = get_the_terms( $post->ID, 'course-cat');
                       $excerpt = get_post_field('post_excerpt', $post->ID);
+                      $courseID = $post->ID;
+                      $courseslug=get_site_url().'/?p='.$courseID;
+                      $usersFavorites = wpfp_get_users_favorites();
+                      $user = wp_get_current_user();
+                      $coursePartner = "";
+
+                        $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+                        if ($cb_course_id) {
+                          $coursePartner = "Celebrity School";
+                        }
+
+                        $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+                        if ($aiws_course_id) {
+                          $coursePartner = "AIWS";
+                        }
                   if($i%4 == 0){
                     if ($i != 0){
                     ?>
@@ -834,6 +858,18 @@ get_header(vibe_get_header());
                     <?php }?>
                 </li>
             </ul>
+            <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+            <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
+            <input type="hidden" id="course_category_<?php echo $courseID;?>" value="<?php echo $category_array[0]->name;?>">
+            <input type="hidden" id="course_partner_<?php echo $courseID;?>" value="<?php echo $coursePartner;?>">
+            <input type="hidden" id="category_id_<?php echo $courseID;?>" value="<?php echo $category_array[0]->term_id;?>">
+            <input type="hidden" id="course_id_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+            <input type="hidden" id="course_price_<?php echo $courseID;?>" value="0">
+            <input type="hidden" id="course_tax_<?php echo $courseID;?>" value="0">
+            <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
+            <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
+            <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
+            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? true : false;?>">
             <div class="action">
                 <div class="price"><?php the_course_price(); ?></div>
                 <?php the_course_button(); ?>
@@ -857,6 +893,10 @@ get_header(vibe_get_header());
                 <?php }} ?>
                 </div>
             </div>
+            <input type="hidden" id="user_identifier" value="<?php echo $user->ID;?>">
+            <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
+            <input type="hidden" id="session_source">
+            <input type="hidden" id="utm_tags">
         <?php posts_pagination(); ?>
       </div>
       

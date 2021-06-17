@@ -38,17 +38,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<div class="col2-set row" id="customer_details">
 			<div class="col-sm-12 col-md-6 col-lg-8">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
-				<p class="form-row hear-class form-row-wide validate-required" id="aba_hear_field" data-priority="">
-			    <label for="aba_hear" class="">How did You Hear About Us&#063;&nbsp;<abbr class="required" title="required">*</abbr></label>
-			    <span class="woocommerce-input-wrapper">
-			        <select name="aba_hear" id="aba_hear" class="select " data-allow_clear="true" data-placeholder="Please select">
-			            <option value=""  selected='selected'>Please select</option>
-			            <option value="online platform" >Online Platforms</option>
-			            <option value="school" >School</option>
-			        </select>
-			    </span>
-			</p>
-						
+				
 
 			</div>
 

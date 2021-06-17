@@ -4215,9 +4215,19 @@
                 }
             }, gn("span", {
                 className: "vicon vicon-bookmark-alt"
-            }))) : "", !t.submitted || t.meta && t.meta.retakes > 0 ? gn("div", {
+            }))) : ""), y ? gn(Pt, {
+                hideQuestions: () => b(!1),
+                quiz: t,
+                currentQuestions: r,
+                update: D,
+                filter: q,
+                bookMarked: N
+            }) : ""), gn("div", {
+                className: "quiz_questions_content"
+            },!t.submitted || t.meta && t.meta.retakes > 0 ? gn("div", {
                 className: "incourse_quiz_button"
-            }, t.start || t.submitted ? "" : t.remaining && t.remaining > 0 ? gn("a", {
+            }, t.start || t.submitted ? "" : t.remaining && t.remaining > 0 ? 
+            gn("a", {
                 className: "continue_quiz button is-primary",
                 onClick: H
             }, window.wplms_course_data.translations.continue) : t.meta.hasOwnProperty("check_access") && t.meta.check_access.hasOwnProperty("status") && !t.meta.check_access.status ? gn("div", {
@@ -4273,16 +4283,7 @@
                 }))
             }, gn("a", {
                 className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
-            }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "") : ""), y ? gn(Pt, {
-                hideQuestions: () => b(!1),
-                quiz: t,
-                currentQuestions: r,
-                update: D,
-                filter: q,
-                bookMarked: N
-            }) : ""), gn("div", {
-                className: "quiz_questions_content"
-            }, gn("div", {
+            }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "") : "", gn("div", {
                 className: ""
             }, t.start || t.submitted ? "" : gn("div", {
                 className: "quiz_content",

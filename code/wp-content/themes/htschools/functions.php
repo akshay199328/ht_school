@@ -1081,11 +1081,14 @@ function save_custom_profile(){
           $wpdb->query($user_insert);
           $userid = $wpdb->insert_id;
           $_REQUEST['user_school'] = $userid;
-          $role = 'school';
-          $usermeta_insert = $wpdb->prepare("INSERT INTO ht_usermeta (user_id, meta_key,
-          meta_value) VALUES (".$userid.",'ht_capabilities', 
-          'a:1:{s:6:".$role.";b:1;}')");
-          $wpdb->query($usermeta_insert);
+          $tablename = $wpdb->prefix . "usermeta";
+
+          $userID     = $userid; //string value use: %s
+          $userRole    = "ht_capabilities"; //string value use: %s
+          $meta_value    = 'a:1:{s:6:"school";b:1;}'; //numeric value use: %d
+
+          $sql = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (%s, %s, %s)", $userID, $userRole, $meta_value);
+          $wpdb->query($sql);
         }
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
@@ -2754,5 +2757,4 @@ return $headers;
 }
 
 add_filter( 'nocache_headers', 'no_cache_with_no_store', 9999 );
-
 

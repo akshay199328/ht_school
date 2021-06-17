@@ -1169,6 +1169,13 @@ border: 1px solid deepskyblue;
     jQuery("input[name='sessions']:checkbox").prop('checked',false);
     jQuery("input[name='age']:checkbox").prop('checked',false);
   })
+  jQuery( ".logos a" ).click(function() {
+
+     Moengage.track_event("HT_Property_Visited", {
+        "property_visited":  jQuery(this).attr("href"),
+    });          //
+});
+ 
   jQuery('#close_popup').click(function(){
     location.reload();
   });
@@ -1216,13 +1223,17 @@ border: 1px solid deepskyblue;
   }
   
 </script>
+
 <script type="text/javascript">
   document.addEventListener( 'wpcf7mailsent', function( event ) {
     jQuery('.new-footer #submit-email').hide();
     jQuery('.new-footer #emailAddress').hide();
     jQuery('.new-footer .screen-reader-response').hide();
   }, false );
+
+
 </script>
+
 <?php
 wp_footer();
 ?> 

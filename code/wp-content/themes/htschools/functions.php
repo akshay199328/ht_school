@@ -1649,7 +1649,7 @@ function wpfp_course_link( $return = 0, $action = "", $show_span = 1, $args = ar
 }
 
 function wpfp_course_link_html($post_id, $opt, $action, $title) {
-  $link = "<a class='wpfp-link' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $title ."' rel='nofollow'><i class=". $opt ."></i></a>";
+  $link = "<a class='wpfp-link ".($action == "add" ? "add_to_wishlist" : "remove_to_wishlist")."' data-id='".$post_id."' href='?wpfpaction=".$action."&amp;postid=". esc_attr($post_id) . "' title='". $title ."' rel='nofollow'><i class=". $opt ."></i></a>";
   $link = apply_filters( 'wpfp_course_link_html', $link );
   return $link;
 }

@@ -87,22 +87,22 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 								$totalAmount += $cart_item['line_total'];
 
 								$dataLayerItems[] = array(
-									"User identifier"	=> $userIdentifier,
-									"Session source"	=> "",
-									"Timestamp"			=> date('c', time()),
-									"UTM tags"			=> "",
-									"Course name"		=> $_product->get_name(),
-									"Course URL"		=> $courseslug,
-									"Course category"	=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
-									"Course partner"	=> $coursePartner,
-									"Category ID"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : 0),
-									"Course ID"			=> $course_id,
-									"Course price"		=> $cart_item['line_total'],
-									"Course tax"		=> $cart_item['line_tax'],
-									"Age group"			=> get_post_meta($course_id, "vibe_course_age_group", true),
-									"Course duration"	=> get_post_meta($course_id, "vibe_validity", true),
-									"Session duration"	=> get_post_meta($course_id, "vibe_course_session_length", true),
-									"Wishlisted course"	=> in_array($course_id, $usersFavorites) ? true : false,
+									"user_identifier"	=> $userIdentifier,
+									"session_source"	=> "",
+									"timestamp"			=> date('c', time()),
+									"utm_tags"			=> "",
+									"course_name"		=> $_product->get_name(),
+									"course_url"		=> $courseslug,
+									"course_category"	=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
+									"course_partner"	=> $coursePartner,
+									"category_id"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : 0),
+									"course_id"			=> $course_id,
+									"course_price"		=> $cart_item['line_total'],
+									"course_tax"		=> $cart_item['line_tax'],
+									"age_group"			=> get_post_meta($course_id, "vibe_course_age_group", true),
+									"course_duration"	=> get_post_meta($course_id, "vibe_validity", true),
+									"session_duration"	=> get_post_meta($course_id, "vibe_course_session_length", true),
+									"wishlisted_course"	=> in_array($course_id, $usersFavorites) ? true : false,
 								); ?>
 
 								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
@@ -248,39 +248,59 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 			var allItems = JSON.parse('<?php echo json_encode($dataLayerItems); ?>');
 
-			var totalItems = allItems.length;
-			var beginCheckoutItems = [];
+			var totalAmount			= '<?php echo $totalAmount; ?>';
+			var totalItems			= allItems.length;
 
-			for (var i = 0; i < allItems.length; i++) {
+			if(totalItems > 0) {
+
+				var beginCheckoutItems	= [];
+				var cartViewedItems		= [];
+
+				for (var i = 0; i < totalItems; i++) {
+					cartViewedItems.push({
+						"Item count"		: totalItems,
+						"Course name"		: allItems[i]["course_name"],
+						"Course URL"		: allItems[i]["course_url"],
+						"Course category"	: allItems[i]["course_category"],
+						"Course partner"	: allItems[i]["course_partner"],
+						"Course ID"			: allItems[i]["course_price"],
+						"Age group"			: allItems[i]["age_group"],
+						"Course duration"	: allItems[i]["course_duration"],
+						"Session duration"	: allItems[i]["session_duration"],
+						"Course Price"		: allItems[i]["course_price"],
+						"Total cart amount"	: totalAmount,
+					});
+				}
+
 				beginCheckoutItems.push({
-					"User identifier"	: allItems[i]["User identifier"],
-					"Session source"	: allItems[i]["Session source"],
-					"Timestamp"			: allItems[i]["Timestamp"],
-					"UTM tags"			: allItems[i]["UTM tags"],
-					"Course name"		: allItems[i]["Course name"],
-					"Course URL"		: allItems[i]["Course URL"],
-					"Course category"	: allItems[i]["Course category"],
-					"Course partner"	: allItems[i]["Course partner"],
-					"Category ID"		: allItems[i]["Category ID"],
-					"Course ID"			: allItems[i]["Course ID"],
-					"Course price"		: allItems[i]["Course price"],
-					"Age group"			: allItems[i]["Age group"],
-					"Course duration"	: allItems[i]["Course duration"],
-					"Session duration"	: allItems[i]["Session duration"],
-					"Wishlisted course"	: allItems[i]["Wishlisted course"],
+					"User identifier"		: allItems[0]["user_identifier"],
+					"Session source"		: allItems[0]["session_source"],
+					"Timestamp"				: allItems[0]["timestamp"],
+					"UTM tags"				: allItems[0]["utm_tags"],
+					"Courses in cart"		: totalItems,
+					"Original cart value"	: totalAmount,
+				});
+
+				/*let cartViewedObj = {
+					"event"		: 'cart_viewed',
+					"ecommerce"	: {
+						"items"	: cartViewedItems,
+					}
+				};
+
+				dataLayer.push(cartViewedObj);*/
+
+				let beginCheckoutObj = {
+					"event"		: 'begin_checkout',
+					"ecommerce"	: {
+						"items"	: beginCheckoutItems,
+					}
+				};
+
+				jQuery('.checkout-button').click(function(){
+					dataLayer.push(beginCheckoutObj);
 				});
 			}
-
-			let beginCheckoutObj = {
-				"event"		: 'begin_checkout',
-				"ecommerce"	: {
-					"items"	: beginCheckoutItems,
-				}
-			};
-
-			jQuery('.checkout-button').click(function(){
-				dataLayer.push(beginCheckoutObj);
-			});
 
 			$('.remove').click( function( event ) {
 
@@ -292,28 +312,27 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				var removeFromCartItem = [];
 				var removingItem	= allItems[$(this).attr("data-count")];
-				var totalAmount		= '<?php echo $totalAmount; ?>';
 				var resultingAmont	= totalAmount - removingItem['Course price'];
 
 				removeFromCartItem.push({
-					"User identifier"					: removingItem['User identifier'],
-					"Session source"					: removingItem['Session source'],
+					"User identifier"					: removingItem['user_identifier'],
+					"Session source"					: removingItem['session_source'],
 					"Timestamp"							: '<?php echo date('c', time()); ?>',
 					"UTM tags"							: "",
 					"All cart items"					: totalItems,
-					"Removed course name"				: removingItem['Course name'],
-					"Removed course URL"				: removingItem['Course URL'],
-					"Removed course category"			: removingItem['Course category'],
-					"Removed course partner"			: removingItem['Course partner'],
-					"Removed course price"				: removingItem['Course price'],
+					"Removed course name"				: removingItem['course_name'],
+					"Removed course URL"				: removingItem['course_url'],
+					"Removed course category"			: removingItem['course_category'],
+					"Removed course partner"			: removingItem['course_partner'],
+					"Removed course price"				: removingItem['course_price'],
 					"Starting cart value"				: totalAmount,
 					"Resulting cart value"				: resultingAmont,
-					"Removed course age group"			: removingItem['Age group'],
-					"Removed course duration"			: removingItem['Course duration'],
-					"Removed course session duration"	: removingItem['Session duration'],
-					"Removed Category ID"				: removingItem['Category ID'],
-					"Removed Course ID"					: removingItem['Course ID'],
-					"Removed Wishlisted course?"		: removingItem['Wishlisted course'],
+					"Removed course age group"			: removingItem['age_group'],
+					"Removed course duration"			: removingItem['course_duration'],
+					"Removed course session duration"	: removingItem['session_duration'],
+					"Removed Category ID"				: removingItem['category_id'],
+					"Removed Course ID"					: removingItem['course_id'],
+					"Removed Wishlisted course"			: removingItem['wishlisted_course'],
 				});
 
 				let removeFromCartObj = {
@@ -322,6 +341,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"items"	: removeFromCartItem,
 					}
 				};
+
 				dataLayer.push(removeFromCartObj);
 			});
 		});

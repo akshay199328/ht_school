@@ -950,50 +950,37 @@ add_filter('woocommerce_checkout_fields', function($fields) {
 });
 
 // Add Checkboxes
-add_action('woocommerce_after_checkout_billing_form', 'my_custom_checkout_fields');
-function my_custom_checkout_fields($checkout)
-{
-  echo '<p>'.__('Where Did You Hear About Course(s)*? ').'</p>';
-    woocommerce_form_field('check_confirm1', array(
-        'type' => 'checkbox',
-        'class' => array('input-checkbox'),
-        'label' => __('Online Platform'),
-        'required' => true,
-    ), WC()->checkout->get_value('check_confirm1'));
-     
+add_action('woocommerce_before_checkout_billing_form', 'new_checkout_field');
 
-    woocommerce_form_field('check_confirm2', array(
-        'type' => 'checkbox',
-        'class' => array('input-checkbox'),
-        'label' => __('School'),
-        'required' => true,
-    ), WC()->checkout->get_value('check_confirm2'));
-     
+function new_checkout_field( $checkout ) {
+    woocommerce_form_field( 'customer_view', array(
+    'type'      => 'radio',
+    'class'     => array( 'form-row-wide', 'update_totals_on_change' ),
+    'options'   => array('Online Platform' => 'Online Platform','School' => 'School',),
+    'label'     => __("Where did you hear about this course(s)?"),
+    'required'  =>true,
+    ), $checkout->get_value('customer_view'));
 }
 
-// Process the checkout
-add_action('woocommerce_checkout_process', 'my_custom_checkout_fields_process');
-function my_custom_checkout_fields_process()
-{
-    if (!$_POST['check_confirm1'] && !$_POST['check_confirm2']) {
-        wc_add_notice(__('Please Select One Checkbox Option'), 'error');
-    }
-     
-    /*if (!$_POST['school_confirm']) {
-        wc_add_notice(__('Please Select One Option'), 'error');
-    }*/
+
+// Validation
+add_action('woocommerce_after_checkout_validation', 'custom_field_validate');
+
+function custom_field_validate() {
+   if (!$_POST['customer_view']) { 
+  wc_add_notice(__('Please select required field.') , 'error'); 
+   }
 }
 
-//Update the order meta with field values
-add_action('woocommerce_checkout_update_order_meta', 'my_custom_checkout_fields_update_order_meta');
-function my_custom_checkout_fields_update_order_meta($order_id)
-{
-    if ($_POST['check_confirm1']) {
-        update_post_meta($order_id, 'check_confirm1', esc_attr($_POST['check_confirm1']));
-    }
-    if ($_POST['check_confirm2']) {
-        update_post_meta($order_id, 'check_confirm2', esc_attr($_POST['check_confirm2']));
-    }
+
+// Update order meta with field values
+
+add_action( 'woocommerce_checkout_update_order_meta', 'save_customer_view' );
+
+function save_customer_view($order_id) {
+  if ( !empty( $_POST['customer_view'] ) ) {
+      update_post_meta( $order_id, 'Customer View', $_POST['customer_view']);
+  }
 }
 
 

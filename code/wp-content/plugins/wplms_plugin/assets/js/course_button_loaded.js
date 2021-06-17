@@ -6871,7 +6871,8 @@
         }), sr("span", null, window.wplms_course_data.translations.previous_unit)) : ""), sr("div", {
             className: "unit_next navigate_unit",
             onClick: () => {
-                Z("next")
+                se();
+                Z("next");
             }
         }, f.next ? sr(or, null, sr("span", null, window.wplms_course_data.translations.next_unit), sr("span", {
             className: "vicon vicon-angle-right"

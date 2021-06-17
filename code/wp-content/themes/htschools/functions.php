@@ -1126,7 +1126,7 @@ function save_custom_profile(){
           FROM ht_users INNER JOIN ht_usermeta
           ON ht_users.ID = ht_usermeta.user_id
           WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name ='" . esc_attr($_REQUEST['user_school_data']) . "'");
-        $school_name = str_replace(',', '', $_REQUEST['user_school_data']);
+        $school_name = str_replace(',', ' ', $_REQUEST['user_school_data']);
         if(count($results) == 0){
           $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login, 
           user_nicename, display_name) VALUES ( 
@@ -1145,6 +1145,9 @@ function save_custom_profile(){
 
           $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$userid.",'first_name','".$school_name."')");
           $wpdb->query($sql1);
+
+          $sql2 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$userid.",'type','Manual')");
+          $wpdb->query($sql2);
         }
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));

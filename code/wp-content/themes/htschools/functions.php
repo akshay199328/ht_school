@@ -971,7 +971,6 @@ function get_the_term_list_search( $post_id, $taxonomy, $before = '', $sep = '',
     $links[] = '<a href="' . $homeurl . '" rel="tag">' . $term->name . '</a>';
   }
 
-
 // Add Checkboxes
 add_action('woocommerce_after_checkout_billing_form', 'my_custom_checkout_fields');
 function my_custom_checkout_fields($checkout)
@@ -1018,6 +1017,16 @@ function my_custom_checkout_fields_update_order_meta($order_id)
         update_post_meta($order_id, 'check_confirm2', esc_attr($_POST['check_confirm2']));
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -74,6 +74,7 @@ body {
 .page-template-all-courses .courses-wrapper .progress_key_2,
 .home-page .courses-wrapper .progress_key_2,
 .home-page .courses-wrapper .progress_key_1,
+.home-page .courses-wrapper .the_course_button .course_button,
 .page-template-all-courses a.course_button,
 .page-template-all-courses .course_button > a,
 .page-template-all-courses button.course_button {
@@ -97,6 +98,7 @@ body {
 .page-template-all-courses .courses-wrapper .progress_key_2:hover,
 .home-page .courses-wrapper .progress_key_2:hover,
 .home-page .courses-wrapper .progress_key_1:hover,
+.home-page .courses-wrapper .the_course_button .course_button:hover,
 .page-template-all-courses a.course_button:hover,
 .page-template-all-courses .course_button > a:hover,
 .page-template-all-courses button.course_button:hover {
@@ -108,6 +110,7 @@ body {
 .page-template-all-courses .courses-wrapper .progress_key_2.progress_key_2,
 .home-page .courses-wrapper .progress_key_2.progress_key_2,
 .home-page .courses-wrapper .progress_key_1.progress_key_2,
+.home-page .courses-wrapper .the_course_button .course_button.progress_key_2,
 .page-template-all-courses a.course_button.progress_key_2,
 .page-template-all-courses .course_button > a.progress_key_2,
 .page-template-all-courses button.course_button.progress_key_2 {
@@ -2541,6 +2544,7 @@ body.search-results section#title {
 
 .school-wrapper .section-copy .section-head .medium-title {
   margin-bottom: 0;
+  color: #000;
 }
 
 .school-wrapper .section-copy .section-head .right {
@@ -2658,6 +2662,9 @@ body.search-results section#title {
   }
   .school-wrapper .section-copy .courses-wrapper .column {
     width: 100%;
+  }
+  .school-wrapper .section-copy .courses-wrapper .column .course-hero {
+    margin-bottom: 0;
   }
   .school-wrapper .section-copy .courses-wrapper .column .course-hero img {
     max-height: 80px;

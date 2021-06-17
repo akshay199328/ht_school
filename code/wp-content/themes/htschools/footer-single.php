@@ -1231,7 +1231,42 @@ border: 1px solid deepskyblue;
     jQuery('.new-footer .screen-reader-response').hide();
   }, false );
 
+    jQuery(document).ready(function(){
+      jQuery('.the_course_button').click(function(){
+          if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 
+              var addToCartItem = [];
+              let courseID = jQuery(this).attr('data-id');
+
+              addToCartItem.push({
+                  "User identifier"   : jQuery("user_identifier").val(),
+                  "Session source"    : jQuery("session_source").val(),
+                  "Timestamp"         : jQuery("timestamp").val(),
+                  "UTM tags"          : jQuery("utm_tags").val(),
+                  "Course name"       : jQuery("course_name_" + courseID).val(),
+                  "Course URL"        : jQuery("course_url_" + courseID).val(),
+                  "Course category"   : jQuery("course_category_" + courseID).val(),
+                  "Course partner"    : jQuery("course_partner_" + courseID).val(),
+                  "Category ID"       : jQuery("category_id_" + courseID).val(),
+                  "Course ID"         : jQuery("course_id_" + courseID).val(),
+                  "Course price"      : jQuery("course_price_" + courseID).val(),
+                  "Age group"         : jQuery("age_group_" + courseID).val(),
+                  "Course duration"   : jQuery("course_duration_" + courseID).val(),
+                  "Session duration"  : jQuery("session_duration_" + courseID).val(),
+                  "Wishlisted course" : jQuery("wishlisted_course_" + courseID).val(),
+              });
+
+              let beginCheckoutObj = {
+                  "event"     : 'add_to_cart',
+                  "ecommerce" : {
+                      "items" : addToCartItem,
+                  }
+              };
+
+              dataLayer.push(beginCheckoutObj);
+          }
+      });
+    });
 </script>
 
 <?php

@@ -92,6 +92,7 @@ get_header(vibe_get_header());
         <a href="<?php echo get_home_url();?>/courses/" class="large-button">Discover All Courses</a>
     </div>
       <?php
+        $user = wp_get_current_user();
           $featured_args_course = array(
             'post_type' => 'course',
             'post_status' => 'publish',
@@ -144,6 +145,20 @@ get_header(vibe_get_header());
             $session = $custom_fields['vibe_course_sessions'][0];
             $age_limit = $custom_fields['vibe_course_age_group'][0];
             $category_array = get_the_terms( $post->ID, 'course-cat');
+            $courseID = $post->ID;
+            $courseslug=get_site_url().'/?p='.$courseID;
+            $usersFavorites = wpfp_get_users_favorites();
+            $coursePartner = "";
+
+              $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+              if ($cb_course_id) {
+                $coursePartner = "Celebrity School";
+              }
+
+              $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+              if ($aiws_course_id) {
+                $coursePartner = "AIWS";
+              }
             if($i%4 == 0){
               if ($i != 0){
           ?>
@@ -211,6 +226,18 @@ get_header(vibe_get_header());
                     <?php }?>
                 </li>
             </ul>
+            <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+            <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
+            <input type="hidden" id="course_category_<?php echo $courseID;?>" value="<?php echo $category_array[0]->name;?>">
+            <input type="hidden" id="course_partner_<?php echo $courseID;?>" value="<?php echo $coursePartner;?>">
+            <input type="hidden" id="category_id_<?php echo $courseID;?>" value="<?php echo $category_array[0]->term_id;?>">
+            <input type="hidden" id="course_id_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+            <input type="hidden" id="course_price_<?php echo $courseID;?>" value="0">
+            <input type="hidden" id="course_tax_<?php echo $courseID;?>" value="0">
+            <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
+            <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
+            <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
+            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? true : false;?>">
             <div class="action">
                 <div class="price"><?php the_course_price(); ?></div>
                 <?php the_course_button(); ?>
@@ -219,6 +246,10 @@ get_header(vibe_get_header());
         </div>
       <?php $i++; }}?>
     </div>
+      <input type="hidden" id="user_identifier" value="<?php echo $user->ID;?>">
+      <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
+      <input type="hidden" id="session_source">
+      <input type="hidden" id="utm_tags">
     </div>
   </div>
 </section>
@@ -264,7 +295,7 @@ get_header(vibe_get_header());
           'post_type' => 'post',
           'post_status' => 'publish',
           //'category_name' => 'Expert','Interview','Featured',
-          'posts_per_page' => 10,
+          'posts_per_page' => 8,
           'order'=>'DESC',
         );
         $Query = new WP_Query( $args );

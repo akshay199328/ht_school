@@ -55,6 +55,21 @@ vibe_include_template("profile/top$profile_layout.php");
       $category_array = get_the_terms( $post->ID, 'course-cat');
       $excerpt = get_post_field('post_excerpt', $post->ID);
       $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+      $courseID = $post->ID;
+      $courseslug=get_site_url().'/?p='.$courseID;
+      $usersFavorites = wpfp_get_users_favorites();
+      $user = wp_get_current_user();
+      $coursePartner = "";
+
+        $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+        if ($cb_course_id) {
+          $coursePartner = "Celebrity School";
+        }
+
+        $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+        if ($aiws_course_id) {
+          $coursePartner = "AIWS";
+        }
       if($post->post_type == "course"){
         ?>
         <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
@@ -161,7 +176,18 @@ vibe_include_template("profile/top$profile_layout.php");
                     </tr>
                   </tbody>
                 </table>
-                
+                <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+                <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
+                <input type="hidden" id="course_category_<?php echo $courseID;?>" value="<?php echo $category_array[0]->name;?>">
+                <input type="hidden" id="course_partner_<?php echo $courseID;?>" value="<?php echo $coursePartner;?>">
+                <input type="hidden" id="category_id_<?php echo $courseID;?>" value="<?php echo $category_array[0]->term_id;?>">
+                <input type="hidden" id="course_id_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+                <input type="hidden" id="course_price_<?php echo $courseID;?>" value="0">
+                <input type="hidden" id="course_tax_<?php echo $courseID;?>" value="0">
+                <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
+                <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
+                <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
+                <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? true : false;?>">
             </div>
         </div>
       <?php }
@@ -175,6 +201,10 @@ vibe_include_template("profile/top$profile_layout.php");
     <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
   </div>
 <?php }?>
+  <input type="hidden" id="user_identifier" value="<?php echo $user->ID;?>">
+  <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
+  <input type="hidden" id="session_source">
+  <input type="hidden" id="utm_tags">
 </div>
 </div>
 <!-- <div class="right_feedback">

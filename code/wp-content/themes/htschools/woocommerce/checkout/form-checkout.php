@@ -42,7 +42,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 			<div class="col-sm-12 col-md-6 col-lg-4">
 				
-	
 				<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
 				<div id="order_review" class="woocommerce-checkout-review-order custom_checkoutTable">

@@ -948,28 +948,6 @@ add_filter('woocommerce_checkout_fields', function($fields) {
   // Send the fields to the function that receives the fields data
   return $fields;
 });
-function get_the_term_list_search( $post_id, $taxonomy, $before = '', $sep = '', $after = '' ) {
-  $terms = get_the_terms( $post_id, $taxonomy );
-
-  if ( is_wp_error( $terms ) ) {
-    return $terms;
-  }
-
-  if ( empty( $terms ) ) {
-    return false;
-  }
-
-  $links = array();
-
-  foreach ( $terms as $term ) {
-    $link = get_term_link( $term, $taxonomy );
-
-    $homeurl=get_home_url().'/?s='.$term->name;
-    if ( is_wp_error( $link ) ) {
-      return $link;
-    }
-    $links[] = '<a href="' . $homeurl . '" rel="tag">' . $term->name . '</a>';
-  }
 
 // Add Checkboxes
 add_action('woocommerce_after_checkout_billing_form', 'my_custom_checkout_fields');
@@ -1020,13 +998,28 @@ function my_custom_checkout_fields_update_order_meta($order_id)
 
 
 
+function get_the_term_list_search( $post_id, $taxonomy, $before = '', $sep = '', $after = '' ) {
+  $terms = get_the_terms( $post_id, $taxonomy );
 
+  if ( is_wp_error( $terms ) ) {
+    return $terms;
+  }
 
+  if ( empty( $terms ) ) {
+    return false;
+  }
 
+  $links = array();
 
+  foreach ( $terms as $term ) {
+    $link = get_term_link( $term, $taxonomy );
 
-
-
+    $homeurl=get_home_url().'/?s='.$term->name;
+    if ( is_wp_error( $link ) ) {
+      return $link;
+    }
+    $links[] = '<a href="' . $homeurl . '" rel="tag">' . $term->name . '</a>';
+  }
 
 
 

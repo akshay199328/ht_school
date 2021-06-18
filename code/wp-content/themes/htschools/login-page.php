@@ -24,6 +24,8 @@ if(empty($id)){
     $id = get_the_ID();
 }
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'full' );
+
+$userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
 ?>
 <!-- <style>header,footer,#headertop,#footerbottom{display:none;}</style> -->
 <style type="text/css">
@@ -432,9 +434,27 @@ jQuery(window).load(function(){
                         var session = sessionStorage.getItem('bp_user');
                         var result = jQuery.parseJSON(session);
                         var login_url = sessionStorage.getItem('login_url');
-                        /*ga('send', 'event', 'Signup', 'successful', result['user_id']);
 
+                        /*ga('send', 'event', 'Signup', 'successful', result['user_id']);
                         console.log(login_url);*/
+
+                        let signUpObj = {
+                          "event"   : 'sign_up',
+                          "ecommerce" : {
+                            "User identifier": result['ID'],
+                            "Session source" : "",
+                            "UTM tags"       : "",
+                            "Timestamp"      : "<?php echo date('c', time()); ?>",
+                            "Signed up on"   : "<?php echo date('c', time()); ?>",
+                            "Sign up source" : "web",
+                            "Email"          : result['user_email'],
+                            "Phone number"   : result['mobile'],
+                            "Status"         : "success",
+                            "Failure reason" : "",
+                          }
+                        };
+                        dataLayer.push(signUpObj);
+
                         if(login_url == 1){
                           window.setTimeout(function() {
                             window.location.href = site_url + '/members-directory/' + result['user_nicename'];
@@ -524,6 +544,24 @@ jQuery(window).load(function(){
                           jQuery("#login-step-2").show();
                           startTimer();
                       }else{
+
+                          let logInObj = {
+                            "event"   : 'log_in',
+                            "ecommerce" : {
+                              "User identifier": "<?php echo $userIdentifier; ?>",
+                              "Session source" : "",
+                              "UTM tags"       : "",
+                              "Timestamp"      : "<?php echo date('c', time()); ?>",
+                              "Signed up on"   : "<?php echo date('c', time()); ?>",
+                              "Sign up source" : "web",
+                              "Email"          : jQuery('#email').val(),
+                              "Phone number"   : "",
+                              "Status"         : "failure",
+                              "Failure reason" : response.message,
+                            }
+                          };
+                          dataLayer.push(logInObj);
+
                           jQuery("#ht_otp_error").html(response.message);
                           jQuery("#ht_otp_error").show();
                           setTimeout(function(){
@@ -639,8 +677,21 @@ jQuery(window).load(function(){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
 
-                        /*var user = jQuery.parseJSON(response.user);
-                        ga('send', 'event', 'Login', 'successful', user.ID);*/
+                        var user = jQuery.parseJSON(response.user);
+                        /*ga('send', 'event', 'Login', 'successful', user.ID);*/
+
+                        let logInObj = {
+                          "event"   : 'log_in',
+                          "ecommerce" : {
+                            "User identifier": user.ID,
+                            "Session source" : "",
+                            "UTM tags"       : "",
+                            "Timestamp"      : "<?php echo date('c', time()); ?>",
+                            "Log in on"      : "<?php echo date('c', time()); ?>",
+                            "Login type"     : "email",
+                          }
+                        };
+                        dataLayer.push(logInObj);
 
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);

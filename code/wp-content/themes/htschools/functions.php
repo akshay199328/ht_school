@@ -774,6 +774,7 @@ function reg_verify_mob_otp(){
             wp_set_auth_cookie( $user_id );
             do_action( 'wp_login', $user->user_login, $user);
             $userData = $user->data;
+            $userData->mobile =  $userMobile;
             $userData->avatar =  get_avatar_url( $user->ID );
            // $userData->profile_link = get_edit_profile_url($user->ID);
             $response['user'] = json_encode($userData);

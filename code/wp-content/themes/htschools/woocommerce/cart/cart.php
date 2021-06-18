@@ -189,7 +189,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						?>
 
 						<?php do_action( 'woocommerce_cart_contents' ); ?>
-						<?php /*
+						
 						<tr>
 							<td colspan="6" class="actions coupon_td">
 
@@ -207,7 +207,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 							</td>
 						</tr>
 
-						*/?>
+						
 
 						<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 					</tbody>

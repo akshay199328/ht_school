@@ -2804,3 +2804,20 @@ return $headers;
 
 add_filter( 'nocache_headers', 'no_cache_with_no_store', 9999 );
 
+add_filter('woocommerce_coupon_is_valid', function ($result, $coupon) {
+    if (null === WC()->cart) {
+        return $result;
+    }
+
+    $user = wp_get_current_user();
+    $restricted_emails = $coupon->get_email_restrictions();
+
+    if (count($restricted_emails) > 0) {
+        return WC()->cart->is_coupon_emails_allowed(
+            [$user->user_email],
+            $restricted_emails
+        );
+    } else {
+        return $result;
+    }
+}, 10, 2);

@@ -56,15 +56,7 @@ if(!empty($course_curriculum)){
 	<div class="col-sm-12 col-lg-6 pull-left video-wrap">
         <div class="card">
 
-            <div class="col-sm-12 mrg">
-                <div class="co-sm-12 mrg">
-                <?php 
-
-                if($lesson_units['vibe_type'] == 'play'){ ?>
-                  <span class="Lpink default-background"><i class="<?php echo vibe_sanitizer($lesson_units['icon'],'text'); ?>"></i> Video</span>
-                  <?php }?>
-                </div>
-            </div>
+            
             <!-- <h5><?php echo apply_filters('wplms_curriculum_course_lesson',(!empty($lesson['link'])?'<a href="'.$lesson_units['link'].'">':''). $lesson_units['title']. (!empty($lesson_units['link'])?'</a>':''),$lesson_units['id'],$id); ?></h5> -->
             <?php $video = get_post_meta($course_units_array[$counter]['id'],'vibe_video',true);
 	            if(strlen(trim($video))) {
@@ -86,9 +78,6 @@ if(!empty($course_curriculum)){
         		wp_trim_words(strip_tags($sub_title), 5, NULL);*/
 
         		 }?>
-            <div class="progressbar-circle">
-              	<?php echo vibe_sanitizer($lesson_units['duration']); ?>
-            </div>
             <div class="progressbar-full">
             	<div class="pull-left">
             		<div class="progress_new">

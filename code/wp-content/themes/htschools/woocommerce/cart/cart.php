@@ -256,7 +256,16 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				var beginCheckoutItems	= [];
 				var cartViewedItems		= [];
 
-				for (var i = 0; i < totalItems; i++) {
+				beginCheckoutItems.push({
+					"user_identifier"		: allItems[0]["user_identifier"],
+					"session_source"		: allItems[0]["session_source"],
+					"timestamp"				: allItems[0]["timestamp"],
+					"utm_tags"				: allItems[0]["utm_tags"],
+					"courses_in_cart"		: totalItems,
+					"original_cart_value"	: totalAmount,
+				});
+
+				/*for (var i = 0; i < totalItems; i++) {
 					cartViewedItems.push({
 						"Item count"		: totalItems,
 						"Course name"		: allItems[i]["course_name"],
@@ -272,16 +281,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					});
 				}
 
-				beginCheckoutItems.push({
-					"User identifier"		: allItems[0]["user_identifier"],
-					"Session source"		: allItems[0]["session_source"],
-					"Timestamp"				: allItems[0]["timestamp"],
-					"UTM tags"				: allItems[0]["utm_tags"],
-					"Courses in cart"		: totalItems,
-					"Original cart value"	: totalAmount,
-				});
-
-				/*let cartViewedObj = {
+				let cartViewedObj = {
 					"event"		: 'cart_viewed',
 					"ecommerce"	: {
 						"items"	: cartViewedItems,
@@ -315,24 +315,24 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				var resultingAmont	= totalAmount - removingItem['Course price'];
 
 				removeFromCartItem.push({
-					"User identifier"					: removingItem['user_identifier'],
-					"Session source"					: removingItem['session_source'],
-					"Timestamp"							: '<?php echo date('c', time()); ?>',
-					"UTM tags"							: "",
-					"All cart items"					: totalItems,
-					"Removed course name"				: removingItem['course_name'],
-					"Removed course URL"				: removingItem['course_url'],
-					"Removed course category"			: removingItem['course_category'],
-					"Removed course partner"			: removingItem['course_partner'],
-					"Removed course price"				: removingItem['course_price'],
-					"Starting cart value"				: totalAmount,
-					"Resulting cart value"				: resultingAmont,
-					"Removed course age group"			: removingItem['age_group'],
-					"Removed course duration"			: removingItem['course_duration'],
-					"Removed course session duration"	: removingItem['session_duration'],
-					"Removed Category ID"				: removingItem['category_id'],
-					"Removed Course ID"					: removingItem['course_id'],
-					"Removed Wishlisted course"			: removingItem['wishlisted_course'],
+					"user_identifier"					: removingItem['user_identifier'],
+					"session_source"					: removingItem['session_source'],
+					"timestamp"							: '<?php echo date('c', time()); ?>',
+					"utm_tags"							: "",
+					"all_cart_items"					: totalItems,
+					"removed_item_name"					: removingItem['course_name'],
+					"removed_course_url"				: removingItem['course_url'],
+					"removed_item_category"				: removingItem['course_category'],
+					"removed_course_partner"			: removingItem['course_partner'],
+					"removed_item_price"				: removingItem['course_price'],
+					"starting_cart_value"				: totalAmount,
+					"resulting_cart_value"				: resultingAmont,
+					"removed_course_age_group"			: removingItem['age_group'],
+					"removed_course_duration"			: removingItem['course_duration'],
+					"removed_course_session_duration"	: removingItem['session_duration'],
+					"removed_category_id"				: removingItem['category_id'],
+					"removed_item_id"					: removingItem['course_id'],
+					"removed_wishlisted_course"			: removingItem['wishlisted_course'],
 				});
 
 				let removeFromCartObj = {

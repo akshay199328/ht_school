@@ -1248,21 +1248,21 @@ border: 1px solid deepskyblue;
 				let courseID = jQuery(this).attr('data-id');
 
 				addToCartItem.push({
-					"User identifier"	: jQuery("#user_identifier").val(),
-					"Session source"	: jQuery("#session_source").val(),
-					"Timestamp"			: jQuery("#timestamp").val(),
-					"UTM tags"			: jQuery("#utm_tags").val(),
-					"Course name"		: jQuery("#course_name_" + courseID).val(),
-					"Course URL"		: jQuery("#course_url_" + courseID).val(),
-					"Course category"	: jQuery("#course_category_" + courseID).val(),
-					"Course partner"	: jQuery("#course_partner_" + courseID).val(),
-					"Category ID"		: jQuery("#category_id_" + courseID).val(),
-					"Course ID"			: jQuery("#course_id_" + courseID).val(),
-					"Course price"		: jQuery("#course_price_" + courseID).val(),
-					"Age group"			: jQuery("#age_group_" + courseID).val(),
-					"Course duration"	: jQuery("#course_duration_" + courseID).val(),
-					"Session duration"	: jQuery("#session_duration_" + courseID).val(),
-					"Wishlisted course"	: jQuery("#wishlisted_course_" + courseID).val() == "1" ? true : false,
+					"item_name"			: jQuery("#course_name_" + courseID).val(),
+					"item_id"			: jQuery("#course_id_" + courseID).val(),
+					"price"				: jQuery("#course_price_" + courseID).val(),
+					"item_category"		: jQuery("#course_category_" + courseID).val(),
+					"user_identifier"	: jQuery("#user_identifier").val(),
+					"session_source"	: jQuery("#session_source").val(),
+					"timestamp"			: jQuery("#timestamp").val(),
+					"utm_tags"			: jQuery("#utm_tags").val(),
+					"course_url"		: jQuery("#course_url_" + courseID).val(),
+					"course_partner"	: jQuery("#course_partner_" + courseID).val(),
+					"category_id"		: jQuery("#category_id_" + courseID).val(),
+					"age_group"			: jQuery("#age_group_" + courseID).val(),
+					"course_duration"	: jQuery("#course_duration_" + courseID).val(),
+					"session_duration"	: jQuery("#session_duration_" + courseID).val(),
+					"wishlisted_course"	: jQuery("#wishlisted_course_" + courseID).val() == "1" ? true : false,
 				});
 
 				let beginCheckoutObj = {
@@ -1282,20 +1282,20 @@ border: 1px solid deepskyblue;
 			let courseID = jQuery(this).attr('data-id');
 
 			addToWishlistItem.push({
-				"User identifier"	: jQuery("#user_identifier").val(),
-				"Session source"	: jQuery("#session_source").val(),
-				"Timestamp"			: jQuery("#timestamp").val(),
-				"UTM tags"			: jQuery("#utm_tags").val(),
-				"Course name"		: jQuery("#course_name_" + courseID).val(),
-				"Course URL"		: jQuery("#course_url_" + courseID).val(),
-				"Course category"	: jQuery("#course_category_" + courseID).val(),
-				"Course partner"	: jQuery("#course_partner_" + courseID).val(),
-				"Category ID"		: jQuery("#category_id_" + courseID).val(),
-				"Course ID"			: jQuery("#course_id_" + courseID).val(),
-				"Course price"		: jQuery("#course_price_" + courseID).val(),
-				"Age group"			: jQuery("#age_group_" + courseID).val(),
-				"Course duration"	: jQuery("#course_duration_" + courseID).val(),
-				"Session duration"	: jQuery("#session_duration_" + courseID).val(),
+				"user_identifier"	: jQuery("#user_identifier").val(),
+				"session_source"	: jQuery("#session_source").val(),
+				"timestamp"			: jQuery("#timestamp").val(),
+				"utm_tags"			: jQuery("#utm_tags").val(),
+				"item_name"			: jQuery("#course_name_" + courseID).val(),
+				"course_url"		: jQuery("#course_url_" + courseID).val(),
+				"item_category"		: jQuery("#course_category_" + courseID).val(),
+				"course_partner"	: jQuery("#course_partner_" + courseID).val(),
+				"category_id"		: jQuery("#category_id_" + courseID).val(),
+				"item_id"			: jQuery("#course_id_" + courseID).val(),
+				"price"				: jQuery("#course_price_" + courseID).val(),
+				"age_group"			: jQuery("#age_group_" + courseID).val(),
+				"course_duration"	: jQuery("#course_duration_" + courseID).val(),
+				"session_duration"	: jQuery("#session_duration_" + courseID).val(),
 			});
 
 			let addWishlistObj = {

@@ -1119,22 +1119,28 @@ function save_custom_profile(){
           user_nicename, display_name) VALUES ( 
           '".$school_name."', '".$_REQUEST['user_school_data']."', '".$_REQUEST['user_school_data']."')");
           $wpdb->query($user_insert);
-          $userid = $wpdb->insert_id;
-          $_REQUEST['user_school'] = $userid;
+          $schoolID = $wpdb->insert_id;
           $tablename = $wpdb->prefix . "usermeta";
 
-          $userID     = $userid; //string value use: %s
+          $userID     = $schoolID; //string value use: %s
           $userRole    = "ht_capabilities"; //string value use: %s
           $meta_value    = 'a:1:{s:6:"school";b:1;}'; //numeric value use: %d
 
           $sql = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (%s, %s, %s)", $userID, $userRole, $meta_value);
           $wpdb->query($sql);
 
-          $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$userid.",'first_name','".$school_name."')");
+          $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'first_name','".$school_name."')");
           $wpdb->query($sql1);
 
-          $sql2 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$userid.",'type','Manual')");
+          $sql2 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'type','Manual')");
           $wpdb->query($sql2);
+          $sql3 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$user_id.",'Linked School',".$schoolID.")");
+          $wpdb->query($sql3);
+          $sql4 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'nickname','".$school_name."')");
+          $wpdb->query($sql4);
+        }
+        else{
+          $schoolID = trim($_REQUEST['user_school']);
         }
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
@@ -1142,7 +1148,7 @@ function save_custom_profile(){
         xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
         xprofile_set_field_data('State', $user_id, trim($_REQUEST['user_state']));
         xprofile_set_field_data('City', $user_id, trim($_REQUEST['user_city']));
-        xprofile_set_field_data('Linked School', $user_id, trim($_REQUEST['user_school']));
+        xprofile_set_field_data('Linked School', $user_id, $schoolID);
         xprofile_set_field_data('Grade', $user_id, trim($_REQUEST['grade']));
         xprofile_set_field_data('Division', $user_id, trim($_REQUEST['division']));
 

@@ -2753,6 +2753,12 @@ body.search-results section#title {
   }
 }
 
+@media (min-width: 767px) {
+  .school-wrapper .partner-form .recaptcha {
+    margin-left: -30px;
+  }
+}
+
 .inner-banner {
   background-color: #D5EBFF;
   padding: 39px 0;

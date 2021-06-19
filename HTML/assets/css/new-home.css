@@ -2746,9 +2746,25 @@ body.search-results section#title {
   color: #A2A0A0;
 }
 
+.school-wrapper .partner-form .form-group .wpcf7-not-valid-tip, .school-wrapper .partner-form label .wpcf7-not-valid-tip {
+  margin-top: 5px;
+  font-size: 13px !important;
+}
+
+.school-wrapper .partner-form #errPhoneMsg, .school-wrapper .partner-form #errFirstNameMsg, .school-wrapper .partner-form #errLastNameMsg, .school-wrapper .partner-form #errEmailMsg, .school-wrapper .partner-form #errSchoolMsg, .school-wrapper .partner-form #errCityMsg {
+  position: relative;
+  top: -20px;
+  color: #dc3232;
+  font-weight: 400;
+  letter-spacing: .4px;
+}
+
 @media (min-width: 767px) {
   .school-wrapper .partner-form .recaptcha {
     margin-left: -26px;
+  }
+  .school-wrapper .partner-form .recaptcha .wpcf7-not-valid-tip {
+    padding-left: 10px;
   }
 }
 

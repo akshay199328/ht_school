@@ -711,7 +711,7 @@
 }
 
 .course_status .course_content {
-    padding: 1rem 1rem 0;
+    padding: 0;
     flex: 5 0 220px;
     display: flex;
     width: 100%;
@@ -781,25 +781,58 @@
 }
 
 .course_status .course_content .course_content_content_wrapper h2 {
-    width: 65%;
     margin: 6px 0px 20px 0px;
-    font-size: 25px;
+    font-size: 24px;
     line-height: 1.32;
     margin-bottom: 1rem;
     font-weight: 600;
-    color: #000
+    color: #000;
+    width: 65%;
+}
+.course_status .quiz_content{
+    border: 1px solid #aeaeae;
+    padding: 20px;
+    padding-bottom: 100px;
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 300;
 }
 .course_status .quiz_content h1 {
-    font-size: 25px;
+    font-size: 24px;
     line-height: 1.32;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     color: #000;
+    font-weight: 500!important;
+}
+.course_status .quiz_content h2:first-child{
+    padding-top: 0px;
 }
 .course_status .quiz_content h2{
     font-size: 22px;
+    font-weight: 500!important;
+    padding-top: 20px;
 }
+
 .course_content .course_content_content ol li{
     color: #000
+}
+.course_status .quiz_content li{
+    padding-left: 20px;
+    position: relative;
+}
+.course_status .quiz_content li:before {
+    content: '';
+    background: url(../../assets/images/bullet.png);
+    width: 10px;
+    height: 7px;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 6px;
+}
+.course_status .quiz_content li strong{
+    font-weight: 500!important;
 }
 .course_status .course_content .course_content_content_wrapper .unit_videos {
     margin: 20px 0px;
@@ -1113,7 +1146,7 @@
     /* box-shadow: 0 1px 1px var(--border) */
 }
 /*.comment_top_heading{
-    font-size: 16px;
+	font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -1335,18 +1368,18 @@
     flex: 1;
     padding: 0em;
     font-size: 16px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.31;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
+  	font-weight: 500;
+  	font-stretch: normal;
+  	font-style: normal;
+  	line-height: 1.31;
+  	letter-spacing: normal;
+  	text-align: left;
+  	color: #000;
 }
 .course_status .course_timeline .course_action_points .search-course input::-webkit-input-placeholder{
-    font-size: 16px;
-    font-weight: 300;
-    color: #757575;
+	font-size: 16px;
+  	font-weight: 300;
+  	color: #757575;
 }
 .course_status .course_timeline .course_action_points .search-course>span {
     font-size: 11px;
@@ -1446,12 +1479,14 @@
     align-items: flex-start;
     margin: 0 !important;
     padding: 18px 29px 18px 30px;
-    border-bottom: 1px solid #E8E8E8;
+    border-top: 1px solid #E8E8E8;
     -webkit-box-align: center !important;
     -ms-flex-align: center !important;
     align-items: center !important;
 }
-
+.course_status .course_timeline>ul li:last-child{
+border-bottom: 1px solid #E8E8E8;
+}
 .course_status .course_timeline>ul li.collapsed_lesson {
     transform: scaleY(0);
     display: none
@@ -1545,7 +1580,7 @@
     margin-top: 3px;
 }
 .course_status .course_timeline>ul li.section p>span.lesson_infolist .lesson_duration{
-    margin-top:0px;
+	margin-top:0px;
 }
 .course_status .course_timeline>ul li.active {
     
@@ -1773,7 +1808,7 @@
 }
 
 .course_status .incourse .quiz_pagination_wrapper {
-    margin: 10px 0px;
+    margin: 10px 0px 0px;
     float: right;
 }
 
@@ -1797,22 +1832,22 @@
     opacity: 1;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button {
-        padding: 0;
-    width: auto;
-    height: auto;
+    padding: 0;
+    width: 30px;
+    height: 30px;
     display: inline-block;
     border-radius: 100%;
     margin: 0px;
-    font-size: 14px;
+    font-size: 15px;
     text-transform: uppercase;
     font-weight: 300;
     color: #000;
-    border: 0;
+    border: 1px solid #67C442;
     background: transparent;
     text-align: center;
-    line-height: 20px;
+    line-height: 28px;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 6px;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button:nth-child(1){
     margin-left: 0px;
@@ -1825,7 +1860,8 @@
 }
 
 .course_status .incourse .quiz_pagination_wrapper>.button.active {
-    background: #D5EBFF;
+        background: #BCF3A6;
+    border-color: #BCF3A6;
     color: #000;
     font-weight: bold;
 }
@@ -1838,11 +1874,13 @@
     top: 2px;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button.prevq  {
-    margin-right: 10px;
+    margin-right: 15px;
         float: none;
+        border: 0px!important;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button.nextq{
-    margin-left: 10px;
+    margin-left: 15px;
+    border: 0px!important;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button.faded {
     opacity: .2;
@@ -2042,7 +2080,7 @@
 .course_status .incourse .question_list{
     float: right;
     width: 45%;
-    margin-top: 15px;
+    margin-top: 20px;
     padding-left: 87px;
 }
 .course_status .incourse .question_list input{
@@ -2527,7 +2565,7 @@
     color: #000000;
 }
 .incoursequiz_details.show_controls strong .student_score,
-.student_resultmsg{display: none!important;}
+.student_resultmsg, .incoursequiz_details .student_quiz_status{display: none!important;}
 .course_status .incourse .incoursequiz_details>div .show_questions {
     display: flex;
     align-items: center
@@ -2747,7 +2785,8 @@
 }
 .course_status .incourse .quiz_questions_content {
     flex: 3 0 640px;
-    max-width: 100%
+    max-width: 100%;
+    position: relative;
 }
 
 .course_status .incourse .quiz_questions_content .question_option.radio label>div,
@@ -2763,11 +2802,41 @@
 .course_status .incourse .incourse_quiz_button {
     display: flex;
 }
+.incourse_quiz_button a.start_quiz {
+        position: absolute;
+    bottom: 3%;
+    left: 44%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.incourse_quiz_button a.submit_quiz  {
+    position: absolute;
+    bottom: 0%;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
 
+}
 .course_status .incourse .incourse_quiz_button a {
     text-align: center;
-    width: 115px;
-    margin: 0.25rem;
+    width: auto;
+    margin:0 0 0 5px;
+    background: #000;
+    font-weight: bold;
+    color: #D5ebff;
+    line-height: 20px;
+    padding: 13px 30px;
+    cursor: pointer;
 }
 
 .course_status .incourse .quiz_retake {
@@ -3373,12 +3442,19 @@ a.button.is-primary {
     display: flex
 }
 .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{
-    display: block;
-    float: right;
+    display: flex;
+    float: left;
     background: #D5EBFF;
-    width: 100%;
+    width: 85%;
+    height: 45px;
     text-align: right;
-    padding: 12px 17px;
+    padding: 0;
+    margin-top: 25px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: space-around;
+    padding: 0px 17px;
 }
 .buttons.has-addons.small>.button {
     background: none;
@@ -3514,7 +3590,7 @@ a.button.is-primary {
     border-color: var(--primary)
 }
 .course_instructions_popup{
-        position: fixed;
+	    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -3526,10 +3602,10 @@ a.button.is-primary {
     justify-content: center;
 }
 .exampleModalPopup{
-    background: #fff;
-    padding: 0px;
-    padding-bottom: 30px;
-    position: relative;
+	background: #fff;
+	padding: 0px;
+	padding-bottom: 30px;
+	position: relative;
 }
 .exampleModalPopup .modal-header {
         width: 100%;
@@ -3541,16 +3617,16 @@ a.button.is-primary {
 
 }
 .leftheader-logo{
-    background: url('../../assets/images/lms-logo.png');
-    position: relative;
+	background: url('../../assets/images/lms-logo.png');
+	position: relative;
     display: block;
     height: 49px;
     width: 157px;
     margin-bottom: 23px;
 }
 .header-logo{
-    background: url('../../assets/images/logo_popup_web.svg');
-    position: relative;
+	background: url('../../assets/images/logo_popup_web.svg');
+	position: relative;
     display: block;
     height: 43px;
     width: 160px;
@@ -3572,14 +3648,14 @@ a.button.is-primary {
     color: #000000;
 }
 .exampleModalPopup h1{
-    font-size: 18px;
-    font-weight: 500!important;
-    line-height: 24px;
-    color: #000;
-    padding: 21px 30px 0px;
+	font-size: 18px;
+	font-weight: 500!important;
+	line-height: 24px;
+	color: #000;
+	padding: 21px 30px 0px;
 }
 .exampleModalPopup .close{
-    opacity: 1;
+	opacity: 1;
     top: 20px;
     position: absolute;
     right: 30px;
@@ -3592,8 +3668,8 @@ a.button.is-primary {
     opacity: 1;
 }
 .exampleModalPopup .custom-list {
-    margin-top: 21px;
-    padding: 0px 30px;
+	margin-top: 21px;
+	padding: 0px 30px;
     /*list-style-image: url('../../assets/images/bullet.png');*/
 }
 .exampleModalPopup .custom-list p{
@@ -3608,9 +3684,9 @@ a.button.is-primary {
     color: #000;
 }
 .exampleModalPopup .custom-list li:before{
-    content: '';
-    background: url('../../assets/images/bullet.png');
-    position: relative;
+	content: '';
+	background: url('../../assets/images/bullet.png');
+	position: relative;
     width: 10px;
     height: 7px;
     display: flex;
@@ -3619,10 +3695,10 @@ a.button.is-primary {
     margin-right: 12px;
 }
 @media (min-width: 768px){
-    .exampleModalPopup {
-        width: 480px;
-        /*margin: 30px auto;*/
-    }
+	.exampleModalPopup {
+	    width: 480px;
+	    /*margin: 30px auto;*/
+	}
 }
 @media (max-width: 1366px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{
@@ -3651,4 +3727,35 @@ a.button.is-primary {
     .course_status .course_content .course_content_content_wrapper h2{font-size: 21px;line-height: 27px;}
     .course_status .course_timeline{background: #ffffff!important;}
     .course_status .reviewpopup_wrapper .reviewpopup_content{width: calc(100% - 0%) !important;}
+    .incourse_quiz_button{
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        display: flex;
+        padding-top: 20px;
+    }
+    .course_status .incourse .incourse_quiz_button a {margin: 0px auto!important;}
+    .incourse_quiz_button a.start_quiz, 
+    .incourse_quiz_button a.submit_quiz {
+        position: relative;
+        bottom: 0px;
+        left: 0;
+    }
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{margin-bottom:0px;width: 100%;}
+    .course_status .course_content {padding: 0px 0px 55px;}
+    .course_status .quiz_content {border: 0;padding: 0px;padding-bottom: 0px;}
+    .course_content .quiz_content  li{
+        border: 0px!important;
+        justify-content: space-between;
+        margin: 0 !important;
+        -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+        align-items: center !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .course_content .quiz_content ol li{padding: 0px 0px 18px 30px!important;}
+    .course_content .quiz_content ol li ul{margin-left: 0px;}
+    .course_status .quiz_content ol li ul li:before{display: none;}
+    .course_content .quiz_content ol li ul li{margin: 0px!important;padding: 0px!important;}
 }

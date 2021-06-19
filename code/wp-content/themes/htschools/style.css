@@ -6073,42 +6073,16 @@ h6:empty,
 }
 
 /*----------Course Journey css : START-------------*/
-.course_status .course_content {
-    padding: 0rem 0rem 0!important;
-}
-.course_status .course_content .course_content_content_wrapper{
-      /*margin-top: 2rem!important;*/
-}
-.course_content_content{
-  /*padding: 18px 30px 0!important;*/
-}
+
 .course_status_fullscreen .course_status{
   background: #ffffff!important;
 }
-.course_status .lesson_info{
-  /*opacity: 1!important;*/
-}
-.course_status .lesson_info>span+span {
-    /* margin-left: 14px!important; */
-}
-.course_status .course_content .course_content_content_wrapper h2{
-  /*line-height: 1.32!important;*/
-}
-.course_status .incourse .incoursequiz_details{
-   /* position: absolute!important;
-    top: 4rem!important;
-    right: 2%;
-    flex: 0 0 0px !important;
-    width: 24%;
-    margin: 0px!important;
-    border: 0px!important;*/
-}
+
 .course_status .incourse .incoursequiz_details .quiz_timeline{display: none!important}
 .course_status .incourse .quiztimer .timer_amount{
       font-size: 30px!important;
     font-weight: bold!important;
     line-height: 0.67!important;
-    /*text-align: center;*/
     color: #000000!important;
         justify-items: normal!important;
 }
@@ -6116,7 +6090,6 @@ h6:empty,
    font-size: 15px!important;
    font-weight: bold!important;
     line-height: 0.67!important;
-    /*text-align: center;*/
     color: #000000!important;
     margin-top: 5px;
     justify-items: normal!important;
@@ -6136,11 +6109,6 @@ h6:empty,
     letter-spacing: normal;
     text-align: left;
     color: #d5ebff;
-    /*margin: 0px!important;*/
-}
-.course_status .incourse{
-  /*border-top: 1px dotted #707070;
-    margin: 0!important;*/
 }
 .course_status .incourse .quiztimer .circle_timer .react-progress-circle {
     margin-right: 13px!important;
@@ -6152,10 +6120,6 @@ h6:empty,
     font-size: 17px !important;
     line-height: 22px !important;
     font-weight: 300 !important;
-}
-.course_status .incourse .quiz_questions_content .question_content{
-     /*   width: 37%;
-    float: left;*/
 }
 .question_content p{
       font-size: 38px!important;
@@ -7057,6 +7021,7 @@ h6:empty,
     .static_content .details{display: block!important;}
     .instructor-detailsMini .profile-content .google-adsense{margin-top:0px!important;}
     .instructor-detailsMini .profile-content .profileimg-name {width: 100% !important;}
+    
 }
 @media screen and (max-width:575px) and (min-width:320px){
   .Popular-Courses, .competitive, .latest-news, #Popular-Courses{
@@ -7804,7 +7769,6 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .course_status .course_timeline .course_heading .course_progress_wrapper{margin-top:0;}
 
 .course_status .incourse .incoursequiz_details>div{margin:0 !important;}
-.course_status .incourse .incourse_quiz_button a{margin:0 0 0 5px !important;}
 .course_status .incourse .incoursequiz_details .incourse_quiz_button > a{
   padding:14px 14px !important;height:auto !important;color:#D5EBFF !important
 }
@@ -7841,7 +7805,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .course_status .incourse .quiz_questions_content p+h6,
 .course_status .incourse .quiz_questions_content ul+h6,
 .course_status .incourse .quiz_questions_content ol+h6{/*margin-top: 30px !important;*/}
-.course_status .incourse .quiz_questions_content > div{display:flex;justify-content:space-between;flex-wrap:wrap;}
+.course_status .incourse .quiz_questions_content > div{/*display:flex;*/justify-content:space-between;flex-wrap:wrap;}
 .course_status .incourse .quiz_questions_content > div .quiz_pagination_wrapper{margin-left:auto}
 .course_status .incourse .quiz_questions_content .question{
   display:flex;flex-wrap:wrap;justify-content:space-between;margin-top:0 !important;
@@ -7855,8 +7819,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .course_status .incourse .quiz_questions_content .question .question_list .question_option{flex:0 0 49.5%;margin:0 0 10px 0}
 
 .course_status .incourse .quiz_questions_content .question .question_actions{width:100%;flex:0 0 100%;margin-bottom:0;border-bottom:none;}
-.course_status .incourse .quiz_questions_content .question .question_content,
-.course_status .incourse .quiz_questions_content .question .question_list{margin-top:0 !important;}
+.course_status .incourse .quiz_questions_content .question .question_content{margin-top:0 !important;}
 .course_status .incourse .quiz_questions_content .question_wrapper.loaded .result{}
 .course_status .incourse .question_wrapper{left:136px !important}
 

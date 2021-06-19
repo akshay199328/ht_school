@@ -28,6 +28,16 @@ vibe_include_template("profile/top$profile_layout.php");
           	<?php
 
                 $user = wp_get_current_user();
+                $userIdentifier = "";
+
+                if(isset($user->ID) && $user->ID > 0)
+                {
+                  $userIdentifier = $user->ID;
+                }
+                else if(isset($_COOKIE['PHPSESSID']))
+                {
+                  $userIdentifier = $_COOKIE['PHPSESSID'];
+                }
                 global $wpdb;    
                 $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
                     $result = $wpdb->get_results($courses_with_types);
@@ -233,7 +243,7 @@ vibe_include_template("profile/top$profile_layout.php");
                     <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
                 </div>
             <?php } ?>
-          <input type="hidden" id="user_identifier" value="<?php echo $user->ID;?>">
+          <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
           <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
           <input type="hidden" id="session_source">
           <input type="hidden" id="utm_tags">

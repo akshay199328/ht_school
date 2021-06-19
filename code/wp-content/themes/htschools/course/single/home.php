@@ -49,6 +49,17 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       $category_array = get_the_terms( $courseID, 'course-cat');
                       $courseslug=get_site_url().'/?p='.$courseID;
                       $usersFavorites = wpfp_get_users_favorites();
+                      $user = wp_get_current_user();
+                      $userIdentifier = "";
+
+                      if(isset($user->ID) && $user->ID > 0)
+                      {
+                        $userIdentifier = $user->ID;
+                      }
+                      else if(isset($_COOKIE['PHPSESSID']))
+                      {
+                        $userIdentifier = $_COOKIE['PHPSESSID'];
+                      }
                       $coursePartner = "";
 
                         $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
@@ -143,6 +154,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
             <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
+            <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
+            <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
+            <input type="hidden" id="session_source">
+            <input type="hidden" id="utm_tags">
             <div class="course-fees">
               <div class="container">
                     <h4><?php the_course_price(); ?></h4>

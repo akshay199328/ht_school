@@ -579,7 +579,7 @@ function add_unit_auto_complete() {
 <script>
 jQuery(document).ready(function ($) {
 
-$('.unit_content').on('unit_traverse',function(){
+$('.unit_next').on('unit_traverse',function(){
 
 $('.unit_progress_wrapper').trigger('click');
 

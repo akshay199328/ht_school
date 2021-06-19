@@ -4911,7 +4911,8 @@
                     value: 1,
                     max: 60
                 }];
-            if (s >= 776736e3) return window.wplms_course_data.translations.unlimited_time;
+            //if (s >= 776736e3) return window.wplms_course_data.translations.unlimited_time;
+            if (s >= 776736e3) return '';
             if (s <= 0) return e.hasOwnProperty("notimediff") ? s + " " + window.wplms_course_data.time_labels.second.multi : window.wplms_course_data.translations.just_now;
             for (let e = 0; e < l.length; e++)
                 if (n = l[e], i = e, n.value < s) {

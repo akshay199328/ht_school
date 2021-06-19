@@ -16,8 +16,6 @@ $sql .= "AND umeta.user_id IN (";
 	$sql .= "INNER JOIN {$wpdb->usermeta} AS meta ON users.ID = meta.user_id ";
 	$sql .= "WHERE meta.meta_key = 'ht_capabilities' AND meta.meta_value LIKE '%student%' ";
 $sql .= ")";
-$sql .= "AND umeta.user_id = 8635 ";
-// $sql .= "AND posts.ID = 1348";
 
 $userCourses = $wpdb->get_results($sql);
 

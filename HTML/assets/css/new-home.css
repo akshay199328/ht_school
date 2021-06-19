@@ -2440,10 +2440,6 @@ body.search-results section#title {
   }
 }
 
-.course_status .incourse .question_option {
-  min-height: auto !important;
-}
-
 .course_status .incourse .question_option label {
   width: 100%;
 }

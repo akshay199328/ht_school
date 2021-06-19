@@ -4286,14 +4286,14 @@
             }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "") : "", gn("div", {
                 className: ""
             }, t.start || t.submitted ? "" : gn("div", {
-                className: "quiz_content",
+                className: "quiz_content before_start",
                 dangerouslySetInnerHTML: {
                     __html: t && t.content ? t.content : ""
                 }
             }), !t.start && t.submitted ? gn("div", {
                 className: ""
             }, gn("div", {
-                className: "quiz_content",
+                className: "quiz_content after_start",
                 dangerouslySetInnerHTML: {
                     __html: t.meta.completion_message
                 }

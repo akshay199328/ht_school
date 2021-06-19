@@ -792,11 +792,15 @@
 .course_status .quiz_content{
     border: 1px solid #aeaeae;
     padding: 20px;
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
     border-radius: 4px;
     font-size: 17px;
     line-height: 22px;
     font-weight: 300;
+}
+.after_start{
+    border: 0px solid #aeaeae;
+    padding: 0px;
 }
 .course_status .quiz_content h1 {
     font-size: 24px;

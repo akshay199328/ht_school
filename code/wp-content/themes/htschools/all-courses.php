@@ -779,6 +779,16 @@ get_header(vibe_get_header());
                       $courseslug=get_site_url().'/?p='.$courseID;
                       $usersFavorites = wpfp_get_users_favorites();
                       $user = wp_get_current_user();
+                      $userIdentifier = "";
+
+                      if(isset($user->ID) && $user->ID > 0)
+                      {
+                        $userIdentifier = $user->ID;
+                      }
+                      else if(isset($_COOKIE['PHPSESSID']))
+                      {
+                        $userIdentifier = $_COOKIE['PHPSESSID'];
+                      }
                       $coursePartner = "";
 
                         $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
@@ -893,7 +903,7 @@ get_header(vibe_get_header());
                 <?php }} ?>
                 </div>
             </div>
-            <input type="hidden" id="user_identifier" value="<?php echo $user->ID;?>">
+            <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
             <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
             <input type="hidden" id="session_source">
             <input type="hidden" id="utm_tags">

@@ -2617,7 +2617,7 @@ body.search-results section#title {
 }
 
 .school-wrapper .section-copy .school-listing {
-  max-width: 768px;
+  max-width: 760px;
 }
 
 .school-wrapper .section-copy .courses-wrapper .column {
@@ -2693,7 +2693,7 @@ body.search-results section#title {
           flex: 1;
   background-color: #F3F8FF;
   padding: 30px;
-  max-width: 300px;
+  max-width: 310px;
 }
 
 .school-wrapper .partner-form .partner-title {
@@ -2746,10 +2746,19 @@ body.search-results section#title {
   color: #A2A0A0;
 }
 
+@media (min-width: 767px) {
+  .school-wrapper .partner-form .recaptcha {
+    margin-left: -26px;
+  }
+}
+
 @media (max-width: 767px) {
   .school-wrapper .partner-form {
     width: 100%;
     max-width: 100%;
+  }
+  .school-wrapper .partner-form .recaptcha {
+    margin-left: -10px;
   }
 }
 

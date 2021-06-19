@@ -1322,7 +1322,7 @@ function get_states(){
     global $wpdb;
 
     $response = array();
-
+    
     $results = $wpdb->get_results( "SELECT state_id, CONCAT(UPPER(SUBSTRING(state_name,1,1)),
 LOWER(SUBSTRING(state_name,2)))AS state_name FROM " . $wpdb->prefix . "state_master WHERE country_id in(select country_id from " . $wpdb->prefix . "country_master where country_name = '" . esc_attr($_REQUEST['country']) . "') AND state_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
       foreach ($results as $data) {

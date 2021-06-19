@@ -4288,7 +4288,7 @@
             }, t.start || t.submitted ? "" : gn("div", {
                 className: "quiz_content before_start",
                 dangerouslySetInnerHTML: {
-                    __html: t && t.content ? t.content+"<div class='spacing_lms'></div>" : "<div class='spacing_lms'></div>"
+                    __html: t && t.content ? t.content+"<div class='spacing_lms'></div>" : "<div class='spacing_lms_empty'></div>"
                 }
                 
             }), !t.start && t.submitted ? gn("div", {

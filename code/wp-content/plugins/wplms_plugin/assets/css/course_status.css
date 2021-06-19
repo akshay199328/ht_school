@@ -806,6 +806,13 @@
     padding: 50px;
 
 }
+.spacing_lms_empty {
+    display: block;
+    padding: 20px;
+}
+.before_start h1, .before_start p{
+    padding-bottom: 15px;
+}
 .after_start{
     border: 0!important;
     padding: 0px!important;
@@ -2817,7 +2824,7 @@ border-bottom: 1px solid #E8E8E8;
 }
 .incourse_quiz_button a.start_quiz {
         position: absolute;
-    bottom: 3%;
+    bottom: 11%;
     left: 44%;
     width: 100%;
     display: flex;
@@ -3459,7 +3466,7 @@ a.button.is-primary {
     display: flex;
     float: left;
     background: #D5EBFF;
-    width: 85%;
+    width: 84%;
     height: 45px;
     text-align: right;
     padding: 0;

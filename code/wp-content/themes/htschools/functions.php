@@ -2828,3 +2828,15 @@ add_filter('woocommerce_coupon_is_valid', function ($result, $coupon) {
         return $result;
     }
 }, 10, 2);
+
+add_action('template_redirect','redirect_product_page_to_404_page');
+function redirect_product_page_to_404_page(){
+    if (class_exists('WooCommerce')){
+        if(is_product()){
+            global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        }
+    } 
+    return;
+} 

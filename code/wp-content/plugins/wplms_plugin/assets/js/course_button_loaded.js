@@ -6579,9 +6579,10 @@
             className: "finish-course-content"
         },sr("div", {
             className: "close",
-            onClick: () => {
-                 var element = document.getElementById("remove_course_popup").remove();
-            }
+            onClick: e.back
+            // onClick: () => {
+            //      var element = document.getElementById("remove_course_popup").remove();
+            // }
         }, sr("span", {
             className: "vicon vicon-close"
         })), H.hasOwnProperty("percentage") ? sr("span", {

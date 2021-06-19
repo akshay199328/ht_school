@@ -10,9 +10,9 @@ $cronResult['cs_unique_users']			= 0;
 $cronResult['cs_courses_check']			= 0;
 $cronResult['cs_completed_courses']		= 0;
 
-function markUserCourseComplete($userID, $courseID)
+function markUserCourseComplete($userID, $courseID, $courseCurrentProgress = 0)
 {
-	$certificates = get_user_meta($userID, 'certificates', true);
+	/*$certificates = get_user_meta($userID, 'certificates', true);
 
 	if(isset($certificates) && is_array($certificates))
 	{
@@ -20,12 +20,22 @@ function markUserCourseComplete($userID, $courseID)
 	}
 	else
 	{
-	    $certificates = array($courseID);
+		$certificates = array($courseID);
 	}
+	update_user_meta($userID, "certificates", $certificates);*/
 
-	// update_user_meta($userID, "course_status" . $courseID, 4);
-	// update_user_meta($userID, "progress" . $courseID, 100);
-	update_user_meta($userID, "certificates", $certificates);
+	if($courseCurrentProgress > 0)
+	{
+		update_user_meta($userID, "progress" . $courseID, $courseCurrentProgress);
+
+		if($courseCurrentProgress == 100)
+		{
+			$marks = 100;
+			update_user_meta($userID, "course_status" . $courseID, 4);
+			update_post_meta($courseID, $userID, $marks);
+			do_action('wplms_evaluate_course', $courseID, $marks, $userID, 1);
+		}
+	}
 }
 
 // AIWS Courses
@@ -107,7 +117,7 @@ if(count($aiwsUsersList) > 0)
 						$courseInfo[$courseKey]['course_completed']	= 1;
 						$courseInfo[$courseKey]['completed_on']		= $courseStatus['completedtimestamp'];
 
-						markUserCourseComplete($userValue->user_id, $courseValue['course_id']);
+						markUserCourseComplete($userValue->user_id, $courseValue['course_id'], 100);
 					}
 				}
 			}
@@ -233,15 +243,18 @@ if(count($csUsersList) > 0)
 				$cronResult['cs_courses_check']++;
 				$courseStatus = check_cs_course_status($csEmailID, $courseValue['cs_course_id']);
 
-				if($courseStatus['status'] == "1")
+				if(isset($courseStatus['course_complete_percent']) && $courseStatus['course_complete_percent'] > 0)
 				{
+					if($courseStatus['course_complete_percent'] == 100)
+					{
+						$cronResult['cs_completed_courses']++;
+						$courseInfo[$courseKey]['course_completed'] = 1;
+					}
+
 					$hasChange = true;
-					$cronResult['cs_completed_courses']++;
+					$courseInfo[$courseKey]['course_complete_percent'] = $courseStatus['course_complete_percent'];
 
-					$courseInfo[$courseKey]['course_completed']			= 1;
-					$courseInfo[$courseKey]['course_complete_percent']	= $courseStatus['course_complete_percent'];
-
-					markUserCourseComplete($userValue->user_id, $courseValue['course_id']);
+					markUserCourseComplete($userValue->user_id, $courseValue['course_id'], $courseStatus['course_complete_percent']);
 				}
 			}
 

@@ -16,7 +16,7 @@ $sql .= "AND umeta.user_id IN (";
 	$sql .= "INNER JOIN {$wpdb->usermeta} AS meta ON users.ID = meta.user_id ";
 	$sql .= "WHERE meta.meta_key = 'ht_capabilities' AND meta.meta_value LIKE '%student%' ";
 $sql .= ")";
-// $sql .= "AND umeta.user_id = 8635 ";
+$sql .= "AND umeta.user_id = 8635 ";
 // $sql .= "AND posts.ID = 1348";
 
 $userCourses = $wpdb->get_results($sql);
@@ -71,9 +71,9 @@ if(count($userCourses) > 0)
 				}*/
 
 				// Percentage based
-				$coursePercentage = $coursePercentageLimit[$value->course_id];
+				$requiredPercentage = $coursePercentageLimit[$value->course_id];
 
-				if($coursePercentage > 0 && $currentProgress >= $coursePercentage)
+				if($requiredPercentage > 0 && $currentProgress >= $requiredPercentage)
 				{
 					$hasChange = true;
 					$userCertificates[] = $value->course_id;

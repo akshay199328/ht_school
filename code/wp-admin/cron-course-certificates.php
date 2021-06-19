@@ -16,6 +16,7 @@ $sql .= "AND umeta.user_id IN (";
 	$sql .= "INNER JOIN {$wpdb->usermeta} AS meta ON users.ID = meta.user_id ";
 	$sql .= "WHERE meta.meta_key = 'ht_capabilities' AND meta.meta_value LIKE '%student%' ";
 $sql .= ")";
+$sql .= " AND umeta.user_id = 8635 AND posts.ID = 3148";
 
 $userCourses = $wpdb->get_results($sql);
 
@@ -58,15 +59,25 @@ if(count($userCourses) > 0)
 				$currentProgress = bp_course_get_user_progress($value->user_id, $value->course_id);
 
 				// Time based
-				$courseDuration = $courseDurationLimit[$value->course_id];
+				$courseDuration		= $courseDurationLimit[$value->course_id];
+				$coursePurchasedOn	= get_user_meta($userID, 'purchased_on' . $value->course_id, true);
 
-				/*if($courseDuration > 0)
+				if($courseDuration > 0 && $coursePurchasedOn != "")
 				{
-					$hasChange = true;
-					$userCertificates[] = $value->course_id;
-					$cronResult['certificate_generated_time_based']++;
-					continue;
-				}*/
+					$diff = abs(strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', $coursePurchasedOn)));
+
+					$years	= floor($diff / (365*60*60*24));
+					$months	= floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+					$days	= floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+
+					if($days >= $courseDuration)
+					{
+						$hasChange = true;
+						$userCertificates[] = $value->course_id;
+						$cronResult['certificate_generated_time_based']++;
+						continue;
+					}
+				}
 
 				// Percentage based
 				$requiredPercentage = $coursePercentageLimit[$value->course_id];

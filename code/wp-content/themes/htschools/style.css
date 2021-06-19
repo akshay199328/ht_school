@@ -7917,7 +7917,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 .partner-wrapper .partner-header .vc_column-inner h2{font-size:40px;font-weight:400 !important}
 .page-template-contact-php .partner-wrapper .partner-header .vc_column-inner h2{font-size:27px;}
 .partner-wrapper .partner-copy{background-color:rgb(248, 248, 248);}
-.partner-wrapper .partner-copy .vc_column-inner{max-width:1118px;margin:auto !important;padding-top:30px;padding-bottom:50px;background-image:url("assets/images/partner.png");background-repeat:no-repeat;background-position:top 60px right;background-size:621px;}
+.partner-wrapper .partner-copy .vc_column-inner{max-width:1118px;margin:auto !important;padding-top:30px;padding-bottom:30px;background-image:url("assets/images/partner.png");background-repeat:no-repeat;background-position:top 60px right;background-size:621px;}
 .page-template-contact .partner-wrapper .partner-copy .vc_column-inner{background-image:url("assets/images/contact-us.png");}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper{background-color:#FFF;border:1px solid #c3c3c3;max-width:530px;padding:30px}
 .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-submit{}

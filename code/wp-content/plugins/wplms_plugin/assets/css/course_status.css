@@ -798,9 +798,18 @@
     line-height: 22px;
     font-weight: 300;
 }
+.before_start{
+    /*padding-bottom: 100px!important;*/
+}
+.spacing_lms{
+   display: block;
+    padding: 50px;
+
+}
 .after_start{
-    border: 0px solid #aeaeae;
-    padding: 0px;
+    border: 0!important;
+    padding: 0px!important;
+    padding-bottom: 0!important;
 }
 .course_status .quiz_content h1 {
     font-size: 24px;
@@ -1875,7 +1884,7 @@ border-bottom: 1px solid #E8E8E8;
     height: auto;
     max-width: fit-content;
     min-width: auto;
-    top: 2px;
+    top: 3px;;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button.prevq  {
     margin-right: 15px;
@@ -2818,6 +2827,7 @@ border-bottom: 1px solid #E8E8E8;
     flex-direction: column;
     justify-content: flex-end;
 }
+
 .incourse_quiz_button a.submit_quiz  {
     position: absolute;
     bottom: 0%;
@@ -3629,11 +3639,10 @@ a.button.is-primary {
     margin-bottom: 23px;
 }
 .header-logo{
-	background: url('../../assets/images/logo_popup_web.svg');
-	position: relative;
+	background: url('../../assets/images/logo_popup_web.svg') no-repeat;
+    position: relative;
     display: block;
     height: 43px;
-    width: 160px;
 }
 .exampleModalPopup .header-info {
     padding-top: 14px;
@@ -3703,6 +3712,33 @@ a.button.is-primary {
 	    width: 480px;
 	    /*margin: 30px auto;*/
 	}
+}
+@media screen and (max-width:1440px) and (min-width:1366px){
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 80%;}
+}
+@media screen and (max-width:1365px) and (min-width:1281px){
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 78%;}
+}
+@media screen and (max-width:1280px) and (min-width:1200px){
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 76%;}
+}
+@media screen and (max-width:1199px) and (min-width:1025px){
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 67%;}
+}
+@media screen and (max-width:1024px) and (min-width:768px){
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 100%;padding: 0px 5px;}
+    .incourse_quiz_button a.submit_quiz{    
+        bottom: initial;
+        margin-top: 20px!important;
+        top: 100%;
+        right: inherit;
+        left: 0;
+    }
+    .course_status .incourse .quiz_pagination_wrapper>.button.nextq {margin-left: 5px!important;}
+    .course_status .incourse .quiz_pagination_wrapper>.button.prevq {margin-right: 5px!important;}
+    .course_status .incourse .quiz_pagination_wrapper>.button.ques_link{top: 2px;}
+    .course_status .incourse .quiz_pagination_wrapper>.button i {font-size: 12px;}
+    .course_status .incourse .quiz_pagination_wrapper>.button {padding: 0;width: 25px;height: 25px;line-height: 24px;}
 }
 @media (max-width: 1366px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{

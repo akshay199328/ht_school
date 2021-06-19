@@ -63,18 +63,21 @@ if(count($userCourses) > 0)
 
 				if($courseDuration > 0 && $coursePurchasedOn != "")
 				{
-					$diff = abs(strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', $coursePurchasedOn)));
+					$diff = strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', $coursePurchasedOn));
 
-					$years	= floor($diff / (365*60*60*24));
-					$months	= floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-					$days	= floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
-
-					if($days >= $courseDuration)
+					if($diff > 0)
 					{
-						$hasChange = true;
-						$userCertificates[] = $value->course_id;
-						$cronResult['certificate_generated_time_based']++;
-						continue;
+						$years	= floor($diff / (365*60*60*24));
+						$months	= floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+						$days	= floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+
+						if($days >= $courseDuration)
+						{
+							$hasChange = true;
+							$userCertificates[] = $value->course_id;
+							$cronResult['certificate_generated_time_based']++;
+							continue;
+						}
 					}
 				}
 

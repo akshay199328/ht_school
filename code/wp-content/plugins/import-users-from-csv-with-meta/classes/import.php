@@ -594,8 +594,17 @@ class ACUI_Import{
                                 }
                             endfor;
                         }
+
+                        for ($i=8; $i < count($data); $i=$i+4) { 
+                            if(isset($data[$i]) && $data[$i-1] == "1"){
+                                add_user_meta($user_id, 'purchased_on'.$headers[$i], time());
+                                add_user_meta($user_id, 'purchase_type'.$headers[$i], "offline");
+                            }
+                        }
+
                         $_SESSION['course_data'] = $data;
                         $_SESSION['course_user_id'] = $user_id;
+                        $_SESSION['course_user_row'] = $headers;
                         $acui_helper->print_row_imported( $row, $data, $errors );
     
                         do_action('post_acui_import_single_user', $headers, $data, $user_id, $role, $positions, $form_data, $is_frontend, $is_cron );

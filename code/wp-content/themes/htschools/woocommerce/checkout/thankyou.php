@@ -117,6 +117,9 @@ defined( 'ABSPATH' ) || exit;
 						$coursePartner = "AIWS";
 					}
 
+					add_user_meta($currentUser->ID, 'purchased_on'.$courseID, time());
+					add_user_meta($currentUser->ID, 'purchased_type'.$courseID, 'online');
+
 					$items[] = array(
 						"item_name"			=> $item['name'],
 						"amount_paid"		=> ($item['total'] + $item['total_tax']),

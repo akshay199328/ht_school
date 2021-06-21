@@ -45,7 +45,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 $query_args = apply_filters('wplms_mycourses',array(
                     'post_type'=>'course',
                     'post__in'=>$args['post__in'],
-                    'posts_per_page'=>20,
+                    'posts_per_page'=>6,
                     'paged'=>$paged
                 ),$user->ID);
 
@@ -183,7 +183,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 </table>
             </div>
             </div>
-        <?php } echo custom_pagination( $wp_query ); ?>
+        <?php }?> <div class="pagination-links"><?php echo custom_pagination( $wp_query ); ?></div>
     </div>
 </section>
     <?php } else{ ?>

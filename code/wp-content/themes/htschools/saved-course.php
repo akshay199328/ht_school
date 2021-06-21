@@ -49,12 +49,12 @@ vibe_include_template("profile/top$profile_layout.php");
       }
       $postDate = get_the_date('M d, Y H:i');
       $custom_fields = get_post_custom();
-      $duration = $custom_fields['vibe_duration'][0];
+      $duration = $custom_fields['vibe_validity'][0];
       $session = $custom_fields['vibe_course_sessions'][0];
       $age_limit = $custom_fields['vibe_course_age_group'][0];
       $category_array = get_the_terms( $post->ID, 'course-cat');
       $excerpt = get_post_field('post_excerpt', $post->ID);
-      $durationParameter = get_post_meta($post->ID,'vibe_course_duration_parameter',true);
+      $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
       $courseID = $post->ID;
       $courseslug=get_site_url().'/?p='.$courseID;
       $usersFavorites = wpfp_get_users_favorites();

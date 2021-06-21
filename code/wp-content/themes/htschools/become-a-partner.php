@@ -127,6 +127,7 @@ if(have_posts()):while(have_posts()):the_post();
 ?> -->
 
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type='text/javascript'>
   jQuery("#phoneNumber").keypress(function(e) {
     var mobNum = jQuery(this).val();

@@ -137,7 +137,9 @@
     padding: 1rem;
     border-radius: 3px
 }
-
+.submitpopup_wrapper .confirmpopup_content{
+    min-width: 30%;
+}
 .course_status_fullscreen .course_status {
     font-size: 1rem
 }
@@ -792,6 +794,7 @@
 .course_status .quiz_content{
     border: 1px solid #aeaeae;
     padding: 20px;
+    width: 100%;
     /*padding-bottom: 100px;*/
     border-radius: 4px;
     font-size: 17px;

@@ -102,7 +102,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 									"age_group"			=> get_post_meta($course_id, "vibe_course_age_group", true),
 									"course_duration"	=> get_post_meta($course_id, "vibe_validity", true),
 									"session_duration"	=> get_post_meta($course_id, "vibe_course_session_length", true),
-									"wishlisted_course"	=> in_array($course_id, $usersFavorites) ? true : false,
+									"wishlisted_course"	=> false,
 								); ?>
 
 								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">

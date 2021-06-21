@@ -22,7 +22,6 @@ class BP_COURSE {
 	var $id;
 	var $date;
 	var $query;
-
 	/**
 	 * bp_course_tablename()
 	 *

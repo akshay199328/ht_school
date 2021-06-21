@@ -111,12 +111,12 @@
 
 .previous_results_wrapper .quiz_results li:first-child {
     padding-top: 0;
-    paddng-bottom: 0
+    padding-bottom: 0
 }
 
 .previous_results_wrapper .quiz_results li:last-child {
     padding-top: 0;
-    paddng-bottom: 0
+    padding-bottom: 0
 }
 
 .confirmpopup_wrapper {
@@ -137,9 +137,7 @@
     padding: 1rem;
     border-radius: 3px
 }
-.submitpopup_wrapper .confirmpopup_content{
-    min-width: 30%;
-}
+
 .course_status_fullscreen .course_status {
     font-size: 1rem
 }
@@ -2852,15 +2850,17 @@ border-bottom: 1px solid #E8E8E8;
 
 }
 .course_status .incourse .incourse_quiz_button a {
-    text-align: center;
+        text-align: center;
     width: auto;
-    margin:0 0 0 5px;
-    background: #000;
+    margin: 0 0 0 5px;
+    background: #000!important;
     font-weight: bold;
-    color: #D5ebff;
-    line-height: 20px;
+    color: #D5ebff!important;
+    line-height: 20px ;
     padding: 13px 30px;
     cursor: pointer;
+    height: auto;
+    border-radius: 0;
 }
 
 .course_status .incourse .quiz_retake {
@@ -3613,8 +3613,8 @@ a.button.is-primary {
 .wplms_playlist .track.active {
     border-color: var(--primary)
 }
-.course_instructions_popup{
-	    position: fixed;
+.course_instructions_popup, .submitpopup_wrapper{
+	position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -3625,13 +3625,13 @@ a.button.is-primary {
     align-items: center;
     justify-content: center;
 }
-.exampleModalPopup{
+.exampleModalPopup, .submitpopup_wrapper .confirmpopup_content{
 	background: #fff;
 	padding: 0px;
 	padding-bottom: 30px;
 	position: relative;
 }
-.exampleModalPopup .modal-header {
+.exampleModalPopup .modal-header, .submitpopup_wrapper .modal-header{
         width: 100%;
     height: auto;
     background-color: #d5ebff;
@@ -3657,7 +3657,7 @@ a.button.is-primary {
 .exampleModalPopup .header-info {
     padding-top: 14px;
 }
-.exampleModalPopup .header-info h2 {
+.exampleModalPopup .header-info h2, .submitpopup_wrapper .submitheading {
     font-size: 30px;
     line-height: 34px;
         color: #000000;
@@ -3716,6 +3716,12 @@ a.button.is-primary {
     float: left;
     top: 7px;
     margin-right: 12px;
+}
+.submitpopup_wrapper .confirmpopup_content{
+    min-width: 30%;
+    width: 30%;
+    border-radius: 0px;
+ 
 }
 @media (min-width: 768px){
 	.exampleModalPopup {

@@ -2989,8 +2989,11 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .course_content_content .unit_assignments h3 {
-    font-weight: 600;
-    margin-bottom: 0.5rem
+    font-weight: 500!important;
+    color: #000;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 5px;
 }
 
 .course_content_content .unit_assignments .assignment .assignment_heading {

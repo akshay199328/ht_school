@@ -3528,7 +3528,8 @@ border-bottom: 1px solid #E8E8E8;
 
 a.button.is-primary {
     background-color: #000!important;
-    color: #FADE3B!important;
+    color: #D5ebff!important;
+    border-radius: 0;
 }
 
 .buttons.has-addons {

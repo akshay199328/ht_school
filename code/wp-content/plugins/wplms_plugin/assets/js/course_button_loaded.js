@@ -5969,12 +5969,12 @@
             }), s.meta && s.meta.hasOwnProperty("access") && s.meta.access && s.meta.attachments && s.meta.attachments.length ? $a("div", {
                 className: "unit_attachments"
             }, $a("h3", null, window.wplms_course_data.translations.attachments), s.meta.attachments.map((e, t) => $a("div", {
-                className: "attachment"
+                className: "attachment download_options"
             }, $a("span", null, e.name), $a("a", {
                 href: e.link,
                 download: e.link.substring(e.link.lastIndexOf("/") + 1),
                 target: "_blank",
-                className: "vicon vicon-download"
+                className: "download_button"
             })))) : "", s.meta && s.meta.hasOwnProperty("access") && s.meta.access && s.meta.attachments && s.meta.assignments.length ? $a("div", {
                 className: "unit_assignments"
             }, $a("h3", null, window.wplms_course_data.translations.assignments), s.meta.assignments.map((t, n) => $a("div", {

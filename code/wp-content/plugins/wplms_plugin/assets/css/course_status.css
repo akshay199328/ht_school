@@ -640,7 +640,15 @@
     justify-content: space-between;
     flex-wrap: wrap
 }
-
+.assignment .button  {
+    background-color: #000!important;
+    color: #FADE3B!important;
+    display: inline-block;
+    padding: 0 24px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 45px;
+}
 .course_status .course_assignment_wrapper .assignment_left {
     width: 100%;
     margin-right: 1rem;
@@ -972,26 +980,57 @@
     margin: 1rem 0;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border)
 }
-
+.assignment_heading span{
+    font-size: 22px;
+    line-height: 24px;
+    color: #000;
+    font-weight: normal;
+}
 .course_status .course_content .course_content_content_wrapper .unit_assignments .assignment .assignment_heading {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem
+    padding: 0;
+}
+.assignment_heading .assignment_meta {
+    cursor: pointer;
 }
 
-.course_status .course_content .course_content_content_wrapper .unit_assignments .assignment_content_wrapper {
-    padding: 1rem
+.assignment_content_wrapper .course_assignment_wrapper {
+    padding: 20px 0px 0px;
 }
-
+.assignment_content_wrapper .assignment_content{
+    font-weight: 500;
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #bbb;
+}
+.assignment_content_wrapper textarea,
+.assignment_content_wrapper input {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border: 0px !important;
+    border-bottom: 1px solid #ccc !important;
+    padding: 6px 1px;
+    font-size: 18px;
+    border-radius: 0px;
+    box-shadow: none;
+    font-weight: 500;
+    height: 100%;
+}
+.assignment_content_wrapper textarea{
+    height: 50px;
+}
 .course_status .course_content .course_content_content_wrapper .unit_attachments {
-    margin: 2rem 0;
-    width: 100%;
+    background: transparent;
+    border: 1px solid #AeAeAe;
+    padding: 20px;
+    margin: 45px 0px 20px;
+    border-radius: 5px;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 .course_status .course_content .course_content_content_wrapper .unit_attachments .attachment {
@@ -1000,9 +1039,30 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 2rem 0
+    margin: 0px;
 }
-
+.download_options span{
+    font-size: 22px;
+    line-height: 24px;
+    color: #000;
+    font-weight: normal;
+}
+.download_button{
+    border: 1px solid #9E9E9E;
+    background: url('../../assets/images/download.svg') no-repeat 89% 50%;
+    padding: 15px 20px;
+    color: #000;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: bold;
+    width: 200px
+}
+.download_button:after{
+    content: 'Download Attachment';
+}
+.download_options a:hover{
+    color: #000;
+}
 .course_status .course_content .course_content_content_wrapper .tabs {
     display: inline-block
 }
@@ -2967,10 +3027,6 @@ border-bottom: 1px solid #E8E8E8;
     flex-direction: column
 }
 
-.course_content_content .unit_attachments h3 {
-    font-weight: 600;
-    margin-bottom: 0.5rem
-}
 
 .course_content_content .unit_attachments .attachment {
     display: flex;
@@ -2980,15 +3036,16 @@ border-bottom: 1px solid #E8E8E8;
 
 .course_content_content .unit_assignments {
     background: transparent;
-    border: 1px solid #00000014;
+    border: 1px solid #AeAeAe;
     padding: 20px;
-    margin: 30px 0px;
+    margin: 45px 0px 20px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
 }
 
-.course_content_content .unit_assignments h3 {
+.course_content_content .unit_assignments h3,
+.course_content_content .unit_attachments h3 {
     font-weight: 500!important;
     color: #000;
     font-size: 24px;
@@ -3001,7 +3058,12 @@ border-bottom: 1px solid #E8E8E8;
     justify-content: space-between;
     padding: 5px 0
 }
-
+.download_option span{
+    font-weight: normal;
+    color: #000;
+    font-size: 22px;
+    line-height: 24px;
+}
 .course_content_content .pratice_questions {
     margin: 1rem 0
 }
@@ -3163,7 +3225,7 @@ border-bottom: 1px solid #E8E8E8;
     margin: 1rem 0;
     align-items: center;
     display: inline-block;
-    width: 100%
+    width: 100%;
 }
 
 .quiz_pagination_wrapper .faded {
@@ -3212,17 +3274,18 @@ border-bottom: 1px solid #E8E8E8;
     flex-direction: row-reverse;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin: -0.5rem
+    margin: 0;
 }
 
 .course_assignment>* {
-    flex: 1 0 240px;
+    flex: 0 0 140px;
     max-width: 100%;
     margin: 0.5rem
 }
 
 .course_assignment>*.assignment_content_wrapper {
-    flex: 3 0 480px
+    flex: 3 0 480px;
+    margin-right: 60px;
 }
 
 .course_assignment .assignment_content_wrapper .vibe_rich_editor {

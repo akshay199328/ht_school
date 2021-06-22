@@ -417,7 +417,8 @@ border: 1px solid deepskyblue;
 									<label>School name*</label>
 								</div> -->
 								<div class="col-md-12">
-								  <label for="user_school_data">School</label>
+								  <label for="user_school_data">School*</label>
+								  <span class="school_note">Please type in your school and location if you can't find it in the list. (e.g., St. Paul's School Darjeeling)</span>
 									<div class="col-md-12 input-group">
 
 										<input type="text" class="s-class form-control user_field" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">

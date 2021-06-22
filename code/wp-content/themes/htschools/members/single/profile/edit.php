@@ -100,7 +100,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	            </div>
 			</div>
 			<div class="form-group profile_search">
-				<label for="user_school_data">School*</label>
+				<label for="user_school_data">School*</label> <span class="school_note">Please type in your school and location if you can't find it in the list. (e.g., St. Paul's School Darjeeling)</span>
 				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
 				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
 				<span id="errSchoolMsg"></span>
@@ -475,7 +475,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				select: function(event, ui) {
 			        event.preventDefault();
 			        $("#user_country_data").val(ui.item.label);
-			        $("#user_country").val(ui.item.label);
+			        $("#user_country").val(ui.item.value);
 			        window.selectedCountry = ui.item.label;
 			    },
 			});	

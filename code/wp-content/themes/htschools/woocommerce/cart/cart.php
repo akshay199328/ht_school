@@ -320,7 +320,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					var link = jQuery(this).attr("href");
 					dataLayer.push({ ecommerce: null });
 					dataLayer.push(beginCheckoutObj);
-					console.log(removeFromCartObj);
+					console.log(beginCheckoutObj);
 					setTimeout(function(){
 						window.location.href = link;
 					}, 500);

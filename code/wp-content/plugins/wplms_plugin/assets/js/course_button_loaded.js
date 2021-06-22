@@ -3654,26 +3654,43 @@
         RawHTML: Yt
     } = wp.element;
     var Xt = e => Rt(Ut, null, e.active ? Rt("div", {
-        className: "confirmpopup_wrapper"
+        className: "confirmpopup_wrapper submitpopup_wrapper"
     }, Rt("div", {
         className: "confirmpopup_content"
     }, Rt("div", {
+        className: "modal-header"
+    }, Rt("div", {
+        className: "header-logo"
+    }),Rt("div", {
+        className: "submitheading",
         dangerouslySetInnerHTML: {
             __html: e.content
         }
-    }), Rt("div", {
-        className: "buttons_wrapper"
+    })), Rt("div", {
+        className: "submit_info"
     }, Rt("span", {
-        className: "button",
-        onClick: t => {
-            e.yesfunction, e.update(e.type, "trigger")
+        className: "score",
+        dangerouslySetInnerHTML: {
+            __html: e.MarkedAnswer + '/' + e.QuestionCount
         }
-    }, e.yes), Rt("span", {
+    }), Rt("div", {
+        className: "left_scoring"
+    }, e.yes), Rt("div", {
+        className: "right_icon"
+    }, e.no)), Rt("div", {
+        className: "buttons_wrapper"
+    },
+    Rt("span", {
         className: "button",
         onClick: t => {
             e.update(e.type, "nottrigger")
         }
-    }, e.no)))) : "");
+    }, e.no),Rt("span", {
+        className: "button",
+        onClick: t => {
+            e.yesfunction, e.update(e.type, "trigger")
+        }
+    }, e.yes)))) : "");
     const {
         createElement: Vt,
         render: Qt,
@@ -4109,9 +4126,15 @@
             let Y = window.wplms_course_data.translations.submit_quiz_confirm;
             if (t.meta && t.meta.questions) {
                 let e = 1;
+                var unmarkedCount = t.meta.questions.reduce(function (n, result) {
+                    return n + (result.marked_answer != null);
+                }, 0);
+                var questionCount = Object.keys(t.meta.questions).length;
+                var CC = questionCount;
+                var PP = unmarkedCount;
                 t.meta.questions.map((function(t) {
                     t.marked_answer || (e = 0)
-                })), e || (Y = window.wplms_course_data.translations.unanswered_confirm + Y)
+                })), e || (Y = window.wplms_course_data.translations.unanswered_confirm + Y);
             }
             let X = [];
             if (t.hasOwnProperty("meta") && t.meta.hasOwnProperty("questions") && t.meta.questions && t.meta.questions.length && (X = t.meta.questions), X.length && null !== q) switch (q) {
@@ -4129,16 +4152,20 @@
                 update: R,
                 type: "submit",
                 content: Y,
-                yes: window.wplms_course_data.translations.yes,
-                no: window.wplms_course_data.translations.no,
+                MarkedAnswer : PP,
+                QuestionCount : CC,
+                yes: window.wplms_course_data.translations.submit_button,
+                no: window.wplms_course_data.translations.cancel_button,
                 yesfunction: "submitQuiz"
             }), ReactDOM.createPortal(gn(Xt, {
                 active: v,
+                MarkedAnswer : PP,
+                QuestionCount : CC,
                 update: R,
                 type: "submit",
                 content: window.wplms_course_data.translations.bookmark_confirm,
-                yes: window.wplms_course_data.translations.yes,
-                no: window.wplms_course_data.translations.no,
+                yes: window.wplms_course_data.translations.submit_button,
+                no: window.wplms_course_data.translations.cancel_button,
                 yesfunction: "submitQuiz"
             }), document.querySelector("#quiz_popup")), gn(Xt, {
                 active: h,

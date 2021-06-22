@@ -439,19 +439,17 @@ jQuery(window).load(function(){
                         console.log(login_url);*/
 
                         let signUpObj = {
-                          "event"   : 'sign_up',
-                          "ecommerce" : {
-                            "user_identifier": result['ID'],
-                            "session_source" : "",
-                            "utm_tags"       : "",
-                            "timestamp"      : "<?php echo date('c', time()); ?>",
-                            "signed_up_on"   : "<?php echo date('c', time()); ?>",
-                            "sign_up_source" : "web",
-                            "email"          : result['user_email'],
-                            "phone_number"   : result['mobile'],
-                            "status"         : "success",
-                            "failure_reason" : "",
-                          }
+                          "event"          : 'sign_up',
+                          "user_identifier": result['ID'],
+                          "session_source" : "",
+                          "utm_tags"       : "",
+                          "timestamp"      : "<?php echo date('c', time()); ?>",
+                          "signed_up_on"   : "<?php echo date('c', time()); ?>",
+                          "sign_up_source" : "web",
+                          "email"          : result['user_email'],
+                          "phone_number"   : result['mobile'],
+                          "status"         : "success",
+                          "failure_reason" : "",
                         };
                         dataLayer.push(signUpObj);
 
@@ -547,18 +545,16 @@ jQuery(window).load(function(){
 
                           let logInObj = {
                             "event"   : 'log_in',
-                            "ecommerce" : {
-                              "user_identifier": "<?php echo $userIdentifier; ?>",
-                              "session_source" : "",
-                              "utm_tags"       : "",
-                              "timestamp"      : "<?php echo date('c', time()); ?>",
-                              "signed_up_on"   : "<?php echo date('c', time()); ?>",
-                              "sign_up_source" : "web",
-                              "email"          : jQuery('#email').val(),
-                              "phone_number"   : "",
-                              "status"         : "failure",
-                              "failure_reason" : response.message,
-                            }
+                            "user_identifier": "<?php echo $userIdentifier; ?>",
+                            "session_source" : "",
+                            "utm_tags"       : "",
+                            "timestamp"      : "<?php echo date('c', time()); ?>",
+                            "signed_up_on"   : "<?php echo date('c', time()); ?>",
+                            "sign_up_source" : "web",
+                            "email"          : jQuery('#email').val(),
+                            "phone_number"   : "",
+                            "status"         : "failure",
+                            "failure_reason" : response.message,
                           };
                           dataLayer.push(logInObj);
 
@@ -682,14 +678,12 @@ jQuery(window).load(function(){
 
                         let logInObj = {
                           "event"   : 'log_in',
-                          "ecommerce" : {
-                            "user_identifier": user.ID,
-                            "session_source" : "",
-                            "utm_tags"       : "",
-                            "timestamp"      : "<?php echo date('c', time()); ?>",
-                            "log_in_on"      : "<?php echo date('c', time()); ?>",
-                            "login_type"     : "email",
-                          }
+                          "user_identifier": user.ID,
+                          "session_source" : "",
+                          "utm_tags"       : "",
+                          "timestamp"      : "<?php echo date('c', time()); ?>",
+                          "log_in_on"      : "<?php echo date('c', time()); ?>",
+                          "login_type"     : "email",
                         };
                         dataLayer.push(logInObj);
 

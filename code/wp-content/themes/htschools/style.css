@@ -5358,8 +5358,9 @@ border-color: transparent;
     height:18px;
 }
 .school_note {
-    color: #a6a4a4;
+    color: #bbb;
     font-size: 13px;
+    display: block;
 }
 .standard-form .btn {
     font-size: 15px;

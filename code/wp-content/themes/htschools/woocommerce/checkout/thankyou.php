@@ -140,14 +140,10 @@ defined( 'ABSPATH' ) || exit;
 			    }
 
 				$ecommerce = array(
-					"user_identifier"	=> $userIdentifier,
-					"session_source"	=> "",
-					"timestamp"			=> date('c', time()),
-					"utm_tags"			=> "",
-					"order_id"			=> $order->get_id(),
-					"payment_mode"		=> $order->get_payment_method_title(),
-					"coupon_code"		=> "",
-					"items"				=> $items,
+					"order_id"		=> $order->get_id(),
+					"payment_mode"	=> $order->get_payment_method_title(),
+					"coupon_code"	=> "",
+					"items"			=> $items,
 				);
 			?>
 
@@ -157,10 +153,17 @@ defined( 'ABSPATH' ) || exit;
 					var allItems = JSON.parse('<?php echo json_encode($ecommerce); ?>');
 
 					let purchaseObj = {
-						"event"		: 'purchase',
-						"ecommerce"	: allItems,
+						"event"				: 'purchase',
+						"user_identifier"	: "<?php echo $userIdentifier; ?>",
+						"session_source"	: "",
+						"timestamp"			: "<?php echo date('c', time()); ?>",
+						"utm_tags"			: "",
+						"ecommerce"			: allItems,
 					};
+
+					dataLayer.push({ ecommerce: null });
 					dataLayer.push(purchaseObj);
+					console.log(purchaseObj);
 				});
 			</script>
 

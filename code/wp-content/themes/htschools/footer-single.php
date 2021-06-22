@@ -1242,21 +1242,25 @@ border: 1px solid deepskyblue;
 	}, false );
 
 	jQuery(document).ready(function(){
-		jQuery('.the_course_button').click(function(){
+		jQuery('.the_course_button').click(function(e){
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 
-				var addToCartItem = [];
-				let courseID = jQuery(this).attr('data-id');
+				e.preventDefault();
+				var link = jQuery(this).find('a').attr("href");
+
+				var addToCartItem	= [];
+				let courseID		= jQuery(this).attr('data-id');
+				let coursePrice		= 0;
+
+				if(jQuery(this).parent().find('.course_price').length) {
+					coursePrice = jQuery(this).parent().find('.course_price').html().replace(/<[^>]*>?/gm, "").replace("₹", "");
+				}
 
 				addToCartItem.push({
+					"price"				: coursePrice,
 					"item_name"			: jQuery("#course_name_" + courseID).val(),
 					"item_id"			: jQuery("#course_id_" + courseID).val(),
-					"price"				: jQuery("#course_price_" + courseID).val(),
 					"item_category"		: jQuery("#course_category_" + courseID).val(),
-					"user_identifier"	: jQuery("#user_identifier").val(),
-					"session_source"	: jQuery("#session_source").val(),
-					"timestamp"			: jQuery("#timestamp").val(),
-					"utm_tags"			: jQuery("#utm_tags").val(),
 					"course_url"		: jQuery("#course_url_" + courseID).val(),
 					"course_partner"	: jQuery("#course_partner_" + courseID).val(),
 					"category_id"		: jQuery("#category_id_" + courseID).val(),
@@ -1267,46 +1271,69 @@ border: 1px solid deepskyblue;
 				});
 
 				let beginCheckoutObj = {
-					"event"		: 'add_to_cart',
-					"ecommerce"	: {
+					"event"				: 'add_to_cart',
+					"user_identifier"	: jQuery("#user_identifier").val(),
+					"session_source"	: jQuery("#session_source").val(),
+					"timestamp"			: jQuery("#timestamp").val(),
+					"utm_tags"			: jQuery("#utm_tags").val(),
+					"ecommerce"			: {
 						"items" : addToCartItem,
 					}
 				};
 
+				dataLayer.push({ ecommerce: null });
 				dataLayer.push(beginCheckoutObj);
+				console.log(beginCheckoutObj);
+
+				setTimeout(function(){
+					window.location.href = link;
+				}, 500);
 			}
 		});
 
-		jQuery('.add_to_wishlist').click(function(){
+		jQuery('.add_to_wishlist').click(function(e){
 
-			var addToWishlistItem = [];
-			let courseID = jQuery(this).attr('data-id');
+			e.preventDefault();
+			var addToWishlistItem	= [];
+			let courseID			= jQuery(this).attr('data-id');
+			var link				= jQuery(this).attr("href");
+			let coursePrice			= 0;
+
+			if(jQuery(this).parent().parent().parent().parent().parent().parent().find('.course_price').length) {
+				coursePrice = jQuery(this).parent().parent().parent().parent().parent().parent().find('.course_price').html().replace(/<[^>]*>?/gm, "").replace("₹", "");
+			}
 
 			addToWishlistItem.push({
-				"user_identifier"	: jQuery("#user_identifier").val(),
-				"session_source"	: jQuery("#session_source").val(),
-				"timestamp"			: jQuery("#timestamp").val(),
-				"utm_tags"			: jQuery("#utm_tags").val(),
+				"price"				: coursePrice,
 				"item_name"			: jQuery("#course_name_" + courseID).val(),
 				"course_url"		: jQuery("#course_url_" + courseID).val(),
 				"item_category"		: jQuery("#course_category_" + courseID).val(),
 				"course_partner"	: jQuery("#course_partner_" + courseID).val(),
 				"category_id"		: jQuery("#category_id_" + courseID).val(),
 				"item_id"			: jQuery("#course_id_" + courseID).val(),
-				"price"				: jQuery("#course_price_" + courseID).val(),
 				"age_group"			: jQuery("#age_group_" + courseID).val(),
 				"course_duration"	: jQuery("#course_duration_" + courseID).val(),
 				"session_duration"	: jQuery("#session_duration_" + courseID).val(),
 			});
 
 			let addWishlistObj = {
-				"event"     : 'course_wishlisted',
-				"ecommerce" : {
+				"event"				: 'course_wishlisted',
+				"user_identifier"	: jQuery("#user_identifier").val(),
+				"session_source"	: jQuery("#session_source").val(),
+				"timestamp"			: jQuery("#timestamp").val(),
+				"utm_tags"			: jQuery("#utm_tags").val(),
+				"ecommerce"			: {
 					"items" : addToWishlistItem,
 				}
 			};
 
+			dataLayer.push({ ecommerce: null });
 			dataLayer.push(addWishlistObj);
+			console.log(addWishlistObj);
+
+			setTimeout(function(){
+				window.location.href = link;
+			}, 500);
 		});
 	});
 </script>

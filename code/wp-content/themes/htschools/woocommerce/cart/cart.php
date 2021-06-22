@@ -256,32 +256,44 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				var beginCheckoutItems	= [];
 				var cartViewedItems		= [];
 
-				beginCheckoutItems.push({
+				/*beginCheckoutItems1.push({
 					"user_identifier"		: allItems[0]["user_identifier"],
 					"session_source"		: allItems[0]["session_source"],
 					"timestamp"				: allItems[0]["timestamp"],
 					"utm_tags"				: allItems[0]["utm_tags"],
 					"courses_in_cart"		: totalItems,
 					"original_cart_value"	: totalAmount,
-				});
+				});*/
 
-				/*for (var i = 0; i < totalItems; i++) {
-					cartViewedItems.push({
+				for (var i = 0; i < totalItems; i++) {
+					/*cartViewedItems.push({
 						"Item count"		: totalItems,
-						"Course name"		: allItems[i]["course_name"],
+						"item_name"			: allItems[i]["course_name"],
 						"Course URL"		: allItems[i]["course_url"],
-						"Course category"	: allItems[i]["course_category"],
+						"item_category"		: allItems[i]["course_category"],
 						"Course partner"	: allItems[i]["course_partner"],
-						"Course ID"			: allItems[i]["course_price"],
+						"item_id"			: allItems[i]["course_price"],
 						"Age group"			: allItems[i]["age_group"],
 						"Course duration"	: allItems[i]["course_duration"],
 						"Session duration"	: allItems[i]["session_duration"],
-						"Course Price"		: allItems[i]["course_price"],
+						"price"				: allItems[i]["course_price"],
 						"Total cart amount"	: totalAmount,
+					});*/
+
+					beginCheckoutItems.push({
+						"item_name"			: allItems[i]["course_name"],
+						"course_url"		: allItems[i]["course_url"],
+						"item_category"		: allItems[i]["course_category"],
+						"course_partner"	: allItems[i]["course_partner"],
+						"item_id"			: allItems[i]["course_price"],
+						"age_group"			: allItems[i]["age_group"],
+						"course_duration"	: allItems[i]["course_duration"],
+						"session_duration"	: allItems[i]["session_duration"],
+						"price"				: allItems[i]["course_price"],
 					});
 				}
 
-				let cartViewedObj = {
+				/*let cartViewedObj = {
 					"event"		: 'cart_viewed',
 					"ecommerce"	: {
 						"items"	: cartViewedItems,
@@ -291,14 +303,27 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				dataLayer.push(cartViewedObj);*/
 
 				let beginCheckoutObj = {
-					"event"		: 'begin_checkout',
-					"ecommerce"	: {
+					"event"				: 'begin_checkout',
+					"user_identifier"	: allItems[0]["user_identifier"],
+					"session_source"	: allItems[0]["session_source"],
+					"timestamp"			: allItems[0]["timestamp"],
+					"utm_tags"			: allItems[0]["utm_tags"],
+					"item_count"		: totalItems,
+					"total_cart_amount"	: totalAmount,
+					"ecommerce"			: {
 						"items"	: beginCheckoutItems,
 					}
 				};
 
-				jQuery('.checkout-button').click(function(){
+				jQuery('.checkout-button').click(function(e){
+					e.preventDefault();
+					var link = jQuery(this).attr("href");
+					dataLayer.push({ ecommerce: null });
 					dataLayer.push(beginCheckoutObj);
+					console.log(removeFromCartObj);
+					setTimeout(function(){
+						window.location.href = link;
+					}, 500);
 				});
 			}
 
@@ -315,18 +340,11 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				var resultingAmont	= totalAmount - removingItem['Course price'];
 
 				removeFromCartItem.push({
-					"user_identifier"					: removingItem['user_identifier'],
-					"session_source"					: removingItem['session_source'],
-					"timestamp"							: '<?php echo date('c', time()); ?>',
-					"utm_tags"							: "",
-					"all_cart_items"					: totalItems,
 					"removed_item_name"					: removingItem['course_name'],
 					"removed_course_url"				: removingItem['course_url'],
 					"removed_item_category"				: removingItem['course_category'],
 					"removed_course_partner"			: removingItem['course_partner'],
 					"removed_item_price"				: removingItem['course_price'],
-					"starting_cart_value"				: totalAmount,
-					"resulting_cart_value"				: resultingAmont,
 					"removed_course_age_group"			: removingItem['age_group'],
 					"removed_course_duration"			: removingItem['course_duration'],
 					"removed_course_session_duration"	: removingItem['session_duration'],
@@ -336,13 +354,22 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				});
 
 				let removeFromCartObj = {
-					"event"		: 'remove_from_cart',
-					"ecommerce"	: {
+					"event"					: 'remove_from_cart',
+					"user_identifier"		: removingItem['user_identifier'],
+					"session_source"		: removingItem['session_source'],
+					"timestamp"				: '<?php echo date('c', time()); ?>',
+					"utm_tags"				: "",
+					"all_cart_items"		: totalItems,
+					"starting_cart_value"	: totalAmount,
+					"resulting_cart_value"	: resultingAmont,
+					"ecommerce"				: {
 						"items"	: removeFromCartItem,
 					}
 				};
 
+				dataLayer.push({ ecommerce: null });
 				dataLayer.push(removeFromCartObj);
+				console.log(removeFromCartObj);
 			});
 		});
 	</script>

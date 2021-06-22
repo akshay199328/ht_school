@@ -1386,7 +1386,7 @@ function setSocialLoginData($socialType)
 {
   global $wpdb;
 	$currentUserID = get_current_user_id();
-  $currentUserID = 8635;
+ // $currentUserID = 8635;
 
 	if(isset($currentUserID) && $currentUserID > 0)
 	{
@@ -1401,7 +1401,7 @@ function setSocialLoginData($socialType)
     }
 
   	$_SESSION['social_login_data'] = array(
-      "event"           => $registerTime >= 5 ? 'log_in' : 'sign_up',
+      "event"           => $registerTime >= 2 ? 'log_in' : 'sign_up',
       "user_identifier" => $currentUserID,
       "session_source"  => "",
       "utm_tags"        => "",

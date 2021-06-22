@@ -2407,8 +2407,8 @@ button.course-button .button
 
  {
     padding: 14px 14px;
-    width: 100%;
-    min-width: 135px;
+    width: 145px;
+    min-width: 145px;
     min-height: 45px;
     background-color: #000000!important;
     font-size: 15px;
@@ -5351,11 +5351,15 @@ border-color: transparent;
     background: url('./assets/images/profile-search.svg') no-repeat bottom right;
     position: absolute;
     right: 0px;
-    top: 32px;
+    bottom: 17px;
     display: block;
     /* height: 17px; */
     width: 19px;
     height:18px;
+}
+.school_note {
+    color: #a6a4a4;
+    font-size: 13px;
 }
 .standard-form .btn {
     font-size: 15px;
@@ -5982,6 +5986,97 @@ h6:empty,
 }
 .search.search-results .content .pagination{
   display: none;
+}
+/*Pagination*/
+.pagination-links,
+.pagination {
+    clear: both;
+    display: inline-block !important;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #444;
+    text-align: center;
+    padding-left: 0 !important;
+    border-radius: 4px !important
+}
+
+.pagination li,
+.pagination-links a,
+.pagination-links span {
+    display: inline-block
+}
+
+.pagination li a,
+.pagination-links a,
+.pagination-links span {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 100%;
+    margin: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #000;
+    border: 2px solid transparent;
+    background: 0 0;
+    text-align: center;
+    line-height: 37px;
+    cursor: pointer
+}
+.pagination-links .next  {
+    font-size: 0;
+    background: url(https://htschool.hindustantimes.com/wp-content/themes/htschools/assets/images/page-next.svg) no-repeat center center;
+    width: 8px!important;
+    height: 9px!important;
+    line-height: 12px;
+}
+.pagination-links .prev  {
+    font-size: 0;
+    background: url(https://htschool.hindustantimes.com/wp-content/themes/htschools/assets/images/page-prev.svg) no-repeat center center;
+    width: 8px!important;
+    height: 9px!important;
+    line-height: 12px;
+}
+.pagination-links a:hover,
+.pagination-links span:hover {
+    transform: none !important;
+    color: #000;
+}
+
+.pagination li.active a,
+.pagination-links span.current {
+    background: #d5ebff !important;
+    border-color: #d5ebff !important;
+    transform: none !important;
+    color: #000;
+    font-weight: 700
+}
+
+.pagination li.pagination_arrow {
+    padding: 0;
+    width: auto
+}
+
+.pagination li.pagination_arrow a,
+.pagination-links .next {
+    padding: 0;
+    width: auto;
+    height: auto;
+    line-height: 12px;
+    position: relative;
+    top: 0;
+    color: #000
+}
+
+.pagination li.pagination_arrow a i {
+    color: #000
+}
+
+.content .pagination {
+    margin: 49px 0 20px 0
 }
 /*--------------------------------------------------------------
 # STATIC PAGES : CSS

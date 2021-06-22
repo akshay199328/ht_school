@@ -1115,10 +1115,10 @@ function save_custom_profile(){
           ON ht_users.ID = ht_usermeta.user_id
           WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name ='" . esc_attr($_REQUEST['user_school_data']) . "'");
         $school_name = str_replace(',', ' ', $_REQUEST['user_school_data']);
+        $date = date('Y-m-d H:i:s');
         if(count($results) == 0){
           $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login, 
-          user_nicename, display_name) VALUES ( 
-          '".$school_name."', '".$_REQUEST['user_school_data']."', '".$_REQUEST['user_school_data']."')");
+          user_nicename, display_name,user_registered) VALUES ('".$school_name."', '".$_REQUEST['user_school_data']."', '".$_REQUEST['user_school_data']."','".$date."')");
           $wpdb->query($user_insert);
           $schoolID = $wpdb->insert_id;
           $tablename = $wpdb->prefix . "usermeta";

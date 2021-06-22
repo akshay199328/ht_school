@@ -1384,14 +1384,24 @@ add_filter('google_login_redirect_url', function($redirectUrl, $provider){
 
 function setSocialLoginData($socialType)
 {
+  global $wpdb;
 	$currentUserID = get_current_user_id();
+  $currentUserID = 8635;
 
 	if(isset($currentUserID) && $currentUserID > 0)
 	{
 		$userDetails = get_userdata($currentUserID);
 
-		$_SESSION['social_login_data'] = array(
-      "event"           => 'log_in',
+    $registerTime = 0;
+    $result = $wpdb->get_results("SELECT TIMESTAMPDIFF(MINUTE, user_registered, NOW()) AS diff FROM ht_users WHERE ID = '" . $currentUserID . "'");
+
+    if(count($result) > 0)
+    {
+      $registerTime = $result[0]->diff;
+    }
+
+  	$_SESSION['social_login_data'] = array(
+      "event"           => $registerTime >= 5 ? 'log_in' : 'sign_up',
       "user_identifier" => $currentUserID,
       "session_source"  => "",
       "utm_tags"        => "",
@@ -1402,7 +1412,7 @@ function setSocialLoginData($socialType)
       "phone_number"    => "",
       "status"          => "success",
       "failure_reason"  => "",
-		);
+  	);
 	}
 }
 

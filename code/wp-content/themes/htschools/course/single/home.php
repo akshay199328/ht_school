@@ -153,7 +153,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID,'vibe_course_age_group',true)?>">
             <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
-            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
+            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
             <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
             <input type="hidden" id="session_source">

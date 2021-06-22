@@ -197,7 +197,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
                 <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
                 <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
-                <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
+                <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php // echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             </div>
         </div>
       <?php }

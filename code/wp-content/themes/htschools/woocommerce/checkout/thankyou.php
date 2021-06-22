@@ -135,7 +135,7 @@ defined( 'ABSPATH' ) || exit;
 						"session_durations"	=> get_post_meta($courseID, "vibe_course_session_length", true),
 						"purchased_on"		=> date('c', strtotime($order->get_date_created())),
 						"repeat_purchase"	=> false,
-						"wishlisted_course"	=> in_array($courseID, $usersFavorites) ? true : false,
+						"wishlisted_course"	=> false,
 					);
 			    }
 

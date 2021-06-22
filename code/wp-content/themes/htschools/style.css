@@ -5359,7 +5359,7 @@ border-color: transparent;
 }
 .school_note {
     color: #bbb;
-    font-size: 13px;
+    font-size: 12px;
     display: block;
 }
 .standard-form .btn {
@@ -7117,6 +7117,7 @@ h6:empty,
     .static_content .details{display: block!important;}
     .instructor-detailsMini .profile-content .google-adsense{margin-top:0px!important;}
     .instructor-detailsMini .profile-content .profileimg-name {width: 100% !important;}
+    .school_note {font-size: 11px;}
     
 }
 @media screen and (max-width:575px) and (min-width:320px){

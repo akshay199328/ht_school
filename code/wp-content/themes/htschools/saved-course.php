@@ -174,7 +174,7 @@ vibe_include_template("profile/top$profile_layout.php");
                           </tr>
                           <tr class="border_button">
                             <td class="course-button">
-                              <h6 ><?php 
+                              <h6 class="custom-price" data-id="<?php echo $post->ID;?>"><?php 
                                 the_course_price();
                                 ?>
                               </h6>

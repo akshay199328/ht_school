@@ -160,7 +160,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             <input type="hidden" id="utm_tags">
             <div class="course-fees">
               <div class="container">
-                    <h4><?php the_course_price(); ?></h4>
+                    <h4 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h4>
                      <?php the_course_button(); ?>
                 </div>
             </div>

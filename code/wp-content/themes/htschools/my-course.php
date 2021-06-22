@@ -150,7 +150,7 @@ get_header(vibe_get_header());
                               </tr>
                               <tr class="border_button">
                                 <td class="course-button">
-                                  <h6 ><?php 
+                                  <h6 class="custom-price" data-id="<?php echo $post->ID;?>"><?php 
                                     the_course_price();
                                   ?>
                                   </h6>

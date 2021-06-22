@@ -142,7 +142,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         <table width="100%" class="button_table">
                             <tr class="border_button">
                                 <td class="course-button">
-                                    <h6><?php the_course_price(); ?></h6>
+                                    <h6 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h6>
                                       <?php the_course_button(); ?> 
                                 </td>
                             </tr>

@@ -444,8 +444,8 @@ jQuery(window).load(function(){
                           "session_source" : "",
                           "utm_tags"       : "",
                           "timestamp"      : "<?php echo date('c', time()); ?>",
-                          "signed_up_on"   : "<?php echo date('c', time()); ?>",
-                          "sign_up_source" : "web",
+                          "sl_on"          : "<?php echo date('c', time()); ?>",
+                          "sl_method"      : "web",
                           "email"          : result['user_email'],
                           "phone_number"   : result['mobile'],
                           "status"         : "success",
@@ -544,13 +544,13 @@ jQuery(window).load(function(){
                       }else{
 
                           let logInObj = {
-                            "event"   : 'log_in',
+                            "event"          : 'log_in',
                             "user_identifier": "<?php echo $userIdentifier; ?>",
                             "session_source" : "",
                             "utm_tags"       : "",
                             "timestamp"      : "<?php echo date('c', time()); ?>",
-                            "signed_up_on"   : "<?php echo date('c', time()); ?>",
-                            "sign_up_source" : "web",
+                            "sl_on"          : "<?php echo date('c', time()); ?>",
+                            "sl_method"      : "web",
                             "email"          : jQuery('#email').val(),
                             "phone_number"   : "",
                             "status"         : "failure",
@@ -677,13 +677,13 @@ jQuery(window).load(function(){
                         /*ga('send', 'event', 'Login', 'successful', user.ID);*/
 
                         let logInObj = {
-                          "event"   : 'log_in',
+                          "event"          : 'log_in',
                           "user_identifier": user.ID,
                           "session_source" : "",
                           "utm_tags"       : "",
                           "timestamp"      : "<?php echo date('c', time()); ?>",
-                          "log_in_on"      : "<?php echo date('c', time()); ?>",
-                          "login_type"     : "email",
+                          "sl_on"          : "<?php echo date('c', time()); ?>",
+                          "sl_method"      : "web",
                         };
                         dataLayer.push(logInObj);
 

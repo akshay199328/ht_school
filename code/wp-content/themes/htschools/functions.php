@@ -1391,17 +1391,17 @@ function setSocialLoginData($socialType)
 		$userDetails = get_userdata($currentUserID);
 
 		$_SESSION['social_login_data'] = array(
-			"event"           => 'log_in',
-			"user_identifier" => $currentUserID,
-			"session_source"  => "",
-			"utm_tags"        => "",
-			"timestamp"       => date('c', time()),
-			"signed_up_on"    => date('c', time()),
-			"sign_up_source"  => $socialType,
-			"email"           => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
-			"phone_number"    => "",
-			"status"          => "success",
-			"failure_reason"  => "",
+      "event"           => 'log_in',
+      "user_identifier" => $currentUserID,
+      "session_source"  => "",
+      "utm_tags"        => "",
+      "timestamp"       => date('c', time()),
+      "sl_on"           => date('c', time()),
+      "sl_method"       => $socialType,
+      "email"           => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
+      "phone_number"    => "",
+      "status"          => "success",
+      "failure_reason"  => "",
 		);
 	}
 }

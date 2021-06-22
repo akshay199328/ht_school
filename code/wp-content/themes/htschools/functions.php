@@ -1366,21 +1366,45 @@ add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted
 
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
-      if(isset($_SESSION['previousPageUrl'])){
-        $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
-      }
+    setSocialLoginData('facebook');
+    if(isset($_SESSION['previousPageUrl'])){
+      $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
+    }
     return $redirectUrl;
 }, 10, 2);
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-
- // print_r($_SESSION);exit;
-  if(isset($_SESSION['previousPageUrl'])){
-    $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
-       return $redirectUrl;
-  }
+	setSocialLoginData('google');
+	if(isset($_SESSION['previousPageUrl'])){
+		$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
+		return $redirectUrl;
+	}
 }, 10, 2);
+
+function setSocialLoginData($socialType)
+{
+	$currentUserID = get_current_user_id();
+
+	if(isset($currentUserID) && $currentUserID > 0)
+	{
+		$userDetails = get_userdata($currentUserID);
+
+		$_SESSION['social_login_data'] = array(
+			"event"           => 'log_in',
+			"user_identifier" => $currentUserID,
+			"session_source"  => "",
+			"utm_tags"        => "",
+			"timestamp"       => date('c', time()),
+			"signed_up_on"    => date('c', time()),
+			"sign_up_source"  => $socialType,
+			"email"           => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
+			"phone_number"    => "",
+			"status"          => "success",
+			"failure_reason"  => "",
+		);
+	}
+}
 
 function wpfp_save_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
     global $post;

@@ -1164,6 +1164,19 @@ border: 1px solid deepskyblue;
 	</div>
 </div>
 <!-- modal -->
+
+<?php if(isset($_SESSION['social_login_data']))
+{ ?>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			var socialLoginData = JSON.parse('<?php echo json_encode($_SESSION["social_login_data"]); ?>');
+			console.log(socialLoginData);
+			dataLayer.push(socialLoginData);
+		});
+	</script>
+	<?php unset($_SESSION['social_login_data']);
+} ?>
+
 <script type="text/javascript">
 	jQuery('#reset').click(function(){
 		jQuery("input[name='category']:checkbox").prop('checked',false);

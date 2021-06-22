@@ -648,6 +648,7 @@
     font-weight: 600;
     font-size: 15px;
     line-height: 45px;
+    height: auto;
 }
 .course_status .course_assignment_wrapper .assignment_left {
     width: 100%;
@@ -817,7 +818,7 @@
 }
 .spacing_lms_empty {
     display: block;
-    padding: 20px;
+    padding: 30px;
 }
 .before_start h1, .before_start p{
     padding-bottom: 15px;
@@ -3526,7 +3527,8 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 a.button.is-primary {
-    color: var(--primarycolor)
+    background-color: #000!important;
+    color: #FADE3B!important;
 }
 
 .buttons.has-addons {
@@ -3881,4 +3883,17 @@ a.button.is-primary {
     .course_content .quiz_content ol li ul{margin-left: 0px;}
     .course_status .quiz_content ol li ul li:before{display: none;}
     .course_content .quiz_content ol li ul li{margin: 0px!important;padding: 0px!important;}
+    .course_status .course_content .course_content_content_wrapper .unit_attachments .attachment {
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px;
+        flex-direction: column;
+    }
+    .course_content_content .unit_assignments h3, 
+    .course_content_content .unit_attachments h3{
+        font-size: 22px;
+        line-height: 27px;
+    }
+    .download_options span, .assignment_heading span {font-size: 15px;line-height: 22px;width: 100%;}
+    .download_button {margin-top: 25px;}
 }

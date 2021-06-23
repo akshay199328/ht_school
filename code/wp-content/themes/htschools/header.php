@@ -8,7 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg" href="<?php echo bloginfo('template_url')?>/assets/images/favicon.svg"/>
+
 <?php
+$page_id     = get_the_ID();
+  $post_data  = get_post_meta($page_id);
+  
+  if(isset($post_data['_yoast_wpseo_canonical'])){ ?>
+
+    <link rel="canonical" href="<?php  echo $post_data['_yoast_wpseo_canonical'][0];?>" />
+  <?php 
+  }
+
     wp_head();
 ?>
 <script type="text/javascript">

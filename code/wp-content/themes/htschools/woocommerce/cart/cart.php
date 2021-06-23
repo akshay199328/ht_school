@@ -292,7 +292,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				}
 
 				let cartViewedObj = {
-					"event"				: 'cart_viewed',
+					"event"				: 'view_cart',
 					"user_identifier"	: allItems[0]["user_identifier"],
 					"session_source"	: allItems[0]["session_source"],
 					"timestamp"			: allItems[0]["timestamp"],
@@ -346,17 +346,17 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				var resultingAmont	= totalAmount - removingItem['Course price'];
 
 				removeFromCartItem.push({
-					"removed_item_name"					: removingItem['course_name'],
-					"removed_course_url"				: removingItem['course_url'],
-					"removed_item_category"				: removingItem['course_category'],
-					"removed_course_partner"			: removingItem['course_partner'],
-					"removed_item_price"				: parseFloat(removingItem['course_price']).toFixed(2),
-					"removed_course_age_group"			: removingItem['age_group'],
-					"removed_course_duration"			: removingItem['course_duration'],
-					"removed_course_session_duration"	: removingItem['session_duration'],
-					"removed_category_id"				: removingItem['category_id'],
-					"removed_item_id"					: removingItem['course_id'],
-					"removed_wishlisted_course"			: removingItem['wishlisted_course'],
+					"item_name"					: removingItem['course_name'],
+					"course_url"				: removingItem['course_url'],
+					"item_category"				: removingItem['course_category'],
+					"course_partner"			: removingItem['course_partner'],
+					"price"				: parseFloat(removingItem['course_price']).toFixed(2),
+					"course_age_group"			: removingItem['age_group'],
+					"course_duration"			: removingItem['course_duration'],
+					"course_session_duration"	: removingItem['session_duration'],
+					"category_id"				: removingItem['category_id'],
+					"item_id"					: removingItem['course_id'],
+					"wishlisted_course"			: removingItem['wishlisted_course'],
 				});
 
 				let removeFromCartObj = {

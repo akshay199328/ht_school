@@ -1331,7 +1331,7 @@ border: 1px solid deepskyblue;
 			});
 
 			let addWishlistObj = {
-				"event"				: 'course_wishlisted',
+				"event"				: 'add_to_wishlist',
 				"user_identifier"	: jQuery("#user_identifier").val(),
 				"session_source"	: jQuery("#session_source").val(),
 				"timestamp"			: jQuery("#timestamp").val(),

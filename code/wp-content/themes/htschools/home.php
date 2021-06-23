@@ -307,6 +307,7 @@ get_header(vibe_get_header());
           //'category_name' => 'Expert','Interview','Featured',
           'posts_per_page' => 3,
           'order'=>'DESC',
+          'orderby' => 'publish_date',
         );
         $Query = new WP_Query( $args );
         if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();

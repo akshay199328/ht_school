@@ -1254,6 +1254,17 @@ border: 1px solid deepskyblue;
 		jQuery('.new-footer .screen-reader-response').hide();
 	}, false );
 
+	jQuery('.custom-price').each(function(){
+		let price    = 0;
+		let courseID = jQuery(this).attr('data-id');
+
+		if(jQuery(this).find('.course_price').length > 0) {
+			price = jQuery(this).find('.course_price').html().replace(/<[^>]*>?/gm, "").replace("₹", "").replace(",", "");
+		}
+
+		jQuery('#course_price_'+courseID).val(parseFloat(price).toFixed(2));
+	});
+
 	jQuery(document).ready(function(){
 		jQuery('.the_course_button').click(function(e){
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
@@ -1263,14 +1274,9 @@ border: 1px solid deepskyblue;
 
 				var addToCartItem	= [];
 				let courseID		= jQuery(this).attr('data-id');
-				let coursePrice		= 0;
-
-				if(jQuery(this).parent().find('.course_price').length) {
-					coursePrice = jQuery(this).parent().find('.course_price').html().replace(/<[^>]*>?/gm, "").replace("₹", "");
-				}
 
 				addToCartItem.push({
-					"price"				: coursePrice,
+					"price"				: jQuery("#course_price_" + courseID).val(),
 					"item_name"			: jQuery("#course_name_" + courseID).val(),
 					"item_id"			: jQuery("#course_id_" + courseID).val(),
 					"item_category"		: jQuery("#course_category_" + courseID).val(),
@@ -1310,14 +1316,9 @@ border: 1px solid deepskyblue;
 			var addToWishlistItem	= [];
 			let courseID			= jQuery(this).attr('data-id');
 			var link				= jQuery(this).attr("href");
-			let coursePrice			= 0;
-
-			if(jQuery(this).parent().parent().parent().parent().parent().parent().find('.course_price').length) {
-				coursePrice = jQuery(this).parent().parent().parent().parent().parent().parent().find('.course_price').html().replace(/<[^>]*>?/gm, "").replace("₹", "");
-			}
 
 			addToWishlistItem.push({
-				"price"				: coursePrice,
+				"price"				: jQuery("#course_price_" + courseID).val(),
 				"item_name"			: jQuery("#course_name_" + courseID).val(),
 				"course_url"		: jQuery("#course_url_" + courseID).val(),
 				"item_category"		: jQuery("#course_category_" + courseID).val(),
@@ -1348,6 +1349,84 @@ border: 1px solid deepskyblue;
 				window.location.href = link;
 			}, 500);
 		});
+
+		jQuery('.select_course_item').click(function(e){
+
+			e.preventDefault();
+			var selectCourseItem	= [];
+			let courseID			= jQuery(this).attr('data-id');
+			var link				= jQuery(this).attr("href");
+
+			selectCourseItem.push({
+				"price"				: jQuery("#course_price_" + courseID).val(),
+				"item_name"			: jQuery("#course_name_" + courseID).val(),
+				"course_url"		: jQuery("#course_url_" + courseID).val(),
+				"item_category"		: jQuery("#course_category_" + courseID).val(),
+				"course_partner"	: jQuery("#course_partner_" + courseID).val(),
+				"category_id"		: jQuery("#category_id_" + courseID).val(),
+				"item_id"			: jQuery("#course_id_" + courseID).val(),
+				"age_group"			: jQuery("#age_group_" + courseID).val(),
+				"course_duration"	: jQuery("#course_duration_" + courseID).val(),
+				"session_duration"	: jQuery("#session_duration_" + courseID).val(),
+			});
+
+			let selectCourseObj = {
+				"event"				: 'select_item',
+				"user_identifier"	: jQuery("#user_identifier").val(),
+				"session_source"	: jQuery("#session_source").val(),
+				"timestamp"			: jQuery("#timestamp").val(),
+				"utm_tags"			: jQuery("#utm_tags").val(),
+				"ecommerce"			: {
+					"items" : selectCourseItem,
+				}
+			};
+
+			dataLayer.push({ ecommerce: null });
+			dataLayer.push(selectCourseObj);
+			console.log(selectCourseObj);
+
+			setTimeout(function(){
+				window.location.href = link;
+			}, 500);
+		});
+
+		if(jQuery('.all_courses_list').length > 0) {
+
+			var allCourseItem = [];
+			jQuery('.all_courses_list').each(function(){
+				let courseID = jQuery(this).attr('data-id');
+
+				allCourseItem.push({
+					"price"				: jQuery("#course_price_" + courseID).val(),
+					"item_name"			: jQuery("#course_name_" + courseID).val(),
+					"course_url"		: jQuery("#course_url_" + courseID).val(),
+					"item_category"		: jQuery("#course_category_" + courseID).val(),
+					"course_partner"	: jQuery("#course_partner_" + courseID).val(),
+					"category_id"		: jQuery("#category_id_" + courseID).val(),
+					"item_id"			: jQuery("#course_id_" + courseID).val(),
+					"age_group"			: jQuery("#age_group_" + courseID).val(),
+					"course_duration"	: jQuery("#course_duration_" + courseID).val(),
+					"session_duration"	: jQuery("#session_duration_" + courseID).val(),
+				});
+			});
+
+			let allCourseObj = {
+				"event"				: 'view_item_list',
+				"user_identifier"	: jQuery("#user_identifier").val(),
+				"session_source"	: jQuery("#session_source").val(),
+				"timestamp"			: jQuery("#timestamp").val(),
+				"utm_tags"			: jQuery("#utm_tags").val(),
+				"ecommerce"			: {
+					"items" : allCourseItem,
+				}
+			};
+
+			if(allCourseItem.length > 0) {
+				dataLayer.push({ ecommerce: null });
+				dataLayer.push(allCourseObj);
+				console.log(allCourseObj);
+			}
+		}
 	});
 </script>
 

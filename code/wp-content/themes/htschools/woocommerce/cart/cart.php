@@ -289,7 +289,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"age_group"			: allItems[i]["age_group"],
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
-						"price"				: allItems[i]["course_price"],
+						"price"				: parseFloat(allItems[i]["course_price"]).toFixed(2),
 					});
 				}
 
@@ -308,8 +308,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"session_source"	: allItems[0]["session_source"],
 					"timestamp"			: allItems[0]["timestamp"],
 					"utm_tags"			: allItems[0]["utm_tags"],
-					"item_count"		: totalItems,
-					"total_cart_amount"	: totalAmount,
+					"item_count"		: parseFloat(totalItems).toFixed(2),
+					"total_cart_amount"	: parseFloat(totalAmount).toFixed(2),
 					"ecommerce"			: {
 						"items"	: beginCheckoutItems,
 					}
@@ -344,7 +344,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"removed_course_url"				: removingItem['course_url'],
 					"removed_item_category"				: removingItem['course_category'],
 					"removed_course_partner"			: removingItem['course_partner'],
-					"removed_item_price"				: removingItem['course_price'],
+					"removed_item_price"				: parseFloat(removingItem['course_price']).toFixed(2),
 					"removed_course_age_group"			: removingItem['age_group'],
 					"removed_course_duration"			: removingItem['course_duration'],
 					"removed_course_session_duration"	: removingItem['session_duration'],
@@ -360,8 +360,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"timestamp"				: '<?php echo date('c', time()); ?>',
 					"utm_tags"				: "",
 					"all_cart_items"		: totalItems,
-					"starting_cart_value"	: totalAmount,
-					"resulting_cart_value"	: resultingAmont,
+					"starting_cart_value"	: parseFloat(totalAmount).toFixed(2),
+					"resulting_cart_value"	: parseFloat(resultingAmont).toFixed(2),
 					"ecommerce"				: {
 						"items"	: removeFromCartItem,
 					}

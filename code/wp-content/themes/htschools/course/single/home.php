@@ -482,7 +482,40 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
           </div>
         </div>
 
+        <script type="text/javascript">
+          jQuery(document).ready(function(){
+            let courseID = '<?php echo $courseID;?>';
 
+            var viewCourseItem = [];
+            viewCourseItem.push({
+              "price"           : jQuery("#course_price_" + courseID).val(),
+              "item_name"       : jQuery("#course_name_" + courseID).val(),
+              "course_url"      : jQuery("#course_url_" + courseID).val(),
+              "item_category"   : jQuery("#course_category_" + courseID).val(),
+              "course_partner"  : jQuery("#course_partner_" + courseID).val(),
+              "category_id"     : jQuery("#category_id_" + courseID).val(),
+              "item_id"         : jQuery("#course_id_" + courseID).val(),
+              "age_group"       : jQuery("#age_group_" + courseID).val(),
+              "course_duration" : jQuery("#course_duration_" + courseID).val(),
+              "session_duration": jQuery("#session_duration_" + courseID).val(),
+            });
+
+            let viewCourseObj = {
+              "event"          : 'view_item',
+              "user_identifier": jQuery("#user_identifier").val(),
+              "session_source" : jQuery("#session_source").val(),
+              "timestamp"      : jQuery("#timestamp").val(),
+              "utm_tags"       : jQuery("#utm_tags").val(),
+              "ecommerce"      : {
+                "items" : viewCourseItem,
+              }
+            };
+
+            dataLayer.push({ ecommerce: null });
+            dataLayer.push(viewCourseObj);
+            console.log(viewCourseObj);
+          });
+        </script>
 </main>
 
 <?php

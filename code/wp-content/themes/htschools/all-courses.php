@@ -807,7 +807,7 @@ get_header(vibe_get_header());
                     <?php }?>
                     <div class="courses-wrapper">
                   <?php } ?>
-                  <div class="column">
+                  <div class="column all_courses_list" data-id="<?php echo $post->ID;?>">
                     <div class="column-header">
                       <span class="category"><?php echo $category_array[0]->name; ?></span>
                       <div class="share">
@@ -847,7 +847,7 @@ get_header(vibe_get_header());
                 $image_url = get_the_post_thumbnail_url();
               }
             ?>
-            <a href="<?php echo get_permalink($post->ID);?>"><figure class="course-hero"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></figure></a>
+            <a class="select_course_item" data-id="<?php echo $post->ID;?>" href="<?php echo get_permalink($post->ID);?>"><figure class="course-hero"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></figure></a>
             <div class="course-copy">
             <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
             <ul class="data">
@@ -881,7 +881,7 @@ get_header(vibe_get_header());
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
             <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             <div class="action">
-                <div class="price"><?php the_course_price(); ?></div>
+                <div class="price custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></div>
                 <?php the_course_button(); ?>
             </div>
             
@@ -909,7 +909,7 @@ get_header(vibe_get_header());
             <input type="hidden" id="utm_tags">
         <?php posts_pagination(); ?>
       </div>
-      
+
 </section>
 </main>
 <?php

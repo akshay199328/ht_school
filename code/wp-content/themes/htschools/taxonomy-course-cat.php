@@ -50,7 +50,7 @@ get_header(vibe_get_header());
       				$wp_query = new WP_Query( $args ); 
 
                   ?>
-                  <div class="col-lg-9 mrg all-courses-left all_courses_list" data-id="<?php echo $post->ID;?>">
+                  <div class="col-lg-9 mrg all-courses-left">
                   <div class="">
                   <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                     <?php if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
@@ -84,7 +84,7 @@ get_header(vibe_get_header());
                     $duration = $custom_fields['vibe_validity'][0];
                     $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                     $session = $custom_fields['vibe_course_sessions'][0]; ?>
-                  <div class="course-box dotted-border">
+                  <div class="course-box dotted-border all_courses_list" data-id="<?php echo $post->ID;?>">
                     <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $post->post_title;?>">
                     <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
                     <input type="hidden" id="course_category_<?php echo $courseID;?>" value="<?php echo $category_array[0]->name;?>">

@@ -7,23 +7,23 @@
  * @subpackage bp-default
  */
 
-get_header( vibe_get_header() ); 
+get_header( vibe_get_header() );
 
 $profile_layout = vibe_get_customizer('profile_layout');
 
-vibe_include_template("profile/top$profile_layout.php");  
+vibe_include_template("profile/top$profile_layout.php");
 ?>
 <div id="item-body">
     <div class="col-md-3 left_tabs">
         <div class="item-list-tabs no-ajax <?php if ( !bp_is_my_profile() ) echo 'notmyprofile'; ?>" id="subnav" role="navigation">
         	<ul class="left_tab">
-        		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); 
+        		<?php if ( bp_is_my_profile() ) bp_get_options_nav();
         		do_action('bp_course_get_options_sub_nav');
         		?>
         	</ul>
         </div><!-- .item-list-tabs -->
     </div>
-    <div class="col-md-9">      
+    <div class="col-md-9">
 	    <section id="Popular-Courses" class="">
           	<?php
 
@@ -38,7 +38,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 {
                   $userIdentifier = $_COOKIE['PHPSESSID'];
                 }
-                global $wpdb;    
+                global $wpdb;
                 $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
                     $result = $wpdb->get_results($courses_with_types);
                     $active_courses = array();
@@ -48,7 +48,7 @@ vibe_include_template("profile/top$profile_layout.php");
                     $type = bp_course_get_user_course_status($user->ID,$course->id);
                     $statuses[$course->id]= intval($type);
                 }
-                
+
                     $tag_array = array();
                     if(!empty($args['post__in'])){
                         foreach ($args['post__in'] as $post_id) {
@@ -91,7 +91,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             $Query_course = new WP_Query($query_args);
                         }
                     }
-                    
+
                     if($Query_course != NULL){
 
                     if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
@@ -127,7 +127,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         <table width="100%">
                           <tr>
                             <td>
-                                <?php 
+                                <?php
                                     $category_array = get_the_terms( $post->ID, 'course-cat');
                                 ?>
                               <h6><?php echo $category_array[0]->name;?></h6>
@@ -177,7 +177,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             <tr class="border_button">
                                 <td class="course-button">
                                     <h6 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h6>
-                                    <?php the_course_button(); ?> 
+                                    <?php the_course_button(); ?>
                                 </td>
                             </tr>
                             <tr class="profilecou-instructor">
@@ -248,14 +248,14 @@ vibe_include_template("profile/top$profile_layout.php");
           <input type="hidden" id="session_source">
           <input type="hidden" id="utm_tags">
         </section>
-	
+
 
 </div><!-- #item-body -->
 
 <?php do_action( 'bp_after_member_settings_template' ); ?>
-		
+
 <?php
 
-vibe_include_template("profile/bottom.php");  
+vibe_include_template("profile/bottom.php");
 
-get_footer( vibe_get_footer() );  
+get_footer( vibe_get_footer() );

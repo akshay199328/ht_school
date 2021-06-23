@@ -176,7 +176,7 @@ get_header(vibe_get_header());
           <?php }?>
           <div class="courses-wrapper">
           <?php } ?>
-        <div class="column">
+        <div class="column all_courses_list" data-id="<?php echo $post->ID;?>">
           <div class="column-header">
             <span class="category"><?php echo $category_array[0]->name; ?></span>
             <div class="share">
@@ -215,7 +215,7 @@ get_header(vibe_get_header());
                 $image_url = get_the_post_thumbnail_url();
               }
             ?>
-            <a class="course-hero" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
+            <a class="course-hero select_course_item" data-id="<?php echo $post->ID;?>" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
             <div class="course-copy">
             <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
             <ul class="data">

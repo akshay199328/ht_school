@@ -1011,11 +1011,11 @@ if(!function_exists('bp_course_item_view')){
 		extract( $r, EXTR_SKIP );
 		$thumb = '';
 		if(has_post_thumbnail($id)){
-			$thumb='<a href="'.get_permalink($id).'" title="'.the_title_attribute('echo=0').'">'.get_the_post_thumbnail($id,$size).'</a>';
+			$thumb='<a class="select_course_item" data-id="' . $id .'" href="'.get_permalink($id).'" title="'.the_title_attribute('echo=0').'">'.get_the_post_thumbnail($id,$size).'</a>';
 		}else{
 			$default_course_avatar = vibe_get_option('default_course_avatar');
 			if(isset($default_course_avatar) && $default_course_avatar){
-				$thumb='<a href="'.get_permalink($id).'" title="'.the_title_attribute('echo=0').'"><img src="'.$default_course_avatar.'" /></a>';
+				$thumb='<a class="select_course_item" data-id="' . $id .'" href="'.get_permalink($id).'" title="'.the_title_attribute('echo=0').'"><img src="'.$default_course_avatar.'" /></a>';
 			}
 		}
 		

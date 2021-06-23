@@ -24,19 +24,26 @@ get_header(vibe_get_header());
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="row">
                   <?php
+                    global $wpdb;
                     $user = wp_get_current_user();
-                    // print_r($user->user_login);
-                    // print_r($user->ID);
-                    
-                    $user = wp_get_current_user();
-                    global $wpdb;    
+                    $userIdentifier = "";
+
+                    if(isset($user->ID) && $user->ID > 0)
+                    {
+                      $userIdentifier = $user->ID;
+                    }
+                    else if(isset($_COOKIE['PHPSESSID']))
+                    {
+                      $userIdentifier = $_COOKIE['PHPSESSID'];
+                    }
+
                     $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
                     $result = $wpdb->get_results($courses_with_types);
 
                     foreach($result as $course){
-                            
+
                         $type = bp_course_get_user_course_status($user->ID,$course->id);
-                        if($type != 4){    
+                        if($type != 4){
                             $args['post__in'][]=$course->id;
                         }
                         $statuses[$course->id]= intval($type);
@@ -50,15 +57,38 @@ get_header(vibe_get_header());
                           'paged'=>$paged
                       ),$user->ID);
                       $wp_query = new WP_Query($query_args);
-                    
+
 
                     if(!empty($wp_query)){
                   ?>
-                  <div class="col-lg-9 mrg all-courses-left">
+                  <div class="col-lg-9 mrg all-courses-left all_courses_list1" data-id="<?php echo $post->ID;?>">
                   <div class="">
                   <div class="col-md-12 mrg space" data-aos="zoom-out" data-aos-delay="200">
                     <?php if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                     global $post;
+                    $custom_fields = get_post_custom();
+                    $duration = $custom_fields['vibe_validity'][0];
+                    $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
+                    $session = $custom_fields['vibe_course_sessions'][0];
+                    $age_limit = $custom_fields['vibe_course_age_group'][0];
+                    $category_array = get_the_terms( $post->ID, 'course-cat');
+                    $excerpt = get_post_field('post_excerpt', $post->ID);
+                    $courseID = $post->ID;
+                    $courseslug=get_site_url().'/?p='.$courseID;
+                    $usersFavorites = wpfp_get_users_favorites();
+                    $user = wp_get_current_user();
+
+                    $coursePartner = "";
+
+                    $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+                    if ($cb_course_id) {
+                      $coursePartner = "Celebrity School";
+                    }
+
+                    $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+                    if ($aiws_course_id) {
+                      $coursePartner = "AIWS";
+                    }
                     $progress = bp_course_get_user_progress($user->id,$post->ID);
                     if($statuses[$post->ID]>2){$progress = 100;}
                     $custom_fields = get_post_custom();
@@ -66,11 +96,23 @@ get_header(vibe_get_header());
                     $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                     $session = $custom_fields['vibe_course_sessions'][0]; ?>
                   <div class="course-box dotted-border">
+                    <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $post->post_title;?>">
+                    <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
+                    <input type="hidden" id="course_category_<?php echo $courseID;?>" value="<?php echo $category_array[0]->name;?>">
+                    <input type="hidden" id="course_partner_<?php echo $courseID;?>" value="<?php echo $coursePartner;?>">
+                    <input type="hidden" id="category_id_<?php echo $courseID;?>" value="<?php echo $category_array[0]->term_id;?>">
+                    <input type="hidden" id="course_id_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+                    <input type="hidden" id="course_price_<?php echo $courseID;?>" value="0">
+                    <input type="hidden" id="course_tax_<?php echo $courseID;?>" value="0">
+                    <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
+                    <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
+                    <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
+                    <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
                     <table width="100%">
                       <tbody>
                         <tr>
                           <td class="tableTd_left">
-                              <?php bp_course_avatar(); 
+                              <?php bp_course_avatar();
                                 $category_array = get_the_terms( $post->ID, 'course-cat');
                                 $excerpt = get_post_field('post_excerpt', $post->ID);
                                ?>
@@ -126,7 +168,7 @@ get_header(vibe_get_header());
                                     <?php }else{
                                       $url = "/login-register";
                                       ?>
-                                      <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> 
+                                      <li style="list-style-type: none;"><a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li>
                                       <?php
                                     }
                                     ?>
@@ -144,13 +186,13 @@ get_header(vibe_get_header());
                                         </div><script async src="https://static.addtoany.com/menu/page.js"></script>
                                       </div>
                                     </li>
-                                  </ul>  
+                                  </ul>
                                   <script async src="https://static.addtoany.com/menu/page.js"></script>
                                 </td>
                               </tr>
                               <tr class="border_button">
                                 <td class="course-button">
-                                  <h6 class="custom-price" data-id="<?php echo $post->ID;?>"><?php 
+                                  <h6 class="custom-price" data-id="<?php echo $post->ID;?>"><?php
                                     the_course_price();
                                   ?>
                                   </h6>
@@ -162,7 +204,7 @@ get_header(vibe_get_header());
                         </tr>
                       </tbody>
                     </table>
-                    
+
                 </div>
                 <?php endwhile; endif; posts_pagination();?>
                     </div>
@@ -171,7 +213,7 @@ get_header(vibe_get_header());
                   <div class="col-lg-3 mrg adworks desktop-add right-adwork right_spacing">
                       <?php
                         if ( is_active_sidebar( 'course_section_rhs_banner' ) ) : ?>
-                        <?php dynamic_sidebar( 'course_section_rhs_banner' ); ?>      
+                        <?php dynamic_sidebar( 'course_section_rhs_banner' ); ?>
                       <?php endif; ?>
                   </div>
                 <?php }else{ ?>
@@ -180,18 +222,22 @@ get_header(vibe_get_header());
                         <h4>No Courses here! You're missing out on some cool stuff!</h4>
                         <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
                     </div>
-                    
+
                 <?php }}else{ ?>
                     <div class="empty_cart_div">
                         <div class="empty_course_image"></div>
                         <h4>No Courses here! You're missing out on some cool stuff!</h4>
                         <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
                     </div>
-                    
+
                 <?php }
                 ?>
     </div>
 </div>
+<input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
+<input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
+<input type="hidden" id="session_source">
+<input type="hidden" id="utm_tags">
 </section>
 <div class="col-md-12 col-sm-12">
     <?php

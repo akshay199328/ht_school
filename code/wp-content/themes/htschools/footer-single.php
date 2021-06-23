@@ -1300,7 +1300,7 @@ border: 1px solid deepskyblue;
 					}
 				};
 
-				dataLayer.push({ ecommerce: null });
+				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(beginCheckoutObj);
 				console.log(beginCheckoutObj);
 
@@ -1341,7 +1341,7 @@ border: 1px solid deepskyblue;
 				}
 			};
 
-			dataLayer.push({ ecommerce: null });
+			// dataLayer.push({ ecommerce: null });
 			dataLayer.push(addWishlistObj);
 			console.log(addWishlistObj);
 
@@ -1381,7 +1381,7 @@ border: 1px solid deepskyblue;
 				}
 			};
 
-			dataLayer.push({ ecommerce: null });
+			// dataLayer.push({ ecommerce: null });
 			dataLayer.push(selectCourseObj);
 			console.log(selectCourseObj);
 
@@ -1394,7 +1394,9 @@ border: 1px solid deepskyblue;
 
 			var allCourseItem = [];
 			jQuery('.all_courses_list').each(function(){
+
 				let courseID = jQuery(this).attr('data-id');
+				let itemName = jQuery(this).attr('data-name');
 
 				allCourseItem.push({
 					"price"				: jQuery("#course_price_" + courseID).val(),
@@ -1416,13 +1418,14 @@ border: 1px solid deepskyblue;
 				"session_source"	: jQuery("#session_source").val(),
 				"timestamp"			: jQuery("#timestamp").val(),
 				"utm_tags"			: jQuery("#utm_tags").val(),
+				"item_list_name"	: itemName,
 				"ecommerce"			: {
 					"items" : allCourseItem,
 				}
 			};
 
 			if(allCourseItem.length > 0) {
-				dataLayer.push({ ecommerce: null });
+				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(allCourseObj);
 				console.log(allCourseObj);
 			}

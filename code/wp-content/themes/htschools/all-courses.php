@@ -781,6 +781,8 @@ get_header(vibe_get_header());
                       $user = wp_get_current_user();
                       $userIdentifier = "";
 
+                      if(!is_array($usersFavorites)) $usersFavorites = array();
+
                       if(isset($user->ID) && $user->ID > 0)
                       {
                         $userIdentifier = $user->ID;
@@ -807,7 +809,7 @@ get_header(vibe_get_header());
                     <?php }?>
                     <div class="courses-wrapper">
                   <?php } ?>
-                  <div class="column all_courses_list" data-id="<?php echo $post->ID;?>">
+                  <div class="column all_courses_list" data-name="course" data-id="<?php echo $post->ID;?>">
                     <div class="column-header">
                       <span class="category"><?php echo $category_array[0]->name; ?></span>
                       <div class="share">
@@ -879,7 +881,7 @@ get_header(vibe_get_header());
             <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
             <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
-            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
+            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             <div class="action">
                 <div class="price custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></div>
                 <?php the_course_button(); ?>

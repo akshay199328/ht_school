@@ -84,10 +84,18 @@ defined( 'ABSPATH' ) || exit;
 			</ul>
 
 			<?php
-				$items = array();
-				$dataLayerItems = array();
+				$items			= array();
+				$dataLayerItems	= array();
 				$usersFavorites	= wpfp_get_users_favorites();
 				$currentUser	= wp_get_current_user();
+				$couponApplied	= false;
+				$couponCode		= "";
+
+				foreach ($order->get_used_coupons() as $key1 => $value1)
+				{
+					$couponApplied	= true;
+					$couponCode		= $value1;
+				}
 
 				if(isset($currentUser->ID) && $currentUser->ID > 0)
 				{
@@ -124,12 +132,13 @@ defined( 'ABSPATH' ) || exit;
 						"item_name"			=> $item['name'],
 						"amount_paid"		=> ($item['total'] + $item['total_tax']),
 						"course_partners"	=> $coursePartner,
+						"original_price"	=> $item['subtotal'],
 						"price"				=> $item['total'],
 						"course_urls"		=> $courseslug,
 						"item_category"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
 						"category_id"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : ""),
 						"item_id"			=> $courseID,
-						"coupon_applied"	=> false,
+						"coupon_applied"	=> $couponApplied,
 						"course_age_groups"	=> get_post_meta($courseID, "vibe_course_age_group", true),
 						"course_durations"	=> get_post_meta($courseID, "vibe_validity", true),
 						"session_durations"	=> get_post_meta($courseID, "vibe_course_session_length", true),
@@ -140,9 +149,10 @@ defined( 'ABSPATH' ) || exit;
 			    }
 
 				$ecommerce = array(
-					"transaction_id"	=> isset($_GET['key']) ? $_GET['key'] : "",
+					"transaction_id"	=> $order->get_transaction_id(),
 					"payment_mode"		=> $order->get_payment_method_title(),
-					"coupon_code"		=> "",
+					"coupon_applied"	=> $couponApplied,
+					"coupon_code"		=> $couponCode,
 					"items"				=> $items,
 				);
 			?>
@@ -161,7 +171,7 @@ defined( 'ABSPATH' ) || exit;
 						"ecommerce"			: allItems,
 					};
 
-					dataLayer.push({ ecommerce: null });
+					// dataLayer.push({ ecommerce: null });
 					dataLayer.push(purchaseObj);
 					console.log(purchaseObj);
 				});

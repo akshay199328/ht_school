@@ -95,25 +95,27 @@ vibe_include_template("profile/top$profile_layout.php");
                     if($Query_course != NULL){
 
                     if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
-                          $custom_fields = get_post_custom();
-                          $duration = $custom_fields['vibe_validity'][0];
-                          $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
-                          $age_limit = $custom_fields['vibe_course_age_group'][0];
-                          $category_array = get_the_terms( $post->ID, 'course-cat');
-                          $courseID = $post->ID;
-                          $courseslug=get_site_url().'/?p='.$courseID;
-                          $usersFavorites = wpfp_get_users_favorites();
-                          $coursePartner = "";
+                        $custom_fields = get_post_custom();
+                        $duration = $custom_fields['vibe_validity'][0];
+                        $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
+                        $age_limit = $custom_fields['vibe_course_age_group'][0];
+                        $category_array = get_the_terms( $post->ID, 'course-cat');
+                        $courseID = $post->ID;
+                        $courseslug=get_site_url().'/?p='.$courseID;
+                        $usersFavorites = wpfp_get_users_favorites();
+                        $coursePartner = "";
 
-                            $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
-                            if ($cb_course_id) {
-                              $coursePartner = "Celebrity School";
-                            }
+                        if(!is_array($usersFavorites)) $usersFavorites = array();
 
-                            $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
-                            if ($aiws_course_id) {
-                              $coursePartner = "AIWS";
-                            }
+                        $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+                        if ($cb_course_id) {
+                          $coursePartner = "Celebrity School";
+                        }
+
+                        $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+                        if ($aiws_course_id) {
+                          $coursePartner = "AIWS";
+                        }
                 ?>
               <div class="col-md-12 mrg space <?php echo $course_classes; ?>" data-aos="zoom-out" data-aos-delay="200">
                 <div class="course-box">
@@ -226,7 +228,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
                 <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
                 <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
-                <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
+                <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             </div>
             </div>
         <?php  endwhile; else: ?>

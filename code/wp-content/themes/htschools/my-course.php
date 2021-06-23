@@ -78,6 +78,8 @@ get_header(vibe_get_header());
                     $usersFavorites = wpfp_get_users_favorites();
                     $user = wp_get_current_user();
 
+                    if(!is_array($usersFavorites)) $usersFavorites = array();
+
                     $coursePartner = "";
 
                     $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
@@ -107,7 +109,7 @@ get_header(vibe_get_header());
                     <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
                     <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
                     <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
-                    <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
+                    <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
                     <table width="100%">
                       <tbody>
                         <tr>

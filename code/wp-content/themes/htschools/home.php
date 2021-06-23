@@ -160,15 +160,17 @@ get_header(vibe_get_header());
             $usersFavorites = wpfp_get_users_favorites();
             $coursePartner = "";
 
-              $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
-              if ($cb_course_id) {
-                $coursePartner = "Celebrity School";
-              }
+            if(!is_array($usersFavorites)) $usersFavorites = array();
 
-              $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
-              if ($aiws_course_id) {
-                $coursePartner = "AIWS";
-              }
+            $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+            if ($cb_course_id) {
+              $coursePartner = "Celebrity School";
+            }
+
+            $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+            if ($aiws_course_id) {
+              $coursePartner = "AIWS";
+            }
             if($i%4 == 0){
               if ($i != 0){
           ?>
@@ -176,7 +178,7 @@ get_header(vibe_get_header());
           <?php }?>
           <div class="courses-wrapper">
           <?php } ?>
-        <div class="column all_courses_list" data-id="<?php echo $post->ID;?>">
+        <div class="column all_courses_list" data-name="home" data-id="<?php echo $post->ID;?>">
           <div class="column-header">
             <span class="category"><?php echo $category_array[0]->name; ?></span>
             <div class="share">
@@ -247,7 +249,7 @@ get_header(vibe_get_header());
             <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
             <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
-            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
+            <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             <div class="action">
                 <div class="price custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></div>
                 <?php the_course_button(); ?>

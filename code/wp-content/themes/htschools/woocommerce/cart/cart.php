@@ -42,7 +42,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					<tbody>
 						<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
-						<?php $count = 0; $totalAmount = 0;
+						<?php $count = 0; $totalAmount = 0; $totalOriginalAmount = 0;
 						$currentUser	= wp_get_current_user();
 						$usersFavorites	= wpfp_get_users_favorites();
 						$dataLayerItems	= array();
@@ -84,25 +84,27 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 									$coursePartner = "AIWS";
 								}
 
-								$totalAmount += $cart_item['line_total'];
+								$totalAmount			+= $cart_item['line_total'];
+								$totalOriginalAmount	+= $cart_item['line_subtotal'];
 
 								$dataLayerItems[] = array(
-									"user_identifier"	=> $userIdentifier,
-									"session_source"	=> "",
-									"timestamp"			=> date('c', time()),
-									"utm_tags"			=> "",
-									"course_name"		=> $_product->get_name(),
-									"course_url"		=> $courseslug,
-									"course_category"	=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
-									"course_partner"	=> $coursePartner,
-									"category_id"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : 0),
-									"course_id"			=> $course_id,
-									"course_price"		=> $cart_item['line_total'],
-									"course_tax"		=> $cart_item['line_tax'],
-									"age_group"			=> get_post_meta($course_id, "vibe_course_age_group", true),
-									"course_duration"	=> get_post_meta($course_id, "vibe_validity", true),
-									"session_duration"	=> get_post_meta($course_id, "vibe_course_session_length", true),
-									"wishlisted_course"	=> false,
+									"user_identifier"		=> $userIdentifier,
+									"session_source"		=> "",
+									"timestamp"				=> date('c', time()),
+									"utm_tags"				=> "",
+									"course_name"			=> $_product->get_name(),
+									"course_url"			=> $courseslug,
+									"course_category"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
+									"course_partner"		=> $coursePartner,
+									"category_id"			=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : 0),
+									"course_id"				=> $course_id,
+									"course_price"			=> $cart_item['line_subtotal'],
+									"course_discount_price"	=> $cart_item['line_total'],
+									"course_tax"			=> $cart_item['line_tax'],
+									"age_group"				=> get_post_meta($course_id, "vibe_course_age_group", true),
+									"course_duration"		=> get_post_meta($course_id, "vibe_validity", true),
+									"session_duration"		=> get_post_meta($course_id, "vibe_course_session_length", true),
+									"wishlisted_course"		=> false,
 								); ?>
 
 								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
@@ -189,7 +191,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						?>
 
 						<?php do_action( 'woocommerce_cart_contents' ); ?>
-						
+
 						<tr>
 							<td colspan="6" class="actions coupon_td">
 
@@ -207,7 +209,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 							</td>
 						</tr>
 
-						
+
 
 						<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 					</tbody>
@@ -248,34 +250,35 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 			var allItems = JSON.parse('<?php echo json_encode($dataLayerItems); ?>');
 
-			var totalAmount			= '<?php echo $totalAmount; ?>';
+			var totalDiscountAmount	= '<?php echo $totalAmount; ?>';
+			var totalOrigAmount		= '<?php echo $totalOriginalAmount; ?>';
 			var totalItems			= allItems.length;
 
 			if(totalItems > 0) {
 
+				var couponApplied	= false;
+				var coupon			= "";
+
+				if(jQuery('.cart-discount').length > 0) {
+					couponApplied = true;
+					coupon = jQuery('.cart-discount :first-child').eq(0).text().replace("Coupon:", "").trim();
+				}
+
 				var beginCheckoutItems	= [];
 				var cartViewedItems		= [];
 
-				/*cartViewedItems.push({
-					"user_identifier"		: allItems[0]["user_identifier"],
-					"session_source"		: allItems[0]["session_source"],
-					"timestamp"				: allItems[0]["timestamp"],
-					"utm_tags"				: allItems[0]["utm_tags"],
-					"courses_in_cart"		: totalItems,
-					"original_cart_value"	: totalAmount,
-				});*/
-
 				for (var i = 0; i < totalItems; i++) {
+
 					cartViewedItems.push({
 						"item_name"			: allItems[i]["course_name"],
 						"course_url"		: allItems[i]["course_url"],
 						"item_category"		: allItems[i]["course_category"],
 						"course_partner"	: allItems[i]["course_partner"],
-						"item_id"			: allItems[i]["course_price"],
+						"item_id"			: allItems[i]["course_id"],
 						"age_group"			: allItems[i]["age_group"],
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
-						"price"				: parseFloat(allItems[i]["course_price"]).toFixed(2),
+						"price"				: parseFloat(allItems[i]["course_discount_price"]).toFixed(2),
 					});
 
 					beginCheckoutItems.push({
@@ -283,11 +286,11 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"course_url"		: allItems[i]["course_url"],
 						"item_category"		: allItems[i]["course_category"],
 						"course_partner"	: allItems[i]["course_partner"],
-						"item_id"			: allItems[i]["course_price"],
+						"item_id"			: allItems[i]["course_id"],
 						"age_group"			: allItems[i]["age_group"],
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
-						"price"				: parseFloat(allItems[i]["course_price"]).toFixed(2),
+						"price"				: parseFloat(allItems[i]["course_discount_price"]).toFixed(2),
 					});
 				}
 
@@ -299,7 +302,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"utm_tags"			: allItems[0]["utm_tags"],
 					"item_count"		: totalItems,
 					"currency"			: "INR",
-					"value"				: parseFloat(totalAmount).toFixed(2),
+					"coupon_applied"	: couponApplied,
+					"coupon"			: coupon,
+					"original_value"	: parseFloat(totalOrigAmount).toFixed(2),
+					"value"				: parseFloat(totalDiscountAmount).toFixed(2),
 					"ecommerce"			: {
 						"items"	: cartViewedItems,
 					}
@@ -309,14 +315,17 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				console.log(cartViewedObj);
 
 				let beginCheckoutObj = {
-					"event"				: 'begin_checkout',
-					"user_identifier"	: allItems[0]["user_identifier"],
-					"session_source"	: allItems[0]["session_source"],
-					"timestamp"			: allItems[0]["timestamp"],
-					"utm_tags"			: allItems[0]["utm_tags"],
-					"item_count"		: totalItems,
-					"total_cart_amount"	: parseFloat(totalAmount).toFixed(2),
-					"ecommerce"			: {
+					"event"					: 'begin_checkout',
+					"user_identifier"		: allItems[0]["user_identifier"],
+					"session_source"		: allItems[0]["session_source"],
+					"timestamp"				: allItems[0]["timestamp"],
+					"utm_tags"				: allItems[0]["utm_tags"],
+					"item_count"			: totalItems,
+					"coupon_applied"		: couponApplied,
+					"coupon"				: coupon,
+					"original_cart_value"	: parseFloat(totalOrigAmount).toFixed(2),
+					"total_cart_amount"		: parseFloat(totalDiscountAmount).toFixed(2),
+					"ecommerce"				: {
 						"items"	: beginCheckoutItems,
 					}
 				};
@@ -324,7 +333,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				jQuery('.checkout-button').click(function(e){
 					e.preventDefault();
 					var link = jQuery(this).attr("href");
-					dataLayer.push({ ecommerce: null });
+					// dataLayer.push({ ecommerce: null });
 					dataLayer.push(beginCheckoutObj);
 					console.log(beginCheckoutObj);
 					setTimeout(function(){
@@ -343,14 +352,14 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				var removeFromCartItem = [];
 				var removingItem	= allItems[$(this).attr("data-count")];
-				var resultingAmont	= totalAmount - removingItem['Course price'];
+				var resultingAmont	= totalDiscountAmount - removingItem['course_discount_price'];
 
 				removeFromCartItem.push({
 					"item_name"					: removingItem['course_name'],
 					"course_url"				: removingItem['course_url'],
 					"item_category"				: removingItem['course_category'],
 					"course_partner"			: removingItem['course_partner'],
-					"price"				: parseFloat(removingItem['course_price']).toFixed(2),
+					"price"						: parseFloat(removingItem['course_discount_price']).toFixed(2),
 					"course_age_group"			: removingItem['age_group'],
 					"course_duration"			: removingItem['course_duration'],
 					"course_session_duration"	: removingItem['session_duration'],
@@ -366,14 +375,14 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"timestamp"				: '<?php echo date('c', time()); ?>',
 					"utm_tags"				: "",
 					"all_cart_items"		: totalItems,
-					"starting_cart_value"	: parseFloat(totalAmount).toFixed(2),
+					"starting_cart_value"	: parseFloat(totalDiscountAmount).toFixed(2),
 					"resulting_cart_value"	: parseFloat(resultingAmont).toFixed(2),
 					"ecommerce"				: {
 						"items"	: removeFromCartItem,
 					}
 				};
 
-				dataLayer.push({ ecommerce: null });
+				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(removeFromCartObj);
 				console.log(removeFromCartObj);
 			});

@@ -266,19 +266,17 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				});*/
 
 				for (var i = 0; i < totalItems; i++) {
-					/*cartViewedItems.push({
-						"Item count"		: totalItems,
+					cartViewedItems.push({
 						"item_name"			: allItems[i]["course_name"],
-						"Course URL"		: allItems[i]["course_url"],
+						"course_url"		: allItems[i]["course_url"],
 						"item_category"		: allItems[i]["course_category"],
-						"Course partner"	: allItems[i]["course_partner"],
+						"course_partner"	: allItems[i]["course_partner"],
 						"item_id"			: allItems[i]["course_price"],
-						"Age group"			: allItems[i]["age_group"],
-						"Course duration"	: allItems[i]["course_duration"],
-						"Session duration"	: allItems[i]["session_duration"],
-						"price"				: allItems[i]["course_price"],
-						"Total cart amount"	: totalAmount,
-					});*/
+						"age_group"			: allItems[i]["age_group"],
+						"course_duration"	: allItems[i]["course_duration"],
+						"session_duration"	: allItems[i]["session_duration"],
+						"price"				: parseFloat(allItems[i]["course_price"]).toFixed(2),
+					});
 
 					beginCheckoutItems.push({
 						"item_name"			: allItems[i]["course_name"],
@@ -301,7 +299,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"utm_tags"			: allItems[0]["utm_tags"],
 					"item_count"		: totalItems,
 					"currency"			: "INR",
-					"total_cart_amount"	: parseFloat(totalAmount).toFixed(2),
+					"value"				: parseFloat(totalAmount).toFixed(2),
+					"ecommerce"			: {
+						"items"	: cartViewedItems,
+					}
 				};
 
 				dataLayer.push(cartViewedObj);

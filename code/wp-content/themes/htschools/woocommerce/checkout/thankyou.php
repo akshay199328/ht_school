@@ -140,10 +140,10 @@ defined( 'ABSPATH' ) || exit;
 			    }
 
 				$ecommerce = array(
-					"order_id"		=> $order->get_id(),
-					"payment_mode"	=> $order->get_payment_method_title(),
-					"coupon_code"	=> "",
-					"items"			=> $items,
+					"transaction_id"	=> isset($_GET['key']) ? $_GET['key'] : "",
+					"payment_mode"		=> $order->get_payment_method_title(),
+					"coupon_code"		=> "",
+					"items"				=> $items,
 				);
 			?>
 

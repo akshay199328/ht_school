@@ -256,7 +256,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				var beginCheckoutItems	= [];
 				var cartViewedItems		= [];
 
-				/*beginCheckoutItems1.push({
+				/*cartViewedItems.push({
 					"user_identifier"		: allItems[0]["user_identifier"],
 					"session_source"		: allItems[0]["session_source"],
 					"timestamp"				: allItems[0]["timestamp"],
@@ -293,14 +293,19 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					});
 				}
 
-				/*let cartViewedObj = {
-					"event"		: 'cart_viewed',
-					"ecommerce"	: {
-						"items"	: cartViewedItems,
-					}
+				let cartViewedObj = {
+					"event"				: 'cart_viewed',
+					"user_identifier"	: allItems[0]["user_identifier"],
+					"session_source"	: allItems[0]["session_source"],
+					"timestamp"			: allItems[0]["timestamp"],
+					"utm_tags"			: allItems[0]["utm_tags"],
+					"item_count"		: totalItems,
+					"currency"			: "INR",
+					"total_cart_amount"	: parseFloat(totalAmount).toFixed(2),
 				};
 
-				dataLayer.push(cartViewedObj);*/
+				dataLayer.push(cartViewedObj);
+				console.log(cartViewedObj);
 
 				let beginCheckoutObj = {
 					"event"				: 'begin_checkout',
@@ -308,7 +313,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"session_source"	: allItems[0]["session_source"],
 					"timestamp"			: allItems[0]["timestamp"],
 					"utm_tags"			: allItems[0]["utm_tags"],
-					"item_count"		: parseFloat(totalItems).toFixed(2),
+					"item_count"		: totalItems,
 					"total_cart_amount"	: parseFloat(totalAmount).toFixed(2),
 					"ecommerce"			: {
 						"items"	: beginCheckoutItems,

@@ -3674,11 +3674,11 @@
     })), Rt("div", {
         className: "submit_info"
     },Rt("div", {
-        className: "parent_div"
+        className: "left_scoring"
     }, Rt("div", {
         className: "quiz-text",
         dangerouslySetInnerHTML: {
-            __html: "<span class='quiz-text'>Question answered<span>"
+            __html: "<span class='text'>Question answered<span>"
         }
     }), Rt("div", {
         className: "score",
@@ -3698,7 +3698,9 @@
     }, e.no),Rt("span", {
         className: "button submit_button",
         onClick: t => {
+
             e.yesfunction, e.update(e.type, "trigger")
+
         }
     }, e.yes)))) : "");
     const {
@@ -4186,7 +4188,20 @@
                 no: window.wplms_course_data.translations.no,
                 yesfunction: "startQuiz"
             }), gn("div", {
-                className: "incourse"
+                className: "show_quiz_result"
+            },
+            gn("div", {
+                className: "quiz_details"
+            },
+            gn("h1",null,"Quiz Result"),
+                gn("span", {
+                className: "quiz_student_score"
+            }, t.meta.auto ? "Correct answers " + t.marks + "/" + t.max_marks : ""), t.quiz_passing_score ? gn("span",{
+                className: "student_resultmsg"
+            }, null, t.marks > t.quiz_passing_score ? window.wplms_course_data.translations.passed : window.wplms_course_data.translations.failed) : ""
+            )), gn("div", {
+                className: "incourse",
+                id: "course_quiz_result"
             }, gn("div", {
                 className: U
             }, gn("div", {

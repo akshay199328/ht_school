@@ -3660,6 +3660,8 @@
     }, Rt("div", {
         className: "modal-header"
     }, Rt("div", {
+        className: "header-close"
+    }), Rt("div", {
         className: "header-logo"
     }),Rt("div", {
         className: "submitheading",
@@ -3668,25 +3670,23 @@
         }
     })), Rt("div", {
         className: "submit_info"
-    }, Rt("span", {
+    }, Rt("div", {
         className: "score",
         dangerouslySetInnerHTML: {
             __html: e.MarkedAnswer + '/' + e.QuestionCount
         }
     }), Rt("div", {
-        className: "left_scoring"
-    }, e.yes), Rt("div", {
         className: "right_icon"
-    }, e.no)), Rt("div", {
+    })), Rt("div", {
         className: "buttons_wrapper"
     },
     Rt("span", {
-        className: "button",
+        className: "button cancel_button",
         onClick: t => {
             e.update(e.type, "nottrigger")
         }
     }, e.no),Rt("span", {
-        className: "button",
+        className: "button submit_button",
         onClick: t => {
             e.yesfunction, e.update(e.type, "trigger")
         }

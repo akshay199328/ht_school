@@ -706,6 +706,7 @@ class WPLMS_Course_Component_Init{
                 'no'=>_x('No','','wplms'),
                 'start_quiz_confirm'=>_x('Do you really want to start the quiz?','','wplms'),
                 'submit_quiz_confirm'=>_x('Do you really want to submit the quiz?','','wplms'),
+                'submit_quizes_confirm'=>_x('Are You Sure You Want To Submit?','','wplms'),
                 'unanswered_confirm'=>_x('You have some unanswered questions.','','wplms'),
                 'total_marks' => _x('Total Marks','','wplms'),
                 'unattempted' =>_x('Unattempted','','wplms'),

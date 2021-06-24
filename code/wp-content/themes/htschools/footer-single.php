@@ -1392,12 +1392,16 @@ border: 1px solid deepskyblue;
 
 		if(jQuery('.all_courses_list').length > 0) {
 
-			var allCourseItem = [];
-			var itemName = "";
+			var itemListName	= "";
+			var allCourseItem	= [];
+
 			jQuery('.all_courses_list').each(function(){
 
 				let courseID = jQuery(this).attr('data-id');
-				itemName = jQuery(this).attr('data-name');
+
+				if(typeof jQuery(this).attr('data-name') != "undefined" && jQuery(this).attr('data-name') == "other_courses") {
+					itemListName = "other_courses";
+				}
 
 				allCourseItem.push({
 					"price"				: jQuery("#course_price_" + courseID).val(),
@@ -1419,11 +1423,12 @@ border: 1px solid deepskyblue;
 				"session_source"	: jQuery("#session_source").val(),
 				"timestamp"			: jQuery("#timestamp").val(),
 				"utm_tags"			: jQuery("#utm_tags").val(),
-			//	"item_list_name"	: itemName,
 				"ecommerce"			: {
 					"items" : allCourseItem,
 				}
 			};
+
+			if(itemListName != "")	allCourseObj.item_list_name = itemListName;
 
 			if(allCourseItem.length > 0) {
 				// dataLayer.push({ ecommerce: null });

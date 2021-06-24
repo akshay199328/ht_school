@@ -48,6 +48,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						$dataLayerItems	= array();
 						$userIdentifier	= "";
 
+						if(!is_array($usersFavorites)) $usersFavorites = array();
+
 						if(isset($currentUser->ID) && $currentUser->ID > 0)
 						{
 							$userIdentifier = $currentUser->ID;
@@ -55,9 +57,14 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						else if(isset($_COOKIE['PHPSESSID']))
 						{
 							$userIdentifier = $_COOKIE['PHPSESSID'];
-						}
+						}?>
 
-						foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+						<input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
+						<input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
+						<input type="hidden" id="session_source">
+						<input type="hidden" id="utm_tags">
+
+						<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 							$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 							$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
@@ -104,8 +111,21 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 									"age_group"				=> get_post_meta($course_id, "vibe_course_age_group", true),
 									"course_duration"		=> get_post_meta($course_id, "vibe_validity", true),
 									"session_duration"		=> get_post_meta($course_id, "vibe_course_session_length", true),
-									"wishlisted_course"		=> false,
+									"wishlisted_course"		=> in_array($course_id, $usersFavorites) ? TRUE : FALSE,
 								); ?>
+
+								<input type="hidden" id="course_name_<?php echo $course_id;?>" value="<?php echo $_product->get_name();?>">
+								<input type="hidden" id="course_url_<?php echo $course_id;?>" value="<?php echo $courseslug;?>">
+								<input type="hidden" id="course_category_<?php echo $course_id;?>" value="<?php echo (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : "");?>">
+								<input type="hidden" id="course_partner_<?php echo $course_id;?>" value="<?php echo $coursePartner;?>">
+								<input type="hidden" id="category_id_<?php echo $course_id;?>" value="<?php echo (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->term_id : 0);?>">
+								<input type="hidden" id="course_id_<?php echo $course_id;?>" value="<?php echo $course_id;?>">
+								<input type="hidden" id="course_price_<?php echo $course_id;?>" value="<?php echo $cart_item['line_subtotal']; ?>">
+								<input type="hidden" id="course_tax_<?php echo $course_id;?>" value="<?php echo $cart_item['line_tax']; ?>">
+								<input type="hidden" id="age_group_<?php echo $course_id;?>" value="<?php echo get_post_meta($course_id, "vibe_course_age_group", true);?>">
+								<input type="hidden" id="course_duration_<?php echo $course_id;?>" value="<?php echo get_post_meta($course_id, "vibe_validity", true);?>">
+								<input type="hidden" id="session_duration_<?php echo $course_id;?>" value="<?php echo get_post_meta($course_id, "vibe_course_session_length", true);?>">
+								<input type="hidden" id="wishlisted_course_<?php echo $course_id;?>" value="<?php echo in_array($course_id, $usersFavorites) ? '1' : '0';?>">
 
 								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
@@ -122,7 +142,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 										?>
 									</td>
 
-									<td class="product-thumbnail">
+									<td class="product-thumbnail select_course_item" data-id="<?php echo $course_id; ?>">
 										<?php
 										$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
@@ -135,7 +155,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 										?>
 									</td>
 
-									<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
+									<td class="product-name select_course_item" data-id="<?php echo $course_id; ?>" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
 										<?php
 										if ( ! $product_permalink ) {
 											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );

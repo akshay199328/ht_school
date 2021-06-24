@@ -3670,12 +3670,19 @@
         }
     })), Rt("div", {
         className: "submit_info"
+    },Rt("div", {
+        className: "parent_div"
     }, Rt("div", {
-        className: "score",
+        className: "quiz-text",
         dangerouslySetInnerHTML: {
-            __html: e.MarkedAnswer + '/' + e.QuestionCount
+            __html: "<span class='quiz-text'>Question answered<span>"
         }
     }), Rt("div", {
+        className: "score",
+        dangerouslySetInnerHTML: {
+            __html: "<span class='question-attempt'>"+e.MarkedAnswer+"</span>" + '/' + e.QuestionCount
+        }
+    })), Rt("div", {
         className: "right_icon"
     })), Rt("div", {
         className: "buttons_wrapper"
@@ -4123,7 +4130,7 @@
             let W = "",
                 U = "loading_quiz";
             s || (W = "disabled", U += " disabled");
-            let Y = window.wplms_course_data.translations.submit_quiz_confirm;
+            let Y = window.wplms_course_data.translations.submit_quizes_confirm;
             if (t.meta && t.meta.questions) {
                 let e = 1;
                 var unmarkedCount = t.meta.questions.reduce(function (n, result) {
@@ -4134,7 +4141,7 @@
                 var PP = unmarkedCount;
                 t.meta.questions.map((function(t) {
                     t.marked_answer || (e = 0)
-                })), e || (Y = window.wplms_course_data.translations.unanswered_confirm + Y);
+                })), e || (Y = window.wplms_course_data.translations.submit_quizes_confirm);
             }
             let X = [];
             if (t.hasOwnProperty("meta") && t.meta.hasOwnProperty("questions") && t.meta.questions && t.meta.questions.length && (X = t.meta.questions), X.length && null !== q) switch (q) {

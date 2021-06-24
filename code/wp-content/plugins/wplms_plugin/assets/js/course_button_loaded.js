@@ -3660,7 +3660,10 @@
     }, Rt("div", {
         className: "modal-header"
     }, Rt("div", {
-        className: "header-close"
+        className: "header-close",
+        onClick: t => {
+            e.update(e.type, "nottrigger")
+        }
     }), Rt("div", {
         className: "header-logo"
     }),Rt("div", {

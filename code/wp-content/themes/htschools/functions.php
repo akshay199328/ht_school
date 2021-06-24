@@ -2908,11 +2908,24 @@ function check_and_trigger_signup_tag() {
         if(!$isTagedPushed)
         {
             $socialType = "web";
+            $userDetails = get_userdata($currentUserID);
 
-            if(isset($_SESSION['social_type']))
+            $googleSql = "SELECT umeta_id FROM ht_usermeta WHERE user_id = '".$currentUserID."' AND meta_key = 'google_access_token'";
+
+            $googleResult = $wpdb->get_results($googleSql);
+
+            if(count($googleResult) > 0)
             {
-                $socialType = $_SESSION['social_type'];
-                unset($_SESSION['social_type']);
+              $socialType = "google";
+            }
+
+            $facebookSql = "SELECT umeta_id FROM ht_usermeta WHERE user_id = '".$currentUserID."' AND meta_key = 'fb_user_access_token'";
+
+            $facebookResult = $wpdb->get_results($facebookSql);
+
+            if(count($facebookResult) > 0)
+            {
+              $socialType = "facebook";
             }
 
             add_user_meta($currentUserID, 'signup_ga_tag_pushed', time());
@@ -2935,10 +2948,6 @@ function check_and_trigger_signup_tag() {
                     console.log(socialLoginData);
                 });
             </script>';
-        }
-        else
-        {
-            echo "<pre>";print_r('else');exit;
         }
     }
 }

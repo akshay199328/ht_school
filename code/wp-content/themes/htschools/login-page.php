@@ -438,7 +438,7 @@ jQuery(window).load(function(){
                         /*ga('send', 'event', 'Signup', 'successful', result['user_id']);
                         console.log(login_url);*/
 
-                        /*let signUpObj = {
+                        let signUpObj = {
                           "event"          : 'sign_up',
                           "user_identifier": result['ID'],
                           "session_source" : "",
@@ -451,7 +451,7 @@ jQuery(window).load(function(){
                           "status"         : "success",
                           "failure_reason" : "",
                         };
-                        dataLayer.push(signUpObj);*/
+                        dataLayer.push(signUpObj);
 
                         if(login_url == 1){
                           window.setTimeout(function() {

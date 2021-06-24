@@ -3593,8 +3593,8 @@
         }, e.questions[s[0] - 1] && "undefined" != e.questions[s[0] - 1] ? jt("span", {
             href: "#",
             className: "button ques_link left prevq",
-            onClick: e => {
-                l(e, -1)
+            onClick: t => {
+                l(t, -1)
             }
         }, jt("i", {
             className: "vicon vicon-angle-left",
@@ -3608,23 +3608,34 @@
         })), (() => {
             let n = Math.ceil(e.questions.length / t.question_number),
                 s = n,
+                qq = e.questions,
                 a = [],
                 i = 0;
             if (n > 1)
                 for (; n;)
                     if (n) {
+                        const quiz_question_result = [];
+                        qq.map(function(key,result){
+                            if(key.usercorrect != 0){
+                                quiz_question_result.push(1);
+                            }
+                            else{
+                                quiz_question_result.push(0);
+                            }
+                        })
                         let e = n;
                         r == e ? a.unshift(jt("span", {
-                            className: "button active",
+                            className: quiz_question_result[e-1] === 1 ? 'button user-correct active' : 'button user-incorrect active',
                             onClick: t => {
+                                console.log(qq);
                                 o(t, e)
                             }
                         }, n)) : (r - 1 >= 1 || r + 1 <= s) && (r - 1 == e || r + 1 == e || 1 == e || e == s ? a.unshift(jt("span", {
-                            className: "button",
+                            className: quiz_question_result[e-1] === 1 ? 'button correct' : 'button incorrect',
                             onClick: t => {
                                 o(t, e)
                             }
-                        }, n)) : i < 2 && (a.unshift(jt("span", {
+                        }, n)) : i < 5 && (a.unshift(jt("span", {
                             className: "button"
                         }, "...")), i++)), n--
                     } return a
@@ -4188,18 +4199,36 @@
                 no: window.wplms_course_data.translations.no,
                 yesfunction: "startQuiz"
             }), gn("div", {
+                className: "show_result"
+            }, gn("div", {
                 className: "show_quiz_result"
-            },
-            gn("div", {
-                className: "quiz_details"
-            },
-            gn("h1",null,"Quiz Result"),
+            },gn("div", {
+                className: "quiz_result_details"
+            },gn("h1",null,"Quiz Result"),
+            gn("span", {
+                className: "quiz_result_heading"
+            },"Correct answers "),
                 gn("span", {
-                className: "quiz_student_score"
-            }, t.meta.auto ? "Correct answers " + t.marks + "/" + t.max_marks : ""), t.quiz_passing_score ? gn("span",{
-                className: "student_resultmsg"
-            }, null, t.marks > t.quiz_passing_score ? window.wplms_course_data.translations.passed : window.wplms_course_data.translations.failed) : ""
-            )), gn("div", {
+                className: "score",
+                dangerouslySetInnerHTML: {
+                    __html: t.meta.auto ? "<span class='question-attempt'>"+t.marks+"</span>" + "/" + t.max_marks : ""
+                }
+            }), Rt("div", {
+                className: "buttons_wrapper"
+            },
+            Rt("span", {
+                className: "button"
+                
+            },"Review Quiz Questions"))
+            ),gn("div", {
+                className: "quiz_result_icon"
+            })), Rt("div", {
+                className: "buttons_wrapper pull-right"
+            },
+            Rt("span", {
+                className: "button"
+                
+            },"Next Unit"))), gn("div", {
                 className: "incourse",
                 id: "course_quiz_result"
             }, gn("div", {

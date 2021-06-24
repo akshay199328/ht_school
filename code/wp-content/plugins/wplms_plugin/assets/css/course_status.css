@@ -3828,14 +3828,32 @@ a.button.is-primary {
     flex-wrap: nowrap;
     align-items: center;
 }
-.score {
+.left_scoring{
     width: 60%;
     float: left;
+}
+
+.quiz-text {
+    margin-bottom: 11px;
+    position: relative;
+    display: block;
+}
+.quiz-text .text {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: normal;
+    color: #000;
+}
+.score {
+    
     padding-right: 20px;
     font-size: 24px;
     line-height: 30px;
     font-weight: bold;
     color: #000;
+}
+.score .question-attempt {
+    color: #62C87A;
 }
 .right_icon{
     width: 40%;

@@ -1366,7 +1366,8 @@ add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted
 
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
-    setSocialLoginData('facebook');
+    $_SESSION['social_type'] = "facebook";
+    // setSocialLoginData('facebook');
     if(isset($_SESSION['previousPageUrl'])){
       $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
     }
@@ -1375,7 +1376,8 @@ add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-	setSocialLoginData('google');
+    $_SESSION['social_type'] = "google";
+	// setSocialLoginData('google');
 	if(isset($_SESSION['previousPageUrl'])){
 		$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
 		return $redirectUrl;
@@ -1384,9 +1386,8 @@ add_filter('google_login_redirect_url', function($redirectUrl, $provider){
 
 function setSocialLoginData($socialType)
 {
-  global $wpdb;
+    global $wpdb;
 	$currentUserID = get_current_user_id();
- // $currentUserID = 8635;
 
 	if(isset($currentUserID) && $currentUserID > 0)
 	{
@@ -2874,3 +2875,70 @@ function redirect_product_page_to_404_page(){
     } 
     return;
 } 
+
+add_action('woocommerce_add_email_to_queue', 'add_entry_to_email_queue', 10, 6);
+function add_entry_to_email_queue($emailSentTo, $userID, $emailSubject, $emailBody, $emailHeaders, $attachments = array()) {
+
+    global $wpdb;
+
+    $query  = "INSERT INTO ht_email_queue(email_id, user_id, email_subject, email_body, email_headers, attachments, created_on) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', NOW())";
+
+    $result = $wpdb->query($wpdb->prepare($query, [
+        $emailSentTo,
+        $userID,
+        $emailSubject,
+        $emailBody,
+        ((is_array($emailHeaders) && count($emailHeaders) > 0)  ? json_encode($emailHeaders) : ""),
+        ((is_array($attachments) && count($attachments) > 0)    ? json_encode($attachments) : "")
+    ]));
+    return $result;
+}
+
+add_action('woocommerce_check_and_trigger_signup_tag', 'check_and_trigger_signup_tag');
+function check_and_trigger_signup_tag() {
+
+    global $wpdb;
+
+    $currentUserID = get_current_user_id();
+
+    if(isset($currentUserID) && $currentUserID > 0)
+    {
+        $isTagedPushed = get_user_meta($currentUserID, 'signup_ga_tag_pushed', true);
+
+        if(!$isTagedPushed)
+        {
+            $socialType = "web";
+
+            if(isset($_SESSION['social_type']))
+            {
+                $socialType = $_SESSION['social_type'];
+                unset($_SESSION['social_type']);
+            }
+
+            add_user_meta($currentUserID, 'signup_ga_tag_pushed', time());
+            echo '<script type="text/javascript">
+                jQuery(document).ready(function(){
+                    var socialLoginData = {
+                        "event"           : "sign_up",
+                        "user_identifier" : '.$currentUserID.',
+                        "session_source"  : "",
+                        "utm_tags"        : "",
+                        "timestamp"       : "'.date("c", time()).'",
+                        "sl_on"           : "'.date("c", time()).'",
+                        "sl_method"       : "'.$socialType.'",
+                        "email"           : "'.(isset($userDetails->data->user_email) ? $userDetails->data->user_email : "").'",
+                        "phone_number"    : "",
+                        "status"          : "success",
+                        "failure_reason"  : "",
+                    }
+                    dataLayer.push(socialLoginData);
+                    console.log(socialLoginData);
+                });
+            </script>';
+        }
+        else
+        {
+            echo "<pre>";print_r('else');exit;
+        }
+    }
+}

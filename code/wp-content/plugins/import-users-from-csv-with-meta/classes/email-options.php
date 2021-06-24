@@ -259,6 +259,11 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers_mail = apply_filters( 'acui_import_email_headers', array( 'Content-Type: text/html; charset=UTF-8' ), $headers, $data, $created, $user_id );
 		$attachments = apply_filters( 'acui_import_email_attachments', $attachments, $headers, $data, $created, $user_id );
 
+		/*unset($_SESSION['course_data']);
+		unset($_SESSION['course_user_id']);
+		unset($_SESSION['course_user_row']);
+
+		do_action('woocommerce_add_email_to_queue', $email_to, $user_id, $subject, $body, $headers_mail, $attachments);*/
 		wp_mail( $email_to, $subject, $body, $headers_mail, $attachments );
 	}
 

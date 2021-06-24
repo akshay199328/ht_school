@@ -685,14 +685,16 @@ border: 1px solid deepskyblue;
 			})
 			window.selectedCountry = "<?php echo $user_country; ?>";
 
-			$("#user_dob_display").datepicker({
-				altField: "#user_dob",
-				altFormat: "yy-mm-dd",
-				changeMonth: true,
-				changeYear: true,
-				yearRange: '1980:-3',
-				maxDate: '-3y',
-			});
+			if($("#user_dob_display").length > 0) {
+				$("#user_dob_display").datepicker({
+					altField: "#user_dob",
+					altFormat: "yy-mm-dd",
+					changeMonth: true,
+					changeYear: true,
+					yearRange: '1980:-3',
+					maxDate: '-3y',
+				});
+			}
 
 			$("#profile_next_step").click(function(){
 			  if(validate() != true){

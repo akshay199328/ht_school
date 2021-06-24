@@ -298,6 +298,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"age_group"			: allItems[i]["age_group"],
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
+						"wishlisted_course"	: allItems[i]["wishlisted_course"],
 						"price"				: parseFloat(allItems[i]["course_discount_price"]).toFixed(2),
 						"original_price"	: parseFloat(allItems[i]["course_price"]).toFixed(2),
 					});
@@ -311,6 +312,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"age_group"			: allItems[i]["age_group"],
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
+						"wishlisted_course"	: allItems[i]["wishlisted_course"],
 						"price"				: parseFloat(allItems[i]["course_discount_price"]).toFixed(2),
 						"original_price"	: parseFloat(allItems[i]["course_price"]).toFixed(2),
 					});

@@ -91,6 +91,8 @@ defined( 'ABSPATH' ) || exit;
 				$couponApplied	= false;
 				$couponCode		= "";
 
+				if(!is_array($usersFavorites)) $usersFavorites = array();
+
 				foreach ($order->get_used_coupons() as $key1 => $value1)
 				{
 					$couponApplied	= true;
@@ -144,7 +146,7 @@ defined( 'ABSPATH' ) || exit;
 						"session_durations"	=> get_post_meta($courseID, "vibe_course_session_length", true),
 						"purchased_on"		=> date('c', strtotime($order->get_date_created())),
 						"repeat_purchase"	=> false,
-						"wishlisted_course"	=> false,
+						"wishlisted_course"	=> in_array($courseID, $usersFavorites) ? TRUE : FALSE,
 					);
 			    }
 

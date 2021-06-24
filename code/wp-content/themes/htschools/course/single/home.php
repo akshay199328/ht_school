@@ -156,10 +156,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
             <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
-            <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
-            <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
-            <input type="hidden" id="session_source">
-            <input type="hidden" id="utm_tags">
             <div class="course-fees">
               <div class="container">
                     <h4 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h4>
@@ -471,8 +467,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           }
                     ?>
 
-                      <div class="col-sm-12 col-lg-4 mrg card item">
+                      <div class="col-sm-12 col-lg-4 mrg card item all_courses_list" data-name="other_courses" data-id="<?php echo $post->ID;?>">
                         <div class="details">
+                          <div class="custom-price" style="display: none;" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></div>
                           <h4><?php echo $category_array[0]->name;?></h4>
                           <?php bp_course_avatar(); ?>
                           <h3><?php bp_course_title(); ?></h3>
@@ -500,10 +497,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       </div>
                       <?php endwhile;endif;}
                       ?>
-                      <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
-                      <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
-                      <input type="hidden" id="session_source">
-                      <input type="hidden" id="utm_tags">
                     </div>
                   </div>
                 </div>
@@ -511,6 +504,11 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             </div>
           </div>
         </div>
+
+        <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
+        <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
+        <input type="hidden" id="session_source">
+        <input type="hidden" id="utm_tags">
 
         <script type="text/javascript">
           jQuery(document).ready(function(){

@@ -1419,7 +1419,7 @@ border: 1px solid deepskyblue;
 				"session_source"	: jQuery("#session_source").val(),
 				"timestamp"			: jQuery("#timestamp").val(),
 				"utm_tags"			: jQuery("#utm_tags").val(),
-				"item_list_name"	: itemName,
+			//	"item_list_name"	: itemName,
 				"ecommerce"			: {
 					"items" : allCourseItem,
 				}

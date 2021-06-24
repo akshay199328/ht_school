@@ -129,7 +129,7 @@ defined( 'ABSPATH' ) || exit;
 					add_user_meta($currentUser->ID, 'purchased_type'.$courseID, 'online');
 
 					$items[] = array(
-						"item_name"			=> $item['name'],
+						"item_name"			=> str_replace("'", "", $item['name']),
 						"amount_paid"		=> ($item['total'] + $item['total_tax']),
 						"course_partners"	=> $coursePartner,
 						"original_price"	=> $item['subtotal'],

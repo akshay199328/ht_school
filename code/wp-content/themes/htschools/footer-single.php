@@ -1393,10 +1393,11 @@ border: 1px solid deepskyblue;
 		if(jQuery('.all_courses_list').length > 0) {
 
 			var allCourseItem = [];
+			var itemName = "";
 			jQuery('.all_courses_list').each(function(){
 
 				let courseID = jQuery(this).attr('data-id');
-				let itemName = jQuery(this).attr('data-name');
+				itemName = jQuery(this).attr('data-name');
 
 				allCourseItem.push({
 					"price"				: jQuery("#course_price_" + courseID).val(),

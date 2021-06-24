@@ -92,7 +92,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 									"session_source"		=> "",
 									"timestamp"				=> date('c', time()),
 									"utm_tags"				=> "",
-									"course_name"			=> $_product->get_name(),
+									"course_name"			=> str_replace("'", "", $_product->get_name()),
 									"course_url"			=> $courseslug,
 									"course_category"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
 									"course_partner"		=> $coursePartner,
@@ -279,7 +279,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
 						"price"				: parseFloat(allItems[i]["course_discount_price"]).toFixed(2),
-						"originl_price"		: parseFloat(allItems[i]["course_price"]).toFixed(2),
+						"original_price"	: parseFloat(allItems[i]["course_price"]).toFixed(2),
 					});
 
 					beginCheckoutItems.push({
@@ -292,7 +292,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
 						"price"				: parseFloat(allItems[i]["course_discount_price"]).toFixed(2),
-						"originl_price"		: parseFloat(allItems[i]["course_price"]).toFixed(2),
+						"original_price"	: parseFloat(allItems[i]["course_price"]).toFixed(2),
 					});
 				}
 

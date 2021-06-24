@@ -1366,7 +1366,6 @@ add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted
 
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
-    $_SESSION['social_type'] = "facebook";
     // setSocialLoginData('facebook');
     if(isset($_SESSION['previousPageUrl'])){
       $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
@@ -1376,7 +1375,6 @@ add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-    $_SESSION['social_type'] = "google";
 	// setSocialLoginData('google');
 	if(isset($_SESSION['previousPageUrl'])){
 		$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");

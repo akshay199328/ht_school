@@ -19,7 +19,7 @@ Domain Path: /languages/
 @font-face {
     font-family: 'GT-Walsheim-Pro';
     src: url('assets/fonts/GTWalsheimPro-Black.eot');
-    src: local('assets/fonts/GT Walsheim Pro Black'), local(assets/fonts/'GTWalsheimPro-Black'),
+    src: local('assets/fonts/GTWalsheimPro-Black'), local(assets/fonts/'GTWalsheimPro-Black'),
         url('assets/fonts/GTWalsheimPro-Black.eot?#iefix') format('embedded-opentype'),
         url('assets/fonts/GTWalsheimPro-Black.woff2') format('woff2'),
         url('assets/fonts/GTWalsheimPro-Black.woff') format('woff'),

@@ -1074,7 +1074,7 @@
 
 .course_status .course_content .course_content_content_wrapper .finish_course>.button {
     margin-bottom: 30px;
-    display: flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     font-size: 15px;
@@ -1086,6 +1086,10 @@
     text-align: left;
     color: #d5ebff;
     cursor: pointer;
+    background: #000;
+    width: auto;
+    padding: 15px;
+    height: auto;
 }
 
 .course_status .course_timeline {
@@ -1915,8 +1919,8 @@ border-bottom: 1px solid #E8E8E8;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button {
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 33px;
+    height: 33px;
     display: inline-block;
     border-radius: 100%;
     margin: 0px;
@@ -1924,10 +1928,10 @@ border-bottom: 1px solid #E8E8E8;
     text-transform: uppercase;
     font-weight: 300;
     color: #000;
-    border: 1px solid #67C442;
+    border: 1px solid #717171;
     background: transparent;
     text-align: center;
-    line-height: 28px;
+    line-height: 33px;
     cursor: pointer;
     margin-left: 6px;
 }
@@ -1942,23 +1946,24 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .course_status .incourse .quiz_pagination_wrapper>.button.active {
-    background: #BCF3A6;
-    border-color: #BCF3A6;
+    background: #E5E5E5;
+    border-color: #B7B5B5;
     color: #000;
-    font-weight: 300;
+    font-weight: 500;
 }
 .user-correct.active {
-    background: #BCF3A6;
-    border-color: #BCF3A6;
+    background: #66BB42!important;
+    border-color: #BCF3A6!important;
+    color: #fff!important;
 }
 .user-incorrect.active {
-    background: #FC5656!important;
-    border-color: #FC5656!important;
+    background: #FE3030!important;
+    border-color: #FE3030!important;
     color: #fff!important;
 }
 .quiz_pagination_wrapper>.button.correct {
-    background: #bcf3a6a1!important;
-    border-color: #BCF3A6;
+    background: #D7F5CB!important;
+    border-color: #8AE963!important;
 }
 .quiz_pagination_wrapper>.button.incorrect {
     background: #FF9898!important;
@@ -2362,7 +2367,20 @@ border-bottom: 1px solid #E8E8E8;
 .course_status .incourse .question .question_option p {
     display: inline-block
 }
-
+.course_status ul.question_list {
+  counter-reset: listStyle;
+}
+.course_status ul.question_list li {
+  counter-increment: listStyle;
+}
+.course_status ul.question_list li:before {
+    content: counter(listStyle, upper-alpha);
+    position: absolute;
+    left: 50px;
+    margin-top: -1px;
+    font-weight: 700;
+    font-size: 17px;
+}
 .course_status .incourse .question_option {
     display: flex;
     border-radius: 4px;
@@ -2404,6 +2422,7 @@ border-bottom: 1px solid #E8E8E8;
     flex-direction: row;
     color: #4B4B4B;
     font-weight: normal;
+        padding-left: 50px;
 }
 .question_option.radio input[type=radio]:checked+label{
     font-weight: 500;
@@ -2447,7 +2466,8 @@ border-bottom: 1px solid #E8E8E8;
     border-radius: 100%;
     display: inline-table;
     top: 0px;
-    position: relative;
+    position: absolute;
+    left: 0;
 }
 .question_option.radio>input[type=radio]:checked+label:before,
 .question_option input[type=checkbox]:checked+label:before
@@ -3899,6 +3919,7 @@ a.button.is-primary {
     border: 1px solid #000;
     background: transparent;
     color: #000;
+    height: auto;
 
 }
 .cancel_button{

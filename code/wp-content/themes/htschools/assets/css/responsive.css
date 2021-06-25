@@ -584,16 +584,9 @@ section.woocommerce-customer-details{
 	border-bottom: 1.5px solid #fade3b;
     padding-bottom: 10px;
 }
-
-.course_status .course_content .course_content_content_wrapper .finish_course>.button{
-	min-height: 50px !important;
-	background: #000 !important;
-	width: auto !important;
-	display: inline-block !important;
-	padding: 15px !important;
-}
 .finish_course {
     padding-left: 30px;
+    padding-right: 30px;
 }
 /*.course_status .incourse .incoursequiz_details>div {
     display: flex ;

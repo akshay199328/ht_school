@@ -1427,6 +1427,18 @@ border: 1px solid deepskyblue;
 				dataLayer.push(allCourseObj);
 				console.log(allCourseObj);
 			}
+			Moengage.track_event("All_Courses_Viewed", {
+			    "User identifier"	: jQuery("#user_identifier").val(),
+				"Session source"	: jQuery("#session_source").val(),
+				"Timestamp"			: jQuery("#timestamp").val(),
+				"UTM tags"			: jQuery("#utm_tags").val(),
+				"courses"			: {
+					"items" : allCourseItem,
+				}
+		    });
+
+
+
 		}
 	});
 </script>

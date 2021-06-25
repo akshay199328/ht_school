@@ -135,6 +135,7 @@ defined( 'ABSPATH' ) || exit;
 						"amount_paid"		=> ($item['total'] + $item['total_tax']),
 						"course_partners"	=> $coursePartner,
 						"original_price"	=> $item['subtotal'],
+						"currency"          => "INR",
 						"price"				=> $item['total'],
 						"course_urls"		=> $courseslug,
 						"item_category"		=> (($courseCatInfo != null && count($courseCatInfo) > 0) ? $courseCatInfo[0]->name : ""),
@@ -151,6 +152,7 @@ defined( 'ABSPATH' ) || exit;
 			    }
 
 				$ecommerce = array(
+					"currency"          => "INR",
 					"transaction_id"	=> $order->get_transaction_id(),
 					"payment_mode"		=> $order->get_payment_method_title(),
 					"coupon_applied"	=> $couponApplied,

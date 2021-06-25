@@ -544,7 +544,7 @@ function reg_send_otp(){
           $response['status'] = 0;
           $response['message'] = 'Unable to send OTP on email. Please contact site administrator.';
         }//message wasn't sent
-        
+
   } else {
     $response['message'] = 'Invalid email address entered.';
   }
@@ -968,8 +968,8 @@ function new_checkout_field( $checkout ) {
 add_action('woocommerce_after_checkout_validation', 'custom_field_validate');
 
 function custom_field_validate() {
-   if (!$_POST['customer_view']) { 
-  wc_add_notice(__('Please select required field.') , 'error'); 
+   if (!$_POST['customer_view']) {
+  wc_add_notice(__('Please select required field.') , 'error');
    }
 }
 
@@ -1117,7 +1117,7 @@ function save_custom_profile(){
         $school_name = str_replace(',', ' ', $_REQUEST['user_school_data']);
         $date = date('Y-m-d H:i:s');
         if(count($results) == 0){
-          $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login, 
+          $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login,
           user_nicename, display_name,user_registered) VALUES ('".$school_name."', '".$_REQUEST['user_school_data']."', '".$_REQUEST['user_school_data']."','".$date."')");
           $wpdb->query($user_insert);
           $schoolID = $wpdb->insert_id;
@@ -1322,7 +1322,7 @@ function get_states(){
     global $wpdb;
 
     $response = array();
-    
+
     $results = $wpdb->get_results( "SELECT state_id, CONCAT(UPPER(SUBSTRING(state_name,1,1)),
 LOWER(SUBSTRING(state_name,2)))AS state_name FROM " . $wpdb->prefix . "state_master WHERE country_id in(select country_id from " . $wpdb->prefix . "country_master where country_name = '" . esc_attr($_REQUEST['country']) . "') AND state_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
       foreach ($results as $data) {
@@ -1360,8 +1360,8 @@ function custom_woocommerce_auto_complete_paid_order( $order_id ) {
     }
 }
 
-add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted ) {  
-    update_post_meta( $order_id, 'orderdetailsflag', 0 );  
+add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted ) {
+    update_post_meta( $order_id, 'orderdetailsflag', 0 );
 } , 10, 2);
 
 // Social Login Redirect
@@ -2784,7 +2784,7 @@ function validate_profession_field(&$errors, $update = null, &$user  = null) {
     if($_POST['profession'] != ''){
       $get_profession = $wpdb->get_results("SELECT * FROM ht_users INNER JOIN ht_usermeta ON ht_users.ID = ht_usermeta.user_id WHERE ht_usermeta.meta_key = 'profession' AND meta_value = '" . esc_attr($_POST['profession']) . "' AND ht_usermeta.user_id != '".$user_id."' ORDER BY ht_users.user_nicename");
       $get_data=json_decode( json_encode($get_profession), true);
-    
+
       if ( count($get_data) > 0 ) {
           $errors->add('empty_profession', '<strong>ERROR</strong>: Profession value is already exist');
       }
@@ -2798,7 +2798,7 @@ add_action( 'user_profile_update_errors', 'validate_profession_field' );
 add_action( 'show_user_profile', 'extra_user_profile_fields' );
 add_action( 'edit_user_profile', 'extra_user_profile_fields' );
 
-function extra_user_profile_fields( $user ) { 
+function extra_user_profile_fields( $user ) {
   ?>
     <h3><?php _e("Profession information", "blank"); ?></h3>
 
@@ -2870,16 +2870,16 @@ function redirect_product_page_to_404_page(){
         $wp_query->set_404();
         status_header(404);
         }
-    } 
+    }
     return;
-} 
+}
 
 add_action('woocommerce_add_email_to_queue', 'add_entry_to_email_queue', 10, 6);
 function add_entry_to_email_queue($emailSentTo, $userID, $emailSubject, $emailBody, $emailHeaders, $attachments = array()) {
 
     global $wpdb;
 
-    $query  = "INSERT INTO ht_email_queue(email_id, user_id, email_subject, email_body, email_headers, attachments, created_on) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', NOW())";
+    $query = "INSERT INTO ht_email_queue(email_id, user_id, email_subject, email_body, email_headers, attachments, created_on) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', NOW())";
 
     $result = $wpdb->query($wpdb->prepare($query, [
         $emailSentTo,
@@ -2948,4 +2948,23 @@ function check_and_trigger_signup_tag() {
             </script>';
         }
     }
+}
+
+
+add_action('woocommerce_log_ga_tag', 'log_ga_tag_in_db', 10, 2);
+function log_ga_tag_in_db($event, $log) {
+
+    global $wpdb;
+
+    $currentUserID = get_current_user_id();
+
+    $query = "INSERT INTO ht_ga_tag_logs(user_id, event, log, created_on) VALUES ('%s', '%s', '%s', NOW())";
+
+    $result = $wpdb->query($wpdb->prepare($query, [
+        $currentUserID,
+        $event,
+        (is_array($log) ? json_encode($log) : $log),
+    ]));
+
+    return $result;
 }

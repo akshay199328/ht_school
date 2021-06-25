@@ -159,6 +159,17 @@ defined( 'ABSPATH' ) || exit;
 					"coupon_code"		=> $couponCode,
 					"items"				=> $items,
 				);
+
+				$saveObj = array(
+					"event"				=> 'purchase',
+					"user_identifier"	=> $userIdentifier,
+					"session_source"	=> "",
+					"timestamp"			=> date('c', time()),
+					"utm_tags"			=> "",
+					"ecommerce"			=> $ecommerce,
+				);
+
+				do_action('woocommerce_log_ga_tag', "purchase", $saveObj);
 			?>
 
 			<script type="text/javascript">

@@ -2023,9 +2023,9 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }), J("div", {className: "question_list"},t.options && t.options.length ? J(X, null, (t => s.map((function(s, a) {
+        }), J("ul", {className: "question_list"},t.options && t.options.length ? J(X, null, (t => s.map((function(s, a) {
             let r = t.options.findIndex(e => e == s);
-            return J("div", {
+            return J("li", {
                 className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : "")
             }, J("input", {
                 type: "radio",
@@ -2143,12 +2143,12 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }),ne(ie, null, ne("div", {
+        }),ne(ie, null, ne("ul", {
             className: "question_list",
         }, t.options && t.options.length ? ne(ie, null, (t => {
             if (s && s.length) return s.map((function(s, a) {
                 let r = t.options.findIndex(e => e == s);
-                return ne("div", {
+                return ne("li", {
                     className: "question_option checkbox " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : "")
                 }, ne("input", {
                     type: "checkbox",
@@ -2677,8 +2677,8 @@
             dangerouslySetInnerHTML: {
                 __html: t && t.content ? t.content : ""
             }
-        }),J("div", {className: "question_list"}, t.options && t.options.length ? We(Ve, null, (t => t.options.map((function(s, a) {
-            return We("div", {
+        }),J("ul", {className: "question_list"}, t.options && t.options.length ? We(Ve, null, (t => t.options.map((function(s, a) {
+            return We("li", {
                 className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(a) ? "question_correct" : "question_incorrect" : "")
             }, We("input", {
                 type: "radio",
@@ -3616,22 +3616,25 @@
                     if (n) {
                         const quiz_question_result = [];
                         qq.map(function(key,result){
-                            if(key.usercorrect != 0){
+                            if(key.usercorrect && key.usercorrect != 0){
                                 quiz_question_result.push(1);
                             }
-                            else{
+                            else if(key.marked_answer == null && key.usercorrect == 0){
+                                quiz_question_result.push(2);
+                            }
+                            else if(key.usercorrect == 0){
                                 quiz_question_result.push(0);
                             }
                         })
                         let e = n;
                         r == e ? a.unshift(jt("span", {
-                            className: quiz_question_result[e-1] === 1 ? 'button user-correct active' : 'button user-incorrect active',
+                            className: quiz_question_result[e-1] === 1 ? 'button user-correct active' :quiz_question_result[e-1] === 2 ? 'button unattempted active' : quiz_question_result[e-1] === 0 ? 'button user-incorrect active' : 'button active',
                             onClick: t => {
                                 console.log(qq);
                                 o(t, e)
                             }
                         }, n)) : (r - 1 >= 1 || r + 1 <= s) && (r - 1 == e || r + 1 == e || 1 == e || e == s ? a.unshift(jt("span", {
-                            className: quiz_question_result[e-1] === 1 ? 'button correct' : 'button incorrect',
+                            className: quiz_question_result[e-1] === 1 ? 'button correct' : quiz_question_result[e-1] === 2 ? 'button unattempt' : quiz_question_result[e-1] === 0 ? 'button incorrect' : 'button',
                             onClick: t => {
                                 o(t, e)
                             }
@@ -4198,7 +4201,7 @@
                 yes: window.wplms_course_data.translations.yes,
                 no: window.wplms_course_data.translations.no,
                 yesfunction: "startQuiz"
-            }), gn("div", {
+            }),t.submitted ? gn("div", {
                 className: "show_result"
             }, gn("div", {
                 className: "show_quiz_result"
@@ -4228,7 +4231,7 @@
             Rt("span", {
                 className: "button"
                 
-            },"Next Unit"))), gn("div", {
+            },"Next Unit"))) : '', gn("div", {
                 className: "incourse",
                 id: "course_quiz_result"
             }, gn("div", {

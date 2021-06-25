@@ -3588,7 +3588,10 @@
                         e--, a(l)
                     } e.update(l, "show")
             };
+
         return t && t.meta && e.questions && e.questions.length ? jt("div", {
+            className: "footer_parent"
+        },jt("div", {
             class: t.submitted ? "quiz_pagination_wrapper buttons has-addons submitted" : "quiz_pagination_wrapper buttons has-addons"
         }, e.questions[s[0] - 1] && "undefined" != e.questions[s[0] - 1] ? jt("span", {
             href: "#",
@@ -3632,14 +3635,14 @@
                             onClick: t => {
                                 o(t, e)
                             }
-                        }, n)) : (r - 1 >= 1 || r + 1 <= s) && (r - 1 == e || r + 1 == e || 1 == e || e == s ? a.unshift(jt("span", {
+                        }, n)) : (r - 1 >= 1 || r + 1 <= s) ? a.unshift(jt("span", {
                             className: quiz_question_result[e-1] === 1 ? 'button correct' : quiz_question_result[e-1] === 2 ? 'button unattempt' : quiz_question_result[e-1] === 0 ? 'button incorrect' : 'button',
                             onClick: t => {
                                 o(t, e)
                             }
                         }, n)) : i < 5 && (a.unshift(jt("span", {
                             className: "button"
-                        }, "...")), i++)), n--
+                        }, "...")), i++), n--
                     } return a
         })(), e.questions[s[s.length - 1] + 1] && "undefined" != e.questions[s[s.length - 1] + 1] ? jt("span", {
             href: "#",
@@ -3656,7 +3659,12 @@
         }, jt("i", {
             className: "vicon vicon-angle-right",
             "aria-hidden": "true"
-        }))) : ""
+        }))), t.submitted ? jt("div", {
+            className: "next_unit_button",
+            onClick: () => {
+                document.getElementById("navigate_unit").click(); 
+            } 
+        },"Next Unit") : "") : ""
     };
     const {
         createElement: Rt,
@@ -3696,7 +3704,7 @@
     }), Rt("div", {
         className: "score",
         dangerouslySetInnerHTML: {
-            __html: "<span class='question-attempt'>"+e.MarkedAnswer+"</span>" + '/' + e.QuestionCount
+            __html: "<span class='question-attempt'>"+parseInt(e.MarkedAnswer)+"</span>" + '/' + e.QuestionCount
         }
     })), Rt("div", {
         className: "right_icon"
@@ -3711,7 +3719,7 @@
     }, e.no),Rt("span", {
         className: "button submit_button",
         onClick: t => {
-
+            document.getElementById("quiz_questions_content").classList.add("quiz_after_submitted");
             e.yesfunction, e.update(e.type, "trigger")
 
         }
@@ -4219,6 +4227,9 @@
                 dangerouslySetInnerHTML: {
                     __html: t.meta.auto ? "<span class='question-attempt'>"+t.marks+"</span>" + "/" + t.max_marks : ""
                 }
+            })
+            ),gn("div", {
+                className: "quiz_result_icon"
             }), Rt("div", {
                 className: "buttons_wrapper"
             },
@@ -4228,15 +4239,14 @@
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"))
-            ),gn("div", {
-                className: "quiz_result_icon"
-            })), Rt("div", {
+            },"Review Quiz Questions"))), Rt("div", {
                 className: "buttons_wrapper pull-right"
             },
             Rt("span", {
-                className: "button"
-                
+                className: "button",
+                onClick: () => {
+                    document.getElementById("navigate_unit").click(); 
+                }
             },"Next Unit"))) : '', gn("div", {
                 className: U
             }, gn("div", {
@@ -6961,6 +6971,7 @@
             className: "vicon vicon-angle-left"
         }), sr("span", null, window.wplms_course_data.translations.previous_unit)) : ""), sr("div", {
             className: "unit_next navigate_unit",
+            id:"navigate_unit",
             onClick: () => {
                 se();
                 Z("next");

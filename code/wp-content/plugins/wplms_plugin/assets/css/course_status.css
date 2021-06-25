@@ -1090,6 +1090,7 @@
     width: auto;
     padding: 15px;
     height: auto;
+    float: right;
 }
 
 .course_status .course_timeline {
@@ -1872,6 +1873,11 @@ border-bottom: 1px solid #E8E8E8;
     fill: transparent;
     stroke: #cccccc;
 }
+.quiztimer_wrapper .react-progress-circle .ReactProgressCircle_circleBackground{stroke-width: 1.5px;}
+.quiztimer_wrapper .react-progress-circle .ReactProgressCircle_circle {
+    stroke: #fade3b;
+    stroke-width: 5.5px;
+}
 .course_status li.active .ReactProgressCircle_circleBackground,
 .course_status li.active .ReactProgressCircle_circle
 {
@@ -1916,6 +1922,7 @@ border-bottom: 1px solid #E8E8E8;
     color: #000;
     font-weight: bold;
     opacity: 1;
+    line-height: 34px;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button {
     padding: 0;
@@ -1975,7 +1982,7 @@ border-bottom: 1px solid #E8E8E8;
     height: auto;
     max-width: fit-content;
     min-width: auto;
-    top: 3px;;
+    top: 0px;;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button.prevq  {
     margin-right: 15px;
@@ -2059,6 +2066,9 @@ border-bottom: 1px solid #E8E8E8;
     display: inline-block;
     margin-top: 0px;
     padding: 0px;
+}
+.result .correct{
+    display: none!important;
 }
 .previous_results_wrapper{
     margin: 20px 0px;
@@ -2374,7 +2384,7 @@ border-bottom: 1px solid #E8E8E8;
   counter-increment: listStyle;
 }
 .course_status ul.question_list li:before {
-    content: counter(listStyle, upper-alpha);
+    content: counter(listStyle, upper-alpha) ".";
     position: absolute;
     left: 50px;
     margin-top: -1px;
@@ -2544,6 +2554,11 @@ border-bottom: 1px solid #E8E8E8;
     font-size: 25px !important;
     line-height: 30px !important;
     font-weight: 300 !important;
+}
+.quiz_questions_content .question_content .fitvids, 
+.quiz_questions_content .question_content .alignnone,
+.quiz_questions_content .question_content .wp-audio-shortcode {
+    margin-top: 20px;
 }
 .course_status .incourse .quiz_questions_content .question .question_hint {
     cursor: pointer;
@@ -3583,7 +3598,7 @@ a.button.is-primary {
     height: 45px;
     text-align: right;
     padding: 0;
-    margin-top: 25px;
+    margin-top: 0px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -3592,7 +3607,7 @@ a.button.is-primary {
 }
 .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons.submitted {
     background: transparent;
-    width: 100%;
+    /*width: 100%;*/
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
@@ -3856,6 +3871,7 @@ a.button.is-primary {
     right: 30px;
     top: 30px;
     width: 10px;
+    cursor: pointer;
 }
 .submitpopup_wrapper .confirmpopup_content .submitheading{
     margin-top: 10px;
@@ -3921,7 +3937,7 @@ a.button.is-primary {
     position: relative;
     top: -37px;
 }
-.buttons_wrapper .button{
+.buttons_wrapper .button, .next_unit_button{
     padding: 12px 50px!important;
     font-size: 15px;
     line-height: 20px;
@@ -3948,13 +3964,15 @@ a.button.is-primary {
     flex-direction: column;
 }
 .show_quiz_result {
-    border: 1px solid #aeaeae;
+        border: 1px solid #aeaeae;
     padding: 20px;
     width: 100%;
     position: relative;
     display: flex;
-    /*margin-top: 30px;*/
+    /* margin-top: 30px; */
     border-radius: 4px;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .quiz_result_details {
@@ -3978,22 +3996,39 @@ a.button.is-primary {
     background: url('../../assets/images/submit-trophy.svg')no-repeat top right;
     display: block;
     height: 152px;
-    position: relative;
+    position: absolute;
     width: 30%;
+    right: 30px;
 }
 .quiz_result_details .buttons_wrapper  {
-    padding: 30px 0px 0px;
+    padding: 30px 30px 30px 0px;
 }
-.show_result .buttons_wrapper .button {
+.show_result .buttons_wrapper .button, .next_unit_button {
     background: #000000;
     color: #D5EBFF;
     padding: 12px 35px!important;
+}
+.show_result .buttons_wrapper{
+    padding: 30px 30px 30px 0px;
 }
 .show_result .buttons_wrapper.pull-right  {
     padding: 20px 0px;
 }
 .show_result .buttons_wrapper.pull-right .button  {
     float: right;
+}
+.next_unit_button{
+   float: right;
+}
+.footer_parent {
+    margin-top: 25px;
+    display: block;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    float: left;
+    width: 100%;
+    justify-content: flex-end;
 }
 @media (min-width: 768px){
 	.exampleModalPopup {
@@ -4099,7 +4134,16 @@ a.button.is-primary {
     }
     .download_options span, .assignment_heading span {font-size: 15px;line-height: 22px;width: 100%;}
     .download_button {margin-top: 25px;}
+    .course_status .quiz_content, .show_quiz_result{border-bottom: 1px dotted #707070;border-radius: 0;}
     .show_result .buttons_wrapper.pull-right .button {float: initial;margin: 0px auto;display: table;}
-    .quiz_result_icon{    background-size: 99.67px;height: auto;}
+    .quiz_result_details {width: 59%;}
+    .quiz_result_icon{    background-size: contain;height: 100%;right: 0px}
+    .show_result .buttons_wrapper {text-align: center;}
     .quiz_result_heading {font-size: 24px;}
+    .submitpopup_wrapper .confirmpopup_content{min-width: 90%;width: 90%;}
+    .submitpopup_wrapper .confirmpopup_content .submitheading{width: 80%;font-size: 20px;line-height: 24px;}
+    .quiz-text .text {font-size: 18px;line-height: 17px;}
+    .score{font-size: 22px;display: block;}
+    .right_icon:after{height: 107.41px;background-size: 107.41px 107.41px;top: -26px;}
+    .buttons_wrapper .button, .next_unit_button {padding: 12px 25px!important;}
 }

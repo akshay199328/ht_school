@@ -3589,7 +3589,7 @@
                     } e.update(l, "show")
             };
         return t && t.meta && e.questions && e.questions.length ? jt("div", {
-            class: "quiz_pagination_wrapper buttons has-addons"
+            class: t.submitted ? "quiz_pagination_wrapper buttons has-addons submitted" : "quiz_pagination_wrapper buttons has-addons"
         }, e.questions[s[0] - 1] && "undefined" != e.questions[s[0] - 1] ? jt("span", {
             href: "#",
             className: "button ques_link left prevq",
@@ -3630,7 +3630,6 @@
                         r == e ? a.unshift(jt("span", {
                             className: quiz_question_result[e-1] === 1 ? 'button user-correct active' :quiz_question_result[e-1] === 2 ? 'button unattempted active' : quiz_question_result[e-1] === 0 ? 'button user-incorrect active' : 'button active',
                             onClick: t => {
-                                console.log(qq);
                                 o(t, e)
                             }
                         }, n)) : (r - 1 >= 1 || r + 1 <= s) && (r - 1 == e || r + 1 == e || 1 == e || e == s ? a.unshift(jt("span", {
@@ -4201,8 +4200,12 @@
                 yes: window.wplms_course_data.translations.yes,
                 no: window.wplms_course_data.translations.no,
                 yesfunction: "startQuiz"
-            }),t.submitted ? gn("div", {
-                className: "show_result"
+            }),gn("div", {
+                className: "incourse",
+                id: "course_quiz_result"
+            },t.submitted ? gn("div", {
+                className: "show_result",
+                id:"show_result"
             }, gn("div", {
                 className: "show_quiz_result"
             },gn("div", {
@@ -4220,8 +4223,11 @@
                 className: "buttons_wrapper"
             },
             Rt("span", {
-                className: "button"
-                
+                className: "button",
+                onClick: () => {
+                    document.getElementById('show_result').style.display = 'none';
+                    document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
+                }
             },"Review Quiz Questions"))
             ),gn("div", {
                 className: "quiz_result_icon"
@@ -4232,9 +4238,6 @@
                 className: "button"
                 
             },"Next Unit"))) : '', gn("div", {
-                className: "incourse",
-                id: "course_quiz_result"
-            }, gn("div", {
                 className: U
             }, gn("div", {
                 id: "ajaxloader",
@@ -4307,7 +4310,8 @@
                 filter: q,
                 bookMarked: N
             }) : ""), gn("div", {
-                className: "quiz_questions_content"
+                className: !t.start && t.submitted ? "quiz_questions_content quiz_after_submitted" : "quiz_questions_content",
+                id:"quiz_questions_content"
             },!t.submitted || t.meta && t.meta.retakes > 0 ? gn("div", {
                 className: "incourse_quiz_button"
             }, t.start || t.submitted ? "" : t.remaining && t.remaining > 0 ? 

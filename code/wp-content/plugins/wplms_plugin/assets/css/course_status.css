@@ -2902,6 +2902,9 @@ border-bottom: 1px solid #E8E8E8;
     color: #000;
     font-weight: 500;
 }
+.quiz_after_submitted{
+    display: none!important;
+}
 .course_status .incourse .quiz_questions_content {
     flex: 3 0 640px;
     max-width: 100%;
@@ -3931,7 +3934,7 @@ a.button.is-primary {
     float: right;
 }
 .show_result{
-    border-top: 1px dotted #707070;
+    /*border-top: 1px dotted #707070;*/
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -3942,7 +3945,7 @@ a.button.is-primary {
     width: 100%;
     position: relative;
     display: flex;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     border-radius: 4px;
 }
 
@@ -4060,7 +4063,7 @@ a.button.is-primary {
     }
     .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{margin-bottom:0px;width: 100%;}
     .course_status .course_content {padding: 0px 0px 55px;}
-    .course_status .quiz_content {border: 0;padding: 0px;padding-bottom: 0px;}
+    .course_status .quiz_content, .show_quiz_result  {border: 0;padding: 0px;padding-bottom: 0px;}
     .course_content .quiz_content  li{
         border: 0px!important;
         justify-content: space-between;
@@ -4088,4 +4091,7 @@ a.button.is-primary {
     }
     .download_options span, .assignment_heading span {font-size: 15px;line-height: 22px;width: 100%;}
     .download_button {margin-top: 25px;}
+    .show_result .buttons_wrapper.pull-right .button {float: initial;margin: 0px auto;display: table;}
+    .quiz_result_icon{    background-size: 99.67px;height: auto;}
+    .quiz_result_heading {font-size: 24px;}
 }

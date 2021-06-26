@@ -97,7 +97,9 @@ $total_results = $wp_query->found_posts;
 if(isset($_GET['s'])&& (count_chars($_GET['s'])>=3)){?>
 
 <script type="text/javascript">
-          jQuery( ".excerpt h3 a" ).click(function() {
+          jQuery( ".excerpt h3 a" ).click(function(e) {
+            e.preventDefault();
+            var link                = jQuery(this).attr("href");
             let SearchMoegObj = {
                 "User identifier"   : jQuery("#footer_user_identifier").val(),
                 "Session source"    : jQuery("#footer_session_source").val(),
@@ -107,6 +109,10 @@ if(isset($_GET['s'])&& (count_chars($_GET['s'])>=3)){?>
                 "Search result clickeds"          :  jQuery(this).text(),               
             }
             Moengage.track_event("Searched", SearchMoegObj);
+
+            setTimeout(function(){
+                window.location.href = link;
+            }, 500);
 
         });
 

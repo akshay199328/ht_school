@@ -670,6 +670,17 @@ jQuery(window).load(function(){
                   jQuery("#verify-otp-btn").html("Verify OTP");
                     jQuery("#verify-otp-btn").removeAttr("disabled");
                     if(response.status == 1){
+
+                      let otpVerificationMoegObj = {
+                        "Type"          : "email",
+                        "Email"         : response.email,
+                        "Phone number"  : "",
+                        "Status"        : "success",
+                        "Failure reason": "",
+                      };
+
+                      Moengage.track_event("OTP_verification", otpVerificationMoegObj);
+
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
 
@@ -685,7 +696,18 @@ jQuery(window).load(function(){
                           "sl_on"          : "<?php echo date('c', time()); ?>",
                           "sl_method"      : "web",
                         };
+
+                        let logInMoegObj = {
+                          "User identifier": user.ID,
+                          "Session source" : "",
+                          "Timestamp"      : "<?php echo date('c', time()); ?>",
+                          "UTM tags"       : "",
+                          "Last login on"  : "",
+                          "Login type"     : "email",
+                        };
+
                         dataLayer.push(logInObj);
+                        Moengage.track_event("Logged_In", logInMoegObj);
 
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);
@@ -698,6 +720,17 @@ jQuery(window).load(function(){
                             jQuery("#login-step-3").show();
                         }
                     }else{
+
+                        let otpVerificationMoegObj = {
+                          "Type"          : "email",
+                          "Email"         : response.email,
+                          "Phone number"  : "",
+                          "Status"        : "failure",
+                          "Failure reason": response.message,
+                        };
+
+                        Moengage.track_event("OTP_verification", otpVerificationMoegObj);
+
                         jQuery('#otp-verification-form').trigger("reset");
                         jQuery("#ht_resend_error").html(response.message);
                         jQuery("#ht_resend_error").show();

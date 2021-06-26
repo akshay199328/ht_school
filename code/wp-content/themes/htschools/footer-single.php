@@ -1168,6 +1168,19 @@ border: 1px solid deepskyblue;
 <!-- modal -->
 
 <?php do_action('woocommerce_check_and_trigger_signup_tag'); ?>
+<?php if(isset($_SESSION['sign_up_data']))
+{ ?>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			var signUpDataObj 		= JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["datalayer"]); ?>');
+			var signUpDataMoengObj 	= JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage"]); ?>');
+			console.log(socialLoginData);
+			dataLayer.push(socialLoginData);
+			Moengage.track_event("HT_Property_Visited", signUpDataMoengObj);
+		});
+	</script>
+	<?php unset($_SESSION['sign_up_data']);
+} ?>
 
 <script type="text/javascript">
 	jQuery('#reset').click(function(){
@@ -1281,7 +1294,7 @@ border: 1px solid deepskyblue;
 					"wishlisted_course"	: jQuery("#wishlisted_course_" + courseID).val() == "1" ? true : false,
 				});
 
-				let beginCheckoutObj = {
+				let addToCartObj = {
 					"event"				: 'add_to_cart',
 					"user_identifier"	: jQuery("#user_identifier").val(),
 					"session_source"	: jQuery("#session_source").val(),
@@ -1292,9 +1305,28 @@ border: 1px solid deepskyblue;
 					}
 				};
 
+				let addToCartMoegObj = {
+					"User identifier"	: jQuery("#user_identifier").val(),
+					"Session source"	: jQuery("#session_source").val(),
+					"Timestamp"			: jQuery("#timestamp").val(),
+					"UTM tags"			: jQuery("#utm_tags").val(),
+					"Course name"		: jQuery("#course_name_" + courseID).val(),
+					"Course URL"		: jQuery("#course_url_" + courseID).val(),
+					"Course category"	: jQuery("#course_category_" + courseID).val(),
+					"Course partner"	: jQuery("#course_partner_" + courseID).val(),
+					"Category ID"		: jQuery("#category_id_" + courseID).val(),
+					"Course ID"			: jQuery("#course_id_" + courseID).val(),
+					"Course Price"		: jQuery("#course_price_" + courseID).val(),
+					"Age group"			: jQuery("#age_group_" + courseID).val(),
+					"Course duration"	: jQuery("#course_duration_" + courseID).val(),
+					"Session duration"	: jQuery("#session_duration_" + courseID).val(),
+					"Wishlisted course"	: jQuery("#wishlisted_course_" + courseID).val(),
+				};
+
 				// dataLayer.push({ ecommerce: null });
-				dataLayer.push(beginCheckoutObj);
-				console.log(beginCheckoutObj);
+				dataLayer.push(addToCartObj);
+				console.log(addToCartObj);
+				Moengage.track_event("Added_To_Cart", addToCartMoegObj);
 
 				setTimeout(function(){
 					window.location.href = link;
@@ -1333,9 +1365,26 @@ border: 1px solid deepskyblue;
 				}
 			};
 
+			let addWishlistMoegObj = {
+				"User identifier"	: jQuery("#user_identifier").val(),
+				"Session source"	: jQuery("#session_source").val(),
+				"Timestamp"			: jQuery("#timestamp").val(),
+				"UTM tags"			: jQuery("#utm_tags").val(),
+				"Course name"		: jQuery("#course_name_" + courseID).val(),
+				"Course URL"		: jQuery("#course_url_" + courseID).val(),
+				"Course category"	: jQuery("#course_category_" + courseID).val(),
+				"Course partner"	: jQuery("#course_partner_" + courseID).val(),
+				"Course ID"			: jQuery("#course_id_" + courseID).val(),
+				"Age Group"			: jQuery("#age_group_" + courseID).val(),
+				"Session duration"	: jQuery("#course_duration_" + courseID).val(),
+				"Course duration"	: jQuery("#session_duration_" + courseID).val(),
+				"Course price"		: jQuery("#course_price_" + courseID).val(),
+			};
+
 			// dataLayer.push({ ecommerce: null });
 			dataLayer.push(addWishlistObj);
 			console.log(addWishlistObj);
+			Moengage.track_event("Course_Wishlisted", addWishlistMoegObj);
 
 			setTimeout(function(){
 				window.location.href = link;
@@ -1422,23 +1471,19 @@ border: 1px solid deepskyblue;
 
 			if(itemListName != "")	allCourseObj.item_list_name = itemListName;
 
+			let allCourseListMoegObj = {
+				"User identifier"	: jQuery("#user_identifier").val(),
+				"Session source"	: jQuery("#session_source").val(),
+				"Timestamp"			: jQuery("#timestamp").val(),
+				"UTM tags"			: jQuery("#utm_tags").val(),
+			}
+
 			if(allCourseItem.length > 0) {
 				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(allCourseObj);
 				console.log(allCourseObj);
+				Moengage.track_event("All_Courses_Viewed", allCourseListMoegObj);
 			}
-			Moengage.track_event("All_Courses_Viewed", {
-			    "User identifier"	: jQuery("#user_identifier").val(),
-				"Session source"	: jQuery("#session_source").val(),
-				"Timestamp"			: jQuery("#timestamp").val(),
-				"UTM tags"			: jQuery("#utm_tags").val(),
-				"courses"			: {
-					"items" : allCourseItem,
-				}
-		    });
-
-
-
 		}
 	});
 </script>

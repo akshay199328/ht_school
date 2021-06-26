@@ -284,10 +284,13 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					coupon = jQuery('.cart-discount :first-child').eq(0).text().replace("Coupon:", "").trim();
 				}
 
+				var allCartItemName		= [];
 				var beginCheckoutItems	= [];
 				var cartViewedItems		= [];
 
 				for (var i = 0; i < totalItems; i++) {
+
+					allCartItemName.push(allItems[i]["course_name"]);
 
 					cartViewedItems.push({
 						"item_name"			: allItems[i]["course_name"],
@@ -335,8 +338,23 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					}
 				};
 
+				let cartViewedMoegObj = {
+					"Item count"		: totalItems,
+					"Total cart amount"	: parseFloat(totalDiscountAmount).toFixed(2),
+					/*"Course name"		: dfds,
+					"Course URL"		: dfds,
+					"Course category"	: dfds,
+					"Course partner"	: dfds,
+					"Course ID"			: dfds,
+					"Age group"			: dfds,
+					"Course duration"	: dfds,
+					"Session duration"	: dfds,
+					"Course Price"		: dfds,*/
+				};
+
 				dataLayer.push(cartViewedObj);
 				console.log(cartViewedObj);
+				Moengage.track_event("Cart_Viewed", cartViewedMoegObj);
 
 				let beginCheckoutObj = {
 					"event"					: 'begin_checkout',
@@ -354,12 +372,28 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					}
 				};
 
+				let beginCheckoutMoegObj = {
+					"User identifier"						: allItems[0]["user_identifier"],
+					"Session source"						: allItems[0]["session_source"],
+					"Timestamp"								: allItems[0]["timestamp"],
+					"UTM tags"								: allItems[0]["utm_tags"],
+					"Courses in cart"						: totalItems,
+					"Coupon applied"						: couponApplied,
+					"Coupon code"							: coupon,
+					"Original cart value"					: parseFloat(totalOrigAmount).toFixed(2),
+					"Discounted cart value (after coupon)"	: parseFloat(totalDiscountAmount).toFixed(2),
+				};
+
 				jQuery('.checkout-button').click(function(e){
+
 					e.preventDefault();
 					var link = jQuery(this).attr("href");
+
 					// dataLayer.push({ ecommerce: null });
 					dataLayer.push(beginCheckoutObj);
 					console.log(beginCheckoutObj);
+					Moengage.track_event("Checkout_Initiated", beginCheckoutMoegObj);
+
 					setTimeout(function(){
 						window.location.href = link;
 					}, 500);
@@ -406,9 +440,31 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					}
 				};
 
+				let removeFromCartMoegObj = {
+					"User identifier"					: jQuery("#user_identifier").val(),
+					"Session source"					: jQuery("#session_source").val(),
+					"Timestamp"							: jQuery("#timestamp").val(),
+					"UTM tags"							: jQuery("#utm_tags").val(),
+					"All cart items"					: allCartItemName.join(','),
+					"Removed course name"				: removingItem['course_name'],
+					"Removed course URL"				: removingItem['course_url'],
+					"Removed course category"			: removingItem['course_category'],
+					"Removed course partner"			: removingItem['course_partner'],
+					"Removed course price"				: parseFloat(removingItem['course_discount_price']).toFixed(2),
+					"Starting cart value"				: parseFloat(totalDiscountAmount).toFixed(2),
+					"Resulting cart value"				: parseFloat(resultingAmont).toFixed(2),
+					"Removed course age group"			: removingItem['age_group'],
+					"Removed course duration"			: removingItem['course_duration'],
+					"Removed course session duration"	: removingItem['session_duration'],
+					"Removed Category ID"				: removingItem['category_id'],
+					"Removed Course ID"					: removingItem['course_id'],
+					"Removed Wishlisted course"			: removingItem['wishlisted_course'],
+				};
+
 				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(removeFromCartObj);
 				console.log(removeFromCartObj);
+				Moengage.track_event("Removed_From_Cart", removeFromCartMoegObj);
 			});
 		});
 	</script>

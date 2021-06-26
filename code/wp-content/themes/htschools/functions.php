@@ -572,7 +572,7 @@ function reg_verify_otp(){
     $response = array(
         'status' => 0,
         'is_registered' => 0,
-        'email' => '',
+        'email' => $_SESSION['user_otp_email'],
         'message' => 'Unable to verify OTP, please try again'
     );
     $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
@@ -1366,7 +1366,7 @@ add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted
 
 // Social Login Redirect
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
-    // setSocialLoginData('facebook');
+    setSocialLoginData('facebook');
     if(isset($_SESSION['previousPageUrl'])){
       $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
     }
@@ -1375,7 +1375,7 @@ add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-	// setSocialLoginData('google');
+	setSocialLoginData('google');
 	if(isset($_SESSION['previousPageUrl'])){
 		$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
 		return $redirectUrl;
@@ -1391,27 +1391,37 @@ function setSocialLoginData($socialType)
 	{
 		$userDetails = get_userdata($currentUserID);
 
-    $registerTime = 0;
-    $result = $wpdb->get_results("SELECT TIMESTAMPDIFF(MINUTE, user_registered, NOW()) AS diff FROM ht_users WHERE ID = '" . $currentUserID . "'");
+       /* $registerTime = 0;
+        $result = $wpdb->get_results("SELECT TIMESTAMPDIFF(MINUTE, user_registered, NOW()) AS diff FROM ht_users WHERE ID = '" . $currentUserID . "'");
 
-    if(count($result) > 0)
-    {
-      $registerTime = $result[0]->diff;
-    }
+        if(count($result) > 0)
+        {
+          $registerTime = $result[0]->diff;
+        }*/
 
-  	$_SESSION['social_login_data'] = array(
-      "event"           => $registerTime >= 2 ? 'log_in' : 'sign_up',
-      "user_identifier" => $currentUserID,
-      "session_source"  => "",
-      "utm_tags"        => "",
-      "timestamp"       => date('c', time()),
-      "sl_on"           => date('c', time()),
-      "sl_method"       => $socialType,
-      "email"           => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
-      "phone_number"    => "",
-      "status"          => "success",
-      "failure_reason"  => "",
-  	);
+      	$_SESSION['sign_up_data'] = array(
+            "datalayer" => array(
+                "event"           => 'log_in',
+                "user_identifier" => $currentUserID,
+                "session_source"  => "",
+                "utm_tags"        => "",
+                "timestamp"       => date('c', time()),
+                "sl_on"           => date('c', time()),
+                "sl_method"       => $socialType,
+                "email"           => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
+                "phone_number"    => "",
+                "status"          => "success",
+                "failure_reason"  => "",
+            ),
+            "moengage" => array(
+                "User identifier" => $currentUserID,
+                "Session source"  => "",
+                "Timestamp"       => date('c', time()),
+                "UTM tags"        => "",
+                "Last login on"   => "",
+                "Login type"      => $socialType,
+            ),
+        );
 	}
 }
 
@@ -2929,7 +2939,7 @@ function check_and_trigger_signup_tag() {
             add_user_meta($currentUserID, 'signup_ga_tag_pushed', time());
             echo '<script type="text/javascript">
                 jQuery(document).ready(function(){
-                    var socialLoginData = {
+                    var signUpObj = {
                         "event"           : "sign_up",
                         "user_identifier" : '.$currentUserID.',
                         "session_source"  : "",
@@ -2942,8 +2952,21 @@ function check_and_trigger_signup_tag() {
                         "status"          : "success",
                         "failure_reason"  : "",
                     }
-                    dataLayer.push(socialLoginData);
-                    console.log(socialLoginData);
+                    var signUpMoegObj = {
+                        "User identifier"                    : '.$currentUserID.',
+                        "Session source"                     : "",
+                        "UTM tags"                           : "",
+                        "Timestamp"                          : "'.date("c", time()).'",
+                        "Signed up on on Date and time (IST)": "'.date("c", time()).'",
+                        "Sign up source"                     : "'.$socialType.'",
+                        "Email"                              : "'.(isset($userDetails->data->user_email) ? $userDetails->data->user_email : "").'",
+                        "Phone number"                       : "",
+                        "status"                             : "success",
+                        "failure_reason"                     : "",
+                    }
+                    dataLayer.push(signUpObj);
+                    console.log(signUpObj);
+                    Moengage.track_event("Signed_Up", signUpMoegObj);
                 });
             </script>';
         }

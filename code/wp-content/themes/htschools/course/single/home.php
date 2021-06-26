@@ -539,9 +539,27 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               }
             };
 
+            let viewCourseMoegObj = {
+              "Course Category" : jQuery("#course_category_" + courseID).val(),
+              "Category ID"     : jQuery("#category_id_" + courseID).val(),
+              "Course name"     : jQuery("#course_name_" + courseID).val(),
+              "Course ID"       : jQuery("#course_id_" + courseID).val(),
+              "Age group"       : jQuery("#age_group_" + courseID).val(),
+              "Course Price"    : jQuery("#course_price_" + courseID).val(),
+              "Course duration" : jQuery("#course_duration_" + courseID).val(),
+              "Session duration": jQuery("#session_duration_" + courseID).val(),
+              "Course URL"      : jQuery("#course_url_" + courseID).val(),
+              "Course partner"  : jQuery("#course_partner_" + courseID).val(),
+              "Timestamp"       : jQuery("#timestamp").val(),
+              "Session source"  : jQuery("#session_source").val(),
+              "UTM tags"        : jQuery("#utm_tags").val(),
+              "User identifier" : jQuery("#user_identifier").val(),
+            };
+
             // dataLayer.push({ ecommerce: null });
             dataLayer.push(viewCourseObj);
             console.log(viewCourseObj);
+            Moengage.track_event("Course_Viewed", viewCourseMoegObj);
           });
         </script>
 </main>

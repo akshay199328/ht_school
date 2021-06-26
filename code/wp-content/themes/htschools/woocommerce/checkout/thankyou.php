@@ -108,6 +108,9 @@ defined( 'ABSPATH' ) || exit;
 					$userIdentifier = $_COOKIE['PHPSESSID'];
 				}
 
+				$orderTotal  = 0;
+				$discountAmt = 0;
+
 				foreach($order->get_items() as $item_id => $item)
 				{
 					$vcourses = vibe_sanitize(get_post_meta($item['product_id'],'vibe_courses', false));
@@ -130,6 +133,9 @@ defined( 'ABSPATH' ) || exit;
 					add_user_meta($currentUser->ID, 'purchased_on'.$courseID, time());
 					add_user_meta($currentUser->ID, 'purchased_type'.$courseID, 'online');
 
+					$orderTotal 	+= ($item['total'] + $item['total_tax']);
+					$discountAmt 	+= ($item['subtotal'] - $item['total']);
+
 					$items[] = array(
 						"item_name"			=> str_replace("'", "", $item['name']),
 						"amount_paid"		=> ($item['total'] + $item['total_tax']),
@@ -151,6 +157,8 @@ defined( 'ABSPATH' ) || exit;
 					);
 			    }
 
+			    $totalItemsCount = count($items);
+
 				$ecommerce = array(
 					"currency"          => "INR",
 					"transaction_id"	=> $order->get_transaction_id(),
@@ -169,7 +177,7 @@ defined( 'ABSPATH' ) || exit;
 					"ecommerce"			=> $ecommerce,
 				);
 
-				do_action('woocommerce_log_ga_tag', "purchase", $saveObj);
+				// do_action('woocommerce_log_ga_tag', "purchase", $saveObj);
 			?>
 
 			<script type="text/javascript">
@@ -186,9 +194,44 @@ defined( 'ABSPATH' ) || exit;
 						"ecommerce"			: allItems,
 					};
 
+					let purchaseCompletedDetailMoegObj = {
+						"User identifier"			: "<?php echo $userIdentifier; ?>",,
+						"Session source"			: "",
+						"Timestamp"					: "<?php echo date('c', time()); ?>",,
+						"UTM tags"					: "",
+						/*"Courses purchased (name)"	: dfdsf,
+						"Amount paid"				: dfdsf,
+						"Payment mode"				: dfdsf,
+						"Course partners"			: dfdsf,
+						"Course prices"				: dfdsf,
+						"Course URLs"				: dfdsf,
+						"Course categories"			: dfdsf,
+						"Category ID"				: dfdsf,
+						"Course ID"					: dfdsf,
+						"Coupon applied"			: dfdsf,
+						"Course age groups"			: dfdsf,
+						"Course durations"			: dfdsf,
+						"Session durations"			: dfdsf,
+						"Coupon code"				: dfdsf,
+						"Purchased on"				: dfdsf,
+						"Repeat purchase"			: dfdsf,
+						"Wishlisted course?"		: dfdsf,
+						"Wishlisted course name"	: dfdsf,*/
+						"Order ID"					: "<?php echo $order->get_order_number(); ?>",,
+					};
+
+					let purchaseCompletedSummaryMoegObj = {
+						"Total count of items"	: "<?php echo $totalItemsCount; ?>",
+						"Total amount paid"		: "<?php echo $orderTotal; ?>",
+						"Total discount applied": "<?php echo $discountAmt; ?>",
+						"Order ID"				: "<?php echo $order->get_order_number(); ?>",
+					};
+
 					// dataLayer.push({ ecommerce: null });
 					dataLayer.push(purchaseObj);
 					console.log(purchaseObj);
+					Moengage.track_event("Purchase_Completed_Detail", purchaseCompletedDetailMoegObj);
+					Moengage.track_event("Purchase_Completed_Summary", purchaseCompletedSummaryMoegObj);
 				});
 			</script>
 

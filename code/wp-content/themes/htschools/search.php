@@ -92,6 +92,29 @@ $total_results = $wp_query->found_posts;
     </div>
 </section>
 
+<?php 
+
+if(isset($_GET['s'])&& (count_chars($_GET['s'])>=3)){?>
+
+<script type="text/javascript">
+          jQuery( ".excerpt h3 a" ).click(function() {
+            let SearchMoegObj = {
+                "User identifier"   : jQuery("#footer_user_identifier").val(),
+                "Session source"    : jQuery("#footer_session_source").val(),
+                "Timestamp"         : jQuery("#footer_timestamp").val(),
+                "Search query"          : '<?php echo $_GET["s"];?>',
+                "Search suggestion clicked"          : "",
+                "Search result clickeds"          :  jQuery(this).text(),               
+            }
+            Moengage.track_event("Searched", SearchMoegObj);
+
+        });
+
+</script>
+   
+<?php }?>
+
+
 
 <?php
 get_footer(vibe_get_footer());

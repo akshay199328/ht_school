@@ -1204,9 +1204,22 @@ border: 1px solid deepskyblue;
 		jQuery("input[name='age']:checkbox").prop('checked',false);
 	})
 
+	jQuery( ".epaper a" ).click(function() {
+	   	Moengage.track_event("ePaper_Viewed", {
+					"User identifier"	: jQuery("#user_identifier").val(),
+					"Session source"	: jQuery("#session_source").val(),
+					"Timestamp"			: jQuery("#timestamp").val(),
+					"UTM tags"			: jQuery("#utm_tags").val(),
+				});
+
+	});
 	jQuery( ".logos a" ).click(function() {
 		Moengage.track_event("HT_Property_Visited", {
-			"property_visited":  jQuery(this).attr("href"),
+			     "User identifier"	: jQuery("#user_identifier").val(),
+				 "Session source"	: jQuery("#session_source").val(),
+				 "Timestamp"		: jQuery("#timestamp").val(),
+				 "UTM tags"			: jQuery("#utm_tags").val(),
+			     "HT Property name":  jQuery(this).attr("href"),
 		});
 
 		let visitedObj = {

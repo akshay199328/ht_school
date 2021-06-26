@@ -13,6 +13,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		</div>
 	</div>
 </div>-- -->
+<?php $userIdentifier = "";
+
+if(isset($user->ID) && $user->ID > 0)
+{
+  $userIdentifier = $user->ID;
+}
+else if(isset($_COOKIE['PHPSESSID']))
+{
+  $userIdentifier = $_COOKIE['PHPSESSID'];
+} ?>
+<input type="hidden" id="footer_user_identifier" value="<?php echo $userIdentifier;?>">
+<input type="hidden" id="footer_timestamp" value="<?php echo date('c', time());?>">
+<input type="hidden" id="footer_session_source">
+<input type="hidden" id="footer_utm_tags">
+
 <footer id="footer" class="new-footer">
 	  <div class="new-footer-copy">
 	 <div class="footer-check" style="padding:0px;float: left;">
@@ -1172,11 +1187,11 @@ border: 1px solid deepskyblue;
 { ?>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-			var signUpDataObj 		= JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["datalayer"]); ?>');
-			var signUpDataMoengObj 	= JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage"]); ?>');
-			console.log(socialLoginData);
-			dataLayer.push(socialLoginData);
-			Moengage.track_event("HT_Property_Visited", signUpDataMoengObj);
+			var signUpDataLayerObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["datalayer"]); ?>');
+			var signUpDataMoengObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage"]); ?>');
+			console.log(signUpDataLayerObj);
+			dataLayer.push(signUpDataLayerObj);
+			Moengage.track_event("Logged_In", signUpDataMoengObj);
 		});
 	</script>
 	<?php unset($_SESSION['sign_up_data']);
@@ -1296,20 +1311,20 @@ border: 1px solid deepskyblue;
 
 				let addToCartObj = {
 					"event"				: 'add_to_cart',
-					"user_identifier"	: jQuery("#user_identifier").val(),
-					"session_source"	: jQuery("#session_source").val(),
-					"timestamp"			: jQuery("#timestamp").val(),
-					"utm_tags"			: jQuery("#utm_tags").val(),
+					"user_identifier"	: jQuery("#footer_user_identifier").val(),
+					"session_source"	: jQuery("#footer_session_source").val(),
+					"timestamp"			: jQuery("#footer_timestamp").val(),
+					"utm_tags"			: jQuery("#footer_utm_tags").val(),
 					"ecommerce"			: {
 						"items" : addToCartItem,
 					}
 				};
 
 				let addToCartMoegObj = {
-					"User identifier"	: jQuery("#user_identifier").val(),
-					"Session source"	: jQuery("#session_source").val(),
-					"Timestamp"			: jQuery("#timestamp").val(),
-					"UTM tags"			: jQuery("#utm_tags").val(),
+					"User identifier"	: jQuery("#footer_user_identifier").val(),
+					"Session source"	: jQuery("#footer_session_source").val(),
+					"Timestamp"			: jQuery("#footer_timestamp").val(),
+					"UTM tags"			: jQuery("#footer_utm_tags").val(),
 					"Course name"		: jQuery("#course_name_" + courseID).val(),
 					"Course URL"		: jQuery("#course_url_" + courseID).val(),
 					"Course category"	: jQuery("#course_category_" + courseID).val(),
@@ -1356,20 +1371,20 @@ border: 1px solid deepskyblue;
 
 			let addWishlistObj = {
 				"event"				: 'add_to_wishlist',
-				"user_identifier"	: jQuery("#user_identifier").val(),
-				"session_source"	: jQuery("#session_source").val(),
-				"timestamp"			: jQuery("#timestamp").val(),
-				"utm_tags"			: jQuery("#utm_tags").val(),
+				"user_identifier"	: jQuery("#footer_user_identifier").val(),
+				"session_source"	: jQuery("#footer_session_source").val(),
+				"timestamp"			: jQuery("#footer_timestamp").val(),
+				"utm_tags"			: jQuery("#footer_utm_tags").val(),
 				"ecommerce"			: {
 					"items" : addToWishlistItem,
 				}
 			};
 
 			let addWishlistMoegObj = {
-				"User identifier"	: jQuery("#user_identifier").val(),
-				"Session source"	: jQuery("#session_source").val(),
-				"Timestamp"			: jQuery("#timestamp").val(),
-				"UTM tags"			: jQuery("#utm_tags").val(),
+				"User identifier"	: jQuery("#footer_user_identifier").val(),
+				"Session source"	: jQuery("#footer_session_source").val(),
+				"Timestamp"			: jQuery("#footer_timestamp").val(),
+				"UTM tags"			: jQuery("#footer_utm_tags").val(),
 				"Course name"		: jQuery("#course_name_" + courseID).val(),
 				"Course URL"		: jQuery("#course_url_" + courseID).val(),
 				"Course category"	: jQuery("#course_category_" + courseID).val(),
@@ -1413,10 +1428,10 @@ border: 1px solid deepskyblue;
 
 			let selectCourseObj = {
 				"event"				: 'select_item',
-				"user_identifier"	: jQuery("#user_identifier").val(),
-				"session_source"	: jQuery("#session_source").val(),
-				"timestamp"			: jQuery("#timestamp").val(),
-				"utm_tags"			: jQuery("#utm_tags").val(),
+				"user_identifier"	: jQuery("#footer_user_identifier").val(),
+				"session_source"	: jQuery("#footer_session_source").val(),
+				"timestamp"			: jQuery("#footer_timestamp").val(),
+				"utm_tags"			: jQuery("#footer_utm_tags").val(),
 				"ecommerce"			: {
 					"items" : selectCourseItem,
 				}
@@ -1460,10 +1475,10 @@ border: 1px solid deepskyblue;
 
 			let allCourseObj = {
 				"event"				: 'view_item_list',
-				"user_identifier"	: jQuery("#user_identifier").val(),
-				"session_source"	: jQuery("#session_source").val(),
-				"timestamp"			: jQuery("#timestamp").val(),
-				"utm_tags"			: jQuery("#utm_tags").val(),
+				"user_identifier"	: jQuery("#footer_user_identifier").val(),
+				"session_source"	: jQuery("#footer_session_source").val(),
+				"timestamp"			: jQuery("#footer_timestamp").val(),
+				"utm_tags"			: jQuery("#footer_utm_tags").val(),
 				"ecommerce"			: {
 					"items" : allCourseItem,
 				}
@@ -1472,10 +1487,10 @@ border: 1px solid deepskyblue;
 			if(itemListName != "")	allCourseObj.item_list_name = itemListName;
 
 			let allCourseListMoegObj = {
-				"User identifier"	: jQuery("#user_identifier").val(),
-				"Session source"	: jQuery("#session_source").val(),
-				"Timestamp"			: jQuery("#timestamp").val(),
-				"UTM tags"			: jQuery("#utm_tags").val(),
+				"User identifier"	: jQuery("#footer_user_identifier").val(),
+				"Session source"	: jQuery("#footer_session_source").val(),
+				"Timestamp"			: jQuery("#footer_timestamp").val(),
+				"UTM tags"			: jQuery("#footer_utm_tags").val(),
 			}
 
 			if(allCourseItem.length > 0) {
@@ -1484,6 +1499,51 @@ border: 1px solid deepskyblue;
 				console.log(allCourseObj);
 				Moengage.track_event("All_Courses_Viewed", allCourseListMoegObj);
 			}
+		}
+
+		jQuery('.a2a_button_facebook').click(function(e){
+			courseShared(jQuery(this).parent().attr('data-id'), 'facebook');
+		});
+
+		jQuery('.a2a_button_twitter').click(function(e){
+			courseShared(jQuery(this).parent().attr('data-id'), 'twitter');
+		});
+
+		jQuery('.a2a_button_pinterest').click(function(e){
+			courseShared(jQuery(this).parent().attr('data-id'), 'pinterest');
+		});
+
+		jQuery('.a2a_button_google_gmail').click(function(e){
+			courseShared(jQuery(this).parent().attr('data-id'), 'gmail');
+		});
+
+		jQuery('.a2a_button_whatsapp').click(function(e){
+			courseShared(jQuery(this).parent().attr('data-id'), 'whatsapp');
+		});
+
+		jQuery('.a2a_button_telegram').click(function(e){
+			courseShared(jQuery(this).parent().attr('data-id'), 'telegram');
+		});
+
+		function courseShared(courseID, shareChannel) {
+			let courseSharedMoegObj = {
+				"User identifier"	: jQuery("#footer_user_identifier").val(),
+				"Session source"	: jQuery("#footer_session_source").val(),
+				"Timestamp"				: jQuery("#footer_timestamp").val(),
+				"UTM tags"				: jQuery("#footer_utm_tags").val(),
+				"Course name"			: jQuery("#course_name_" + courseID).val(),
+				"Course URL"			: jQuery("#course_url_" + courseID).val(),
+				"Course category"	: jQuery("#course_category_" + courseID).val(),
+				"Course ID"				: jQuery("#course_id_" + courseID).val(),
+				"Course partner"	: jQuery("#course_partner_" + courseID).val(),
+				"Age Group"				: jQuery("#age_group_" + courseID).val(),
+				"Session duration": jQuery("#course_duration_" + courseID).val(),
+				"Course duration"	: jQuery("#session_duration_" + courseID).val(),
+				"Course price"		: jQuery("#course_price_" + courseID).val(),
+				"Share channel"		: shareChannel,
+			}
+
+			Moengage.track_event("Course_Shared", courseSharedMoegObj);
 		}
 	});
 </script>

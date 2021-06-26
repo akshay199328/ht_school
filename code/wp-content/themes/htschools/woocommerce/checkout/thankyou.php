@@ -28,9 +28,9 @@ defined( 'ABSPATH' ) || exit;
 		$orderflag = get_post_meta($order->get_id(),'orderdetailsflag',true);
 
 		if ($orderflag==1):
-			wp_redirect(home_url());
+			// wp_redirect(home_url());
 		endif;
-        update_post_meta( $order->get_id(), 'orderdetailsflag', 1 );
+        // update_post_meta( $order->get_id(), 'orderdetailsflag', 1 );
 		if ($orderflag<=0):
 
 		?>
@@ -185,39 +185,58 @@ defined( 'ABSPATH' ) || exit;
 
 					var allItems = JSON.parse('<?php echo json_encode($ecommerce); ?>');
 
+					var allCartItemName			= [];
+					var wishlistedCourseName	= [];
+					var moengageItemList		= [];
+					var allItemsList			= allItems.items;
+
+					for (var i = 0; i < allItemsList; i++) {
+
+						allCartItemName.push(allItemsList[i]["course_name"]);
+
+						if(allItemsList[i]["wishlisted_course"]) {
+							wishlistedCourseName.push(allItemsList[i]["course_name"]);
+						}
+
+						moengageItemList.push({
+							"Course name"		: allItemsList[i]["course_name"],
+							"Course URL"		: allItemsList[i]["course_url"],
+							"Course category"	: allItemsList[i]["course_category"],
+							"Course partner"	: allItemsList[i]["course_partner"],
+							"Course ID"			: allItemsList[i]["course_id"],
+							"Age group"			: allItemsList[i]["age_group"],
+							"Course duration"	: allItemsList[i]["course_duration"],
+							"Session duration"	: allItemsList[i]["session_duration"],
+							"wishlisted_course"	: allItemsList[i]["wishlisted_course"],
+							"Course Price"		: parseFloat(allItemsList[i]["course_discount_price"]).toFixed(2),
+						});
+					}
+
 					let purchaseObj = {
 						"event"				: 'purchase',
-						"user_identifier"	: "<?php echo $userIdentifier; ?>",
-						"session_source"	: "",
-						"timestamp"			: "<?php echo date('c', time()); ?>",
-						"utm_tags"			: "",
+						"user_identifier"	: jQuery("#footer_user_identifier").val(),
+						"session_source"	: jQuery("#footer_session_source").val(),
+						"timestamp"			: jQuery("#footer_timestamp").val(),
+						"utm_tags"			: jQuery("#footer_utm_tags").val(),
 						"ecommerce"			: allItems,
 					};
 
 					let purchaseCompletedDetailMoegObj = {
-						"User identifier"			: "<?php echo $userIdentifier; ?>",,
-						"Session source"			: "",
-						"Timestamp"					: "<?php echo date('c', time()); ?>",,
-						"UTM tags"					: "",
-						/*"Courses purchased (name)"	: dfdsf,
-						"Amount paid"				: dfdsf,
-						"Payment mode"				: dfdsf,
-						"Course partners"			: dfdsf,
-						"Course prices"				: dfdsf,
-						"Course URLs"				: dfdsf,
-						"Course categories"			: dfdsf,
-						"Category ID"				: dfdsf,
-						"Course ID"					: dfdsf,
-						"Coupon applied"			: dfdsf,
-						"Course age groups"			: dfdsf,
-						"Course durations"			: dfdsf,
-						"Session durations"			: dfdsf,
-						"Coupon code"				: dfdsf,
-						"Purchased on"				: dfdsf,
-						"Repeat purchase"			: dfdsf,
-						"Wishlisted course?"		: dfdsf,
-						"Wishlisted course name"	: dfdsf,*/
-						"Order ID"					: "<?php echo $order->get_order_number(); ?>",,
+						"User identifier"		: jQuery("#footer_user_identifier").val(),
+						"Session source"		: jQuery("#footer_session_source").val(),
+						"Timestamp"				: jQuery("#footer_timestamp").val(),
+						"UTM tags"				: jQuery("#footer_utm_tags").val(),
+						"Order ID"				: "<?php echo $order->get_order_number(); ?>",
+						"Courses purchased"		: allCartItemName.join(','),
+						"Amount paid"			: "<?php echo $orderTotal; ?>",
+						"Payment mode"			: allItems.payment_mode,
+						"Coupon code"			: "<?php echo $couponCode; ?>",
+						"Purchased on"			: "<?php echo date('c', time()); ?>",
+						"Repeat purchase"		: false,
+						"Wishlisted course name": wishlistedCourseName.join(','),
+						"courses"				: {
+							"items"	: moengageItemList,
+						}
 					};
 
 					let purchaseCompletedSummaryMoegObj = {

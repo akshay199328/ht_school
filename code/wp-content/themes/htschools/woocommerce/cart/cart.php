@@ -57,12 +57,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						else if(isset($_COOKIE['PHPSESSID']))
 						{
 							$userIdentifier = $_COOKIE['PHPSESSID'];
-						}?>
-
-						<input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
-						<input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
-						<input type="hidden" id="session_source">
-						<input type="hidden" id="utm_tags">
+						} ?>
 
 						<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 							$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
@@ -285,12 +280,25 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				}
 
 				var allCartItemName		= [];
+				var moengageItemList	= [];
 				var beginCheckoutItems	= [];
 				var cartViewedItems		= [];
 
 				for (var i = 0; i < totalItems; i++) {
 
 					allCartItemName.push(allItems[i]["course_name"]);
+
+					moengageItemList.push({
+						"Course name"		: allItems[i]["course_name"],
+						"Course URL"		: allItems[i]["course_url"],
+						"Course category"	: allItems[i]["course_category"],
+						"Course partner"	: allItems[i]["course_partner"],
+						"Course ID"			: allItems[i]["course_id"],
+						"Age group"			: allItems[i]["age_group"],
+						"Course duration"	: allItems[i]["course_duration"],
+						"Session duration"	: allItems[i]["session_duration"],
+						"Course Price"		: parseFloat(allItems[i]["course_discount_price"]).toFixed(2),
+					});
 
 					cartViewedItems.push({
 						"item_name"			: allItems[i]["course_name"],
@@ -323,10 +331,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				let cartViewedObj = {
 					"event"				: 'view_cart',
-					"user_identifier"	: allItems[0]["user_identifier"],
-					"session_source"	: allItems[0]["session_source"],
-					"timestamp"			: allItems[0]["timestamp"],
-					"utm_tags"			: allItems[0]["utm_tags"],
+					"user_identifier"	: jQuery("#footer_user_identifier").val(),
+					"session_source"	: jQuery("#footer_session_source").val(),
+					"timestamp"			: jQuery("#footer_timestamp").val(),
+					"utm_tags"			: jQuery("#footer_utm_tags").val(),
 					"item_count"		: totalItems,
 					"currency"			: "INR",
 					"coupon_applied"	: couponApplied,
@@ -341,15 +349,9 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				let cartViewedMoegObj = {
 					"Item count"		: totalItems,
 					"Total cart amount"	: parseFloat(totalDiscountAmount).toFixed(2),
-					/*"Course name"		: dfds,
-					"Course URL"		: dfds,
-					"Course category"	: dfds,
-					"Course partner"	: dfds,
-					"Course ID"			: dfds,
-					"Age group"			: dfds,
-					"Course duration"	: dfds,
-					"Session duration"	: dfds,
-					"Course Price"		: dfds,*/
+					"courses"			: {
+						"items"	: moengageItemList,
+					}
 				};
 
 				dataLayer.push(cartViewedObj);
@@ -358,10 +360,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				let beginCheckoutObj = {
 					"event"					: 'begin_checkout',
-					"user_identifier"		: allItems[0]["user_identifier"],
-					"session_source"		: allItems[0]["session_source"],
-					"timestamp"				: allItems[0]["timestamp"],
-					"utm_tags"				: allItems[0]["utm_tags"],
+					"user_identifier"		: jQuery("#footer_user_identifier").val(),
+					"session_source"		: jQuery("#footer_session_source").val(),
+					"timestamp"				: jQuery("#footer_timestamp").val(),
+					"utm_tags"				: jQuery("#footer_utm_tags").val(),
 					"item_count"			: totalItems,
 					"coupon_applied"		: couponApplied,
 					"coupon"				: coupon,
@@ -373,10 +375,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				};
 
 				let beginCheckoutMoegObj = {
-					"User identifier"						: allItems[0]["user_identifier"],
-					"Session source"						: allItems[0]["session_source"],
-					"Timestamp"								: allItems[0]["timestamp"],
-					"UTM tags"								: allItems[0]["utm_tags"],
+					"User identifier"						: jQuery("#footer_user_identifier").val(),
+					"Session source"						: jQuery("#footer_session_source").val(),
+					"Timestamp"								: jQuery("#footer_timestamp").val(),
+					"UTM tags"								: jQuery("#footer_utm_tags").val(),
 					"Courses in cart"						: totalItems,
 					"Coupon applied"						: couponApplied,
 					"Coupon code"							: coupon,
@@ -428,10 +430,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				let removeFromCartObj = {
 					"event"					: 'remove_from_cart',
-					"user_identifier"		: removingItem['user_identifier'],
-					"session_source"		: removingItem['session_source'],
-					"timestamp"				: '<?php echo date('c', time()); ?>',
-					"utm_tags"				: "",
+					"user_identifier"		: jQuery("#footer_user_identifier").val(),
+					"session_source"		: jQuery("#footer_session_source").val(),
+					"timestamp"				: jQuery("#footer_timestamp").val(),
+					"utm_tags"				: jQuery("#footer_utm_tags").val(),
 					"all_cart_items"		: totalItems,
 					"starting_cart_value"	: parseFloat(totalDiscountAmount).toFixed(2),
 					"resulting_cart_value"	: parseFloat(resultingAmont).toFixed(2),
@@ -441,10 +443,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				};
 
 				let removeFromCartMoegObj = {
-					"User identifier"					: jQuery("#user_identifier").val(),
-					"Session source"					: jQuery("#session_source").val(),
-					"Timestamp"							: jQuery("#timestamp").val(),
-					"UTM tags"							: jQuery("#utm_tags").val(),
+					"User identifier"					: jQuery("#footer_user_identifier").val(),
+					"Session source"					: jQuery("#footer_session_source").val(),
+					"Timestamp"							: jQuery("#footer_timestamp").val(),
+					"UTM tags"							: jQuery("#footer_utm_tags").val(),
 					"All cart items"					: allCartItemName.join(','),
 					"Removed course name"				: removingItem['course_name'],
 					"Removed course URL"				: removingItem['course_url'],

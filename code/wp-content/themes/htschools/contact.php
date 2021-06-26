@@ -125,6 +125,22 @@ if(have_posts()):while(have_posts()):the_post();
     }
 })
 
+  jQuery('.a2a_button_telegram').click(function(e){
+    let courseSharedMoegObj = {
+      "User identifier" : jQuery("#footer_user_identifier").val(),
+      "Session source"  : jQuery("#footer_session_source").val(),
+      "Timestamp"       : jQuery("#footer_timestamp").val(),
+      "UTM tags"        : jQuery("#footer_utm_tags").val(),
+      "Email"           : jQuery("#emailAddress").val(),
+      "Phone"           : jQuery("#mobileNumber").val(),
+      "Pin code"        : jQuery("#pincode").val(),
+      "Profile type"    : jQuery("#ProfileDropDown").val(),
+      "Message keywords": "",
+    }
+
+    Moengage.track_event("Contact_Form_Submitted", courseSharedMoegObj);
+  });
+
 var maxWords = 100;
 jQuery('#yourMessage').keypress(function() {
 var $this, wordcount;

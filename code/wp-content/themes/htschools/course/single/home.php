@@ -204,7 +204,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <img src="<?php echo get_bloginfo('template_url');?>/assets/images/share-icon.svg">
                                     <div class="display_icon">
                                       <h6>Share <span><i class="bi bi-x close-share"></i></span></h6>
-                                      <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                                      <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-id="<?php echo $courseID;?>">
                                         <a class="a2a_button_facebook"></a>
                                         <a class="a2a_button_twitter"></a>
                                         <a class="a2a_button_pinterest"></a>
@@ -530,10 +530,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
             let viewCourseObj = {
               "event"          : 'view_item',
-              "user_identifier": jQuery("#user_identifier").val(),
-              "session_source" : jQuery("#session_source").val(),
-              "timestamp"      : jQuery("#timestamp").val(),
-              "utm_tags"       : jQuery("#utm_tags").val(),
+              "user_identifier": jQuery("#footer_user_identifier").val(),
+              "session_source" : jQuery("#footer_session_source").val(),
+              "timestamp"      : jQuery("#footer_timestamp").val(),
+              "utm_tags"       : jQuery("#footer_utm_tags").val(),
               "ecommerce"      : {
                 "items" : viewCourseItem,
               }
@@ -550,10 +550,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               "Session duration": jQuery("#session_duration_" + courseID).val(),
               "Course URL"      : jQuery("#course_url_" + courseID).val(),
               "Course partner"  : jQuery("#course_partner_" + courseID).val(),
-              "Timestamp"       : jQuery("#timestamp").val(),
-              "Session source"  : jQuery("#session_source").val(),
-              "UTM tags"        : jQuery("#utm_tags").val(),
-              "User identifier" : jQuery("#user_identifier").val(),
+              "Timestamp"       : jQuery("#footer_timestamp").val(),
+              "Session source"  : jQuery("#footer_session_source").val(),
+              "UTM tags"        : jQuery("#footer_utm_tags").val(),
+              "User identifier" : jQuery("#footer_user_identifier").val(),
             };
 
             // dataLayer.push({ ecommerce: null });

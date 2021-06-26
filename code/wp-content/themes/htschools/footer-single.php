@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		</div>
 	</div>
 </div>-- -->
-<?php $userIdentifier = "";
+<?php $userIdentifier = ""; $loggedInUserID = get_current_user_id();
 
-if(isset($user->ID) && $user->ID > 0)
+if(isset($loggedInUserID) && $loggedInUserID > 0)
 {
-  $userIdentifier = $user->ID;
+  $userIdentifier = $loggedInUserID;
 }
 else if(isset($_COOKIE['PHPSESSID']))
 {

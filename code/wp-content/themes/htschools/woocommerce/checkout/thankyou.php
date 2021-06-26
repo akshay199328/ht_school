@@ -28,9 +28,9 @@ defined( 'ABSPATH' ) || exit;
 		$orderflag = get_post_meta($order->get_id(),'orderdetailsflag',true);
 
 		if ($orderflag==1):
-			// wp_redirect(home_url());
+			wp_redirect(home_url());
 		endif;
-        // update_post_meta( $order->get_id(), 'orderdetailsflag', 1 );
+        update_post_meta( $order->get_id(), 'orderdetailsflag', 1 );
 		if ($orderflag<=0):
 
 		?>
@@ -190,25 +190,25 @@ defined( 'ABSPATH' ) || exit;
 					var moengageItemList		= [];
 					var allItemsList			= allItems.items;
 
-					for (var i = 0; i < allItemsList; i++) {
+					for (var i = 0; i < allItemsList.length; i++) {
 
-						allCartItemName.push(allItemsList[i]["course_name"]);
+						allCartItemName.push(allItemsList[i]["item_name"]);
 
 						if(allItemsList[i]["wishlisted_course"]) {
-							wishlistedCourseName.push(allItemsList[i]["course_name"]);
+							wishlistedCourseName.push(allItemsList[i]["item_name"]);
 						}
 
 						moengageItemList.push({
-							"Course name"		: allItemsList[i]["course_name"],
-							"Course URL"		: allItemsList[i]["course_url"],
-							"Course category"	: allItemsList[i]["course_category"],
-							"Course partner"	: allItemsList[i]["course_partner"],
-							"Course ID"			: allItemsList[i]["course_id"],
-							"Age group"			: allItemsList[i]["age_group"],
-							"Course duration"	: allItemsList[i]["course_duration"],
-							"Session duration"	: allItemsList[i]["session_duration"],
+							"Course name"		: allItemsList[i]["item_name"],
+							"Course URL"		: allItemsList[i]["course_urls"],
+							"Course category"	: allItemsList[i]["item_category"],
+							"Course partner"	: allItemsList[i]["course_partners"],
+							"Course ID"			: allItemsList[i]["item_id"],
+							"Age group"			: allItemsList[i]["course_age_groups"],
+							"Course duration"	: allItemsList[i]["course_durations"],
+							"Session duration"	: allItemsList[i]["session_durations"],
 							"wishlisted_course"	: allItemsList[i]["wishlisted_course"],
-							"Course Price"		: parseFloat(allItemsList[i]["course_discount_price"]).toFixed(2),
+							"Course Price"		: parseFloat(allItemsList[i]["original_price"]).toFixed(2),
 						});
 					}
 

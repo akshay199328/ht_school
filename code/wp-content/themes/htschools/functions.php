@@ -734,6 +734,7 @@ function reg_verify_mob_otp(){
 
     $response = array(
         'status' => 0,
+        'mobile' => isset($_SESSION['user_otp_mobile']) ? $_SESSION['user_otp_mobile'] : "",
         'message' => 'Unable to verify OTP, please try again'
     );
 

@@ -426,6 +426,16 @@ jQuery(window).load(function(){
                     jQuery("#verify-mob-otp-btn").html("Verify OTP");
                     jQuery("#verify-mob-otp-btn").removeAttr("disabled");
 
+                    let otpVerificationMoegObj = {
+                      "Type"          : "phone number",
+                      "Email"         : "",
+                      "Phone number"  : response.mobile,
+                      "Status"        : response.status == 1 ? "success" : "failure",
+                      "Failure reason": response.status == 1 ? "" : response.message,
+                    };
+
+                    Moengage.track_event("OTP_verification", otpVerificationMoegObj);
+
                     if(response.status == 1){
                         sessionStorage.setItem('bp_user',response.user);
                         console.log("user login success");
@@ -669,18 +679,18 @@ jQuery(window).load(function(){
                 success: function(response) {
                   jQuery("#verify-otp-btn").html("Verify OTP");
                     jQuery("#verify-otp-btn").removeAttr("disabled");
+
+                    let otpVerificationMoegObj = {
+                      "Type"          : "email",
+                      "Email"         : response.email,
+                      "Phone number"  : "",
+                      "Status"        : response.status == 1 ? "success" : "failure",
+                      "Failure reason": response.status == 1 ? "" : response.message,
+                    };
+
+                    Moengage.track_event("OTP_verification", otpVerificationMoegObj);
+
                     if(response.status == 1){
-
-                      let otpVerificationMoegObj = {
-                        "Type"          : "email",
-                        "Email"         : response.email,
-                        "Phone number"  : "",
-                        "Status"        : "success",
-                        "Failure reason": "",
-                      };
-
-                      Moengage.track_event("OTP_verification", otpVerificationMoegObj);
-
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
 
@@ -720,17 +730,6 @@ jQuery(window).load(function(){
                             jQuery("#login-step-3").show();
                         }
                     }else{
-
-                        let otpVerificationMoegObj = {
-                          "Type"          : "email",
-                          "Email"         : response.email,
-                          "Phone number"  : "",
-                          "Status"        : "failure",
-                          "Failure reason": response.message,
-                        };
-
-                        Moengage.track_event("OTP_verification", otpVerificationMoegObj);
-
                         jQuery('#otp-verification-form').trigger("reset");
                         jQuery("#ht_resend_error").html(response.message);
                         jQuery("#ht_resend_error").show();
@@ -764,7 +763,7 @@ jQuery(window).load(function(){
         else if(m < 0){
           document.getElementById('reg-otp-timer').innerHTML = "0:00";
           return;
-        } 
+        }
 
         if(s == 59){
             m = m - 1;
@@ -793,11 +792,11 @@ jQuery(window).load(function(){
         else if(m !=0 && s== 0){
           jQuery("#resend-mob-link").show();
           jQuery('.to_next').find('input:text').val('');
-        } 
+        }
         else if(m < 0){
           document.getElementById('mob-otp-timer').innerHTML = "0:00";
           return;
-        } 
+        }
 
         if(s == 59){
             m = m - 1;

@@ -1449,9 +1449,9 @@ class BP_Course_Action{
 	    $user_id=get_current_user_id();
 	    $check=get_user_meta($user_id,$course_id,true);
 	    if(isset($check) && $check){
-	      if($check < time()){
-	        return '<a href="'.get_permalink($course_id).'"><strong>'.sprintf(__('EXPIRED %s COURSE','wplms'),'<span class="subs">').'</span></strong></a>';
-	      }
+	      // if($check < time()){
+	      //   return '<a href="'.get_permalink($course_id).'"><strong>'.sprintf(__('EXPIRED %s COURSE','wplms'),'<span class="subs">').'</span></strong></a>';
+	      // }
 
 	      $check_course= bp_course_get_user_course_status($user_id,$course_id);
 	      $new_check_course = get_user_meta($user_id,'course_status'.$course_id,true);

@@ -1117,7 +1117,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 
 				$time = bp_course_get_user_expiry_time($this->user->id,$course_id);
 
-				if($time > time()){
+				if(TRUE || $time > time()){ /// todo need to check for remaining time code
 
 					$hide_button = get_post_meta($course_id,'vibe_course_button',true);
 

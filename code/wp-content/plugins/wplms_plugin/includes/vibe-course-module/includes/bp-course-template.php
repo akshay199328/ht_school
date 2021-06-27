@@ -1159,6 +1159,7 @@ function bp_course_get_course_title($args) {
 	extract( $args, EXTR_SKIP );
 
 	$title = '<a class="select_course_item" data-id="' . $id .'" href="'. get_permalink($id) .'">';
+
 	$title .= get_the_title($id);
 	$title .= '</a>';
 	return $title;

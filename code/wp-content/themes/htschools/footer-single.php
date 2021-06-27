@@ -17,14 +17,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 if(isset($loggedInUserID) && $loggedInUserID > 0)
 {
-  $userIdentifier = $loggedInUserID;
+	$userIdentifier 	= $loggedInUserID;
+	$loggedInUserInfo	= get_userdata($loggedInUserID);
+	echo '<input type="hidden" id="footer_user_email" value="'.(isset($loggedInUserInfo->data->user_email) ? $loggedInUserInfo->data->user_email : "").'">';
 }
 else if(isset($_COOKIE['PHPSESSID']))
 {
-  $userIdentifier = $_COOKIE['PHPSESSID'];
+	$userIdentifier = $_COOKIE['PHPSESSID'];
 } ?>
-<input type="hidden" id="footer_user_identifier" value="<?php echo $userIdentifier;?>">
-<input type="hidden" id="footer_timestamp" value="<?php echo date('c', time());?>">
+
+<input type="hidden" id="footer_user_identifier" value="<?php echo $userIdentifier; ?>">
+<input type="hidden" id="footer_timestamp" value="<?php echo date('c', time()); ?>">
 <input type="hidden" id="footer_session_source">
 <input type="hidden" id="footer_utm_tags">
 

@@ -764,8 +764,17 @@ class WPLMS_Actions{
 				        //jQuery.cookie(name, null, {path: '/'})
 				    }
 
-				    //window.location.href = "/wp-login.php?action=logout";
-				    window.location.href = "<?php echo html_entity_decode(wp_logout_url('/')); ?>";
+				    let loggedOutMoegObj = {
+				    	"User identifier"	: jQuery("#footer_user_identifier").val(),
+				    	"Email"				: jQuery("#footer_user_email").val(),
+				    };
+
+				    Moengage.track_event("Logged_Out", loggedOutMoegObj);
+
+				    setTimeout(function(){
+					    //window.location.href = "/wp-login.php?action=logout";
+					    window.location.href = "<?php echo html_entity_decode(wp_logout_url('/')); ?>";
+				    }, 500);
 				    return false;
 				});
 

@@ -1365,6 +1365,9 @@ class BP_Course_Action{
                             }
                         }
 
+
+                        /*
+
                         if(function_exists('vibe_get_option'))
                           $instructor_commission = vibe_get_option('instructor_commission');
                         
@@ -1391,6 +1394,7 @@ class BP_Course_Action{
                             }
                         }   
                         //}
+                        */
                         
                     }
                 }

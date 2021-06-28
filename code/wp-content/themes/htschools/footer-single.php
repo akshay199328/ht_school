@@ -1194,7 +1194,7 @@ border: 1px solid deepskyblue;
 			var signUpDataMoengObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage"]); ?>');
 			console.log(signUpDataLayerObj);
 			dataLayer.push(signUpDataLayerObj);
-			Moengage.track_event("Logged_In", signUpDataMoengObj);
+			Moengage.track_event("<?php echo $_SESSION['sign_up_data']['moengage_type']; ?>", signUpDataMoengObj);
 		});
 	</script>
 	<?php unset($_SESSION['sign_up_data']);

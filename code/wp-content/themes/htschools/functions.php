@@ -1438,6 +1438,7 @@ function setSocialLoginData($socialType)
                 "Last login on"   => "",
                 "Login type"      => $socialType,
             ),
+            "moengage_type" => "Logged_In",
         );
 	}
 }
@@ -2956,38 +2957,34 @@ function check_and_trigger_signup_tag() {
             add_user_meta($currentUserID, 'signup_ga_tag_pushed', time());
             if(isset($_SERVER['HTTP_USER_AGENT'])) update_user_meta($currentUserID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
 
-            echo '<script type="text/javascript">
-                jQuery(document).ready(function(){
-                    var signUpObj = {
-                        "event"           : "sign_up",
-                        "user_identifier" : '.$currentUserID.',
-                        "session_source"  : "",
-                        "utm_tags"        : "",
-                        "timestamp"       : "'.date("c", time()).'",
-                        "sl_on"           : "'.date("c", time()).'",
-                        "sl_method"       : "'.$socialType.'",
-                        "email"           : "'.(isset($userDetails->data->user_email) ? $userDetails->data->user_email : "").'",
-                        "phone_number"    : "",
-                        "status"          : "success",
-                        "failure_reason"  : "",
-                    }
-                    var signUpMoegObj = {
-                        "User identifier"                    : '.$currentUserID.',
-                        "Session source"                     : "",
-                        "UTM tags"                           : "",
-                        "Timestamp"                          : "'.date("c", time()).'",
-                        "Signed up on on Date and time (IST)": "'.date("c", time()).'",
-                        "Sign up source"                     : "'.$socialType.'",
-                        "Email"                              : "'.(isset($userDetails->data->user_email) ? $userDetails->data->user_email : "").'",
-                        "Phone number"                       : "",
-                        "status"                             : "success",
-                        "failure_reason"                     : "",
-                    }
-                    dataLayer.push(signUpObj);
-                    console.log(signUpObj);
-                    Moengage.track_event("Signed_Up", signUpMoegObj);
-                });
-            </script>';
+            $_SESSION['sign_up_data'] = array(
+                "datalayer" => array(
+                    "event"           => 'sign_up',
+                    "user_identifier" => $currentUserID,
+                    "session_source"  => "",
+                    "utm_tags"        => "",
+                    "timestamp"       => date('c', time()),
+                    "sl_on"           => date('c', time()),
+                    "sl_method"       => $socialType,
+                    "email"           => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
+                    "phone_number"    => "",
+                    "status"          => "success",
+                    "failure_reason"  => "",
+                ),
+                "moengage" => array(
+                    "User identifier"                     => $currentUserID,
+                    "Session source"                      => "",
+                    "Timestamp"                           => date('c', time()),
+                    "UTM tags"                            => "",
+                    "Signed up on on Date and time (IST)" => date('c', time()),
+                    "Sign up source"                      => $socialType,
+                    "Email"                               => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
+                    "Phone number"                        => "",
+                    "status"                              => "success",
+                    "failure_reason"                      => "",
+                ),
+                "moengage_type" => "Signed_Up",
+            );
         }
     }
 }

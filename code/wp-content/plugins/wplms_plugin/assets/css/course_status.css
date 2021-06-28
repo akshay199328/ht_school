@@ -3586,33 +3586,77 @@ a.button.is-primary {
     color: #D5ebff!important;
     border-radius: 0;
 }
-
+.course_status .incourse .pagination_merge{
+    display: flex;
+    background: #D5EBFF;
+    width: 83.5%;
+    padding: 0px 17px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+.course_status .incourse .pagination_merge.submitted {
+    background: transparent;
+    padding: 0;
+    width: 86.5%;
+}
+.course_status .incourse .pagination_merge.submitted .quiz_pagination_wrapper.buttons.has-addons{
+    justify-content: center;
+}
+.pagination_pagetext{
+    text-align: left;
+    line-height: 45px;
+    font-size: 12px;
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 1px;
+    float: left;
+    width: 30%;
+}
+.prev_btn{
+    margin-right: 20px;
+}
+.prev_btn, .prev_btn i,
+.next_btn, .next_btn i {
+    line-height: 19px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'GT-Walsheim-Pro'!important;
+    color: #000;
+    cursor: pointer;
+}
+.prev_btn i:before,
+.next_btn i:before{
+    font-family: 'vicon' !important;
+    top: 1px;
+    position: relative;
+}
+.prev_btn i:before{
+    margin-right: 15px;
+}
+.next_btn i:before{
+    margin-left: 15px;
+}
 .buttons.has-addons {
     display: flex
 }
 .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{
-    display: flex;
+        display: flex;
     float: left;
-    background: #D5EBFF;
-    width: 84%;
+    background: transparent;
+    width: 100%;
     height: 45px;
     text-align: right;
     padding: 0;
     margin-top: 0px;
     flex-direction: row;
     flex-wrap: wrap;
+    align-content: space-around;
+    padding: 0;
     justify-content: flex-end;
-    align-content: space-around;
-    padding: 0px 17px;
 }
-.course_status .incourse .quiz_pagination_wrapper.buttons.has-addons.submitted {
-    background: transparent;
-    /*width: 100%;*/
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: center;
-}
+
 .buttons.has-addons.small>.button {
     background: none;
     padding: 0.5rem;
@@ -4022,13 +4066,13 @@ a.button.is-primary {
 }
 .footer_parent {
     margin-top: 25px;
-    display: block;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: space-around;
     float: left;
     width: 100%;
-    justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 @media (min-width: 768px){
 	.exampleModalPopup {
@@ -4037,19 +4081,22 @@ a.button.is-primary {
 	}
 }
 @media screen and (max-width:1440px) and (min-width:1366px){
-    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 80%;}
+    .course_status .incourse .pagination_merge{width: 80%;}
 }
 @media screen and (max-width:1365px) and (min-width:1281px){
-    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 78%;}
+    .course_status .incourse .pagination_merge{width: 78%;}
 }
 @media screen and (max-width:1280px) and (min-width:1200px){
-    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 76%;}
+    .course_status .incourse .pagination_merge{width: 76%;}
 }
 @media screen and (max-width:1199px) and (min-width:1025px){
-    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 67%;}
+    .course_status .incourse .pagination_merge{width: 67%;}
 }
 @media screen and (max-width:1024px) and (min-width:768px){
-    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{width: 100%;padding: 0px 5px;}
+    .course_status .incourse .pagination_merge{width: 100%!important;padding: 0px 5px;flex-wrap: wrap;align-content: center;justify-content: center;}
+    .footer_parent{flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: center;}
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{justify-content: center;margin: 20px 0px;}
+    .pagination_pagetext{    width: auto;}
     .incourse_quiz_button a.submit_quiz{    
         bottom: initial;
         margin-top: 20px!important;
@@ -4057,11 +4104,13 @@ a.button.is-primary {
         right: inherit;
         left: 0;
     }
+    .course_status .incourse .quiz_questions_content .question .question_list .question_option {flex: 0 0 100%;}
     .course_status .incourse .quiz_pagination_wrapper>.button.nextq {margin-left: 5px!important;}
     .course_status .incourse .quiz_pagination_wrapper>.button.prevq {margin-right: 5px!important;}
     .course_status .incourse .quiz_pagination_wrapper>.button.ques_link{top: 2px;}
-    .course_status .incourse .quiz_pagination_wrapper>.button i {font-size: 12px;}
+    .course_status .incourse .quiz_pagination_wrapper>.button i {font-size: 12px;    line-height: 25px;}
     .course_status .incourse .quiz_pagination_wrapper>.button {padding: 0;width: 25px;height: 25px;line-height: 24px;}
+    .quiz_result_icon{    background-size: contain;height: 100%;right: 0px}
 }
 @media (max-width: 1366px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{
@@ -4146,4 +4195,9 @@ a.button.is-primary {
     .score{font-size: 22px;display: block;}
     .right_icon:after{height: 107.41px;background-size: 107.41px 107.41px;top: -26px;}
     .buttons_wrapper .button, .next_unit_button {padding: 12px 25px!important;}
+    .course_status .incourse .pagination_merge{width: 100%!important;padding: 0px 5px;flex-wrap: wrap;align-content: center;justify-content: center;}
+    .footer_parent{flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: center;}
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{justify-content: center;margin: 20px 0px;}
+    .pagination_pagetext{    width: auto;}
+    .course_status .incourse .quiz_pagination_wrapper>.button i {font-size: 12px;    line-height: 25px;}
 }

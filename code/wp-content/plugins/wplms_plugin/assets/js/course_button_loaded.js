@@ -3591,24 +3591,29 @@
 
         return t && t.meta && e.questions && e.questions.length ? jt("div", {
             className: "footer_parent"
-        },jt("div", {
-            class: t.submitted ? "quiz_pagination_wrapper buttons has-addons submitted" : "quiz_pagination_wrapper buttons has-addons"
+        }, jt("div", {
+            className: t.submitted ? "pagination_merge submitted" :  "pagination_merge"
+        }, jt("span", {
+            className: "pagination_pagetext"
+        },s[0] + 1 + " Of " + e.questions.length + " Questions"), jt("div", {
+            class:"quiz_pagination_wrapper buttons has-addons"
         }, e.questions[s[0] - 1] && "undefined" != e.questions[s[0] - 1] ? jt("span", {
             href: "#",
-            className: "button ques_link left prevq",
+            className: t.submitted ? "button ques_link left prevq" : "prev_btn",
             onClick: t => {
                 l(t, -1)
             }
         }, jt("i", {
             className: "vicon vicon-angle-left",
             "aria-hidden": "true"
-        })) : jt("span", {
+        },t.submitted ? '' : "Previous")) : jt("span", {
             href: "#",
-            className: "button ques_link left prevq faded"
+            className: t.submitted ? "button ques_link left prevq faded" : "prev_btn"
         }, jt("i", {
             className: "vicon vicon-angle-left",
             "aria-hidden": "true"
-        })), (() => {
+        },t.submitted ? '' : "Previous")), 
+        t.submitted ? (() => {
             let n = Math.ceil(e.questions.length / t.question_number),
                 s = n,
                 qq = e.questions,
@@ -3644,22 +3649,22 @@
                             className: "button"
                         }, "...")), i++), n--
                     } return a
-        })(), e.questions[s[s.length - 1] + 1] && "undefined" != e.questions[s[s.length - 1] + 1] ? jt("span", {
+        })() : "", e.questions[s[s.length - 1] + 1] && "undefined" != e.questions[s[s.length - 1] + 1] ? jt("span", {
             href: "#",
-            className: "button ques_link right nextq",
+            className: t.submitted ? "button ques_link right nextq faded" : "next_btn",
             onClick: e => {
                 l(e, 1)
             }
-        }, jt("i", {
+        },t.submitted ? '' : "Next", jt("i", {
             className: "vicon vicon-angle-right",
             "aria-hidden": "true"
         })) : jt("span", {
             href: "#",
-            className: "button ques_link right nextq faded"
-        }, jt("i", {
+            className: t.submitted ? "button ques_link right nextq faded" : "next_btn"
+        },t.submitted ? '' : "Next", jt("i", {
             className: "vicon vicon-angle-right",
             "aria-hidden": "true"
-        }))), t.submitted ? jt("div", {
+        })))), t.submitted ? jt("div", {
             className: "next_unit_button",
             onClick: () => {
                 document.getElementById("navigate_unit").click(); 

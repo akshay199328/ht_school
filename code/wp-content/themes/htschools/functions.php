@@ -593,6 +593,13 @@ function reg_verify_otp(){
             if( $user ) {
                 $response['is_registered'] = 1;
                 $user_id = $user->ID;
+
+                if(isset($_SERVER['HTTP_USER_AGENT']))
+                    update_user_meta($user_id, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
+
+                if(isset($_REQUEST['screenWidth']) && isset($_REQUEST['screenHeight']))
+                    update_user_meta($user_id, 'screen_info', $_REQUEST['screenWidth']."x".$_REQUEST['screenHeight']);
+
                 wp_set_current_user( $user_id, $user->user_login );
                 wp_set_auth_cookie( $user_id );
                 do_action( 'wp_login', $user->user_login, $user);
@@ -774,6 +781,13 @@ function reg_verify_mob_otp(){
             wp_set_current_user( $user_id, $user->user_login );
             wp_set_auth_cookie( $user_id );
             do_action( 'wp_login', $user->user_login, $user);
+
+            if(isset($_SERVER['HTTP_USER_AGENT']))
+                update_user_meta($user->ID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
+
+            if(isset($_REQUEST['screenWidth']) && isset($_REQUEST['screenHeight']))
+                update_user_meta($user->ID, 'screen_info', $_REQUEST['screenWidth']."x".$_REQUEST['screenHeight']);
+
             $userData = $user->data;
             $userData->mobile =  $userMobile;
             $userData->avatar =  get_avatar_url( $user->ID );
@@ -1392,13 +1406,15 @@ function setSocialLoginData($socialType)
 	{
 		$userDetails = get_userdata($currentUserID);
 
-       /* $registerTime = 0;
+        /*$registerTime = 0;
         $result = $wpdb->get_results("SELECT TIMESTAMPDIFF(MINUTE, user_registered, NOW()) AS diff FROM ht_users WHERE ID = '" . $currentUserID . "'");
 
         if(count($result) > 0)
         {
           $registerTime = $result[0]->diff;
         }*/
+
+        if(isset($_SERVER['HTTP_USER_AGENT'])) update_user_meta($currentUserID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
 
       	$_SESSION['sign_up_data'] = array(
             "datalayer" => array(
@@ -2938,6 +2954,8 @@ function check_and_trigger_signup_tag() {
             }
 
             add_user_meta($currentUserID, 'signup_ga_tag_pushed', time());
+            if(isset($_SERVER['HTTP_USER_AGENT'])) update_user_meta($currentUserID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
+
             echo '<script type="text/javascript">
                 jQuery(document).ready(function(){
                     var signUpObj = {

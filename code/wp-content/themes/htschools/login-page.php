@@ -421,7 +421,7 @@ jQuery(window).load(function(){
                 type : "POST",
                 dataType : "json",
                 url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-                data : jQuery("#mobile-otp-verification-form").serialize(),
+                data : jQuery("#mobile-otp-verification-form").serialize() + '&screenWidth=' + window.screen.availWidth + '&screenHeight=' + window.screen.availHeight,
                 success: function(response) {
                     jQuery("#verify-mob-otp-btn").html("Verify OTP");
                     jQuery("#verify-mob-otp-btn").removeAttr("disabled");
@@ -675,7 +675,7 @@ jQuery(window).load(function(){
                 type : "POST",
                 dataType : "json",
                 url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-                data : jQuery("#otp-verification-form").serialize(),
+                data : jQuery("#otp-verification-form").serialize() + '&screenWidth=' + window.screen.availWidth + '&screenHeight=' + window.screen.availHeight,
                 success: function(response) {
                   jQuery("#verify-otp-btn").html("Verify OTP");
                     jQuery("#verify-otp-btn").removeAttr("disabled");

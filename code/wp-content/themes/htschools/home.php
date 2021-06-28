@@ -305,7 +305,7 @@ get_header(vibe_get_header());
           'post_type' => 'post',
           'post_status' => 'publish',
           //'category_name' => 'Expert','Interview','Featured',
-          'posts_per_page' => 3,
+          'posts_per_page' => 10,
           'order'=>'DESC',
           'orderby' => 'publish_date',
         );

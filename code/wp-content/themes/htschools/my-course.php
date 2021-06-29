@@ -129,7 +129,8 @@ get_header(vibe_get_header());
                               </tr>
                               <tr>
                                 <td>
-                                <span class="badge"><?php echo $course_type;?></span>
+                                 <?php if (!empty($course_type)){?>
+                                  <span class="badge"><?php echo $course_type;?></span><?php }?>
                               </td>
                               </tr>
                               <tr>

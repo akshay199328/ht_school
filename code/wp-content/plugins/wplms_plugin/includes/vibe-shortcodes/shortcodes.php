@@ -2930,6 +2930,7 @@ Class Vibe_Define_Shortcodes{
                         " ,$uid,$cid));
             if(!empty($course_submission_date)){
                 $course_submission_date = strtotime($course_submission_date);
+                $course_submission_date = str_replace('-', '/', $course_submission_date );
             }else{
                 $course_submission_date = null;
             }
@@ -2946,7 +2947,8 @@ Class Vibe_Define_Shortcodes{
                                 ORDER BY date_recorded DESC LIMIT 0,1
                             " ,$uid,$cid));
             if(!empty($date)){
-                $date = date("dd/mm/YYYY", strtotime($date));
+                $date = date("d-m-Y", strtotime($date));
+                $date = str_replace('-', '/', $date );
             }else{
                 $date = null;
             }
@@ -2988,7 +2990,8 @@ Class Vibe_Define_Shortcodes{
                             ORDER BY date_recorded DESC LIMIT 0,1
                         " ,$uid,$cid));
             if(!empty($course_submission_date)){
-                $course_completion_date = date("dd/mm/YYYY",strtotime($course_submission_date));
+                $course_completion_date = date("d-m-Y",strtotime($course_submission_date));
+                $course_completion_date = str_replace('-', '/', $course_completion_date );
             }else{
                 $course_completion_date = null;
             }

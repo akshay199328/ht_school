@@ -757,7 +757,6 @@ border: 1px solid deepskyblue;
 			var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
 
 			$( "#slot-time" ).change(function(){
-				alert("test");
 				$.ajax({
 						type : "POST",
 					dataType : "json",

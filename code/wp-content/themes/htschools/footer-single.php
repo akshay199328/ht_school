@@ -754,6 +754,23 @@ border: 1px solid deepskyblue;
 				},
 			});
 
+			var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
+
+			$( "#slot-time" ).change(function(){
+				alert("test");
+				$.ajax({
+						type : "POST",
+					dataType : "json",
+					url : "<?php echo home_url(); ?>/?wc-ajax=get_variation",
+					data : $("#product_slot").serialize(),
+						success: function(data) {
+							$('#variation_id').val(data.variation_id);
+						},
+						error: function(data) {
+						}
+					});
+			})
+
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
 			$( "#user_country_data" ).autocomplete({
@@ -1183,6 +1200,113 @@ border: 1px solid deepskyblue;
 		<button class="reset" type="button" id="reset">Reset</button>
 	</div>
 </div>
+<div class="modal" id="liveCourseModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      	<?php $product_id = get_post_meta(1774,'vibe_product',true);
+            //echo $product_id;
+            $product = wc_get_product(1736);
+            $product_attributes = $product->get_attributes();
+            //print_r($product_attributes);
+            $attribute_keys  = array_keys( $product_attributes );
+            $attributes_array = get_post_meta( $product_id, '_product_attributes', true); 
+            //print_r($attributes_array);
+$product_slots = array();
+$available_variations = $product->get_available_variations();
+    $variations_json = wp_json_encode( $available_variations );
+    $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+            foreach( $product_attributes as $attribute_taxonomy => $product_attribute){
+
+    // get the name (for example)
+    $name = $product_attribute->get_name();
+    //echo $name;
+    $attribute_data = $product_attribute->get_data();
+    $product_slots[$name] = $attribute_data['options'];
+    }
+do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+    <form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="false" id="product_slot">
+    	<input type="hidden" name="action" value="get_variation">
+  <?php do_action( 'woocommerce_before_variations_form' ); ?>
+
+  <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
+    <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
+  <?php else : ?>
+    
+        <?php //echo "<pre>";print_r($product_slots);exit; 
+
+        foreach ( $product_slots as $attribute_name => $options ) : ?>
+                 	
+        	
+          	
+              <?php
+                wc_dropdown_variation_attribute_options_astra(
+                  array(
+                    'options'   => $options,
+                    'attribute' => $attribute_name,
+                    'product'   => $product,
+                  )
+                );
+              ?>
+          
+        <?php endforeach; ?>
+    <div class="single_variation_wrap">
+        <?php do_action( 'woocommerce_before_single_variation' ); ?>
+    	<div class="woocommerce-variation-add-to-cart variations_button">
+	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+
+	<?php
+	do_action( 'woocommerce_before_add_to_cart_quantity' );
+
+	woocommerce_quantity_input(
+		array(
+			'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
+			'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+			'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+		)
+	);
+
+	do_action( 'woocommerce_after_add_to_cart_quantity' );
+	?>
+
+	<button type="submit" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+
+	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
+
+	<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
+	<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
+	<input type="hidden" name="variation_id" class="variation_id" value="0" id="variation_id"/>
+</div>
+      <?php
+        /**
+         * Hook: woocommerce_before_single_variation.
+         */
+
+        /**
+         * Hook: woocommerce_single_variation. Used to output the cart button and placeholder for variation data.
+         *
+         * @since 2.4.0
+         * @hooked woocommerce_single_variation - 10 Empty div for variation data.
+         * @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty and cart button.
+         */
+        //do_action( 'woocommerce_single_variation' );
+
+        /**
+         * Hook: woocommerce_after_single_variation.
+         */
+        do_action( 'woocommerce_after_single_variation' );
+      ?>
+    </div>
+  <?php endif; ?>
+
+  <?php do_action( 'woocommerce_after_variations_form' ); ?>
+</form>
+<?php
+do_action( 'woocommerce_after_add_to_cart_form' );
+?>
+        
+      </div>
+    </div>
+  </div>
 <!-- modal -->
 
 <?php do_action('woocommerce_check_and_trigger_signup_tag'); ?>
@@ -1563,6 +1687,7 @@ border: 1px solid deepskyblue;
 		}
 	});
 </script>
+
 
 <?php
 wp_footer();

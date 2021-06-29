@@ -901,10 +901,10 @@ function wc_npr_filter_phone( $address_fields ) {
 
 }
 
-add_filter( 'wc_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
-function empty_wc_add_to_cart_message( $message, $products ) {
-    return '';
-};
+// add_filter( 'wc_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
+// function empty_wc_add_to_cart_message( $message, $products ) {
+//     return '';
+// };
 
 // Filter will do its magic before the fields are passed to the template.
 add_filter('woocommerce_checkout_fields', function($fields) {
@@ -2890,17 +2890,17 @@ add_filter('woocommerce_coupon_is_valid', function ($result, $coupon) {
     }
 }, 10, 2);
 
-add_action('template_redirect','redirect_product_page_to_404_page');
-function redirect_product_page_to_404_page(){
-    if (class_exists('WooCommerce')){
-        if(is_product()){
-            global $wp_query;
-        $wp_query->set_404();
-        status_header(404);
-        }
-    }
-    return;
-}
+// add_action('template_redirect','redirect_product_page_to_404_page');
+// function redirect_product_page_to_404_page(){
+//     if (class_exists('WooCommerce')){
+//         if(is_product()){
+//             global $wp_query;
+//         $wp_query->set_404();
+//         status_header(404);
+//         }
+//     }
+//     return;
+// }
 
 add_action('woocommerce_add_email_to_queue', 'add_entry_to_email_queue', 10, 6);
 function add_entry_to_email_queue($emailSentTo, $userID, $emailSubject, $emailBody, $emailHeaders, $attachments = array()) {
@@ -3007,3 +3007,89 @@ function log_ga_tag_in_db($event, $log) {
 
     return $result;
 }
+
+if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
+
+  /**
+   * Output a list of variation attributes for use in the cart forms.
+   *
+   * @param array $args Arguments.
+   * @since 2.4.0
+   */
+  function wc_dropdown_variation_attribute_options_astra( $args = array() ) {
+    $args = wp_parse_args(
+      apply_filters( 'woocommerce_dropdown_variation_attribute_options_args', $args ),
+      array(
+        'options'          => false,
+        'attribute'        => false,
+        'product'          => false,
+        'selected'         => false,
+        'name'             => '',
+        'id'               => '',
+        'class'            => '',
+        'show_option_none' => __( 'Choose an option', 'woocommerce' ),
+      )
+    );
+
+    // Get selected value.
+    if ( false === $args['selected'] && $args['attribute'] && $args['product'] instanceof WC_Product ) {
+      $selected_key     = 'attribute_' . sanitize_title( $args['attribute'] );
+      $args['selected'] = isset( $_REQUEST[ $selected_key ] ) ? wc_clean( wp_unslash( $_REQUEST[ $selected_key ] ) ) : $args['product']->get_variation_default_attribute( $args['attribute'] ); // WPCS: input var ok, CSRF ok, sanitization ok.
+    }
+
+    $options               = $args['options'];
+    $product               = $args['product'];
+    $attribute             = $args['attribute'];
+    $name                  = $args['name'] ? $args['name'] : 'attribute_' . sanitize_title( $attribute );
+    $id                    = $args['id'] ? $args['id'] : sanitize_title( $attribute );
+    $class                 = 'live-course-details';
+    $show_option_none      = (bool) $args['show_option_none'];
+    $show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options.
+
+    if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
+      $attributes = $product->get_variation_attributes();
+      $options    = $attributes[ $attribute ];
+    }
+
+    // $html  = '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
+    // $html .= '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
+
+    $html  = '<div id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '"><div class="batch_list"><div class="heading">
+              <h6>Select '.wc_attribute_label( $attribute ).'</h6>
+            </div>';
+    
+
+    if ( ! empty( $options ) ) {
+      if ( $product && taxonomy_exists( $attribute ) ) {
+        // Get terms if this is a taxonomy - ordered. We need the names too.
+        $terms = wc_get_product_terms(
+          $product->get_id(),
+          $attribute,
+          array(
+            'fields' => 'all',
+          )
+        );
+         $html .="<ul>";
+        foreach ( $terms as $term ) {
+          if ( in_array( $term->slug, $options, true ) ) {
+            $html .= '<li value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $args['selected'] ), $term->slug, false ) . '><a href="#">' . esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name, $term, $attribute, $product ) ) . '</a></li>';
+          }
+        }
+        $html .="</ul></div>";
+      } else {
+        $html .="<ul>";
+        foreach ( $options as $option ) {
+          // This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
+          $selected = sanitize_title( $args['selected'] ) === $args['selected'] ? selected( $args['selected'], sanitize_title( $option ), false ) : selected( $args['selected'], $option, false );
+          $html    .= '<li value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '</li>';
+        }
+        $html .="</ul></div>";
+      }
+    }
+
+    $html .= '</div>';
+
+    echo apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', $html, $args ); // WPCS: XSS ok.
+  }
+}
+

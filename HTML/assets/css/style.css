@@ -4083,9 +4083,10 @@ Course Details
     width: 100%;
 }
 .batch_list .heading h6{
-      font-size: 18px;
+    font-size: 18px;
     line-height: 24px;
     font-weight: 500!important;
+    color: #000000;
 }
 .batch_list ul li{
     display: inline-block;
@@ -4150,7 +4151,7 @@ Course Details
 .alert-note{
   float: left;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 .alert-note .light-red{    
     font-size: 13px;

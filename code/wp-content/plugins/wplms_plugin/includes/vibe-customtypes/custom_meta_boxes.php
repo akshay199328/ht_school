@@ -8,9 +8,9 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 	$sidebararray=array();
 	
 	$courseTypeArray = apply_filters('wplms_course_types',array(
-                      array( 'label' =>__('Live','wplms'),'value'=>'LIVE COURSE'),
-                      array( 'label' =>__('Live + Self Paced','wplms'),'value'=>'LIVE + SELF FACED'),
-                      array( 'label' =>__('Self Paced','wplms'),'value'=>'SELF FACED'),
+                      array( 'label' =>__('Live','wplms'),'value'=>'LIVE CLASSES'),
+                      array( 'label' =>__('Live + Self Paced','wplms'),'value'=>'LIVE + SELF PACED'),
+                      array( 'label' =>__('Self Paced','wplms'),'value'=>'SELF PACED'),
                     ));
 
 	foreach($sidebars as $sidebar){

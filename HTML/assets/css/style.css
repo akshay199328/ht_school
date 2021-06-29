@@ -4036,27 +4036,139 @@ Course Details
     width: 480px;
     width: 44%;
 }
+#livecourse_popup .modal-header{
+    width: 100%;
+    height: auto;
+    background-color: #d5ebff;
+    position: relative;
+    display: block;
+    padding: 40px 30px 20px 30px;
+}
+#livecourse_popup  .header-close {
+    background: url(../img/close.svg)no-repeat;
+    position: absolute;
+    height: 10px;
+    right: 30px;
+    top: 30px;
+    width: 10px;
+    cursor: pointer;
+}
+.header-logo {
+    background: url(../img/logo_popup_web.svg) no-repeat;
+    position: relative;
+    display: block;
+    height: 43px;
+}
+#livecourse_popup .submitheading {
+    font-size: 30px;
+    line-height: 34px;
+    color: #000000;
+    font-weight: bold;
+    margin-top: 10px;
+}
 #livecourse_popup .modal-body .details{
   padding: 15px 30px;
 }
-.batch_list{
-  margin:15px 0px;
+.batch_details .batch_list{
+  margin:15px 0px 30px 0px;
+      float: left;
+    width: 100%;
 }
+/*.batch_details .batch_list:last-child{
+  margin:15px 0px 15px 0px;
+}*/
 .batch_list .heading{
   margin-bottom: 10px;
+    float: left;
+    width: 100%;
 }
 .batch_list .heading h6{
-  font-size:24px;
-  line-height: 24px;
-  font-weight:500!important;
+      font-size: 18px;
+    line-height: 24px;
+    font-weight: 500!important;
 }
 .batch_list ul li{
-  display: inline-block;
+    display: inline-block;
     border: 1px solid #000000;
-    padding: 8px 20px;
-    margin: 0px 8px 8px 0px;
+    padding: 8px 5px;
+    margin: 0px 5px 8px 0px;
+    min-width: 90px;
+    text-align: center;
 }
-
+.batch_list ul li a{
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  color: #000;
+}
+.batch_list ul li.selected{
+  background: #00D98E;
+  border-color: #00D98E;
+}
+.batch_list ul li.selected a{
+  font-weight: bold;
+}
+.batch_list ul li.disable{
+    opacity: 40%;
+    cursor: not-allowed;
+}
+.batch_list ul li.disable a{cursor: not-allowed;}
+.batch_list ul li img{
+  margin-right: 6px;
+      position: relative;
+    top: -2px;
+}
+.note{
+      float: left;
+    width: 100%;
+        margin-bottom: 25px;
+}
+.note span.light-blue{
+  font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    background: #D5EBFF;
+    border-radius: 4px;
+    padding: 7px 10px;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+.livecourse_button {
+  
+}
+.livecourse_button .btn{
+  background: #000000;
+  width: 203px;
+  height: 50px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #D5EBFF;
+  font-weight: bold;
+  border-radius: 0px;
+}
+.alert-note{
+  float: left;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.alert-note .light-red{    
+    font-size: 13px;
+    line-height: 17px;
+    color: #FF1111;
+    font-weight: bold;
+}
+.alert-note .light-red img{
+  margin-right: 6px;
+      position: relative;
+    top: -2px;
+}
+@media screen and (max-width:1024px) and (min-width:768px){
+  #livecourse_popup .modal-dialog{width: 60%;max-width: 60%;}
+}
+@media screen and (max-width:767px) and (min-width:320px){
+  #livecourse_popup .modal-dialog{width: 80%;max-width: 80%;}
+}
 @media (max-width: 992px) {
   .footer .footer-top {
     background-position: center bottom;

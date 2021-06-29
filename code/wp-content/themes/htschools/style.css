@@ -234,7 +234,80 @@ section {
     padding: 8px 20px;
     margin: 0px 8px 8px 0px;
 }
-
+.batch_list ul li a{
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 300;
+  color: #000;
+}
+.batch_list ul li.selected{
+  background: #00D98E;
+  border-color: #00D98E;
+}
+.batch_list ul li.selected a{
+  font-weight: bold;
+}
+.batch_list ul li.disable{
+    opacity: 40%;
+    cursor: not-allowed;
+}
+.batch_list ul li.disable a{cursor: not-allowed;}
+.batch_list ul li img{
+  margin-right: 6px;
+      position: relative;
+    top: -2px;
+}
+.note{
+      float: left;
+    width: 100%;
+        margin-bottom: 25px;
+}
+.note span.light-blue{
+  font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    background: #D5EBFF;
+    border-radius: 4px;
+    padding: 7px 10px;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+.livecourse_button {
+  
+}
+.livecourse_button .btn{
+  background: #000000;
+  width: 203px;
+  height: 50px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #D5EBFF;
+  font-weight: bold;
+  border-radius: 0px;
+}
+.alert-note{
+  float: left;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.alert-note .light-red{    
+    font-size: 13px;
+    line-height: 17px;
+    color: #FF1111;
+    font-weight: bold;
+}
+.alert-note .light-red img{
+  margin-right: 6px;
+      position: relative;
+    top: -2px;
+}
+@media screen and (max-width:1024px) and (min-width:768px){
+  #livecourse_popup .modal-dialog{width: 60%;max-width: 60%;}
+}
+@media screen and (max-width:767px) and (min-width:320px){
+  #livecourse_popup .modal-dialog{width: 80%;max-width: 80%;}
+}
 @media (min-width: 992px) {
   .fixed_banner .container{    
         padding: 0px;

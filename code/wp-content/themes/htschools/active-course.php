@@ -71,6 +71,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         global $post;
                         $custom_fields = get_post_custom();
                         $duration = $custom_fields['vibe_validity'][0];
+                        $course_type = $custom_fields['vibe_course_type'][0];
                         $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                         $session = $custom_fields['vibe_course_sessions'][0];
                         $age_limit = $custom_fields['vibe_course_age_group'][0];
@@ -132,6 +133,11 @@ vibe_include_template("profile/top$profile_layout.php");
                             </td>
                           </tr>
                           <tr>
+                            <td>
+                                <span class="badge"><?php echo $course_type;?></span>
+                            </td>
+                          </tr>
+                          <tr>                            
                             <td>
                                 <h2><?php bp_course_title(); ?></h2>
                             </td>

@@ -50,6 +50,7 @@ vibe_include_template("profile/top$profile_layout.php");
       $postDate = get_the_date('M d, Y H:i');
       $custom_fields = get_post_custom();
       $duration = $custom_fields['vibe_validity'][0];
+      $course_type = $custom_fields['vibe_course_type'][0];
       $session = $custom_fields['vibe_course_sessions'][0];
       $age_limit = $custom_fields['vibe_course_age_group'][0];
       $category_array = get_the_terms( $post->ID, 'course-cat');
@@ -102,6 +103,11 @@ vibe_include_template("profile/top$profile_layout.php");
                           <tr>
                             <td>
                               <h6><?php echo $category_array[0]->name; ?></h6>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                <span class="badge"><?php echo $course_type;?></span>
                             </td>
                           </tr>
                           <tr>

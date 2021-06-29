@@ -770,6 +770,7 @@ get_header(vibe_get_header());
                         global $post;
                       $custom_fields = get_post_custom();
                       $duration = $custom_fields['vibe_validity'][0];
+                      $course_type = $custom_fields['vibe_course_type'][0];
                       $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                       $session = $custom_fields['vibe_course_sessions'][0];
                       $age_limit = $custom_fields['vibe_course_age_group'][0];
@@ -851,6 +852,7 @@ get_header(vibe_get_header());
             ?>
             <a class="select_course_item" data-id="<?php echo $post->ID;?>" href="<?php echo get_permalink($post->ID);?>"><figure class="course-hero"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></figure></a>
             <div class="course-copy">
+            <span class="badge"><?php echo $course_type;?></span>
             <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
             <ul class="data">
                 <li>

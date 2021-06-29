@@ -70,7 +70,13 @@ $(document).ready(function($) {
         $(".innerheader-space.course-space").css({ "margin-top": "80px"});
     }
 });
-
+$(document).ready(function() {
+  $('.list input:radio').click(function () {
+    // alert("HELLO");
+      $('.list input:radio').parent().removeClass('selected');
+      $(this).parent(this).addClass('selected');
+  });
+});
 $(document).ready(function() {
   $('#home_slider').owlCarousel({
     margin:0,

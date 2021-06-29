@@ -210,11 +210,15 @@ section {
 /*--------------------------------------------------------------
 # livecourse-popup
 --------------------------------------------------------------*/
-#livecourse_popup .modal-dialog {
+#liveCourseModal .modal-dialog {
     width: 480px;
     width: 44%;
+    border-radius: 0;
 }
-#livecourse_popup .modal-header{
+#liveCourseModal .modal-content {
+    border-radius: 0;
+}
+#liveCourseModal .modal-header{
     width: 100%;
     height: auto;
     background-color: #d5ebff;
@@ -222,7 +226,7 @@ section {
     display: block;
     padding: 40px 30px 20px 30px;
 }
-#livecourse_popup  .header-close {
+#liveCourseModal  .header-close {
     background: url(./assets/images/close.svg)no-repeat;
     position: absolute;
     height: 10px;
@@ -237,18 +241,24 @@ section {
     display: block;
     height: 43px;
 }
-#livecourse_popup .submitheading {
+#liveCourseModal .submitheading {
     font-size: 30px;
     line-height: 34px;
     color: #000000;
     font-weight: bold;
     margin-top: 10px;
 }
+#slot-date,
+#slot-time{
+      margin: 0px 0px 24px 0px;
+    float: left;
+    width: 100%;
+}
 .live-course-details{
   padding: 15px 30px;
 }
-.batch_details .batch_list{
-  margin:15px 0px 30px 0px;
+.batch_list{
+  margin:0px 0px 0px 0px;
       float: left;
     width: 100%;
 }
@@ -256,42 +266,52 @@ section {
   margin:15px 0px 15px 0px;
 }*/
 .batch_list .heading{
-  margin-bottom: 10px;
+    margin-bottom: 10px!important;
     float: left;
     width: 100%;
 }
 .batch_list .heading h6{
-      font-size: 18px;
+    font-size: 18px;
     line-height: 24px;
     font-weight: 500!important;
+    margin: 0;
+    text-transform: initial;
+    color: #000;
 }
-.batch_list ul li{
+.batch_list .list{
     display: inline-block;
     border: 1px solid #000000;
     padding: 8px 5px;
-    margin: 0px 5px 8px 0px;
+    margin: 0px 8px 8px 0px;
     min-width: 90px;
     text-align: center;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 300;
+    color: #000;
+    position: relative;
+    cursor: pointer;
 }
-.batch_list ul li a{
-  font-size: 14px;
-  line-height: 19px;
-  font-weight: 300;
-  color: #000;
+.batch_list .list input {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    cursor: pointer;
+    appearance: none;
 }
-.batch_list ul li.selected{
+.batch_list .list.selected{
   background: #00D98E;
   border-color: #00D98E;
-}
-.batch_list ul li.selected a{
   font-weight: bold;
 }
-.batch_list ul li.disable{
+.batch_list .list.disable{
     opacity: 40%;
     cursor: not-allowed;
 }
-.batch_list ul li.disable a{cursor: not-allowed;}
-.batch_list ul li img{
+.batch_list .list img{
   margin-right: 6px;
       position: relative;
     top: -2px;
@@ -346,6 +366,7 @@ section {
 }
 @media screen and (max-width:767px) and (min-width:320px){
   #livecourse_popup .modal-dialog{width: 80%;max-width: 80%;}
+  #livecourse_popup .submitheading {font-size: 18px;line-height: 23px;}
 }
 @media (min-width: 992px) {
   .fixed_banner .container{    

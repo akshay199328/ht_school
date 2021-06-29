@@ -7313,8 +7313,11 @@
                 __html: e
             }
         }))) : "") : mr("a", {
-            href: i,
-            className: "course_button button full"
+            href: "#",
+            className: "course_button button full join_course",
+            onClick: () => {
+                jQuery("#liveCourseModal").modal("show");
+            }
         }, a && a.length ? a : window.wplms_course_data.translations.take_this_course, h.length ? mr("div", {
             className: "extra_details"
         }, h.map(e => mr("span", {

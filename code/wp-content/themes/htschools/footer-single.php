@@ -1203,6 +1203,12 @@ border: 1px solid deepskyblue;
 <div class="modal" id="liveCourseModal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
+      	<div class="modal-header">
+            <div class="header-close"></div>
+            <div class="header-logo"></div>
+            <div class="submitheading">Sabira Merchant Learn 
+Communication Skills</div>
+          </div>
       	<?php $product_id = get_post_meta(1774,'vibe_product',true);
             //echo $product_id;
             $product = wc_get_product(1736);
@@ -1224,7 +1230,7 @@ $available_variations = $product->get_available_variations();
     $product_slots[$name] = $attribute_data['options'];
     }
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
-    <form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="false" id="product_slot">
+    <form class="variations_form cart live-course-details" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="false" id="product_slot">
     	<input type="hidden" name="action" value="get_variation">
   <?php do_action( 'woocommerce_before_variations_form' ); ?>
 
@@ -1249,7 +1255,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
               ?>
           
         <?php endforeach; ?>
-        <button type="button" id="join_this_course">Join this Course</button>
+        
+        <div class="livecourse_button">
+        	<button type="button" class="btn" id="join_this_course">Join this Course</button>
+      	</div>
     <div class="single_variation_wrap">
         <?php do_action( 'woocommerce_before_single_variation' ); ?>
     	<div class="woocommerce-variation-add-to-cart variations_button">

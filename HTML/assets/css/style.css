@@ -4032,9 +4032,11 @@ Course Details
 .footer .bottom-detils .links li a:hover{
   color: #fade3b;  
 }
+#livecourse_popup .modal-content{border-radius: 0;}
 #livecourse_popup .modal-dialog {
     width: 480px;
     width: 44%;
+    border-radius: 0;
 }
 #livecourse_popup .modal-header{
     width: 100%;
@@ -4043,6 +4045,7 @@ Course Details
     position: relative;
     display: block;
     padding: 40px 30px 20px 30px;
+    border-radius: 0;
 }
 #livecourse_popup  .header-close {
     background: url(../img/close.svg)no-repeat;
@@ -4169,6 +4172,7 @@ Course Details
 }
 @media screen and (max-width:767px) and (min-width:320px){
   #livecourse_popup .modal-dialog{width: 80%;max-width: 80%;}
+  #livecourse_popup .submitheading {font-size: 18px;line-height: 23px;}
 }
 @media (max-width: 992px) {
   .footer .footer-top {

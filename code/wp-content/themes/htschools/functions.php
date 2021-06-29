@@ -3042,7 +3042,7 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
     $attribute             = $args['attribute'];
     $name                  = $args['name'] ? $args['name'] : 'attribute_' . sanitize_title( $attribute );
     $id                    = $args['id'] ? $args['id'] : sanitize_title( $attribute );
-    $class                 = 'live-course-details';
+    $class                 = '';
     $show_option_none      = (bool) $args['show_option_none'];
     $show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options.
 
@@ -3081,7 +3081,7 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
         foreach ( $options as $option ) {
           // This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
           $selected = sanitize_title( $args['selected'] ) === $args['selected'] ? selected( $args['selected'], sanitize_title( $option ), false ) : selected( $args['selected'], $option, false );
-          $html    .= '<input type="radio" name="' . esc_attr( $name ) . '" value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '';
+          $html    .= '<span class="list"><input type="radio" name="' . esc_attr( $name ) . '" value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '</span>';
         }
         $html .="</div>";
       }

@@ -244,7 +244,7 @@ section {
     font-weight: bold;
     margin-top: 10px;
 }
-#livecourse_popup .modal-body .details{
+.live-course-details{
   padding: 15px 30px;
 }
 .batch_details .batch_list{

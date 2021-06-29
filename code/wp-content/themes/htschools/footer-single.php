@@ -1249,6 +1249,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
               ?>
           
         <?php endforeach; ?>
+        <button type="button" id="join_this_course">Join this Course</button>
     <div class="single_variation_wrap">
         <?php do_action( 'woocommerce_before_single_variation' ); ?>
     	<div class="woocommerce-variation-add-to-cart variations_button">
@@ -1325,6 +1326,10 @@ do_action( 'woocommerce_after_add_to_cart_form' );
 } ?>
 
 <script type="text/javascript">
+	jQuery('#join_this_course').click(function(){
+		var variation_id = jQuery('#variation_id').val();
+		window.location.href = "http://localhost/Htschools-git/code/?add-to-cart=" + variation_id;
+	})
 	jQuery('#reset').click(function(){
 		jQuery("input[name='category']:checkbox").prop('checked',false);
 		jQuery("input[name='sessions']:checkbox").prop('checked',false);

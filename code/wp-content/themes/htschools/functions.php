@@ -3054,7 +3054,7 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
     // $html  = '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
     // $html .= '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
 
-    $html  = '<div id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '"><div class="batch_list"><div class="heading">
+    $html  = '<div id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '"  data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '"><div class="batch_list"><div class="heading">
               <h6>Select '.wc_attribute_label( $attribute ).'</h6>
             </div>';
     
@@ -3077,13 +3077,13 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
         }
         $html .="</ul></div>";
       } else {
-        $html .="<ul>";
+        //$html .="<ul>";
         foreach ( $options as $option ) {
           // This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
           $selected = sanitize_title( $args['selected'] ) === $args['selected'] ? selected( $args['selected'], sanitize_title( $option ), false ) : selected( $args['selected'], $option, false );
-          $html    .= '<li value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '</li>';
+          $html    .= '<input type="radio" name="' . esc_attr( $name ) . '" value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '';
         }
-        $html .="</ul></div>";
+        $html .="</div>";
       }
     }
 

@@ -2946,7 +2946,7 @@ Class Vibe_Define_Shortcodes{
                                 ORDER BY date_recorded DESC LIMIT 0,1
                             " ,$uid,$cid));
             if(!empty($date)){
-                $date = strtotime($date);
+                $date = date("dd/mm/YYYY", strtotime($date));
             }else{
                 $date = null;
             }
@@ -2987,8 +2987,12 @@ Class Vibe_Define_Shortcodes{
                             AND     item_id = %d
                             ORDER BY date_recorded DESC LIMIT 0,1
                         " ,$uid,$cid));
-
-            return date_i18n(get_option( 'date_format' ), strtotime($course_submission_date));  
+            if(!empty($course_submission_date)){
+                $course_completion_date = date("dd/mm/YYYY",strtotime($course_submission_date));
+            }else{
+                $course_completion_date = null;
+            }
+            return date_i18n(get_option( 'date_format' ), strtotime($course_completion_date));  
         }
         return '[course_completion_date]';
     }

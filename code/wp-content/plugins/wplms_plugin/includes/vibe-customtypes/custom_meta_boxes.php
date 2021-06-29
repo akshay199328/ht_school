@@ -6,6 +6,13 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 	$prefix = 'vibe_';
 	$sidebars=$GLOBALS['wp_registered_sidebars'];
 	$sidebararray=array();
+	
+	$courseTypeArray = apply_filters('wplms_course_types',array(
+                      array( 'label' =>__('Live','wplms'),'value'=>'live course'),
+                      array( 'label' =>__('Live + Self','wplms'),'value'=>'live self'),
+                      array( 'label' =>__('Self Paced','wplms'),'value'=>'self paced'),
+                    ));
+
 	foreach($sidebars as $sidebar){
 		if(!in_array($sidebar['id'],array('student_sidebar','instructor_sidebar')))
 	    	$sidebararray[]= array('label'=>$sidebar['name'],'value'=>$sidebar['id']);
@@ -224,6 +231,14 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 			'min'=> 0,
 			'max' =>1000,
 		),
+		$prefix.'course_live_type'=>array( // Single checkbox
+			'label'	=> __('Course Type','wplms'), // <label>
+			'desc'	=> __('Select a Course Type'), // description
+			'id'	=> $prefix.'course_type', // field id and name
+			'type'	=> 'select',
+	        'options' => $courseTypeArray,
+	        'std'=>'course_live_type'
+	        ),
 		$prefix.'course_prev_unit_quiz_lock'=>array( // Text Input
 			'label'	=> __('Unit Completion Lock','wplms'), // <label>
 			'desc'	=> __('Previous Units/Quiz must be Complete before next unit/quiz access','wplms'), // description

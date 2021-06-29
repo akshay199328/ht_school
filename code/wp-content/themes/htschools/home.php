@@ -218,7 +218,8 @@ get_header(vibe_get_header());
             ?>
             <a class="course-hero select_course_item" data-id="<?php echo $post->ID;?>" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
             <div class="course-copy">
-            <span class="badge"><?php echo $course_type;?></span>
+              <?php if (!empty($course_type)){?>
+            <span class="badge"><?php echo $course_type;?></span><?php }?>
             <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
             <ul class="data">
                 <li>

@@ -97,7 +97,25 @@ vibe_include_template("profile/top$profile_layout.php");
                     if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
                         $custom_fields = get_post_custom();
                         $duration = $custom_fields['vibe_validity'][0];
-                        $course_type = $custom_fields['vibe_course_type'][0];
+                         $course_type="";
+            $course_type = $custom_fields['vibe_course_type'][0];
+
+            $str1="LIVE CLASSES";
+            $str2="LIVE + SELF PACED";
+            $str3="SELF PACED";
+        
+    if(strcmp($str2, $course_type)==0){
+       $badge_class = "blue";
+    }
+    elseif(strcmp($str3, $course_type)==0){
+       $badge_class = "green";
+    }
+    elseif(strcmp($str1, $course_type)==0){
+       $badge_class = "red";
+    }
+    else{
+      $badge_class = "";
+    } 
                         $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                         $age_limit = $custom_fields['vibe_course_age_group'][0];
                         $category_array = get_the_terms( $post->ID, 'course-cat');
@@ -138,8 +156,9 @@ vibe_include_template("profile/top$profile_layout.php");
                           </tr>
                           <tr>
                             <td>
-                                 <?php if (!empty($course_type)){?>
-                                <span class="badge"><?php echo $course_type;?></span><?php }?>
+                                 <?php if (!empty($course_type)){ ?>                            
+                <span class="badge <?php echo $badge_class;?>"><?php echo $course_type; ?></span> 
+            <?php }?>
                             </td>
                           </tr>
                           <tr>                            

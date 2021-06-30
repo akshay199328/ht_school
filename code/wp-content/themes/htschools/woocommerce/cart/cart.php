@@ -137,25 +137,25 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 										?>
 									</td>
 
-									<td class="product-thumbnail select_course_item" data-id="<?php echo $course_id; ?>">
+									<td class="product-thumbnail">
 										<?php
 										$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
 										if ( ! $product_permalink ) {
 											echo  $thumbnail ;// PHPCS: XSS ok.
 										} else {
-											printf( '<a href="%s">%s</a>', esc_url( $courseslug ),  $thumbnail  );
+											printf( '<a class="select_course_item" data-id="'.$course_id.'" href="%s">%s</a>', esc_url( $courseslug ),  $thumbnail  );
 											// PHPCS: XSS ok.
 										}
 										?>
 									</td>
 
-									<td class="product-name select_course_item" data-id="<?php echo $course_id; ?>" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
+									<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
 										<?php
 										if ( ! $product_permalink ) {
 											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
 										} else {
-											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $courseslug ), $_product->get_name() ), $cart_item, $cart_item_key ) );
+											echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a class="select_course_item" data-id="'.$course_id.'" href="%s">%s</a>', esc_url( $courseslug ), $_product->get_name() ), $cart_item, $cart_item_key ) );
 										}
 
 										do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );

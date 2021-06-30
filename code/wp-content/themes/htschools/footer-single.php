@@ -754,22 +754,6 @@ border: 1px solid deepskyblue;
 				},
 			});
 
-			var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
-
-			$( "#slot-time" ).change(function(){
-				$.ajax({
-						type : "POST",
-					dataType : "json",
-					url : "<?php echo home_url(); ?>/?wc-ajax=get_variation",
-					data : $("#product_slot").serialize(),
-						success: function(data) {
-							$('#variation_id').val(data.variation_id);
-						},
-						error: function(data) {
-						}
-					});
-			})
-
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
 			$( "#user_country_data" ).autocomplete({
@@ -1205,9 +1189,13 @@ border: 1px solid deepskyblue;
       	<div class="modal-header">
             <div class="header-close"></div>
             <div class="header-logo"></div>
-            <div class="submitheading">Sabira Merchant Learn 
-Communication Skills</div>
+            <div class="submitheading">Sabira Merchant Learn Communication Skills</div>
           </div>
+          <div class="alert-note" style="display: none;">
+              <span class="light-red">
+                <img src="<?php echo bloginfo('template_url')?>/assets/images/alert.svg">Please Select batch and time Slots to join the course
+              </span>
+            </div>
       	<?php $product_id = get_post_meta(1774,'vibe_product',true);
             //echo $product_id;
             $product = wc_get_product(1736);
@@ -1277,8 +1265,6 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	do_action( 'woocommerce_after_add_to_cart_quantity' );
 	?>
 
-	<button type="submit" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-
 	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 
 	<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
@@ -1334,10 +1320,7 @@ do_action( 'woocommerce_after_add_to_cart_form' );
 } ?>
 
 <script type="text/javascript">
-	jQuery('#join_this_course').click(function(){
-		var variation_id = jQuery('#variation_id').val();
-		window.location.href = "http://localhost/Htschools-git/code/?add-to-cart=" + variation_id;
-	})
+
 	jQuery('#reset').click(function(){
 		jQuery("input[name='category']:checkbox").prop('checked',false);
 		jQuery("input[name='sessions']:checkbox").prop('checked',false);
@@ -1699,6 +1682,36 @@ do_action( 'woocommerce_after_add_to_cart_form' );
 			Moengage.track_event("Course_Shared", courseSharedMoegObj);
 		}
 	});
+	jQuery( "#slot-time" ).change(function(){
+		jQuery.ajax({
+				type : "POST",
+			dataType : "json",
+			url : "<?php echo home_url(); ?>/?wc-ajax=get_variation",
+			data : jQuery("#product_slot").serialize(),
+				success: function(data) {
+					jQuery('#variation_id').val(data.variation_id);
+				},
+				error: function(data) {
+				}
+			});
+	});
+	jQuery(".header-close").click(function(){
+		jQuery('#liveCourseModal').modal("hide");
+	});
+	jQuery("#join_this_course").click(function(){
+		var slot_date = jQuery("input[name='attribute_slot-date']:checked").val();
+		var slot_time = jQuery("input[name='attribute_slot-time']:checked").val();
+		var variation_id = jQuery('#variation_id').val();
+		if(slot_date == '' || slot_date == undefined || slot_date == null){
+			jQuery(".alert-note").css('display','block');
+		}
+		else if(slot_time == '' || slot_time == undefined || slot_time == null){
+			jQuery(".alert-note").css('display','block');
+		}
+		else{
+			window.location.href = site_url + "/cart?add-to-cart=" + variation_id;
+		}
+	})
 </script>
 
 

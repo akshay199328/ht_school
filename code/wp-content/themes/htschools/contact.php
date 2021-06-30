@@ -138,7 +138,9 @@ if(have_posts()):while(have_posts()):the_post();
       "Message keywords": "",
     }
 
-    Moengage.track_event("Contact_Form_Submitted", courseSharedMoegObj);
+    courseSharedMoegObj.event = "mo_Contact_Form_Submitted";
+    dataLayer.push(courseSharedMoegObj);
+    // Moengage.track_event("Contact_Form_Submitted", courseSharedMoegObj);
   });
 
 var maxWords = 100;

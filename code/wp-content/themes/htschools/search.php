@@ -99,16 +99,18 @@ if(isset($_GET['s'])&& (count_chars($_GET['s'])>=3)){?>
 <script type="text/javascript">
           jQuery( ".excerpt h3 a" ).click(function(e) {
             e.preventDefault();
-            var link                = jQuery(this).attr("href");
-            let SearchMoegObj = {
-                "User identifier"   : jQuery("#footer_user_identifier").val(),
-                "Session source"    : jQuery("#footer_session_source").val(),
-                "Timestamp"         : jQuery("#footer_timestamp").val(),
-                "Search query"          : '<?php echo $_GET["s"];?>',
-                "Search suggestion clicked"          : "",
-                "Search result clickeds"          :  jQuery(this).text(),               
+            var link = jQuery(this).attr("href");
+            let searchMoegObj = {
+                "User identifier"          : jQuery("#footer_user_identifier").val(),
+                "Session source"           : jQuery("#footer_session_source").val(),
+                "Timestamp"                : jQuery("#footer_timestamp").val(),
+                "Search query"             : '<?php echo $_GET["s"];?>',
+                "Search suggestion clicked": "",
+                "Search result clickeds"   :  jQuery(this).text(),               
             }
-            Moengage.track_event("Searched", SearchMoegObj);
+            searchMoegObj.event = "mo_Searched";
+            dataLayer.push(searchMoegObj);
+            // Moengage.track_event("Searched", searchMoegObj);
 
             setTimeout(function(){
                 window.location.href = link;

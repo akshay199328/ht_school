@@ -249,8 +249,14 @@ defined( 'ABSPATH' ) || exit;
 					// dataLayer.push({ ecommerce: null });
 					dataLayer.push(purchaseObj);
 					console.log(purchaseObj);
-					Moengage.track_event("Purchase_Completed_Detail", purchaseCompletedDetailMoegObj);
-					Moengage.track_event("Purchase_Completed_Summary", purchaseCompletedSummaryMoegObj);
+
+					purchaseCompletedDetailMoegObj.event 	= "mo_Purchase_Completed_Detail";
+					purchaseCompletedSummaryMoegObj.event 	= "mo_Purchase_Completed_Summary";
+					dataLayer.push(purchaseCompletedDetailMoegObj);
+					dataLayer.push(purchaseCompletedSummaryMoegObj);
+
+					// Moengage.track_event("Purchase_Completed_Detail", purchaseCompletedDetailMoegObj);
+					// Moengage.track_event("Purchase_Completed_Summary", purchaseCompletedSummaryMoegObj);
 				});
 			</script>
 
@@ -263,13 +269,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), null ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 
-
-
 	<?php endif;
 
     endif; ?>
-
-
-
 </div>
-

@@ -559,7 +559,10 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             // dataLayer.push({ ecommerce: null });
             dataLayer.push(viewCourseObj);
             console.log(viewCourseObj);
-            Moengage.track_event("Course_Viewed", viewCourseMoegObj);
+
+            viewCourseMoegObj.event = "mo_Course_Viewed";
+            dataLayer.push(viewCourseMoegObj);
+            // Moengage.track_event("Course_Viewed", viewCourseMoegObj);
           });
         </script>
 </main>

@@ -356,7 +356,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				dataLayer.push(cartViewedObj);
 				console.log(cartViewedObj);
-				Moengage.track_event("Cart_Viewed", cartViewedMoegObj);
+
+				cartViewedMoegObj.event = "mo_Cart_Viewed";
+				dataLayer.push(cartViewedMoegObj);
+				// Moengage.track_event("Cart_Viewed", cartViewedMoegObj);
 
 				let beginCheckoutObj = {
 					"event"					: 'begin_checkout',
@@ -394,7 +397,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					// dataLayer.push({ ecommerce: null });
 					dataLayer.push(beginCheckoutObj);
 					console.log(beginCheckoutObj);
-					Moengage.track_event("Checkout_Initiated", beginCheckoutMoegObj);
+
+					beginCheckoutMoegObj.event = "mo_Checkout_Initiated";
+					dataLayer.push(beginCheckoutMoegObj);
+					// Moengage.track_event("Checkout_Initiated", beginCheckoutMoegObj);
 
 					setTimeout(function(){
 						window.location.href = link;
@@ -466,7 +472,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(removeFromCartObj);
 				console.log(removeFromCartObj);
-				Moengage.track_event("Removed_From_Cart", removeFromCartMoegObj);
+
+				removeFromCartMoegObj.event = "mo_Removed_From_Cart";
+				dataLayer.push(removeFromCartMoegObj);
+				// Moengage.track_event("Removed_From_Cart", removeFromCartMoegObj);
 			});
 		});
 	</script>

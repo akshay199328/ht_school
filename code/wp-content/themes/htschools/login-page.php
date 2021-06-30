@@ -434,7 +434,9 @@ jQuery(window).load(function(){
                       "Failure reason": response.status == 1 ? "" : response.message,
                     };
 
-                    Moengage.track_event("OTP_verification", otpVerificationMoegObj);
+                    otpVerificationMoegObj.event = "mo_OTP_verification";
+                    dataLayer.push(otpVerificationMoegObj);
+                    // Moengage.track_event("OTP_verification", otpVerificationMoegObj);
 
                     if(response.status == 1){
                         sessionStorage.setItem('bp_user',response.user);
@@ -688,7 +690,9 @@ jQuery(window).load(function(){
                       "Failure reason": response.status == 1 ? "" : response.message,
                     };
 
-                    Moengage.track_event("OTP_verification", otpVerificationMoegObj);
+                    otpVerificationMoegObj.event = "mo_OTP_verification";
+                    dataLayer.push(otpVerificationMoegObj);
+                    // Moengage.track_event("OTP_verification", otpVerificationMoegObj);
 
                     if(response.status == 1){
                       if(response.is_registered == 1){
@@ -717,7 +721,9 @@ jQuery(window).load(function(){
                         };
 
                         dataLayer.push(logInObj);
-                        Moengage.track_event("Logged_In", logInMoegObj);
+                        logInMoegObj.event = "mo_Logged_In";
+                        dataLayer.push(logInMoegObj);
+                        // Moengage.track_event("Logged_In", logInMoegObj);
 
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);

@@ -480,6 +480,9 @@ class WP_Users_List_Table extends WP_List_Table {
 				$actions['resetpassword'] = "<a class='resetpassword' href='" . wp_nonce_url( "users.php?action=resetpassword&amp;users=$user_object->ID", 'bulk-users' ) . "'>" . __( 'Send password reset' ) . '</a>';
 			}
 
+			// Add a link to login into student account
+			$actions['student_login'] = "<a href='" . wp_nonce_url( "student-login.php?u=".generateStudentLoginToken($user_object->ID).".".get_current_user_id() ) . "' target='_blank'>" . __( 'Login as student' ) . '</a>';
+
 			/**
 			 * Filters the action links displayed under each user in the Users list table.
 			 *

@@ -105,3 +105,12 @@ CREATE TABLE `ht_ga_tag_logs` (
   `created_on` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `ht_admin_student_logins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `token` varchar(100) DEFAULT NULL,
+  `admin_id` int(11) DEFAULT NULL,
+  `student_id` int(11) DEFAULT NULL,
+  `log_on` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4

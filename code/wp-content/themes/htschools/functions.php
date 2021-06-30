@@ -2718,6 +2718,12 @@ function logCSResponse($url, $params, $apiResponse)
     return true;
 }
 
+function generateStudentLoginToken($studentID = "")
+{
+    date_default_timezone_set("Asia/Kolkata");
+    return $studentID == "" ? date("YmdH") : MD5($studentID . date("YmdH"));
+}
+
 /*function enroll_user_to_course($courseID, $aiwsUserID)
 {
     $wpaiws_options = get_option('wpaiws_options');

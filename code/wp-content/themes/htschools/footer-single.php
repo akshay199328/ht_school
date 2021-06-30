@@ -1190,7 +1190,8 @@ border: 1px solid deepskyblue;
             <div class="header-close"></div>
             <div class="header-logo"></div>
             <div class="submitheading">Sabira Merchant Learn Communication Skills</div>
-          </div>
+          	</div>
+
           <div class="alert-note" style="display: none;">
               <span class="light-red">
                 <img src="<?php echo bloginfo('template_url')?>/assets/images/alert.svg">Please Select batch and time Slots to join the course
@@ -1216,88 +1217,35 @@ $available_variations = $product->get_available_variations();
     $attribute_data = $product_attribute->get_data();
     $product_slots[$name] = $attribute_data['options'];
     }
-do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+ ?>
     <form class="variations_form cart live-course-details" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="false" id="product_slot">
+    	<div class="details">
+	       		<div class="batch_list">
+	              	<div class="heading">
+	                	<h6>Select batch</h6>
+	              	</div>
+	      			<div id="div1"></div>
+	      		</div>
+	      		<div class="batch_list" id="select-time-slot" style="display: none;">
+	             	<div class="heading">
+	                	<h6>Select time slots</h6>
+	              	</div>
+	          		<div id="div2"></div>
+	          	</div>
+	        </div>
     	<input type="hidden" name="action" value="get_variation">
-  <?php do_action( 'woocommerce_before_variations_form' ); ?>
-
-  <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
-    <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
-  <?php else : ?>
-    
-        <?php //echo "<pre>";print_r($product_slots);exit; 
-
-        foreach ( $product_slots as $attribute_name => $options ) : ?>
-                 	
-        	
-          	
-              <?php
-                wc_dropdown_variation_attribute_options_astra(
-                  array(
-                    'options'   => $options,
-                    'attribute' => $attribute_name,
-                    'product'   => $product,
-                  )
-                );
-              ?>
-          
-        <?php endforeach; ?>
-        
-        <div class="livecourse_button">
-        	<button type="button" class="btn" id="join_this_course">Join this Course</button>
-      	</div>
-    <div class="single_variation_wrap">
-        <?php do_action( 'woocommerce_before_single_variation' ); ?>
-    	<div class="woocommerce-variation-add-to-cart variations_button">
-	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
-
-	<?php
-	do_action( 'woocommerce_before_add_to_cart_quantity' );
-
-	woocommerce_quantity_input(
-		array(
-			'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
-			'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
-			'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
-		)
-	);
-
-	do_action( 'woocommerce_after_add_to_cart_quantity' );
-	?>
-
-	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
-
+    	<input type="hidden" name="attribute_slot-date" id="attribute_slot-date" value="">
+    	<input type="hidden" name="attribute_slot-time" id="attribute_slot-time" value="">
+  
 	<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
 	<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
 	<input type="hidden" name="variation_id" class="variation_id" value="0" id="variation_id"/>
-</div>
-      <?php
-        /**
-         * Hook: woocommerce_before_single_variation.
-         */
 
-        /**
-         * Hook: woocommerce_single_variation. Used to output the cart button and placeholder for variation data.
-         *
-         * @since 2.4.0
-         * @hooked woocommerce_single_variation - 10 Empty div for variation data.
-         * @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty and cart button.
-         */
-        //do_action( 'woocommerce_single_variation' );
 
-        /**
-         * Hook: woocommerce_after_single_variation.
-         */
-        do_action( 'woocommerce_after_single_variation' );
-      ?>
-    </div>
-  <?php endif; ?>
-
-  <?php do_action( 'woocommerce_after_variations_form' ); ?>
+	<div class="livecourse_button">
+	        	<button type="button" class="btn" id="join_this_course">Join this Course</button>
+	      	</div>
 </form>
-<?php
-do_action( 'woocommerce_after_add_to_cart_form' );
-?>
         
       </div>
     </div>
@@ -1320,7 +1268,24 @@ do_action( 'woocommerce_after_add_to_cart_form' );
 } ?>
 
 <script type="text/javascript">
-
+	// jQuery('#join_course_button_custom').click(function(){
+	// 	alert("test");
+	// 	var course_id = jQuery(this).data("id");
+	// 	alert(course_id);
+	// 	jQuery.ajax({
+	// 		type : "POST",
+	// 		url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot",
+	// 		data: { course_id: course_id},
+	// 		success: function(response) {
+	// 			alert("check");
+	// 			console.log("response");
+	// 			console.log(response);
+	// 		},
+	// 		error: function(data) {
+	// 			console.log(data);
+	// 		}
+	// 	});
+	// })
 	jQuery('#reset').click(function(){
 		jQuery("input[name='category']:checkbox").prop('checked',false);
 		jQuery("input[name='sessions']:checkbox").prop('checked',false);
@@ -1402,7 +1367,7 @@ do_action( 'woocommerce_after_add_to_cart_form' );
   }
 
 </script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	document.addEventListener( 'wpcf7mailsent', function( event ) {
 		jQuery('.new-footer #submit-email').hide();
@@ -1422,6 +1387,69 @@ do_action( 'woocommerce_after_add_to_cart_form' );
 	});
 
 	jQuery(document).ready(function(){
+		jQuery('.live_course_class .the_course_button').click(function(e){
+			var course_id = jQuery(this).data('id');
+			alert(course_id);
+			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
+				e.preventDefault();
+				var link = jQuery(this).find('a').attr("href");
+				jQuery.ajax({
+					type : "POST",
+					dataType : "json",
+					url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot",
+					data : {course_id : course_id},
+					success: function(response) {
+						var html = '';
+						response.forEach(function(element) {  
+						    html += "<span class='list' id='slot_date'><input type='radio' name='slot_date' value='"+element+"'>"+element+"</span>";  
+						}); 
+						jQuery('#div1').append(html);
+						jQuery('.list input:radio[name="slot_date"]').change(function(){
+							var selected_sort_date = jQuery(this).val();
+							jQuery(this).parent().addClass('selected');
+							jQuery('#attribute_slot-date').val(selected_sort_date);
+					        jQuery.ajax({
+								type : "POST",
+								dataType : "json",
+								url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot_time",
+								data : {course_id : course_id},
+								success: function(response) {
+									jQuery('#div2').html('');
+									var html = '';
+									response.forEach(function(element) {  
+									    html += "<span class='list time' id='slot_time'><input type='radio' name='slot_time' value='"+element+"'>"+element+"</span>";  
+									}); 
+									jQuery('#select-time-slot').css('display','block');
+									jQuery('#div2').append(html);
+									jQuery("#div2" ).change(function(){
+										var sort_time = jQuery("input:radio[name=slot_time]:checked").val();
+										jQuery("input:radio[name=slot_time]").parent().addClass('selected');
+										jQuery('#attribute_slot-time').val(sort_time);
+										jQuery.ajax({
+												type : "POST",
+											dataType : "json",
+											url : "<?php echo home_url(); ?>/?wc-ajax=get_variation",
+											data : jQuery("#product_slot").serialize(),
+												success: function(data) {
+													jQuery('#variation_id').val(data.variation_id);
+												},
+												error: function(data) {
+												}
+											});
+									});
+									//jQuery("#liveCourseModal").modal("show");
+								}
+							});
+					    });
+						jQuery("#liveCourseModal").modal("show");
+					},
+					error:function(datanew){
+						alert("BOo!");
+					}
+				});
+			}
+		});
+
 		jQuery('.the_course_button').click(function(e){
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 
@@ -1699,8 +1727,12 @@ do_action( 'woocommerce_after_add_to_cart_form' );
 		jQuery('#liveCourseModal').modal("hide");
 	});
 	jQuery("#join_this_course").click(function(){
-		var slot_date = jQuery("input[name='attribute_slot-date']:checked").val();
-		var slot_time = jQuery("input[name='attribute_slot-time']:checked").val();
+		// var slot_date = jQuery("input[name='attribute_slot-date']:checked").val();
+		// var slot_time = jQuery("input[name='attribute_slot-time']:checked").val();
+		var slot_date = jQuery("input[name='slot_date']:checked").val();
+		var slot_time = jQuery("input[name='slot_time']:checked").val();
+		alert(slot_date);
+		alert(slot_time);
 		var variation_id = jQuery('#variation_id').val();
 		if(slot_date == '' || slot_date == undefined || slot_date == null){
 			jQuery(".alert-note").css('display','block');

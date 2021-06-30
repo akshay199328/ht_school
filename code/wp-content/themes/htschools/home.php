@@ -275,7 +275,10 @@ get_header(vibe_get_header());
             <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php //echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             <div class="action">
                 <div class="price custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></div>
+                <?php $course_type =get_post_meta($courseID,'vibe_course_type',true); ?>
+                <div class="<?php echo strtolower($course_type) == 'live classes' ? 'live_course_class' : ''; ?>">
                 <?php the_course_button(); ?>
+                </div>
             </div>
             </div>
         </div>

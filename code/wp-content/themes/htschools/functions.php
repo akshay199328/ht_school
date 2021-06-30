@@ -3093,3 +3093,53 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
   }
 }
 
+function get_product_slot(){
+  $product_id = get_post_meta($_POST['course_id'],'vibe_product',true);
+  $product = wc_get_product($product_id);
+  $product_attributes = $product->get_attributes();
+  $attribute_keys  = array_keys( $product_attributes );
+  $attributes_array = get_post_meta( $product_id, '_product_attributes', true); 
+  //print_r($attributes_array);
+  $product_slots = array();
+  $available_variations = $product->get_available_variations();
+  $variations_json = wp_json_encode( $available_variations );
+  $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+  foreach( $product_attributes as $attribute_taxonomy => $product_attribute){
+
+      // get the name (for example)
+      $name = $product_attribute->get_name();
+      if($name == "Slot Date"){
+        $attribute_data = $product_attribute->get_data();
+        $product_slots = $attribute_data['options'];
+      }
+    }
+    echo json_encode($product_slots); exit;
+}
+
+add_action("wp_ajax_get_product_slot", "get_product_slot");
+add_action( 'wp_ajax_nopriv_get_product_slot', 'get_product_slot' );
+function get_product_slot_time(){
+  $product_id = get_post_meta($_POST['course_id'],'vibe_product',true);
+  $product = wc_get_product($product_id);
+  $product_attributes = $product->get_attributes();
+  $attribute_keys  = array_keys( $product_attributes );
+  $attributes_array = get_post_meta( $product_id, '_product_attributes', true); 
+  //print_r($attributes_array);
+  $product_slots = array();
+  $available_variations = $product->get_available_variations();
+  $variations_json = wp_json_encode( $available_variations );
+  $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+  foreach( $product_attributes as $attribute_taxonomy => $product_attribute){
+
+      // get the name (for example)
+      $name = $product_attribute->get_name();
+      if($name == "Slot Time"){
+        $attribute_data = $product_attribute->get_data();
+        $product_slots = $attribute_data['options'];
+      }
+    }
+    echo json_encode($product_slots); exit;
+}
+
+add_action("wp_ajax_get_product_slot_time", "get_product_slot_time");
+add_action( 'wp_ajax_nopriv_get_product_slot_time', 'get_product_slot_time' );

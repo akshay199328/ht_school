@@ -481,7 +481,10 @@ class WP_Users_List_Table extends WP_List_Table {
 			}
 
 			// Add a link to login into student account
-			$actions['student_login'] = "<a href='" . wp_nonce_url( "student-login.php?u=".generateStudentLoginToken($user_object->ID).".".get_current_user_id() ) . "' target='_blank'>" . __( 'Login as student' ) . '</a>';
+			if(isset($_GET['role']) && $_GET['role'] == "student")
+			{
+				$actions['student_login'] = "<a href='" . wp_nonce_url( "student-login.php?u=".generateStudentLoginToken($user_object->ID).".".get_current_user_id() ) . "' target='_blank'>" . __( 'Login as student' ) . '</a>';
+			}
 
 			/**
 			 * Filters the action links displayed under each user in the Users list table.

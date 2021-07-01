@@ -358,6 +358,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				console.log(cartViewedObj);
 
 				cartViewedMoegObj.event = "mo_Cart_Viewed";
+				dataLayer.push({ ecommerce: null }); 
 				dataLayer.push(cartViewedMoegObj);
 				// Moengage.track_event("Cart_Viewed", cartViewedMoegObj);
 
@@ -399,6 +400,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					console.log(beginCheckoutObj);
 
 					beginCheckoutMoegObj.event = "mo_Checkout_Initiated";
+					dataLayer.push({ ecommerce: null }); 
 					dataLayer.push(beginCheckoutMoegObj);
 					// Moengage.track_event("Checkout_Initiated", beginCheckoutMoegObj);
 
@@ -474,6 +476,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				console.log(removeFromCartObj);
 
 				removeFromCartMoegObj.event = "mo_Removed_From_Cart";
+				dataLayer.push({ ecommerce: null }); 
 				dataLayer.push(removeFromCartMoegObj);
 				// Moengage.track_event("Removed_From_Cart", removeFromCartMoegObj);
 			});

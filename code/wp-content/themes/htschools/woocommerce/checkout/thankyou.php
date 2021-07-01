@@ -252,7 +252,9 @@ defined( 'ABSPATH' ) || exit;
 
 					purchaseCompletedDetailMoegObj.event 	= "mo_Purchase_Completed_Detail";
 					purchaseCompletedSummaryMoegObj.event 	= "mo_Purchase_Completed_Summary";
+					dataLayer.push({ ecommerce: null }); 
 					dataLayer.push(purchaseCompletedDetailMoegObj);
+					dataLayer.push({ ecommerce: null }); 
 					dataLayer.push(purchaseCompletedSummaryMoegObj);
 
 					// Moengage.track_event("Purchase_Completed_Detail", purchaseCompletedDetailMoegObj);

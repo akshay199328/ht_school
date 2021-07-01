@@ -108,7 +108,8 @@ if(isset($_GET['s'])&& (count_chars($_GET['s'])>=3)){?>
                 "Search suggestion clicked": "",
                 "Search result clickeds"   :  jQuery(this).text(),               
             }
-            searchMoegObj.event = "mo_Searched";
+            searchMoegObj.event = "mo_Searched_Result_Clicked";
+            dataLayer.push({ ecommerce: null }); 
             dataLayer.push(searchMoegObj);
             // Moengage.track_event("Searched", searchMoegObj);
 

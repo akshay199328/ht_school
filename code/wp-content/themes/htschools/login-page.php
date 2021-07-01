@@ -725,11 +725,13 @@ jQuery(window).load(function(){
                         dataLayer.push(logInMoegObj);
                         // Moengage.track_event("Logged_In", logInMoegObj);
 
-                        if(response.previous_page_url != ''){
-                          window.location.replace(response.previous_page_url);
-                        }else{
-                          window.location.reload();
-                        }
+                        setTimeout(function(){
+                          if(response.previous_page_url != ''){
+                            window.location.replace(response.previous_page_url);
+                          }else{
+                            window.location.reload();
+                          }
+                        }, 500);
                       }else{
                             jQuery("#reg-email-wrap").html(response.email);
                             jQuery("#login-step-2").hide();

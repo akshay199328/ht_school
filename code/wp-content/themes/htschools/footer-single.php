@@ -1189,14 +1189,10 @@ border: 1px solid deepskyblue;
       	<div class="modal-header">
             <div class="header-close"></div>
             <div class="header-logo"></div>
-            <div class="submitheading">Sabira Merchant Learn Communication Skills</div>
+            <div class="submitheading"><h1 id="live_course_name"></h1></div>
           	</div>
 
-          <div class="alert-note" style="display: none;">
-              <span class="light-red">
-                <img src="<?php echo bloginfo('template_url')?>/assets/images/alert.svg">Please Select batch and time Slots to join the course
-              </span>
-            </div>
+          
       	<?php $product_id = get_post_meta(1774,'vibe_product',true);
             //echo $product_id;
             $product = wc_get_product(1736);
@@ -1219,7 +1215,12 @@ $available_variations = $product->get_available_variations();
     }
  ?>
     <form class="variations_form cart live-course-details" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="false" id="product_slot">
-    	<div class="details">
+    	<div class="alert-note" style="display: none;">
+              <span class="light-red">
+                <img src="<?php echo bloginfo('template_url')?>/assets/images/alert.svg">Please Select batch and time Slots to join the course
+              </span>
+            </div>
+    	<div class="batch_details">
 	       		<div class="batch_list">
 	              	<div class="heading">
 	                	<h6>Select batch</h6>
@@ -1233,19 +1234,23 @@ $available_variations = $product->get_available_variations();
 	          		<div id="div2"></div>
 	          	</div>
 	        </div>
+	        <div id="spinner-show">
+	        	<div class="spinner-img"></div>
+	        </div>
     	<input type="hidden" name="action" value="get_variation">
     	<input type="hidden" name="attribute_slot-date" id="attribute_slot-date" value="">
     	<input type="hidden" name="attribute_slot-time" id="attribute_slot-time" value="">
   
-	<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
-	<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
-	<input type="hidden" name="variation_id" class="variation_id" value="0" id="variation_id"/>
+		<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
+		<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
+		<input type="hidden" name="cart_url" id="cart_url" value="<?php echo wc_get_cart_url() ?>" />
+		<input type="hidden" name="variation_id" class="variation_id" value="0" id="variation_id"/>
 
 
-	<div class="livecourse_button">
-	        	<button type="button" class="btn" id="join_this_course">Join this Course</button>
-	      	</div>
-</form>
+		<div class="livecourse_button">
+	    	<button type="button" class="btn" id="join_this_course">Join this Course</button>
+	  	</div>
+	</form>
         
       </div>
     </div>
@@ -1268,24 +1273,6 @@ $available_variations = $product->get_available_variations();
 } ?>
 
 <script type="text/javascript">
-	// jQuery('#join_course_button_custom').click(function(){
-	// 	alert("test");
-	// 	var course_id = jQuery(this).data("id");
-	// 	alert(course_id);
-	// 	jQuery.ajax({
-	// 		type : "POST",
-	// 		url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot",
-	// 		data: { course_id: course_id},
-	// 		success: function(response) {
-	// 			alert("check");
-	// 			console.log("response");
-	// 			console.log(response);
-	// 		},
-	// 		error: function(data) {
-	// 			console.log(data);
-	// 		}
-	// 	});
-	// })
 	jQuery('#reset').click(function(){
 		jQuery("input[name='category']:checkbox").prop('checked',false);
 		jQuery("input[name='sessions']:checkbox").prop('checked',false);
@@ -1389,31 +1376,48 @@ $available_variations = $product->get_available_variations();
 	jQuery(document).ready(function(){
 		jQuery('.live_course_class .the_course_button').click(function(e){
 			var course_id = jQuery(this).data('id');
-			alert(course_id);
+			var course_name = jQuery('#course_name_' + course_id).val();
+			jQuery('#live_course_name').text(course_name);
+			
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 				e.preventDefault();
-				var link = jQuery(this).find('a').attr("href");
+				var link = jQuery(this).find('a').attr("href", '#');
+				jQuery('#div1').html('');
+				jQuery("#spinner-show").addClass('spinner-show');
+				jQuery(".spinner-img").show();
 				jQuery.ajax({
 					type : "POST",
 					dataType : "json",
 					url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot",
 					data : {course_id : course_id},
 					success: function(response) {
+						jQuery("#spinner-show").removeClass('spinner-show');
+						jQuery(".spinner-img").hide();
 						var html = '';
 						response.forEach(function(element) {  
 						    html += "<span class='list' id='slot_date'><input type='radio' name='slot_date' value='"+element+"'>"+element+"</span>";  
 						}); 
 						jQuery('#div1').append(html);
 						jQuery('.list input:radio[name="slot_date"]').change(function(){
-							var selected_sort_date = jQuery(this).val();
-							jQuery(this).parent().addClass('selected');
-							jQuery('#attribute_slot-date').val(selected_sort_date);
+							// jQuery("input:radio[name='slot_date']:checked").parent().addClass("checked");
+							jQuery('input:not(:checked)').parent().removeClass("selected");
+        					jQuery('input:checked').parent().addClass("selected");
+							
+							var selected_slot_date = jQuery(this).val();
+							// jQuery(this).parent().addClass('selected');
+							jQuery('#attribute_slot-date').val(selected_slot_date);
+							jQuery("#spinner-show").addClass('spinner-show');
+							jQuery(".spinner-img").show();
+
 					        jQuery.ajax({
 								type : "POST",
 								dataType : "json",
 								url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot_time",
-								data : {course_id : course_id},
+								data : {course_id : course_id,selected_slot_date:selected_slot_date},
+								
 								success: function(response) {
+								jQuery("#spinner-show").removeClass('spinner-show');
+								jQuery(".spinner-img").hide();
 									jQuery('#div2').html('');
 									var html = '';
 									response.forEach(function(element) {  
@@ -1422,9 +1426,13 @@ $available_variations = $product->get_available_variations();
 									jQuery('#select-time-slot').css('display','block');
 									jQuery('#div2').append(html);
 									jQuery("#div2" ).change(function(){
+										jQuery('input:not(:checked)').parent().removeClass("selected");
+        								jQuery('input:checked').parent().addClass("selected");
 										var sort_time = jQuery("input:radio[name=slot_time]:checked").val();
-										jQuery("input:radio[name=slot_time]").parent().addClass('selected');
+										// jQuery("input:radio[name=slot_time]").parent().addClass('selected');
 										jQuery('#attribute_slot-time').val(sort_time);
+										jQuery("#spinner-show").addClass('spinner-show');
+										jQuery(".spinner-img").show();
 										jQuery.ajax({
 												type : "POST",
 											dataType : "json",
@@ -1432,19 +1440,19 @@ $available_variations = $product->get_available_variations();
 											data : jQuery("#product_slot").serialize(),
 												success: function(data) {
 													jQuery('#variation_id').val(data.variation_id);
+													jQuery("#spinner-show").removeClass('spinner-show');
+													jQuery(".spinner-img").hide();
 												},
 												error: function(data) {
 												}
 											});
 									});
+									
 									//jQuery("#liveCourseModal").modal("show");
 								}
 							});
 					    });
 						jQuery("#liveCourseModal").modal("show");
-					},
-					error:function(datanew){
-						alert("BOo!");
 					}
 				});
 			}
@@ -1731,8 +1739,8 @@ $available_variations = $product->get_available_variations();
 		// var slot_time = jQuery("input[name='attribute_slot-time']:checked").val();
 		var slot_date = jQuery("input[name='slot_date']:checked").val();
 		var slot_time = jQuery("input[name='slot_time']:checked").val();
-		alert(slot_date);
-		alert(slot_time);
+		var cart_url = jQuery("#cart_url").val();
+		
 		var variation_id = jQuery('#variation_id').val();
 		if(slot_date == '' || slot_date == undefined || slot_date == null){
 			jQuery(".alert-note").css('display','block');
@@ -1741,7 +1749,7 @@ $available_variations = $product->get_available_variations();
 			jQuery(".alert-note").css('display','block');
 		}
 		else{
-			window.location.href = site_url + "/cart?add-to-cart=" + variation_id;
+			window.location.href = cart_url + "?add-to-cart=" + variation_id;
 		}
 	})
 </script>

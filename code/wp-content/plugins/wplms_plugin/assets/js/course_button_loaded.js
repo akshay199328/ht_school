@@ -7208,6 +7208,7 @@
                 });
                 document.dispatchEvent(s)
             };
+            let course_data = l;
         return k ? "" : w ? mr(wr, null, mr("div", {
             class: "lds-ellipsis"
         }, mr("div", null), mr("div", null), mr("div", null), mr("div", null)), ReactDOM.createPortal(mr(dr, {
@@ -7313,11 +7314,8 @@
                 __html: e
             }
         }))) : "") : mr("a", {
-            href: "#",
-            className: "course_button button full join_course",
-            onClick: () => {
-                jQuery("#liveCourseModal").modal("show");
-            }
+            href: i,
+            className: "course_button button full"
         }, a && a.length ? a : window.wplms_course_data.translations.take_this_course, h.length ? mr("div", {
             className: "extra_details"
         }, h.map(e => mr("span", {

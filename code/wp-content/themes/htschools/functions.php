@@ -3014,6 +3014,91 @@ function log_ga_tag_in_db($event, $log) {
     return $result;
 }
 
+// if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
+
+//   /**
+//    * Output a list of variation attributes for use in the cart forms.
+//    *
+//    * @param array $args Arguments.
+//    * @since 2.4.0
+//    */
+//   function wc_dropdown_variation_attribute_options_astra( $args = array() ) {
+//     $args = wp_parse_args(
+//       apply_filters( 'woocommerce_dropdown_variation_attribute_options_args', $args ),
+//       array(
+//         'options'          => false,
+//         'attribute'        => false,
+//         'product'          => false,
+//         'selected'         => false,
+//         'name'             => '',
+//         'id'               => '',
+//         'class'            => '',
+//         'show_option_none' => __( 'Choose an option', 'woocommerce' ),
+//       )
+//     );
+
+//     // Get selected value.
+//     if ( false === $args['selected'] && $args['attribute'] && $args['product'] instanceof WC_Product ) {
+//       $selected_key     = 'attribute_' . sanitize_title( $args['attribute'] );
+//       $args['selected'] = isset( $_REQUEST[ $selected_key ] ) ? wc_clean( wp_unslash( $_REQUEST[ $selected_key ] ) ) : $args['product']->get_variation_default_attribute( $args['attribute'] ); // WPCS: input var ok, CSRF ok, sanitization ok.
+//     }
+
+//     $options               = $args['options'];
+//     $product               = $args['product'];
+//     $attribute             = $args['attribute'];
+//     $name                  = $args['name'] ? $args['name'] : 'attribute_' . sanitize_title( $attribute );
+//     $id                    = $args['id'] ? $args['id'] : sanitize_title( $attribute );
+//     $class                 = '';
+//     $show_option_none      = (bool) $args['show_option_none'];
+//     $show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options.
+
+//     if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
+//       $attributes = $product->get_variation_attributes();
+//       $options    = $attributes[ $attribute ];
+//     }
+
+//     // $html  = '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
+//     // $html .= '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
+
+//     $html  = '<div id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '"  data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '"><div class="batch_list"><div class="heading">
+//               <h6>Select '.wc_attribute_label( $attribute ).'</h6>
+//             </div>';
+    
+
+//     if ( ! empty( $options ) ) {
+//       if ( $product && taxonomy_exists( $attribute ) ) {
+//         // Get terms if this is a taxonomy - ordered. We need the names too.
+//         $terms = wc_get_product_terms(
+//           $product->get_id(),
+//           $attribute,
+//           array(
+//             'fields' => 'all',
+//           )
+//         );
+//          $html .="<ul>";
+//         foreach ( $terms as $term ) {
+//           if ( in_array( $term->slug, $options, true ) ) {
+//             $html .= '<li value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $args['selected'] ), $term->slug, false ) . '><a href="#">' . esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name, $term, $attribute, $product ) ) . '</a></li>';
+//           }
+//         }
+//         $html .="</ul></div>";
+//       } else {
+//         //$html .="<ul>";
+//         foreach ( $options as $option ) {
+//           // This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
+//           $selected = sanitize_title( $args['selected'] ) === $args['selected'] ? selected( $args['selected'], sanitize_title( $option ), false ) : selected( $args['selected'], $option, false );
+//           $html    .= '<span class="list"><input type="radio" name="' . esc_attr( $name ) . '" value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '</span>';
+//         }
+//         $html .="</div>";
+//       }
+//     }
+
+//     $html .= '</div>';
+
+//     echo apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', $html, $args ); // WPCS: XSS ok.
+//   }
+// }
+
 if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
 
   /**
@@ -3048,7 +3133,7 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
     $attribute             = $args['attribute'];
     $name                  = $args['name'] ? $args['name'] : 'attribute_' . sanitize_title( $attribute );
     $id                    = $args['id'] ? $args['id'] : sanitize_title( $attribute );
-    $class                 = '';
+    $class                 = $args['class'];
     $show_option_none      = (bool) $args['show_option_none'];
     $show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options.
 
@@ -3057,13 +3142,8 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
       $options    = $attributes[ $attribute ];
     }
 
-    // $html  = '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
-    // $html .= '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
-
-    $html  = '<div id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '"  data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '"><div class="batch_list"><div class="heading">
-              <h6>Select '.wc_attribute_label( $attribute ).'</h6>
-            </div>';
-    
+    $html  = '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" data-attribute_name="attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
+    $html .= '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
 
     if ( ! empty( $options ) ) {
       if ( $product && taxonomy_exists( $attribute ) ) {
@@ -3075,25 +3155,22 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options_astra' ) ) {
             'fields' => 'all',
           )
         );
-         $html .="<ul>";
+
         foreach ( $terms as $term ) {
           if ( in_array( $term->slug, $options, true ) ) {
-            $html .= '<li value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $args['selected'] ), $term->slug, false ) . '><a href="#">' . esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name, $term, $attribute, $product ) ) . '</a></li>';
+            $html .= '<option value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $args['selected'] ), $term->slug, false ) . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name, $term, $attribute, $product ) ) . '</option>';
           }
         }
-        $html .="</ul></div>";
       } else {
-        //$html .="<ul>";
         foreach ( $options as $option ) {
           // This handles < 2.4.0 bw compatibility where text attributes were not sanitized.
           $selected = sanitize_title( $args['selected'] ) === $args['selected'] ? selected( $args['selected'], sanitize_title( $option ), false ) : selected( $args['selected'], $option, false );
-          $html    .= '<span class="list"><input type="radio" name="' . esc_attr( $name ) . '" value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '</span>';
+          $html    .= '<option value="' . esc_attr( $option ) . '" ' . $selected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product ) ) . '</option>';
         }
-        $html .="</div>";
       }
     }
 
-    $html .= '</div>';
+    $html .= '</select>';
 
     echo apply_filters( 'woocommerce_dropdown_variation_attribute_options_html', $html, $args ); // WPCS: XSS ok.
   }
@@ -3127,23 +3204,17 @@ add_action( 'wp_ajax_nopriv_get_product_slot', 'get_product_slot' );
 function get_product_slot_time(){
   $product_id = get_post_meta($_POST['course_id'],'vibe_product',true);
   $product = wc_get_product($product_id);
+  $product_slot_date = $_POST['selected_slot_date'];
   $product_attributes = $product->get_attributes();
   $attribute_keys  = array_keys( $product_attributes );
   $attributes_array = get_post_meta( $product_id, '_product_attributes', true); 
-  //print_r($attributes_array);
   $product_slots = array();
   $available_variations = $product->get_available_variations();
-  $variations_json = wp_json_encode( $available_variations );
-  $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
-  foreach( $product_attributes as $attribute_taxonomy => $product_attribute){
-
-      // get the name (for example)
-      $name = $product_attribute->get_name();
-      if($name == "Slot Time"){
-        $attribute_data = $product_attribute->get_data();
-        $product_slots = $attribute_data['options'];
-      }
+  foreach($available_variations as $key => $value) {
+    if($value['attributes']['attribute_slot-date'] == $product_slot_date){
+      $product_slots[] = $value['attributes']['attribute_slot-time'];
     }
+  }
     echo json_encode($product_slots); exit;
 }
 

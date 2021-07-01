@@ -1288,6 +1288,9 @@ if(!class_exists('Vibe_Zoom'))
                 wp_enqueue_style('customselect2-bbb',VIBE_PLUGIN_URL.'/vibe-customtypes/metaboxes/css/select2.min.css');
                 wp_enqueue_style( 'vibe-zoom-css', plugins_url( '../assets/css/vibe-zoom.css' , __FILE__ ));
                 wp_enqueue_style( 'meta_box_css', VIBE_PLUGIN_URL . '/vibe-customtypes/metaboxes/css/meta_box.css');
+                ?>
+                <script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+                <?php
                wp_enqueue_script('vibe-zoom-meetings', plugins_url( '../assets/js/vibe-zoom.js' , __FILE__ ),array('jquery','jquery-migrate'));
                 $translation_array = array( 
                 'ajax_url' => admin_url( 'admin-ajax.php' ) ,

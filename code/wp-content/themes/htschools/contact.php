@@ -135,7 +135,7 @@ if(have_posts()):while(have_posts()):the_post();
       "Phone"           : jQuery("#mobileNumber").val(),
       "Pin code"        : jQuery("#pincode").val(),
       "Profile type"    : jQuery("#ProfileDropDown").val(),
-      "Message keywords": "",
+      "Message keywords": jQuery("#yourMessage").val(),
     }
 
     courseSharedMoegObj.event = "mo_Contact_Form_Submitted";

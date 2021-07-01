@@ -125,7 +125,7 @@ if(have_posts()):while(have_posts()):the_post();
     }
 })
 
-  jQuery('.a2a_button_telegram').click(function(e){
+  jQuery('.wpcf7-submit').click(function(e){
     let courseSharedMoegObj = {
       "User identifier" : jQuery("#footer_user_identifier").val(),
       "Session source"  : jQuery("#footer_session_source").val(),

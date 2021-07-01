@@ -317,7 +317,6 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
                 </div>
               </div>
               <!-- <div class="explore_btn">
-                <input type="hidden" name="preUrl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" data-preUrl="<?php echo $_SERVER['HTTP_REFERER']; ?>" id="preUrl">
                 <button type="button" class="btn submit_btn" id="reloadpage" style="display: none;">Explore Courses & Workshops</button>
                 </div> -->
             </div>
@@ -325,6 +324,7 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
         </div>
       </div>
     </div>
+    <input type="hidden" name="preUrl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" data-preUrl="<?php echo $_SERVER['HTTP_REFERER']; ?>" id="preUrl">
   </section><!-- End login -->
 </main>
 <?php
@@ -475,8 +475,8 @@ jQuery(window).load(function(){
                           window.setTimeout(function() {
                             window.location.replace(preUrl);
                           }, 5000);
-                          sessionStorage.setItem('login_url',0);
                         }
+                        sessionStorage.setItem('login_url',0);
                         /* if(response.previous_page_url != ''){
                             window.location.replace(response.previous_page_url);
                           }else{

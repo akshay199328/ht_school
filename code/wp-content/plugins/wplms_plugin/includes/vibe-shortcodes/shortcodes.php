@@ -2929,8 +2929,10 @@ Class Vibe_Define_Shortcodes{
                             ORDER BY date_recorded DESC LIMIT 0,1
                         " ,$uid,$cid));
             if(!empty($course_submission_date)){
-                $course_submission_date = strtotime($course_submission_date);
-                $course_submission_date = str_replace('-', '/', $course_submission_date );
+                $course_submission_date = date("d-m-Y" , strtotime($course_submission_date));
+                $student_date = date_create($course_submission_date);
+        $course_submission_date = date_format($student_date, 'd/m/Y');
+              //  $course_submission_date = str_replace('-', '/', $course_submission_date );
             }else{
                 $course_submission_date = null;
             }
@@ -2947,24 +2949,27 @@ Class Vibe_Define_Shortcodes{
                                 ORDER BY date_recorded DESC LIMIT 0,1
                             " ,$uid,$cid));
             if(!empty($date)){
-                $date = date("d-m-Y", strtotime($date));
-                $date = str_replace('-', '/', $date );
+                // $date = strtotime($date);
+               $date = date("d-m-Y", strtotime($date));
+               $student_date = date_create($date);
+        $date = date_format($student_date, 'd/m/Y');
+                //$date = str_replace('-', '/', $date );
             }else{
                 $date = null;
             }
 
             if(!empty($course_submission_date) && !empty($date)){
                 if($course_submission_date < $date){
-                    return date_i18n( get_option( 'date_format' ), $date);
+                    return date_i18n($date);
                 }else{
-                    return date_i18n( get_option( 'date_format' ), $course_submission_date);
+                    return date_i18n($course_submission_date);
                 }                 
             }else{
                 if(!empty($course_submission_date)){
-                    return date_i18n( get_option( 'date_format' ), $course_submission_date);
+                    return date_i18n($course_submission_date);
                 }
                 if(!empty($date)){
-                    return date_i18n( get_option( 'date_format' ), $date);
+                    return date_i18n($date);
                 }
             }
        }
@@ -2979,7 +2984,8 @@ Class Vibe_Define_Shortcodes{
         $uid=$_GET['u'];
         $cid=$_GET['c'];
         global $bp,$wpdb;
-
+        //$course_completion_date = "";
+       // $course_submission_date = "";
         if(isset($uid) && is_numeric($uid) && isset($cid) && is_numeric($cid) && get_post_type($cid) == 'course'){
             $course_submission_date = $wpdb->get_var($wpdb->prepare( "
                             SELECT activity.date_recorded FROM {$bp->activity->table_name} AS activity
@@ -2989,15 +2995,19 @@ Class Vibe_Define_Shortcodes{
                             AND     item_id = %d
                             ORDER BY date_recorded DESC LIMIT 0,1
                         " ,$uid,$cid));
+           
             if(!empty($course_submission_date)){
-                $course_completion_date = date("d-m-Y",strtotime($course_submission_date));
-                $course_completion_date = str_replace('-', '/', $course_completion_date );
+                $course_completion_date = date("d-m-Y" , strtotime($course_submission_date));               
             }else{
                 $course_completion_date = null;
             }
-            return date_i18n(get_option( 'date_format' ), strtotime($course_completion_date));  
+        $completion_date = date_create($course_submission_date);
+        $course_completion_date = date_format($completion_date, 'd/m/Y');
+ 
+          return date_i18n($course_completion_date); 
+
         }
-        return '[course_completion_date]';
+     return '[course_completion_date]';
     }
 
 /*-----------------------------------------------------------------------------------*/

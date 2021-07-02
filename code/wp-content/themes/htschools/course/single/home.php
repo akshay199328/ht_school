@@ -34,7 +34,29 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
     <div class="details-left fixed_banner course_fixedBanner">
           <?php $gallery_data = get_post_meta($post->ID,'vibe_course_background_image',true); 
             //echo $attachment_element = wp_get_attachment_image( $gallery_data);
-             $attachment_element = wp_get_attachment_url( $gallery_data);
+             $attachment_element = wp_get_attachment_url( $gallery_data);   
+
+             $custom_fields = get_post_custom();                         
+                                                 
+                          $course_type="";
+            $course_type = $custom_fields['vibe_course_type'][0];
+
+             $str1="LIVE CLASSES";
+            $str2="LIVE + SELF PACED";
+            $str3="SELF PACED";
+        
+    if(strcmp($str2, $course_type)==0){
+       $badge_class = "blue";
+    }
+    elseif(strcmp($str3, $course_type)==0){
+       $badge_class = "green";
+    }
+    elseif(strcmp($str1, $course_type)==0){
+       $badge_class = "red";
+    }
+    else{
+      $badge_class = "";
+    }          
           ?>
           <img class="course_background_img" src="<?php echo $attachment_element;?>" onerror="this.style.display='none'">
             <div class="container">
@@ -42,7 +64,15 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                   <div class="breadcrumbs">
                     <?php vibe_breadcrumbs(); ?>
                   </div>
-                  <div class="content">
+
+                  <div class="content"> 
+
+<div>
+                  <?php if (!empty($course_type)){ ?>                            
+                <span class="badge <?php echo $badge_class;?>"><?php echo $course_type; ?></span> 
+            <?php }?> 
+</div>
+
                     <h2><?php bp_course_name(); ?></h2>
                     <?php
                       $courseID = $post->ID;
@@ -304,7 +334,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 <div class="">
                   <div class="col-sm-12 col-lg-12 pull-right left-spacing">
                     <div class="heading">
-                      <h3>Course Objectives</h3>
+                      <h3>Course Objectives</h3>                       
                     </div>
                     <div class="content-default-list">
                       <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
@@ -323,7 +353,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                   <div class="col-sm-12 col-lg-12 pull-right left-spacing">
                     <div class="col-sm-12 col-lg-3 mrg pull-left">
                       <div class="heading">
-                        <h3>Curriculum</h3>
+                        <h3>Curriculum</h3>                       
                       </div>
                     </div>
                     
@@ -448,8 +478,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     </div>
                     <div class="list mobile-slider">
                     <?php if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
-                          $custom_fields = get_post_custom();
-                          $duration = $custom_fields['vibe_validity'][0];
+                          $custom_fields = get_post_custom();   
+                          $duration = $custom_fields['vibe_validity'][0]; 
                           $age_limit = $custom_fields['vibe_course_age_group'][0];
                           $category_array = get_the_terms( $post->ID, 'course-cat');
                           $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
@@ -471,7 +501,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         <div class="details">
                           <div class="custom-price" style="display: none;" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></div>
                           <h4><?php echo $category_array[0]->name;?></h4>
-                          <?php bp_course_avatar(); ?>
+                          <?php bp_course_avatar(); ?>                                   
                           <h3><?php bp_course_title(); ?></h3>
                           <div class="col-sm-12 mrg session duration">
                             <h6><img src="<?php echo get_bloginfo('template_url')?>/assets/images/otherc-icon.png" class="img-fluid" />

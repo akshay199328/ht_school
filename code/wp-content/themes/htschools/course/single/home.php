@@ -42,7 +42,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             $course_type = $custom_fields['vibe_course_type'][0];
 
              $str1="LIVE CLASSES";
-            $str2="LIVE + SELF PACED";
+            $str2="BLENDED";
             $str3="SELF PACED";
         
     if(strcmp($str2, $course_type)==0){

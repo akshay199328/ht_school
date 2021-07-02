@@ -1201,13 +1201,13 @@ border: 1px solid deepskyblue;
     	<div class="batch_details">
 	       		<div class="batch_list">
 	              	<div class="heading">
-	                	<h6>Select batch</h6>
+	                	<h6>Select Preferred Date</h6>
 	              	</div>
 	      			<div id="div1"></div>
 	      		</div>
 	      		<div class="batch_list" id="select-time-slot" style="display: none;">
 	             	<div class="heading">
-	                	<h6>Select time slots</h6>
+	                	<h6>Select Time Slot</h6>
 	              	</div>
 	          		<div id="div2"></div>
 	          	</div>
@@ -1223,7 +1223,11 @@ border: 1px solid deepskyblue;
 		<input type="hidden" name="product_id" value="" id="product_id"/>
 		<input type="hidden" name="cart_url" id="cart_url" value="<?php echo wc_get_cart_url() ?>" />
 		<input type="hidden" name="variation_id" class="variation_id" value="0" id="variation_id"/>
-
+		<div class="transparent-note" style="display:none;">
+          	<span class="transparent">
+            	Class schedule subject to change. Final schedule will be communicated over email.
+          	</span>
+        </div>
 
 		<div class="livecourse_button">
 	    	<button type="button" class="btn" id="join_this_course">Join this Course</button>
@@ -1409,8 +1413,10 @@ border: 1px solid deepskyblue;
 										    html += "<span class='list time' id='slot_time'><input type='radio' name='slot_time' value='"+element+"'>"+element+"</span>";  
 										}); 
 										jQuery('#select-time-slot').css('display','block');
+
 										jQuery('#div2').append(html);
 										jQuery("#div2" ).change(function(){
+
 											jQuery('input:not(:checked)').parent().removeClass("selected");
 	        								jQuery('input:checked').parent().addClass("selected");
 											var sort_time = jQuery("input:radio[name=slot_time]:checked").val();
@@ -1425,6 +1431,7 @@ border: 1px solid deepskyblue;
 												data : jQuery("#product_slot").serialize(),
 													success: function(data) {
 														jQuery('#variation_id').val(data.variation_id);
+														jQuery('.transparent-note').show();
 														jQuery("#spinner-show").removeClass('spinner-show');
 														jQuery(".spinner-img").hide();
 													},

@@ -173,6 +173,17 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     
                   </div>
                 </div>
+                <div class="course-fees">
+                  <div class="">
+                        <h4 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h4>
+                         <div class="<?php echo strtolower($course_type) == 'live classes' ? 'live_course_class' : ''; ?>">
+                          <?php the_course_button(); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="livecourse_content">
+                    <span>We'll do our best to cater to your preferences! However, please note that the class schedule is subject to change. We will communicate on the final schedule over email.</span>
+                </div>
             </div>
             <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $post->post_title;?>">
             <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
@@ -186,14 +197,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
             <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
-            <div class="course-fees">
-              <div class="container">
-                    <h4 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h4>
-                     <div class="<?php echo strtolower($course_type) == 'live classes' ? 'live_course_class' : ''; ?>">
-                      <?php the_course_button(); ?>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <div class="pull-right right-section">
             <div class="course-aboutDetails grey-background" id="overview">

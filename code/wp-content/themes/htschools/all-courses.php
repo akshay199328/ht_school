@@ -915,7 +915,7 @@ get_header(vibe_get_header());
                   ?>
                   <div class="no-data">
                     <img src="<?php echo bloginfo('template_url')?>/assets/images/nofilter-icon.png">
-                    <p>No courses that match the selected filters! Please reset filters and try again.</p>
+                    <p>No Courses That Match The Selected Filters!<br/>Please Reset Filters And Try Again.</p>
                     <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
                   </div>
                 <?php } $i++; endwhile;}else{?>
@@ -936,54 +936,6 @@ get_header(vibe_get_header());
 
 </section>
 </main>
-<script type="text/javascript">
-  jQuery(document).ready(function(){
-     if(jQuery('.all_courses_list').length > 0) {
-
-      var itemListName  = "";
-      var allCourseItem = [];
-
-     
-      jQuery('.all_courses_list').each(function(){
-
-        let courseID = jQuery(this).attr('data-id');
-
-        if(typeof jQuery(this).attr('data-name') != "undefined" && jQuery(this).attr('data-name') == "other_courses") {
-          itemListName = "other_courses";
-        }
-
-        allCourseItem.push({
-          "price"       : jQuery("#course_price_" + courseID).val(),
-          "item_name"     : jQuery("#course_name_" + courseID).val(),
-          "course_url"    : jQuery("#course_url_" + courseID).val(),
-          "item_category"   : jQuery("#course_category_" + courseID).val(),
-          "course_partner"  : jQuery("#course_partner_" + courseID).val(),
-          "category_id"   : jQuery("#category_id_" + courseID).val(),
-          "item_id"     : jQuery("#course_id_" + courseID).val(),
-          "age_group"     : jQuery("#age_group_" + courseID).val(),
-          "course_duration" : jQuery("#course_duration_" + courseID).val(),
-          "session_duration"  : jQuery("#session_duration_" + courseID).val(),
-        });
-      });
-
-
-      let allCourseListMoegObj = {
-        "User identifier" : jQuery("#footer_user_identifier").val(),
-        "Session source"  : jQuery("#footer_session_source").val(),
-        "Timestamp"     : jQuery("#footer_timestamp").val(),
-        "UTM tags"      : jQuery("#footer_utm_tags").val(),
-      }
-
-      if(allCourseItem.length > 0) {
-        // dataLayer.push({ ecommerce: null });
-        allCourseListMoegObj.event = "mo_All_Courses_Viewed";
-        dataLayer.push({ ecommerce: null }); 
-        dataLayer.push(allCourseListMoegObj);
-        // Moengage.track_event("All_Courses_Viewed", allCourseListMoegObj);
-      }
-    }});
-
-</script>
  
 <?php
 get_footer(vibe_get_footer());

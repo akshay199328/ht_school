@@ -370,6 +370,17 @@ section {
       position: relative;
     top: -2px;
 }
+.transparent-note{
+  float: left;
+  width: 100%;
+  margin-bottom: 22px;
+}
+.transparent-note .transparent{
+    font-size: 11px;
+    line-height: 13px;
+    color: #000;
+    font-weight: normal;
+}
 .spinner-show{
     left: 0%;
     top: 0%;
@@ -390,6 +401,10 @@ section {
     height: 100px;
     width: 100px
 }
+.livecourse_content{
+  float: left;width: 100%;
+}
+.livecourse_content span{font-size: 10px;line-height: 13px;color: #fff; font-weight: 300;}
 @media screen and (max-width:1024px) and (min-width:768px){
   #liveCourseModal .modal-dialog {width: 65%;max-width: 80%;}
 }

@@ -149,8 +149,8 @@ dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;
 /*--------------------------------------------------------------
 # profile dropdown
 --------------------------------------------------------------*/
-.user_menu{display: none;}
-.user_menu.user_active{display: block;}
+.user_menu{display: none!important;}
+.user_menu.user_active{display: block!important;}
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/

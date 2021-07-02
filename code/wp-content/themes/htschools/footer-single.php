@@ -1192,29 +1192,7 @@ border: 1px solid deepskyblue;
             <div class="submitheading"><h1 id="live_course_name"></h1></div>
           	</div>
 
-          
-      	<?php $product_id = get_post_meta(1774,'vibe_product',true);
-            //echo $product_id;
-            $product = wc_get_product(1736);
-            $product_attributes = $product->get_attributes();
-            //print_r($product_attributes);
-            $attribute_keys  = array_keys( $product_attributes );
-            $attributes_array = get_post_meta( $product_id, '_product_attributes', true); 
-            //print_r($attributes_array);
-$product_slots = array();
-$available_variations = $product->get_available_variations();
-    $variations_json = wp_json_encode( $available_variations );
-    $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
-            foreach( $product_attributes as $attribute_taxonomy => $product_attribute){
-
-    // get the name (for example)
-    $name = $product_attribute->get_name();
-    //echo $name;
-    $attribute_data = $product_attribute->get_data();
-    $product_slots[$name] = $attribute_data['options'];
-    }
- ?>
-    <form class="variations_form cart live-course-details" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="false" id="product_slot">
+    <form class="variations_form cart live-course-details" data-product_id="" data-product_variations="false" id="product_slot">
     	<div class="alert-note" style="display: none;">
               <span class="light-red">
                 <img src="<?php echo bloginfo('template_url')?>/assets/images/alert.svg">Please Select batch and time Slots to join the course
@@ -1241,8 +1219,8 @@ $available_variations = $product->get_available_variations();
     	<input type="hidden" name="attribute_slot-date" id="attribute_slot-date" value="">
     	<input type="hidden" name="attribute_slot-time" id="attribute_slot-time" value="">
   
-		<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
-		<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
+		<input type="hidden" name="add-to-cart" value="" id="add-to-cart"/>
+		<input type="hidden" name="product_id" value="" id="product_id"/>
 		<input type="hidden" name="cart_url" id="cart_url" value="<?php echo wc_get_cart_url() ?>" />
 		<input type="hidden" name="variation_id" class="variation_id" value="0" id="variation_id"/>
 
@@ -1398,8 +1376,10 @@ $available_variations = $product->get_available_variations();
 						else{
 							jQuery("#spinner-show").removeClass('spinner-show');
 							jQuery(".spinner-img").hide();
+							jQuery("#add-to-cart").val(response.product_id);
+							jQuery("#product_id").val(response.product_id);
 							var html = '';
-							response.forEach(function(element) {  
+							response.slot_date.forEach(function(element) {  
 							    html += "<span class='list' id='slot_date'><input type='radio' name='slot_date' value='"+element+"'>"+element+"</span>";  
 							}); 
 							jQuery('#div1').append(html);

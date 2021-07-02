@@ -2026,7 +2026,13 @@
         }), J("ul", {className: "question_list"},t.options && t.options.length ? J(X, null, (t => s.map((function(s, a) {
             let r = t.options.findIndex(e => e == s);
             return J("li", {
-                className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : "")
+                className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : ""),
+                id: "p",
+                onChange: t => {
+                    jQuery('input:not(:checked)').parent().removeClass("checked_option");
+                    jQuery('input:checked').parent().addClass("checked_option");
+                }
+
             }, J("input", {
                 type: "radio",
                 name: e.quiz_id + "_" + t.id,
@@ -2034,6 +2040,7 @@
                 id: e.quiz_id + "_" + t.id + r,
                 checked: parseInt(t.marked_answer) === r,
                 onChange: t => {
+                    // alert("HELLO")
                     let s = {
                         ...e.question
                     };

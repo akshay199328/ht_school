@@ -3194,9 +3194,10 @@ function get_product_slot(){
         $name = $product_attribute->get_name();
         if($name == "Slot Date"){
           $attribute_data = $product_attribute->get_data();
-          $product_slots = $attribute_data['options'];
+          $product_slots['slot_date'] = $attribute_data['options'];
         }
       }
+      $product_slots['product_id'] = $product_id;
       echo json_encode($product_slots); exit;
   }
   else{

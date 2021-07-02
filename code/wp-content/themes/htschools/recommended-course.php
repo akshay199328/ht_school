@@ -205,7 +205,10 @@ vibe_include_template("profile/top$profile_layout.php");
                             <tr class="border_button">
                                 <td class="course-button">
                                     <h6 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h6>
+                                    <?php $course_type =get_post_meta($courseID,'vibe_course_type',true); ?>
+                                    <div class="<?php echo strtolower($course_type) == 'live classes' ? 'live_course_class' : ''; ?>">
                                     <?php the_course_button(); ?>
+                                    </div>
                                 </td>
                             </tr>
                             <tr class="profilecou-instructor">

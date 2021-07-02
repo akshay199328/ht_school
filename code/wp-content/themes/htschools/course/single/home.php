@@ -189,7 +189,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             <div class="course-fees">
               <div class="container">
                     <h4 class="custom-price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></h4>
-                     <?php the_course_button(); ?>
+                     <div class="<?php echo strtolower($course_type) == 'live classes' ? 'live_course_class' : ''; ?>">
+                      <?php the_course_button(); ?>
+                    </div>
                 </div>
             </div>
         </div>

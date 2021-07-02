@@ -30,7 +30,7 @@ else if(isset($_COOKIE['PHPSESSID']))
 <input type="hidden" id="footer_timestamp" value="<?php echo date('c', time()); ?>">
 <input type="hidden" id="footer_session_source">
 <input type="hidden" id="footer_utm_tags">
-
+<?php //require(''); ?>
 <footer id="footer" class="new-footer">
 	  <div class="new-footer-copy">
 	 <div class="footer-check" style="padding:0px;float: left;">
@@ -1381,7 +1381,8 @@ $available_variations = $product->get_available_variations();
 			
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 				e.preventDefault();
-				var link = jQuery(this).find('a').attr("href", '#');
+				var link = jQuery(this).find('a').attr("href");
+				var removeLink = jQuery(this).find('a').attr("href", '#');
 				jQuery('#div1').html('');
 				jQuery("#spinner-show").addClass('spinner-show');
 				jQuery(".spinner-img").show();
@@ -1391,68 +1392,73 @@ $available_variations = $product->get_available_variations();
 					url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot",
 					data : {course_id : course_id},
 					success: function(response) {
-						jQuery("#spinner-show").removeClass('spinner-show');
-						jQuery(".spinner-img").hide();
-						var html = '';
-						response.forEach(function(element) {  
-						    html += "<span class='list' id='slot_date'><input type='radio' name='slot_date' value='"+element+"'>"+element+"</span>";  
-						}); 
-						jQuery('#div1').append(html);
-						jQuery('.list input:radio[name="slot_date"]').change(function(){
-							// jQuery("input:radio[name='slot_date']:checked").parent().addClass("checked");
-							jQuery('input:not(:checked)').parent().removeClass("selected");
-        					jQuery('input:checked').parent().addClass("selected");
-							
-							var selected_slot_date = jQuery(this).val();
-							// jQuery(this).parent().addClass('selected');
-							jQuery('#attribute_slot-date').val(selected_slot_date);
-							jQuery("#spinner-show").addClass('spinner-show');
-							jQuery(".spinner-img").show();
-
-					        jQuery.ajax({
-								type : "POST",
-								dataType : "json",
-								url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot_time",
-								data : {course_id : course_id,selected_slot_date:selected_slot_date},
+						if(response == 0){
+							window.location.href = link;
+						}
+						else{
+							jQuery("#spinner-show").removeClass('spinner-show');
+							jQuery(".spinner-img").hide();
+							var html = '';
+							response.forEach(function(element) {  
+							    html += "<span class='list' id='slot_date'><input type='radio' name='slot_date' value='"+element+"'>"+element+"</span>";  
+							}); 
+							jQuery('#div1').append(html);
+							jQuery('.list input:radio[name="slot_date"]').change(function(){
+								// jQuery("input:radio[name='slot_date']:checked").parent().addClass("checked");
+								jQuery('input:not(:checked)').parent().removeClass("selected");
+	        					jQuery('input:checked').parent().addClass("selected");
 								
-								success: function(response) {
-								jQuery("#spinner-show").removeClass('spinner-show');
-								jQuery(".spinner-img").hide();
-									jQuery('#div2').html('');
-									var html = '';
-									response.forEach(function(element) {  
-									    html += "<span class='list time' id='slot_time'><input type='radio' name='slot_time' value='"+element+"'>"+element+"</span>";  
-									}); 
-									jQuery('#select-time-slot').css('display','block');
-									jQuery('#div2').append(html);
-									jQuery("#div2" ).change(function(){
-										jQuery('input:not(:checked)').parent().removeClass("selected");
-        								jQuery('input:checked').parent().addClass("selected");
-										var sort_time = jQuery("input:radio[name=slot_time]:checked").val();
-										// jQuery("input:radio[name=slot_time]").parent().addClass('selected');
-										jQuery('#attribute_slot-time').val(sort_time);
-										jQuery("#spinner-show").addClass('spinner-show');
-										jQuery(".spinner-img").show();
-										jQuery.ajax({
-												type : "POST",
-											dataType : "json",
-											url : "<?php echo home_url(); ?>/?wc-ajax=get_variation",
-											data : jQuery("#product_slot").serialize(),
-												success: function(data) {
-													jQuery('#variation_id').val(data.variation_id);
-													jQuery("#spinner-show").removeClass('spinner-show');
-													jQuery(".spinner-img").hide();
-												},
-												error: function(data) {
-												}
-											});
-									});
+								var selected_slot_date = jQuery(this).val();
+								// jQuery(this).parent().addClass('selected');
+								jQuery('#attribute_slot-date').val(selected_slot_date);
+								jQuery("#spinner-show").addClass('spinner-show');
+								jQuery(".spinner-img").show();
+
+						        jQuery.ajax({
+									type : "POST",
+									dataType : "json",
+									url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot_time",
+									data : {course_id : course_id,selected_slot_date:selected_slot_date},
 									
-									//jQuery("#liveCourseModal").modal("show");
-								}
-							});
-					    });
-						jQuery("#liveCourseModal").modal("show");
+									success: function(response) {
+									jQuery("#spinner-show").removeClass('spinner-show');
+									jQuery(".spinner-img").hide();
+										jQuery('#div2').html('');
+										var html = '';
+										response.forEach(function(element) {  
+										    html += "<span class='list time' id='slot_time'><input type='radio' name='slot_time' value='"+element+"'>"+element+"</span>";  
+										}); 
+										jQuery('#select-time-slot').css('display','block');
+										jQuery('#div2').append(html);
+										jQuery("#div2" ).change(function(){
+											jQuery('input:not(:checked)').parent().removeClass("selected");
+	        								jQuery('input:checked').parent().addClass("selected");
+											var sort_time = jQuery("input:radio[name=slot_time]:checked").val();
+											// jQuery("input:radio[name=slot_time]").parent().addClass('selected');
+											jQuery('#attribute_slot-time').val(sort_time);
+											jQuery("#spinner-show").addClass('spinner-show');
+											jQuery(".spinner-img").show();
+											jQuery.ajax({
+													type : "POST",
+												dataType : "json",
+												url : "<?php echo home_url(); ?>/?wc-ajax=get_variation",
+												data : jQuery("#product_slot").serialize(),
+													success: function(data) {
+														jQuery('#variation_id').val(data.variation_id);
+														jQuery("#spinner-show").removeClass('spinner-show');
+														jQuery(".spinner-img").hide();
+													},
+													error: function(data) {
+													}
+												});
+										});
+										
+										//jQuery("#liveCourseModal").modal("show");
+									}
+								});
+						    });
+							jQuery("#liveCourseModal").modal("show");
+						}
 					}
 				});
 			}

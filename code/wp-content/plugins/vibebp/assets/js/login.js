@@ -647,7 +647,22 @@
                     }))
                 },
                 LOGOUT: function(e) {
-                    localforage.removeItem("bp_login_token"), localforage.removeItem("bp_user")
+                    var session = sessionStorage.getItem('bp_user');
+                    var result = jQuery.parseJSON(session);
+                    let LogoutMoegObj = {
+                    "User identifier"   :jQuery("#footer_user_identifier").val(),                  
+                    "Email" :jQuery("#footer_user_email").val(),
+                  };
+                    dataLayer.push({ ecommerce: null });
+                    LogoutMoegObj.event = "mo_Logged_Out";
+
+                    dataLayer.push(LogoutMoegObj);
+                    console.log(LogoutMoegObj);
+                    setTimeout(function(){
+                     localforage.removeItem("bp_login_token"), localforage.removeItem("bp_user")
+                    }, 500);
+
+                   
                 }
             },
             resolvers: {
@@ -1292,6 +1307,7 @@
             })) : wp.element.createElement("a", {
                 href: c.profile_link
             }, window.vibebp.translations.profile)), wp.element.createElement("a", {
+                className : "ht-logout",
                 onClick: e.logout
             }, wp.element.createElement("span", {
                 className: "vicon vicon-power-off"

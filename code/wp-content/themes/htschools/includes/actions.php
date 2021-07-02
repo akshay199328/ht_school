@@ -763,9 +763,22 @@ class WPLMS_Actions{
 				        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
 				        //jQuery.cookie(name, null, {path: '/'})
 				    }
+				      let WEbLogoutMoegObj = {
+	                    "User identifier"   :jQuery("#footer_user_identifier").val(),                  
+	                    "Email" :jQuery("#footer_user_email").val(),
+	                  };
+                    dataLayer.push({ ecommerce: null });
+                    WEbLogoutMoegObj.event = "mo_Logged_Out";
 
+                    dataLayer.push(WEbLogoutMoegObj);
+                    console.log(WEbLogoutMoegObj);
+                    setTimeout(function(){
 				    //window.location.href = "/wp-login.php?action=logout";
 				    window.location.href = "<?php echo html_entity_decode(wp_logout_url('/')); ?>";
+                    }, 500);
+
+
+
 				    return false;
 				});
 
@@ -776,7 +789,7 @@ class WPLMS_Actions{
     				var user = JSON.parse(suser);	
     				
     				if(Object.keys(user).length){
-	    				document.querySelector('.vibebp-login').innerHTML='<div class="loggedin_user_div"><a class="loggedin_user" data-id="1"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.display_name+'</span></a><div class="user_menu active" style="display: none"><div class="usermenu_content"><a href="/members-directory/'+user.user_nicename+'">Profile </a></div><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon"></span>Logout </a></div></div>';
+	    				document.querySelector('.vibebp-login').innerHTML='<div class="loggedin_user_div"><a class="loggedin_user" data-id="1"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.display_name+'</span></a><div class="user_menu active"><div class="usermenu_content"><a href="/members-directory/'+user.user_nicename+'">Profile </a></div><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon"></span>Logout </a></div></div>';
 
 
 	    				<?php 

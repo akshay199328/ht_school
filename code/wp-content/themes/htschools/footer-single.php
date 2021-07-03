@@ -1223,13 +1223,13 @@ border: 1px solid deepskyblue;
 		<input type="hidden" name="product_id" value="" id="product_id"/>
 		<input type="hidden" name="cart_url" id="cart_url" value="<?php echo wc_get_cart_url() ?>" />
 		<input type="hidden" name="variation_id" class="variation_id" value="0" id="variation_id"/>
+        <div class="note" style="display: none;">
+            <span class="light-blue" id="slot_note"></span>
+        </div>
 		<div class="transparent-note" style="display:none;">
           	<span class="transparent">
             	Class schedule subject to change. Final schedule will be communicated over email.
           	</span>
-        </div>
-        <div class="note" style="display: none;">
-            <span class="light-blue" id="slot_note">The classes will take place on Mon 3-4 pm and Sat 10-11am every week </span>
         </div>
 		<div class="livecourse_button">
 	    	<button type="button" class="btn" id="join_this_course">Join this Course</button>
@@ -1366,10 +1366,11 @@ border: 1px solid deepskyblue;
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 				e.preventDefault();
 				var link = jQuery(this).find('a').attr("href");
-				var removeLink = jQuery(this).find('a').attr("href", '#');
+				var removeLink = jQuery(this).find('a').attr("href", 'javascript:void(0)');
 				jQuery('#div1').html('');
 				jQuery("#spinner-show").addClass('spinner-show');
 				jQuery(".spinner-img").show();
+				jQuery('#slot_note').text('');
 				jQuery.ajax({
 					type : "POST",
 					dataType : "json",
@@ -1439,16 +1440,15 @@ border: 1px solid deepskyblue;
 														dataType:"text",
 														data : {variation_id:data.variation_id,course_id:course_id},
 															success: function(data) {
-																console.log(data);
 																jQuery('.note').css('display','block');
 																jQuery('#slot_note').text(data);
+															jQuery('.transparent-note').show();
+															jQuery("#spinner-show").removeClass('spinner-show');
+															jQuery(".spinner-img").hide();
 															},
 															error: function(data) {
 															}
 														});
-														jQuery('.transparent-note').show();
-														jQuery("#spinner-show").removeClass('spinner-show');
-														jQuery(".spinner-img").hide();
 													},
 													error: function(data) {
 													}

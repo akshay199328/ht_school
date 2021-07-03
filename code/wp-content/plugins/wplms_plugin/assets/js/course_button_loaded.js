@@ -6528,16 +6528,18 @@
             },
             re = (t = null) => {
                 if (!t) {
-                    if (!(E && E.hasOwnProperty("title") && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.title.length > 3 && E.review.length > 3 && E.rating > 1)) return alert(window.wplms_course_data.translations.please_check_review_form), T(!1), !1;
+                    //if (!(E && E.hasOwnProperty("title") && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.title.length > 3 && E.review.length > 3 && E.rating > 1 )) return alert(window.wplms_course_data.translations.please_check_review_form), T(!1), !1;
+                    if (!(E && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.review.length > 3 && E.rating > 1 )) return alert(window.wplms_course_data.translations.please_check_review_form), T(!1), !1;
+                    
                     T(!0), E.comment_post_ID = e.course_id, E.course_id = e.course_id, E.token = Y.token, fetch(window.wplms_course_data.api_url + "/updatecourse/addreview", {
                         method: "post",
                         body: JSON.stringify(E)
                     }).then(e => e.json()).then(e => {
                         if (!e) return alert(window.wplms_course_data.translations.error_review_form), T(!1), !1;
                         if (e.status) T(!1);
-                        else if (e.message) return alert(e.message), T(!1), !1
+                       // else if (e.message) return alert(e.message), T(!1), !1
                     })
-                }
+                }                
                 T(!0), fetch(window.wplms_course_data.api_url + "/user/finishcourse", {
                     method: "post",
                     body: JSON.stringify({

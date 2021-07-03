@@ -3237,9 +3237,9 @@ $results = $wpdb->get_results( "SELECT bm.course_id,bm.batch_name,bm.variation_i
   $array_result=json_decode( json_encode($results), true);
   $day1 = date('D', strtotime($array_result[0]['slot_time']));
   $day2 = date('D', strtotime($array_result[1]['slot_time']));
-  $time1 = date('H A', strtotime($array_result[0]['slot_time']));
-  $time2 = date('H A', strtotime($array_result[1]['slot_time']));
-  $msg = "The classes will take place on ".$day1.' '.$time1.' and '.$day2.' '.$time2;
+  $time1 = date('g A', strtotime($array_result[0]['slot_time']));
+  $time2 = date('g A', strtotime($array_result[1]['slot_time']));
+  $msg = "The classes will take place on ".$day2.' '.$time2.' and '.$day1.' '.$time1;
   
   echo $msg;
   //print_r($second_date);

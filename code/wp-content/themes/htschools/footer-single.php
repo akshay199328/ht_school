@@ -1436,7 +1436,7 @@ border: 1px solid deepskyblue;
 														jQuery('#variation_id').val(data.variation_id);
 														jQuery.ajax({
 														type : "POST",
-														url : "<?php echo home_url();?> /wp-admin/admin-ajax.php?action=get_second_product_slot_time",
+														url : "<?php echo home_url();?>/wp-admin/admin-ajax.php?action=get_second_product_slot_time",
 														dataType:"text",
 														data : {variation_id:data.variation_id,course_id:course_id},
 															success: function(data) {

@@ -1375,7 +1375,10 @@ border: 1px solid deepskyblue;
 			var course_name = jQuery('#course_name_' + course_id).val();
 			jQuery('#live_course_name').text(course_name);
 			jQuery('#div2').html('');
+			jQuery('#div1').html('');
 			jQuery('#select-time-slot').css('display','none');
+			jQuery('.note').css('display','none');
+			jQuery('.transparent-note').hide();
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 				e.preventDefault();
 				var link = jQuery(this).find('a').attr("href");

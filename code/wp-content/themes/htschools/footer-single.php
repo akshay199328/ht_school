@@ -1362,7 +1362,8 @@ border: 1px solid deepskyblue;
 			var course_id = jQuery(this).data('id');
 			var course_name = jQuery('#course_name_' + course_id).val();
 			jQuery('#live_course_name').text(course_name);
-			
+			jQuery('#div2').html('');
+			jQuery('#select-time-slot').css('display','none');
 			if(jQuery(this).find('a').text().toLowerCase() == "join course") {
 				e.preventDefault();
 				var link = jQuery(this).find('a').attr("href");
@@ -1412,8 +1413,12 @@ border: 1px solid deepskyblue;
 									jQuery(".spinner-img").hide();
 										jQuery('#div2').html('');
 										var html = '';
-										response.forEach(function(element) {  
-										    html += "<span class='list time' id='slot_time'><input type='radio' name='slot_time' value='"+element+"'>"+moment(element, ["HH:mm"]).format("hh:mm A")+"</span>";  
+										response.forEach(function(element) { 
+											var disabled_class = '' 
+											if(element.max_qty <=0){
+												disabled_class = 'disable'
+											}
+										    html += "<span class='list time "+disabled_class+" ' id='slot_time'><input type='radio' name='slot_time' value='"+element.slot_time+"'>"+moment(element.slot_time, ["HH:mm"]).format("hh:mm A")+"</span>";  
 										}); 
 										jQuery('#select-time-slot').css('display','block');
 

@@ -3190,7 +3190,6 @@ function get_product_slot(){
     $variations_json = wp_json_encode( $available_variations );
     $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
     foreach( $product_attributes as $attribute_taxonomy => $product_attribute){
-
         // get the name (for example)
         $name = $product_attribute->get_name();
         if($name == "Slot Date"){
@@ -3217,12 +3216,17 @@ function get_product_slot_time(){
   $attributes_array = get_post_meta( $product_id, '_product_attributes', true); 
   $product_slots = array();
   $available_variations = $product->get_available_variations();
+  $slot_array = array();
   foreach($available_variations as $key => $value) {
     if($value['attributes']['attribute_slot-date'] == $product_slot_date){
-      $product_slots[] = $value['attributes']['attribute_slot-time'];
+    //print_r($value['attributes']['attribute_slot-time']);
+      $product_slots['slot_time'] = $value['attributes']['attribute_slot-time'];
+      $product_slots['max_qty'] =$value['max_qty'];
+    array_push($slot_array, $product_slots);
     }
   }
-    echo json_encode($product_slots); exit;
+
+    echo json_encode($slot_array); exit;
 }
 
 add_action("wp_ajax_get_product_slot_time", "get_product_slot_time");

@@ -2027,12 +2027,10 @@
             let r = t.options.findIndex(e => e == s);
             return J("li", {
                 className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : ""),
-                id: "p",
                 onChange: t => {
                     jQuery('input:not(:checked)').parent().removeClass("checked_option");
                     jQuery('input:checked').parent().addClass("checked_option");
                 }
-
             }, J("input", {
                 type: "radio",
                 name: e.quiz_id + "_" + t.id,
@@ -2040,7 +2038,6 @@
                 id: e.quiz_id + "_" + t.id + r,
                 checked: parseInt(t.marked_answer) === r,
                 onChange: t => {
-                    // alert("HELLO")
                     let s = {
                         ...e.question
                     };
@@ -3658,7 +3655,7 @@
                     } return a
         })() : "", e.questions[s[s.length - 1] + 1] && "undefined" != e.questions[s[s.length - 1] + 1] ? jt("span", {
             href: "#",
-            className: t.submitted ? "button ques_link right nextq" : "next_btn",
+            className: t.submitted ? "button ques_link right nextq faded" : "next_btn",
             onClick: e => {
                 l(e, 1)
             }
@@ -7286,8 +7283,8 @@
                 }
                 
             },
-            className: "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id
-        }, a)) : Array.isArray(i) ? mr("strong", {
+            className: (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id + " disabled" : "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id
+        }, (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? "Starts In " + l.live_course_starts_in : a)) : Array.isArray(i) ? mr("strong", {
             className: "course_button full"
         }, mr("a", {
             href: i[0].link,

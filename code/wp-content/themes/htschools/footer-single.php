@@ -1228,7 +1228,9 @@ border: 1px solid deepskyblue;
             	Class schedule subject to change. Final schedule will be communicated over email.
           	</span>
         </div>
-
+        <div class="note" style="display: none;">
+            <span class="light-blue" id="slot_note">The classes will take place on Mon 3-4 pm and Sat 10-11am every week </span>
+        </div>
 		<div class="livecourse_button">
 	    	<button type="button" class="btn" id="join_this_course">Join this Course</button>
 	  	</div>
@@ -1384,7 +1386,7 @@ border: 1px solid deepskyblue;
 							jQuery("#product_id").val(response.product_id);
 							var html = '';
 							response.slot_date.forEach(function(element) {  
-							    html += "<span class='list' id='slot_date'><input type='radio' name='slot_date' value='"+element+"'>"+element+"</span>";  
+							    html += "<span class='list' id='slot_date'><input type='radio' name='slot_date' value='"+element+"'>"+moment(element).format('D MMM')+"</span>";  
 							}); 
 							jQuery('#div1').append(html);
 							jQuery('.list input:radio[name="slot_date"]').change(function(){
@@ -1410,7 +1412,7 @@ border: 1px solid deepskyblue;
 										jQuery('#div2').html('');
 										var html = '';
 										response.forEach(function(element) {  
-										    html += "<span class='list time' id='slot_time'><input type='radio' name='slot_time' value='"+element+"'>"+element+"</span>";  
+										    html += "<span class='list time' id='slot_time'><input type='radio' name='slot_time' value='"+element+"'>"+moment(element, ["HH:mm"]).format("hh:mm A")+"</span>";  
 										}); 
 										jQuery('#select-time-slot').css('display','block');
 
@@ -1431,6 +1433,19 @@ border: 1px solid deepskyblue;
 												data : jQuery("#product_slot").serialize(),
 													success: function(data) {
 														jQuery('#variation_id').val(data.variation_id);
+														jQuery.ajax({
+														type : "POST",
+														url : "<?php echo home_url();?> /wp-admin/admin-ajax.php?action=get_second_product_slot_time",
+														dataType:"text",
+														data : {variation_id:data.variation_id,course_id:course_id},
+															success: function(data) {
+																console.log(data);
+																jQuery('.note').css('display','block');
+																jQuery('#slot_note').text(data);
+															},
+															error: function(data) {
+															}
+														});
 														jQuery('.transparent-note').show();
 														jQuery("#spinner-show").removeClass('spinner-show');
 														jQuery(".spinner-img").hide();

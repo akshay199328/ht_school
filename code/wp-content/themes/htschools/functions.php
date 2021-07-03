@@ -264,6 +264,7 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 
     wp_enqueue_style( 'wplms-owl-carousel', '//cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css' );
     wp_enqueue_script( 'wplms-carousel', '//cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
+    wp_enqueue_script( 'moment', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js', '', '', true );
 
     wp_enqueue_script( 'wplms-main-js', get_template_directory_uri(). '/assets/js/main.js', '', '', true );
     wp_enqueue_script( 'wplms-mobile-js', get_template_directory_uri(). '/assets/js/mobile.js', '', '', true );
@@ -3226,3 +3227,23 @@ function get_product_slot_time(){
 
 add_action("wp_ajax_get_product_slot_time", "get_product_slot_time");
 add_action( 'wp_ajax_nopriv_get_product_slot_time', 'get_product_slot_time' );
+
+function get_second_product_slot_time(){
+  global $wpdb;
+  $variation_id = $_POST['variation_id'];
+  $course_id = $_POST['course_id'];
+$results = $wpdb->get_results( "SELECT bm.course_id,bm.batch_name,bm.variation_id,sm.slot_time FROM ht_batch_master AS bm  LEFT JOIN ht_slot_master AS sm ON sm.batch_id = bm.id WHERE course_id = '".$course_id."' AND bm.variation_id = '".$variation_id."'" );
+
+  $array_result=json_decode( json_encode($results), true);
+  $day1 = date('D', strtotime($array_result[0]['slot_time']));
+  $day2 = date('D', strtotime($array_result[1]['slot_time']));
+  $time1 = date('H A', strtotime($array_result[0]['slot_time']));
+  $time2 = date('H A', strtotime($array_result[1]['slot_time']));
+  $msg = "The classes will take place on ".$day1.' '.$time1.' and '.$day2.' '.$time2;
+  
+  echo $msg;
+  //print_r($second_date);
+  //echo json_encode($results); exit;
+}
+add_action("wp_ajax_get_second_product_slot_time", "get_second_product_slot_time");
+add_action( 'wp_ajax_nopriv_get_second_product_slot_time', 'get_second_product_slot_time' );

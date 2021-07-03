@@ -1034,6 +1034,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$is_aiws_course = 0;
 			$aiws_course_link = "";
 			$is_profile_complete = 0;
+			$is_live_course = 0;
 
 			$user_mobile = get_profile_data('Phone');
 			$user_birthday = get_profile_data('Birthday');
@@ -1050,7 +1051,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			}*/
 
 			if($dob!='' && $user_gender != '' && $user_mobile != '' && $user_school != ''){
-				$is_profile_complete = 1;
+				$is_profile_complete = 0;
 			}
 
 			$cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);
@@ -1173,7 +1174,28 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 
 						$progress = bp_course_get_user_progress($this->user->id,$course_id);
 						$category_array = get_the_terms($course_id, 'course-cat');
+						$course_type = get_post_meta($course_id,'vibe_course_type',true);
+						if(strtolower($course_type) == "live classes"){
+							$is_live_course = 1;
+						}
 						//Course Status openning on Course Page
+						global $wpdb;
+						$get_live_course_start_data = $wpdb->get_results("SELECT bm.course_id,bm.batch_name,bm.variation_id,bsm.user_id,bm.start_on FROM ht_batch_master AS bm LEFT JOIN ht_batch_student_mapping AS bsm ON bsm.batch_id = bm.id WHERE bsm.user_id = '".$this->user->id."' AND course_id = '".$course_id."'");
+						$live_course_data=json_decode( json_encode($get_live_course_start_data), true);
+						$live_course_start_date = $live_course_data[0]['start_on'];
+						$current_date = new DateTime();
+						if($status == 1){
+							if ($current_date <= new DateTime($live_course_start_date)) {
+								$datetime2 = new DateTime($live_course_start_date);
+								$interval = $current_date->diff($datetime2);
+                				$live_course_starts_in = $interval->format('%a days');
+								$is_live_course_start = 0;
+							}
+							else{
+								$is_live_course_start = 1;
+								$live_course_starts_in = 1;
+							}
+						}
 						$_course_data = array(
 							'id'                    => $course_id,
 							'name'                  => get_the_title($course_id),
@@ -1196,7 +1218,12 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							'link'					=> get_permalink($course_id),
 							'course_retakes'        => bp_course_get_course_retakes($course_id,$this->user->id),
 							'user_retakes'        	=> bp_course_get_user_course_retakes($course_id,$this->user->id),
-							'category' 				=> $category_array[0]->name
+							'category' 				=> $category_array[0]->name,
+							'courses_type'          => $course_type,
+							'is_course_start' => $is_course_start,
+							'is_live_course' => $is_live_course,
+							'live_course_starts_in' => $live_course_starts_in,
+							'is_live_course_start' => $is_live_course_start,
 						);
 						$return['course'] = $_course_data;
 						$return['text'] = $statuses[$status];

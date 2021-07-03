@@ -3250,3 +3250,20 @@ $results = $wpdb->get_results( "SELECT bm.course_id,bm.batch_name,bm.variation_i
 }
 add_action("wp_ajax_get_second_product_slot_time", "get_second_product_slot_time");
 add_action( 'wp_ajax_nopriv_get_second_product_slot_time', 'get_second_product_slot_time' );
+
+function check_if_cart_has_product( $valid, $product_id, $quantity ) {  
+
+    if(!empty(WC()->cart->get_cart()) && $valid){
+        foreach (WC()->cart->get_cart() as $cart_item_key => $values) {
+            $_product = $values['data'];
+
+            if( $product_id == $_product->get_id() ) {
+                unset(WC()->cart->cart_contents[$cart_item_key]);
+            }
+        }
+    }
+
+    return $valid;
+
+}
+add_filter( 'woocommerce_add_to_cart_validation', 'check_if_cart_has_product', 10, 3 );

@@ -1051,7 +1051,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			}*/
 
 			if($dob!='' && $user_gender != '' && $user_mobile != '' && $user_school != ''){
-				$is_profile_complete = 0;
+				$is_profile_complete = 1;
 			}
 
 			$cb_course_id = get_post_meta($course_id,'celeb_school_course_id',true);

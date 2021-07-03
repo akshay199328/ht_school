@@ -8364,5 +8364,10 @@ td .add-wishlist{top:0;
     top: -6px;
 }
 .cart_item td.product-name .variation,
-.product-name .wc-item-meta {display: none!important}
+.product-name .wc-item-meta,
+.woocommerce-cart .woocommerce-error {display: none!important}
 input.form-control{margin-left: 0px!important;}
+/*.live_course_class .disabled{cursor: not-allowed;}*/
+.course_button.disabled{
+  pointer-events: none;
+}

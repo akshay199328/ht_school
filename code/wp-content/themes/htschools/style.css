@@ -320,7 +320,8 @@ section {
 }
 .batch_list .list.disable{
     opacity: 40%;
-    cursor: not-allowed;
+    pointer-events: none;
+    
 }
 .batch_list .list img{
   margin-right: 6px;

@@ -1250,7 +1250,11 @@ border: 1px solid deepskyblue;
 			var signUpDataMoengObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage"]); ?>');
 			console.log(signUpDataLayerObj);
 			dataLayer.push(signUpDataLayerObj);
-			Moengage.track_event("<?php echo $_SESSION['sign_up_data']['moengage_type']; ?>", signUpDataMoengObj);
+
+			signUpDataMoengObj.event = "mo_" + "<?php echo $_SESSION['sign_up_data']['moengage_type']; ?>";
+			dataLayer.push({ ecommerce: null }); 
+			dataLayer.push(signUpDataMoengObj);
+			// Moengage.track_event("<?php //echo $_SESSION['sign_up_data']['moengage_type']; ?>", signUpDataMoengObj);
 		});
 	</script>
 	<?php unset($_SESSION['sign_up_data']);
@@ -1264,22 +1268,30 @@ border: 1px solid deepskyblue;
 	})
 
 	jQuery( ".epaper a" ).click(function() {
-	   	Moengage.track_event("ePaper_Viewed", {
-					"User identifier"	: jQuery("#user_identifier").val(),
-					"Session source"	: jQuery("#session_source").val(),
-					"Timestamp"			: jQuery("#timestamp").val(),
-					"UTM tags"			: jQuery("#utm_tags").val(),
-				});
-
+	  let ePaperViewedMoegObj = {
+			"User identifier"	: jQuery("#user_identifier").val(),
+			"Session source"	: jQuery("#session_source").val(),
+			"Timestamp"			: jQuery("#timestamp").val(),
+			"UTM tags"			: jQuery("#utm_tags").val(),
+		}
+	   	ePaperViewedMoegObj.event = "mo_ePaper_Viewed";
+	   	dataLayer.push({ ecommerce: null }); 
+	   	dataLayer.push(ePaperViewedMoegObj);
+	   	// Moengage.track_event("ePaper_Viewed", ePaperViewedMoegObj);
 	});
 	jQuery( ".logos a" ).click(function() {
-		Moengage.track_event("HT_Property_Visited", {
-			     "User identifier"	: jQuery("#user_identifier").val(),
-				 "Session source"	: jQuery("#session_source").val(),
-				 "Timestamp"		: jQuery("#timestamp").val(),
-				 "UTM tags"			: jQuery("#utm_tags").val(),
-			     "HT Property name":  jQuery(this).attr("href"),
-		});
+		let visitedMoejObj = {
+			"User identifier"	: jQuery("#user_identifier").val(),
+			"Session source"	: jQuery("#session_source").val(),
+			"Timestamp"			: jQuery("#timestamp").val(),
+			"UTM tags"			: jQuery("#utm_tags").val(),
+			"HT Property name"	: jQuery(this).attr("href"),
+		}
+
+		visitedMoejObj.event = "mo_HT_Property_Visited";
+		dataLayer.push({ ecommerce: null }); 
+		dataLayer.push(visitedMoejObj);
+		// Moengage.track_event("HT_Property_Visited", visitedMoejObj);
 
 		let visitedObj = {
 			"event"		: 'ht_property_visited',
@@ -1526,7 +1538,9 @@ border: 1px solid deepskyblue;
 				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(addToCartObj);
 				console.log(addToCartObj);
-				Moengage.track_event("Added_To_Cart", addToCartMoegObj);
+				addToCartMoegObj.event = "mo_Added_To_Cart";
+				dataLayer.push(addToCartMoegObj);
+				// Moengage.track_event("Added_To_Cart", addToCartMoegObj);
 
 				setTimeout(function(){
 					window.location.href = link;
@@ -1584,7 +1598,10 @@ border: 1px solid deepskyblue;
 			// dataLayer.push({ ecommerce: null });
 			dataLayer.push(addWishlistObj);
 			console.log(addWishlistObj);
-			Moengage.track_event("Course_Wishlisted", addWishlistMoegObj);
+	        dataLayer.push({ ecommerce: null });
+			addWishlistMoegObj.event = "mo_Course_Wishlisted";
+			dataLayer.push(addWishlistMoegObj);
+			// Moengage.track_event("Course_Wishlisted", addWishlistMoegObj);
 
 			setTimeout(function(){
 				window.location.href = link;
@@ -1682,7 +1699,14 @@ border: 1px solid deepskyblue;
 				// dataLayer.push({ ecommerce: null });
 				dataLayer.push(allCourseObj);
 				console.log(allCourseObj);
-				Moengage.track_event("All_Courses_Viewed", allCourseListMoegObj);
+
+				if(itemListName == "course") {
+					
+					allCourseListMoegObj.event = "mo_All_Courses_Viewed";
+					dataLayer.push({ ecommerce: null }); 
+					dataLayer.push(allCourseListMoegObj);
+					// Moengage.track_event("All_Courses_Viewed", allCourseListMoegObj);
+				}
 			}
 		}
 
@@ -1728,7 +1752,10 @@ border: 1px solid deepskyblue;
 				"Share channel"		: shareChannel,
 			}
 
-			Moengage.track_event("Course_Shared", courseSharedMoegObj);
+			courseSharedMoegObj.event = "mo_Course_Shared";
+			dataLayer.push({ ecommerce: null }); 
+			dataLayer.push(courseSharedMoegObj);
+			// Moengage.track_event("Course_Shared", courseSharedMoegObj););
 		}
 	});
 	jQuery( "#slot-time" ).change(function(){

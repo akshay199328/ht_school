@@ -1186,15 +1186,24 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 						$current_date = new DateTime();
 						if($status == 1){
 							if ($current_date <= new DateTime($live_course_start_date)) {
-								$datetime2 = new DateTime($live_course_start_date);
-								$interval = $current_date->diff($datetime2);
-                				$live_course_starts_in = $interval->format('%a days');
-								$is_live_course_start = 0;
-							}
-							else{
-								$is_live_course_start = 1;
-								$live_course_starts_in = 1;
-							}
+				                $datetime2 = new DateTime($live_course_start_date);
+				                $interval = $current_date->diff($datetime2);
+				                $live_course_starts_in = $interval->format('%a');
+				                if($live_course_starts_in != 1 && $live_course_starts_in != 0){
+				                  $live_course_starts_in_days = "Starts In ".$live_course_starts_in. " Days";
+				                }
+				                else if($live_course_starts_in == 0){
+				                  $live_course_starts_in_days = "Starts Today";
+				                }
+				                else if($live_course_starts_in == 1){
+				                  $live_course_starts_in_days = "Starts Tomorrow";
+				                }
+				                $is_live_course_start = 0;
+				            }
+				            else{
+				                $is_live_course_start = 1;
+				                $live_course_starts_in = 1;
+				            }
 						}
 						$_course_data = array(
 							'id'                    => $course_id,
@@ -1222,7 +1231,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							'courses_type'          => $course_type,
 							'is_course_start' => $is_course_start,
 							'is_live_course' => $is_live_course,
-							'live_course_starts_in' => $live_course_starts_in,
+							'live_course_starts_in_days' => $live_course_starts_in_days,
 							'is_live_course_start' => $is_live_course_start,
 						);
 						$return['course'] = $_course_data;

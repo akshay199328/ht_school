@@ -7285,8 +7285,12 @@
                 }
                 
             },
-            className: (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id + " disabled" : "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id
-        }, (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? "Starts In " + l.live_course_starts_in : a)) : Array.isArray(i) ? mr("strong", {
+            className: (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? "course_button full button_cource_id_" + l.id + " disabled" : "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id
+        }, (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? "Starts In " + l.live_course_starts_in : a), mr("div", {
+            className : "livecourse_content"
+        },
+        (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? mr("span", null,"We'll do our best to cater to your preferences! However, please note that the class schedule is subject to change. We will communicate on the final schedule over email.") : ""
+        )) : Array.isArray(i) ? mr("strong", {
             className: "course_button full"
         }, mr("a", {
             href: i[0].link,

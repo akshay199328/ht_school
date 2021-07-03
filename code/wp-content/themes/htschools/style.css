@@ -405,8 +405,9 @@ section {
     width: 100px
 }
 .livecourse_content{
-  float: left;width: 100%;
+  float: left;width: 100%;display: none;margin-top: 15px;
 }
+.fixed_banner .livecourse_content{display: block;}
 .livecourse_content span{font-size: 10px;line-height: 13px;color: #fff; font-weight: 300;}
 @media screen and (max-width:1024px) and (min-width:768px){
   #liveCourseModal .modal-dialog {width: 65%;max-width: 80%;}

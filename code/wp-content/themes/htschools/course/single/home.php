@@ -181,9 +181,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         </div>
                     </div>
                 </div>
-                <div class="livecourse_content">
-                    <span>We'll do our best to cater to your preferences! However, please note that the class schedule is subject to change. We will communicate on the final schedule over email.</span>
-                </div>
             </div>
             <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $post->post_title;?>">
             <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">

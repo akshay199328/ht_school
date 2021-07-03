@@ -3246,8 +3246,7 @@ $results = $wpdb->get_results( "SELECT bm.course_id,bm.batch_name,bm.variation_i
   $msg = "The classes will take place on ".$day2.' '.$time2.' and '.$day1.' '.$time1;
   
   echo $msg;
-  //print_r($second_date);
-  //echo json_encode($results); exit;
+  exit;
 }
 add_action("wp_ajax_get_second_product_slot_time", "get_second_product_slot_time");
 add_action( 'wp_ajax_nopriv_get_second_product_slot_time', 'get_second_product_slot_time' );

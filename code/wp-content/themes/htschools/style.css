@@ -8365,3 +8365,4 @@ td .add-wishlist{top:0;
 }
 .cart_item td.product-name .variation,
 .product-name .wc-item-meta {display: none!important}
+input.form-control{margin-left: 0px!important;}

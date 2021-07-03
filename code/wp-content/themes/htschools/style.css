@@ -8363,3 +8363,5 @@ td .add-wishlist{top:0;
     position: relative;
     top: -6px;
 }
+.cart_item td.product-name .variation,
+.product-name .wc-item-meta {display: none!important}

@@ -38,9 +38,19 @@ vibe_include_template("profile/top$profile_layout.php");
                         }
                     }
                     $count = count($count_array);
-                    foreach ($article_data as $post_id) {
-                       
-                    $post = get_post($post_id);
+                    $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
+                    $query_args = array(
+                      'post_type'=>'post',
+                      'post_status'=>'publish',
+                      'posts_per_page'=>6,
+                      'post__in'=>$count_array,
+                      'paged'=>$paged
+                    );
+                    $wp_query  = new WP_query($query_args);
+                    if($wp_query->have_posts()){
+                    while($wp_query->have_posts()){
+                    $wp_query->the_post();
+                    //$post = get_post($post_id);
 
                     if ( has_post_thumbnail() ) { 
                         $featured_image = get_the_post_thumbnail_url();
@@ -118,7 +128,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 
             </div>
             <?php 
-             }
+             }}
             }
             if($count < 1){
             ?>
@@ -131,7 +141,7 @@ vibe_include_template("profile/top$profile_layout.php");
         </div>
     </div>
 </div>
-
+<div class="pagination-links"><?php echo custom_pagination( $wp_query ); ?>
 <div id="empty"></div>
 <?php do_action( 'bp_after_member_settings_template' ); ?>
 </div>		

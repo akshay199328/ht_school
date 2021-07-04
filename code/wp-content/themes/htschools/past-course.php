@@ -44,19 +44,22 @@ vibe_include_template("profile/top$profile_layout.php");
                     $args['post__in'][]=$courseId;
                 }
             }
+            $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
 			if(!empty($finished_courses)){
 				$query_args = array(
 					'post_type'=>'course',
 					'post_status'=>'publish',
-					'post__in'=>$args['post__in']
+					'posts_per_page'=>6,
+					'post__in'=>$args['post__in'],
+					'paged'=>$paged
 				);
-				$results  = new WP_query($query_args);
+				$wp_query  = new WP_query($query_args);
 				$courses = array();
-				if($results->have_posts()){
+				if($wp_query->have_posts()){
 					$badges = bp_course_get_user_badges($user->ID);
 					$certificates = bp_course_get_user_certificates($user->ID);
-					while($results->have_posts()){
-						$results->the_post();
+					while($wp_query->have_posts()){
+						$wp_query->the_post();
 						$marks = bp_course_get_marks($user->ID,get_the_ID());
 						$has_certificate = (!empty($certificates) && in_Array(get_the_ID(),$certificates))?1:0;
 						$has_badge = (!empty($badges) && in_array(get_the_ID(),$badges)?1:0);
@@ -248,6 +251,7 @@ vibe_include_template("profile/top$profile_layout.php");
 				<?php }
 
 				?>
+				<div class="pagination-links"><?php echo custom_pagination( $wp_query ); ?>
    	</section>
    	<input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
    	<input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">

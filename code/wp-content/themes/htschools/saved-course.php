@@ -40,10 +40,18 @@ vibe_include_template("profile/top$profile_layout.php");
       }
     $count = count($count_array);
     if($count > 0){
-    foreach ($course_data as $post_id) {
-
-      $post = get_post($post_id);
-
+      $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
+      $query_args = array(
+          'post_type'=>'course',
+          'post_status'=>'publish',
+          'posts_per_page'=>6,
+          'post__in'=>$count_array,
+          'paged'=>$paged
+        );
+      $wp_query  = new WP_query($query_args);
+    if($wp_query->have_posts()){
+      while($wp_query->have_posts()){
+        $wp_query->the_post();
       if ( has_post_thumbnail() ) { 
         $featured_image = get_the_post_thumbnail_url();
       }
@@ -232,7 +240,7 @@ vibe_include_template("profile/top$profile_layout.php");
             </div>
         </div>
       <?php }
-    }
+    }}
     ?>
   </div>
   <?php }else{ ?>
@@ -242,6 +250,7 @@ vibe_include_template("profile/top$profile_layout.php");
     <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
   </div>
 <?php }?>
+<div class="pagination-links"><?php echo custom_pagination( $wp_query ); ?>
   <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
   <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
   <input type="hidden" id="session_source">

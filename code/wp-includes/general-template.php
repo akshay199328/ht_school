@@ -4177,8 +4177,11 @@ function paginate_links( $args = '' ) {
 		'aria_current'       => 'page',
 		'show_all'           => false,
 		'prev_next'          => true,
+		'prev_first'          =>true,
+		'prev_first_text'          => __( '<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg>' ),
 		'prev_text'          => __( '&laquo; Previous' ),
 		'next_text'          => __( 'Next &raquo;' ),
+		'next_last'          => __( '<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>' ),
 		'end_size'           => 1,
 		'mid_size'           => 2,
 		'type'               => 'plain',
@@ -4186,6 +4189,8 @@ function paginate_links( $args = '' ) {
 		'add_fragment'       => '',
 		'before_page_number' => '',
 		'after_page_number'  => '',
+		// 'before_page_number' => '<a href="'.get_pagenum_link(1) . '%_%'.'"><</a>',
+		// 'after_page_number' => '<a href="'.get_pagenum_link($to) . '%_%'.'">></a>',
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -4232,6 +4237,26 @@ function paginate_links( $args = '' ) {
 	$page_links = array();
 	$dots       = false;
 
+	if ( $args['prev_first'] && $current && 1 < $current) :
+		$link = str_replace( '%_%', 2 == $current ? '' : $args['format'], $args['base'] );
+		$link = str_replace( '%#%', 1, $link );
+		if ( $add_args ) {
+			$link = add_query_arg( $add_args, $link );
+		}
+		$link .= $args['add_fragment'];
+		$page_links[] = sprintf(
+			'<a class="page-num-first page-numbers" href="%s">%s</a>',
+			/**
+			 * Filters the paginated links for the given archive pages.
+			 *
+			 * @since 3.0.0
+			 *
+			 * @param string $link The paginated link URL.
+			 */
+			esc_url( apply_filters( 'paginate_links', $link ) ),
+			$args['prev_first_text']
+		);
+	endif;
 	if ( $args['prev_next'] && $current && 1 < $current ) :
 		$link = str_replace( '%_%', 2 == $current ? '' : $args['format'], $args['base'] );
 		$link = str_replace( '%#%', $current - 1, $link );
@@ -4239,7 +4264,6 @@ function paginate_links( $args = '' ) {
 			$link = add_query_arg( $add_args, $link );
 		}
 		$link .= $args['add_fragment'];
-
 		$page_links[] = sprintf(
 			'<a class="prev page-numbers" href="%s">%s</a>',
 			/**
@@ -4253,6 +4277,7 @@ function paginate_links( $args = '' ) {
 			$args['prev_text']
 		);
 	endif;
+
 
 	for ( $n = 1; $n <= $total; $n++ ) :
 		if ( $n == $current ) :
@@ -4301,6 +4326,22 @@ function paginate_links( $args = '' ) {
 			/** This filter is documented in wp-includes/general-template.php */
 			esc_url( apply_filters( 'paginate_links', $link ) ),
 			$args['next_text']
+		);
+	endif;
+
+	if ( $args['prev_next'] && $current && $current < $total) :
+		$link = str_replace( '%_%', $args['format'], $args['base'] );
+		$link = str_replace( '%#%', $total, $link );
+		if ( $add_args ) {
+			$link = add_query_arg( $add_args, $link );
+		}
+		$link .= $args['add_fragment'];
+
+		$page_links[] = sprintf(
+			'<a class="page-numbers page-num-last" href="%s">%s</a>',
+			/** This filter is documented in wp-includes/general-template.php */
+			esc_url( apply_filters( 'paginate_links', $link ) ),
+			$args['next_last']
 		);
 	endif;
 

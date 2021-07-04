@@ -6247,21 +6247,29 @@ h6:empty,
     background: url(https://htschool.hindustantimes.com/wp-content/themes/htschools/assets/images/page-next.svg) no-repeat center center;
     width: 8px!important;
     height: 9px!important;
-    line-height: 12px;
+    line-height: 13px;
 }
 .pagination-links .prev  {
     font-size: 0;
     background: url(https://htschool.hindustantimes.com/wp-content/themes/htschools/assets/images/page-prev.svg) no-repeat center center;
     width: 8px!important;
     height: 9px!important;
-    line-height: 12px;
+    line-height: 13px;
 }
 .pagination-links a:hover,
 .pagination-links span:hover {
     transform: none !important;
     color: #000;
 }
-
+.page-num-first, .page-num-last {
+    padding: 0!important;
+    width: auto!important;
+    height: auto!important;
+    line-height: 12px!important;
+    position: relative;
+    top: 0!important;
+    color: #000!important;
+}
 .pagination li.active a,
 .pagination-links span.current {
     background: #d5ebff !important;

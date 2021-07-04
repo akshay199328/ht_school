@@ -79,22 +79,24 @@ vibe_include_template("profile/top$profile_layout.php");
                             $coursearray[] = $course_id;
                         }
                       }
+                      $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
                         $args['post__in'] = $coursearray;
                         $unique_courses = array_unique($args['post__in']);
                         $recommended_courses = array_diff($unique_courses,$active_courses);
                         if( !empty( $recommended_courses ) ) {
                             $query_args = apply_filters('wplms_mycourses',array(
                             'post_type'=>'course',
-                            'posts_per_page' => 2,
-                            'post__in'=>$recommended_courses
+                            'posts_per_page' => 6,
+                            'post__in'=>$recommended_courses,
+                            'paged'=>$paged
                             ),$user->ID);
-                            $Query_course = new WP_Query($query_args);
+                            $wp_query = new WP_Query($query_args);
                         }
                     }
 
-                    if($Query_course != NULL){
+                    if($wp_query != NULL){
 
-                    if ($Query_course->have_posts()) : while ($Query_course->have_posts()) : $Query_course->the_post();
+                    if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                         $custom_fields = get_post_custom();
                         $duration = $custom_fields['vibe_validity'][0];
                          $course_type="";
@@ -274,6 +276,7 @@ vibe_include_template("profile/top$profile_layout.php");
                     <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
                 </div>
             <?php } ?>
+          <div class="pagination-links"><?php echo custom_pagination( $wp_query ); ?>
           <input type="hidden" id="user_identifier" value="<?php echo $userIdentifier;?>">
           <input type="hidden" id="timestamp" value="<?php echo date('c', time());?>">
           <input type="hidden" id="session_source">

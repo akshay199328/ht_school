@@ -3655,7 +3655,7 @@
                     } return a
         })() : "", e.questions[s[s.length - 1] + 1] && "undefined" != e.questions[s[s.length - 1] + 1] ? jt("span", {
             href: "#",
-            className: t.submitted ? "button ques_link right nextq faded" : "next_btn",
+            className: t.submitted ? "button ques_link right nextq" : "next_btn",
             onClick: e => {
                 l(e, 1)
             }

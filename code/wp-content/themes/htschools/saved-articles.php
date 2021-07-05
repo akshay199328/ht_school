@@ -130,7 +130,7 @@ vibe_include_template("profile/top$profile_layout.php");
             <?php 
              }}
             }
-            if($count < 1){
+            else {
             ?>
             <div class="empty_cart_div">
                 <div class="empty_article_image"></div>

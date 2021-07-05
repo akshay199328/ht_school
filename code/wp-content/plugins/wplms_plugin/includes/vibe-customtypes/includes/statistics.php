@@ -1058,7 +1058,7 @@ function lms_student_info_data($page_num,$num){
 	if(count($schoolFieldIDList) > 0)	$schoolFieldID = $schoolFieldIDList[0]->ID;
 
 	$st_stats=apply_filters('wplms_report_student_stats', $wpdb->get_results("
-		SELECT posts.post_title as course,umeta.user_id as user,(SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key = umeta.user_id AND post_id = posts.ID) as score,posts.ID as course_id
+		SELECT posts.post_title as course,umeta.user_id as user,(SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key = umeta.user_id AND post_id = posts.ID LIMIT 1) as score,posts.ID as course_id
 	    FROM {$wpdb->usermeta} AS umeta
 	    LEFT JOIN {$wpdb->posts} AS posts ON umeta.meta_key = posts.ID
 	    WHERE 	posts.post_type 	= 'course'

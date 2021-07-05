@@ -111,6 +111,7 @@ $(document).ready(function() {
     slideBy: 2,
     startPosition: 5,
     items:2,
+    autoplay:true,
     autoplayHoverPause: true,
     responsive : {
         0 : {

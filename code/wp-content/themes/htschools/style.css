@@ -149,6 +149,44 @@ dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;
 /*--------------------------------------------------------------
 # profile dropdown
 --------------------------------------------------------------*/
+/*login-section*/
+
+.user_menu .usermenu_content{padding:0;}
+
+.user_menu{
+  width: 230px !important;
+      top: 38px !important;
+    right: 0px !important;
+    box-shadow: 0px 5px 10px #00000010;
+    border-radius: 0px!important;
+    padding:15px !important;
+    border:1px solid #E8E8E8;
+}
+.user_menu .usermenu_content a{padding:0 !important;}
+.user_menu .usermenu_content a span{margin-right:13px !important}
+.user_menu.active a{
+  font-size: 15px;
+  line-height: 40px;
+  color: #4B4B4B;
+  padding: 0px 10px !important;
+  font-weight: 400 !important;
+}
+.user_menu.active a>span{
+  line-height: 40px !important;
+}
+.usermenu_content a, .user_menu .usermenu_content a:hover{
+  font-weight: bold !important;
+    color: #000 !important;
+}
+
+.usermenu_content a.active span{
+  font-weight: 600 !important;
+    color: #000 !important;
+}
+.user_menu.active:after{
+  top: 0px !important;
+}
+
 .user_menu{display: none!important;}
 .user_menu.user_active{display: block!important;}
 
@@ -410,6 +448,7 @@ section {
 }
 .fixed_banner .livecourse_content{display: block;}
 .livecourse_content span{font-size: 10px;line-height: 13px;color: #fff; font-weight: 300;}
+
 @media screen and (max-width:1024px) and (min-width:768px){
   #liveCourseModal .modal-dialog {width: 65%;max-width: 80%;}
 }
@@ -8193,11 +8232,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 
 .right-menu .custom_topmenu li a{font-weight:400 !important}
 .right-menu .custom_topmenu li a .text{font-weight:600 !important}
-.user_menu{padding:15px !important;border:1px solid #E8E8E8;}
-.user_menu .usermenu_content{padding:0;}
-.user_menu .usermenu_content a{padding:0 !important;}
-.user_menu .usermenu_content a:hover{color:#000 !important}
-.user_menu .usermenu_content a .vicon{margin-right:10px !important}
+
 
 .course_status .course_timeline .unit_comments_enclosure .unit_comments_wrapper>span{padding:0 30px!important;height:65px;align-items:center;}
 .course_status .course_timeline .unit_comments_enclosure .unit_comments_wrapper>span span:first-child{font-size:23px;}

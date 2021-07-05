@@ -93,8 +93,8 @@ vibe_include_template("profile/top$profile_layout.php");
                             $wp_query = new WP_Query($query_args);
                         }
                     }
-
-                    if($wp_query != NULL){
+                    
+                    if(($wp_query != NULL) && !empty( $recommended_courses )){
 
                     if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                         $custom_fields = get_post_custom();

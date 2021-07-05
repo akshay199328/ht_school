@@ -7,7 +7,7 @@
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
-
+body{font-family: 'GT-Walsheim-Pro';font-weight:400}
   /* commen use css */
 .bg-blue{background-color: var(--blue);}
 .bg-gray{background-color: var(--gray);}
@@ -15,7 +15,7 @@
 .sec_pt{padding-top: 60px;}
 .sec_pb{padding-bottom: 60px;}
 .advertisedment{display: none;}
-
+.owl-carousel{max-width:1366px;margin:auto;}
 .main-navigation .navbar-brand{padding: 0;}
 .main-navigation .navbar-brand img{width:213px;height:66px}
 .main-navigation .profile-logo{}
@@ -55,8 +55,8 @@
 /* .about-section{background: #0c5acc url(../images/about-us-pic.png) no-repeat;background-size: contain;background-position: 118% 100%;} */
 .about-section{background: #0c5acc;}
 .about-section .title-text{color: var(--white);margin-bottom: 40px;}
-.about-section p{color:#fff;font-size: 20px;font-weight: 300;margin-bottom: 38px;}
-.about-section .about-img{background-image: url(../images/about-us-pic.png);
+.about-section p{color:#fff;font-size: 20px;font-weight: 300;margin-bottom:0;}
+.about-section .about-img{
   width: 100%;
   max-width: 721px;
   height: 692px;
@@ -64,18 +64,31 @@
   background-repeat: no-repeat;
   background-size: cover;
   /* top: 0; */
-  margin-top: -5px;}
-
-.wrap{display: flex;justify-content: space-around;flex-wrap: wrap;align-items:center;}
+  margin-top: -5px;
+}
+.about-section .right-side{
+  /*background-image: url(../images/about-us-pic.png);*/
+}
+/*.about-section .right-side .about-img{display: none;}*/
+.about-section .left-side{padding:90px 0;flex:0 0 528px}
+.about-section .right-side img{display:none}
+.about-section .wrap{background-image: url(../images/about-us-pic.png);background-repeat:no-repeat;background-position:right top;background-size:auto 100%}
+.wrap{display: flex;justify-content: space-between;flex-wrap: wrap;align-items:center;}
 .left-side{flex:0 0 50%}
 .right-side{flex:0 0 50%;}
+
+@media (max-width:430px){
+  .about-section .wrap{flex-direction:column;background-image:none;}
+  .about-section .wrap .left-side{flex:1;}
+  .about-section .wrap .right-side img{display:block;width:100%}
+}
 
 .testimonial-wrap{padding-top:55px;background-color: #F8F8F8;}
 .testimonial-wrap .title-text{margin-bottom:57px;}
 .testimonial-wrap .testimonials  .box .footer-box{display: flex;align-items: center;}    
 .testimonial-wrap .box {position: relative;margin-right: 60px;}
 .testimonial-wrap .box .top-box{margin-bottom: 15px;}
-.testimonial-wrap .box .top-box p{padding-left: 20px;font-size: 15px;font-weight: 400;}
+.testimonial-wrap .box .top-box p{padding-left: 20px;font-size: 15px;font-weight: 400;padding-bottom:15px;margin-bottom:0}
 .testimonial-wrap .box .top-box::before{content: "";position: absolute;background-color: #000;height: 81px;width: 3px;bottom: 91px}
 .testimonial-wrap .box .top-box::after{content: "";position: absolute;background-color: #000;height: 3px;width: 160px;bottom: 88px}
 
@@ -88,9 +101,23 @@
 .honourable-wrap  .title-text{margin-bottom: 45px;}
 .honourable-wrap .team-wrap .image-box{display: block;height: 311px;width: auto;margin-bottom: 10px;}
 .honourable-wrap .team-wrap .team-name{text-align: center;display: block;font-size: 30px;font-weight: bold;}
-.honourable-wrap .team-wrap .team-text{font-size: 38px;line-height: 43px;margin-left: 17px;position: relative;}
+.honourable-wrap .team-wrap .team-text{font-size: 34px;line-height: 43px;margin-left: 17px;position: relative;}
 .honourable-wrap .team-wrap .team-text::before{content: "";position: absolute;top: -15px;background-image: url(../images/quote.png);height: 107px;width: 81px;background-repeat: no-repeat;background-size: 100%;z-index: -1;}
-.honourable-wrap .team-wrap .team-text::after{content: "";position: absolute;bottom: 61px;background-image: url(../images/quote.png);height: 107px;width: 81px;background-repeat: no-repeat;background-size: 100%;z-index: -1;right: 56px;transform: rotate(180deg);}
+.honourable-wrap .team-wrap .team-text::after{
+  content: "";
+  position:relative;
+  bottom: 0;
+  background-image: url(../images/quote.png);
+  height:61px;
+  width: 81px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: -1;
+  right:81px;
+  transform: rotate(180deg);
+  display: inline-block;
+  vertical-align:text-top;
+}
 .honourable-wrap .team-wrap .small-team-name{font-size: 20px;font-weight: bold;text-transform: uppercase;display: block;text-align: center;}
 
 .mrg-top{margin-top: 50px;}

@@ -152,14 +152,6 @@ dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;
 .user_menu{display: none!important;}
 .user_menu.user_active{display: block!important;}
 
-
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
-.left-menu, .middle-menu, .right-menu{
-    width: 33.33%;
-}
-
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
@@ -470,6 +462,12 @@ section {
 }
 
 @media (min-width: 768px){
+  /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  .left-menu, .middle-menu, .right-menu{
+      width: 33.33%;
+  }
   .footer .footer-top .social-links{
     -webkit-box-pack: justify !important;
     -ms-flex-pack: justify !important;

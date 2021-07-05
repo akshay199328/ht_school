@@ -39,16 +39,15 @@ vibe_include_template("profile/top$profile_layout.php");
                   $userIdentifier = $_COOKIE['PHPSESSID'];
                 }
                 global $wpdb;
-                $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d AND   meta.meta_value > %d",'course','publish',$user->ID,time()));
+                $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$user->ID));
                     $result = $wpdb->get_results($courses_with_types);
                     $active_courses = array();
-                foreach($result as $course){
-                    $active_courses[] = $course->id;
-                    $args['post__in'][]=$course->id;
-                    $type = bp_course_get_user_course_status($user->ID,$course->id);
-                    $statuses[$course->id]= intval($type);
-                }
-
+                  foreach($result as $course){
+                      $active_courses[] = $course->id;
+                      $args['post__in'][]=$course->id;
+                      $type = bp_course_get_user_course_status($user->ID,$course->id);
+                      $statuses[$course->id]= intval($type);
+                  }
                     $tag_array = array();
                     if(!empty($args['post__in'])){
                         foreach ($args['post__in'] as $post_id) {
@@ -61,11 +60,20 @@ vibe_include_template("profile/top$profile_layout.php");
                         }
                     }
                     if(!empty($tag_array)){
-                        $specialtopic = $tag_array;
+                        $course_tag_array = $tag_array;
                     }
                     else{
-                        $specialtopic = get_field('interest', 'user_' . $user->ID);
+                      $course_tag_array = [];
                     }
+                    $user_interest = get_field('interest', 'user_' . $user->ID);
+                    if(!empty($user_interest)){
+                        $course_interest_array = $user_interest;
+                    }
+                    else{
+                      $course_interest_array = [];
+                    }
+                    
+                    $specialtopic = array_merge($course_tag_array,$course_interest_array);
                     $coursearray = array();
                     if ($specialtopic) {
                       foreach($specialtopic as $tag) {
@@ -83,13 +91,14 @@ vibe_include_template("profile/top$profile_layout.php");
                         $args['post__in'] = $coursearray;
                         $unique_courses = array_unique($args['post__in']);
                         $recommended_courses = array_diff($unique_courses,$active_courses);
+                      
                         if( !empty( $recommended_courses ) ) {
-                            $query_args = apply_filters('wplms_mycourses',array(
+                            $query_args = array(
                             'post_type'=>'course',
                             'posts_per_page' => 6,
                             'post__in'=>$recommended_courses,
                             'paged'=>$paged
-                            ),$user->ID);
+                            );
                             $wp_query = new WP_Query($query_args);
                         }
                     }
@@ -99,25 +108,25 @@ vibe_include_template("profile/top$profile_layout.php");
                     if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                         $custom_fields = get_post_custom();
                         $duration = $custom_fields['vibe_validity'][0];
-                         $course_type="";
-            $course_type = $custom_fields['vibe_course_type'][0];
+                        $course_type="";
+                        $course_type = $custom_fields['vibe_course_type'][0];
 
-            $str1="LIVE CLASSES";
-            $str2="BLENDED";
-            $str3="SELF PACED";
-        
-    if(strcmp($str2, $course_type)==0){
-       $badge_class = "blue";
-    }
-    elseif(strcmp($str3, $course_type)==0){
-       $badge_class = "green";
-    }
-    elseif(strcmp($str1, $course_type)==0){
-       $badge_class = "red";
-    }
-    else{
-      $badge_class = "";
-    } 
+                        $str1="LIVE CLASSES";
+                        $str2="BLENDED";
+                        $str3="SELF PACED";
+                    
+                        if(strcmp($str2, $course_type)==0){
+                           $badge_class = "blue";
+                        }
+                        elseif(strcmp($str3, $course_type)==0){
+                           $badge_class = "green";
+                        }
+                        elseif(strcmp($str1, $course_type)==0){
+                           $badge_class = "red";
+                        }
+                        else{
+                          $badge_class = "";
+                        } 
                         $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                         $age_limit = $custom_fields['vibe_course_age_group'][0];
                         $category_array = get_the_terms( $post->ID, 'course-cat');

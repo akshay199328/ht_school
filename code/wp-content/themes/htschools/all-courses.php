@@ -451,8 +451,15 @@ get_header(vibe_get_header());
                     else{
                       $age_filter = explode(",",$_GET['age']);
                     }
+                    
                     $ageFirstEle = $age_filter[0];
-                    $ageLastEle = $age_filter[count($age_filter) - 1];
+                    if($age_filter[count($age_filter) - 1] == 17){
+                      $ageLastEle = 100;
+                    }
+                    else{
+                      $ageLastEle = $age_filter[count($age_filter) - 1];
+                    }
+                    
                     $age = $wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts INNER JOIN ht_postmeta ON ( ht_posts.ID = ht_postmeta.post_id ) LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(REGEXP_REPLACE(rel.meta_value, '[^\\\d]', '-'), '-', -1) != '' AND (SUBSTRING_INDEX(REGEXP_REPLACE(rel.meta_value, '[^\\\d]', '-'), '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(REGEXP_REPLACE(rel.meta_value, '[^\\\d]', '-'), '-', -1) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_postmeta.meta_value+0 DESC LIMIT 0, 16 ");
                     $age_result = $wpdb->get_results($age);
                     foreach($age_result as $course){

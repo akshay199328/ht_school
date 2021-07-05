@@ -380,7 +380,7 @@ get_header(vibe_get_header());
               <ul class="">
                 <?php  if ($Query->have_posts()) : $counter = 0; while ($Query->have_posts()) : $Query->the_post();
                   if ($counter <= 5) :
-                  if( $Query->current_post != 0 &&  $Query->current_post != 1) {
+                  if( $Query->current_post != 0 &&  $Query->current_post != 1 && $Query->current_post <=10) {
                     ?>
                     <li>
                       <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>

@@ -1660,8 +1660,8 @@ border: 1px solid deepskyblue;
 
 				let courseID = jQuery(this).attr('data-id');
 
-				if(typeof jQuery(this).attr('data-name') != "undefined" && jQuery(this).attr('data-name') == "other_courses") {
-					itemListName = "other_courses";
+				if(typeof jQuery(this).attr('data-name') != "undefined") {
+					itemListName = jQuery(this).attr('data-name');
 				}
 
 				allCourseItem.push({
@@ -1689,7 +1689,7 @@ border: 1px solid deepskyblue;
 				}
 			};
 
-			if(itemListName != "")	allCourseObj.item_list_name = itemListName;
+			if(itemListName == "other_courses")	allCourseObj.item_list_name = itemListName;
 
 			let allCourseListMoegObj = {
 				"User identifier"	: jQuery("#footer_user_identifier").val(),

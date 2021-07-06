@@ -253,13 +253,13 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     global $wp;
     $current_slug = add_query_arg( array(), $wp->request );
   if(!is_admin()){
-    wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css' );
-    wp_enqueue_style( 'wplms-customizer-css-v1', get_template_directory_uri(). '/style-v1.css' );
-    wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css' );
-    wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css' );
-    wp_enqueue_style( 'wplms-bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
-    wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css' );
-    wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css');
+    wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css?v=1.1' );
+    wp_enqueue_style( 'wplms-customizer-css-v1', get_template_directory_uri(). '/style-v1.css?v=1.1' );
+    wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css?v=1.1' );
+    wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css?v=1.1' );
+    wp_enqueue_style( 'wplms-bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css?v=1.1' );
+    wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css?v=1.1' );
+    wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css?v=1.1');
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
 
     wp_enqueue_style( 'wplms-owl-carousel', '//cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css' );
@@ -3231,25 +3231,6 @@ function get_product_slot_time(){
 
 add_action("wp_ajax_get_product_slot_time", "get_product_slot_time");
 add_action( 'wp_ajax_nopriv_get_product_slot_time', 'get_product_slot_time' );
-
-function get_second_product_slot_time(){
-  global $wpdb;
-  $variation_id = $_POST['variation_id'];
-  // $course_id = $_POST['course_id'];
-  // $results = $wpdb->get_results( "SELECT bm.course_id,bm.batch_name,bm.variation_id,sm.slot_time FROM ht_batch_master AS bm  LEFT JOIN ht_slot_master AS sm ON sm.batch_id = bm.id WHERE course_id = '".$course_id."' AND bm.variation_id = '".$variation_id."'" );
-
-  // $array_result=json_decode( json_encode($results), true);
-  // $day1 = date('D', strtotime($array_result[0]['slot_time']));
-  // $day2 = date('D', strtotime($array_result[1]['slot_time']));
-  // $time1 = date('g A', strtotime($array_result[0]['slot_time']));
-  // $time2 = date('g A', strtotime($array_result[1]['slot_time']));
-  $msg = "The classes will take place on every week";
-  
-  echo $msg;
-  exit;
-}
-add_action("wp_ajax_get_second_product_slot_time", "get_second_product_slot_time");
-add_action( 'wp_ajax_nopriv_get_second_product_slot_time', 'get_second_product_slot_time' );
 
 function check_if_cart_has_product( $valid, $product_id, $quantity ) {  
 

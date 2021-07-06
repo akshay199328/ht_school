@@ -17,7 +17,7 @@ body{font-family: 'GT-Walsheim-Pro';font-weight:400}
 .advertisedment{display: none;}
 .owl-carousel{max-width:1366px;margin:auto;}
 .main-navigation .navbar-brand{padding: 0;}
-.main-navigation .navbar-brand img{width:213px;height:66px}
+.main-navigation .navbar-brand img{width:100px;}
 .main-navigation .profile-logo{}
 .main-navigation .right-logo{margin-right: 30px;}
 .profile-list{display: flex;list-style-type: none;padding: 0;margin: 0;flex-direction: row;}
@@ -324,9 +324,9 @@ body{font-family: 'GT-Walsheim-Pro';font-weight:400}
 .advertisedment{display: block;}
 .d-display-none{display: none;}
 .main-navigation .container{flex-wrap: nowrap;padding: 0;}
-.main-navigation .navbar-brand img {width: 120px;height: 37px;}
-.main-navigation .right-col .profile-list .profile-logo img{width: 62px;height: 17px;}
-.main-navigation .login-link{font-size: 11px;padding: 0rem 0px 2px 0px;}
+.main-navigation .navbar-brand img {width:70px;}
+.main-navigation .right-col .profile-list .profile-logo img{}
+.main-navigation .login-link{padding: 0rem 0px 2px 0px;}
 .main-navigation .right-logo{margin-right: 13px;}
 .banner{max-width: 500px;height: 150px;margin: 0 auto;background-size: cover;background-position: inherit;}
 #banner{height:150px;}

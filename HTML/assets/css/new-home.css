@@ -117,6 +117,10 @@ body {
   background-color: #00D98E;
 }
 
+.home-page .courses-wrapper div.course_button {
+  padding: 0 !important;
+}
+
 .black-button {
   line-height: 45px;
   background-color: #000;
@@ -346,13 +350,20 @@ body {
 .header-global .header-copy .header-right a.profile {
   border: 1px solid #FFF;
   display: inline-block;
-  padding: 4px;
+  padding: 6px 8px;
+  line-height: 1;
 }
 
 .header-global .header-copy .header-right a.profile img {
   height: 35px;
   width: 35px;
   border-radius: 100px;
+}
+
+.header-global .header-copy .header-right a.profile .name {
+  font-size: 15px;
+  margin-left: 10px;
+  color: #D5EBFF;
 }
 
 .header-global .header-copy .header-right a.profile div {
@@ -451,16 +462,24 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   max-width: 1118px;
   margin: auto;
   width: 100%;
   padding: 0 15px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .header .header-copy .left-menu .menu li.border-menu {
@@ -494,6 +513,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .header .header-copy .right-menu .after_loginspace {
@@ -518,6 +540,15 @@ body {
 
 .header .header-copy .right-menu .user_menu {
   color: #4B4B4B;
+  top: 45px !important;
+}
+
+.header .header-copy .right-menu .user_menu a {
+  width: 100%;
+}
+
+.header .header-copy .right-menu .user_menu a:hover {
+  color: #000 !important;
 }
 
 .header .header-copy .right-menu .search-icon a {
@@ -748,6 +779,31 @@ body.single-course .header.header-scrolled {
   border-color: currentColor;
 }
 
+.badge {
+  margin-bottom: 10px;
+  display: inline-block !important;
+  font-weight: 400 !important;
+  border-radius: 0 !important;
+  color: #FFF;
+  text-transform: uppercase;
+  padding: 5px 10px !important;
+  letter-spacing: 2px;
+  font-size: 11px !important;
+  font-family: "GT-Walsheim-Pro" !important;
+}
+
+.badge.green {
+  background-color: #0AB195;
+}
+
+.badge.red {
+  background-color: #FF5659;
+}
+
+.badge.blue {
+  background-color: #4893FF;
+}
+
 .innerheader-space {
   display: none;
 }
@@ -828,7 +884,7 @@ body.single-course .header.header-scrolled {
 
 .section .courses-wrapper .column .course-hero {
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 140px;
   height: 144px;
   display: block;
@@ -2952,4 +3008,32 @@ body.search-results section#title {
 
 #customer_view_field .woocommerce-input-wrapper [type="radio"]:checked + label {
   background-color: #000;
+}
+
+@-moz-document domain(ht.fortune4.org) {}.course-curriculum .curriculum-wrapper .video-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.course-curriculum .curriculum-wrapper .video-wrap .card {
+  height: auto !important;
+  margin-bottom: 0 !important;
+}
+
+.single-course .sticky_content .fixed_banner .content {
+  padding-top: 29px;
+}
+
+.single-course .sticky_content .fixed_banner .content h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper textarea,
+.partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper textarea:focus {
+  background-image: url(/wp-content/themes/htschools/assets/images/textarea_icon.png) !important;
+  background-position: 15px 15px !important;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
 }

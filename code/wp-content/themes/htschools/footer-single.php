@@ -1454,21 +1454,11 @@ border: 1px solid deepskyblue;
 												data : jQuery("#product_slot").serialize(),
 													success: function(data) {
 														jQuery('#variation_id').val(data.variation_id);
-														jQuery.ajax({
-														type : "POST",
-														url : "<?php echo home_url();?>/wp-admin/admin-ajax.php?action=get_second_product_slot_time",
-														dataType:"text",
-														data : {variation_id:data.variation_id,course_id:course_id},
-															success: function(data) {
-																jQuery('.note').css('display','block');
-																jQuery('#slot_note').text(data);
-															jQuery('.transparent-note').show();
-															jQuery("#spinner-show").removeClass('spinner-show');
-															jQuery(".spinner-img").hide();
-															},
-															error: function(data) {
-															}
-														});
+														jQuery('#slot_note').html(jQuery(data.variation_description).text());
+														jQuery('.transparent-note').show();
+														jQuery("#spinner-show").removeClass('spinner-show');
+														jQuery(".spinner-img").hide();
+														jQuery('.note').css('display','block');
 													},
 													error: function(data) {
 													}

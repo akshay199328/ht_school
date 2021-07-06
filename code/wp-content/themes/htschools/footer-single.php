@@ -1416,7 +1416,9 @@ border: 1px solid deepskyblue;
 								jQuery('#attribute_slot-date').val(selected_slot_date);
 								jQuery("#spinner-show").addClass('spinner-show');
 								jQuery(".spinner-img").show();
-
+								jQuery('.note').css('display','none');
+								jQuery('#slot_note').text('');
+								jQuery('.transparent-note').hide();
 						        jQuery.ajax({
 									type : "POST",
 									dataType : "json",
@@ -1454,11 +1456,11 @@ border: 1px solid deepskyblue;
 												data : jQuery("#product_slot").serialize(),
 													success: function(data) {
 														jQuery('#variation_id').val(data.variation_id);
+														jQuery('.note').css('display','block');
 														jQuery('#slot_note').html(jQuery(data.variation_description).text());
 														jQuery('.transparent-note').show();
 														jQuery("#spinner-show").removeClass('spinner-show');
 														jQuery(".spinner-img").hide();
-														jQuery('.note').css('display','block');
 													},
 													error: function(data) {
 													}

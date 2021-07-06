@@ -6529,8 +6529,7 @@
             re = (t = null) => {
                 if (!t) {
                     //if (!(E && E.hasOwnProperty("title") && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.title.length > 3 && E.review.length > 3 && E.rating > 1 )) return alert(window.wplms_course_data.translations.please_check_review_form), T(!1), !1;
-                    if (!(E && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.review.length > 3 && E.rating > 1 )) return alert(window.wplms_course_data.translations.please_check_review_form), T(!1), !1;
-                    
+                    if (!(E && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.review.length > 3 && E.rating > 1 )) return alert(window.wplms_course_data.translations.please_check_review_form), T(!1), !1;                    
                     T(!0), E.comment_post_ID = e.course_id, E.course_id = e.course_id, E.token = Y.token, fetch(window.wplms_course_data.api_url + "/updatecourse/addreview", {
                         method: "post",
                         body: JSON.stringify(E)
@@ -6688,10 +6687,10 @@
             className: "finish-course-content"
         },sr("div", {
             className: "close",
-            onClick: e.back
-            // onClick: () => {
-            //      var element = document.getElementById("remove_course_popup").remove();
-            // }
+           // onClick: e.back
+            onClick: () => {
+                  var element = document.getElementById("remove_course_popup").remove();
+             }
         }, sr("span", {
             className: "vicon vicon-close"
         })), H.hasOwnProperty("percentage") ? sr("span", {

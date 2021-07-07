@@ -460,6 +460,7 @@ section {
   .batch_list .list{min-width: 75px;font-size: 13px;line-height: 17px;}
   .batch_list .heading h6 {font-size: 13px;line-height: 17px;}
   .livecourse_button .btn {background: #000000;min-width: 151px;height: 38.67px;}
+  #edit-child-profile.modal.right.fade .modal-dialog{width: 100%;}
 }
 @media (min-width: 992px) {
   .fixed_banner .container{    
@@ -7145,7 +7146,7 @@ h6:empty,
     .instructor-detailsMini .profile-content p {font-size: 15px;}
     .other-courses .list h3{min-height: 100%;}
     .right-menu ul li #new_searchicon{display: block!important}
-    .login-box .login-right{    padding: 30px 25px;}
+    .login-box .nsl-button{padding: 5px 12px;}
     .login-box h4{    margin-top: 15px;}
     .login-left{display: none;}
     .login-box .div.nsl-container-block .nsl-container-buttons a{

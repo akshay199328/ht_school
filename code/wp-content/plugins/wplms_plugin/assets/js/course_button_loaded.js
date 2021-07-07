@@ -6858,7 +6858,20 @@
             className: "action_points"
         }, sr("a", {
             className: "arrow_right",
-            onClick: e.back
+            onClick: () =>{
+                let element     = document.getElementById("wplms_the_course_button");
+                let fs_element  = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
+                if(fs_element == null){
+                    e.back();
+                }
+                else {
+                    if(document.exitFullscreen)                 document.exitFullscreen();
+                    else if(document.mozCancelFullScreen)       document.mozCancelFullScreen();
+                    else if(document.webkitExitFullscreen)      document.webkitExitFullscreen();
+                    else if(document.msExitFullscreen)          document.msExitFullscreen();
+                }
+                
+            }
         }), !s && !is(m) && m.hasOwnProperty("courseitems") && m.courseitems.length ? sr(or, null, sr("a", {
             className: "icon_search",
             onClick: () => {

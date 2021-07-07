@@ -135,12 +135,14 @@ defined( 'ABSPATH' ) || exit;
 
 					global $wpdb;
 					$getBatchID = $wpdb->get_results("SELECT id FROM ht_batch_master WHERE variation_id='" . $item['variation_id'] . "'");
-					$getBatchData=json_decode( json_encode($getBatchID), true);
-					$batch_id = $getBatchData[0]['id'];
+					if(!empty($getBatchID)){
+						$getBatchData=json_decode( json_encode($getBatchID), true);
+						$batch_id = $getBatchData[0]['id'];
+						
+						$add_user_course_slot = $wpdb->prepare("INSERT INTO ht_batch_student_mapping(batch_id, user_id, variation_id, created_on) VALUES ('".$batch_id."', '".$userIdentifier."', '".$item['variation_id']."', NOW())");
+	            		$wpdb->query($add_user_course_slot);
+					}
 
-					$add_user_course_slot = $wpdb->prepare("INSERT INTO ht_batch_student_mapping(batch_id, user_id, variation_id, created_on) VALUES ('".$batch_id."', '".$userIdentifier."', '".$item['variation_id']."', NOW())");
-            		$wpdb->query($add_user_course_slot);
-            		
 					$orderTotal 	+= ($item['total'] + $item['total_tax']);
 					$discountAmt 	+= ($item['subtotal'] - $item['total']);
 

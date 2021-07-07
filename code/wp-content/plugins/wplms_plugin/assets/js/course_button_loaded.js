@@ -3708,7 +3708,7 @@
     }, Rt("div", {
         className: "quiz-text",
         dangerouslySetInnerHTML: {
-            __html: "<span class='text'>Question answered<span>"
+            __html: "<span class='text'>Question(s) Answered<span>"
         }
     }), Rt("div", {
         className: "score",

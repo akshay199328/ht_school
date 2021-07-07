@@ -3599,7 +3599,7 @@
             className: t.submitted ? "pagination_merge submitted" :  "pagination_merge"
         }, jt("span", {
             className: "pagination_pagetext"
-        },s[0] + 1 + " Of " + e.questions.length + " Questions"), jt("div", {
+        },s[0] + 1 + " of " + e.questions.length + " Questions"), jt("div", {
             class:"quiz_pagination_wrapper buttons has-addons"
         }, e.questions[s[0] - 1] && "undefined" != e.questions[s[0] - 1] ? jt("span", {
             href: "#",
@@ -4167,6 +4167,13 @@
             s || (W = "disabled", U += " disabled");
             let Y = window.wplms_course_data.translations.submit_quizes_confirm;
             if (t.meta && t.meta.questions) {
+                let usercorrect = [];
+                t.meta.questions.map(function(key,result){
+                    if(key.usercorrect == 1){
+                        usercorrect.push(key.usercorrect);
+                    }
+                })
+                var UU = usercorrect.length;
                 let e = 1;
                 var unmarkedCount = t.meta.questions.reduce(function (n, result) {
                     return n + (result.marked_answer != null);
@@ -4230,11 +4237,11 @@
             },gn("h1",null,"Quiz Result"),
             gn("span", {
                 className: "quiz_result_heading"
-            },"Correct answers "),
+            },"Correct Answers "),
                 gn("span", {
                 className: "score",
                 dangerouslySetInnerHTML: {
-                    __html: t.meta.auto ? "<span class='question-attempt'>"+t.marks+"</span>" + "/" + t.max_marks : ""
+                    __html: t.meta.auto ? "<span class='question-attempt'>"+UU+"</span>" + "/" + t.meta.questions.length : ""
                 }
             })
             ),gn("div", {

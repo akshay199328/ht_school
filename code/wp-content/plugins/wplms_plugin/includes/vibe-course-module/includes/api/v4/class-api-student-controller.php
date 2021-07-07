@@ -1183,6 +1183,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 						$get_live_course_start_data = $wpdb->get_results("SELECT bm.course_id,bm.batch_name,bm.variation_id,bsm.user_id,bm.start_on FROM ht_batch_master AS bm LEFT JOIN ht_batch_student_mapping AS bsm ON bsm.batch_id = bm.id WHERE bsm.user_id = '".$this->user->id."' AND course_id = '".$course_id."'");
 						$live_course_data=json_decode( json_encode($get_live_course_start_data), true);
 						$live_course_start_date = $live_course_data[0]['start_on'];
+						date_default_timezone_set('Asia/Kolkata');
 						$current_date = new DateTime();
 						if($status == 1){
 							if ($current_date <= new DateTime($live_course_start_date)) {

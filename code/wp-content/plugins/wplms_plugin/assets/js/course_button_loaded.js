@@ -4516,7 +4516,9 @@
                     question: i
                 }) : "", i.attempted && i.show_correct_answer && i.explanation.length ? gn("div", {
                     className: "explanation"
-                }, gn("strong", null, window.wplms_course_data.translations.question_explanation), gn("div", {
+                }, gn("div", {
+                    className: "top_border"
+                }), gn("strong", null, window.wplms_course_data.translations.question_explanation), gn("div", {
                     dangerouslySetInnerHTML: {
                         __html: i.explanation
                     }

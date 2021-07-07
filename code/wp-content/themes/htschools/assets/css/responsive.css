@@ -912,7 +912,7 @@ span.wpcf7-form-control-wrap.recaptcha {
 			font-size:24px;
 		}
 		.woocommerce-cart table.cart td.actions .coupon .input-text{
-			max-width: 60% !important;
+			max-width: 50% !important;
 			margin-bottom: 5px !important;
 		}
 		.pagetitle h1{
@@ -1116,11 +1116,11 @@ span.wpcf7-form-control-wrap.recaptcha {
 			margin-bottom: 0px;
 		}
 		.woocommerce-cart table.cart td.actions .coupon button{
-			width: 40% !important;
+			width: 50% !important;
 			
 		}
 		.woocommerce-cart table.cart td.actions .coupon .input-text{
-			max-width: 60% !important;
+			max-width: 50% !important;
 			margin-bottom: 10px !important;
 		}
 		.atwork_img{
@@ -1228,7 +1228,7 @@ span.wpcf7-form-control-wrap.recaptcha {
         .woocommerce table.shop_table td, .woocommerce table.shop_table td a{font-size: 15px!important;}
         .woocommerce-cart table.cart td.actions .coupon .input-text{
             margin-bottom: 10px !important;
-            max-width: 60% !important;
+            max-width: 50% !important;
             /* max-width: 100% !important; */
         }
         .all_course_page.landing-page {
@@ -1258,7 +1258,7 @@ span.wpcf7-form-control-wrap.recaptcha {
 			display: block !important;
 		}
 		.woocommerce-cart table.cart td.actions .coupon button{
-			width: 40%;
+			width: 50%;
 		}
 		/*.search_section input{
 			padding: 0px 20px 10px 60px!important;

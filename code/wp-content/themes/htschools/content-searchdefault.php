@@ -40,8 +40,9 @@ echo ' <div class="blogpost-search">
             <h3><a href="'.get_permalink().'">'.get_the_title().'</a></h3>
             <div class="cats">
                 '.get_the_category_list('','').'
+                 <p>'.get_the_excerpt().'</p>
             </div>
-            <p>'.get_the_excerpt().'</p>
+           
           
         </div>
     </div>';

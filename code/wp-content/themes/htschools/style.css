@@ -6217,7 +6217,7 @@ h6:empty,
 
 /*-------Search css-------*/
 .search.search-results #content {padding-top: 0;padding-bottom: 60px!important;}
-.search.search-results .cats ul li{    margin-top: 4px;}
+.search.search-results .cats ul li{    margin-top: 2px;}
 .blogpost-search {
    position: relative;
     padding: 10px 0px;
@@ -6240,6 +6240,9 @@ h6:empty,
 .blogpost-search .excerpt h3 a{
   color: #000;
   font-weight: bold!important;
+}
+.blogpost-search .post-categories {
+    display: contents;
 }
 .post-categories li, .post-categories p{
   font-size: 11px;

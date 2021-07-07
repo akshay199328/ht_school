@@ -2593,14 +2593,23 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .course_status .incourse .quiz_questions_content .question .explanation {
-    padding: 1rem;
-    font-size: 1.2rem;
-    border: 1px solid var(--border);
-    background: var(--highlight);
-    z-index: 99;
-    position: relative
+        margin: 0px 0 0;
+    padding:5px 20px 16px;
+    color: #000000;
+    background-color: #e2fdd7;
+    border: 0;
+    float: left;
+    width: 100%;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
 }
-
+.top_border{border-top: 1px dotted #707070;margin-bottom: 17px;}
+.course_status .incourse .quiz_questions_content .question .explanation p{
+    margin-top: 10px;
+}
 .course_status .incourse .quiz_questions_content .question_wrapper.loaded .result {
     transform: none;
 }
@@ -4056,6 +4065,11 @@ a.button.is-primary {
     color: #D5EBFF;
     padding: 12px 35px!important;
 }
+.footer_parent .next_unit_button{
+     padding: 12px 5px!important;
+    min-width: 135px;
+    text-align: center;
+}
 .show_result .buttons_wrapper{
     padding: 30px 30px 30px 0px;
 }
@@ -4121,7 +4135,18 @@ a.button.is-primary {
         height: 240.8px;
     }
 }
+@media screen and (max-width:1024px) and (min-width:900px){
+    .submitpopup_wrapper .confirmpopup_content {
+        width: 51%;
+    }
+}
+@media screen and (max-width:899px) and (min-width:768px){
+    .submitpopup_wrapper .confirmpopup_content {
+        width: 59%;
+    }
+}
 @media (max-width: 767px){
+
     .course_action_points .arrow_right,
     .course_action_points .icon_search,
     .course_action_points .icon_notepad,
@@ -4204,4 +4229,9 @@ a.button.is-primary {
     .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{justify-content: center;margin: 20px 0px;}
     .pagination_pagetext{    width: auto;}
     .course_status .incourse .quiz_pagination_wrapper>.button i {font-size: 12px;    line-height: 25px;}
+}
+@media screen and (max-width:480px) and (min-width:320px){
+    .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{
+        height:125px;    background-position: 47px 13%;
+    }
 }

@@ -53,7 +53,15 @@ if(defined('WPLMS_THEME_FILE_INCLUDE_PATH')){
   //Misc
   include_once WPLMS_THEME_FILE_INCLUDE_PATH.'/includes/extras.php';
 
+  $extraFunctionFiles = array(
+    "/functions_admin.php",
+  );
 
+  foreach ($extraFunctionFiles as $key => $value) {
+    if(file_exists(WPLMS_THEME_FILE_INCLUDE_PATH . $value)) {
+      include_once WPLMS_THEME_FILE_INCLUDE_PATH . $value;
+    }
+  }
 }
 
 /**

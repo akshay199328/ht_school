@@ -4232,6 +4232,7 @@ a.button.is-primary {
 }
 @media screen and (max-width:480px) and (min-width:320px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{
-        height:125px;    background-position: 47px 13%;
+        height:97px;background-position: 47px 13%;
     }
+    .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform .review_heading{    padding: 0px 60px 40px 42px;}
 }

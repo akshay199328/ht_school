@@ -651,7 +651,7 @@ class WPLMS_Course_Component_Init{
                 'ask_instructor'=> _x('Ask the instructor.','','wplms'),
                 'error_review_form' => _x('There was some error posting review','','wplms'),
                 'back_to_my_courses'=>_x('Back to my courses','','wplms'),
-                'please_check_review_form'=>_x('Please check Review form.Its necessary that you provide rating , title and review!','','wplms'),
+                'please_check_review_form'=>_x('Please check Review form.Its necessary that you provide rating , and review!','','wplms'),
                 'review_title' => _x('Review Title','','wplms'),
                 'enter_title' => _x('Please enter title of the course','','wplms'),
                 'rating' => _x('Rate this course','','wplms'),

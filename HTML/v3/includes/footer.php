@@ -100,7 +100,7 @@
 			</div>
 
             <div class="column newsletter">
-              <h6 class="new-footer-title">Subscribe Now</h6>
+              <h6 class="footer-title">Subscribe Now</h6>
               <input type="text" name="" placeholder="Email">
               <button type="submit">Send</button>
             </div>
@@ -110,6 +110,67 @@
     </footer>
 
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".home-button").click(function () {
+                $("body").toggleClass('menuOpened');
+            });
+            // $("body").click(function(){
+            //     $("body").removeClass("menuOpened");
+            // });
+        });
+            // $('.home-button').click(function(){
+            //     $('.home-button').not("body").removeClass('menuOpened');
+            //     $("body").toggleClass('menuOpened');
+            //  });
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 10) {
+                $(".header-wrapper").addClass("fixed");
+            } else {
+                $(".header-wrapper").removeClass("fixed");
+            }
+        });
+
+        
+
+      $('.home_slider').owlCarousel({
+            margin:0,
+            loop:true,
+            nav:true,
+            mouseDrag:false,
+            stagePadding:0,
+            smartSpeed:1900,
+            responsive : {
+                0 : {
+                    items:1,
+                },
+                // breakpoint from 480 up
+                480 : {
+                    items:1,
+                },
+                // breakpoint from 768 up
+                768 : {
+                    items:1,
+                }
+            }
+        });
+        if($(window).width() <= 767) {
+            $('.property-wrapper .listing .copy').addClass('property-slider owl-carousel owl-theme');
+        }
+        $('.property-slider').owlCarousel({
+            margin:10,
+            loop:false,
+            nav:true,
+            mouseDrag:true,
+            stagePadding:10,
+            smartSpeed:800,
+            autoWidth:true,
+            // startPosition:0,
+        });
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

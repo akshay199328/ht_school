@@ -7,6 +7,7 @@
 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style-v3.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
+    <link href="css/all-courses.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
 
     <title>Hello, world!</title>

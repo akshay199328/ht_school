@@ -6220,6 +6220,7 @@
         dispatch: ur,
         select: cr
     } = wp.data;
+    jQuery.noConflict();
     var dr = e => {
         const [t, n] = rr(!1), [s, a] = rr(!1), r = lr(null), [i, o] = rr(""), [l, u] = rr(!1), [c, d] = rr(e.course), [m, h] = rr({}), [_, w] = rr({
             per_page: 5,
@@ -6700,7 +6701,9 @@
             className: "close",
            // onClick: e.back
             onClick: () => {
-                  var element = document.getElementById("remove_course_popup").remove();
+                  //var element = document.getElementById("remove_course_popup").hide();
+                    //jQuery.noConflict();
+                    jQuery('#remove_course_popup').toggle();
              }
         }, sr("span", {
             className: "vicon vicon-close"
@@ -6769,6 +6772,7 @@
             onClick: () => F(!1)
         })))))) : "", C ? sr("div", {
             className: "reviewpopup_wrapper",
+            id: "reviewpopup_wrapid",
             onClick: e => {
                 e.preventDefault(), document.querySelector(".reviewpopup_wrapper") && e.target === document.querySelector(".reviewpopup_wrapper") && M(!1)
             }
@@ -6803,17 +6807,17 @@
             onChange: e => {
                 let t = {
                     ...E
-                };
+                }; 
                 t.review = e.target.value, z(t)
             },
             value: E.review,
-            placeholder: window.wplms_course_data.translations.your_review
+            placeholder: window.wplms_course_data.translations.your_review         
         })), sr("div", {
             className: "popup-footer custom-popup-footer"
         }, B ? sr(or, null, sr("a", {
             href: "#",
             onClick: () => {
-                re(!0)
+                re(!0)               
             }
         }, sr("span", {
             className: "vicon vicon-angle-left"
@@ -6822,21 +6826,27 @@
             className: I ? "button is-loading" : "button",
             onClick: () => {
                 re()
+                jQuery('#reviewpopup_wrapid').toggle();
+                jQuery('#remove_course_popup').toggle();
             }
         }, window.wplms_course_data.translations.submit_review_and_finish_course, " ", sr("span", {
             className: "vicon vicon-angle-right"
         }))) : sr(or, null, sr("a", {
             className: "link",
-            onClick: () => M(!1)
+            onClick: () => {
+                M(!1)
+                jQuery('#reviewpopup_wrapid').toggle();
+                jQuery('#remove_course_popup').toggle();                
+            }
         }, window.wplms_course_data.translations.cancel), sr("a", {
             className: "button",
             onClick: () => {
-                E && E.hasOwnProperty("review") && E.hasOwnProperty("rating") && E.review.length > 3 && E.rating > 1 ? (T(!0), E.comment_post_ID = e.course_id, E.course_id = e.course_id, E.token = Y.token, fetch(window.wplms_course_data.api_url + "/updatecourse/addreview", {
+                E && E.hasOwnProperty("review") && E.hasOwnProperty("rating") ? (T(!0), E.comment_post_ID = e.course_id, E.course_id = e.course_id, E.token = Y.token, fetch(window.wplms_course_data.api_url + "/updatecourse/addreview", {
                     method: "post",
                     body: JSON.stringify(E)
                 }).then(e => e.json()).then(e => {
                     e ? e.status ? T(!1) : e.message && (alert(e.message), T(!1)) : (alert(window.wplms_course_data.translations.error_review_form), T(!1)), M(!1)
-                })) : (alert(window.wplms_course_data.translations.please_check_review_form), T(!1))
+                })) : (alert(window.wplms_course_data.translations.please_check_review_form), T(!1))                                
             }
         }, window.wplms_course_data.translations.submit_review, " ", sr("span", {
             className: "vicon vicon-angle-right"
@@ -6983,13 +6993,13 @@
             className: "right_block"
         }, m.hasOwnProperty("comments_open") ? sr("span", {
             className: "review_block",
-            onClick: () => (M(!0), void(E.hasOwnProperty("comment_ID") || fetch(`${window.wplms_course_data.api_url}/user/getreview/${e.course_id}`, {
+            onClick: () => (M(!1), void(E.hasOwnProperty("comment_ID") || fetch(`${window.wplms_course_data.api_url}/user/getreview/${e.course_id}`, {
                 method: "post",
                 body: JSON.stringify({
                     token: Y.token,
                     course_id: e.course_id
                 })
-            }).then(e => e.json()).then(e => {
+            }).then(e => e.json()).then(e => {console.log(e);
                 e && e.comment_ID && z(e), T(!1)
             })))
         }, sr("span", {

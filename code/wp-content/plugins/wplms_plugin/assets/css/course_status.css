@@ -392,9 +392,9 @@
 }
 .congrats-message:before{
     content:'';
-    background: url('../../assets/images/congrats_trophy.svg') no-repeat;
+    background: url('../../assets/images/congrats_trophy.svg') no-repeat center;
     height: 139px;
-    width: 181px;
+    width: 100%;
     display: block;
     margin: 0px auto;
     display: flex;
@@ -587,7 +587,7 @@
 
 .course_status.moveonside .course_timeline {
     display: none;
-    min-width: 100%
+    max-width: 100%;
 }
 
 .course_status.moveonside .course_timeline.comments_shown {
@@ -3746,7 +3746,7 @@ a.button.is-primary {
     }
 
     .quiz_pagination_wrapper.buttons.has-addons .button {
-        display: none
+        /*display: none*/
     }
 
     .quiz_pagination_wrapper.buttons.has-addons .button.ques_link {
@@ -3823,7 +3823,7 @@ a.button.is-primary {
 	position: relative;
 }
 .exampleModalPopup .modal-header, .submitpopup_wrapper .modal-header{
-        width: 100%;
+    max-width: 100%;
     height: auto;
     background-color: #d5ebff;
     padding: 30px;
@@ -3917,7 +3917,7 @@ a.button.is-primary {
 }
 .submitpopup_wrapper .confirmpopup_content{
     min-width: 30%;
-    width: 30%;
+    max-width: 30%;
     border-radius: 0px;
     padding-bottom: 0;
 }
@@ -3932,7 +3932,7 @@ a.button.is-primary {
 }
 .submitpopup_wrapper .confirmpopup_content .submitheading{
     margin-top: 10px;
-    width: 82%;
+    max-width: 82%;
 }
 
 .buttons_wrapper{
@@ -3951,9 +3951,10 @@ a.button.is-primary {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-between;
 }
 .left_scoring{
-    width: 60%;
+    max-width: 60%;
     float: left;
 }
 
@@ -3988,7 +3989,7 @@ a.button.is-primary {
 }
 .right_icon:after{
     content: '';
-    background: url('../../assets/images/submit-trophy.svg')no-repeat;
+    background: url('../../assets/images/submit-trophy.svg')no-repeat right;
     display: block;
     height: 152px;
     position: relative;
@@ -4135,14 +4136,19 @@ a.button.is-primary {
         height: 240.8px;
     }
 }
+@media screen and (max-width:1366px) and (min-width:1024px){
+    .submitpopup_wrapper .confirmpopup_content {
+        max-width: 42%;
+    }
+}
 @media screen and (max-width:1024px) and (min-width:900px){
     .submitpopup_wrapper .confirmpopup_content {
-        width: 51%;
+        max-width: 51%;
     }
 }
 @media screen and (max-width:899px) and (min-width:768px){
     .submitpopup_wrapper .confirmpopup_content {
-        width: 59%;
+        max-width: 59%;
     }
 }
 @media (max-width: 767px){
@@ -4164,8 +4170,8 @@ a.button.is-primary {
         top: 3px;
     }
     .course_status .incourse .question_option{min-height: 70px;}
-    .finish_course {padding-left: 20px;}
-    .course_status .course_content .course_content_content_wrapper h2{font-size: 21px;line-height: 27px;}
+    .finish_course {padding-left: 20px;margin-top: 70px;}
+    .course_status .course_content .course_content_content_wrapper h2{font-size: 21px;line-height: 27px;width: 100%;}
     .course_status .course_timeline{background: #ffffff!important;}
     .course_status .reviewpopup_wrapper .reviewpopup_content{width: calc(100% - 0%) !important;}
     .incourse_quiz_button{
@@ -4182,7 +4188,7 @@ a.button.is-primary {
         bottom: 0px;
         left: 0;
     }
-    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{margin-bottom:0px;width: 100%;}
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{margin-bottom:0px;width: 100%;height: auto;}
     .course_status .course_content {padding: 0px 0px 55px;}
     .course_status .quiz_content, .show_quiz_result  {border: 0;padding: 0px;padding-bottom: 0px;}
     .course_content .quiz_content  li{
@@ -4218,18 +4224,26 @@ a.button.is-primary {
     .quiz_result_icon{    background-size: contain;height: 100%;right: 0px}
     .show_result .buttons_wrapper {text-align: center;}
     .quiz_result_heading {font-size: 24px;}
-    .submitpopup_wrapper .confirmpopup_content{min-width: 90%;width: 90%;}
-    .submitpopup_wrapper .confirmpopup_content .submitheading{width: 80%;font-size: 20px;line-height: 24px;}
+    .submitpopup_wrapper .confirmpopup_content{min-width: 90%;max-width: 90%;}
+    .submitpopup_wrapper .confirmpopup_content .submitheading{max-width: 80%;font-size: 20px;line-height: 24px;}
     .quiz-text .text {font-size: 18px;line-height: 17px;}
     .score{font-size: 22px;display: block;}
     .right_icon:after{height: 107.41px;background-size: 107.41px 107.41px;top: -26px;}
     .buttons_wrapper .button, .next_unit_button {padding: 12px 25px!important;}
-    .course_status .incourse .pagination_merge{width: 100%!important;padding: 0px 5px;flex-wrap: wrap;align-content: center;justify-content: center;}
+    .course_status .incourse .pagination_merge.submitted{flex-direction: column;align-items: flex-start;}
+    .course_status .incourse .pagination_merge{width: 100%!important;padding: 0px 5px;align-content: center;justify-content: center;align-items: center;}
     .footer_parent{flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: center;}
-    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{justify-content: center;margin: 20px 0px;}
-    .pagination_pagetext{    width: auto;}
+    .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{margin: 20px 0px;}
+    .course_status .incourse .pagination_merge.submitted .buttons.has-addons{justify-content: center;}
+    .pagination_pagetext{width: 55%;line-height: 15px;font-size: 11px;}
     .course_status .incourse .quiz_pagination_wrapper>.button i {font-size: 12px;    line-height: 25px;}
-    .course_status.moveonside .course_timeline {max-width: 100%;}
+    .prev_btn, .prev_btn i, .next_btn, .next_btn i {line-height: 16px;font-size: 12px;}
+    .prev_btn i:before {margin-right: 10px;}
+    .next_btn i:before {margin-left: 10px;}
+    .course_status .reviewpopup_wrapper.complete_course_popup .reviewpopup_content{    
+        width: 90%!important;padding: 30px 30px 50px!important;
+    }
+    /*.course_status.moveonside .course_timeline {max-width: 100%;}*/
 }
 @media screen and (max-width:480px) and (min-width:320px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{

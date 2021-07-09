@@ -10,14 +10,17 @@ $(document).ready(function(){
       $('.border-menu').removeClass('bi bi-bars').addClass('bi bi-close'); // Agregamos el icono X
       $('.navegacion .menu-back').css({'left':'-455px'}); // Ocultamos el Menu
       $('.navegacion .menu').css({'left':'0px'}); // Mostramos el menu
+       $('body').css({'overflow-y':'auto'});
 
     } else{
+
       $('.navegacion').addClass('add-width'); 
       $('.navegacion').css({'width':'0%', 'background':'rgba(0,0,0,.0)', 'left':'0'}); // Ocultamos el fonto transparente
       $('.border-menu').removeClass('fa fa-close').addClass('bi bi-bars'); // Agregamos el icono del Menu
       $('.navegacion .submenu').css({'left':'-455px'}); // Ocultamos los submenus
       $('.navegacion .menu-back').css({'left':'0px'}); // Ocultamos el Menu
       $('.navegacion .menu').css({'left':'0px'}); // Ocultamos el Menu
+      $('body').css({'overflow-y':'hidden'});
     }
   });
 

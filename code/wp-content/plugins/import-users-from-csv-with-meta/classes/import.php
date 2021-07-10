@@ -637,6 +637,9 @@ class ACUI_Import{
                     endif;
                 endwhile;
 
+                // Start email queue to send emails
+                do_action("start_custom_schedule", "send_user_email_via_queue", "custom_every_5_minute");
+
                 $acui_helper->print_table_end();
 
                 $acui_helper->print_errors( $errors );

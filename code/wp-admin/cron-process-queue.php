@@ -1,4 +1,6 @@
 <?php
+// This function is no longer required
+exit;
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
 date_default_timezone_set("Asia/Kolkata");

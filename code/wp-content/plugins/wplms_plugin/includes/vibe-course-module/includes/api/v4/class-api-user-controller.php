@@ -2830,7 +2830,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
     				'comment_approved' => 1,
 				);
 			
-			if(strlen($review) < 20){
+			/*if(strlen($review) < 20){
 				$status = 0;
 				$message = _x('Please add more words to the review message !','API message failure to add review','wplms');
 			}else{
@@ -2860,9 +2860,32 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 					$status = 0;
 					$message = _x('Failed to add review','API message failure to add review','wplms');
 				}
-			}
+			}*/
 
-			
+			if(strlen($review) > 0){								
+				global $wpdb;
+				$comment_id = $wpdb->get_var("SELECT comment_ID FROM {$wpdb->comments} WHERE comment_post_ID = $post->course_id AND user_id = $this->user_id AND comment_approved = 1");
+
+				if(is_numeric($comment_id)){
+					$data['comment_ID']=$comment_id;
+					wp_update_comment($data);
+				}else{
+					$comment_id = wp_insert_comment($data);	
+				}
+				
+				if($comment_id){
+					$status = 1;
+					$title = wp_filter_nohtml_kses($post->title);
+					update_comment_meta( $comment_id, 'review_title', $title );
+          			$rating = wp_filter_nohtml_kses($post->rating);
+          			update_comment_meta( $comment_id, 'review_rating', $rating );
+					$message = _x('Review successfully added !','API message failure to add review','wplms');
+				}
+			}
+			else{
+				$status = 0;
+				$message = _x('Please add more than 2 letter to the review message !','API message failure to add review','wplms');
+			}
 			
 
 			$data = array('status'=>$status,'message'=>$message);

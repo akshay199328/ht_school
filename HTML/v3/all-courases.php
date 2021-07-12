@@ -287,8 +287,11 @@
 					</a>
 				</div>
 				<div class="column all_courses_list">
-					<a class="course-hero select_course_item" data-id="961" href="">
+					<a class="course-hero select_course_item" href="#">
 						<img alt="Celebrity Course" src="images/5.png" class="img-fluid">
+						<div class="overlay"></div>
+					</a>
+					<a href="#">
 						<span class="category">ARTIFICIAL INTELLIGENCE</span>
 						<h3 class="course-title">
 							<a class="select_course_item" href="#">Computing with Arduino</a>

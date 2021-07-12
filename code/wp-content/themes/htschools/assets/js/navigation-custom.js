@@ -10,7 +10,7 @@ $(document).ready(function(){
       $('.border-menu').removeClass('bi bi-bars').addClass('bi bi-close'); // Agregamos el icono X
       $('.navegacion .menu-back').css({'left':'-455px'}); // Ocultamos el Menu
       $('.navegacion .menu').css({'left':'0px'}); // Mostramos el menu
-       $('body').css({'overflow-y':'auto'});
+      $('body').css({'overflow-y':'auto'});
 
     } else{
 

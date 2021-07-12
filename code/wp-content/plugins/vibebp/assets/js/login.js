@@ -1306,7 +1306,12 @@
                 })
             })) : wp.element.createElement("a", {
                 href: c.profile_link
-            }, window.vibebp.translations.profile), wp.element.createElement("a", {
+            }, "My profile"
+            //window.vibebp.translations.profile
+            ),wp.element.createElement("a", {
+                href: c.profile_link + '/preference'
+            }, "Preference"
+            ), wp.element.createElement("a", {
                 className : "ht-logout",
                 onClick: e.logout
             }, wp.element.createElement("span", {

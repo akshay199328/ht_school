@@ -5982,14 +5982,20 @@
             return $a("div", {
                 className: "course_content_content"
             }, e.hasOwnProperty("noLabels") && e.noLabels ? "" : $a(Ya, null, $a("span", {
-                className: "lesson_info"
+                className: "lesson_info",
+                onClick : () =>{
+                    console.log(s);
+                }
             }, $a("span", null, window.wplms_course_data.reports.module.unit + " ", e.item_number + "/" + e.total_item_count), $a("span", null, " "), $a(Os, {
                 timestamp: s.duration,
                 notimediff: 1
             })), $a("h2", {
                 dangerouslySetInnerHTML: {
-                    
                     __html: s.title
+                }
+            }),$a("div",{
+                dangerouslySetInnerHTML: {
+                    __html: s.join_meeting_link != 0 ? s.join_meeting_link : ""
                 }
             })), $a("div", null, s.meta.hasOwnProperty("access") && s.meta.access || !s.meta.hasOwnProperty("drip_time") ? s.meta.hasOwnProperty("video") && "object" == typeof s.meta.video && !Array.isArray(s.meta.video) ? "youtube" == s.meta.video.type ? $a("div", null, v && v.length ? $a(Sa, {
                 provider: "youtube",
@@ -7319,11 +7325,10 @@
                 
             },
             className: (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? "course_button full button_cource_id_" + l.id + " disabled" : "course_button full progress_key_" + l.user_status + " button_cource_id_" + l.id
-        }, (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? l.live_course_starts_in_days : a), mr("div", {
+        }, (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? l.live_course_starts_in_days : a),(l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? mr("div", {
             className : "livecourse_content"
-        },
-        (l.is_live_course == 1 && l.user_status == 1 && l.is_live_course_start == 0) ? mr("span", null,"We'll do our best to cater to your preferences! However, please note that the class schedule is subject to change. We will communicate on the final schedule over email.") : ""
-        )) : Array.isArray(i) ? mr("strong", {
+        },mr("span", null,"We'll do our best to cater to your preferences! However, please note that the class schedule is subject to change. We will communicate on the final schedule over email.") 
+        ) : "") : Array.isArray(i) ? mr("strong", {
             className: "course_button full"
         }, mr("a", {
             href: i[0].link,

@@ -1,3 +1,11 @@
+<?php $page_name = basename($_SERVER['PHP_SELF']); ?>
+<?php
+if($page_name=="index.php"){
+    $page_classes=" home-page";
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,13 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style-v3.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
     <link href="css/all-courses.css" rel="stylesheet">
+    <link href="css/style-v3.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
 
     <title>Hello, world!</title>
   </head>
-  <body>
+  <body class="<?=$page_classes?>">
     <header class="header-wrapper">
         <div class="header-copy">
             <button class="home-button" type="submit">

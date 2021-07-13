@@ -1,0 +1,190 @@
+$green:#06ea8c;
+$gray:#a0a0a0;
+$darkgray:#383838;
+$blue:#004ba6;
+
+$layout:1150px;
+$bkreakpoint-phone:450px;
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=4.097");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+.black-button{padding:12px 30px;background-color: #000;color: #FFF;text-transform:uppercase;letter-spacing:1.4px;font-size:13px;border:1px solid #000;transition:all .3s ease-in-out;display: inline-block;
+    &:hover{background-color:transparent;color: #000;}
+    &.reverse{background-color:transparent;color: #000;
+        &:hover{background-color:#000;color: #FFF;}
+    }
+    @media (max-width:$bkreakpoint-phone){padding:8px 24px;}
+}
+a{text-decoration:none;}
+$base-font-size: 18px;
+$heading-scale: 5;
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: $base-font-size + $heading-scale * (6 - $i);
+  }
+}
+@mixin layout($layout){
+    max-width:$layout;
+    padding:0 15px;
+    margin:auto;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight:500;
+}
+.medium-title{font-size:40px;font-weight:600;}
+body{
+    font-family: "Poppins";
+    color: #000;
+}
+.layout{
+    max-width:$layout;
+    padding:0 15px;
+    margin:auto;
+}
+.header-wrapper{
+    @include layout($layout);
+    border:1px solid black;
+    display: flex;
+    padding-top:18px;
+    padding-bottom:18px;
+    align-items:center;
+    justify-content:space-between;
+    .header-left{
+        .codeathon{
+            img{width:200px;}
+        }
+    }
+    .header-right{display: flex;align-items:center;
+        .ht-school{
+            img{width:105px;}
+        }
+        .account{margin-left:20px;display:inline-flex;
+            a{padding:8px 20px;display: inline-block;border:2px solid $gray;text-transform:uppercase;margin-left:-2px;font-weight:600;color:$gray;letter-spacing:.6px;
+                &.register{background-color:$green;color:#000;border-color:$green}
+            }
+        }
+    }
+}
+.navigation-wrapper{background-color:$green;padding:20px 0;
+    ul{
+        @include layout($layout);
+        list-style-type:none;
+        display: flex;
+        justify-content:space-between;
+        li{
+            a{color:#000;font-size:14px;}
+        }
+    }
+}
+
+.home_slider{border:1px solid red;position: relative;background-image: url("../images/slider/bg-code.png");background-repeat:no-repeat;background-position:center;
+    &:after{
+        content:"";
+        position: absolute;
+        height:200px;
+        width:1170px;
+        bottom:0;
+        right:0;
+        display:inline-block;
+        background-image: url("../images/slider/slider-yellow.png");
+        background-position:right;
+        background-repeat: no-repeat;
+        z-index:15;
+    }
+    .caption{border:1px solid blue;max-width:$layout;margin:auto;position: relative;z-index:10;}
+}
+
+.home-about{
+    border:1px solid red;
+    background-color: $blue;
+}
+.owl-carousel{
+    .owl-dots{border:1px solid red;margin-top:33px;display:inline-flex;width:100%;justify-content:center;
+        .owl-dot{height:13px;width:13px;border-radius:40px;background-color: rgba(0, 0, 0, 0.25);margin:0 4px;
+            &.active{background-color: #fff;}
+        }
+    }
+    .owl-nav{
+        .owl-prev,
+        .owl-next{position: absolute;top:50%;transform:translateY(-50%);height:40px;width:40px;border:1px solid red !important;border-radius:50px;}
+        .owl-prev{left:-60px;}
+        .owl-next{right:-60px;}
+    }
+}
+.section-wrapper{border:1px solid red;padding:80px 15px;
+    .section-copy{
+        .section-title{text-align:center;text-transform:uppercase;font-weight:800;font-size:49px;color:$darkgray;margin-bottom:40px;}
+        @include layout($layout);
+    }
+    &.school{background-color:$green;
+        .school_slider{
+            .owl-stage{display: flex;
+                .owl-item{
+                    display: flex;align-items:center;
+                    .item{
+                        display: flex;align-items:center;
+                        .logo{display: block;background: #FFF;padding:20px;
+                            img{max-height:134px;width:auto !important;max-width:100%;}
+                        }
+                    }
+                }
+            }
+        }
+        &:after{content:"";height:147px;width:200px;background-image: url("../images/school-doodle.png");background-repeat: no-repeat;background-position:center;display:inline-block;position: absolute;right:15%;}
+        &:before{content:"";height:212px;width:228px;background-image: url("../images/school-circle.png");background-repeat: no-repeat;background-position:center;display:inline-block;position: absolute;left:10%;background-size: cover;bottom:0;margin-bottom:-70px;}
+    }
+    &.blogs{
+        .blog_slider{
+            .item{padding:0 7px;
+                .image{overflow: hidden;position: relative;display: block;margin-bottom:15px;
+                    &:after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;margin:0 10px;background-image: url("../images/blog-shape.png");background-repeat: no-repeat;background-position:center;background-size:cover;margin:auto;}
+                    img{width:100%;object-fit:cover;height:180px;}
+                }
+                .blog-title{font-size:18px;font-weight:600;a{color:$darkgray}}
+                p{color:rgba($darkgray, .60);margin-bottom:7px;}
+                .read-more{font-weight:600;color:$darkgray;}
+            }
+        }
+    }
+}
+
+.footer-wrapper{
+    background-color:#00326f;
+    padding:40px;
+    .footer-copy{
+        @include layout($layout);
+        border:1px solid red;
+        position: relative;
+        display: flex;
+        justify-content:space-between;
+        font-family:"Roboto";
+        color: #FFF;
+        &:after{
+            position:absolute;
+            content: "";
+            bottom:0;
+            right:-90px;
+            background-image: url("../images/code.svg");
+            background-repeat: no-repeat;
+            background-position:bottom right;
+            display: inline-block;
+            width:224px;
+            height:107px;
+            opacity:.20;
+        }
+        ul{
+            padding:0;margin:0;list-style-type:none;
+            li{
+                a{padding:8px 0;display: block;color: #FFF;font-size:14px;font-weight:500;}
+            }
+            &.sitemap{
+                li{
+                    a{border-bottom: 1px solid rgba(255, 255, 255, 0.23);}
+                }
+            }
+        }
+        .info{border:1px solid red;
+            .title{font-family: "Poppins";text-transform:uppercase;font-weight:600;font-size:18px;}
+            p{margin-bottom:10px;}
+        }
+    }
+}

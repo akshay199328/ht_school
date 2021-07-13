@@ -21,8 +21,121 @@
         </div>
     </div>
 
+    <section class="section-wrapper learning">
+    	<div class="section-copy">
+    		<h2 class="section-title">Learning Modules</h2>
+    		<div class="column-wrapper">
+    			<div class="column">
+	    			<span class="title">Classes IV - V</span>
+	    		</div>
+	    		<div class="column">
+	    			<span class="title">Classes IV - V</span>
+	    		</div>
+	    		<div class="column">
+	    			<span class="title">Classes IV - V</span>
+	    		</div>
+    		</div>
+    	</div>
+    </section>
+
+    <section class="section-wrapper it-works">
+    	<div class="section-copy">
+    		<h2 class="section-title">How it works</h2>
+    	</div>
+    </section>
+
+    <section class="section-wrapper about">
+    	<div class="section-copy">
+    		<h2 class="section-title">About Our Partners</h2>
+    		<div class="owl-carousel owl-theme about_slider">
+		        <div class="item">
+		            <div class="partner-copy">
+		            	<figure class="image"><img src=""></figure>
+		            	<div class="copy">
+		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
+		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		            		<a class="read-more">Read More >></a>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="item">
+		            <div class="partner-copy">
+		            	<figure class="image"><img src=""></figure>
+		            	<div class="copy">
+		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
+		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		            		<a class="read-more">Read More >></a>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="item">
+		            <div class="partner-copy">
+		            	<figure class="image"><img src=""></figure>
+		            	<div class="copy">
+		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
+		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		            		<a class="read-more">Read More >></a>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="item">
+		            <div class="partner-copy">
+		            	<figure class="image"><img src=""></figure>
+		            	<div class="copy">
+		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
+		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		            		<a class="read-more">Read More >></a>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="item">
+		            <div class="partner-copy">
+		            	<figure class="image"><img src=""></figure>
+		            	<div class="copy">
+		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
+		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		            		<a class="read-more">Read More >></a>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class="item">
+		            <div class="partner-copy">
+		            	<figure class="image"><img src=""></figure>
+		            	<div class="copy">
+		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
+		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		            		<a class="read-more">Read More >></a>
+		            	</div>
+		            </div>
+		        </div>
+		    </div>
+    	</div>
+    </section>
+
     <section class="section-wrapper videos">
-    	<div class="section-copy">fsdfds</div>
+    	<div class="section-copy">
+    		<h2 class="section-title">What Our Partners Say</h2>
+    		<div class="owl-carousel owl-theme says_slider">
+		        <div class="item-video">
+		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		        </div>
+		        <div class="item-video">
+		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		        </div>
+		        <div class="item-video">
+		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		        </div>
+		        <div class="item-video">
+		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		        </div>
+		        <div class="item-video">
+		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		        </div>
+		        <div class="item-video">
+		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		        </div>
+		    </div>
+    	</div>
     </section>
 
     <section class="section-wrapper partners">

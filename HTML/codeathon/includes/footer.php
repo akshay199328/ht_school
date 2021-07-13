@@ -75,6 +75,53 @@
                 }
             }
         });
+     $('.about_slider').owlCarousel({
+          merge:true,
+          loop:true,
+          margin:22,
+          nav:true,
+          video:true,
+          lazyLoad:true,
+          center:true,
+          dots:false,
+          // autoWidth:true,
+          responsive : {
+               0 : {
+                    items:2,
+               },
+               // breakpoint from 480 up
+               480 : {
+                    items:2,
+               },
+               // breakpoint from 768 up
+               768 : {
+                    items:3,
+               }
+          }
+     });
+     $('.says_slider').owlCarousel({
+          merge:true,
+          loop:true,
+          margin:0,
+          nav:true,
+          video:true,
+          lazyLoad:true,
+          center:true,
+          // autoWidth:true,
+          responsive : {
+               0 : {
+                    items:2,
+               },
+               // breakpoint from 480 up
+               480 : {
+                    items:2,
+               },
+               // breakpoint from 768 up
+               768 : {
+                    items:3,
+               }
+          }
+     });
      $('.school_slider').owlCarousel({
           margin:50,
           loop:true,
@@ -105,7 +152,7 @@
           dots:true,
           mouseDrag:false,
           stagePadding:0,
-          smartSpeed:1900,
+          smartSpeed:800,
           responsive : {
                0 : {
                     items:2,
@@ -127,7 +174,7 @@
             mouseDrag:false,
             dots:false,
             stagePadding:0,
-            smartSpeed:1900,
+            smartSpeed:800,
             responsive : {
                 0 : {
                     items:2,

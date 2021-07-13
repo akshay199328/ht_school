@@ -2563,7 +2563,7 @@ Course Details
   width: 50%;
   vertical-align: bottom;
   position: relative;
-      float: right;
+      /*float: right;*/
 }
 .tableTd_right .button_table {
     width: 100%;

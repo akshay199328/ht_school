@@ -151,7 +151,9 @@ dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;
 --------------------------------------------------------------*/
 /*login-section*/
 .loggedin_user_div.active{
-  background: #fff;border-color: transparent!important;
+  background: #fff;
+    border-color: #E8E8E8!important;
+    border-bottom: 0px!important;
 }
 .loggedin_user_div.active .loggedin_user:before{
     transform: rotate(178deg) scale(1.2);
@@ -186,18 +188,23 @@ background: url('./assets/images/preference.png');
   vertical-align: middle;
 }
 .user_menu .usermenu_content{padding:0;}
-.header .header-copy .left-menu ul li span.vibebp_name:after {
-    display: none;
+.vibebp_name:after {
+    display: none!important;
 }
 .user_menu{
-        width: 194px !important;
+        width: 100% !important;
     top: 38px !important;
-    right: -2px !important;
+    right: 0px !important;
     box-shadow: 0px 8px 10px #00000010;
     border-radius: 0px!important;
     padding: 15px !important;
     border: 1px solid #E8E8E8;
     border-top: 0;
+}
+.user_menu .usermenu_content .divider{
+  border: 1px solid #707070;
+    padding: 0!important;
+    margin-bottom: 17px;
 }
 .user_menu .usermenu_content a{padding:0 !important;}
 .user_menu .usermenu_content a span{margin-right:13px !important}
@@ -205,7 +212,7 @@ background: url('./assets/images/preference.png');
   font-size: 15px;
   line-height: 40px;
   color: #4B4B4B;
-  padding: 0px 10px !important;
+  padding: 0px 0px !important;
   font-weight: 400 !important;
 }
 .user_menu.active a>span{
@@ -221,7 +228,7 @@ background: url('./assets/images/preference.png');
     color: #000 !important;
 }
 .user_menu.active:after{
-  top: 0px !important;
+  /*top: 0px !important;*/
 }
 
 .user_menu{display: none!important;}
@@ -548,10 +555,10 @@ section {
       width: 33.33%;
   }
   .middle-menu{
-      width: 31.33%;
+      width: 30.33%;
   }
   .right-menu{
-      width: 35.33%;
+      width: 37.33%;
   }
   .footer .footer-top .social-links{
     -webkit-box-pack: justify !important;

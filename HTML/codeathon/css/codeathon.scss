@@ -34,6 +34,7 @@ h1,h2,h3,h4,h5,h6{
 body{
     font-family: "Poppins";
     color: #000;
+    overflow-x: hidden;
 }
 .layout{
     max-width:$layout;
@@ -98,7 +99,7 @@ body{
     background-color: $blue;
 }
 .owl-carousel{
-    .owl-dots{border:1px solid red;margin-top:33px;display:inline-flex;width:100%;justify-content:center;
+    .owl-dots{margin-top:33px;display:inline-flex;width:100%;justify-content:center;
         .owl-dot{height:13px;width:13px;border-radius:40px;background-color: rgba(0, 0, 0, 0.25);margin:0 4px;
             &.active{background-color: #fff;}
         }
@@ -106,16 +107,38 @@ body{
     .owl-nav{
         .owl-prev,
         .owl-next{position: absolute;top:50%;transform:translateY(-50%);height:40px;width:40px;border:1px solid red !important;border-radius:50px;}
-        .owl-prev{left:-60px;}
-        .owl-next{right:-60px;}
+        .owl-prev{left:-100px;}
+        .owl-next{right:-100px;}
     }
 }
-.section-wrapper{border:1px solid red;padding:80px 15px;
+.section-wrapper{border:1px solid red;padding:102px 15px;
     .section-copy{
         .section-title{text-align:center;text-transform:uppercase;font-weight:800;font-size:49px;color:$darkgray;margin-bottom:40px;}
         @include layout($layout);
     }
-    &.school{background-color:$green;
+    &.partners{position: relative;
+        .partners_slider{
+            .owl-stage{display: flex;
+                .owl-item{
+                    display: flex;align-items:center;
+                    .item{
+                        display: flex;align-items:center;
+                        .logo{display: block;background: #FFF;padding:20px;
+                            img{max-height:134px;width:auto !important;max-width:100%;}
+                        }
+                    }
+                }
+            }
+            &:after{content:"";height:147px;max-width:729px;background-image: url("../images/partner-doodle.png");background-repeat: no-repeat;background-position:center;display:inline-block;position:absolute;right:-48%;z-index:10;width:100%;bottom:-150px}
+            .owl-dots{
+                .owl-dot{
+                    &.active{background-color:$green;}
+                }
+            }
+        }
+        &:before{content:"";height:212px;width:228px;background-image: url("../images/school-circle.png");background-repeat: no-repeat;background-position:center;display:inline-block;position: absolute;left:10%;background-size: cover;bottom:0;margin-bottom:-70px;}
+    }
+    &.school{background-color:$green;position: relative;
         .school_slider{
             .owl-stage{display: flex;
                 .owl-item{

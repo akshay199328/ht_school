@@ -75,29 +75,51 @@
                 }
             }
         });
-          $('.school_slider').owlCarousel({
-               margin:50,
-               loop:true,
-               nav:true,
-               dots:true,
-               mouseDrag:false,
-               stagePadding:0,
-               smartSpeed:1900,
-               autoHeight: true,
-               responsive : {
-                    0 : {
-                         items:2,
-                    },
-                    // breakpoint from 480 up
-                    480 : {
-                         items:2,
-                    },
-                    // breakpoint from 768 up
-                    768 : {
-                         items:5,
-                    }
+     $('.school_slider').owlCarousel({
+          margin:50,
+          loop:true,
+          nav:true,
+          dots:true,
+          mouseDrag:false,
+          stagePadding:0,
+          smartSpeed:1900,
+          autoHeight: true,
+          responsive : {
+               0 : {
+                    items:2,
+               },
+               // breakpoint from 480 up
+               480 : {
+                    items:2,
+               },
+               // breakpoint from 768 up
+               768 : {
+                    items:5,
                }
-          });
+          }
+     });
+     $('.partners_slider').owlCarousel({
+          margin:0,
+          loop:true,
+          nav:true,
+          dots:true,
+          mouseDrag:false,
+          stagePadding:0,
+          smartSpeed:1900,
+          responsive : {
+               0 : {
+                    items:2,
+               },
+               // breakpoint from 480 up
+               480 : {
+                    items:2,
+               },
+               // breakpoint from 768 up
+               768 : {
+                    items:5,
+               }
+          }
+     });
       $('.blog_slider').owlCarousel({
             margin:0,
             loop:true,

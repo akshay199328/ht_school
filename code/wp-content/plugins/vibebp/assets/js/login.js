@@ -1279,8 +1279,10 @@
                 s = (o[1], V(z(!1), 2)),
                 c = (s[0], s[1], Z("vibebp").getUser());
             Y((function() {
+                
                 setTimeout((function() {
                     i(n.replace(/active user_active/g, "") + " active user_active");
+                    jQuery('.user_active').parent('.loggedin_user_div').addClass('active');
                 }), 30), document.addEventListener("userLoaded", (function() {
                     console.log("capturing")
                 }))
@@ -1306,16 +1308,20 @@
                 })
             })) : wp.element.createElement("a", {
                 href: c.profile_link
-            }, "My profile"
+            }, wp.element.createElement("span", {
+                className: "profile_icon"
+            }), "My profile"
             //window.vibebp.translations.profile
             ),wp.element.createElement("a", {
                 href: c.profile_link + '/preference'
-            }, "Preference"
+            }, wp.element.createElement("span", {
+                className: "preference_icon"
+            }), "Preference"
             ), wp.element.createElement("a", {
                 className : "ht-logout",
                 onClick: e.logout
             }, wp.element.createElement("span", {
-                className: "fa fa-power-off"
+                className: "logout_icon"
             }), window.vibebp.translations.logout)))
         };
 

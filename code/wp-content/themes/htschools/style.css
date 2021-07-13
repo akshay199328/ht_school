@@ -150,17 +150,54 @@ dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;
 # profile dropdown
 --------------------------------------------------------------*/
 /*login-section*/
-
+.loggedin_user_div.active{
+  background: #fff;border-color: transparent!important;
+}
+.loggedin_user_div.active .loggedin_user:before{
+    transform: rotate(178deg) scale(1.2);
+    color: #000;
+}
+.header .header-copy .right-menu .user_menu a{align-items: center;}
+.profile_icon{
+ background: url('./assets/images/profile.png');
+  width:17.187px;
+   height:19.643px;
+   fill: #848484;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.preference_icon{
+background: url('./assets/images/preference.png');
+  width:20.143px;
+   height:20.143px;
+   color: #848484;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.logout_icon{
+  background: url('./assets/images/logout.png');
+  width:18.006px;
+   height:19.643px;
+   color: #848484;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
 .user_menu .usermenu_content{padding:0;}
-
+.header .header-copy .left-menu ul li span.vibebp_name:after {
+    display: none;
+}
 .user_menu{
-  width: 230px !important;
-      top: 38px !important;
-    right: 0px !important;
-    box-shadow: 0px 5px 10px #00000010;
+        width: 194px !important;
+    top: 38px !important;
+    right: -2px !important;
+    box-shadow: 0px 8px 10px #00000010;
     border-radius: 0px!important;
-    padding:15px !important;
-    border:1px solid #E8E8E8;
+    padding: 15px !important;
+    border: 1px solid #E8E8E8;
+    border-top: 0;
 }
 .user_menu .usermenu_content a{padding:0 !important;}
 .user_menu .usermenu_content a span{margin-right:13px !important}
@@ -509,6 +546,12 @@ section {
   --------------------------------------------------------------*/
   .left-menu, .middle-menu, .right-menu{
       width: 33.33%;
+  }
+  .middle-menu{
+      width: 31.33%;
+  }
+  .right-menu{
+      width: 35.33%;
   }
   .footer .footer-top .social-links{
     -webkit-box-pack: justify !important;
@@ -2520,6 +2563,7 @@ Course Details
   width: 50%;
   vertical-align: bottom;
   position: relative;
+      float: right;
 }
 .tableTd_right .button_table {
     width: 100%;
@@ -8236,7 +8280,7 @@ table .course-button .gst{font-size:12px;font-weight:400;color:#999;padding-left
 }
 .woocommerce-checkout{margin-bottom:30px;}
 
-.right-menu .custom_topmenu li a{font-weight:400 !important}
+.right-menu .custom_topmenu li a.active{background: #fff}
 .right-menu .custom_topmenu li a .text{font-weight:600 !important}
 
 

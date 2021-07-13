@@ -1469,13 +1469,13 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 							$course_type = get_post_meta($course_id,'vibe_course_type',true);
 							$join_meeting_link = 0;
 							if(strtolower($course_type) == "live classes"){
-								$get_live_course_start_data = $wpdb->get_results("SELECT bm.course_id,bm.batch_name,bm.variation_id,bsm.user_id,bm.start_on,bm.meeting_shortcode FROM ht_batch_master AS bm LEFT JOIN ht_batch_student_mapping AS bsm ON bsm.batch_id = bm.id WHERE bsm.user_id = '".$user_id."' AND course_id = '".$course_id."'");
+								$get_live_course_start_data = $wpdb->get_results("SELECT bm.course_id,bm.batch_name,bm.variation_id,bsm.user_id,bm.start_on,bm.meeting_id,bm.meeting_passcode FROM ht_batch_master AS bm LEFT JOIN ht_batch_student_mapping AS bsm ON bsm.batch_id = bm.id WHERE bsm.user_id = '".$user_id."' AND course_id = '".$course_id."'");
 								$live_course_data=json_decode( json_encode($get_live_course_start_data), true);
 								$live_course_start_date = $live_course_data[0]['start_on'];
 								$meeting_id = $live_course_data[0]['meeting_id'];
 								$meeting_passcode = $live_course_data[0]['meeting_passcode'];
 								$meeting_shortcode = "[zoom_join_via_browser meeting_id='".$meeting_id."' login_required='no' help='yes' height='500px' disable_countdown='yes' passcode='".$meeting_passcode."' webinar='no']";
-								$join_meeting_link = do_shortcode($live_course_data[0]['meeting_shortcode']);
+								$join_meeting_link = do_shortcode($meeting_shortcode);
 							}
 							$unit_type = wplms_get_element_type($item,'unit');
 							$curriculum_arr[] = apply_filters('bp_course_api_course_curriculum_unit',array(

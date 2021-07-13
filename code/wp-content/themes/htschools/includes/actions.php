@@ -748,6 +748,7 @@ class WPLMS_Actions{
 
 				jQuery(document).on("click", ".loggedin_user_div", function(){
 					jQuery('.user_menu').is(":visible") ? jQuery('.user_menu').hide() : jQuery('.user_menu').show();
+					jQuery('.user_menu').is(":visible") ? jQuery('.user_active').parent('.loggedin_user_div').removeClass('active') : jQuery('.user_active').parent('.loggedin_user_div').addClass('active')
 				});
 
 				jQuery(document).on("click", ".vibebp-logout", function(e){

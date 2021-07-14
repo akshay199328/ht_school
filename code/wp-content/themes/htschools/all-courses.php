@@ -121,7 +121,7 @@ get_header(vibe_get_header());
                     $wp_query = new WP_Query($query_args);
                   }*/
                   global $wpdb;
-                  if (empty($_GET)) {
+                  if (empty($_GET['sort_by']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['category'])) {
                     if(!empty($course_id)){
                       $query_args = apply_filters('wplms_mycourses',array(
                           'post_type'=>'course',

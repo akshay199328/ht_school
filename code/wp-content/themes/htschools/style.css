@@ -151,9 +151,10 @@ dl, ol, ul, h1, h2, h3, h4, h5, h6, p, section.widget {padding: 0px;margin: 0px;
 --------------------------------------------------------------*/
 /*login-section*/
 .loggedin_user_div.active{
-  background: #fff;
+    background: #fff;
     border-color: #E8E8E8!important;
     border-bottom: 0px!important;
+    color: #000!important;
 }
 .loggedin_user_div.active .loggedin_user:before{
     transform: rotate(178deg) scale(1.2);
@@ -2722,8 +2723,8 @@ button.course-button,
 button.course-button .button 
 {
     padding: 14px 14px;
-    width: 155px;
-    min-width: 155px;
+    width: auto;
+    min-width: 173px;
     min-height: 45px;
     background-color: #000000!important;
     font-size: 15px;

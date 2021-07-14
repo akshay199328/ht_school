@@ -30,7 +30,7 @@ $user_city = get_profile_data('City');
 $user_school_name = "";
 $user_school = get_profile_data('Linked School');
 if(intval($user_school) > 0){
-	$user_school_name = get_user_by('id', $user_school)->display_name;
+	$user_school_name = get_user_by('id', $user_school)->display_name;	
 }
 
 $dob = strtotime($user_birthday);
@@ -101,10 +101,16 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			</div>
 			<div class="form-group profile_search">
 				<label for="user_school_data">School*</label> <span class="school_note">Please type in your school and location if you can't find it in the list. (e.g., St. Paul's School Darjeeling)</span>
-				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
-				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">	
+				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">				
 				<span id="errSchoolMsg"></span>
 			</div>
+			<div style="display:none" id="other_school">
+				<input type="text" id="user_school_other" name="user_school_other" value="" >
+				<!-- <input type="hidden" id="other_user_school" name="other_user_school" value="<?php echo $user_school; ?>"> -->
+				<span id="errotherSchoolMsg"></span>
+			</div>
+
 			<?php $profileType = get_profile_data('Profile Type'); 
 				if($profileType != 'Parent'){
 			?>
@@ -359,6 +365,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
               	var firstName = $('#user_firstname').val();
               	var lastName = $('#user_lastname').val();
               	var userSchool = $('#user_school_data').val();
+              	var otherschool = $('#user_school_other').val();
                   var filter = /^(?!0+$)\d{8,}$/;
                   var isValid = true;
                   if(mobNum == '' || mobNum == undefined){
@@ -386,6 +393,11 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 
                   if(userSchool == '' || userSchool == undefined){
                   	$("#errSchoolMsg").text("Please select school name");
+                  	isValid = false;
+                  }
+
+                  if(otherschool == '' || otherschool == undefined){
+                  	$("#errotherSchoolMsg").text("Please enter school name");
                   	isValid = false;
                   }
 
@@ -464,9 +476,26 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			        event.preventDefault();
 			        $("#user_school_data").val(ui.item.label);
 			        $("#user_school").val(ui.item.value);
-			    },
+				},
+				response: function(event, ui){
+					ui.content.push({value:"Others", label:"Others"});
+				}					
 			});	
 
+			$("#user_school_data").click(function () {
+				var other_val = $("#user_school_data").val();
+				//console.log(other_val);	
+				if(other_val === "Others"){
+					$("#other_school").removeAttr("style").hide();
+					$("#other_school").show();										
+				}
+				else{
+					$("#other_school").hide();	
+				}							
+			});
+
+			/*-------------------------------------------------------*/
+			
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
 			$( "#user_country_data" ).autocomplete({

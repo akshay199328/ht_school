@@ -27,15 +27,25 @@
     		<div class="column-wrapper">
     			<div class="column">
 	    			<span class="title">Classes IV - V</span>
+	    			<span class="sub-title">Website Development with HTML & CSS</span>
+	    			<p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
+	    			<a class="enroll" href="#!">Enroll Now</a>
 	    		</div>
 	    		<div class="column">
 	    			<span class="title">Classes IV - V</span>
+	    			<span class="sub-title">Website Development with HTML & CSS</span>
+	    			<p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
+	    			<a class="enroll" href="#!">Enroll Now</a>
 	    		</div>
 	    		<div class="column">
 	    			<span class="title">Classes IV - V</span>
+	    			<span class="sub-title">Website Development with HTML & CSS</span>
+	    			<p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
+	    			<a class="enroll" href="#!">Enroll Now</a>
 	    		</div>
     		</div>
     	</div>
+    	<span class="code"></span>
     </section>
 
     <section class="section-wrapper it-works">

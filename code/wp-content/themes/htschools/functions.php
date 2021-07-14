@@ -1175,7 +1175,7 @@ function save_custom_profile(){
 
           $sql2 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'type','Manual')");
           $wpdb->query($sql2);
-          
+
           $sql3 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$user_id.",'Linked School',".$schoolID.")");
           $wpdb->query($sql3);
 
@@ -1203,18 +1203,19 @@ function save_custom_profile(){
 
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );        
 
+            if(empty($school_other_name)){
+              $final_school_name = esc_attr($_REQUEST['user_school_data']);                  
+              }      
+              else{
+                $final_school_name = esc_attr($_REQUEST['user_school_other']);                
+              }   
         if(count($child) == 0){
           $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
               'parent_id' => 0,
               'child_id' => $user_id,
               'child_name' => esc_attr($_REQUEST['first_name']),
               'school_id' => esc_attr($_REQUEST['user_school']),
-              if(empty($school_other_name)){
-                  'school_name' => esc_attr($_REQUEST['user_school_data']),
-              }      
-              else{
-                'school_name' => esc_attr($_REQUEST['user_school_other']),
-              }              
+              'school_name' => $final_school_name,
               'grade' => esc_attr($_REQUEST['grade']),
               'division' => esc_attr($_REQUEST['division'])
           ));

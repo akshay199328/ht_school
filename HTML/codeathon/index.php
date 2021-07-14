@@ -2,49 +2,58 @@
 
 	<div class="owl-carousel owl-theme home_slider">
         <div class="item">
-            <img src="images/slider/01.jpg">
+            <img src="images/slider/02.jpeg">
             <div class="caption">
             	<span class="caption-eyebrow">Stay tuned for </span>
                 <h3 class="caption-title">updates</h3>
                 <h3 class="caption-title">HT Codeathon</h3>
                 <h3 class="caption-title">2021</h3>
-                <a class="black-button" href="course-page.html">Explore Course</a>
             </div>
         </div>
         <div class="item">
-            <img src="images/slider/01.jpg">
+            <img src="images/slider/01.jpeg">
             <div class="caption">
-            	<span class="caption-eyebrow">Dance Lessons from</span>
-                <h3 class="caption-title">Ganesh Acharya</h3>
-                <a class="black-button" href="course-page.html">Explore Course</a>
+            	<span class="caption-eyebrow">Stay tuned for </span>
+                <h3 class="caption-title">updates</h3>
+                <h3 class="caption-title">HT Codeathon</h3>
+                <h3 class="caption-title">2021</h3>
             </div>
         </div>
     </div>
 
+    <section class="section-wrapper ad">
+    	
+    </section>
+
     <section class="section-wrapper learning">
     	<div class="section-copy">
+    		<span class="left-doodle"></span>
     		<h2 class="section-title">Learning Modules</h2>
     		<div class="column-wrapper">
     			<div class="column">
 	    			<span class="title">Classes IV - V</span>
+	    			<span class="video"><img src="images/learning/01.jpeg"></span>
 	    			<span class="sub-title">Website Development with HTML & CSS</span>
 	    			<p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
 	    			<a class="enroll" href="#!">Enroll Now</a>
 	    		</div>
 	    		<div class="column">
-	    			<span class="title">Classes IV - V</span>
+	    			<span class="title">Classes VI - VII</span>
+	    			<span class="video"><img src="images/learning/01.jpeg"></span>
 	    			<span class="sub-title">Website Development with HTML & CSS</span>
 	    			<p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
 	    			<a class="enroll" href="#!">Enroll Now</a>
 	    		</div>
 	    		<div class="column">
-	    			<span class="title">Classes IV - V</span>
-	    			<span class="sub-title">Website Development with HTML & CSS</span>
+	    			<span class="title">Classes VIII - IX</span>
+	    			<span class="video"><img src="images/learning/01.jpeg"></span>
+	    			<span class="sub-title">Game Development with Python</span>
 	    			<p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
 	    			<a class="enroll" href="#!">Enroll Now</a>
 	    		</div>
     		</div>
     	</div>
+    	<span class="gray-code"></span>
     	<span class="code"></span>
     </section>
 

@@ -2,24 +2,44 @@
 
 	<div class="owl-carousel owl-theme home_slider">
         <div class="item">
-            <img src="images/slider/02.jpeg">
+            <img src="images/slider/03.jpeg">
             <div class="caption">
             	<span class="caption-eyebrow">Stay tuned for </span>
-                <h3 class="caption-title">updates</h3>
-                <h3 class="caption-title">HT Codeathon</h3>
-                <h3 class="caption-title">2021</h3>
+                <h3 class="caption-title">updates on</h3>
+                <h3 class="caption-title"><span class="green">HT</span> <span class="orange">Codeathon</span></h3>
+                <h3 class="caption-title purple">2021</h3>
             </div>
         </div>
         <div class="item">
             <img src="images/slider/01.jpeg">
             <div class="caption">
             	<span class="caption-eyebrow">Stay tuned for </span>
-                <h3 class="caption-title">updates</h3>
-                <h3 class="caption-title">HT Codeathon</h3>
-                <h3 class="caption-title">2021</h3>
+                <h3 class="caption-title">updates on</h3>
+                <h3 class="caption-title"><span class="green">HT</span> <span class="orange">Codeathon</span></h3>
+                <h3 class="caption-title purple">2021</h3>
+            </div>
+        </div>
+        <div class="item">
+            <img src="images/slider/02.jpeg">
+            <div class="caption">
+            	<span class="caption-eyebrow">Stay tuned for </span>
+                <h3 class="caption-title">updates on</h3>
+                <h3 class="caption-title"><span class="green">HT</span> <span class="orange">Codeathon</span></h3>
+                <h3 class="caption-title purple">2021</h3>
             </div>
         </div>
     </div>
+
+    <section class="section-wrapper about-code">
+    	<div class="section-copy">
+    		<div class="video"></div>
+    		<div class="content-copy">
+    			<span class="eyebrow">About</span>
+    			<h2 class="title">HT Codeathon</h2>
+    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+    		</div>
+    	</div>
+    </section>
 
     <section class="section-wrapper ad">
     	
@@ -139,20 +159,15 @@
 		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
 		        </div>
 		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		            <a class="owl-video" href="https://vimeo.com/27751276"></a>
 		        </div>
 		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		            <a class="owl-video" href="https://youtu.be/1I6q1R6GX8Q"></a>
 		        </div>
 		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		            <a class="owl-video" href="https://youtu.be/1I6q1R6GX8Q"></a>
 		        </div>
-		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
-		        </div>
-		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
-		        </div>
+
 		    </div>
     	</div>
     </section>

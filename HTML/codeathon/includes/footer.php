@@ -112,8 +112,9 @@
           loop:true,
           margin:0,
           nav:true,
+          videoHeight: true,
           video:true,
-          lazyLoad:true,
+          // lazyLoad:true,
           center:true,
           // autoWidth:true,
           responsive : {

@@ -37,14 +37,15 @@
     			<svg class="frame" xmlns="http://www.w3.org/2000/svg" width="180.005" height="104.852" viewBox="0 0 180.005 104.852">
 				<path id="Exclusion_1" data-name="Exclusion 1" d="M2.695,103.851c-1.19,0-2.176-1.692-2.246-3.853L.375,97.757c-.048-1.469-.078-3-.092-4.67A6.808,6.808,0,0,1,0,91.079c.043-10.553.285-20.9.519-30.9v0l.017-.71c-.042-1.2-.1-2.385-.162-3.506C-.188,46.413-.006,37.58.186,28.227c.1-4.985.208-10.138.193-15.435a6.62,6.62,0,0,1,.43-2.444C.742,8.376.657,6.4.556,4.465A6.86,6.86,0,0,1,.8,2.209a3.962,3.962,0,0,1,.848-1.6A1.576,1.576,0,0,1,2.786.049c.032,0,.064,0,.1,0C12.958.8,23.01.9,31.515.9c2.9,0,5.848-.013,8.621-.027C46.422.838,52.8.65,58.962.469h0C65.721.269,72.707.063,79.583.063c3.788,0,7.24.061,10.553.186,18.124.681,34.348,1.046,49.6,1.115.465,0,.951,0,1.444,0,7.791,0,18.631-.267,26.974-.665,2.2-.1,4.5-.338,6.715-.563h.006l1.309-.132c.042,0,.084-.006.125-.006,1.189,0,2.176,1.692,2.246,3.853l.074,2.242c.048,1.474.078,3,.092,4.67A6.787,6.787,0,0,1,179,12.772c-.043,10.555-.285,20.9-.519,30.9l-.017.709c.042,1.207.1,2.387.162,3.506.559,9.548.378,18.381.186,27.733-.1,4.985-.208,10.14-.193,15.438a6.619,6.619,0,0,1-.43,2.444c.066,1.967.151,3.947.252,5.883a6.859,6.859,0,0,1-.245,2.256,3.962,3.962,0,0,1-.848,1.6,1.576,1.576,0,0,1-1.137.557q-.048,0-.1,0c-10.078-.744-20.127-.844-28.628-.844-2.9,0-5.854.013-8.627.027-6.286.032-12.66.22-18.824.4-6.758.2-13.745.405-20.621.405-3.788,0-7.24-.061-10.555-.186-18.124-.681-34.348-1.046-49.6-1.115-.47,0-.959,0-1.454,0-7.785,0-18.621.267-26.965.665-2.2.1-4.495.338-6.714.563l-1.317.133A1.214,1.214,0,0,1,2.695,103.851ZM4.043,3.4v97.111H175.294V3.4Z" transform="translate(0.502 0.5)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
 				</svg>
-    			<svg xmlns="http://www.w3.org/2000/svg" width="46.421" height="15.068" viewBox="0 0 46.421 15.068" class="lines">
-					<g id="Group_9" data-name="Group 9" transform="translate(5242.468 3533.765) rotate(180)">
-					<path id="Path_52" data-name="Path 52" d="M5232.012,3575.6q-5.795-.459-11.6-.734-11.674-.553-23.37-.361c-.332.006-.665.014-1,.021v1.946q11.264-.216,22.517.258h22.778c.012-.116.024-.233.037-.349-1.216-.04-2.429-.167-3.643-.282Q5234.875,3575.824,5232.012,3575.6Z" transform="translate(0 -42.962)" fill="#ffcd35"/>
-					<path id="Path_53" data-name="Path 53" d="M5232.042,3557.709a81.005,81.005,0,0,0-11.6-1.1c-8.014-.148-16.05.244-24.068.423l-.328.007v1.946l11.188-.251c8.041-.18,16.062-.5,24.045.8,3.672.6,7.35,1.2,11.043.776.025-.22.05-.44.075-.66q-.009-.632-.019-1.263A35.828,35.828,0,0,1,5232.042,3557.709Z" transform="translate(0 -29.347)" fill="#ffcd35"/>
-					<path id="Path_54" data-name="Path 54" d="M5219.829,3540.152a94.907,94.907,0,0,1,11.882.228c3.5.361,7.023,1.265,10.524.779q-.007-.97-.006-1.941c-3.142.482-6.332-.264-9.456-.659a80.678,80.678,0,0,0-11.876-.376q-12.3.264-24.6.555l-.252.006v1.945l11.332-.256Z" transform="translate(0 -15.019)" fill="#ffcd35"/>
-					<path id="Path_55" data-name="Path 55" d="M5196.558,3519.493l-.511.043v1.953a247.036,247.036,0,0,1,35.152-.407q5.61.337,11.206.931.023-.967.064-1.935A247.418,247.418,0,0,0,5196.558,3519.493Z" transform="translate(0 0)" fill="#ffcd35"/>
-					</g>
-				</svg>
+    			<svg xmlns="http://www.w3.org/2000/svg" width="175.402" height="56.933" class="lines" viewBox="0 0 175.402 56.933">
+  <g id="Group_9" data-name="Group 9" transform="translate(5371.449 3575.631) rotate(180)">
+    <path id="Path_52" data-name="Path 52" d="M5331.939,3578.778q-21.894-1.735-43.823-2.774-44.111-2.089-88.3-1.363c-1.256.021-2.512.055-3.768.079v7.354q42.56-.817,85.079.975h86.066c.046-.44.09-.88.138-1.32-4.594-.151-9.178-.631-13.764-1.067Q5342.758,3579.635,5331.939,3578.778Z" transform="translate(0 -7.418)" fill="#ffcd35"/>
+    <path id="Path_53" data-name="Path 53" d="M5332.054,3560.869a306.172,306.172,0,0,0-43.829-4.173c-30.28-.56-60.646.921-90.94,1.6l-1.238.027v7.352l42.274-.947c30.383-.681,60.691-1.88,90.854,3.038,13.875,2.263,27.773,4.55,41.729,2.932q.142-1.247.283-2.493-.034-2.387-.07-4.772C5358.079,3565.118,5344.954,3562.977,5332.054,3560.869Z" transform="translate(0 -5.655)" fill="#ffcd35"/>
+    <path id="Path_54" data-name="Path 54" d="M5285.908,3545.766c14.973-.337,29.976-.677,44.9.862,13.215,1.364,26.539,4.781,39.766,2.943q-.029-3.668-.024-7.335c-11.873,1.822-23.924-1-35.728-2.491-14.9-1.885-29.9-1.741-44.872-1.42q-46.474,1-92.946,2.1l-.952.022v7.351l42.817-.967Z" transform="translate(0 -2.752)" fill="#ffcd35"/>
+    <path id="Path_55" data-name="Path 55" d="M5197.979,3521.7c-.644.052-1.288.108-1.932.162v7.379a933.371,933.371,0,0,1,132.82-1.538q21.2,1.272,42.341,3.519.086-3.656.241-7.311A934.9,934.9,0,0,0,5197.979,3521.7Z" fill="#ffcd35"/>
+  </g>
+</svg>
+
     		</div>
     		<div class="content-copy">
     			<span class="eyebrow">About</span>
@@ -77,13 +78,18 @@
 					</svg>
     			</a>
     		</div>
-    		<svg xmlns="http://www.w3.org/2000/svg" width="835.805" height="166.287" class="doodle" viewBox="0 0 835.805 166.287">
-  			<path id="Path_78" data-name="Path 78" d="M112.125,11.625c9.407-.942,18.816-1.85,28.233-2.624,13.512-1.112,27.04-1.947,40.594-2.2,63.287-1.185,126.625-1.876,189.921-1.125,61.814.734,123.613,5.966,185.418,5.122,56.987-.777,114.193-5.638,171.367-8.579C755.394,4.079,783.961,5.2,811.418,0q6.056.039,12.108.155A448.881,448.881,0,0,0,828.1,48.8c.421,20.42,1.006,40.828,2.411,61.178-105.282-.609-210.53,3.638-315.651,9.2-113.649,6.016-227.065,3.562-340.787,1.676C116.223,119.9,58.3,118.158.433,117.787-.327,84.563.353,51.3,0,18.061,37.495,19.634,74.781,15.366,112.125,11.625Z" transform="translate(6.437 0) rotate(3)" fill="#696eb7" opacity="0.9"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1017.255" height="258.092" class="doodle" viewBox="0 0 1017.255 258.092">
+  <g id="Group_144" data-name="Group 144" transform="translate(-1141.615 -1164.437)">
+    <path id="Path_47" data-name="Path 47" d="M127.295,13.2c10.679-1.07,21.361-2.1,32.053-2.979,15.34-1.263,30.7-2.21,46.086-2.5C277.284,6.374,349.19,5.591,421.05,6.442c70.178.833,140.338,6.773,210.5,5.815,64.7-.882,129.644-6.4,194.553-9.739C857.6,4.63,890.027,5.9,921.2,0q6.875.044,13.746.176A509.6,509.6,0,0,0,940.133,55.4c.478,23.183,1.142,46.352,2.737,69.455-119.526-.691-239.014,4.13-358.357,10.448-129.026,6.83-257.785,4.044-386.893,1.9C131.948,136.12,66.183,134.145.492,133.722-.371,96,.4,58.24,0,20.5,42.568,22.29,84.9,17.445,127.295,13.2Z" transform="matrix(0.998, 0.057, -0.057, 0.998, 1149.506, 1229.831)" fill="#696eb7" opacity="0.7"/>
+    <path id="Path_48" data-name="Path 48" d="M127.295,13.2c10.679-1.07,21.361-2.1,32.053-2.979,15.34-1.263,30.7-2.21,46.086-2.5C277.284,6.374,349.19,5.591,421.05,6.442c70.178.833,140.338,6.773,210.5,5.815,64.7-.882,129.644-6.4,194.553-9.739C857.6,4.63,890.027,5.9,921.2,0q6.875.044,13.746.176A509.6,509.6,0,0,0,940.133,55.4c.478,23.183,1.142,46.352,2.737,69.455-119.526-.691-239.014,4.13-358.357,10.448-129.026,6.83-257.785,4.044-386.893,1.9C131.948,136.12,66.183,134.145.492,133.722-.371,96,.4,58.24,0,20.5,42.568,22.29,84.9,17.445,127.295,13.2Z" transform="matrix(0.998, 0.057, -0.057, 0.998, 1217.506, 1164.437)" fill="#696eb7" opacity="0.9"/>
+  </g>
+</svg>
+
     	</div>
     </section>
 
     <section class="section-wrapper ad">
-    	<img src="images/ad.png">
+    	<div class="section-copy"><img src="images/ad.png"></div>
     </section>
 
     <section class="section-wrapper learning">
@@ -125,42 +131,42 @@
     			<div class="column">
     				<span class="icon"><img src="images/how-works/01.svg"></span>
     				<div class="copy">
-    					<h4 class="heading">Register</h4>
+    					<h4 class="heading"><span>01.</span>Register</h4>
     					<p>Sign up as a parent and register your child for the Codeathon championship. Fill up all the details and make the payment to make your child the Codeathon Champion.</p>
     				</div>
     			</div>
     			<div class="column">
     				<span class="icon"><img src="images/how-works/02.svg"></span>
     				<div class="copy">
-    					<h4 class="heading">Refer and earn points</h4>
+    					<h4 class="heading"><span>01.</span>Refer and <br>earn points</h4>
     					<p>Share you referral code and referral link with your friends and family members, once they join the program you earn points and get closer to the Codeathon Finale.</p>
     				</div>
     			</div>
     			<div class="column">
     				<span class="icon"><img src="images/how-works/03.svg"></span>
     				<div class="copy">
-    					<h4 class="heading">Watch Videos</h4>
+    					<h4 class="heading"><span>02.</span>Watch Videos</h4>
     					<p>Watch videos to learn Website designing using HTML CSS & JS (Classes VI-VII) and Game Development with Python (Classes VIII-IX). Enhance you knowledge and sharpen your skill to become a Codeathon Champion.</p>
     				</div>
     			</div>
     			<div class="column">
-    				<span class="icon"><img src="images/how-works/04.svg"></span>
+    				<span class="icon"><img src="images/how-works/06.svg"></span>
     				<div class="copy">
-    					<h4 class="heading">Become a Codeathon Champion</h4>
+    					<h4 class="heading"><span>06.</span>Become a<br>Codeathon Champion</h4>
     					<p>Be among the top 100 points earner to appear in the Finale, beat the rest in the Finale and become a Codeathon Champion."</p>
     				</div>
     			</div>
     			<div class="column">
     				<span class="icon"><img src="images/how-works/05.svg"></span>
     				<div class="copy">
-    					<h4 class="heading">Qualifier Stage</h4>
+    					<h4 class="heading"><span>05.</span>Qualifier Stage</h4>
     					<p>Cross this hurdle to compete with the best in the country. All participants at this stage will get certificate of achievement and a chance to appear in the Finale and become Codeathon Champion.</p>
     				</div>
     			</div>
-    			<div class="column">
-    				<span class="icon"><img src="images/how-works/03.svg"></span>
+				<div class="column">
+    				<span class="icon"><img src="images/how-works/04.svg"></span>
     				<div class="copy">
-    					<h4 class="heading">Take Quizzes</h4>
+    					<h4 class="heading"><span>04.</span>Take Quizzes</h4>
     					<p>Prepare for the largest coding championship in India, test your coding skills and earn points just by answering questions. The more you practice higher is the chance to become a champion.</p>
     				</div>
     			</div>

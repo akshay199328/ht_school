@@ -3,11 +3,14 @@
  * Template Name: Event Template
  */
 
-$post_id='1814';
-
 if ( !defined( 'ABSPATH' ) ) exit;
 
 include("includes/lead.php");
+
+$results1 = $wpdb->get_results("SELECT `ID` FROM `ht_posts` WHERE `post_type` = 'events' ORDER BY `ID` ASC LIMIT 1");
+foreach($results1 as $row1){ 
+  $post_id = $row1->ID; 
+}
 
 function getData($wpdb, $post_id, $meta_key){
 
@@ -54,7 +57,7 @@ $course_3 = getData($wpdb, $post_id, 'course_3');
   <?php endwhile;endif; ?>
 </div>
 
-<section class="section-wrapper about-code">+
+<section class="section-wrapper about-code">
   <?php 
     $results = $wpdb->get_results( "SELECT * FROM `ht_postmeta` WHERE `post_id` = '$post_id' AND `meta_key` = 'about_ht_codeathon'");
     foreach($results as $row){ 
@@ -66,35 +69,56 @@ $course_3 = getData($wpdb, $post_id, 'course_3');
   </div>
 </section>
 
-<section class="section-wrapper ad">
+<!--<section class="section-wrapper ad">
   <img src="images/ad.png">
-</section>
+</section>-->
 
 <section class="section-wrapper learning">
   <div class="section-copy">
     <span class="left-doodle"></span>
     <h2 class="section-title">Learning Modules</h2>
     <div class="column-wrapper">
+    <?php 
+      $product_id1 = get_post_meta($course_1,'vibe_product',true);
+        
+      global $woocommerce;
+      $woocommerce->cart->add_to_cart($product_id1);
+
+    ?>
       <div class="column">
         <span class="title">Classes IV - V</span>
-        <span class="video"><img src="images/learning/01.jpeg"></span>
-        <span class="sub-title">Website Development with HTML & CSS</span>
-        <p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
-        <a class="enroll" href="#!">Enroll Now</a>
+        <span class="video"><img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($course_1), 'thumbnail'); ?>"></span>
+        <span class="sub-title"><?php echo get_the_title($course_1); ?></span>
+        <p><?php echo get_the_excerpt($course_1); ?></p>
+        <a class="enroll" href="<?php echo $woocommerce->cart->get_cart_url(); ?>">Enroll Now</a>
       </div>
+    <?php 
+      $product_id2 = get_post_meta($course_2,'vibe_product',true);
+        
+      global $woocommerce;
+      $woocommerce->cart->add_to_cart($product_id2);
+
+    ?>
       <div class="column">
         <span class="title">Classes VI - VII</span>
-        <span class="video"><img src="images/learning/01.jpeg"></span>
-        <span class="sub-title">Website Development with HTML & CSS</span>
-        <p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
-        <a class="enroll" href="#!">Enroll Now</a>
+        <span class="video"><img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($course_2), 'thumbnail'); ?>"></span>
+        <span class="sub-title"><?php echo get_the_title($course_2); ?></span>
+        <p><?php echo get_the_excerpt($course_2); ?></p>
+        <a class="enroll" href="<?php echo $woocommerce->cart->get_cart_url(); ?>">Enroll Now</a>
       </div>
+    <?php 
+      $product_id3 = get_post_meta($course_3,'vibe_product',true);
+        
+      global $woocommerce;
+      $woocommerce->cart->add_to_cart($product_id3);
+
+    ?>
       <div class="column">
         <span class="title">Classes VIII - IX</span>
-        <span class="video"><img src="images/learning/01.jpeg"></span>
-        <span class="sub-title">Game Development with Python</span>
-        <p>HTML is the foundation of all web pages. It defines the structure of a page, CSS defines its style and Javascript adds functionality. </p>
-        <a class="enroll" href="#!">Enroll Now</a>
+        <span class="video"><img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($course_3), 'thumbnail'); ?>"></span>
+        <span class="sub-title"><?php echo get_the_title($course_3); ?></span>
+        <p><?php echo get_the_excerpt($course_3); ?></p>
+        <a class="enroll" href="<?php echo $woocommerce->cart->get_cart_url(); ?>">Enroll Now</a>
       </div>
     </div>
   </div>

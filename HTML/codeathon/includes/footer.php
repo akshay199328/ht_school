@@ -52,8 +52,6 @@
             }
         });
 
-        
-
       $('.home_slider').owlCarousel({
             margin:0,
             loop:true,
@@ -84,8 +82,7 @@
           loop:true,
           margin:22,
           nav:true,
-          video:true,
-          lazyLoad:true,
+          mouseDrag:false,
           center:true,
           dots:false,
           // autoWidth:true,
@@ -113,8 +110,7 @@
           margin:0,
           nav:true,
           videoHeight: true,
-          video:true,
-          // lazyLoad:true,
+          mouseDrag:true,
           center:true,
           // autoWidth:true,
           responsive : {

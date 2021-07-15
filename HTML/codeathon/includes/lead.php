@@ -28,6 +28,23 @@ if($page_name=="index.php"){
             <span class="codeathon">
                 <img src="images/codeathon.svg">
             </span>
+            <div class="group-logos">
+                <div class="column">
+                    <span class="title">PRESENTED BY</span>
+                    <img src="images/group-logo/dell.png">
+                </div>
+                <div class="column">
+                    <span class="title">PARTNER</span>
+                    <img src="images/group-logo/delhi-sarkar.png">
+                </div>
+                <div class="column">
+                    <span class="title">POWERED BY</span>
+                    <img src="images/group-logo/ibm.png">
+                </div>
+                <div class="column">
+                    <span class="title">CAUSE PARTNER</span>
+                </div>
+            </div>
         </div>
         <div class="header-right">
             <span class="ht-school"><img src="images/ht-school.svg"></span>

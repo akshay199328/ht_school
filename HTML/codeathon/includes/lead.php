@@ -24,26 +24,24 @@ if($page_name=="index.php"){
   </head>
   <body class="<?=$page_classes?>">
     <header class="header-wrapper">
-        <div class="header-left">
-            <span class="codeathon">
-                <img src="images/codeathon.svg">
-            </span>
-            <div class="group-logos">
-                <div class="column">
-                    <span class="title">PRESENTED BY</span>
-                    <img src="images/group-logo/dell.png">
-                </div>
-                <div class="column">
-                    <span class="title">PARTNER</span>
-                    <img src="images/group-logo/delhi-sarkar.png">
-                </div>
-                <div class="column">
-                    <span class="title">POWERED BY</span>
-                    <img src="images/group-logo/ibm.png">
-                </div>
-                <div class="column">
-                    <span class="title">CAUSE PARTNER</span>
-                </div>
+        <span class="codeathon">
+            <img src="images/codeathon.svg">
+        </span>
+        <div class="group-logos">
+            <div class="column">
+                <span class="title">PRESENTED BY</span>
+                <img src="images/group-logo/dell.png">
+            </div>
+            <div class="column">
+                <span class="title">PARTNER</span>
+                <img src="images/group-logo/delhi-sarkar.png">
+            </div>
+            <div class="column">
+                <span class="title">POWERED BY</span>
+                <img src="images/group-logo/ibm.png">
+            </div>
+            <div class="column">
+                <span class="title">CAUSE PARTNER</span>
             </div>
         </div>
         <div class="header-right">
@@ -52,6 +50,9 @@ if($page_name=="index.php"){
                 <a href="#!" class="register">Register</a>
                 <a href="#!">Login</a>
             </div>
+            <button class="home-button">
+                <span class="burger"></span>
+            </button>
         </div>
     </header>
     <div class="navigation-wrapper">
@@ -66,4 +67,8 @@ if($page_name=="index.php"){
             <li><a href="#!">Blog</a></li>
             <li><a href="#!">Coding For Cause</a></li>
         </ul>
+        <div class="account">
+            <a href="#!" class="register">Register</a>
+            <a href="#!">Login</a>
+        </div>
     </div>

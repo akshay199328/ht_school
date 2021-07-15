@@ -121,9 +121,53 @@
     <section class="section-wrapper it-works">
     	<div class="section-copy">
     		<h2 class="section-title">How it works</h2>
-  <svg xmlns="http://www.w3.org/2000/svg" width="835.805" height="166.287" class="doodle" viewBox="0 0 835.805 166.287">
-  <path id="Path_78" data-name="Path 78" d="M112.125,11.625c9.407-.942,18.816-1.85,28.233-2.624,13.512-1.112,27.04-1.947,40.594-2.2,63.287-1.185,126.625-1.876,189.921-1.125,61.814.734,123.613,5.966,185.418,5.122,56.987-.777,114.193-5.638,171.367-8.579C755.394,4.079,783.961,5.2,811.418,0q6.056.039,12.108.155A448.881,448.881,0,0,0,828.1,48.8c.421,20.42,1.006,40.828,2.411,61.178-105.282-.609-210.53,3.638-315.651,9.2-113.649,6.016-227.065,3.562-340.787,1.676C116.223,119.9,58.3,118.158.433,117.787-.327,84.563.353,51.3,0,18.061,37.495,19.634,74.781,15.366,112.125,11.625Z" transform="translate(6.437 0) rotate(3)" fill="#696eb7" opacity="0.9"/>
-</svg>
+    		<div class="works-wrapper">
+    			<div class="column">
+    				<span class="icon"><img src="images/how-works/01.svg"></span>
+    				<div class="copy">
+    					<h4 class="heading">Register</h4>
+    					<p>Sign up as a parent and register your child for the Codeathon championship. Fill up all the details and make the payment to make your child the Codeathon Champion.</p>
+    				</div>
+    			</div>
+    			<div class="column">
+    				<span class="icon"><img src="images/how-works/02.svg"></span>
+    				<div class="copy">
+    					<h4 class="heading">Refer and earn points</h4>
+    					<p>Share you referral code and referral link with your friends and family members, once they join the program you earn points and get closer to the Codeathon Finale.</p>
+    				</div>
+    			</div>
+    			<div class="column">
+    				<span class="icon"><img src="images/how-works/03.svg"></span>
+    				<div class="copy">
+    					<h4 class="heading">Watch Videos</h4>
+    					<p>Watch videos to learn Website designing using HTML CSS & JS (Classes VI-VII) and Game Development with Python (Classes VIII-IX). Enhance you knowledge and sharpen your skill to become a Codeathon Champion.</p>
+    				</div>
+    			</div>
+    			<div class="column">
+    				<span class="icon"><img src="images/how-works/04.svg"></span>
+    				<div class="copy">
+    					<h4 class="heading">Become a Codeathon Champion</h4>
+    					<p>Be among the top 100 points earner to appear in the Finale, beat the rest in the Finale and become a Codeathon Champion."</p>
+    				</div>
+    			</div>
+    			<div class="column">
+    				<span class="icon"><img src="images/how-works/05.svg"></span>
+    				<div class="copy">
+    					<h4 class="heading">Qualifier Stage</h4>
+    					<p>Cross this hurdle to compete with the best in the country. All participants at this stage will get certificate of achievement and a chance to appear in the Finale and become Codeathon Champion.</p>
+    				</div>
+    			</div>
+    			<div class="column">
+    				<span class="icon"><img src="images/how-works/03.svg"></span>
+    				<div class="copy">
+    					<h4 class="heading">Take Quizzes</h4>
+    					<p>Prepare for the largest coding championship in India, test your coding skills and earn points just by answering questions. The more you practice higher is the chance to become a champion.</p>
+    				</div>
+    			</div>
+    		</div>
+  			<svg xmlns="http://www.w3.org/2000/svg" width="835.805" height="166.287" class="doodle" viewBox="0 0 835.805 166.287">
+  			<path id="Path_78" data-name="Path 78" d="M112.125,11.625c9.407-.942,18.816-1.85,28.233-2.624,13.512-1.112,27.04-1.947,40.594-2.2,63.287-1.185,126.625-1.876,189.921-1.125,61.814.734,123.613,5.966,185.418,5.122,56.987-.777,114.193-5.638,171.367-8.579C755.394,4.079,783.961,5.2,811.418,0q6.056.039,12.108.155A448.881,448.881,0,0,0,828.1,48.8c.421,20.42,1.006,40.828,2.411,61.178-105.282-.609-210.53,3.638-315.651,9.2-113.649,6.016-227.065,3.562-340.787,1.676C116.223,119.9,58.3,118.158.433,117.787-.327,84.563.353,51.3,0,18.061,37.495,19.634,74.781,15.366,112.125,11.625Z" transform="translate(6.437 0) rotate(3)" fill="#696eb7" opacity="0.9"/></svg>
+
     	</div>
     </section>
 

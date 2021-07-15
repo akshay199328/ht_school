@@ -220,7 +220,27 @@
             // startPosition:0,
         });
     </script>
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+          
+          jQuery('.list h5').click(function() {
 
+              // removing active class for active element
+              jQuery('a.active').removeClass('active');
+
+              if (jQuery(this).parent().next('.mobile-show').is(':visible')) {
+                  jQuery(this).parent().next('.mobile-show').slideUp();
+                  jQuery(this).parent().next().next('.mobile-show').slideUp();
+                  jQuery(this).removeClass('active');
+              } 
+              else {
+                  jQuery(this).parent().next('.mobile-show').slideDown();
+                  jQuery(this).parent().next().next('.mobile-show').slideDown();
+                  jQuery(this).addClass('active');
+              }
+          });
+      });
+    </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

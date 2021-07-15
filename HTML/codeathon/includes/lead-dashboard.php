@@ -29,20 +29,23 @@ if($page_name=="index.php"){
             <span class="codeathon">
                 <img src="images/codeathon.svg">
             </span>
-            <ul>
-                <li>
-                    <img src="images/01.png" />
-                </li>
-                <li>
-                    <img src="images/02.png" />
-                </li>
-                <li>
-                    <img src="images/03.png" />
-                </li>
-                <li>
-                    <img src="images/04.png" />
-                </li>
-            </ul>
+            <div class="group-logos">
+                <div class="column">
+                    <span class="title">PRESENTED BY</span>
+                    <img src="images/group-logo/dell.png">
+                </div>
+                <div class="column">
+                    <span class="title">PARTNER</span>
+                    <img src="images/group-logo/delhi-sarkar.png">
+                </div>
+                <div class="column">
+                    <span class="title">POWERED BY</span>
+                    <img src="images/group-logo/ibm.png">
+                </div>
+                <div class="column">
+                    <span class="title">CAUSE PARTNER</span>
+                </div>
+            </div>
         </div>
         <div class="header-right">
             <span class="ht-school"><img src="images/ht-school.svg"></span>
@@ -59,4 +62,8 @@ if($page_name=="index.php"){
             <li><a href="#!">Link 1</a></li>
             <li><a href="#!">Link 1</a></li>
         </ul>
+        <!-- <div class="board_point">
+            <h6>Points</h6>
+            <h3>1020</h3>
+        </div> -->
     </div>

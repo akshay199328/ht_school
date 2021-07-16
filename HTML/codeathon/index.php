@@ -42,8 +42,8 @@
     <section class="section-wrapper about-code">
     	<div class="section-copy">
     		<div class="video">
-    			<img src="https://a.cdn-hotels.com/gdcs/production99/d296/3b13d7fe-51af-420d-a6bc-0af89d99059b.jpg">
-    			<svg class="frame" xmlns="http://www.w3.org/2000/svg" width="180.005" height="104.852" viewBox="0 0 180.005 104.852">
+    			<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/16drNfTaP-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    			<svg class="frame" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180.005 104.852">
 				<path id="Exclusion_1" data-name="Exclusion 1" d="M2.695,103.851c-1.19,0-2.176-1.692-2.246-3.853L.375,97.757c-.048-1.469-.078-3-.092-4.67A6.808,6.808,0,0,1,0,91.079c.043-10.553.285-20.9.519-30.9v0l.017-.71c-.042-1.2-.1-2.385-.162-3.506C-.188,46.413-.006,37.58.186,28.227c.1-4.985.208-10.138.193-15.435a6.62,6.62,0,0,1,.43-2.444C.742,8.376.657,6.4.556,4.465A6.86,6.86,0,0,1,.8,2.209a3.962,3.962,0,0,1,.848-1.6A1.576,1.576,0,0,1,2.786.049c.032,0,.064,0,.1,0C12.958.8,23.01.9,31.515.9c2.9,0,5.848-.013,8.621-.027C46.422.838,52.8.65,58.962.469h0C65.721.269,72.707.063,79.583.063c3.788,0,7.24.061,10.553.186,18.124.681,34.348,1.046,49.6,1.115.465,0,.951,0,1.444,0,7.791,0,18.631-.267,26.974-.665,2.2-.1,4.5-.338,6.715-.563h.006l1.309-.132c.042,0,.084-.006.125-.006,1.189,0,2.176,1.692,2.246,3.853l.074,2.242c.048,1.474.078,3,.092,4.67A6.787,6.787,0,0,1,179,12.772c-.043,10.555-.285,20.9-.519,30.9l-.017.709c.042,1.207.1,2.387.162,3.506.559,9.548.378,18.381.186,27.733-.1,4.985-.208,10.14-.193,15.438a6.619,6.619,0,0,1-.43,2.444c.066,1.967.151,3.947.252,5.883a6.859,6.859,0,0,1-.245,2.256,3.962,3.962,0,0,1-.848,1.6,1.576,1.576,0,0,1-1.137.557q-.048,0-.1,0c-10.078-.744-20.127-.844-28.628-.844-2.9,0-5.854.013-8.627.027-6.286.032-12.66.22-18.824.4-6.758.2-13.745.405-20.621.405-3.788,0-7.24-.061-10.555-.186-18.124-.681-34.348-1.046-49.6-1.115-.47,0-.959,0-1.454,0-7.785,0-18.621.267-26.965.665-2.2.1-4.495.338-6.714.563l-1.317.133A1.214,1.214,0,0,1,2.695,103.851ZM4.043,3.4v97.111H175.294V3.4Z" transform="translate(0.502 0.5)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
 				</svg>
     			<svg xmlns="http://www.w3.org/2000/svg" width="175.402" height="56.933" class="lines" viewBox="0 0 175.402 56.933">
@@ -188,7 +188,7 @@
     		<div class="owl-carousel owl-theme about_slider">
 		        <div class="item">
 		            <div class="partner-copy">
-		            	<figure class="image"><img src=""></figure>
+		            	<figure class="image"><img src="images/bcg-2.png"></figure>
 		            	<div class="copy">
 		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
 		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -198,7 +198,7 @@
 		        </div>
 		        <div class="item">
 		            <div class="partner-copy">
-		            	<figure class="image"><img src=""></figure>
+		            	<figure class="image"><img src="images/bcg-2.png"></figure>
 		            	<div class="copy">
 		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
 		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -208,7 +208,7 @@
 		        </div>
 		        <div class="item">
 		            <div class="partner-copy">
-		            	<figure class="image"><img src=""></figure>
+		            	<figure class="image"><img src="images/bcg-2.png"></figure>
 		            	<div class="copy">
 		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
 		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -218,7 +218,7 @@
 		        </div>
 		        <div class="item">
 		            <div class="partner-copy">
-		            	<figure class="image"><img src=""></figure>
+		            	<figure class="image"><img src="images/bcg-2.png"></figure>
 		            	<div class="copy">
 		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
 		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -228,7 +228,7 @@
 		        </div>
 		        <div class="item">
 		            <div class="partner-copy">
-		            	<figure class="image"><img src=""></figure>
+		            	<figure class="image"><img src="images/bcg-2.png"></figure>
 		            	<div class="copy">
 		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
 		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -238,7 +238,7 @@
 		        </div>
 		        <div class="item">
 		            <div class="partner-copy">
-		            	<figure class="image"><img src=""></figure>
+		            	<figure class="image"><img src="images/bcg-2.png"></figure>
 		            	<div class="copy">
 		            		<h3 class="title">Lorem ipsum dolor sit amet, </h3>
 		            		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -253,21 +253,39 @@
     <section class="section-wrapper videos">
     	<div class="section-copy">
     		<h2 class="section-title">What Our Partners Say</h2>
-    		<div class="owl-carousel owl-theme says_slider" id="says_slider">
+    		<div id="customers-testimonials" class="owl-carousel">
+
+            <div class="item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+    		<!-- <div class="owl-carousel owl-theme says_slider" id="says_slider">
 		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/3SyzYG8QRqM"></a>
+		            <a class="owl-video" href="https://www.youtube.com/watch?v=KbtJaGu2I38"></a>
 		        </div>
 		        <div class="item-video">
-		            <a class="owl-video" href="https://vimeo.com/27751276"></a>
+		            <a class="owl-video" href="https://www.youtube.com/watch?v=KbtJaGu2I38"></a>
 		        </div>
 		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/1I6q1R6GX8Q"></a>
+		            <a class="owl-video" href="https://www.youtube.com/watch?v=KbtJaGu2I38"></a>
 		        </div>
 		        <div class="item-video">
-		            <a class="owl-video" href="https://youtu.be/1I6q1R6GX8Q"></a>
+		            <a class="owl-video" href="https://www.youtube.com/watch?v=KbtJaGu2I38"></a>
 		        </div>
 
-		    </div>
+		    </div> -->
     	</div>
     </section>
 

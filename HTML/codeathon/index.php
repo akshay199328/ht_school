@@ -28,6 +28,15 @@
                 <h3 class="caption-title purple">2021</h3>
             </div>
         </div>
+        <div class="item">
+            <img src="images/slider/04.jpeg">
+            <div class="caption">
+            	<span class="caption-eyebrow">Stay tuned for </span>
+                <h3 class="caption-title">updates on</h3>
+                <h3 class="caption-title"><span class="green">HT</span> <span class="orange">Codeathon</span></h3>
+                <h3 class="caption-title purple">2021</h3>
+            </div>
+        </div>
     </div>
 
     <section class="section-wrapper about-code">
@@ -121,6 +130,8 @@
     <section class="section-wrapper it-works">
     	<div class="section-copy">
     		<h2 class="section-title">How it works</h2>
+    		<span class="desktop"><img src="images/it-works-lg.svg"></span>
+    		<span class="mobile"><img src="images/it-works-sm.svg"></span>
     		<div class="works-wrapper">
     			<div class="column">
     				<span class="icon"><img src="images/how-works/01.svg"></span>

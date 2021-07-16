@@ -13,7 +13,7 @@ if($page_name=="index.php"){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/codeathon-bootstrap.css" rel="stylesheet">
     <link href="css/codeathon.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +42,7 @@ if($page_name=="index.php"){
             </div>
             <div class="column">
                 <span class="title">CAUSE PARTNER</span>
+                <img src="images/group-logo/speed.png">
             </div>
         </div>
         <div class="header-right">

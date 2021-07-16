@@ -1175,7 +1175,10 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 						$progress = bp_course_get_user_progress($this->user->id,$course_id);
 						$category_array = get_the_terms($course_id, 'course-cat');
 						$course_type = get_post_meta($course_id,'vibe_course_type',true);
-						if(strtolower($course_type) == "live classes"){
+						$product_id = get_post_meta($course_id,'vibe_product',true);
+					  	$product = wc_get_product($product_id);
+					  	$product_attributes = $product->get_attributes();
+						if(strtolower($course_type) == "live classes" && !empty($product_attributes)){
 							$is_live_course = 1;
 						}
 						//Course Status openning on Course Page

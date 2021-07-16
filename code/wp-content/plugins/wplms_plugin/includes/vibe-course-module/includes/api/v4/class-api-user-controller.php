@@ -1506,13 +1506,17 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 						      	}
 								
 							}
+							$quiz_level_image = get_post_meta($item,'vibe_quiz_level_image',true);
+							$quiz_level_image_url = wp_get_attachment_url( $quiz_level_image);   
 							$curriculum_arr[] = apply_filters('bp_course_api_course_curriculum_quiz',array(
 								'key'		=> $i,
 								'id'		=> $item,
 								'type'		=> 'quiz',
 								'title'		=> get_the_title($item),
 								'duration'	=> $d,
-								'icon'		=>wplms_get_element_icon(wplms_get_element_type($item,'quiz')),
+								//'icon'		=>wplms_get_element_icon(wplms_get_element_type($item,'quiz')),
+								'icon' => $quiz_level_image_url ? $quiz_level_image_url : wplms_get_element_icon(wplms_get_element_type($item,'quiz')),
+								'icon_type' => $quiz_level_image_url ? 1 : 0,
 								'content'   => '',
 								'status'    => $complete,
 								'meta'		=> array(),

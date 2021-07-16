@@ -372,6 +372,7 @@
         'questions' => $questions,
         'auto'=>(($auto == 'S')?1:0),
         'retakes' => $retake_count,
+        'total_retakes' => intval($retakes),
         'completion_message'=>  $completion_message,
         'duration'=>$new_duration,
         
@@ -384,6 +385,10 @@
         $negative_marks = get_post_meta($item_id,'vibe_quiz_negative_marks_per_question',true);
         
       }
+      
+      $quiz_attempt_1_points = get_post_meta($item_id,'vibe_quiz-attempt-1',true);
+      $quiz_attempt_2_points = get_post_meta($item_id,'vibe_quiz-attempt-2',true);
+      $quiz_attempt_3_points = get_post_meta($item_id,'vibe_quiz-attempt-3',true);
 
       $vibe_question_number_react = get_post_meta($item_id,'vibe_question_number_react',true);
       if(empty($vibe_question_number_react)){
@@ -397,7 +402,9 @@
       
       $return['quiz_passing_score'] = !empty($quiz_passing_score)?$quiz_passing_score:0;
       $return['show_advance_stats'] = !empty($show_question_advanced_stats_in_quiz)?$show_question_advanced_stats_in_quiz:0;
-
+      $return['quiz_attempt_1_points'] = !empty($quiz_attempt_1_points)?intval($quiz_attempt_1_points):0;
+      $return['quiz_attempt_2_points'] = !empty($quiz_attempt_2_points)?intval($quiz_attempt_2_points):0;
+      $return['quiz_attempt_3_points'] = !empty($quiz_attempt_3_points)?intval($quiz_attempt_3_points):0;
 
       
       if($status < 3){

@@ -4047,7 +4047,13 @@
                             course_id: i.course_id,
                             results: i.meta.questions,
                             quiz: i,
-                            token: r
+                            token: r,
+                            correct_answer_based_percent : parseInt(correct_answer_based_percent),
+                            total_retakes : t.meta.total_retakes,
+                            retakes : t.meta.retakes,
+                            quiz_attempt1_points : quiz_attempt1_points,
+                            quiz_attempt2_points : quiz_attempt2_points,
+                            quiz_attempt3_points : quiz_attempt3_points
                         })
                     }).then(e => e.json()).then(t => {
                         if (t) {
@@ -4174,6 +4180,44 @@
                     }
                 })
                 var UU = usercorrect.length;
+                var total_question = t.meta.questions.length;
+                var quiz_passing_score = t.quiz_passing_score;
+                var quiz_attempt1_points = t.quiz_attempt_1_points;
+                var quiz_attempt2_points = t.quiz_attempt_2_points;
+                var quiz_attempt3_points = t.quiz_attempt_3_points;
+                var correct_answer_based_percent = (t.quiz_passing_score/100)*t.meta.questions.length;
+                var quiz_points_credit = 0;
+                var quiz_attempt_number = 0;
+                var is_quiz_retake = 1;
+                if(parseInt(correct_answer_based_percent) <= UU)
+                {   
+                    var is_quiz_retake = 0;
+                    if(t.meta.total_retakes == 2){ 
+                        if(t.meta.retakes == t.meta.total_retakes){
+                            var quiz_points_credit = UU * quiz_attempt1_points; 
+                            quiz_attempt_number = 1;
+                        }
+                        else if(t.meta.retakes == 1){
+                            var quiz_points_credit = UU * quiz_attempt2_points; 
+                            quiz_attempt_number = 2;
+                        }
+                        else if(t.meta.retakes == 0){
+                            quiz_attempt_number = 3;
+                            var quiz_points_credit = UU * quiz_attempt3_points; 
+                        }
+                    }
+                    else if(t.meta.total_retakes == 1){
+                        if(t.meta.retakes == t.meta.total_retakes){
+                            var quiz_points_credit = UU * quiz_attempt1_points; 
+                            quiz_attempt_number = 1;
+                        }
+                        else if(t.meta.retakes == 0){
+                            var quiz_points_credit = UU * quiz_attempt2_points; 
+                            quiz_attempt_number = 2;
+                        }
+                    }
+                }
+
                 let e = 1;
                 var unmarkedCount = t.meta.questions.reduce(function (n, result) {
                     return n + (result.marked_answer != null);
@@ -4240,10 +4284,23 @@
             },"Correct Answers "),
                 gn("span", {
                 className: "score",
+                onClick : () =>{
+                    console.log(t.meta.retakes);
+                    console.log(UU);
+                    console.log(correct_answer_based_percent);
+                    console.log(parseInt(quiz_points_credit));
+                    console.log(parseInt(quiz_attempt1_points));
+                },
                 dangerouslySetInnerHTML: {
                     __html: t.meta.auto ? "<span class='question-attempt'>"+UU+"</span>" + "/" + t.meta.questions.length : ""
                 }
-            })
+            }),
+                gn("span", {
+                    dangerouslySetInnerHTML: {
+                    __html: quiz_points_credit ? "<span class='points'>"+quiz_points_credit+"</span>" : ""
+                }
+
+                })
             ),gn("div", {
                 className: "quiz_result_icon"
             }), Rt("div", {
@@ -4382,7 +4439,7 @@
                 onClick: () => {
                     window.wplms_course_data.submit_popup ? f(!0) : N.length ? g(!0) : F()
                 }
-            }, window.wplms_course_data.translations.submit) : "", !t.start && t.submitted && t.meta && t.meta.retakes > 0 ? gn("div", {
+            }, window.wplms_course_data.translations.submit) : "", !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
                 className: "quiz_retake",
                 onClick: () => (a("retake"), void fetch(window.wplms_course_data.api_url + "/user/coursestatus/retake_single_quiz/" + e.quizid, {
                     method: "post",

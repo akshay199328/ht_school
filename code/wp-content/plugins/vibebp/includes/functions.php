@@ -61,7 +61,7 @@ function vibebp_generate_token($user=null){
     	$refresh_token = wp_generate_password(12);
     	update_user_meta($user->data->ID,'vibebp_refresh_token',$refresh_token);
     }
-    
+    $currentUser = wp_get_current_user();
     $token = array(
         'iss' => get_bloginfo('url'),
         'iat' => $issuedAt,
@@ -83,7 +83,9 @@ function vibebp_generate_token($user=null){
                 'displayname'=>$user->data->display_name,
                 'roles'=> $user->roles,
                 'caps'=> apply_filters('vibebp_user_caps',$user->allcaps),
-                'profile_link'=>vibebp_get_profile_link($user->data->user_nicename)
+                'profile_link'=>vibebp_get_profile_link($user->data->user_nicename),
+                'first_name' =>$currentUser->user_firstname ? $currentUser->user_firstname : '',
+                'last_name' =>$currentUser->user_lastname ? $currentUser->user_lastname : '',
                 ),
             )
         ),

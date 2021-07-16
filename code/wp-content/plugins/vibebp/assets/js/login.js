@@ -1585,9 +1585,9 @@
             }, wp.element.createElement("img", {
                 src: o.avatar,
                 alt: o.displayname
-            }), wp.element.createElement("span", {
+            }),o != undefined ? wp.element.createElement("span", {
                 className: "vibebp_name"
-            }, o.displayname)), m ? wp.element.createElement(ee, {
+            }, o.first_name + ' ' + o.last_name) : ''), m ? wp.element.createElement(ee, {
                 logout: function() {
                     if ("undefined" != typeof firebase && firebase && firebase.hasOwnProperty("database") && window.vibebp.settings.firebase_config && window.vibebp.settings.session_lock && firebase.auth().currentUser) {
                         var e = new CustomEvent("userLogout", {

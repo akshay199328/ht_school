@@ -2099,6 +2099,10 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 						}
 					}
 					
+					$quiz_passing_score = get_post_meta($item_id,'vibe_quiz_passing_score',true);
+					$quiz_attempt_1_points = get_post_meta($item_id,'vibe_quiz-attempt-1',true);
+			        $quiz_attempt_2_points = get_post_meta($item_id,'vibe_quiz-attempt-2',true);
+			        $quiz_attempt_3_points = get_post_meta($item_id,'vibe_quiz-attempt-3',true);
 					$retake_count = intval($retake_count);
 					$return['meta'] = array(
 						'access' => 1,
@@ -2109,6 +2113,11 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 						'questions' => $questions,
 						'auto'=>(($auto == 'S')?1:0),
 						'retakes' => $retake_count,
+						'total_retakes' => $retakes,
+						'quiz_attempt_1_points' => $quiz_attempt_1_points,
+						'quiz_attempt_2_points' => $quiz_attempt_2_points,
+						'quiz_attempt_3_points' => $quiz_attempt_3_points,
+						'quiz_passing_score' => $quiz_passing_score, 
 						'completion_message'=>  do_shortcode(get_post_meta($item_id,'vibe_quiz_message',true)),
 					);
 				}else{
@@ -2910,6 +2919,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 			if(!is_array($course_curriculum)){
       			$course_curriculum = array();
       		}
+      		
+      		
 			$quiz_completion_complete = get_post_meta($post['quiz_id'],'vibe_quiz_message',true);
 			$quiz_completion_complete = str_replace(
 				array('id="'.$post['quiz_id'].'"',
@@ -2991,10 +3002,51 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 							'max_marks'=>$res['marks'],
 							'marks'=>$res['user_marks'],
 							'raw' => $res
+
 						);
 						$results[] = $result;
 					}
 				}
+				$pp = array();
+				$ss = array();
+				foreach ($results as $key => $value) {
+					if( $value['raw']['usercorrect'] == 1){
+						$pp[] = $value['raw']['usercorrect'];
+					}
+					$ss[] = $value['raw']['usercorrect'];
+				}
+				if($post['correct_answer_based_percent'] != 0 && $post['correct_answer_based_percent'] <= count($pp))
+                {
+                	if($post['total_retakes'] == 2){ 
+                        if($post['retakes'] == $post['total_retakes']){
+                            $quiz_points_credit = count($pp) * $post['quiz_attempt1_points']; 
+                            $quiz_attempt_number = 1;
+                        }
+                        else if($post['retakes'] == 1){
+                            $quiz_points_credit = count($pp) * $post['quiz_attempt2_points']; 
+                            $quiz_attempt_number = 2;
+                        }
+                        else if($post['retakes'] == 0){
+                            $quiz_attempt_number = 3;
+                            $quiz_points_credit = count($pp) * $post['quiz_attempt3_points']; 
+                        }
+                    }
+                    else if($post['total_retakes'] == 1){
+                        if($post['retakes'] == $post['total_retakes']){
+                            $quiz_points_credit = count($pp) * $post['quiz_attempt1_points']; 
+                            $quiz_attempt_number = 1;
+                        }
+                        else if($post['retakes'] == 0){
+                            $quiz_points_credit = count($pp) * $post['quiz_attempt2_points']; 
+                            $quiz_attempt_number = 2;
+                        }
+                    }
+	                global $wpdb;
+	                $now    = current_time( 'timestamp' );
+		      		$mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_default','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
+		            $wpdb->query($mycred_points);
+                }
+
 				$auto = get_post_meta($post['quiz_id'],'vibe_quiz_auto_evaluate',true);
 				update_post_meta( $post['quiz_id'],$this->user_id,$marks);
 				
@@ -3096,6 +3148,9 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				'correct_data'=>$correct_data,
 				'tags_data' => $tags_data,
 				'tags' => $tags,
+				'results' =>$results,
+				'pp' =>count($pp),
+				'ss' => $post['correct_answer_based_percent']
 			);
 						
 			return 	new WP_REST_Response( $data, 200 );

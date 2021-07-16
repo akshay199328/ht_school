@@ -570,3 +570,31 @@ add_filter('wplms_course_student_marks',function($u_marks,$id,$user_id){
 },10,3);
 
 
+add_filter('wplms_quiz_metabox','quiz_first_attempt');
+
+function quiz_first_attempt($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Quiz Attempt 1','vibe-quiz-attempt-1'), // <label>
+  'desc'  => __('Add points for first quiz attempt','vibe-quiz-attempt-1'), // description
+  'id'    => $prefix.'quiz-attempt-1', // field id and name
+  'type'  => 'text', // type of field
+  'std'   => 0
+  );
+  $field1[]=array( // Text Input
+  'label' => __('Quiz Attempt 2','vibe-quiz-attempt-2'), // <label>
+  'desc'  => __('Add points for second quiz attempt','vibe-quiz-attempt-1'), // description
+  'id'    => $prefix.'quiz-attempt-2', // field id and name
+  'type'  => 'text', // type of field
+  'std'   => 0
+  );
+  $field1[]=array( // Text Input
+  'label' => __('Quiz Attempt 3','vibe-quiz-attempt-3'), // <label>
+  'desc'  => __('Add points for third quiz attempt','vibe-quiz-attempt-1'), // description
+  'id'    => $prefix.'quiz-attempt-3', // field id and name
+  'type'  => 'text', // type of field
+  'std'   => 0
+  );
+  return $field1;
+   
+}

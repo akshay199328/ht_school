@@ -658,12 +658,13 @@ function the_course_button($id=NULL){
     }
 
     $tips = WPLMS_tips::init();
+     if(is_user_logged_in()){
 
     if(!empty($tips->settings['show_course_status']) && $tips->settings['show_course_status'] =='on'){
      
        $data = WPLMS_Course_Component_Init::init();
 
-       if(is_user_logged_in()){
+      
         
         if(!empty($tips->lms_settings['general']['advanced_video_format_dash'])){
             wp_enqueue_script('wplms-video-format-dash',plugins_url('../../../assets/js/dash.all.min.js',__FILE__),array(),WPLMS_PLUGIN_VERSION,true);

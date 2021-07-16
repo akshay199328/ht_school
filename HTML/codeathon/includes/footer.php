@@ -178,7 +178,6 @@
                },
                // breakpoint from 480 up
                480 : {
-                    items:2,
                },
                // breakpoint from 768 up
                768 : {
@@ -229,6 +228,7 @@
           responsive : {
                0 : {
                     items:2,
+                    center:true
                },
                // breakpoint from 480 up
                480 : {

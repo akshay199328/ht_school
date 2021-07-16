@@ -574,6 +574,14 @@ add_filter('wplms_quiz_metabox','quiz_first_attempt');
 
 function quiz_first_attempt($field1){
   $prefix = 'vibe_';
+    $prefix = 'vibe_';
+  $field1[]=array( 
+  'label' => __('Quiz Image','vibe-quiz-image'), // <label>
+  'desc'  => __('Quiz Image','vibe-quiz-image'), // description
+  'id'    => $prefix.'quiz_level_image', // field id and name
+  'type'  => 'image' // type of field
+  );
+  return $field1;
   $field1[]=array( // Text Input
   'label' => __('Quiz Attempt 1','vibe-quiz-attempt-1'), // <label>
   'desc'  => __('Add points for first quiz attempt','vibe-quiz-attempt-1'), // description

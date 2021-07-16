@@ -1868,9 +1868,14 @@
                 dangerouslySetInnerHTML: {
                     __html: e.icon
                 }
+            }) : e.type == 'quiz' && e.icon_type == 1 ? k("img", {
+                src: e.icon
+            }) : e.type == 'quiz' && e.icon_type == 0 ?
+            k("span", {
+                className: e.icon
             }) : k("span", {
                 className: e.icon
-            }), k("span", {
+            }),k("span", {
                 className: "lesson_title",
                 dangerouslySetInnerHTML: {
                     __html: e.title

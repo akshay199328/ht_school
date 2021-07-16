@@ -13,6 +13,11 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
                       array( 'label' =>__('Self Paced','wplms'),'value'=>'SELF PACED'),
                     ));
 
+	$addressFormArray = apply_filters('wplms_course_types',array(
+                      array( 'label' =>__('No','wplms'),'value'=>'No'),
+                      array( 'label' =>__('Yes','wplms'),'value'=>'Yes'),
+                    ));
+
 	foreach($sidebars as $sidebar){
 		if(!in_array($sidebar['id'],array('student_sidebar','instructor_sidebar')))
 	    	$sidebararray[]= array('label'=>$sidebar['name'],'value'=>$sidebar['id']);
@@ -239,6 +244,15 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 	        'options' => $courseTypeArray,
 	        'std'=>'course_live_type'
 	        ),
+		$prefix.'address_form_field'=>array( // Single checkbox
+			'label'	=> __('Address Form','wplms'), // <label>
+			'desc'	=> __('Select a Address Form'), // description
+			'id'	=> $prefix.'address_form', // field id and name
+			'type'	=> 'select',
+	        'options' => $addressFormArray,
+	        'std'=>'address_form'
+	        ),
+
 		$prefix.'course_prev_unit_quiz_lock'=>array( // Text Input
 			'label'	=> __('Unit Completion Lock','wplms'), // <label>
 			'desc'	=> __('Previous Units/Quiz must be Complete before next unit/quiz access','wplms'), // description

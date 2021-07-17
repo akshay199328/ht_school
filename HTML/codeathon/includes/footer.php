@@ -158,10 +158,10 @@
             //  });
         $(window).scroll(function() {
             var scroll = $(window).scrollTop();
-            if (scroll >= 10) {
-                $(".header-wrapper").addClass("fixed");
+            if (scroll >= 150) {
+                $(".fixed_header").addClass("fixed");
             } else {
-                $(".header-wrapper").removeClass("fixed");
+                $(".fixed_header").removeClass("fixed");
             }
         });
 

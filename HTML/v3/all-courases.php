@@ -1,4 +1,4 @@
-<?php include("includes/lead.php"); ?>
+<?php include("includes/lead-course.php"); ?>
 <body>
 <section class="main_course">
 	<div class="col-sm-12 col-md-2 mrg">
@@ -197,6 +197,8 @@
 				<div class="column all_courses_list">
 					<a class="course-hero select_course_item" data-id="961" href="">
 						<img alt="Celebrity Course" src="images/1.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
 						<span class="category">BUSINESS</span>
 						<h3 class="course-title">
 							<a class="select_course_item" href="#">Online Business Lessons by Siddharth Prabhakar</a>
@@ -220,6 +222,9 @@
 				<div class="column all_courses_list">
 					<a class="course-hero select_course_item" data-id="961" href="">
 						<img alt="Celebrity Course" src="images/2.png" class="img-fluid">
+						<div class="overlay"></div>
+					</a>
+					<a class="course-hero select_course_item" href="#">
 						<span class="category">COOKING</span>
 						<h3 class="course-title">
 							<a class="select_course_item" href="#">Modern Cooking Lessons by Vikas Khanna</a>
@@ -243,6 +248,9 @@
 				<div class="column all_courses_list">
 					<a class="course-hero select_course_item" data-id="961" href="">
 						<img alt="Celebrity Course" src="images/3.png" class="img-fluid">
+						<div class="overlay"></div>
+					</a>
+					<a class="course-hero select_course_item" href="#">
 						<span class="category">DANCE</span>
 						<h3 class="course-title">
 							<a class="select_course_item" href="#">Dance Lessons by Ganesh Acharya</a>
@@ -266,6 +274,9 @@
 				<div class="column all_courses_list">
 					<a class="course-hero select_course_item" data-id="961" href="">
 						<img alt="Celebrity Course" src="images/4.png" class="img-fluid">
+						<div class="overlay"></div>
+					</a>
+					<a class="course-hero select_course_item" href="#">
 						<span class="category">ARTIFICIAL INTELLIGENCE</span>
 						<h3 class="course-title">
 							<a class="select_course_item" href="#">Playful Learning with Elements of AI</a>
@@ -310,6 +321,506 @@
                         	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
                         	<a class="course_button" href="#!">Join Course</a>
                     	</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="courses-wrapper">
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/1.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">BUSINESS</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Online Business Lessons by Siddharth Prabhakar</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/2.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">COOKING</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Modern Cooking Lessons by Vikas Khanna</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/3.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">DANCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Dance Lessons by Ganesh Acharya</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/4.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">ARTIFICIAL INTELLIGENCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Playful Learning with Elements of AI</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" href="#">
+						<img alt="Celebrity Course" src="images/5.png" class="img-fluid">
+						<div class="overlay"></div>
+					</a>
+					<a href="#">
+						<span class="category">ARTIFICIAL INTELLIGENCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Computing with Arduino</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="adwork" style="    margin-top: 60px;">
+				<img src="images/Image 210.png" class="img-fluid">
+			</div>
+
+			<div class="courses-wrapper">
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/1.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">BUSINESS</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Online Business Lessons by Siddharth Prabhakar</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/2.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">COOKING</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Modern Cooking Lessons by Vikas Khanna</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/3.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">DANCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Dance Lessons by Ganesh Acharya</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/4.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">ARTIFICIAL INTELLIGENCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Playful Learning with Elements of AI</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" href="#">
+						<img alt="Celebrity Course" src="images/5.png" class="img-fluid">
+						<div class="overlay"></div>
+					</a>
+					<a href="#">
+						<span class="category">ARTIFICIAL INTELLIGENCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Computing with Arduino</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+			</div>
+			<div class="courses-wrapper">
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/1.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">BUSINESS</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Online Business Lessons by Siddharth Prabhakar</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/2.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">COOKING</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Modern Cooking Lessons by Vikas Khanna</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/3.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">DANCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Dance Lessons by Ganesh Acharya</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/4.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">ARTIFICIAL INTELLIGENCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Playful Learning with Elements of AI</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" href="#">
+						<img alt="Celebrity Course" src="images/5.png" class="img-fluid">
+						<div class="overlay"></div>
+					</a>
+					<a href="#">
+						<span class="category">ARTIFICIAL INTELLIGENCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Computing with Arduino</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+			</div>
+			<div class="courses-wrapper">
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/1.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">BUSINESS</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Online Business Lessons by Siddharth Prabhakar</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/2.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">COOKING</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Modern Cooking Lessons by Vikas Khanna</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 1,400 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/3.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">DANCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Dance Lessons by Ganesh Acharya</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="">
+						<img alt="Celebrity Course" src="images/4.png" class="img-fluid">
+					</a>
+					<a class="course-hero select_course_item" href="#">
+						<span class="category">ARTIFICIAL INTELLIGENCE</span>
+						<h3 class="course-title">
+							<a class="select_course_item" href="#">Playful Learning with Elements of AI</a>
+						</h3>
+						<ul class="data">
+			                <li>
+			                    <span class="attribute">Sessions - </span>
+			                    <span class="value"><strong>30  </strong></span>
+			               	</li>
+			                <li>
+			                    <span class="attribute">Age  - </span>
+			                    <span class="value"><strong> 7 - 12 yrs</strong></span>
+			                </li>
+			            </ul>
+			            <div class="action">
+                        	<div class="price">₹ 999 <span class="gst">+ GST</span></div>
+                        	<a class="course_button" href="#!">Join Course</a>
+                    	</div>
+					</a>
+				</div>
+				<div class="column all_courses_list">
+					<a class="course-hero select_course_item" data-id="961" href="#">
+						<img alt="Celebrity Course" src="images/4.png" class="img-fluid"/>
+						<div class="overlay">
+							<a href="#">Load more</a>
+						</div>
 					</a>
 				</div>
 			</div>

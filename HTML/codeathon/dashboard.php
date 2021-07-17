@@ -341,7 +341,7 @@
                                     <h6>Earn points</h6>
                                 </div>
                                 <div class="board-button">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">REFERRALS</button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#refer-popup">REFERRALS</button>
                                     <button type="button">UPLOAD PROJECT</button>
                                 </div>
                             </div>
@@ -601,21 +601,77 @@
     </section>
 
     <!-- Modal Refer Friends-->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-          </div>
+<div class="modal fade refer-popup" id="refer-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Refer Friends</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
+  <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
+    <line id="Line_2" data-name="Line 2" x1="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
+    <line id="Line_3" data-name="Line 3" x2="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
+  </g>
+</svg>
+</button>
+      </div>
+      <div class="modal-body">
+        <div class="refer-share">
+            <div class="pull-left left_border">
+                <div class="share-link">
+                    <h6>Your Referral Code:</h6>
+                    <div class="link"><span>Av5an100009</span><button type="button" class="copy_button">Copy</button></div>
+                </div>
+            </div>
+            <div class="pull-right">
+                <div class="share-option">
+                    <h6>Share code on</h6>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59.251" viewBox="0 0 59 59.251">
+                                    <g id="icons8-whatsapp" transform="translate(-3.868 -4)">
+                                        <path id="Path_83" data-name="Path 83" d="M4.868,61.309l3.96-14.458A27.913,27.913,0,1,1,33.015,60.826H33a27.881,27.881,0,0,1-13.338-3.4Z" transform="translate(0.47 0.47)" fill="#fff"/>
+                                        <path id="Path_84" data-name="Path 84" d="M5.1,62.279a.734.734,0,0,1-.709-.928l3.88-14.166A28.644,28.644,0,1,1,19.807,58.448L5.29,62.254A.672.672,0,0,1,5.1,62.279Z" transform="translate(0.235 0.235)" fill="#fff"/>
+                                        <path id="Path_85" data-name="Path 85" d="M33.485,5.47a27.913,27.913,0,0,1,0,55.826h-.012a27.881,27.881,0,0,1-13.338-3.4l-14.8,3.881L9.3,47.321A27.916,27.916,0,0,1,33.485,5.47m0,55.826h0m0,0h0m0-57.3h0A29.39,29.39,0,0,0,7.72,47.516L3.92,61.393A1.47,1.47,0,0,0,5.712,63.2l14.241-3.734A29.385,29.385,0,1,0,33.485,4Z" transform="translate(0)" fill="#cfd8dc"/>
+                                        <path id="Path_86" data-name="Path 86" d="M47.842,15.007A23.2,23.2,0,0,0,11.779,43.738l.553.878L9.987,53.173l8.781-2.3.848.5a23.154,23.154,0,0,0,11.808,3.233h.009a23.2,23.2,0,0,0,16.409-39.6Z" transform="translate(2.052 1.977)" fill="#40c351"/>
+                                        <path id="Path_87" data-name="Path 87" d="M21.573,16.436C21.051,15.274,20.5,15.251,20,15.23c-.407-.018-.872-.016-1.336-.016a2.563,2.563,0,0,0-1.86.873A7.817,7.817,0,0,0,14.365,21.9c0,3.431,2.5,6.748,2.848,7.212s4.825,7.731,11.914,10.527c5.891,2.323,7.09,1.861,8.369,1.745S41.622,39.7,42.2,38.073a5.84,5.84,0,0,0,.407-3.315c-.175-.291-.639-.465-1.336-.814s-4.127-2.036-4.766-2.268-1.1-.348-1.57.35-1.8,2.268-2.208,2.733-.814.525-1.511.175a19.09,19.09,0,0,1-5.608-3.461,21.012,21.012,0,0,1-3.88-4.829c-.407-.7-.044-1.075.306-1.423.313-.313.7-.814,1.047-1.222a4.77,4.77,0,0,0,.7-1.163,1.283,1.283,0,0,0-.059-1.222C23.549,21.263,22.193,17.815,21.573,16.436Z" transform="translate(4.935 5.272)" fill="#fff" fill-rule="evenodd"/>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59">
+                                    <g id="icons8-twitter-circled" transform="translate(-4 -4)">
+                                        <path id="Path_88" data-name="Path 88" d="M33.5,4A29.5,29.5,0,1,0,63,33.5,29.5,29.5,0,0,0,33.5,4Z" fill="#03a9f4"/>
+                                        <path id="Path_89" data-name="Path 89" d="M47.4,18.127a16.559,16.559,0,0,1-4.425,1.3c1.5-.891,3.884-2.746,4.425-4.425a21.115,21.115,0,0,1-5.595,2.024A7.06,7.06,0,0,0,36.51,15c-4.012,0-6.81,3.4-6.81,7.375v2.95c-5.9,0-11.652-4.494-15.232-8.85a7.1,7.1,0,0,0-.984,3.624c0,2.683,2.465,5.406,4.416,6.7a13.69,13.69,0,0,1-4.425-1.475v.084c0,3.491,2.45,5.862,5.77,6.522a9.236,9.236,0,0,1-4.189.768c.923,2.854,5.565,4.363,8.744,4.425-2.487,1.928-6.921,2.95-10.325,2.95A10.869,10.869,0,0,1,12,40.041a22.938,22.938,0,0,0,11.8,2.984c13.359,0,20.65-10.2,20.65-19.721,0-.313-.01-1.36-.027-1.667a11.207,11.207,0,0,0,2.977-3.51" transform="translate(3.8 5.225)" fill="#fff"/>
+                                     </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59">
+                                    <g id="icons8-facebook" transform="translate(-5 -5)">
+                                        <path id="Path_90" data-name="Path 90" d="M34.5,5A29.5,29.5,0,1,0,64,34.5,29.5,29.5,0,0,0,34.5,5Z" fill="#1976d3"/>
+                                        <path id="Path_91" data-name="Path 91" d="M32.162,38.008H39.8l1.2-7.755H32.16V26.014c0-3.222,1.053-6.079,4.066-6.079h4.843V13.167a41.135,41.135,0,0,0-6.051-.366c-7.1,0-11.263,3.75-11.263,12.292v5.159h-7.3v7.755h7.3V59.324a29.56,29.56,0,0,0,4.413.365,29.694,29.694,0,0,0,3.993-.3Z" transform="translate(6.332 4.311)" fill="#fff"/>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="refer-note">
+            <h5>Invite your Friends</h5>
+            <p>Type email addressed of your friends separated with comma.</p>
+            <textarea></textarea>
+            <button type="button" class="send-button">Send Invitations</button>
         </div>
       </div>
+      
     </div>
+  </div>
+</div>
 <?php include("includes/footer.php"); ?>

@@ -1966,7 +1966,7 @@
             className: "timer_amount"
         }, s.d ? M(j, null, M("span", null, s.d), M("span", null, ":")) : "", s.h ? M(j, null, M("span", null, s.h), M("span", null, ":")) : "", s.m ? M(j, null, M("span", null, s.m), M("span", null, ":")) : "", M("span", null, s.s)), M("span", {
             className: "timer_unit"
-        }, s.d ? M(j, null, M("span", null, window.wplms_course_data.translations.days), M("span", null)) : "", s.h ? M(j, null, M("span", null, window.wplms_course_data.translations.hours), M("span", null)) : "", s.m ? M(j, null, M("span", null, window.wplms_course_data.translations.minutes), M("span", null)) : "", M("span", null, window.wplms_course_data.translations.seconds)))))
+        }, s.d ? M(j, null, M("span", null, 'days'), M("span", null)) : "", s.h ? M(j, null, M("span", null, "hrs"), M("span", null)) : "", s.m ? M(j, null, M("span", null, 'min'), M("span", null)) : "", M("span", null, 'sec')))))
     };
     const {
         createElement: D,
@@ -2031,11 +2031,7 @@
         }), J("ul", {className: "question_list"},t.options && t.options.length ? J(X, null, (t => s.map((function(s, a) {
             let r = t.options.findIndex(e => e == s);
             return J("li", {
-                className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : ""),
-                onChange: t => {
-                    jQuery('input:not(:checked)').parent().removeClass("checked_option");
-                    jQuery('input:checked').parent().addClass("checked_option");
-                }
+                className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : "") + (parseInt(t.marked_answer) === r ? 'checked_option' : "")
             }, J("input", {
                 type: "radio",
                 name: e.quiz_id + "_" + t.id,
@@ -2158,7 +2154,7 @@
             if (s && s.length) return s.map((function(s, a) {
                 let r = t.options.findIndex(e => e == s);
                 return ne("li", {
-                    className: "question_option checkbox " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : "")
+                    className: "question_option checkbox " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(r) ? "question_correct" : "question_incorrect" : "") + (e.question.marked_answer && e.question.marked_answer.length && e.question.marked_answer.includes(r) ? 'checked_option' : '')
                 }, ne("input", {
                     type: "checkbox",
                     name: e.quiz_id + "_" + t.id,
@@ -2688,7 +2684,7 @@
             }
         }),J("ul", {className: "question_list"}, t.options && t.options.length ? We(Ve, null, (t => t.options.map((function(s, a) {
             return We("li", {
-                className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(a) ? "question_correct" : "question_incorrect" : "")
+                className: "question_option radio " + (t.show_correct_answer && t.correct_indexes ? t.correct_indexes && t.correct_indexes.length && t.correct_indexes.includes(a) ? "question_correct" : "question_incorrect" : "") + (parseInt(t.marked_answer) === a ? 'checked_option' : '')
             }, We("input", {
                 type: "radio",
                 name: e.quiz_id + "_" + t.id,

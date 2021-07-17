@@ -344,7 +344,7 @@ $sections[] = array(
                         'sub_desc' => __('Restrict WP Admin area access', 'vibe'),
                         'desc' => __('WP Admin area is restricted for', 'vibe'),
                         'type' => 'button_set',
-						'options' => array('' => __('All','vibe'),'1'=>__('Instructors & Administrators only','vibe'),'2'=>__('Administrators only','vibe'),'3'=>__('Marketing','vibe'),'3'=>__('SEO','vibe')),
+						'options' => array('' => __('All','vibe'),'1'=>__('Instructors & Administrators only','vibe'),'2'=>__('Administrators only','vibe'),'3'=>__('Marketing','vibe'),'4'=>__('SEO','vibe')),
 						'std' => ''
 						),
 					array(

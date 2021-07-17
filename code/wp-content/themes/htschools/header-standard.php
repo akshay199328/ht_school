@@ -98,7 +98,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             if(!empty($url)){
                         ?>
                         
-                            <a href="<?php echo vibe_site_url('','logo'); ?>"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                            <a href="<?php echo vibe_site_url('','logo'); ?>"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
                         <?php
                             }
                             if(is_home()){
@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <div class="<?php echo vibe_get_container(); ?>">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php echo vibe_site_url('','logo'); ?>" id="alt_logo"><img src="<?php  echo apply_filters('wplms_logo_url',VIBE_URL.'/images/logo.png','standard_header'); ?>" alt="<?php echo get_bloginfo('name'); ?>" /></a>
+                        <a href="<?php echo vibe_site_url('','logo'); ?>" id="alt_logo"><img src="<?php  echo apply_filters('wplms_logo_url',VIBE_URL.'/images/logo.png','standard_header'); ?>" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
                         <?php
                             $args = apply_filters('wplms-main-menu',array(
                                  'theme_location'  => 'main-menu',

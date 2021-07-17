@@ -447,7 +447,7 @@ border: 1px solid deepskyblue;
 								</div>
 
 								<div style="display:none" id="other_school">
-									<input type="text" id="user_school_other" name="user_school_other" value="" >
+									<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >
 									<span id="errotherSchoolMsg"></span>
 								</div>
 

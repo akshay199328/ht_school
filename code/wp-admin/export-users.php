@@ -62,9 +62,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		$usersSql .= "INNER JOIN ht_usermeta AS meta ON users.ID = meta.user_id ";
 		$usersSql .= "WHERE meta.meta_key = 'ht_capabilities' AND meta.meta_value LIKE '%student%' AND users.ID >= '".$_POST['user_id']."' ";
 		$usersSql .= "ORDER BY users.ID ASC";
-
+print_r($usersSql);
 		$usersList	= $wpdb->get_results($usersSql);
-
+print_r($usersList);die;
 		$userMetaKeys = array(
 			"first_name",
 			"last_name",

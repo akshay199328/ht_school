@@ -106,7 +106,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<span id="errSchoolMsg"></span>
 			</div>
 			<div style="display:none" id="other_school">
-				<input type="text" id="user_school_other" name="user_school_other" value="" >
+				<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >
 				<!-- <input type="hidden" id="other_user_school" name="other_user_school" value="<?php echo $user_school; ?>"> -->
 				<span id="errotherSchoolMsg"></span>
 			</div>
@@ -477,12 +477,22 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			        $("#user_school_data").val(ui.item.label);
 			        $("#user_school").val(ui.item.value);
 				},
-				response: function(event, ui){
-					ui.content.push({value:"Others", label:"Others"});
-				}					
+				/*response: function(event, ui){
+					ui.content.push({label:"Others", value:"Others", label:"Others"});
+				}*/
 			});	
 
-			$("#user_school_data").click(function () {
+		/*	  $( "#user_school_data" ).autocomplete({
+    minLength: 0,
+    source: projects,
+    
+  .autocomplete( "instance" )._renderItem = function( ul, item ) {
+    return $( "<li>" )
+      .append( "<div>" + Others + "<br>" + Others + "</div>" )
+      .appendTo( ul );
+  };*/
+
+			$("#user_school_data").change(function () {
 				var other_val = $("#user_school_data").val();
 				//console.log(other_val);	
 				if(other_val === "Others"){
@@ -491,7 +501,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				}
 				else{
 					$("#other_school").hide();	
-				}							
+				}											
 			});
 
 			/*-------------------------------------------------------*/

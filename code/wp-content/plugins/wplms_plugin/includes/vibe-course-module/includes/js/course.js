@@ -2885,6 +2885,7 @@ jQuery(document).ready(function($){
   });
 
 $('.ajax-certificate').each(function(){
+  alert('test2');
     var $this = $(this);
     var certificate_url = '#';
     if(window.wplms_pdf_certificates && window.wplms_pdf_certificates[parseInt($this.attr('data-course'))]){
@@ -3111,7 +3112,7 @@ $( 'body' ).delegate( '.certificate_download', 'click', function(event){
     event.preventDefault();
     var $this = $(this);
     if($(this).data('url')){
-        var img = $(this).data('url');
+        var img = $(this).data('url');        
         imgWindow = window.open(img, 'imgWindow');
     }else{
         var img = $('#certificate img').attr('src');

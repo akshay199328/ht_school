@@ -1480,6 +1480,7 @@ jQuery(document).ready(function($){
   });
 
 jQuery('.ajax-certificate').each(function(){
+  alert('test1');
     var $this = jQuery(this);
     var certificate_url = '#';
     if(window.wplms_pdf_certificates && window.wplms_pdf_certificates[parseInt($this.attr('data-course'))]){
@@ -1707,7 +1708,7 @@ jQuery( 'body' ).delegate( '.certificate_download', 'click', function(event){
     event.preventDefault();
     var $this = jQuery(this);
     if(jQuery(this).data('url')){
-        var img = jQuery(this).data('url');
+        var img = jQuery(this).data('url');        
         imgWindow = window.open(img, 'imgWindow');
     }else{
         var img = jQuery('#certificate img').attr('src');

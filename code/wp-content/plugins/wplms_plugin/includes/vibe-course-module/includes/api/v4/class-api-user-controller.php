@@ -1474,7 +1474,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 								$live_course_start_date = $live_course_data[0]['start_on'];
 								$meeting_id = $live_course_data[0]['meeting_id'];
 								$meeting_passcode = $live_course_data[0]['meeting_passcode'];
-								$meeting_shortcode = "[zoom_join_via_browser meeting_id='".$meeting_id."' login_required='no' help='yes' height='500px' disable_countdown='yes' passcode='".$meeting_passcode."' webinar='no']";
+								$meeting_shortcode = "[zoom_join_via_browser meeting_id='".$meeting_id."' login_required='no' help='yes' height='550px' disable_countdown='yes' passcode='".$meeting_passcode."' webinar='no']";
 								$join_meeting_link = do_shortcode($meeting_shortcode);
 							}
 							$unit_type = wplms_get_element_type($item,'unit');

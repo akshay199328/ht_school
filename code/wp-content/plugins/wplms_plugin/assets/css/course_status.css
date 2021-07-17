@@ -2268,9 +2268,9 @@ border-bottom: 1px solid #E8E8E8;
 .course_status .incourse .quiztimer .timer_unit {
     color: var(--bold);
     line-height: 1em;
-    display: grid;
-    grid-template-columns: 1fr 5px 1fr;
-    justify-items: center
+    display: block;
+    /*grid-template-columns: 1fr 5px 1fr;*/
+    /*justify-items: center*/
 }
 
 .course_status .incourse .quiztimer .timer_amount span:nth-child(n+4),
@@ -2288,13 +2288,26 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .course_status .incourse .quiztimer .timer_amount span {
-    margin: 0 5px
+    /*margin: 0 5px*/
 }
 
 .course_status .incourse .quiztimer .timer_unit {
     font-size: 11px
 }
-
+.timer_unit span,
+.timer_amount span{
+    width: 34px;
+    float: left;
+    display: block;
+    text-align: left;
+    margin: 0!important;
+}
+.colon{
+    text-align: center!important;
+}
+.colon.blur{
+    opacity: 0;
+}
 .course_status .incourse .fillblank_area {
     clear: none;
     display: inline-block

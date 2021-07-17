@@ -189,9 +189,7 @@ background: url('./assets/images/preference.png');
   vertical-align: middle;
 }
 .user_menu .usermenu_content{padding:0;}
-.vibebp_name:after {
-    display: none!important;
-}
+
 .user_menu{
         width: 101% !important;
     top: 38px !important;
@@ -234,7 +232,16 @@ background: url('./assets/images/preference.png');
 
 .user_menu{display: none!important;}
 .user_menu.user_active{display: block!important;}
-
+.right-menu ul li a:after, .left-menu ul li span:after{display: none;}
+li.epaper span.text:after {
+    content: '';
+    border-bottom: 1px solid #707070;
+    width: 50%;
+    height: 1px;
+    position: absolute;
+    bottom: -7.5px;
+    left: 0;
+}
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
@@ -6507,7 +6514,6 @@ h6:empty,
     font-weight: bold!important;
     line-height: 0.67!important;
     color: #000000!important;
-        justify-items: normal!important;
 }
 .course_status .incourse .quiztimer .timer_unit{
    font-size: 15px!important;
@@ -6515,10 +6521,6 @@ h6:empty,
     line-height: 0.67!important;
     color: #000000!important;
     margin-top: 5px;
-    justify-items: normal!important;
-}
-.course_status .incourse .quiztimer .timer_amount, .course_status .incourse .quiztimer .timer_unit{
-  grid-template-columns: 0fr 19px 1fr!important;
 }
 .course_status .incourse .incoursequiz_details .incourse_quiz_button>a{
         padding: 12px 36px 13px 35px;

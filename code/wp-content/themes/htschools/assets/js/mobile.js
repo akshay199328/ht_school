@@ -1,3 +1,12 @@
+$(document).ready(function()
+{
+  setTimeout(function()
+    {
+        $('span.vibebp_name').css('display','block');
+    }, 
+    5000);
+});
+
 $(window).on('scroll', function() { 
     if ($(window).scrollTop() >= $( 
     '.footer-check .heading').offset().top + $('.footer-check .heading'). 

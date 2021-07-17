@@ -10,7 +10,7 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 	$courseTypeArray = apply_filters('wplms_course_types',array(
                       array( 'label' =>__('Live','wplms'),'value'=>'LIVE CLASSES'),
                       array( 'label' =>__('Blended','wplms'),'value'=>'BLENDED'),
-                      array( 'label' =>__('Self Paced','wplms'),'value'=>'SELF PACED'),
+                      array( 'label' =>__('Self Paced','wplms'),'value'=>'SELF-PACED'),
                     ));
 
 	$addressFormArray = apply_filters('wplms_course_types',array(

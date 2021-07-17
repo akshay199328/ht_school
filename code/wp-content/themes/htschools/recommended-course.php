@@ -113,7 +113,7 @@ vibe_include_template("profile/top$profile_layout.php");
 
                         $str1="LIVE CLASSES";
                         $str2="BLENDED";
-                        $str3="SELF PACED";
+                        $str3="SELF-PACED";
                     
                         if(strcmp($str2, $course_type)==0){
                            $badge_class = "blue";

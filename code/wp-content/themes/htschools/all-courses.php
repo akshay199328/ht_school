@@ -782,7 +782,7 @@ get_header(vibe_get_header());
 
                         $str1="LIVE CLASSES";
                         $str2="BLENDED";
-                        $str3="SELF PACED";
+                        $str3="SELF-PACED";
                     
                         if(strcmp($str2, $course_type)==0){
                            $badge_class = "blue";

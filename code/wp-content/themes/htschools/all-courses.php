@@ -610,13 +610,23 @@ get_header(vibe_get_header());
                     $ageFirstEle = $age_filter[0];
                     $ageLastEle = $age_filter[count($age_filter) - 1];
                     $age_with_session = "SELECT SQL_CALC_FOUND_ROWS ht_posts.ID FROM ht_posts INNER JOIN ht_postmeta ON ( ht_posts.ID = ht_postmeta.post_id ) LEFT JOIN ht_postmeta AS rel ON ht_posts.ID = rel.post_id WHERE 1=1 AND ( ( ht_postmeta.meta_key = 'vibe_course_sessions' ";
-                    if(in_array(31, $sessions_filter)){
-                      $age_with_session .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
+                    if($lastEle == 31){
+                      $filter_age_first_value = $firstEle;
+                      $filter_age_second_value = '500';
                     }
                     else{
-                      $age_with_session .= " AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN ".$firstEle." AND ".$lastEle." ) )";
+                      $filter_age_first_value = $firstEle;
+                      $filter_age_second_value = $lastEle;
                     }
+
+                    // if(in_array(31, $sessions_filter)){
+                    //   $age_with_session .= " AND CAST(ht_postmeta.meta_value AS SIGNED) >= '31' ) )";
+                    // }
+                    // else{
+                      $age_with_session .= " AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN ".$filter_age_first_value." AND ".$filter_age_second_value." ) )";
+                    //}
                     $age_with_session .= " AND ht_posts.post_type = 'course' AND (ht_posts.post_status = 'publish' OR ht_posts.post_status = 'acf-disabled') AND rel.meta_key= 'vibe_course_age_group' AND SUBSTRING_INDEX(REGEXP_REPLACE(rel.meta_value, '[^\\\d]', '-'), '-', -1) != '' AND (SUBSTRING_INDEX(REGEXP_REPLACE(rel.meta_value, '[^\\\d]', '-'), '-', 1) <= ".$ageLastEle." AND SUBSTRING_INDEX(REGEXP_REPLACE(rel.meta_value, '[^\\\d]', '-'), '-', -1) >= ".$ageFirstEle.") GROUP BY ht_posts.ID ORDER BY ht_postmeta.meta_value+0 DESC LIMIT 0, 16 ";
+                    
                     $age_with_session_result = $wpdb->get_results($age_with_session);
                     foreach($age_with_session_result as $course){
                       $age_with_session_args['post__in'][]=$course->ID;

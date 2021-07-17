@@ -106,7 +106,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<span id="errSchoolMsg"></span>
 			</div>
 			<div style="display:none" id="other_school">
-				<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >				
+				<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >				
 				<span id="errotherSchoolMsg"></span>
 			</div>
 

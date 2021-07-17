@@ -581,7 +581,6 @@ function quiz_first_attempt($field1){
   'id'    => $prefix.'quiz_level_image', // field id and name
   'type'  => 'image' // type of field
   );
-  return $field1;
   $field1[]=array( // Text Input
   'label' => __('Quiz Attempt 1','vibe-quiz-attempt-1'), // <label>
   'desc'  => __('Add points for first quiz attempt','vibe-quiz-attempt-1'), // description

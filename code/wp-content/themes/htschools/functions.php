@@ -935,6 +935,7 @@ function wc_npr_filter_phone( $address_fields ) {
     if(!empty(array_intersect($product_id, $product_in_cart))){
       $address_fields['billing_address_1']['required'] = true;
       $address_fields['billing_postcode']['required'] = true;
+      $address_fields['billing_address_1']['label'] = "Street address (Please share your correct address so that we can send the “Robotics Kit” to you. Address once entered, can’t be changed.)";
     }
     else{
       $address_fields['billing_address_1']['required'] = false;

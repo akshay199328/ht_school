@@ -385,7 +385,7 @@
         $negative_marks = get_post_meta($item_id,'vibe_quiz_negative_marks_per_question',true);
         
       }
-      
+
       $quiz_attempt_1_points = get_post_meta($item_id,'vibe_quiz-attempt-1',true);
       $quiz_attempt_2_points = get_post_meta($item_id,'vibe_quiz-attempt-2',true);
       $quiz_attempt_3_points = get_post_meta($item_id,'vibe_quiz-attempt-3',true);
@@ -394,7 +394,25 @@
       if(empty($vibe_question_number_react)){
         $vibe_question_number_react = apply_filters('wplms_react_quiz_default_question_numbers',1,$item_id,$user_id);
       }
+      $course_curriculum=bp_course_get_curriculum_units($course);
+      if(!is_array($course_curriculum)){
+        $course_curriculum = array();
+      }
+      $stop_progress = apply_filters('bp_course_stop_course_progress',true,$course);
+      $next_unit = null;
+      $flag = apply_filters('wplms_next_unit_access',true,$item_id,$user_id);
+      $continue = 0;
+      if( $stop_progress && $flag ){
+        $continue = 1;
+        $key = array_search($item_id,$course_curriculum);
+        if($key <=(count($course_curriculum)-1) ){  // Check if not the last unit
+            $key++;
+            if(isset($course_curriculum[$key])){
+              $next_unit =  $course_curriculum[$key];
+            }
+        }
 
+      }
       $return['partial_marking'] = !empty($quiz_partial_marks)?$quiz_partial_marks:0;
       $return['negative_marking'] = !empty($quiz_negative_marking)?$quiz_negative_marking:0;
       $return['negative_marks'] = !empty($negative_marks)?$negative_marks:0;
@@ -405,6 +423,7 @@
       $return['quiz_attempt_1_points'] = !empty($quiz_attempt_1_points)?intval($quiz_attempt_1_points):0;
       $return['quiz_attempt_2_points'] = !empty($quiz_attempt_2_points)?intval($quiz_attempt_2_points):0;
       $return['quiz_attempt_3_points'] = !empty($quiz_attempt_3_points)?intval($quiz_attempt_3_points):0;
+      $return['next_unit'] = $next_unit;
 
       
       if($status < 3){

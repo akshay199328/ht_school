@@ -3673,7 +3673,7 @@
         },t.submitted ? '' : "Next", jt("i", {
             className: "vicon vicon-angle-right",
             "aria-hidden": "true"
-        })))), t.submitted ? jt("div", {
+        })))), t.submitted && t.next_unit != null ? jt("div", {
             className: "next_unit_button",
             onClick: () => {
                 document.getElementById("navigate_unit").click(); 
@@ -4320,12 +4320,12 @@
             },"Review Quiz Questions"))), Rt("div", {
                 className: "buttons_wrapper pull-right"
             },
-            Rt("span", {
+            t.next_unit != null ? Rt("span", {
                 className: "button",
                 onClick: () => {
                     document.getElementById("navigate_unit").click(); 
                 }
-            },"Next Unit"))) : '', gn("div", {
+            },"Next Unit") : '')) : '', gn("div", {
                 className: U
             }, gn("div", {
                 id: "ajaxloader",

@@ -3153,8 +3153,6 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				'tags_data' => $tags_data,
 				'tags' => $tags,
 				'results' =>$results,
-				'pp' =>count($pp),
-				'ss' => $post['correct_answer_based_percent']
 			);
 						
 			return 	new WP_REST_Response( $data, 200 );

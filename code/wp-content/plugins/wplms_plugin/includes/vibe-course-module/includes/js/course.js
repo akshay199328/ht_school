@@ -2885,7 +2885,6 @@ jQuery(document).ready(function($){
   });
 
 $('.ajax-certificate').each(function(){
-  alert('test2');
     var $this = $(this);
     var certificate_url = '#';
     if(window.wplms_pdf_certificates && window.wplms_pdf_certificates[parseInt($this.attr('data-course'))]){

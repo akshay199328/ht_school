@@ -2158,8 +2158,7 @@ if ( ! class_exists( 'BP_Course_Rest_Course_Controller' ) ) {
 
 			$post = json_decode(file_get_contents('php://input'));
 			$review = wp_filter_nohtml_kses(stripslashes($post->review));	
-			//$review = $post->review;
-
+			
 			$data = array(
     				'comment_post_ID' => $post->course_id,
     				'comment_content' => $review,
@@ -2188,16 +2187,16 @@ if ( ! class_exists( 'BP_Course_Rest_Course_Controller' ) ) {
           			$rating = wp_filter_nohtml_kses($post->rating);
           			update_comment_meta( $comment_id, 'review_rating', $rating );
 					$message = _x('Review successfully added !','API message failure to add review','wplms');
-					do_action('wplms_course_review',$post->course_id,$rating,$title,$this->user_id);
+					/*do_action('wplms_course_review',$post->course_id,$rating,$title,$this->user_id);
 
 		          	if(function_exists('bp_course_get_course_reviews')){
 		              	$calculate_reviews=bp_course_get_course_reviews('id='.$post->course_id);
-		          	}
+		          	}*/
 				}else{
 					$status = 0;
 					$message = _x('Failed to add review','API message failure to add review','wplms');
 				}
-			}	
+			/*}	*/
 
 			$data = array('status'=>$status,'message'=>$message);
 

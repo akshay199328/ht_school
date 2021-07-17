@@ -10,7 +10,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 ?>
 <?php
 	$profileType = get_profile_data('Profile Type');
-	$current_user = wp_get_current_user();
+	/*$current_user = wp_get_current_user();*/
 ?>
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 	<ul class="left_tab">
@@ -21,9 +21,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 		<li id="edit-personal-li" class="<?php if($profileType == 'Parent'){ echo "current selected"; } ?>">
 			<a id="profile-type-parent" href="javascript:void(0);">I am a Parent</a>
 		</li>
-		<li id="claim-parent-child">			
+		<!-- <li id="claim-parent-child">			
 			<a id="profile-type-claim-code" href="<?php echo home_url(); ?>/members-directory/<?php echo $current_user->user_login; ?>/settings/claim/">Claim Parent / Child</a>
-		</li>
+		</li> -->
 	</ul>
 </div><!-- .item-list-tabs -->
 

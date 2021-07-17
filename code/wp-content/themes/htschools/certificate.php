@@ -69,7 +69,7 @@ do_action('wplms_certificate_before_full_content');
                         echo '<a href="#" class="certificate_close"><i class="vicon vicon-close"></i></a>';
                         echo '<a href="#" class="certificate_print"><i class="vicon vicon-printer"></i></a>';
                         echo '<a href="#" class="certificate_pdf"><i class="vicon vicon-file"></i></a>';
-                        echo '<a id="download_pdf" href="'.$url.'" class="certificate_download"><i class="vicon vicon-download"></i></a>';
+                        echo '<a href="#" class="certificate_download"><i class="vicon vicon-download"></i></a>';
                     ?>    
                 </div>
                 <div class="certificate certificate_content" data-width="800" data-height="640">
@@ -95,32 +95,6 @@ do_action('wplms_certificate_before_full_content');
         </div>
     </div>
 </section>
-
-<script>
-jQuery(document).ready(function() {
- 
- //$("#download_pdf").onclick(){
-  /*/*if (jQuery("#download_pdf").length) {*/
- 
-      /*  var pdfDocument = jQuery("#download-pdf").attr("href");
- 
-        jQuery.get(pdfDocument, function() {
-          window.location.href = jQuery("#download-pdf").attr('href');
-        });*/
-         
-     // }*/
-     //console.log("teytyuw476378");
- ///}
-
- $("#download_pdf").click(function(){
-  alert("The paragraph was clicked.");
- });
-       
-       
- 
-});
-</script>
-
 <?php
 
 do_action('wplms_certificate_after_full_content');

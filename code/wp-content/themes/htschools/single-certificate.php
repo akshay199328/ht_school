@@ -1,5 +1,4 @@
 <?php
-//require_once('./TCPDF/tcpdf.php');
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -57,7 +56,7 @@ do_action('wplms_certificate_before_full_content');
                             echo '<a href="#" class="certificate_pdf"><i class="vicon vicon-file"></i></a>';
                             echo '<a href="#" class="certificate_download"><i class="vicon vicon-download"></i></a>';                            
                           }
-                        ?>
+                          ?>
                     </div>
                     <div class="certificate_content <?php echo vibe_sanitizer($class,'text');?>" style="<?php
                             if(isset($bgimg_id) && $bgimg_id && isset($bgimg['src']))
@@ -86,7 +85,6 @@ do_action('wplms_certificate_before_full_content');
         </div>
     </div>
 </section>
-
 <?php
 do_action('wplms_certificate_after_full_content');
 
@@ -99,5 +97,4 @@ if(isset($_GET['pdf'])){
 }else{
     get_footer(vibe_get_footer());
 }
-
 ?>

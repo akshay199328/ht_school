@@ -53,7 +53,6 @@ vibe_include_template("profile/top$profile_layout.php");
 					'post__in'=>$args['post__in'],
 					'paged'=>$paged
 				);
-
 				$wp_query  = new WP_query($query_args);
 				$courses = array();
 				if($wp_query->have_posts()){

@@ -1,8 +1,8 @@
-<div class="w3-sidebar w3-bar-block" style="width:25%">
+<!-- <div class="w3-sidebar w3-bar-block" style="width:25%">
   <a href="#" class="w3-bar-item w3-button">Link 1</a>
   <a href="#" class="w3-bar-item w3-button">Link 2</a>
   <a href="#" class="w3-bar-item w3-button">Link 3</a>
-</div>
+</div> -->
 
 <form action="" method="post" id="notifications-bulk-management">
 	<table class="notifications">
@@ -28,8 +28,7 @@
 					<td class="notification-actions"><?php bp_the_notification_action_links(); ?></td>
 				</tr>
 
-			<?php endwhile;
-			?>
+			<?php endwhile;?>
 
 		</tbody>
 	</table>

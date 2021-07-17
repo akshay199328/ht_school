@@ -104,7 +104,7 @@ class Wplms_Parent_User_Init{
 	  	<div class="wplms_parent_user_claim_block_wrapper">
 		  	<div class="claim_your_parent claim_settings_block">
 	   			<span><?php _e('Your claim code for Guardians/Parents (Parents can claim you as their child using this code) ','wplms-parent-user'); ?></span>
-	   			<strong><?php echo strtoupper($code); ?></strong>
+	   			<strong><?php echo ($code); ?></strong>
 		   </div>
 	  	<?php
 
@@ -112,7 +112,7 @@ class Wplms_Parent_User_Init{
 	  	?>
 		  	<div class="claim_your_student claim_settings_block">
 	   			<span><?php _e('Your claim code for Ward/Children ( Child/Student/Wards can claim you as their parent using this code )','wplms-parent-user'); ?></span>
-	   			<strong><?php echo strtoupper($code); ?></strong>
+	   			<strong><?php echo ($code); ?></strong>
 		   </div>
 		   <div class="claim_settings_block wplms_parent_input_block">
 		   		<input type="text" class="claim_ward_code" name="claim_ward_code" placeholder="<?php _e('Enter Claim Code','wplms-parent-user'); ?>">

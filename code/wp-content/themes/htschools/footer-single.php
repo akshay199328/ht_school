@@ -1815,7 +1815,6 @@ border: 1px solid deepskyblue;
 	})
 </script>
 
-
 <?php
 wp_footer();
 ?>

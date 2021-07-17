@@ -1972,13 +1972,13 @@
             className: "colon"
         }, null, ":")) : "", M("span", null, s.s)), M("div", {
             className: "timer_unit"
-        }, s.d ? M(j, null, M("span", null, 'days'), M("span",{
+        }, s.d ? M(j, null, M("span", null, 'Days'), M("span",{
             className: "colon blur"
-        }, null, ":")) : "", s.h ? M(j, null, M("span", null, "hrs"), M("span",{
+        }, null, ":")) : "", s.h ? M(j, null, M("span", null, "Hrs"), M("span",{
             className: "colon blur"
-        }, null, ":")) : "", s.m ? M(j, null, M("span", null, 'min'), M("span",{
+        }, null, ":")) : "", s.m ? M(j, null, M("span", null, 'Min'), M("span",{
             className: "colon blur"
-        }, null, ":")) : "", M("span", null, 'sec')))))
+        }, null, ":")) : "", M("span", null, 'Sec')))))
     };
     const {
         createElement: D,

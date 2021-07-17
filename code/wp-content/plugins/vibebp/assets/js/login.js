@@ -1318,7 +1318,7 @@
                 href: c.profile_link + '/preference'
             }, wp.element.createElement("span", {
                 className: "preference_icon"
-            }), "Preference"
+            }), "Preferences"
             ), wp.element.createElement("a", {
                 className : "ht-logout",
                 onClick: e.logout

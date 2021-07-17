@@ -1194,7 +1194,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 				                $interval = $current_date->diff($datetime2);
 				                $live_course_starts_in = $interval->format('%a');
 				                if($live_course_starts_in != 1 && $live_course_starts_in != 0){
-				                  $live_course_starts_in_days = "Starts In ".$live_course_starts_in. " Days";
+				                  $live_course_starts_in_days = "Starts in ".$live_course_starts_in. " Days";
 				                }
 				                else if($live_course_starts_in == 0){
 				                  $live_course_starts_in_days = "Starts Today";

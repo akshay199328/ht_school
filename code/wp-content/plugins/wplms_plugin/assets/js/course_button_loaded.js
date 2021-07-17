@@ -6880,7 +6880,7 @@
             },
             value: E.review,
             placeholder: window.wplms_course_data.translations.your_review         
-        })), sr("div", {
+        }), sr("div", {
             className: "popup-footer custom-popup-footer"
         }, B ? sr(or, null, sr("a", {
             href: "#",
@@ -6918,7 +6918,7 @@
             }
         }, window.wplms_course_data.translations.submit_review, " ", sr("span", {
             className: "vicon vicon-angle-right"
-        }))))) : "")) : "", (() => {
+        })))))) : "")) : "", (() => {
             let e = 0;
             if (m && m.courseitems && m.courseitems.length && m.courseitems[W] && "unit" == m.courseitems[W].type && !m.courseitems[W].status && m.courseitems[W].hasOwnProperty("meta") && m.courseitems[W].meta.hasOwnProperty("access") && m.courseitems[W].meta.access && (e = 1, m.hasOwnProperty("assignment_locking") && m.assignment_locking && m.courseitems[W].meta.hasOwnProperty("assignments") && m.courseitems[W].meta.assignments.length && (e = 0), m.courseitems[W].meta.hasOwnProperty("video") && (m.courseitems[W].meta.video.hasOwnProperty("url") || Array.isArray(m.courseitems[W].meta.video) && m.courseitems[W].meta.video.length) && (e = 0)), e) return sr(ea, null)
         })(), m.package ? sr("div", {

@@ -2196,7 +2196,7 @@ if ( ! class_exists( 'BP_Course_Rest_Course_Controller' ) ) {
 					$status = 0;
 					$message = _x('Failed to add review','API message failure to add review','wplms');
 				}
-			/*}	*/
+			}	
 
 			$data = array('status'=>$status,'message'=>$message);
 

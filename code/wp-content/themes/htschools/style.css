@@ -233,7 +233,8 @@ background: url('./assets/images/preference.png');
 .user_menu{display: none!important;}
 .user_menu.user_active{display: block!important;}
 .right-menu ul li a:after{display: none;}
-li.epaper span.text:after {
+li.epaper span.text:after,
+.vibebp-login span.text:after{
     content: '';
     border-bottom: 1px solid #707070;
         border-bottom-color: currentColor;
@@ -243,7 +244,7 @@ li.epaper span.text:after {
     bottom: -7.5px;
     left: 0;
 
-    
+
 }
 .header .header-copy .left-menu ul li span:after {
     border-bottom-color: currentColor;

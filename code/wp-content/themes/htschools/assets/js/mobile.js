@@ -4,7 +4,7 @@ $(document).ready(function()
     {
         $('span.vibebp_name').css('display','block');
     }, 
-    5000);
+    2000);
 });
 
 $(window).on('scroll', function() { 

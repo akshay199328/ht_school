@@ -109,10 +109,37 @@
         <div class="copyright">Copyright © 2021 HTML. All rights reserved.</div>
     </footer>
 
-    <script src="js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script type="text/javascript">
+     $(".navigation-wrapper ul li a").click(function(){
+    $("body").removeClass("menuOpened");
+  });
+     //in case js in turned off
+   $(window).on('load', function () {
+        $("#header-scroll").removeClass("small")
+  });
+
+//scrollspy
+$(window).on('scroll', function () {
+   var sections = $('section')
+    , nav = $('nav')
+    , nav_height = nav.outerHeight()
+    , cur_pos = $(this).scrollTop();
+  sections.each(function() {
+    var top = $(this).offset().top - nav_height,
+        bottom = top + $(this).outerHeight();
+ 
+    if (cur_pos >= top && cur_pos <= bottom) {
+      nav.find('a').removeClass('active');
+      sections.removeClass('active');
+ 
+      $(this).addClass('active');
+      nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
+    }
+  });
+});
         $(document).ready(function(){
           jQuery(document).ready(function($) {
                "use strict";
@@ -206,6 +233,7 @@
           responsive : {
                0 : {
                     items:2,
+                    dots:true,
                },
                // breakpoint from 480 up
                480 : {
@@ -314,6 +342,10 @@
             responsive : {
                 0 : {
                     items:2,
+                    margin:20,
+                    dots:true,
+                    center:true,
+                    autoWidth:true,
                 },
                 // breakpoint from 480 up
                 480 : {

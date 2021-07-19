@@ -242,6 +242,8 @@ li.epaper span.text:after {
     position: absolute;
     bottom: -7.5px;
     left: 0;
+
+    
 }
 .header .header-copy .left-menu ul li span:after {
     border-bottom-color: currentColor;

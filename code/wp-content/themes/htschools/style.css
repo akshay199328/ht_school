@@ -387,7 +387,7 @@ section {
     border: 1px solid #000000;
     padding: 8px 5px;
     margin: 0px 8px 8px 0px!important;
-    min-width: 90px;
+    min-width: 95px;
     border-radius: 0px;
     box-shadow:none;
     text-align: center;
@@ -424,6 +424,18 @@ section {
   margin-right: 6px;
       position: relative;
     top: -2px;
+}
+.list.time:before  {
+  content:'';
+  background: url('./assets/images/timer.svg');
+  position: relative;
+    display: inherit;
+    background-size: 100% 100%;
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 2px;
+    margin-right: 7px;
 }
 .note{
       float: left;

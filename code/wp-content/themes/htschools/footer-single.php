@@ -446,10 +446,10 @@ border: 1px solid deepskyblue;
 									<span id="errSchoolMsg"></span>
 								</div>
 
-								<div style="display:none" id="other_school">
+								<!-- <div style="display:none" id="other_school">
 									<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >
 									<span id="errotherSchoolMsg"></span>
-								</div>
+								</div> -->
 
 								<!-- <div class="col-md-12">
 									<label>Country</label>
@@ -594,7 +594,7 @@ border: 1px solid deepskyblue;
 				var mobNum = $('#user_mobile').val();
 				var firstName = $('#user_firstname').val();
 				var lastName = $('#user_lastname').val();
-				var otherschool = $('#user_school_other').val();
+				//var otherschool = $('#user_school_other').val();
 
 				  var filter = /^(?!0+$)\d{8,}$/;
 				  var isValid = true;
@@ -621,10 +621,10 @@ border: 1px solid deepskyblue;
 					isValid = false;
 				  }
 
-				  if(otherschool == '' || otherschool == undefined){
+				 /* if(otherschool == '' || otherschool == undefined){
                   	$("#errotherSchoolMsg").text("Please enter school name");
                   	isValid = false;
-                  }
+                  }*/
 
 				  return isValid;
 			}
@@ -763,12 +763,12 @@ border: 1px solid deepskyblue;
 					$("#user_school_data").val(ui.item.label);
 					$("#user_school").val(ui.item.value);
 				},
-				response: function(event, ui){
+				/*response: function(event, ui){
 					ui.content.push({value:"Others", label:"Others"});
-				},
+				},*/
 			});
 
-			$("#user_school_data").click(function () {
+			/*$("#user_school_data").click(function () {
 				var other_val = $("#user_school_data").val();
 				//console.log(other_val);	
 				if(other_val === "Others"){
@@ -778,7 +778,7 @@ border: 1px solid deepskyblue;
 				else{
 					$("#other_school").hide();	
 				}								
-			});
+			});*/
 
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 

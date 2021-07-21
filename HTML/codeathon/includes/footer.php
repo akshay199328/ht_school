@@ -118,9 +118,25 @@
   });
      //in case js in turned off
    $(window).on('load', function () {
-        $("#header-scroll").removeClass("small")
+          // alert("BHAVNA")
+        $("#header-scroll").removeClass("small");
+        $('#profile-popup').show()
   });
-
+window.onload = function () {
+  /* Cache the popup. */
+  var popup = document.getElementById("profile-popup");
+  
+  /* Show the popup. */
+  popup.classList.remove("hidden");
+  
+  /* Fade the popup in */
+setTimeout(()=>popup.classList.add("show", "in"));
+  
+  /* Close the popup when a city is selected. */
+  jQuery('.refer-popup .modal-content .btn-close').click(function(){
+     jQuery('.refer-popup').hide()
+  }) 
+};
 //scrollspy
 $(window).on('scroll', function () {
    var sections = $('section')
@@ -142,9 +158,21 @@ $(window).on('scroll', function () {
 });
      jQuery(document).ready(function(){
           jQuery(".share svg").click(function(){
-               alert("BHAVNA");
+               // alert("BHAVNA");
                jQuery(this).next().slideToggle();
-          })
+          });
+
+          jQuery(".next-button").click(function(){
+               // alert("BHAVNA");
+               jQuery('#step-2').show();
+               jQuery('#step-1').hide();
+          });
+          jQuery(".step-2-next").click(function(){
+               // alert("BHAVNA");
+               jQuery('#step-2').hide();
+               jQuery('#step-1').hide();
+               jQuery('#step-3').show();
+          });
      })
         $(document).ready(function(){
           jQuery(document).ready(function($) {
@@ -397,6 +425,17 @@ $(window).on('scroll', function () {
               }
           });
       });
+
+      $(function(){
+  var $ppc = $('.progress-pie-chart'),
+    percent = parseInt($ppc.data('percent')),
+    deg = 360*percent/100;
+  if (percent > 50) {
+    $ppc.addClass('gt-50');
+  }
+  $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
+  $('.ppc-percents span').html(percent+'%');
+});
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

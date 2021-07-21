@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 .fixed_header{
-    position: fixed;
+    /*position: fixed;*/
     width: 100%;
     top: 0;
     z-index: 9999;
@@ -13,7 +13,7 @@ html {
     
 }
 .header-space{
-    margin-top:170px;
+    /*margin-top:170px;*/
 }
 .mrg{
 	padding: 0px;
@@ -24,6 +24,11 @@ html {
 .dashbaord_body .account .login{
 	border: 0!important;
 }
+.dashbaord_body .account .login img {
+    border: 4px solid #06ea8c;
+    border-radius: 100%;
+}
+.dashbaord_body .header-wrapper .header-right .account a.register {color: #000000;}
 .navigation-wrapper ul{
 	justify-content: flex-start;
 	padding: 0px;
@@ -50,7 +55,7 @@ html {
 }
 .section-wrapper.dashboard_partner.dashboard_partner:after {
         content: "";
-    height: 147px;
+    /*height: 147px;
     max-width: 729px;
     background-image: url(../images/partner-doodle.png);
     background-repeat: no-repeat;
@@ -58,10 +63,9 @@ html {
     display: inline-block;
     position: absolute;
     right: -17%;
-    /* transform: rotate(194deg) scale(1.2); */
     z-index: 10;
     width: 100%;
-    bottom: 0;
+    bottom: 0;*/
 }
 .section-wrapper.dashboard_partner.partners:before,
 .section-wrapper.partners.partners .partners_slider:after{
@@ -285,6 +289,16 @@ html {
     margin-left: 18px;
     position: relative;
     display: inline-block;
+    cursor: pointer;
+}
+.refer-popup.show{
+	    background: #00000069;
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    /*display: none;
+    -webkit-appearance: none;*/
+    background: transparent;
 }
 .toggle-share {
     display: none;    
@@ -743,7 +757,7 @@ html {
     border-radius: 22px;
     padding: 40px 55px;
 }
-.refer-popup .modal-header, .modal-body, .modal-footer{border:0px;padding: 0;flex-direction: column;}
+.refer-popup .modal-header, .modal-body, .modal-footer{border:0px;padding: 0;flex-direction: column;align-items: flex-start;}
 .refer-popup .modal-content .btn-close {
     position: absolute;
     top: 35px;
@@ -754,13 +768,18 @@ html {
     font-weight: 900;
     background: none;
 }
-.refer-popup  .modal-title {
+.refer-popup .modal-title {
     font-size: 30px;
     line-height: 45px;
     font-weight: 800;
     text-transform: uppercase;
 }
-
+.refer-popup p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16.8px;
+    margin: 0px 0px 10px;
+}
 .refer-popup .share-link h6, .share-option h6{
     font-size: 16px;
     line-height: 16.8px;
@@ -857,91 +876,81 @@ html {
     margin-top: 42px;
 }
 
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: #455A64;
-    padding-left: 0px;
-    margin-top: 30px
+.profile-progress .progressbar {
+    counter-reset: step;
+    margin: 0 0px 50px;
+    padding: 0;
+    display: flex;
 }
 
-#progressbar li {
+.profile-progress .progressbar li {
     list-style-type: none;
-    font-size: 13px;
-    width: 33.33%;
     float: left;
+    width: 33.33%;
     position: relative;
-    font-weight: 400;
-    color: #455A64 !important
+    text-align: center;
+    z-index: 99;
 }
 
-#progressbar #step1:before {
-    content: "1";
-    color: #fff;
-    width: 51px;
-    margin-left: 15px !important;
-    padding-left: 11px !important
-}
-
-#progressbar #step2:before {
-    content: "2";
-    color: #fff;
-    width: 51px
-}
-
-#progressbar #step3:before {
-    content: "3";
-    color: #fff;
-    width: 55px;
-    margin-right: 15px !important;
-    padding-right: 11px !important
-}
-
-#progressbar li:before {
-    line-height: 51px;
-    display: block;
-    font-size: 12px;
-    background: #455A64;
+.profile-progress .progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 50px;
+    height: 50px;
+    line-height: 42px;
     border: 4px solid #FF9EB3;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
     border-radius: 50%;
-    margin: auto
+    background-color: white;
+    font-size: 18px;
+    font-weight: 700;
 }
-
-#progressbar li:after {
+/*.profile-progress .progressbar li:nth-child(3)::before {
+    float: right;
+}
+.profile-progress .progressbar li:nth-child(2)::before {
+    float: right;
+}*/
+.profile-progress .progressbar li:after {
     content: '';
-    width: 121%;
-    height: 2px;
-    background: #455A64;
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 15px;
-    z-index: -1
+        position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #ff9eb3;
+    top: 22px;
+    right: 92px;
+    z-index: -9;
 }
 
-#progressbar li:nth-child(2):after {
-    left: 50%
+.profile-progress .progressbar li:first-child:after {
+    content: none;
 }
 
-#progressbar li:nth-child(1):after {
-    left: 25%;
-    width: 121%
+.profile-progress .progressbar li.active {
+    color: #000000;
 }
 
-#progressbar li:nth-child(3):after {
-    left: 25% !important;
-    width: 50% !important
+.profile-progress .progressbar li.active:before {
+    background: #FF9EB3;
+    font-size: 26px;
+    color: #fff;
 }
 
-#progressbar li.active:before,
-#progressbar li.active:after {
-    background: #FF9EB3
+.profile-progress .progressbar li.active + li:after {
+    background-color: #FF9EB3;
 }
 .float-start .profile-form {
     padding-right: 25px;
 }
+.list{
+    width: 100%;
+    float: left;
+    margin: 0;
+}
 .profile-form .form-group{
-    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .profile-form .form-label {
     font-size: 14px;
@@ -970,11 +979,39 @@ html {
 .profile-form .form-control:-moz-placeholder { /* Firefox 18- */
   opacity: 30%
 }
+
+.input-date:after{
+    content:'';
+    background: url('../images/calendar.png') no-repeat bottom right;
+    position: absolute;
+    right: 15px;
+    top: 9px;
+    bottom: 15px;
+    display: block;
+    height: 26px;
+    width: 24px;
+}
+.input-search:after{
+    content:'';
+    background: url('../images/search-icon.png') no-repeat center right;
+    position: absolute;
+    right: 15px;
+    top: 9px;
+    /*bottom: 15px;*/
+    display: block;
+    height: 26px;
+    width: 24px;
+}
+#step-2, 
+#step-3{display: none;}
+#step-1, #step-2, #step-3 {
+    width: 100%;
+}
 .float-start, .float-end{
     width: 50%
 }
 .float-end .profile-ratingdetail {
-    padding-left: 25px;
+    padding-left: 44px;
 }
 .profile-pointrating {
     display: flex;
@@ -986,6 +1023,10 @@ html {
 }
 .profile-pointrating:after{
     content: '';
+    border-bottom: 1px solid #ccc;
+    display: block;
+    width: 100%;
+    padding-top: 30px;
 }
 .float-end .profile-ratingdetail p {
     font-size: 12px;
@@ -994,19 +1035,175 @@ html {
     float: left;
     width: 100%;
     color: #00000066;
+    font-weight: 500;
+    margin: 0 0px 5px;
 }
-
 .rating-points {
     font-size: 22px;
     line-height: 33px;
     font-weight: 800;
     letter-spacing: -0.8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .number {
-    font-size: 30px;
+    font-size: 33px;
     line-height: 46px;
+    margin-right: 7px;
+}
+.switch-button {
+        background: rgb(23 20 20 / 0%);
+    border: 2px solid #CCCCCC;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 350px;
+    text-align: center;
+    color: #000000;
+    padding-right: 120px;
+    position: relative;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+}
+.switch-button:before {
+    content: "Female";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
+.switch-button-checkbox {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+.switch-button-checkbox + .switch-button-label {
+        position: relative;
+    padding: 15px 0;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+    width: 170px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+}
+.switch-button-checkbox:checked + .switch-button-label:before {
+    transform: translateX(177px);
+    transition: transform 300ms linear;
+}
+.switch-button-checkbox + .switch-button-label:before {
+    content: "";
+    background: #06EA8C;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    border-radius: 4px;
+    transform: translateX(0);
+    transition: transform 300ms;
+}
+.switch-button-checkbox + .switch-button-label .switch-button-label-span {
+    position: relative;
+}
+.profile-progressbar {
+    margin: 42px 0px 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .rating-points svg{margin-right: 13px;}
+.next-button{
+    background: url(../images/send-button.png)no-repeat;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    border: 0px;
+    min-width: 100%;
+    min-height: 57px;
+    /*margin-top: 42px;*/
+}
+
+.switch {
+    background: #f2f2f2;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+.slider {
+    height: 40px;
+    width: 50%;
+    background: #00D191;
+    position: absolute;
+    top:-5px;
+    left: 0;      
+    transition: all 0.3s cubic-bezier(0, 1.13, 0.58, 1);
+}
+.btn {
+    padding: .3rem .75rem;
+    transition-duration: 0.2s;
+    transition-property: all;
+}
+.btn.active {           
+    color: #fff;
+}
+.btn.focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.left-switch.active ~ .slider {
+    left: 0;
+}
+.right-switch.active ~ .slider {
+    transform: translateX(100%);
+    background:grey;
+}
+.profile-add .text {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    letter-spacing: 0.48px;
+    width: 64%;
+}
+.profile-add {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.profile-add svg {
+    cursor: pointer;
+        margin-bottom: 20px;
+}
+.skip-button{
+    background: url(../images/skip-button.png)no-repeat;
+        font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+    border: 0px;
+        background-size: 100% 100%;
+    min-width: 100%;
+    min-height: 57.87px;
+    margin-top: 29px;
+}
 @media screen and (max-width: 1024px) and (min-width: 768px){
     .tab_scroll {height: 360px;}
     .leader_board .board-list .tab_scroll {height: 88px;}

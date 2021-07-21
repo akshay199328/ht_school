@@ -14,9 +14,11 @@ if($page_name=="index.php"){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="css/codeathon-bootstrap.css" rel="stylesheet"> -->
     <link href="css/codeathon.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/circle.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -24,8 +26,8 @@ if($page_name=="index.php"){
     <title>Hello, world!</title>
   </head>
   <body class="<?=$page_classes?> dashbaord_body">
+    <div class="fixed_header">
     <header class="header-wrapper">
-        <div class="header-left">
             <span class="codeathon">
                 <img src="images/codeathon.svg">
             </span>
@@ -46,7 +48,6 @@ if($page_name=="index.php"){
                     <span class="title">CAUSE PARTNER</span>
                 </div>
             </div>
-        </div>
         <div class="header-right">
             <span class="ht-school"><img src="images/ht-school.svg"></span>
             <div class="account">
@@ -67,3 +68,5 @@ if($page_name=="index.php"){
             <h3>1020</h3>
         </div> -->
     </div>
+    </div>
+    <div class="header-space"></div>

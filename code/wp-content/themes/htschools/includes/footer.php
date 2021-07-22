@@ -429,6 +429,24 @@ setTimeout(()=>popup.classList.add("show", "in"));
                   jQuery(this).addClass('active');
               }
           });
+          jQuery('#send_invitation').click(function(){
+              var refer_email = jQuery("#refer_email").val();
+              jQuery('#refer_message').text('');
+              jQuery.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=refer_email_submit",
+                    data : {refer_email : refer_email},
+                    success: function(response) {
+                         if(response.status == 1){
+                              jQuery('#refer_message').text(response.message);
+                         }
+                         else{
+                              jQuery('#refer_message').text(response.message);
+                         }
+                    }
+               })
+          });
       });
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->

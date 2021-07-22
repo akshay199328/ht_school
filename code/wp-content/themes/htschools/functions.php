@@ -3321,3 +3321,47 @@ function check_if_cart_has_product( $valid, $product_id, $quantity ) {
 
 }
 add_filter( 'woocommerce_add_to_cart_validation', 'check_if_cart_has_product', 10, 3 );
+
+add_filter( 'mycred_add', 'mycred_pro_user_max', 10, 3 );
+function mycred_pro_user_max( $run, $request, $mycred ) {
+  $user_id = get_current_user_id();
+  // This code snippet is only applicable for logging_in
+  if ( $request['ref'] != 'logging_in' || $run === false ) return $run;
+
+  // Count the total number of times this user has received points 
+    global $wpdb;
+
+  $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='logging_in' AND user_id = '".$user_id."'");
+  $creds_json = json_decode( json_encode($sql), true);
+  $creds_total = $creds_json[0]['total_creds'];
+
+
+  // Maximum allowed
+  $maximum = 2000;
+
+  // If we have reached our limit, decline
+  if ( $creds_total >= $maximum ) return false;
+
+  return $run;
+
+}
+
+add_action("wp_ajax_refer_email_submit", "refer_email_submit");
+add_action( 'wp_ajax_nopriv_refer_email_submit', 'refer_email_submit' );
+
+function refer_email_submit(){
+  global $wpdb;
+  $now = current_time('mysql');
+  $user_id = get_current_user_id();
+  $sql1 = $wpdb->prepare("INSERT INTO ht_usermeta (`user_id`, `meta_key`, `meta_value`) values (".$user_id.",'refer_email".$now."','".$_POST['refer_email']."')");
+  $result = $wpdb->query($sql1);
+  $response = array(
+    'status' => 0,
+    'message' => 'Unable to send invitation'
+  );
+  if($result){
+    $response['status'] = 1;
+    $response['message'] = 'Invitation send successfully';
+  }
+  echo json_encode($response); exit;
+}

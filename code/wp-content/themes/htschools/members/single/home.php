@@ -13,6 +13,14 @@ do_action('wplms_before_member_profile');
 get_header( vibe_get_header() ); 
 
 $profile_layout = vibe_get_customizer('profile_layout');
+$user_id= get_current_user_id();
+$user = new WP_User( $user_id );
+$user_role=strval( wp_sprintf_l( '%l', $user->roles ));
+
+if($user_role=='instructor'){
+
+	$profile_layout = 'blank';
+}
 
 if($profile_layout == 'blank'){
 	vibe_include_template("profile/$profile_layout.php");  

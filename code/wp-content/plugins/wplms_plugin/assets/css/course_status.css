@@ -4254,7 +4254,7 @@ a.button.is-primary {
     .prev_btn i:before {margin-right: 10px;}
     .next_btn i:before {margin-left: 10px;}
     .course_status .reviewpopup_wrapper.complete_course_popup .reviewpopup_content{    
-        width: 90%!important;padding: 30px 30px 50px!important;
+        width: 90%!important;padding: 30px 20px !important;
     }
     /*.course_status.moveonside .course_timeline {max-width: 100%;}*/
 }

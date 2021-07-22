@@ -3351,3 +3351,42 @@ function refer_email_submit(){
   }
   echo json_encode($response); exit;
 }
+
+add_action("wp_ajax_social_share_points", "social_share_points");
+add_action( 'wp_ajax_nopriv_social_share_points', 'social_share_points' );
+function social_share_points(){
+    $response = array(
+      'status' => 0,
+      'message' => 'Failed to add points'
+    );
+    $now = current_time('timestamp');
+    $user_id = get_current_user_id();
+    $ref = $_POST['ref'];
+    $creds = $_POST['creds'];
+    $limit_per_day = $_POST['limit_per_day'];
+    $entry = "Points for sharing on ".$ref."";
+    $count = mycred_get_total_by_time( 'today', 'now', $ref, $request['user_id'], 'mycred_default' );
+    echo $count;
+    if ( $count >= $limit_per_day ){
+      $response['message'] = 'Points will be added only once a day';
+    }
+    else{
+      $results = add_points($ref,$user_id,$creds,$limit_per_day,$now,$entry);
+      if($results == 1){
+        $response['message'] = 'Points added successfully';
+      }
+    }
+    echo json_encode($response); exit;
+}
+
+function add_points($ref,$user_id,$creds,$limit_per_day,$now,$entry){
+  global $wpdb;
+  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('".$ref."', '', '".$user_id."','".$creds."','mycred_default','".$now."','".$entry."')");
+  $result = $wpdb->query($mycred_points);
+  if($result){
+    return true;
+  }
+  else{
+    return false;
+  }
+}

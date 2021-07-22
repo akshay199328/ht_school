@@ -122,7 +122,7 @@
      //in case js in turned off
    $(window).on('load', function () {
         $("#header-scroll").removeClass("small");
-        $('#profile-popup').show();
+        //$('#profile-popup').show();
   });
 
 //scrollspy
@@ -429,24 +429,54 @@ setTimeout(()=>popup.classList.add("show", "in"));
                   jQuery(this).addClass('active');
               }
           });
+          function validateEmails(string) {
+             var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+             var result = string.replace(/\s/g, "").split(/,|;/);        
+             for(var i = 0;i < result.length;i++) {
+                 if(!regex.test(result[i])) {
+                     return false;
+                 }
+             }       
+             return true;
+         }
           jQuery('#send_invitation').click(function(){
               var refer_email = jQuery("#refer_email").val();
-              jQuery('#refer_message').text('');
-              jQuery.ajax({
+              if(validateEmails(refer_email)){
+                   jQuery('#refer_message').text('');
+                   jQuery.ajax({
+                         type : "POST",
+                         dataType : "json",
+                         url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=refer_email_submit",
+                         data : {refer_email : refer_email},
+                         success: function(response) {
+                              if(response.status == 1){
+                                   jQuery('#refer_email').val('');
+                                   jQuery('#refer_message').text(response.message);
+                              }
+                              else{
+                                   jQuery('#refer_message').text(response.message);
+                              }
+                         }
+                    })
+               }
+               else{
+                    jQuery("#refer_message").text('Please enter valid Email ID');
+               }
+          });
+          jQuery('#social_share li').click(function(){
+               var ref = jQuery(this).attr('value');
+               var creds = 20;
+               var limit_per_day = 1;
+               jQuery.ajax({
                     type : "POST",
                     dataType : "json",
-                    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=refer_email_submit",
-                    data : {refer_email : refer_email},
+                    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=social_share_points",
+                    data : {ref : ref,creds:creds,limit_per_day:limit_per_day},
                     success: function(response) {
-                         if(response.status == 1){
-                              jQuery('#refer_message').text(response.message);
-                         }
-                         else{
-                              jQuery('#refer_message').text(response.message);
-                         }
+                         console.log(response);
                     }
-               })
-          });
+               });
+          })
       });
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->

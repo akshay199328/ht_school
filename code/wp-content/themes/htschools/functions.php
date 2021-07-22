@@ -1168,26 +1168,26 @@ function save_custom_profile(){
             'last_name' => esc_attr( $_POST['last_name'] )
         );
         wp_update_user( $args );
+
+        $school_name = str_replace(',', ' ', $_REQUEST['user_school_data']);
+        if($school_name == "Others"){
+            $school_name = str_replace(',', ' ', $_REQUEST['user_school_other']);
+        }
+
         $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
           LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
           FROM ht_users INNER JOIN ht_usermeta
           ON ht_users.ID = ht_usermeta.user_id
-          WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name ='" . esc_attr($_REQUEST['user_school_data']) . "'");
+          WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name ='" . esc_attr($school_name) . "'");
         
-        $school_name = str_replace(',', ' ', $_REQUEST['user_school_data']);
-       // $school_other_name = str_replace(',', ' ', $_REQUEST['user_school_other']);
+        $result_id = $wpdb->get_results("SELECT DISTINCT ID FROM ht_users WHERE display_name = '" . esc_attr($school_name) . "'");
 
         $date = date('Y-m-d H:i:s');
         if(count($results) == 0){
-          //if(empty($school_other_name)){
-                $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login,
-                user_nicename, display_name,user_registered) VALUES ('".$school_name."', '".$_REQUEST['user_school_data']."', '".$_REQUEST['user_school_data']."','".$date."')");
-          /*}
-          else{
-              $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login,
-              user_nicename, display_name,user_registered) VALUES ('".$school_other_name."', '".$_REQUEST['user_school_other']."', '".$_REQUEST['user_school_other']."','".$date."')");
-          }*/
           
+          $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login,
+                user_nicename, display_name,user_registered) VALUES ('".$school_name."', '".$school_name."', '".$school_name."','".$date."')");
+                  
           $wpdb->query($user_insert);
           $schoolID = $wpdb->insert_id;
           $tablename = $wpdb->prefix . "usermeta";
@@ -1198,33 +1198,25 @@ function save_custom_profile(){
 
           $sql = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (%s, %s, %s)", $userID, $userRole, $meta_value);
           $wpdb->query($sql);
-
-          //if(empty($school_other_name)){
-              $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'first_name','".$school_name."')");
+          
+          $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'first_name','".$school_name."')");
               $wpdb->query($sql1);
-          /*}
-          else{
-              $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'first_name','".$school_other_name."')");
-              $wpdb->query($sql1);
-          }*/
-
+         
           $sql2 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'type','Manual')");
           $wpdb->query($sql2);
 
           $sql3 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$user_id.",'Linked School',".$schoolID.")");
           $wpdb->query($sql3);
-
-          //if(empty($school_other_name)){
-              $sql4 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'nickname','".$school_name."')");
-              $wpdb->query($sql4);
-          /*}
-          else{
-              $sql4 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'nickname','".$school_other_name."')");
-              $wpdb->query($sql4);
-          }*/
+          
+          $sql4 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'nickname','".$school_name."')");
+          $wpdb->query($sql4);          
         }
         else{
-          $schoolID = trim($_REQUEST['user_school']);
+            if($school_name == "Others"){
+                  $schoolID = trim($result_id);
+            }else{
+                  $schoolID = trim($_REQUEST['user_school']);
+            }          
         }
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
@@ -1238,12 +1230,6 @@ function save_custom_profile(){
 
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );        
 
-           /* if(empty($school_other_name)){
-              $final_school_name = esc_attr($_REQUEST['user_school_data']);                  
-              }      
-              else{
-                $final_school_name = esc_attr($_REQUEST['user_school_other']);                
-              }  */ 
         if(count($child) == 0){
           $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
               'parent_id' => 0,

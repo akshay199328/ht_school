@@ -30,7 +30,7 @@ $user_city = get_profile_data('City');
 $user_school_name = "";
 $user_school = get_profile_data('Linked School');
 if(intval($user_school) > 0){
-	$user_school_name = get_user_by('id', $user_school)->display_name;	
+	$user_school_name = get_user_by('id', $user_school)->display_name;
 }
 
 $dob = strtotime($user_birthday);
@@ -100,15 +100,15 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	            </div>
 			</div>
 			<div class="form-group profile_search">
-				<label for="user_school_data">School*</label> <span class="school_note">Please type in your school and location if you can't find it in the list. (e.g., St. Paul's School Darjeeling)</span>
-				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">	
-				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">				
+				<label for="user_school_data">School*</label>
+				<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
+				<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
 				<span id="errSchoolMsg"></span>
 			</div>
-			<!-- <div style="display:none" id="other_school">
+			<div style="display:none" id="other_school">
 				<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >				
 				<span id="errotherSchoolMsg"></span>
-			</div> -->
+			</div>
 
 			<?php $profileType = get_profile_data('Profile Type'); 
 				if($profileType != 'Parent'){
@@ -226,6 +226,12 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 
 	.child-element-info {
 		margin-bottom: 10px;
+	}
+
+	.ui-autocomplete li.ui-menu-item:last-child .ui-menu-item-wrapper,
+	.ui-autocomplete li.ui-menu-item:last-child:hover .ui-menu-item-wrapper {
+		background-color: #d5ebff!important;
+    	color: #000;    	
 	}
 
 </style>
@@ -365,7 +371,8 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
               	var firstName = $('#user_firstname').val();
               	var lastName = $('#user_lastname').val();
               	var userSchool = $('#user_school_data').val();
-              //	var otherschool = $('#user_school_other').val();
+              	var otherschool = $('#user_school_other').val();
+
                   var filter = /^(?!0+$)\d{8,}$/;
                   var isValid = true;
                   if(mobNum == '' || mobNum == undefined){
@@ -396,10 +403,10 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
                   	isValid = false;
                   }
 
-                 /* if(otherschool == '' || otherschool == undefined){
+                  if(otherschool == '' || otherschool == undefined){
                   	$("#errotherSchoolMsg").text("Please enter school name");
                   	isValid = false;
-                  }*/
+                  }
 
                   return isValid;
             }
@@ -476,14 +483,13 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			        event.preventDefault();
 			        $("#user_school_data").val(ui.item.label);
 			        $("#user_school").val(ui.item.value);
-				},							
-				/*response: function(event, ui){
+			    },
+			    response: function(event, ui){
 					ui.content.push({value:"Others", label:"Others"});
-				}*/
-				
+				}
 			});	
-		
-			/*$("#user_school_data").click(function () {
+
+			$("#user_school_data").click(function () {
 				var other_val = $("#user_school_data").val();
 				//console.log(other_val);	
 				if(other_val === "Others"){
@@ -493,10 +499,8 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				else{
 					$("#other_school").hide();	
 				}											
-			});*/
+			});
 
-			/*-------------------------------------------------------*/
-			
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
 			$( "#user_country_data" ).autocomplete({
@@ -505,7 +509,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				select: function(event, ui) {
 			        event.preventDefault();
 			        $("#user_country_data").val(ui.item.label);
-			        $("#user_country").val(ui.item.value);
+			        $("#user_country").val(ui.item.label);
 			        window.selectedCountry = ui.item.label;
 			    },
 			});	

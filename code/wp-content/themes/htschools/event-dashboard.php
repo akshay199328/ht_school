@@ -111,10 +111,42 @@ if($points != ''){
                                                 <path id="Shape_924_copy_4" data-name="Shape 924 copy 4" d="M3480.22,446.219a8.916,8.916,0,1,0-12.979-.391l.082.062a4.207,4.207,0,0,1-1.834,2.081.351.351,0,0,0,.1.659,5.044,5.044,0,0,0,3.791-1.03l.02.021A8.942,8.942,0,0,0,3480.22,446.219Zm-5.934-11.806a1.463,1.463,0,0,1,0,2.926,1.463,1.463,0,0,1,0-2.926Zm-2.328,9.375c.062-.515.144-1.051.248-1.566.144-.907.309-1.813.474-2.72,0-.062.02-.123.02-.165,0-.371-.124-.515-.494-.556a3.293,3.293,0,0,1-.474-.082.331.331,0,0,1-.247-.371.318.318,0,0,1,.329-.288,1.755,1.755,0,0,1,.33-.021h2.761a.494.494,0,0,1,.556.494,5.614,5.614,0,0,1-.082.845c-.185,1.03-.371,2.081-.577,3.112-.061.35-.124.68-.164,1.03a1.32,1.32,0,0,0,.041.495.385.385,0,0,0,.433.309,2.315,2.315,0,0,0,.536-.144c.144-.062.268-.145.412-.206a.233.233,0,0,1,.33.288.879.879,0,0,1-.206.351,2.722,2.722,0,0,1-1.916.865,6.007,6.007,0,0,1-1.051-.062A1.623,1.623,0,0,1,3471.959,443.788Z" transform="translate(-3464.997 -430.997)"/>
                                             </svg>
                                         </span>
-                                        <span class="">
+                                        <span class="share">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16">
                                                 <path id="Shape_874" data-name="Shape 874" d="M3516.475,431l9.524,7.407-9.524,7.408v-3.852c-.507-.023-9.338-.306-15.476,5.037,2.457-7.534,10.171-10.811,15.476-12.148Z" transform="translate(-3500.999 -430.999)"/>
                                             </svg>
+                                            <div class="toggle-share ">
+                                                <h6>Share with your Friends</h6>
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://api.whatsapp.com//send?text=My Referrals Code is : <?php echo get_home_url();?>" target="_blank">
+                                                            <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
+                                                                <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"/>
+                                                                <path id="Path_84" data-name="Path 84" d="M4.962,51.2a.594.594,0,0,1-.573-.75L7.525,39a23.15,23.15,0,1,1,9.321,9.1L5.113,51.178A.543.543,0,0,1,4.962,51.2Z" transform="translate(-3.773 -3.906)" fill="#fff"/>
+                                                                <path id="Path_85" data-name="Path 85" d="M27.8,5.188a22.56,22.56,0,0,1,0,45.119H27.8a22.534,22.534,0,0,1-10.78-2.746L5.056,50.7l3.2-11.686A22.562,22.562,0,0,1,27.8,5.188m0,45.119h0m0,0h0M27.8,4h0A23.753,23.753,0,0,0,6.981,39.171L3.91,50.386a1.188,1.188,0,0,0,1.448,1.463l11.51-3.018A23.749,23.749,0,1,0,27.8,4Z" transform="translate(-3.868 -4)" fill="#cfd8dc"/>
+                                                                <path id="Path_86" data-name="Path 86" d="M40.246,13.7A18.752,18.752,0,0,0,11.1,36.924l.447.709-1.9,6.916,7.1-1.861.686.406a18.714,18.714,0,0,0,9.543,2.613h.007A18.751,18.751,0,0,0,40.246,13.7Z" transform="translate(-3.046 -3.209)" fill="#40c351"/>
+                                                                <path id="Path_87" data-name="Path 87" d="M20.191,16.2c-.422-.939-.866-.958-1.269-.974-.329-.014-.7-.013-1.08-.013a2.072,2.072,0,0,0-1.5.706,6.318,6.318,0,0,0-1.974,4.7c0,2.773,2.02,5.454,2.3,5.829s3.9,6.249,9.629,8.508c4.761,1.877,5.731,1.5,6.764,1.41s3.335-1.363,3.8-2.679a4.72,4.72,0,0,0,.329-2.679c-.141-.235-.517-.375-1.08-.658s-3.335-1.646-3.852-1.833-.892-.282-1.269.283-1.455,1.833-1.785,2.209-.658.424-1.221.141a15.429,15.429,0,0,1-4.533-2.8,16.982,16.982,0,0,1-3.136-3.9c-.329-.563-.036-.869.247-1.15.253-.253.563-.658.846-.987a3.855,3.855,0,0,0,.563-.94,1.037,1.037,0,0,0-.048-.987C21.787,20.1,20.692,17.316,20.191,16.2Z" transform="translate(-1.892 -1.89)" fill="#fff" fill-rule="evenodd"/>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://twitter.com/intent/tweet?text=My Referral Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
+                                                            <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
+                                                                <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"/>
+                                                                <path id="Path_89" data-name="Path 89" d="M40.611,17.527a13.383,13.383,0,0,1-3.576,1.049c1.214-.72,3.139-2.22,3.576-3.576a17.065,17.065,0,0,1-4.522,1.636,5.761,5.761,0,0,0-9.784,4.325v2.384c-4.768,0-9.418-3.632-12.311-7.153a5.738,5.738,0,0,0-.8,2.929c0,2.168,1.992,4.369,3.569,5.416a11.065,11.065,0,0,1-3.576-1.192v.068a5.345,5.345,0,0,0,4.664,5.272,7.465,7.465,0,0,1-3.386.621c.746,2.307,4.5,3.526,7.067,3.576-2.01,1.558-5.593,2.384-8.345,2.384A8.785,8.785,0,0,1,12,35.239a18.539,18.539,0,0,0,9.537,2.412c10.8,0,16.69-8.247,16.69-15.939,0-.253-.008-1.1-.021-1.347a9.057,9.057,0,0,0,2.406-2.837" transform="translate(-2.463 -1.887)" fill="#fff"/>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=My Referrals Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
+                                                            <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
+                                                                <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"/>
+                                                                <path id="Path_91" data-name="Path 91" d="M29.15,33.174h6.17l.969-6.268h-7.14V23.48c0-2.6.851-4.913,3.286-4.913h3.914V13.1a33.247,33.247,0,0,0-4.89-.3c-5.739,0-9.1,3.031-9.1,9.935v4.17h-5.9v6.268h5.9V50.4a23.891,23.891,0,0,0,3.566.295,24,24,0,0,0,3.228-.243Z" transform="translate(-2.08 -3.012)" fill="#fff"/>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </span>
                                     </div>
                                 </div>
@@ -622,9 +654,10 @@ if($points != ''){
             <div class="refer-note">
                 <h5>Invite your Friends</h5>
                 <p>Type email addressed of your friends separated with comma.</p>
-                <textarea></textarea>
-                <button type="button" class="send-button">Send Invitations</button>
+                <textarea id="refer_email"></textarea>
+                <button type="button" class="send-button" id="send_invitation">Send Invitations</button>
             </div>
+            <span id="refer_message" class="send-button"></span>
           </div>
           
         </div>
@@ -851,5 +884,6 @@ function myFunction() {
   document.execCommand("copy");
   document.getElementById("successMsg").innerHTML = "Referral Code Copy Successfully";
 }
+
 </script>
 <?php include("includes/footer.php"); ?>

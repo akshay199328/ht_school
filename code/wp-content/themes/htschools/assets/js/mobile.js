@@ -1,8 +1,9 @@
 $(document).ready(function()
 {
+  $('span.vibebp_name').css('display','none');
   setTimeout(function()
     {
-        $('span.vibebp_name').css('display','block');
+      $('span.vibebp_name').css('display','block');
     }, 
     2000);
 });

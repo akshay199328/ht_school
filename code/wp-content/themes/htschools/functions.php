@@ -3357,10 +3357,11 @@ function social_share_points(){
     );
     $now = current_time('timestamp');
     $user_id = get_current_user_id();
-    $ref = $_POST['ref'];
+    $share_on = $_POST['share_on'];
+    $ref = "social_sharing";
     $creds = $_POST['creds'];
     $limit_per_day = $_POST['limit_per_day'];
-    $entry = "Points for sharing on ".$ref."";
+    $entry = "Points for sharing on ".$share_on."";
     $count = mycred_get_total_by_time( 'today', 'now', $ref, $user_id, 'mycred_default' );
     $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='".$ref."' AND user_id = '".$user_id."'");
     $creds_json = json_decode( json_encode($sql), true);
@@ -3373,7 +3374,7 @@ function social_share_points(){
       $response['message'] = 'Maximum point limit reached';
     }
     else{
-      $results = add_points($ref,'0',$user_id,$creds,$limit_per_day,$now,$entry);
+      $results = add_points($ref,'0',$user_id,$creds,$now,$entry);
       if($results == 1){
         $response['message'] = 'Points added successfully';
       }
@@ -3383,36 +3384,63 @@ function social_share_points(){
 
 function referal_product_points(){
   global $wpdb;
+  $user_id = get_current_user_id();
   $response = array(
     'status' => 0,
     'message' => 'Failed to add points'
   );
   $now = current_time('timestamp');
-  $user_id = get_current_user_id();
   $sql1 = $wpdb->get_results("SELECT user_id FROM ht_mycred_log WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
   $referal_userid_json = json_decode( json_encode($sql1), true);
   $referal_userid = $referal_userid_json[0]['user_id'];
   $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM ht_mycred_log WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
   $referal_total_userid_json = json_decode( json_encode($sql2), true);
   $referal_total_userid_count = $referal_total_userid_json[0]['user_count'];
-  if($referal_total_userid_count <= 4){
+  if($referal_total_userid_count <= 9){
     $creds = 50;
   }
-  else if($referal_total_userid_count >= 5 && $referal_total_userid_count <= 9){
+  else if($referal_total_userid_count >= 10){
     $creds = 100;
   }
-  else if($referal_total_userid_count >= 10){
-    $creds = 200;
-  }
-  $entry = "Points for referring a new member when he/she purchase course";
+
+  $entry = "Points for referring a new member whenever they purchase event course";
   if($referal_userid){
-    $results = add_points('reward',$user_id,$referal_userid,$creds,$now,$entry);
+    $results = add_points('referral_registration_payment',$user_id,$referal_userid,$creds,$now,$entry);
   }
   if($results == 1){
     $response['message'] = 'Points added successfully';
   }
-
+  //echo json_encode($response); exit;
 }
+add_action("wp_ajax_platform_onboarding_points", "platform_onboarding_points");
+add_action( 'wp_ajax_nopriv_platform_onboarding_points', 'platform_onboarding_points' );
+function platform_onboarding_points(){
+  global $wpdb;
+  $response = array(
+    'status' => 0,
+    'message' => 'Failed to add points'
+  );
+  $now = current_time('timestamp');
+  $user_id = get_current_user_id();
+  $referal_userid = 0;
+  $creds = 50;
+  $ref_entry = $_POST['ref_entry'];
+  $ref_key = $_POST['ref_key'];
+  $entry = "Points for platform onboarding ".$ref_entry."";
+  $sql1 = $wpdb->get_results("SELECT user_id FROM ht_mycred_log WHERE user_id='".$user_id."' AND ref = '".$ref_key."'");
+  $userid_json = json_decode( json_encode($sql1), true);
+  $userid = $userid_json[0]['user_id'];
+  if($user_id && $userid == 0){
+    $results = add_points($ref_key,$referal_userid,$user_id,$creds,$now,$entry);
+  }else{
+    $response['message'] = 'Points will be added only once';
+  }
+  if($results == 1){
+    $response['message'] = 'Points added successfully';
+  }
+  echo json_encode($response); exit;
+}
+
 function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
   global $wpdb;
   $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_default','".$now."','".$entry."')");

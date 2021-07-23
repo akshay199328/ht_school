@@ -100,11 +100,14 @@ if ( ! class_exists( 'myCRED_Hook_Logging_In' ) ) :
 			$prev_creds_json = json_decode( json_encode($sql), true);
 			$prev_creds = $prev_creds_json[0]['creds'];
 
-			$sql1= $wpdb->get_results("SELECT * FROM ht_mycred_log WHERE ref='logging_in' AND user_id = '".$user->ID."' AND FROM_UNIXTIME(TIME) BETWEEN DATE_SUB(DATE(NOW()), INTERVAL 2 DAY) AND DATE_SUB(DATE(NOW()), INTERVAL 1 DAY)");
-			$prev2_days_creds_json = json_decode( json_encode($sql), true);
-			$prev2_days_creds = $prev2_days_creds_json[0]['creds'];
+			// $sql1= $wpdb->get_results("SELECT * FROM ht_mycred_log WHERE ref='logging_in' AND user_id = '".$user->ID."' AND FROM_UNIXTIME(TIME) BETWEEN DATE_SUB(DATE(NOW()), INTERVAL 2 DAY) AND DATE_SUB(DATE(NOW()), INTERVAL 1 DAY)");
+			// $prev2_days_creds_json = json_decode( json_encode($sql), true);
+			// $prev2_days_creds = $prev2_days_creds_json[0]['creds'];
 
-			if($prev_creds == 100 || (count($sql1) == 0 && count($sql) == 0)){
+			if($prev_creds == 100){
+				$creds = 100;
+			}
+			else if(count($sql) == 0){
 				$creds = $this->prefs['creds'];
 			}
 			else{

@@ -111,7 +111,6 @@
       </div>
         <div class="copyright">Copyright © 2021 HTML. All rights reserved.</div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -122,7 +121,7 @@
      //in case js in turned off
    $(window).on('load', function () {
         $("#header-scroll").removeClass("small");
-        //$('#profile-popup').show();
+        $('#profile-popup').show();
   });
 
 //scrollspy
@@ -147,21 +146,19 @@ $(window).on('scroll', function () {
 
 jQuery(document).ready(function(){
      jQuery(".share svg").click(function(){
-          // alert("BHAVNA");
           jQuery(this).next().slideToggle();
      });
 
-     jQuery(".next-button").click(function(){
-          // alert("BHAVNA");
+     /*jQuery(".next-button").click(function(){
           jQuery('#step-2').show();
           jQuery('#step-1').hide();
-     });
-     jQuery(".step-2-next").click(function(){
-          // alert("BHAVNA");
+     });*/
+
+     /*jQuery(".step-2-next").click(function(){
           jQuery('#step-2').hide();
           jQuery('#step-1').hide();
           jQuery('#step-3').show();
-     });
+     });*/
 });
 
 window.onload = function () {
@@ -429,6 +426,7 @@ setTimeout(()=>popup.classList.add("show", "in"));
                   jQuery(this).addClass('active');
               }
           });
+
           function validateEmails(string) {
              var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
              var result = string.replace(/\s/g, "").split(/,|;/);        
@@ -464,21 +462,224 @@ setTimeout(()=>popup.classList.add("show", "in"));
                }
           });
           jQuery('#social_share li').click(function(){
-               var ref = jQuery(this).attr('value');
+               var share_on = jQuery(this).attr('value');
                var creds = 20;
                var limit_per_day = 1;
                jQuery.ajax({
                     type : "POST",
                     dataType : "json",
                     url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=social_share_points",
-                    data : {ref : ref,creds:creds,limit_per_day:limit_per_day},
+                    data : {share_on : share_on,creds:creds,limit_per_day:limit_per_day},
                     success: function(response) {
                          console.log(response);
                     }
                });
-          })
+          });
+
       });
     </script>
+    <script type="text/javascript">
+         window.onbeforeunload = null;
+         (function($) {
+             $(document).ready(function(){
+                 
+                 $("#user_mobile").keypress(function (e) {
+                     var mobNum = $(this).val();
+                     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                         //display error message
+                         $("#errMobileMsg").text("Please enter Digits Only");
+                                return false;
+                     }
+                     else{
+                         $("#errMobileMsg").text('');
+
+                     }
+                     
+                 });
+
+                 $("#user_mobile").on("blur", function(){
+                   var mobNum = $('#user_mobile').val();
+                   var filter = /^(?!0+$)\d{8,}$/;
+
+                   if (!filter.test(mobNum)) {
+                       $("#errMobileMsg").text('Not a valid number');
+                       return false;
+                   }
+                   else if(mobNum.length!=10){
+                     $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                       return false;
+                   } 
+                   else{
+                     $("#errMobileMsg").text("");
+                     return true;
+                   }
+                 });
+
+
+                 function validation_step1(){ 
+
+                     $("#errMobileMsg").text("");
+                     $("#errFirstName").text("");
+                     $("#errLastName").text("");
+                     $("#errDobMsg").text("");
+
+                     var mobNum = $('#user_mobile').val();
+                     var firstName = $('#user_firstname').val();
+                     var lastName = $('#user_lastname').val();
+                     var dob = $('#user_dob').val();
+                     var filter = /^(?!0+$)\d{8,}$/;
+                     var isValid = true;
+
+                     if(mobNum == '' || mobNum == undefined){
+                         $("#errMobileMsg").text('Please enter mobile number');
+                         isValid = false;
+                     }else if (!filter.test(mobNum)) {
+                         $("#errMobileMsg").text('Not a valid number');
+                         isValid = false;
+                     }else if(mobNum.length!=10){
+                         $("#errMobileMsg").text("Please enter 10 digit mobile number");
+                         isValid = false;
+                     } 
+
+                     if(firstName == '' || firstName == undefined){
+                         $("#errFirstName").text("Please enter first name");
+                         isValid = false;
+                     }
+
+                     if(lastName == '' || lastName == undefined){
+                         $("#errLastName").text("Please enter last name");
+                         isValid = false;
+                     }
+
+                     if(dob == '' || dob == undefined){
+                         $("#errDobMsg").text("Please enter date of birth");
+                         isValid = false;
+                     }
+
+                     return isValid;
+                 }
+
+                 /*$("#user_dob_display").datepicker({
+                     altField: "#user_dob",
+                     altFormat: "yy-mm-dd",
+                     changeMonth: true,
+                     changeYear: true,
+                     yearRange: '1980:-3',
+                     maxDate: '-3y',    
+                 });*/
+
+                 $('body').on('click', '#saveStep1', function(){
+
+                     if(validation_step1() != true){
+                         return false;
+                     }
+                     else{
+                         $("#saveStep1").html("Please wait...");
+                         $("#saveStep1").attr("disabled", "disabled");
+                         $('form#modalAjaxTrying :submit').trigger('click');
+                         var form_data = {'action' : 'acf/validate_save_post'};
+                         $.ajax({
+                             type : "POST",
+                             dataType : "json",
+                             url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                             data : $("#profile-edit-form-step1").serialize(),
+                             success: function(response) {
+                                
+                                 $("#saveStep1").html("Submit");
+                                 $("#saveStep1").removeAttr("disabled");
+                                 
+                                 if(response.status == 1){
+                                   jQuery.ajax({
+                                        type : "POST",
+                                        dataType : "json",
+                                        url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=platform_onboarding_points",
+                                        data : {ref_key:'platform_onboarding_step1',ref_entry : 'Step 1'},
+                                        success: function(response) {
+                                             console.log(response);
+                                        }
+                                   });
+                                    jQuery('#step-2').show();
+                                    jQuery('#step-1').hide();
+                                 }else{
+                                     $("#response_message1").html(response.message);
+                                     $("#response_message1").addClass('error');
+                                     $("#response_message1").removeClass('success');
+                                     $("#response_message1").show();
+                                     setTimeout(function(){
+                                         $("#response_message1").html('');
+                                         $("#response_message1").hide();
+                                     }, 5000);
+                                 }
+                             }
+                         }); 
+                     }   
+                 });
+
+                 $('body').on('click', '#saveStep2', function(){
+
+                     if(validation_step1() != true){
+                         return false;
+                     }
+                     else{
+                         $("#saveStep2").html("Please wait...");
+                         $("#saveStep2").attr("disabled", "disabled");
+                         $('form#modalAjaxTrying :submit').trigger('click');
+                         var form_data = {'action' : 'acf/validate_save_post'};
+                         $.ajax({
+                             type : "POST",
+                             dataType : "json",
+                             url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                             data : $("#profile-edit-form-step1").serialize(),
+                             success: function(response) {
+                                
+                                 $("#saveStep2").html("Submit");
+                                 $("#saveStep3").removeAttr("disabled");
+                                 
+                                 if(response.status == 1){
+                                   jQuery.ajax({
+                                        type : "POST",
+                                        dataType : "json",
+                                        url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=platform_onboarding_points",
+                                        data : {ref_key: 'platform_onboarding_step2',ref_entry : 'Step 2'},
+                                        success: function(response) {
+                                             console.log(response);
+                                        }
+                                   });
+                                    jQuery('#step-3').show();
+                                    jQuery('#step-2').hide();
+                                 }else{
+                                     $("#response_message2").html(response.message);
+                                     $("#response_message2").addClass('error');
+                                     $("#response_message2").removeClass('success');
+                                     $("#response_message2").show();
+                                     setTimeout(function(){
+                                         $("#response_message2").html('');
+                                         $("#response_message2").hide();
+                                     }, 5000);
+                                 }
+                             }
+                         }); 
+                     }   
+                 });
+
+
+                 window.selectedCountry = "<?php echo $user_country; ?>";
+                 var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
+
+                 $( "#user_country_data" ).autocomplete({
+                     source: countryUrl,
+                     minLength: 2,
+                     select: function(event, ui) {
+                         event.preventDefault();
+                         $("#user_country_data").val(ui.item.label);
+                         $("#user_country").val(ui.item.value);
+                         window.selectedCountry = ui.item.label;
+                     },
+                 }); 
+
+             });
+         })( jQuery );
+     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

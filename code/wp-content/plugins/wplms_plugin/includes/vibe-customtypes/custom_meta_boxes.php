@@ -18,6 +18,11 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
                       array( 'label' =>__('Yes','wplms'),'value'=>'Yes'),
                     ));
 
+	$courseEventArray = apply_filters('wplms_course_event',array(
+							array( 'label' =>__('No','wplms'),'value'=>'0'),
+	                        array( 'label' =>__('Yes','wplms'),'value'=>'1'),
+	                    ));
+
 	foreach($sidebars as $sidebar){
 		if(!in_array($sidebar['id'],array('student_sidebar','instructor_sidebar')))
 	    	$sidebararray[]= array('label'=>$sidebar['name'],'value'=>$sidebar['id']);
@@ -243,6 +248,14 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 			'type'	=> 'select',
 	        'options' => $courseTypeArray,
 	        'std'=>'course_live_type'
+	        ),
+		$prefix.'course_event'=>array( // Single checkbox
+			'label'	=> __('Course Event','wplms'), // <label>
+			'desc'	=> __('Select Course Event'), // description
+			'id'	=> $prefix.'course_event', // field id and name
+			'type'	=> 'select',
+	        'options' => $courseEventArray,
+	        'std'=>'course_event'
 	        ),
 		$prefix.'address_form_field'=>array( // Single checkbox
 			'label'	=> __('Address Form','wplms'), // <label>

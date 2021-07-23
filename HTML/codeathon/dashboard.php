@@ -833,6 +833,14 @@
                                 </div>
                                 <div class="list">
                                     <div class="form-group">
+                                        <label class="form-label">School name*</label>
+                                        <div class="input-group input-search">
+                                            <input type="email" class="form-control" placeholder="Orchid International Schoool">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="form-group">
                                         <label class="form-label">Country</label>
                                         <div class="input-group input-search">
                                             <input type="email" class="form-control" placeholder="India">

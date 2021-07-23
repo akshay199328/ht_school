@@ -774,16 +774,33 @@ border: 1px solid deepskyblue;
 				}
 			});
 
-			$("#user_school_data").click(function () {
+			$("#user_school_data").on("keyup", function (event, ui) {
 				var other_val = $("#user_school_data").val();
-					
-				if(other_val === "Others"){
+   
+    			if(other_val === "Others"){
 					$("#other_school").removeAttr("style").hide();
 					$("#other_school").show();										
 				}
 				else{
 					$("#other_school").hide();	
-				}								
+				}	
+			});
+
+			$('.ui-autocomplete').on('click', '.ui-menu-item', function(){
+    			$("#user_school_data").trigger('click');
+			});
+
+			$("#user_school_data").click(function(){
+    			var other_val = $("#user_school_data").val();
+    			//console.log(other_val);
+
+    			if(other_val === "Others"){
+					$("#other_school").removeAttr("style").hide();
+					$("#other_school").show();								
+				}
+				else{
+					$("#other_school").hide();	
+				}	
 			});
 
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';

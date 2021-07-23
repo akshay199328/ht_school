@@ -53,12 +53,15 @@ get_header(vibe_get_header());
         <div class="course-header">
           <h2 class="course-title">All Courses</h2>
           <div class="right-side">
-            <select class="sort" id="sort_by">
-              <option selected="selected" value="">Sort by:</option>
-              <option value="popular" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "popular") echo 'selected="selected"';?>>Most Popular</option>
-              <option value="rated" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "rated") echo 'selected="selected"';?>>Highest Rated</option>
-              <option value="newest" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "newest") echo 'selected="selected"';?>>Newly Added</option>
-            </select>
+            <div class="sort">
+              <span class="title">Sort by :</span>
+              <select class="" id="sort_by">
+                <!-- <option selected="selected" value="">Sort by:</option> -->
+                <option value="popular" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "popular") echo 'selected="selected"';?>>Most Popular</option>
+                <option value="rated" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "rated") echo 'selected="selected"';?>>Highest Rated</option>
+                <option value="newest" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "newest") echo 'selected="selected"';?>>Newly Added</option>
+              </select>
+            </div>
             <button class="filter-button" type="button">Filters
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
                   <g id="Group_339" data-name="Group 339" transform="translate(-1071.5 -533.5)">

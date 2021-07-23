@@ -36,6 +36,28 @@ if($points != ''){
     $points = 0;
 }
 
+
+$currentUser = wp_get_current_user();
+$user_id = bp_loggedin_user_id();
+$args = array(
+        'field'   => 'Phone', // Field name or ID.
+        );
+
+$user_mobile = get_profile_data('Phone');
+$user_birthday = get_profile_data('Birthday');
+$user_gender = get_profile_data('Gender');
+$user_country = get_profile_data('Country');
+$user_state = get_profile_data('State');
+$user_city = get_profile_data('City');
+
+$user_school_name = "";
+$user_school = get_profile_data('Linked School');
+if(intval($user_school) > 0){
+    $user_school_name = get_user_by('id', $user_school)->display_name;
+}
+
+$dob = strtotime($user_birthday);
+
 ?>
 <section class="dashboard-wrapper">
     <div class="container">
@@ -44,12 +66,12 @@ if($points != ''){
                 <h6>Notice Board</h6>
                 <p>Get 20% discount on cuemath coupon. Please use the <strong>Code CM20P123.</strong></p>
             </div>
-            <div class="pull-right">
+            <!-- <div class="pull-right">
                 <div class="board_point">
                     <h6>Points</h6>
                     <h3><?php echo $points; ?></h3>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="dahboard_tab">
             <ul class="nav nav-tabs top-tab" id="myTab" role="tablist">
@@ -118,7 +140,7 @@ if($points != ''){
                                             <div class="toggle-share ">
                                                 <h6>Share with your Friends</h6>
                                                 <ul id="social_share">
-                                                    <li value="whatsapp">
+                                                    <li value="Whatsapp Share">
                                                         <a href="https://api.whatsapp.com//send?text=My Referrals Code is : <?php echo get_home_url();?>" target="_blank">
                                                             <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
                                                                 <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"/>
@@ -129,7 +151,7 @@ if($points != ''){
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li value="twitter">
+                                                    <li value="Twitter Share">
                                                         <a href="https://twitter.com/intent/tweet?text=My Referral Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"/>
@@ -137,7 +159,7 @@ if($points != ''){
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li value="facebook">
+                                                    <li value="Facebook Share">
                                                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=My Referrals Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"/>
@@ -460,18 +482,51 @@ if($points != ''){
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <tbody>
-                                                        <?php 
-                                                            $x=1;
-                                                            $results1 = $wpdb->get_results("SELECT * FROM `ht_mycred_log` WHERE `user_id` = '$userID'");
-                                                            foreach($results1 as $row1){ 
-                                                              echo '<tr>
-                                                                        <td>'.$x.'</td>
-                                                                        <td>'.$row1->ref.'</td>
-                                                                        <td class="numbers">'.$row1->creds.'</td>
-                                                                    </tr>';
-                                                                $x++;
-                                                            }
-                                                        ?>
+                                                        <tr>
+                                                            <td>01</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">1000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>02</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>03</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>01</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">1000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>02</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>03</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>01</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">1000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>02</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>03</td>
+                                                            <td>Dummy name</td>
+                                                            <td class="numbers">800</td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -668,7 +723,7 @@ if($points != ''){
         <div class="modal-dialog  modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Complete your profile <?php echo $userID; ?></h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Complete your profile</h5>
                     <p>Lorem ipsum Dummy Text</p>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
@@ -680,203 +735,221 @@ if($points != ''){
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="step-1">
-                        <div class="profile-progress">
-                            <ul class="progressbar">
-                                <li class="active"></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class="float-start">
-                            <div class="profile-form">
-                                <form class="row row-cols-lg-auto g-3 align-items-center">
-                                    <div class="list">
-                                        <div class="form-group">
-                                            <label class="form-label">First Name*</label>
-                                            <input type="text" class="form-control" placeholder="Shweta Malankar">
-                                        </div>
+                    <form class="row row-cols-lg-auto g-3 align-items-center" id="profile-edit-form-step1" type="POST">
+                        <input type="hidden" name="action" value="save_custom_profile">
+                        <div id="step-1">
+                            <div class="profile-progress">
+                                <ul class="progressbar">
+                                    <li class="active"></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                                <div class="float-start">
+                                    <div class="profile-form">
+                                            <div class="list">
+                                                <div class="form-group">
+                                                    <label class="form-label">First Name*</label>
+                                                    <input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
+                                                    <span id="errFirstName"></span>
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="form-group">
+                                                    <label class="form-label">Last Name*</label>
+                                                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname">
+                                                    <span id="errLastName"></span>
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="form-group">
+                                                    <label class="form-label">Email Id*</label>
+                                                    <input type="email" class="form-control" name="user_email" placeholder="" value="<?php echo $currentUser->user_email; ?>" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="form-group">
+                                                    <label class="form-label">Mobile Number*</label>
+                                                    <input type="text" class="form-control" name="user_mobile" id="user_mobile" placeholder="Mobile Number" maxlength="10" value="<?php echo $user_mobile ?>" >
+                                                    <span id="errMobileMsg"></span>
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="form-group">
+                                                    <label class="form-label">Date of Birth*</label>
+                                                    <div class="input-group input-date">
+                                                        <input type="date" class="form-control" name="user_dob" id="user_dob" placeholder="mm/dd/yyy" value="<?php echo date("m/d/Y", $dob); ?>">
+                                                        <!-- <div class="input-group-text">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="23.351" height="25.623" viewBox="0 0 23.351 25.623">
+                                                                <path id="Path_101" data-name="Path 101" d="M21.848,4.562H19.513V3.281a1.173,1.173,0,1,0-2.335,0V4.562H10.173V3.281A1.228,1.228,0,0,0,9.005,2,1.228,1.228,0,0,0,7.838,3.281V4.562H5.5A3.685,3.685,0,0,0,2,8.406V23.78a3.685,3.685,0,0,0,3.5,3.843H21.848a3.685,3.685,0,0,0,3.5-3.843V8.406a3.685,3.685,0,0,0-3.5-3.843ZM23.016,23.78a1.228,1.228,0,0,1-1.168,1.281H5.5A1.228,1.228,0,0,1,4.335,23.78V14.812h18.68Zm0-11.53H4.335V8.406A1.228,1.228,0,0,1,5.5,7.125H7.838V8.406A1.228,1.228,0,0,0,9.005,9.687a1.228,1.228,0,0,0,1.168-1.281V7.125h7.005V8.406a1.173,1.173,0,1,0,2.335,0V7.125h2.335a1.228,1.228,0,0,1,1.168,1.281Z" transform="translate(-2 -2)" fill="#ccc"/>
+                                                            </svg>
+                                                        </div> -->
+                                                    </div>
+                                                    <span id="errDobMsg"></span>
+                                                </div>
+                                            </div>
                                     </div>
-                                    <div class="list">
-                                        <div class="form-group">
-                                            <label class="form-label">Email Id*</label>
-                                            <input type="email" class="form-control" placeholder="Shweta@Htschool.com">
-                                        </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="form-group">
-                                            <label class="form-label">Mobile Number*</label>
-                                            <input type="number" class="form-control" placeholder="+91 9818912314">
-                                        </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="form-group">
-                                            <label class="form-label">Date of Birth*</label>
-                                            <div class="input-group input-date">
-                                                <input type="date" class="form-control" id="" placeholder="Username">
-                                                <!-- <div class="input-group-text">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="23.351" height="25.623" viewBox="0 0 23.351 25.623">
-                                                        <path id="Path_101" data-name="Path 101" d="M21.848,4.562H19.513V3.281a1.173,1.173,0,1,0-2.335,0V4.562H10.173V3.281A1.228,1.228,0,0,0,9.005,2,1.228,1.228,0,0,0,7.838,3.281V4.562H5.5A3.685,3.685,0,0,0,2,8.406V23.78a3.685,3.685,0,0,0,3.5,3.843H21.848a3.685,3.685,0,0,0,3.5-3.843V8.406a3.685,3.685,0,0,0-3.5-3.843ZM23.016,23.78a1.228,1.228,0,0,1-1.168,1.281H5.5A1.228,1.228,0,0,1,4.335,23.78V14.812h18.68Zm0-11.53H4.335V8.406A1.228,1.228,0,0,1,5.5,7.125H7.838V8.406A1.228,1.228,0,0,0,9.005,9.687a1.228,1.228,0,0,0,1.168-1.281V7.125h7.005V8.406a1.173,1.173,0,1,0,2.335,0V7.125h2.335a1.228,1.228,0,0,1,1.168,1.281Z" transform="translate(-2 -2)" fill="#ccc"/>
-                                                    </svg>
-                                                </div> -->
+                                </div>
+                                <div class="float-end">
+                                    <div class="profile-ratingdetail">
+                                        <div class="profile-pointrating">
+                                            <p>Get points in each step</p>
+                                            <span class="rating-points">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="34" viewBox="0 0 34 34">
+                                                    <image id="Image_23" data-name="Image 23" width="34" height="34" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABHNCSVQICAgIfAhkiAAADKZJREFUWEetWAtwVNUZ/s/d9+axJOSxkAc0RgIaQBIQUZGCMuIUOj47Up2hM9aKTm2HOu20wnSmHbCdziBjx1Gx2g5aB7WVSotvNKLQTCVJEwIBMYRHsrBJgE2y7Hv3nn7/ufduNjEiVk9mZ/fm3nvOd/7H93//ETLRSWOGPIdLNz5xIq2IaLCNqKiCMr0fkW3qckoE/0uuqgYfRU4sopFTjckLwfp0MlSbSoQrSc8US6mTsDnOO1wFfXZnUbczf8pByq9qpbzq5kSgfdjln0fpwLtkr1pMNHSGqKQBaw0RZexYL0UkJo+BI74iwEUAuHL47KEVIhFo8Ggj5BQx0mSEBCUxedqYXNpJkpN0kUcp3YM7kyhl97f5yurfBsBdANj8TQNshAXvCfd3rrZTyG+jKGlY1i5S+GZQOv4y6tsYGkBqJKUAUAbrorR0KcBpURDML5uzHQBfggVbv64FBVy8dvD4hw940t1z3SIEa8WUpaSUJITIukPnnwqUJM2GR3SZfYaf0xk/gOuaixKyhGL22o7Sb317KwA+AxfL/8fFFfGedx+J9resc9MAOUyrYamspWAgBSqD/wmJ5YVdgZYSaOywYhrPCuOeZVnAx9NOSpEXUV5Ghf6FW+w1N20GwMBXicHa4cOvbEgPta3Jp36AuzA2kXKuMry4BmAaFk1JWArLu9jFCHg9TbZRI39ujhTlU1SWk72ocVtB3R0bAbD7UpKkYqRr56YMwHnkABaImHH2hRhhQSclZR7ZXT71UCYZJrscUTF6saEjPtPCTQnhJ+Gbt80367b1ABjIfWd8FovEsVc3R4MfrfOKfrXIlw2OuYzmoxG9hEovm6seP3f8IOXJM2TLjCAeYc2LDU2jODI9RuVUMGXJFlfN3Y9w4FivCBl9L/u6DAUePNv1wlMFdAqxFEdCpOG6i/jIjMa4KKGhzAyqXvo9Ndeppldpku0oufRBeGD0fYnEmWg+tmQKlozIaVQy4/sPaUWVT08EsHGg9cXnvbF2ZOsASQS3GkiCi40MGDBClUSlK2nynBVIChuFOt8ivf+flC8CAIhsBjA11bjM5/+pPOON4gcnTdxxVUd547334V+t6r4Mf6BeTvS+/XikrwkZe1Zl7KUA1AXACwesN538C35J5ENVYIsNtVJw/++pUDsOgNiCwTETjxxDpFVml1D+lGVbnNNv/lkuwEXBTx7bUaAf89tkUhHBKOl+8dxp4QRNeynmnEPlN/wWD14GamGKOUGDe39DjlibqjR2zHkpAPEipaSDIvaZwbKrf3E73mkWMrmHhrubN8V7X3uUXcLgLAJmPrM4TLK1lMkN17OFmSZioIny2lVE0+8F3VSzH/HQaaKTf6WBozvJo4GmZNTElxsuZghhHiMEQPLwswTLx2zV5Km6/bG86QvWM0BfX/OfP3DH2xo8YlBVAGtwQFvx8zkLYOI4FaMGXE41yx7G5q8CuFLjMe0suKaDjr//R/LRUVjx/JhY1qwlmMTNJOL4NEg/jXnLKeGd11Z5zQ+XCTn4lxW9rS++lYfMddAwglbHXuykK0thVxdJ4ghVkL18FZXMXQ2rIVEozyQIJvYAnTvwCqWCsCJ+545cO7JHwDRqqDUBMkEFIPAqqlq45haRPvLr9YM9b2x0a+dArKizoBab5kCVkhSN22kk6cKu3IY6YRGQM+LST43LQVtFsB7cTdJp3BUccwAZaqf9uzcjSgfMtwy3ssAQ+LDo8LmT5Hak2RSqLBpWzFPeKb3sOxvESMv92+ODe+7mcsYKhXek4k3zoE7OIbriDrhvGqYtNgCg3o4mEFsM1QMcxgGepSSVmaxyoCmJyd6KQfYtfxL4QHemTxId2kFDp9tRx5MI3xSy3k4ZJF8KVnSVLH5ZDOy5bb8I75/v1JiUkYGghDTPAfpgXsrkL6TK+XdCw9bifyW44cUHcsXiRysERkPXtOKoqY1g4WFalkVxvIf6Wv5OtnAr/DNgGEetL1RdT+oog97GFtH7zo1n8lKdfrYKZ3AaLtYQFJxROqyYkoWUtFfStPqVRBU34DFkKivtce4eLU4mMAC31KHhVjYegAlYre8jOnFwFznTfUigCLYLS5vZzMQuQPasIyPOOUFx8o3rEvl6l5NLEtOKNEsbZ5qqs8gSXZtEF8RUKqleQgWzvovVqjAhXAsRypUjCzabnaPWU1Ql2KWQ9XovhQ68Ruf7PkbEBsCPYZRTvI16ndaNjBZ4XoM6ymDtC1p9Upx4c3EiP93pZPnGgCzhaZC1YVfeTRqOSIpJZM+rpSnz70LCXo27MLwASGWf8SXRInuOxSBR5BM63foKZcKfId3OgxtR61WcWu8Z67H1WLKxoYa1WQD4xpIzBXqXH7Imu20GlQvQeBOyHkmSxt4jNoCc/SPKq1qKG8heLDkxQI65CEV791Cgcyt59W5ysgxTyWMCy8byaO1nsmbPRW1XBkVg96r9jkjrfKGj8eEgNQcr39zBFYU5kZVHVFRT2HEDzV7xUzxSZoIc87h5wXw4QB3vPEG+5F7y6GZtxizZaJgIINbIwDOy4OoWEWr+wfZosAk0M2J0ZhZAs7RZ11nZDtNfkJVUWLOGimezvGKAnNkTDaaXAUXYwz0vUIFkGTc+3ceXP/gO9TipFZDXv/RlET/8q/VnDv9jo0sOkkOLq07MGLk5aC0OEpU2Gs7UUN3yPxAVLoCn8vGOli1ZOoKdWUANlv2INRr5D336/s+pSOsxKxV3gcYwshugzGU5i5PSAy+V0JRZt20QcuDZFUc+/tNbXtlLbjH8BZawIMP0sFbCOZdqVj6BiZkbeWaOX3Yne4CvHfiYlUXd76Fjb/6E3Ml2lRxZTyGuNdPFVpWSmTTEaxGFUTpnLr7/FoiFJt9nu5/8wBnd38CEaRVvTn+1K04O3qkqQQCnTabSmpWUN/sh3APdqH64H8TbSWfa31fiYmrDTSD22dgA3M+VRwYo0vkkDfbsAsBzqsQp66mCYJS30YFaLEop5mpom3HjjyEWkk10rmvvplD3S4/mUV+2ERfc4yqzjzojgROCkXQF1d8McJOuNayUOUexY3voZNdO8Fo/ZeBickylqrpV5J2BLFdHGVyX99Gh3U+Tzwb+E+DEXICmm/mLQyiOjftqVz9WXHc95FZoN/9/0dGmDTu8+lE/N+YTC1Y0N0iIiKuRrly1Fq+A/4YC1NvyN0oNfYZ3QsrVHH8ZnLNIUUzOojqqbIDuLGJLx6lr11Zyx1vgB/DiBLzJDJFBgsQcM4Mzlv3OFKwGQAp1v/44VM06DxbiVtOynKXdWN4nqJTKZ95K3vrrKXywhU4c+TcViF6wIFsE1IEyyUPArSzvYplCiM9pNK3uWiqsX0DRQ/uo/8jr2Nqg4V5+K0fOZSDMWMVMnn7LluK6O03Jf+FNy/2NXe/98XlP6sBcnmD84AlTkEFVc5bSyWMnKBUbgquiZNNjZGOS54DHJljT8TfHFbcEKXUu4yW3p4iqaqdT74EmwwDj+E/T4SEVe7M7Zi1/OKdpGgVI8eDxB4+3PPuUFwWdCzhrtjEDp1ZpuIB3zX2GxsRuLmTDEUImpzmyQQ2pa04C/Nb58AjXNhyxqXlzAHIp1XUvRRB7NQvWPuTyT8tpOxMduRjEYPtzm8/2vLvOi17CpnMxtzjKEk1ja+eXN1fW88a30S3yec3oPNzbJHG6UDT9xi1l8x4Y17iPBYgZQhW9zS9sivbvW+OWQWVJDW7TrfbQCm9zgYyimS8eFs9ZG2Hr80dtHIkiNHSFcK23fNG2qoX3rCfNP/7oY4wFGSBWs9cGmp/bED69d41xsmUcHuUGtAVpPIBRqOMtPUFSyHzwainl+6/bVrHwvo0k4t0AOGa3EDETAuQSVTHYvuORgeMfqmbeLtESqF5jXAnMoh5fGj8P0BAbLN84eQAOTbq/ZumW0qtu3QxtGQBAmPbSAeLhUhE79fHano6dD9iTh+e6BNpJnc+RISoVTeS2fGbfrA4rAYO7AuYac/Bv1nhSupGtxZSwX95RN+/2rZ7qxc+QPoibLH6/OkACQPKUVTcOdP3rnjMnmlfD3SBzQ6bbuT1Q6oSD3ohF64BIsmw3j4B17hIzoB2Nj4B9Qf+0a7aX19/6Uqy/pxUA8Tpo7WsCJACkspl3LQr27FsZPPkJDtF7G+wZKGPUVRtEAjc9nEzc7LPYzOigFu5pUDdSOJ6Troq28uoFb0+tXbKr//CrzQBIAEjfNEACQPJfscRHoU8XhQc+bQwPna4Ph4K1evJCZTIRK+ZSp9md5x2ewj5vfml3YUnlwcLSGa1UPKP5dGfTMAASANKlAvwfpeYA0Vtl+VYAAAAASUVORK5CYII="/>
+                                                </svg>
+                                                <span class="number">50</span> Points
+                                            </span>
+                                       </div> 
+                                        <div class="profile-progressbar">
+                                            <div class="c100 p40 big">
+                                                <span class="complete-text">40% <p class="text">Completed</p></span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
                                             </div>
                                         </div>
+                                       <button type="button" class="next-button" id="saveStep1">NEXT</button>
+                                       <p id="response_message1" class="" style="margin: 10px 0; display: none;"></p>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
                         </div>
-                        <div class="float-end">
-                            <div class="profile-ratingdetail">
-                                <div class="profile-pointrating">
-                                    <p>Get points in each step</p>
-                                    <span class="rating-points">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="34" viewBox="0 0 34 34">
-                                            <image id="Image_23" data-name="Image 23" width="34" height="34" xlink:href="data:image/png;base64,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"/>
-                                        </svg>
-                                        <span class="number">50</span> Points
-                                    </span>
-                               </div> 
-                                <div class="profile-progressbar">
-                                    <div class="c100 p40 big">
-                                        <span class="complete-text">40% <p class="text">Completed</p></span>
-                                        <div class="slice">
-                                            <div class="bar"></div>
-                                            <div class="fill"></div>
+
+                        <div id="step-2">
+                            <div class="profile-progress">
+                                <ul class="progressbar">
+                                    <li></li>
+                                    <li class="active"></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                                <div class="float-start">
+                                    <div class="profile-form">
+                                        <div class="list">
+                                            <div class="form-group">
+                                                <label class="form-label">Select Gender*</label>
+                                                <div class="switch-button">
+                                                    <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == '' || $user_gender == null){ echo "checked"; } else if($user_gender == 'Female'){ echo "checked"; } ?>>
+                                                    <label for="one" class="switch-label switch-label-off">
+                                                        <span>Female</span>
+                                                    </label>
+                                                    <input type="radio" class="switch-input admin_radio_btn" name="user_gender" value="Male" id="two" <?php if($user_gender == 'Male'){ echo "checked"; } ?>>
+                                                    <label for="two" class="switch-label switch-label-on">
+                                                        <span>Male</span>
+                                                    </label>
+                                                    <!-- <span class="slider2"></span> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list">
+                                            <div class="form-group">
+                                                <label class="form-label">Country</label>
+                                                <div class="input-group input-search">
+                                                    <input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Country" value="<?php echo $user_country; ?>">
+                                                <input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list">
+                                            <div class="form-group">
+                                                <label class="form-label">City</label>
+                                                <div class="input-group input-search">
+                                                    <input type="text" class="form-control" id="user_city" name="user_city" placeholder="City" value="<?php echo $user_city; ?>">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                               <button type="button" class="next-button">NEXT</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="step-2">
-                        <div class="profile-progress">
-                            <ul class="progressbar">
-                                <li></li>
-                                <li class="active"></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class="float-start">
-                            <div class="profile-form">
-                                <form class="row row-cols-lg-auto g-3 align-items-center">
-                                    <div class="list">
-                                        <div class="form-group">
-                                            <label class="form-label">School name*</label>
-                                            <div class="switch-button">
-                                                <input class="switch-button-checkbox" type="checkbox"></input>
-                                                <label class="switch-button-label" for=""><span class="switch-button-label-span">Male</span></label>
+                                <div class="float-end">
+                                    <div class="profile-ratingdetail">
+                                        <div class="profile-pointrating">
+                                            <p>Get points in each step</p>
+                                            <span class="rating-points">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="34" viewBox="0 0 34 34">
+                                                    <image id="Image_23" data-name="Image 23" width="34" height="34" xlink:href="data:image/png;base64,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"/>
+                                                </svg>
+                                                <span class="number">50</span> Points
+                                            </span>
+                                        </div> 
+                                        <div class="profile-progressbar">
+                                            <div class="c100 p70 big">
+                                                <span class="complete-text">70% <p class="text">Completed</p></span>
+                                                <div class="slice">
+                                                    <div class="bar"></div>
+                                                    <div class="fill"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="form-group">
-                                            <label class="form-label">Country</label>
-                                            <div class="input-group input-search">
-                                                <input type="email" class="form-control" placeholder="India">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="form-group">
-                                            <label class="form-label">City</label>
-                                            <div class="input-group input-search">
-                                                <input type="email" class="form-control" placeholder="Search City">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="float-end">
-                            <div class="profile-ratingdetail">
-                                <div class="profile-pointrating">
-                                    <p>Get points in each step</p>
-                                    <span class="rating-points">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="34" viewBox="0 0 34 34">
-                                            <image id="Image_23" data-name="Image 23" width="34" height="34" xlink:href="data:image/png;base64,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"/>
-                                        </svg>
-                                        <span class="number">50</span> Points
-                                    </span>
-                                </div> 
-                                <div class="profile-progressbar">
-                                    <div class="c100 p70 big">
-                                        <span class="complete-text">70% <p class="text">Completed</p></span>
-                                        <div class="slice">
-                                            <div class="bar"></div>
-                                            <div class="fill"></div>
-                                        </div>
+                                       <button type="button" class="next-button step-2-next" id="saveStep2">NEXT</button>
+                                       <p id="response_message2" class="" style="margin: 10px 0; display: none;"></p>
                                     </div>
                                 </div>
-                               <button type="button" class="next-button step-2-next">NEXT</button>
+                        </div>
+
+
+                        <div id="step-3">
+                            <div class="profile-progress">
+                                <ul class="progressbar">
+                                    <li></li>
+                                    <li></li>
+                                    <li class="active"></li>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-
-
-                    <div id="step-3">
-                        <div class="profile-progress">
-                            <ul class="progressbar">
-                                <li></li>
-                                <li></li>
-                                <li class="active"></li>
-                            </ul>
-                        </div>
-                        <div class="float-start">
-                            <div class="profile-add">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="209" height="232" viewBox="0 0 209 232">
-                                    <g id="Group_145" data-name="Group 145" transform="translate(-419 -345)">
-                                        <g id="Group_144" data-name="Group 144">
-                                            <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="104.5" cy="105" rx="104.5" ry="105" transform="translate(419 345)" fill="#e3e3e3"/>
-                                            <g id="katman_2" data-name="katman 2" transform="translate(476 411.113)">
-                                                <path id="Path_102" data-name="Path 102" d="M22.551,4H9.62A8.62,8.62,0,0,0,1,12.62V64.341a8.62,8.62,0,0,0,8.62,8.62H87.2a8.62,8.62,0,0,0,8.62-8.62V12.62A8.62,8.62,0,0,0,87.2,4H57.031" transform="translate(-1 4.427)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                <line id="Line_6" data-name="Line 6" x2="77.403" transform="translate(0.358 26.081)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                <rect id="Rectangle_22" data-name="Rectangle 22" width="16.827" height="12.62" transform="translate(39.059 0)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                <rect id="Rectangle_23" data-name="Rectangle 23" width="17.668" height="16.827" transform="translate(17.185 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                <line id="Line_7" data-name="Line 7" x2="26.081" transform="translate(51.679 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                <line id="Line_8" data-name="Line 8" x2="17.668" transform="translate(51.679 59.735)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                            <div class="float-start">
+                                <div class="profile-add">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="209" height="232" viewBox="0 0 209 232">
+                                        <g id="Group_145" data-name="Group 145" transform="translate(-419 -345)">
+                                            <g id="Group_144" data-name="Group 144">
+                                                <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="104.5" cy="105" rx="104.5" ry="105" transform="translate(419 345)" fill="#e3e3e3"/>
+                                                <g id="katman_2" data-name="katman 2" transform="translate(476 411.113)">
+                                                    <path id="Path_102" data-name="Path 102" d="M22.551,4H9.62A8.62,8.62,0,0,0,1,12.62V64.341a8.62,8.62,0,0,0,8.62,8.62H87.2a8.62,8.62,0,0,0,8.62-8.62V12.62A8.62,8.62,0,0,0,87.2,4H57.031" transform="translate(-1 4.427)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                    <line id="Line_6" data-name="Line 6" x2="77.403" transform="translate(0.358 26.081)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                    <rect id="Rectangle_22" data-name="Rectangle 22" width="16.827" height="12.62" transform="translate(39.059 0)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                    <rect id="Rectangle_23" data-name="Rectangle 23" width="17.668" height="16.827" transform="translate(17.185 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                    <line id="Line_7" data-name="Line 7" x2="26.081" transform="translate(51.679 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                    <line id="Line_8" data-name="Line 8" x2="17.668" transform="translate(51.679 59.735)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                </g>
                                             </g>
+                                            <circle id="Ellipse_7" data-name="Ellipse 7" cx="23" cy="23" r="23" transform="translate(500.5 526.5)" fill="#06ea8c"/>
+                                            <text id="_" data-name="+" transform="translate(524 564)" fill="#fff" font-size="38" font-family="Poppins-Light, Poppins" font-weight="300" letter-spacing="0.03em"><tspan x="-12.445" y="0">+</tspan></text>
                                         </g>
-                                        <circle id="Ellipse_7" data-name="Ellipse 7" cx="23" cy="23" r="23" transform="translate(500.5 526.5)" fill="#06ea8c"/>
-                                        <text id="_" data-name="+" transform="translate(524 564)" fill="#fff" font-size="38" font-family="Poppins-Light, Poppins" font-weight="300" letter-spacing="0.03em"><tspan x="-12.445" y="0">+</tspan></text>
-                                    </g>
-                                </svg>
-                                <span class="text"> School ID card to get all 100 points instantly!!</span>
+                                    </svg>
+                                    <span class="text"> School ID card to get all 100 points instantly!!</span>
+                                </div>
+                                <button type="button" class="skip-button">Skip to Dashboard</button>
                             </div>
-                            <button type="button" class="skip-button">Skip to Dashboard</button>
-                        </div>
-                        <div class="float-end">
-                            <div class="profile-ratingdetail">
-                                <div class="profile-pointrating">
-                                    <p>Get points in each step</p>
-                                    <span class="rating-points">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="34" viewBox="0 0 34 34">
-                                            <image id="Image_23" data-name="Image 23" width="34" height="34" xlink:href="data:image/png;base64,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"/>
-                                        </svg>
-                                        <span class="number">50</span> Points
-                                    </span>
-                               </div> 
-                                <div class="profile-progressbar">
-                                    <div class="c100 p100 big">
-                                        <span class="complete-text">100% <p class="text">Completed</p></span>
-                                        <div class="slice">
-                                            <div class="bar"></div>
-                                            <div class="fill"></div>
+                            <div class="float-end">
+                                <div class="profile-ratingdetail">
+                                    <div class="profile-pointrating">
+                                        <p>Get points in each step</p>
+                                        <span class="rating-points">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="34" viewBox="0 0 34 34">
+                                                <image id="Image_23" data-name="Image 23" width="34" height="34" xlink:href="data:image/png;base64,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"/>
+                                            </svg>
+                                            <span class="number">50</span> Points
+                                        </span>
+                                   </div> 
+                                    <div class="profile-progressbar">
+                                        <div class="c100 p100 big">
+                                            <span class="complete-text">100% <p class="text">Completed</p></span>
+                                            <div class="slice">
+                                                <div class="bar"></div>
+                                                <div class="fill"></div>
+                                            </div>
                                         </div>
                                     </div>
+                                   <button type="button" class="next-button">save</button>
                                 </div>
-                               <button type="button" class="next-button">save</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 <!-- Referral Code -->
 <script type="text/javascript">
-
 function myFunction() {
   var copyText = document.getElementById("myInput");
   copyText.select();
@@ -884,6 +957,5 @@ function myFunction() {
   document.execCommand("copy");
   document.getElementById("successMsg").innerHTML = "Referral Code Copy Successfully";
 }
-
 </script>
 <?php include("includes/footer.php"); ?>

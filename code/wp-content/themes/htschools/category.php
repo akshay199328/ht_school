@@ -95,8 +95,8 @@ get_header(vibe_get_header());
           
         <div class="sidebar">
           <h3>Popular on HTSchool</h3>
-            <?php if (have_posts()) : while (have_posts()) : the_post();
-                      // if( $Query->current_post != 0 ) { 
+            <?php if (have_posts()) : $counter = 0; while (have_posts()) : the_post();
+                if ($counter <= 5) {
               ?>
               <div class="list" >
                   <div class="date"><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></div>
@@ -106,7 +106,8 @@ get_header(vibe_get_header());
                 </div>
 
               <?php 
-                  // }
+                  }
+              $counter++;
           endwhile; endif;
 
                     

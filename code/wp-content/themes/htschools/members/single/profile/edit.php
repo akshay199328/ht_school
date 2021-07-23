@@ -486,21 +486,38 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			    },
 			    response: function(event, ui){
 					ui.content.push({value:"Others", label:"Others"});
-				}
+				}					
 			});	
 
-			$("#user_school_data").click(function () {
+			$("#user_school_data").on("keyup", function (event, ui) {
 				var other_val = $("#user_school_data").val();
-				//console.log(other_val);	
-				if(other_val === "Others"){
+   
+    			if(other_val === "Others"){
 					$("#other_school").removeAttr("style").hide();
 					$("#other_school").show();										
 				}
 				else{
 					$("#other_school").hide();	
-				}											
+				}	
 			});
 
+			$('.ui-autocomplete').on('click', '.ui-menu-item', function(){
+    			$("#user_school_data").trigger('click');
+			});
+
+			$("#user_school_data").click(function(){
+    			var other_val = $("#user_school_data").val();
+    			//console.log(other_val);
+
+    			if(other_val === "Others"){
+					$("#other_school").removeAttr("style").hide();
+					$("#other_school").show();								
+				}
+				else{
+					$("#other_school").hide();	
+				}	
+			});
+			
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
 			$( "#user_country_data" ).autocomplete({

@@ -365,7 +365,7 @@
                                     <span class="points">1020</span>
                                 </div>
                                 <div class="board-button">
-                                    <button type="button">VIEW POINTS DETAILS</button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#congrats-popup">VIEW POINTS DETAILS</button>
                                 </div>
                             </div>
                             <div class="earn-points">
@@ -632,6 +632,24 @@
             </div>
     </section>
 
+    <!-- Modal Congrats Popup -->
+<div class="modal fade congrats-popup" id="congrats-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="images/codeathon.svg" class="codeathon-logo">
+                <div class="content">
+                    <img src="images/dashboard/congrats-hero.png">
+                    <p class="congrats">Congratulations!</p>
+                    <h2 class="earned">You have earned</h2>
+                    <span class="coupon">100 points</span>
+                    <!-- <span class="coupon-1">50 points</span> -->
+                    <a class="skip">Skip to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Modal Refer Friends-->
 <div class="modal fade refer-popup" id="refer-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered modal-lg">

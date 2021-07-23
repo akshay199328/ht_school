@@ -1266,3 +1266,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .refer-popup .modal-body .share-option ul li{margin-right: 17px;}
     .refer-popup .modal-body .share-option ul li svg {width: 47.69px;}
 }
+.congrats-popup .modal-dialog{max-width:740px;}
+.congrats-popup .modal-content{text-align:center;border:4px solid #D5ACFF;padding:52px;background-image:url("../images/dashboard/congrats-bg.png");background-repeat: no-repeat;background-position:center;}
+.congrats-popup .modal-content:before{background-image:url("../images/dashboard/coins.png");background-repeat:no-repeat;background-position:center;content:"";position:absolute;top:-60px;left:-110px;right:-110px;bottom:-60px;background-size:contain;}
+.congrats-popup .modal-content .codeathon-logo{width:200px}
+.congrats-popup .modal-content .modal-body .content{padding:54px 0 0 0;}
+.congrats-popup .modal-content .modal-body .content .congrats{font-size:20px;font-weight:650;margin-top:32px;margin-bottom:5px}
+.congrats-popup .modal-content .modal-body .content .earned{font-size:30px;font-weight:650}
+.congrats-popup .modal-content .modal-body .content .coupon{padding:5px;background-color:#F8E4E9;border:1px dotted #5D5D5D;padding:13px 5px;line-height:1;color:#E26E6E;font-size:30px;font-weight:650;display:inline-block;width:221px;text-align:center;}
+.congrats-popup .modal-content .modal-body .content .coupon-1{padding:5px;background-color:#E0EAF9;border:1px dotted #5D5D5D;padding:13px 5px;line-height:1;color:#004BA6;font-size:30px;font-weight:650;display:inline-block;width:221px;text-align:center;}
+.congrats-popup .modal-content .modal-body .content .skip{font-weight:600;text-transform:uppercase;text-decoration:underline;display:flow-root;font-size:17px;margin-top:30px;color:#000;border:#707070}

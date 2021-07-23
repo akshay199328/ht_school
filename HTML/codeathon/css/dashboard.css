@@ -294,7 +294,12 @@ html {
 .refer-popup.show{
 	    background: #00000069;
 }
-
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    /*display: none;
+    -webkit-appearance: none;*/
+    background: transparent;
+}
 .toggle-share {
     display: none;    
     background: #fff;
@@ -974,18 +979,7 @@ html {
 .profile-form .form-control:-moz-placeholder { /* Firefox 18- */
   opacity: 30%
 }
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    /*display: none;
-    -webkit-appearance: none;*/
-    background: transparent;
-    opacity: 30%
-}
-.form-control:focus {
-    color: #000;
-    border-color: #CCCCCC;
-    box-shadow: none;
-}
+
 .input-date:after{
     content:'';
     background: url('../images/calendar.png') no-repeat bottom right;
@@ -1063,7 +1057,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 2px solid #CCCCCC;
     border-radius: 4px;
     overflow: hidden;
-    width: 325px;
+    width: 350px;
     text-align: center;
     color: #000000;
     padding-right: 120px;

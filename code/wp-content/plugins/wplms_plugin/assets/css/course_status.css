@@ -4257,10 +4257,14 @@ a.button.is-primary {
         width: 90%!important;padding: 30px 20px !important;
     }
     /*.course_status.moveonside .course_timeline {max-width: 100%;}*/
+    .ui-widget.ui-widget-content{width: 80%!important;left: 9%!important;}
+    
 }
 @media screen and (max-width:480px) and (min-width:320px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{
         height:auto;background-position: 47px 33%;
     }
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform .review_heading{    padding: 0px 60px 40px 42px;}
+    .ui-widget.ui-widget-content{width: 96%!important;left: 2%!important;}
+    .ui-datepicker .ui-datepicker-header{    width: 94%;}
 }

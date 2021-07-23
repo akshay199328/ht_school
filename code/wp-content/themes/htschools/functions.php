@@ -3308,23 +3308,18 @@ function check_if_cart_has_product( $valid, $product_id, $quantity ) {
 }
 add_filter( 'woocommerce_add_to_cart_validation', 'check_if_cart_has_product', 10, 3 );
 
-add_filter( 'mycred_add', 'mycred_pro_user_max', 10, 3 );
-function mycred_pro_user_max( $run, $request, $mycred ) {
+add_filter( 'mycred_add', 'mycred_user_max', 10, 3 );
+function mycred_user_max( $run, $request, $mycred ) {
   $user_id = get_current_user_id();
   // This code snippet is only applicable for logging_in
+  global $wpdb;
   if ( $request['ref'] != 'logging_in' || $run === false ) return $run;
-
-  // Count the total number of times this user has received points 
-    global $wpdb;
 
   $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='logging_in' AND user_id = '".$user_id."'");
   $creds_json = json_decode( json_encode($sql), true);
   $creds_total = $creds_json[0]['total_creds'];
-
-
   // Maximum allowed
   $maximum = 2000;
-
   // If we have reached our limit, decline
   if ( $creds_total >= $maximum ) return false;
 
@@ -3355,6 +3350,7 @@ function refer_email_submit(){
 add_action("wp_ajax_social_share_points", "social_share_points");
 add_action( 'wp_ajax_nopriv_social_share_points', 'social_share_points' );
 function social_share_points(){
+  global $wpdb;
     $response = array(
       'status' => 0,
       'message' => 'Failed to add points'
@@ -3365,13 +3361,19 @@ function social_share_points(){
     $creds = $_POST['creds'];
     $limit_per_day = $_POST['limit_per_day'];
     $entry = "Points for sharing on ".$ref."";
-    $count = mycred_get_total_by_time( 'today', 'now', $ref, $request['user_id'], 'mycred_default' );
-    echo $count;
-    if ( $count >= $limit_per_day ){
+    $count = mycred_get_total_by_time( 'today', 'now', $ref, $user_id, 'mycred_default' );
+    $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='".$ref."' AND user_id = '".$user_id."'");
+    $creds_json = json_decode( json_encode($sql), true);
+    $creds_total = $creds_json[0]['total_creds'];  
+    
+    if ( $count >= $limit_per_day && $creds_total <= 200){
       $response['message'] = 'Points will be added only once a day';
     }
+    else if($creds_total >= 200){
+      $response['message'] = 'Maximum point limit reached';
+    }
     else{
-      $results = add_points($ref,$user_id,$creds,$limit_per_day,$now,$entry);
+      $results = add_points($ref,'0',$user_id,$creds,$limit_per_day,$now,$entry);
       if($results == 1){
         $response['message'] = 'Points added successfully';
       }
@@ -3379,9 +3381,41 @@ function social_share_points(){
     echo json_encode($response); exit;
 }
 
-function add_points($ref,$user_id,$creds,$limit_per_day,$now,$entry){
+function referal_product_points(){
   global $wpdb;
-  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('".$ref."', '', '".$user_id."','".$creds."','mycred_default','".$now."','".$entry."')");
+  $response = array(
+    'status' => 0,
+    'message' => 'Failed to add points'
+  );
+  $now = current_time('timestamp');
+  $user_id = get_current_user_id();
+  $sql1 = $wpdb->get_results("SELECT user_id FROM ht_mycred_log WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
+  $referal_userid_json = json_decode( json_encode($sql1), true);
+  $referal_userid = $referal_userid_json[0]['user_id'];
+  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM ht_mycred_log WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
+  $referal_total_userid_json = json_decode( json_encode($sql2), true);
+  $referal_total_userid_count = $referal_total_userid_json[0]['user_count'];
+  if($referal_total_userid_count <= 4){
+    $creds = 50;
+  }
+  else if($referal_total_userid_count >= 5 && $referal_total_userid_count <= 9){
+    $creds = 100;
+  }
+  else if($referal_total_userid_count >= 10){
+    $creds = 200;
+  }
+  $entry = "Points for referring a new member when he/she purchase course";
+  if($referal_userid){
+    $results = add_points('reward',$user_id,$referal_userid,$creds,$now,$entry);
+  }
+  if($results == 1){
+    $response['message'] = 'Points added successfully';
+  }
+
+}
+function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
+  global $wpdb;
+  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_default','".$now."','".$entry."')");
   $result = $wpdb->query($mycred_points);
   if($result){
     return true;

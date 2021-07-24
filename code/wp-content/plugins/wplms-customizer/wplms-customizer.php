@@ -605,3 +605,18 @@ function quiz_first_attempt($field1){
   return $field1;
    
 }
+
+add_action('wplms_before_every_unit','track_ajax_unit_views');
+function track_ajax_unit_views($id){
+  ?>
+    <script>
+     // Function to track a virtual page view
+       ga('set', { title: '<?php echo get_the_title($id);?>' });
+       ga('send', 'pageview');
+    </script>
+
+  <?php
+
+}
+
+ 

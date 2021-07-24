@@ -21,7 +21,6 @@ if($user_role=='instructor'){
 
 	$profile_layout = 'blank';
 }
-
 if($profile_layout == 'blank'){
 	vibe_include_template("profile/$profile_layout.php");  
 }else{

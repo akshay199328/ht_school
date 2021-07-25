@@ -532,6 +532,7 @@ section {
   .batch_list .heading h6 {font-size: 13px;line-height: 17px;}
   .livecourse_button .btn {background: #000000;min-width: 151px;height: 38.67px;}
   #edit-child-profile.modal.right.fade .modal-dialog{width: 100%;}
+  .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li:hover a:after{display: none;}
 }
 @media (min-width: 992px) {
   .fixed_banner .container{    
@@ -5637,8 +5638,8 @@ border-color: transparent;
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:first-child{
   border-top: 1px dotted #707070!important;
 }
-.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li:hover a, 
-.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:hover,
+/*.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li:hover a, 
+.dashboard_accountinfo #item-body .item-list-tabs#subnav ul li a:hover,*/
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current,
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current.selected a,
 .dashboard_accountinfo #item-body .item-list-tabs#subnav ul li.current a{
@@ -5646,6 +5647,7 @@ border-color: transparent;
   color: #fff!important;
   font-weight: bold!important;
 }
+
 .dashboard_accountinfo .profile-card{
   padding:25px;
   background: #fff;
@@ -7376,7 +7378,7 @@ h6:empty,
         float: left;
     }
     .course-aboutDetails .share-icon{
-           display: block;
+           display: none;
         margin-top: 15px;
         float: left;
         width: 100%;

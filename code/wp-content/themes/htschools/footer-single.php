@@ -449,15 +449,17 @@ border: 1px solid deepskyblue;
 										<span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
 										<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">				
 									</div>
-									
-									<span id="errSchoolMsg"></span>
 
+									<span id="errSchoolMsg"></span>
+									
+								</div>
+
+								<div class="col-md-12">
 									<div style="display:none" id="other_school">
 										<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >
 										<span id="errotherSchoolMsg"></span>
 									</div>
 								</div>
-
 								
 								<!-- <div class="col-md-12">
 									<label>Country</label>

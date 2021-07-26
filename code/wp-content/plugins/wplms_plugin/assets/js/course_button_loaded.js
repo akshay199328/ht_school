@@ -7039,7 +7039,7 @@
         }) : "", e.hasOwnProperty("course") ? sr("div", {
             className: "course_heading"
         },sr("div", {
-            className: "leftheader-logo"
+            className: c.is_event_course ? "event_course_logo" :  "leftheader-logo"
         }),sr("h6", {
             dangerouslySetInnerHTML: {
                 __html: c.category
@@ -7075,7 +7075,14 @@
             className: "point-text"
         }, 'Total Points'),sr("span", {
             className: "point-number"
-        }, '2225')), m.hasOwnProperty("comments_open") ? sr("span", {
+        }, '2225'),sr("span", {
+            className: "point-toaster"
+        },sr("span", {
+            className: "point-toaster-icon"
+        }),
+        sr("p", {
+            className: "point-text"
+        }, 'You just earned 300 Points'))), m.hasOwnProperty("comments_open") ? sr("span", {
             className: "review_block",
             onClick: () => (M(!1), void(E.hasOwnProperty("comment_ID") || fetch(`${window.wplms_course_data.api_url}/user/getreview/${e.course_id}`, {
                 method: "post",

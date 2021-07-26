@@ -293,7 +293,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"Course URL"		: allItems[i]["course_url"],
 						"Course category"	: allItems[i]["course_category"],
 						"Course partner"	: allItems[i]["course_partner"],
-						"Course ID"			: allItems[i]["course_id"],
+						"Course ID"			: parseInt(allItems[i]["course_id"]),
 						"Age group"			: allItems[i]["age_group"],
 						"Course duration"	: allItems[i]["course_duration"],
 						"Session duration"	: allItems[i]["session_duration"],
@@ -305,7 +305,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"course_url"		: allItems[i]["course_url"],
 						"item_category"		: allItems[i]["course_category"],
 						"course_partner"	: allItems[i]["course_partner"],
-						"item_id"			: allItems[i]["course_id"],
+						"item_id"			: parseInt(allItems[i]["course_id"]),
 						"age_group"			: allItems[i]["age_group"],
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
@@ -319,7 +319,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 						"course_url"		: allItems[i]["course_url"],
 						"item_category"		: allItems[i]["course_category"],
 						"course_partner"	: allItems[i]["course_partner"],
-						"item_id"			: allItems[i]["course_id"],
+						"item_id"			: parseInt(allItems[i]["course_id"]),
 						"age_group"			: allItems[i]["age_group"],
 						"course_duration"	: allItems[i]["course_duration"],
 						"session_duration"	: allItems[i]["session_duration"],
@@ -431,8 +431,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"course_age_group"			: removingItem['age_group'],
 					"course_duration"			: removingItem['course_duration'],
 					"course_session_duration"	: removingItem['session_duration'],
-					"category_id"				: removingItem['category_id'],
-					"item_id"					: removingItem['course_id'],
+					"category_id"				: parseInt(removingItem['category_id']),
+					"item_id"					: parseInt(removingItem['course_id']),
 					"wishlisted_course"			: removingItem['wishlisted_course'],
 				});
 
@@ -466,8 +466,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"Removed course age group"			: removingItem['age_group'],
 					"Removed course duration"			: removingItem['course_duration'],
 					"Removed course session duration"	: removingItem['session_duration'],
-					"Removed Category ID"				: removingItem['category_id'],
-					"Removed Course ID"					: removingItem['course_id'],
+					"Removed Category ID"				: parseInt(removingItem['category_id']),
+					"Removed Course ID"					: parseInt(removingItem['course_id']),
 					"Removed Wishlisted course"			: removingItem['wishlisted_course'],
 				};
 

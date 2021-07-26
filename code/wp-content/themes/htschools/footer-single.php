@@ -447,16 +447,18 @@ border: 1px solid deepskyblue;
 
 										<input type="text" class="s-class form-control user_field" id="user_school_data" name="user_school_data" placeholder="Select School" value="<?php echo $user_school_name; ?>">
 										<span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-										<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+										<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">				
 									</div>
+									
 									<span id="errSchoolMsg"></span>
+
+									<div style="display:none" id="other_school">
+										<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >
+										<span id="errotherSchoolMsg"></span>
+									</div>
 								</div>
 
-								<div style="display:none" id="other_school">
-									<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >
-									<span id="errotherSchoolMsg"></span>
-								</div>
-
+								
 								<!-- <div class="col-md-12">
 									<label>Country</label>
 								</div>

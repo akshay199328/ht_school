@@ -202,9 +202,9 @@ $dob = strtotime($user_birthday);
                                     <div class="list">
                                         <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
                                             <h5>Chapter 1 : Elements 
-                                                <span class="toggle_icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
-                                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <span class="toggle_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
+                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                                     </svg>
                                                 </span>
                                             </h5>
@@ -232,6 +232,7 @@ $dob = strtotime($user_birthday);
                                                     <div class="progress-bar w-40" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
+                                            <!-- <iframe id="player1" allowfullscreen="allowfullscreen" width="100%" height="240" src="https://player.vimeo.com/video/76979871?player_id=player_1"></iframe> -->
                                         </div>
                                     </div>
                                     <div class="list">

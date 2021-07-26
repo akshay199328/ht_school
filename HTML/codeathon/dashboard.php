@@ -825,9 +825,11 @@
                                 <div class="list">
                                     <div class="form-group">
                                         <label class="form-label">School name*</label>
-                                        <div class="switch-button">
-                                            <input class="switch-button-checkbox" type="checkbox"></input>
-                                            <label class="switch-button-label" for=""><span class="switch-button-label-span">Male</span></label>
+                                        <div class="switch-field">
+                                            <input type="radio" id="switch_left" name="switch_2" value="bank1" checked/>
+                                            <label for="switch_left">Male</label>
+                                            <input type="radio" id="switch_right" name="switch_2" value="bank 2" />
+                                            <label for="switch_right">Female</label>
                                         </div>
                                     </div>
                                 </div>

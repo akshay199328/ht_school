@@ -142,7 +142,10 @@ defined( 'ABSPATH' ) || exit;
 						$add_user_course_slot = $wpdb->prepare("INSERT INTO ht_batch_student_mapping(batch_id, user_id, variation_id, created_on) VALUES ('".$batch_id."', '".$userIdentifier."', '".$item['variation_id']."', NOW())");
 	            		$wpdb->query($add_user_course_slot);
 					}
-					referal_product_points();
+					$event_course = get_post_meta($courseID,'vibe_course_event',true);
+  					if($event_course == 1){ 
+						referal_product_points();
+					}
 					$orderTotal 	+= ($item['total'] + $item['total_tax']);
 					$discountAmt 	+= ($item['subtotal'] - $item['total']);
 

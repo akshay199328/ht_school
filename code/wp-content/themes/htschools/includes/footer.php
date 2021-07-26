@@ -112,6 +112,7 @@
         <div class="copyright">Copyright © 2021 HTML. All rights reserved.</div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script type="text/javascript">
@@ -477,6 +478,40 @@ setTimeout(()=>popup.classList.add("show", "in"));
           });
 
       });
+    //   jQuery(document).ready(function(){
+          
+    // var iframe = document.querySelector('iframe');
+    // var player = new Vimeo.Player(iframe);
+    //  var currentPos, percentage, vdoEndTym = "";
+    //  var vdo_play = "";
+    //  var jsonObj = [];
+    //     player.on('timeupdate', function (getAll)
+    //     {
+    //         currentPos = getAll.seconds; //get currentime
+    //         vdoEndTym = getAll.duration; //get video duration
+    //         percentage = (getAll.percent * 100)+"%";
+    //         console.log('currentPos: ' + currentPos);
+    //         console.log('percentage: ' + percentage);
+    //         console.log('vdoEndTym: ' + vdoEndTym);
+    //         jsonObj.push({'percentage' : percentage});
+    //     });
+    //     player.on('ended', function ()
+    //     {
+    //       console.log("finished");
+    //       console.log(jsonObj);
+    //       jQuery.ajax({
+    //         type : "POST",
+    //         dataType : "json",
+    //         data:{jsonObj,jsonObj},
+    //         url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=video_watched_points",
+    //         success: function(response) {
+    //              console.log(response);
+    //         }
+    //       });
+    //         //clearInterval(vdo_play);
+    //     });
+
+    //  });
     </script>
     <script type="text/javascript">
          window.onbeforeunload = null;

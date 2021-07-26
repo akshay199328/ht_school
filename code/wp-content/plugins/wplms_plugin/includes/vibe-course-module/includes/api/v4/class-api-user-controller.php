@@ -3024,30 +3024,30 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
                 	if($post['total_retakes'] == 2){ 
                         if($post['retakes'] == $post['total_retakes']){
                             $quiz_points_credit = count($pp) * $post['quiz_attempt1_points']; 
-                            $quiz_attempt_number = 1;
+                            $quiz_attempt_number = 'First';
                         }
                         else if($post['retakes'] == 1){
                             $quiz_points_credit = count($pp) * $post['quiz_attempt2_points']; 
-                            $quiz_attempt_number = 2;
+                            $quiz_attempt_number = 'Second';
                         }
                         else if($post['retakes'] == 0){
-                            $quiz_attempt_number = 3;
+                            $quiz_attempt_number = 'Third';
                             $quiz_points_credit = count($pp) * $post['quiz_attempt3_points']; 
                         }
                     }
                     else if($post['total_retakes'] == 1){
                         if($post['retakes'] == $post['total_retakes']){
                             $quiz_points_credit = count($pp) * $post['quiz_attempt1_points']; 
-                            $quiz_attempt_number = 1;
+                            $quiz_attempt_number = 'First';
                         }
                         else if($post['retakes'] == 0){
                             $quiz_points_credit = count($pp) * $post['quiz_attempt2_points']; 
-                            $quiz_attempt_number = 2;
+                            $quiz_attempt_number = 'Second';
                         }
                     }
 	                global $wpdb;
 	                $now    = current_time( 'timestamp' );
-		      		$mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_default','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
+		      		$mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
 		            $wpdb->query($mycred_points);
                 }
 

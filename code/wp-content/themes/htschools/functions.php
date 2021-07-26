@@ -1447,7 +1447,8 @@ add_action('woocommerce_checkout_update_order_meta',function( $order_id, $posted
 add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
     setSocialLoginData('facebook');
     if(isset($_SESSION['previousPageUrl'])){
-      $redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
+      //$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
+      $redirectUrl = $_SESSION['previousPageUrl'];
     }
     return $redirectUrl;
 }, 10, 2);
@@ -1456,7 +1457,8 @@ add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
 	setSocialLoginData('google');
 	if(isset($_SESSION['previousPageUrl'])){
-		$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
+		//$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
+    $redirectUrl = $_SESSION['previousPageUrl'];
 		return $redirectUrl;
 	}
 }, 10, 2);

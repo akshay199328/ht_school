@@ -269,6 +269,10 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css?v=1.1' );
     wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css?v=1.1');
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
+    // wp_enqueue_script( 'wplms-froogaloop2', '//f.vimeocdn.com/js/froogaloop2.min.js', '', '', true );
+    // wp_enqueue_script( 'wplms-player', '//player.vimeo.com/api/player.js', '', '', true );
+    
+    // wp_enqueue_script( 'vimeo-api-js', get_template_directory_uri(). '/assets/js/vimeo-api-demo.js', '', '', true );
 
     wp_enqueue_style( 'wplms-owl-carousel', '//cdn.boomcdn.com/libs/owl-carousel/2.3.4/assets/owl.carousel.min.css' );
     wp_enqueue_script( 'wplms-carousel', '//cdn.boomcdn.com/libs/owl-carousel/2.3.4/owl.carousel.min.js', '', '', true );
@@ -3441,9 +3445,38 @@ function platform_onboarding_points(){
   echo json_encode($response); exit;
 }
 
+add_action("wp_ajax_video_watched_points", "video_watched_points");
+add_action( 'wp_ajax_nopriv_video_watched_points', 'video_watched_points' );
+function video_watched_points(){
+  global $wpdb;
+  $response = array(
+    'status' => 0,
+    'message' => 'Failed to add points'
+  );
+  $now = current_time('timestamp');
+  $user_id = get_current_user_id();
+  $referal_userid = 0;
+  $creds = 100;
+  $entry = "Points for video watched";
+  // $sql1 = $wpdb->get_results("SELECT user_id FROM ht_mycred_log WHERE user_id='".$user_id."' AND ref = '".$ref_key."'");
+  // $userid_json = json_decode( json_encode($sql1), true);
+  // $userid = $userid_json[0]['user_id'];
+  $data = $_POST['jsonObj'];
+  if($user_id){
+    $results = add_points('video_watched',$referal_userid,$user_id,$creds,$now,$entry);
+  }
+  // else{
+  //   $response['message'] = 'Points will be added only once';
+  // }
+  if($results == 1){
+    $response['message'] = 'Points added successfully';
+  }
+  echo json_encode($response); exit;
+}
+
 function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
   global $wpdb;
-  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_default','".$now."','".$entry."')");
+  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry, data) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_default','".$now."','".$entry."', '".$data."')");
   $result = $wpdb->query($mycred_points);
   if($result){
     return true;

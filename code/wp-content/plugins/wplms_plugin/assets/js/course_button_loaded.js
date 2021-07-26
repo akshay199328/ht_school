@@ -4291,7 +4291,9 @@
                 className: "show_quiz_result"
             },gn("div", {
                 className: "quiz_result_details"
-            },gn("h1",null,"Quiz Result"),
+            },gn("h1",null,"Quiz Result:",gn("span", {
+                className: "result-show failed"
+            }, 'FAILED')),
             gn("span", {
                 className: "quiz_result_heading"
             },"Correct Answers "),
@@ -7067,7 +7069,13 @@
             className: q ? window.innerWidth < 480 ? "vicon vicon-angle-double-down" : "vicon vicon-angle-double-right" : window.innerWidth < 480 ? "vicon vicon-angle-double-up" : "vicon vicon-angle-double-left"
         }), sr("span", null, q ? window.wplms_course_data.translations.show_panel : window.wplms_course_data.translations.hide_panel)), sr("div", {
             className: "right_block"
-        }, m.hasOwnProperty("comments_open") ? sr("span", {
+        },sr("span", {
+            className: "total-points"
+        },sr("span", {
+            className: "point-text"
+        }, 'Total Points'),sr("span", {
+            className: "point-number"
+        }, '2225')), m.hasOwnProperty("comments_open") ? sr("span", {
             className: "review_block",
             onClick: () => (M(!1), void(E.hasOwnProperty("comment_ID") || fetch(`${window.wplms_course_data.api_url}/user/getreview/${e.course_id}`, {
                 method: "post",
@@ -7111,8 +7119,12 @@
                         className: "course_content_content_wrapper"
                     }, sr("div", {
                         className: "course_content_content"
+                    }, sr("div", {
+                        className: "top-heading"
+                    },sr("span", {
+                        className: "left-info"
                     }, sr("span", {
-                        className: "lesson_info"
+                        className: "lesson_info "
                     }, sr("span", null, window.wplms_course_data.reports.module.quiz, " ", n + "/" + t), sr(Os, {
                         timestamp: m.courseitems[W].duration,
                         notimediff: 1
@@ -7120,7 +7132,13 @@
                         dangerouslySetInnerHTML: {
                             __html: m.courseitems[W].title
                         }
-                    }), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
+                    })),sr("span", {
+                        className: "right-info"
+                    },sr("span", {
+                        className: "attempt-text"
+                    }, 'Attempts Remaining'),sr("span", {
+                        className: "attempt-number correct"
+                    }, '1'))), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
                         var t = {
                             coursestatus: m,
                             type: m.courseitems[W].quiz_type,

@@ -788,9 +788,60 @@
     height: auto;
         /*padding: 30px;*/
 }
+.top-heading {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 0 20px;
+}
+.top-heading .left-info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.top-heading .right-info {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.top-heading .attempt-text {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    top: -6px;
+}
+.top-heading .attempt-number{
+    width: 30px;
+    height: 30px;
+    background: #f7f7f7;
+    border-radius: 100%;
+    border: 1px solid #c0c0c0;
+    font-size: 15px;
+    line-height: 28px;
+    color: #000;
+    text-align: center;
+    font-weight: 300;
+    margin-left: 10px;
+}
+.top-heading .attempt-number.correct{
+    background: #D7F5CB!important;
+    border: 1px solid #8AE963!important;
+}
+.top-heading .attempt-number.incorrect{
+    background: #FCB2B2;
+    border: 1px solid #FF8585;
+    
+}
 
 .course_status .course_content .course_content_content_wrapper h2 {
-    margin: 6px 0px 20px 0px;
+    margin: 6px 0px 0px 0px;
     font-size: 24px;
     line-height: 1.32;
     margin-bottom: 1rem;
@@ -1698,6 +1749,7 @@ border-bottom: 1px solid #E8E8E8;
     border-bottom: 1px solid #e8e8e8;
         cursor: pointer;
 }
+.event_course_timeline
 .course_status .course_timeline>ul li.section:last-child{
     border-bottom: 2px solid transparent;
 }
@@ -1740,7 +1792,7 @@ border-bottom: 1px solid #E8E8E8;
 }
 .course_status .right_block {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     text-transform: capitalize;
     font-size: 15px;
     color: #000;
@@ -3018,7 +3070,7 @@ border-bottom: 1px solid #E8E8E8;
     flex: 1 0 180px;
     margin: 0.25rem
 }
-
+.retake_quiz.button {margin-right: 17px;} 
 .course_status .incourse .confirmpopup_wrapper {
     position: fixed;
     top: 0;
@@ -3095,7 +3147,7 @@ border-bottom: 1px solid #E8E8E8;
 .course_content_content h2 {
     font-size: 2.5rem;
     font-weight: 800;
-    margin: 0 0 20px !important
+    margin: 0 0 0px !important
 }
 
 .course_content_content .video_wrapper {
@@ -3855,8 +3907,50 @@ a.button.is-primary {
 .close_icon{
 
 }
+.total-points{
+    border: 1px solid #D6D6D6;
+    background: #fff;
+    border-radius: 8px;
+    padding: 11px 20px;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 3%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 21px;
+}
+.point-text{
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 8px;
+}
+.point-number:before{
+    content:'';
+    background:url('../../assets/images/point-star.png') no-repeat ; 
+    min-width: 21px;
+    height: 21px;
+    display: inline-block;
+    margin-right: 7px;
+}
+.point-number{
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .leftheader-logo{
-	background: url('../../assets/images/lms-logo.png');
+	background:url('../../assets/images/course-journey-logo.svg') no-repeat ;
+    background-size:cover;
+    /*background-repeat:no-repeat;*/
 	position: relative;
     display: block;
     height: 49px;
@@ -4060,6 +4154,15 @@ a.button.is-primary {
     font-weight: 500!important;
     color: #000;
 }
+.quiz_result_details h1 .result-show {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 13px;
+}
+.result-show.failed{color: #ED4343!important;}
+.result-show.pass{color: #50BE3F!important;}
 .quiz_result_heading{
     font-size: 25px;
     line-height: 36px;

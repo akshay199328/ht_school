@@ -3452,3 +3452,74 @@ function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
     return false;
   }
 }
+
+
+add_action("wp_ajax_skip_dashboard_submit", "skip_dashboard_submit");
+add_action( 'wp_ajax_nopriv_skip_dashboard_submit', 'skip_dashboard_submit' );
+
+function skip_dashboard_submit(){
+
+  global $wpdb;
+  $user_id = get_current_user_id();
+
+  $results2 = $wpdb->get_row("SELECT count(umeta_id) as profileStatus FROM `ht_usermeta` WHERE `user_id` = '$user_id' and `meta_key` = 'profile_status'");
+  $profileStatus = $results2->profileStatus;
+
+  if($profileStatus == 0){
+
+    $sql1 = $wpdb->prepare("INSERT INTO ht_usermeta (`user_id`, `meta_key`, `meta_value`) values (".$user_id.", 'profile_status', '1')");
+    $result = $wpdb->query($sql1);
+
+  }
+
+  $response = array(
+    'status' => 0
+  );
+
+  $response['status'] = 1;
+
+  echo json_encode($response); 
+
+  exit;
+
+}
+
+
+function mandatory_category_display_message() {
+
+$featured_args_course = array(
+    'post_type' => 'course',
+    'post_status' => 'publish',
+    'meta_query'  => array(
+    'relation'  => 'AND',
+    array(
+      'key'   =>'vibe_course_event',
+      'value'   => '1',
+      'compare' => '='
+      )
+    )
+  );
+
+  $featured_query_course = new WP_Query( $featured_args_course );
+  //print_r($featured_query_course);
+  $product_id = array();
+  //print_r($featured_query_course->have_posts());
+  if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
+    $course_id = get_the_ID();
+    $productId = get_post_meta($course_id,'vibe_product',true);
+    $product_id[] = $productId;
+  endwhile;
+  endif;
+  $product_in_cart = array();
+  foreach( WC()->cart->get_cart() as $cart_item ) {
+    $product_in_cart[] = $cart_item['product_id'];  
+  }
+    if(count(array_intersect($product_id, $product_in_cart)) > 1){
+      wc_add_notice( sprintf( '<strong>Add only one event course in cart</strong>' ), 'error' );
+    }
+    // else{
+    //  wc_add_notice( sprintf( '<strong>test</strong>' ), 'error' );
+    // }
+    return $address_fields;}
+add_action( 'woocommerce_before_main_content', 'mandatory_category_display_message', 30 ); // for product mandatory category archives pages
+add_action( 'woocommerce_check_cart_items', 'mandatory_category_display_message' );

@@ -508,6 +508,40 @@ html {
     border-radius: 10px;
     box-shadow: -0.86px -0.52px 3px #fff;
     margin-left: 33px;
+    position: relative;
+}
+.points_board:after{
+    content:'';
+    height: 86px;
+    max-width: 196px;
+    background-image: url(../images/learning-doodle-gray.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 64%;
+    display: inline-block;
+    z-index: -1;
+    width: 60%;
+    right: -195px;
+    position: absolute;
+    top: 0;
+    z-index: 99999;
+}
+
+.leftcontent_tab:before{
+    content:'';
+    height: 169px;
+    max-width: 283px;
+    background-image: url(../images/leftcontent_tab-before.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    display: inline-block;
+    z-index: -1;
+    width: 100%;
+    left: -35%;
+    position: absolute;
+    top: 5%;
+    z-index: 99999;
 }
 .points_board h6 {
     font-size: 22px;
@@ -1256,7 +1290,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .details_header, .details_footer{    padding: 20px 15px;}
     .video_decp .details {padding-left: 0px;}
     .points_board, .leader_board{margin-left: 0px;margin: 30px 11px 0px;}
-    .dashboard-wrapper:before{display: none;}
+    .dashboard-wrapper:before,
+    .leftcontent_tab:before, 
+    .points_board:after{display: none;}
     .rank-one figure:before{left: 7px;}
     .refer-popup .modal-content, .refer-note h5, .refer-note p{text-align: center;}
     .refer-popup .modal-header, .modal-body, .modal-footer{    justify-content: space-around;}

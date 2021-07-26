@@ -1433,6 +1433,7 @@ function wplms_redirect_to_course($order_id){
     $order_courses = array();
 
     foreach($items as $item_id => $item){
+
         $product_name = $item['name'];
         
         $product_id = apply_filters('bp_course_product_id',$item['product_id'],$item);
@@ -1442,7 +1443,6 @@ function wplms_redirect_to_course($order_id){
             $order_courses[$item['product_id']]['courses']=$vcourses;
 
             $product_id = apply_filters('bp_course_product_id',$item['product_id'],$item);
-
             
             $subscribed=get_post_meta($product_id,'vibe_subscription',true);
             if(vibe_validate($subscribed)){ 
@@ -1457,19 +1457,36 @@ function wplms_redirect_to_course($order_id){
       }
 
       if(isset($order_courses) && is_array($order_courses) && count($order_courses)){
+
+          $course_event=get_post_meta($product_id,'vibe_course_event',true);
+
           echo 
           '<h3 class="heading course-order-details-heading">'.__('Courses Subscribed','vibe').'</h3>
           <ul class="course_order_details">
-            <li><a>'.__('Course','vibe').'</a>
-            <span>'.__('Subscription','vibe').'</span></li>';
+            <li>
+              <a>'.__('Course','vibe').'</a>
+              <span>'.__('Subscription','vibe').'</span>
+            </li>';
 
             if($order->status == 'completed' || $order->status == 'complete'){
-              $ostatus=__('WAITING FOR ORDER CONFIRMATION TO START COURSE','vibe');
+              if($course_event == 0){
+                $ostatus=__('GO TO MY COURSES','vibe');
+              }else{
+                $ostatus=__('GO TO EVENT DASHBOARD','vibe');
+              }
             }else if($order->status == 'pending'){
               do_action('wplms_force_woocommerce_order_complete',$order);
-              $ostatus =__('WAITING FOR ORDER CONFIRMATION TO START COURSE','vibe');
+              if($course_event == 0){
+                $ostatus=__('GO TO MY COURSES','vibe');
+              }else{
+                $ostatus=__('GO TO EVENT DASHBOARD','vibe');
+              }
             }else{
-              $ostatus=__('WAITING FOR ORDER CONFIRMATION TO START COURSE','vibe');
+              if($course_event == 0){
+                $ostatus=__('GO TO MY COURSES','vibe');
+              }else{
+                $ostatus=__('GO TO EVENT DASHBOARD','vibe');
+              }
             }
 
             foreach($order_courses as $order_course){
@@ -1482,11 +1499,19 @@ function wplms_redirect_to_course($order_id){
                         '.$order_course['subs'].'
                         </li>',$course,$item_id,$item,$order);
                   }else{
-                    echo apply_filters('wplms_course_purchased','<li>
-                        <a class="course_name">'.get_post_field('post_title',$course).'</a>
-                        <a href="'.get_permalink($course).'"  class="button">
-                        '.$ostatus.'</a>'.$order_course['subs'].'
-                        </li>',$course,$item_id,$item,$order);
+                    if($course_event == 0){
+                      echo apply_filters('wplms_course_purchased','<li>
+                          <a class="course_name">'.get_post_field('post_title',$course).'</a>
+                          <a href="'.get_bloginfo('url').'/my-courses"  class="button">
+                          '.$ostatus.'</a>'.$order_course['subs'].'
+                          </li>',$course,$item_id,$item,$order);
+                    }else{
+                      echo apply_filters('wplms_course_purchased','<li>
+                          <a class="course_name">'.get_post_field('post_title',$course).'</a>
+                          <a href="'.get_bloginfo('url').'/event-dashboard"  class="button">
+                          '.$ostatus.'</a>'.$order_course['subs'].'
+                          </li>',$course,$item_id,$item,$order);
+                    }
                   }
                 }
             }

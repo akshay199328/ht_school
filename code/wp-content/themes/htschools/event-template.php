@@ -7,6 +7,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 include("includes/lead.php");
 
+$user = wp_get_current_user();
+$userIdentifier = $user->ID;
+
 $results1 = $wpdb->get_results("SELECT `ID` FROM `ht_posts` WHERE `post_type` = 'events' and post_status = 'publish' ORDER BY `ID`");
 foreach($results1 as $row1){ 
   $post_id = $row1->ID; 
@@ -100,14 +103,42 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
     foreach($results as $row){ 
       $about_ht_codeathon = $row->meta_value; 
     }
+
+    $results2 = $wpdb->get_results( "SELECT * FROM `ht_postmeta` WHERE `post_id` = '$post_id' AND `meta_key` = 'about_popup'");
+    foreach($results2 as $row2){ 
+      $about_popup = $row2->meta_value; 
+    }
   ?>
   <div class="section-copy">
     <?php echo $about_ht_codeathon; ?>
   </div>
 </section>
+<div class="modal fade about-popup" id="about-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ABOUT ht codeathon</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
+                      <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
+                        <line id="Line_2" data-name="Line 2" x1="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
+                        <line id="Line_3" data-name="Line 3" x2="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
+                      </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php echo $about_popup; ?>
+            </div>
+        </div>
+    </div>
+</div>
 
 <section class="section-wrapper ad">
-  <div class="section-copy"><img src="<?php echo get_bloginfo('template_url'); ?>/images/ad.png"></div>
+  <div class="section-copy">
+    <span class="desktop"><img src="<?php echo get_bloginfo('template_url'); ?>/images/ad.png"></span>
+    <span class="mobile"><img src="<?php echo get_bloginfo('template_url'); ?>/images/ad-sm.png"></span>
+  </div>
 </section>
 
 <section class="section-wrapper learning" id="learning_section">
@@ -123,6 +154,21 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
       global $woocommerce;
       //$woocommerce->cart->add_to_cart($product_id1);  
 
+      $course_status1 = 'course_status'.$course_1;
+      $course_status2 = 'course_status'.$course_2;
+      $course_status3 = 'course_status'.$course_3;
+
+      $results1 = $wpdb->get_row("SELECT count(umeta_id) as course_status11 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status1'");
+      $course_status11 = $results1->course_status11;
+
+      $results2 = $wpdb->get_row("SELECT count(umeta_id) as course_status22 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status2'");
+      $course_status22 = $results2->course_status22;
+
+      $results3 = $wpdb->get_row("SELECT count(umeta_id) as course_status33 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status3'");
+      $course_status33 = $results1->course_status33;
+
+      $purchase_status = $course_status11+$course_status22+$course_status33;
+
     ?>
       <div class="column">
         <span class="title">Classes IV - V</span>
@@ -131,7 +177,13 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         </span>
         <span class="sub-title"><?php echo get_the_title($course_1); ?></span>
         <p><?php echo get_the_excerpt($course_1); ?></p>
+      <?php if($purchase_status == 0){ ?>
         <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>">Enroll Now</a>
+      <?php }else{ ?>
+        <?php if($course_status11 == 1){ ?>
+          <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
+        <?php } ?>
+      <?php } ?>
       </div>
       <div class="column">
         <span class="title">Classes VI - VII</span>
@@ -142,7 +194,13 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         </span>
         <span class="sub-title"><?php echo get_the_title($course_2); ?></span>
         <p><?php echo get_the_excerpt($course_2); ?></p>
-        <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>">Enroll Now</a>
+        <?php if($purchase_status == 0){ ?>
+          <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>">Enroll Now</a>
+        <?php }else{ ?>
+          <?php if($course_status22 == 1){ ?>
+            <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
+          <?php } ?>
+        <?php } ?>
       </div>
       <div class="column">
         <span class="title">Classes VIII - IX</span>
@@ -153,7 +211,13 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         </span>
         <span class="sub-title"><?php echo get_the_title($course_3); ?></span>
         <p><?php echo get_the_excerpt($course_3); ?></p>
-        <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>">Enroll Now</a>
+        <?php if($purchase_status == 0){ ?>
+          <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>">Enroll Now</a>
+        <?php }else{ ?>
+          <?php if($course_status33 == 1){ ?>
+            <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
+          <?php } ?>
+        <?php } ?>
       </div>
     </div>
   </div>
@@ -210,6 +274,37 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
 <section class="section-wrapper videos" id="Partner_says">
   <div class="section-copy">
     <h2 class="section-title">What Our Partners Say</h2>
+    <div class="owl-carousel owl-theme says_slider">
+      <?php
+        $args1 = array(
+          'post_type' => 'event_what_our_partn',
+          'post_status' => 'publish',
+          'orderby' => 'publish_date',
+          'order' => 'DESC',        
+          'nopaging' => true
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+          $custom_fields = get_post_custom();
+          $link = $custom_fields['link'][0];
+          $parts = explode("/", $link);
+          $youtubecode = end($parts);
+      ?>
+      <div class="item">
+        <span class="image-copy">
+        <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="<?php echo $custom_fields['event_what_our_partner_title'][0];?>" data-youtubecode="<?php echo $youtubecode; ?>"><img src="<?php echo get_bloginfo('template_url'); ?>/images/video-play.svg"></a>
+        <img src="https://img.youtube.com/vi/<?php echo $youtubecode; ?>/maxresdefault.jpg" class="main">
+      </span>
+      <?php if($custom_fields['event_what_our_partner_title'][0] != ''){ ?>
+        <span class="caption"><?php echo $custom_fields['event_what_our_partner_title'][0];?></span>
+      <?php } ?>
+      </div>
+      <?php 
+        endwhile;endif; 
+      ?>
+    </div>
+    <?php /*
     <div id="customers-testimonials" class="owl-carousel">
       <?php
         $args1 = array(
@@ -231,7 +326,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           </div>
       </div>
       <?php endwhile;endif; ?>
-    </div>
+    </div> */ ?>
   </div>
 </section>
 
@@ -316,6 +411,24 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
     </div>
   </div>
 </section>
-<?php
-include("includes/footer.php");
-?>
+
+<div class="modal fade video1-popup" id="video1-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title mb-4 videotitle" id="exampleModalLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
+                    <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
+                      <line id="Line_2" data-name="Line 2" x1="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
+                      <line id="Line_3" data-name="Line 3" x2="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
+                    </g>
+                  </svg>
+              </button>
+          </div>
+          <div class="modal-body">
+              <iframe width="100%" height="350" src="" id="videolink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      </div>
+  </div>
+<?php include("includes/footer.php"); ?>

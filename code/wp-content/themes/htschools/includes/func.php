@@ -1458,7 +1458,8 @@ function wplms_redirect_to_course($order_id){
 
       if(isset($order_courses) && is_array($order_courses) && count($order_courses)){
 
-          $course_event=get_post_meta($product_id,'vibe_course_event',true);
+          //$course_event=get_post_meta($product_id,'vibe_course_event',true);.
+          $course_event=1;
 
           echo 
           '<h3 class="heading course-order-details-heading">'.__('Courses Subscribed','vibe').'</h3>

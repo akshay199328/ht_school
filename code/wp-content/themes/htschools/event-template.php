@@ -182,6 +182,8 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
       <?php }else{ ?>
         <?php if($course_status11 == 1){ ?>
           <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
+        <?php }else{ ?>
+          <span class="enroll">Enroll Now</span>
         <?php } ?>
       <?php } ?>
       </div>
@@ -199,6 +201,8 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <?php }else{ ?>
           <?php if($course_status22 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
+          <?php }else{ ?>
+            <span class="enroll">Enroll Now</span>
           <?php } ?>
         <?php } ?>
       </div>
@@ -212,10 +216,12 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <span class="sub-title"><?php echo get_the_title($course_3); ?></span>
         <p><?php echo get_the_excerpt($course_3); ?></p>
         <?php if($purchase_status == 0){ ?>
-          <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>">Enroll Now</a>
+          <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" disable="disable">Enroll Now</a>
         <?php }else{ ?>
           <?php if($course_status33 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
+          <?php }else{ ?>
+            <span class="enroll">Enroll Now</span>
           <?php } ?>
         <?php } ?>
       </div>

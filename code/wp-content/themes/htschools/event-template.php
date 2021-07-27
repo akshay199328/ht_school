@@ -136,8 +136,8 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
 
 <section class="section-wrapper ad">
   <div class="section-copy">
-    <span class="desktop"><img src="<?php echo get_bloginfo('template_url'); ?>/images/ad.png"></span>
-    <span class="mobile"><img src="<?php echo get_bloginfo('template_url'); ?>/images/ad-sm.png"></span>
+    <span class="desktop"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ad.png"></span>
+    <span class="mobile"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ad-sm.png"></span>
   </div>
 </section>
 
@@ -170,15 +170,45 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
       $purchase_status = $course_status11+$course_status22+$course_status33;
 
     ?>
-      <div class="column">
+      <div class="column view_codeathon_course" data-id="<?php echo $course_1; ?>">
         <span class="title">Classes IV - V</span>
         <span class="video">
+          <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="<?php echo get_post_meta($course_1,'vibe_trailer_link',true); ?>" allowfullscreen></iframe>
+          </div>
         </span>
         <span class="sub-title"><?php echo get_the_title($course_1); ?></span>
         <p><?php echo get_the_excerpt($course_1); ?></p>
       <?php if($purchase_status == 0){ ?>
-        <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>">Enroll Now</a>
+        <?php
+          $courseslug=get_site_url().'/?p='.$course_1;
+          $category_array = get_the_terms($course_1,'course-cat');
+          $coursePartner = "";
+          $cb_course_id = get_post_meta($course_1,'celeb_school_course_id',true);
+          if ($cb_course_id) {
+            $coursePartner = "Celebrity School";
+          }
+
+          $aiws_course_id = get_post_meta($course_1,'aiws_program_id',true);
+          if ($aiws_course_id) {
+            $coursePartner = "AIWS";
+          }
+
+          $age_limit = get_post_meta($course_1,'vibe_course_age_group',true);
+        ?>
+        <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>" data-id="<?php echo $course_1; ?>">Enroll Now</a>
+        <input type="hidden" id="course_name_<?php echo $course_1; ?>" value="<?php echo get_the_title($course_1); ?>">
+        <input type="hidden" id="course_url_<?php echo $course_1; ?>" value="<?php echo $courseslug; ?>">
+        <input type="hidden" id="course_category_<?php echo $course_1; ?>" value="<?php echo $category_array[0]->name;?>">
+        <input type="hidden" id="course_partner_<?php echo $course_1; ?>" value="<?php echo $coursePartner; ?>">
+        <input type="hidden" id="category_id_<?php echo $course_1; ?>" value="<?php echo $category_array[0]->term_id;?>">
+        <input type="hidden" id="course_id_<?php echo $course_1; ?>" value="<?php echo $course_1; ?>">
+        <input type="hidden" id="course_price_<?php echo $course_1; ?>" value="0">
+        <input type="hidden" id="course_tax_<?php echo $course_1; ?>" value="0">
+        <input type="hidden" id="age_group_<?php echo $course_1; ?>" value="<?php echo $age_limit;?>">
+        <input type="hidden" id="course_duration_<?php echo $course_1; ?>" value="<?php echo get_post_meta($course_1, "vibe_validity", true);?>">
+        <input type="hidden" id="session_duration_<?php echo $course_1; ?>" value="<?php echo get_post_meta($course_1, "vibe_course_session_length", true);?>">
+        <input type="hidden" id="wishlisted_course_<?php echo $course_1; ?>" value="">
       <?php }else{ ?>
         <?php if($course_status11 == 1){ ?>
           <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
@@ -187,7 +217,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <?php } ?>
       <?php } ?>
       </div>
-      <div class="column">
+      <div class="column view_codeathon_course" data-id="<?php echo $course_2; ?>">
         <span class="title">Classes VI - VII</span>
         <span class="video">
           <div class="embed-responsive embed-responsive-16by9">
@@ -197,7 +227,35 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <span class="sub-title"><?php echo get_the_title($course_2); ?></span>
         <p><?php echo get_the_excerpt($course_2); ?></p>
         <?php if($purchase_status == 0){ ?>
-          <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>">Enroll Now</a>
+          <?php
+            $courseslug=get_site_url().'/?p='.$course_2;
+            $category_array = get_the_terms($course_2,'course-cat');
+            $coursePartner = "";
+            $cb_course_id = get_post_meta($course_2,'celeb_school_course_id',true);
+            if ($cb_course_id) {
+              $coursePartner = "Celebrity School";
+            }
+
+            $aiws_course_id = get_post_meta($course_2,'aiws_program_id',true);
+            if ($aiws_course_id) {
+              $coursePartner = "AIWS";
+            }
+
+            $age_limit = get_post_meta($course_2,'vibe_course_age_group',true);
+          ?>
+          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>" data-id="<?php echo $course_3; ?>">Enroll Now</a>
+          <input type="hidden" id="course_name_<?php echo $course_2; ?>" value="<?php echo get_the_title($course_2); ?>">
+          <input type="hidden" id="course_url_<?php echo $course_2; ?>" value="<?php echo $courseslug; ?>">
+          <input type="hidden" id="course_category_<?php echo $course_2; ?>" value="<?php echo $category_array[0]->name;?>">
+          <input type="hidden" id="course_partner_<?php echo $course_2; ?>" value="<?php echo $coursePartner; ?>">
+          <input type="hidden" id="category_id_<?php echo $course_2; ?>" value="<?php echo $category_array[0]->term_id;?>">
+          <input type="hidden" id="course_id_<?php echo $course_2; ?>" value="<?php echo $course_2; ?>">
+          <input type="hidden" id="course_price_<?php echo $course_2; ?>" value="0">
+          <input type="hidden" id="course_tax_<?php echo $course_2; ?>" value="0">
+          <input type="hidden" id="age_group_<?php echo $course_2; ?>" value="<?php echo $age_limit;?>">
+          <input type="hidden" id="course_duration_<?php echo $course_2; ?>" value="<?php echo get_post_meta($course_2, "vibe_validity", true);?>">
+          <input type="hidden" id="session_duration_<?php echo $course_2; ?>" value="<?php echo get_post_meta($course_2, "vibe_course_session_length", true);?>">
+          <input type="hidden" id="wishlisted_course_<?php echo $course_2; ?>" value="">
         <?php }else{ ?>
           <?php if($course_status22 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
@@ -206,7 +264,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           <?php } ?>
         <?php } ?>
       </div>
-      <div class="column">
+      <div class="column view_codeathon_course" data-id="<?php echo $course_3; ?>">
         <span class="title">Classes VIII - IX</span>
         <span class="video">
           <div class="embed-responsive embed-responsive-16by9">
@@ -216,7 +274,35 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <span class="sub-title"><?php echo get_the_title($course_3); ?></span>
         <p><?php echo get_the_excerpt($course_3); ?></p>
         <?php if($purchase_status == 0){ ?>
-          <a class="enroll" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" disable="disable">Enroll Now</a>
+          <?php
+            $courseslug=get_site_url().'/?p='.$course_3;
+            $category_array = get_the_terms($course_3,'course-cat');
+            $coursePartner = "";
+            $cb_course_id = get_post_meta($course_3,'celeb_school_course_id',true);
+            if ($cb_course_id) {
+              $coursePartner = "Celebrity School";
+            }
+
+            $aiws_course_id = get_post_meta($course_3,'aiws_program_id',true);
+            if ($aiws_course_id) {
+              $coursePartner = "AIWS";
+            }
+
+            $age_limit = get_post_meta($course_3,'vibe_course_age_group',true);
+          ?>
+          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" data-id="<?php echo $course_3; ?>">Enroll Now</a>
+          <input type="hidden" id="course_name_<?php echo $course_3; ?>" value="<?php echo get_the_title($course_3); ?>">
+          <input type="hidden" id="course_url_<?php echo $course_3; ?>" value="<?php echo $courseslug; ?>">
+          <input type="hidden" id="course_category_<?php echo $course_3; ?>" value="<?php echo $category_array[0]->name;?>">
+          <input type="hidden" id="course_partner_<?php echo $course_3; ?>" value="<?php echo $coursePartner; ?>">
+          <input type="hidden" id="category_id_<?php echo $course_3; ?>" value="<?php echo $category_array[0]->term_id;?>">
+          <input type="hidden" id="course_id_<?php echo $course_3; ?>" value="<?php echo $course_3; ?>">
+          <input type="hidden" id="course_price_<?php echo $course_3; ?>" value="0">
+          <input type="hidden" id="course_tax_<?php echo $course_3; ?>" value="0">
+          <input type="hidden" id="age_group_<?php echo $course_3; ?>" value="<?php echo $age_limit;?>">
+          <input type="hidden" id="course_duration_<?php echo $course_3; ?>" value="<?php echo get_post_meta($course_3, "vibe_validity", true);?>">
+          <input type="hidden" id="session_duration_<?php echo $course_3; ?>" value="<?php echo get_post_meta($course_3, "vibe_course_session_length", true);?>">
+          <input type="hidden" id="wishlisted_course_<?php echo $course_3; ?>" value="">
         <?php }else{ ?>
           <?php if($course_status33 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
@@ -389,6 +475,8 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
   </div>
 </section>
 
+<?php 
+/*
 <section class="section-wrapper blogs" id="blog">
   <div class="section-copy">
     <h2 class="section-title">Blogs</h2>
@@ -417,6 +505,8 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
     </div>
   </div>
 </section>
+*/
+?>
 
 <div class="modal fade video1-popup" id="video1-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-centered modal-lg">
@@ -437,4 +527,5 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           </div>
       </div>
   </div>
+</div>
 <?php include("includes/footer.php"); ?>

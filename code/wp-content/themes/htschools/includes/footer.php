@@ -1,3 +1,21 @@
+<?php $userIdentifier = ""; $loggedInUserID = get_current_user_id();
+
+if(isset($loggedInUserID) && $loggedInUserID > 0)
+{
+    $userIdentifier     = $loggedInUserID;
+    $loggedInUserInfo   = get_userdata($loggedInUserID);
+    echo '<input type="hidden" id="footer_user_email" value="'.(isset($loggedInUserInfo->data->user_email) ? $loggedInUserInfo->data->user_email : "").'">';
+}
+else if(isset($_COOKIE['PHPSESSID']))
+{
+    $userIdentifier = $_COOKIE['PHPSESSID'];
+} ?>
+
+<input type="hidden" id="footer_user_identifier" value="<?php echo $userIdentifier; ?>">
+<input type="hidden" id="footer_timestamp" value="<?php echo date('c', time()); ?>">
+<input type="hidden" id="footer_session_source">
+<input type="hidden" id="footer_utm_tags">
+
 <footer class="footer-wrapper">
       <div class="new-footer-copy">
         <div class="new-footer-top">
@@ -714,6 +732,108 @@ setTimeout(()=>popup.classList.add("show", "in"));
 
              });
          })( jQuery );
+     </script>
+
+     <script type="text/javascript">
+       jQuery(document).ready(function(){
+         jQuery('.add_to_wishlist_codeathon').click(function(e){
+
+           e.preventDefault();
+           var addToWishlistItem = [];
+           let courseID      = jQuery(this).attr('data-id');
+           var link        = jQuery(this).attr("href");
+
+           addToWishlistItem.push({
+             "price"           : jQuery("#course_price_" + courseID).val(),
+             "item_name"       : jQuery("#course_name_" + courseID).val(),
+             "course_url"      : jQuery("#course_url_" + courseID).val(),
+             "item_category"   : jQuery("#course_category_" + courseID).val(),
+             "course_partner"  : jQuery("#course_partner_" + courseID).val(),
+             "category_id"     : parseInt(jQuery("#category_id_" + courseID).val()),
+             "item_id"         : parseInt(jQuery("#course_id_" + courseID).val()),
+             "age_group"       : jQuery("#age_group_" + courseID).val(),
+             "course_duration" : jQuery("#course_duration_" + courseID).val(),
+             "session_duration": jQuery("#session_duration_" + courseID).val(),
+           });
+
+           let addWishlistObj = {
+             "event"          : 'add_to_wishlist',
+             "user_identifier": jQuery("#footer_user_identifier").val(),
+             "session_source" : jQuery("#footer_session_source").val(),
+             "timestamp"      : jQuery("#footer_timestamp").val(),
+             "utm_tags"       : jQuery("#footer_utm_tags").val(),
+             "ecommerce"      : {
+               "items" : addToWishlistItem,
+             }
+           };
+
+           let addWishlistMoegObj = {
+             "User identifier" : jQuery("#footer_user_identifier").val(),
+             "Session source"  : jQuery("#footer_session_source").val(),
+             "Timestamp"       : jQuery("#footer_timestamp").val(),
+             "UTM tags"        : jQuery("#footer_utm_tags").val(),
+             "Course name"     : jQuery("#course_name_" + courseID).val(),
+             "Course URL"      : jQuery("#course_url_" + courseID).val(),
+             "Course category" : jQuery("#course_category_" + courseID).val(),
+             "Course partner"  : jQuery("#course_partner_" + courseID).val(),
+             "Course ID"       : parseInt(jQuery("#course_id_" + courseID).val()),
+             "Age Group"       : jQuery("#age_group_" + courseID).val(),
+             "Session duration": jQuery("#course_duration_" + courseID).val(),
+             "Course duration" : jQuery("#session_duration_" + courseID).val(),
+             "Course price"    : jQuery("#course_price_" + courseID).val(),
+           };
+
+           dataLayer.push(addWishlistObj);
+           console.log(addWishlistObj);
+           dataLayer.push({ ecommerce: null });
+
+           addWishlistMoegObj.event = "mo_Course_Wishlisted";
+           console.log(addWishlistMoegObj);
+           dataLayer.push(addWishlistMoegObj);
+
+           setTimeout(function(){
+             window.location.href = link;
+           }, 500);
+         });
+
+         if(jQuery('.view_codeathon_course').length > 0) {
+
+           var itemListName  = "";
+           var allCourseItem = [];
+
+           jQuery('.view_codeathon_course').each(function(){
+
+             let courseID = jQuery(this).attr('data-id');
+
+             allCourseItem.push({
+               "price"           : jQuery("#course_price_" + courseID).val(),
+               "item_name"       : jQuery("#course_name_" + courseID).val(),
+               "course_url"      : jQuery("#course_url_" + courseID).val(),
+               "item_category"   : jQuery("#course_category_" + courseID).val(),
+               "course_partner"  : jQuery("#course_partner_" + courseID).val(),
+               "category_id"     : parseInt(jQuery("#category_id_" + courseID).val()),
+               "item_id"         : parseInt(jQuery("#course_id_" + courseID).val()),
+               "age_group"       : jQuery("#age_group_" + courseID).val(),
+               "course_duration" : jQuery("#course_duration_" + courseID).val(),
+               "session_duration": jQuery("#session_duration_" + courseID).val(),
+             });
+           });
+
+           let allCourseObj = {
+             "event"          : 'view_item_list',
+             "user_identifier": jQuery("#footer_user_identifier").val(),
+             "session_source" : jQuery("#footer_session_source").val(),
+             "timestamp"      : jQuery("#footer_timestamp").val(),
+             "utm_tags"       : jQuery("#footer_utm_tags").val(),
+             "ecommerce"      : {
+               "items" : allCourseItem,
+             }
+           };
+
+           dataLayer.push(allCourseObj);
+           console.log(allCourseObj);
+         }
+       });
      </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

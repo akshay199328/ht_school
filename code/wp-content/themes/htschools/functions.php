@@ -3368,7 +3368,7 @@ function social_share_points(){
     $creds = $_POST['creds'];
     $limit_per_day = $_POST['limit_per_day'];
     $entry = "Points for sharing on ".$share_on."";
-    $count = mycred_get_total_by_time( 'today', 'now', $ref, $user_id, 'mycred_default' );
+    $count = mycred_get_total_by_time( 'today', 'now', $ref, $user_id, 'mycred_engagement' );
     $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='".$ref."' AND user_id = '".$user_id."'");
     $creds_json = json_decode( json_encode($sql), true);
     $creds_total = $creds_json[0]['total_creds'];  
@@ -3478,7 +3478,7 @@ function video_watched_points(){
 
 function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
   global $wpdb;
-  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry, data) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_default','".$now."','".$entry."', '".$data."')");
+  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry, data) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_engagement','".$now."','".$entry."', '".$data."')");
   $result = $wpdb->query($mycred_points);
   if($result){
     return true;

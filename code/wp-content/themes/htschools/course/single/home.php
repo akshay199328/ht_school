@@ -43,7 +43,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
              $str1="LIVE CLASSES";
             $str2="BLENDED";
-            $str3="SELF PACED";
+            $str3="SELF-PACED";
         
     if(strcmp($str2, $course_type)==0){
        $badge_class = "blue";
@@ -132,7 +132,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       }
                       $courseDetails = array();
                       $courseDetails[] = array(
-                        'Age Group' => $ageGroup.' yrs',
+                        'Age Group' => $ageGroup.' Years',
                         'Certification' => $totalStudent,
                         'Course Duration' => $duration.' '.calculate_duration($courseDurationParameter),
                         'Frequency' => $frequency,

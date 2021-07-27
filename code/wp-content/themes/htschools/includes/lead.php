@@ -54,10 +54,10 @@ if($page_name=="index.php"){
             <div class="account">
             <?php if (!is_user_logged_in()){ ?>
                 <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="register">Register</a>
-                <a href="<?php echo get_bloginfo('url'); ?>/login-register">Login</a>
+                <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="login">Login</a>
             <?php }else{ ?>
                 <!-- <a href="<?php //echo get_bloginfo('url'); ?>/event-dashboard" class="login"><img src="<?php //echo get_bloginfo('template_url'); ?>/images/login-profile.png"></a> -->
-                <a href="<?php echo get_bloginfo('url'); ?>/event-dashboard" class="register">My Dashboard</a>
+                <a href="<?php echo get_bloginfo('url'); ?>/event-dashboard" class="register dashboard">My Dashboard</a>
                 <ul class="topmenu custom_topmenu">
                 <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){ ?>
@@ -79,20 +79,17 @@ if($page_name=="index.php"){
             <li><a href="#about_section">About Us</a></li>
             <li><a href="#learning_section">Learning Modules</a></li>
             <li><a href="#How_it_works">How it works</a></li>
-            <li><a href="#!">Leaderboard</a></li>
             <li><a href="#About_Partners">About Our Partners</a></li>
-            <li><a href="#!">Project Gallery</a></li>
             <li><a href="#Partner_says">What Our Partners Say</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="#!">Coding For Cause</a></li>
         </ul>
         <div class="account">
             <?php if (!is_user_logged_in()){ ?>
                 <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="register">Register</a>
-                <a href="<?php echo get_bloginfo('url'); ?>/login-register">Login</a>
+                <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="login">Login</a>
             <?php }else{ ?>
                 <!-- <a href="<?php //echo get_bloginfo('url'); ?>/event-dashboard" class="login"><img src="<?php //echo get_bloginfo('template_url'); ?>/images/login-profile.png"></a> -->
-                <a href="<?php echo get_bloginfo('url'); ?>/event-dashboard" class="register">My Dashboard</a>
+                <a href="<?php echo get_bloginfo('url'); ?>/event-dashboard" class="register dashboard">My Dashboard</a>
                 <ul class="topmenu custom_topmenu">
                 <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){ ?>

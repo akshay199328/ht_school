@@ -455,8 +455,13 @@ border: 1px solid deepskyblue;
 								</div>
 
 								<div class="col-md-12">
-									<div style="display:none" id="other_school">
+									<!-- <div style="display:none" id="other_school">
 										<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="" >
+										<span id="errotherSchoolMsg"></span>
+									</div> -->
+
+									<div id="other_school" class="input-group" style="display:none">
+										<input type="text" class="s-class form-control" id="user_school_other" name="user_school_other" placeholder="Please enter other school name" value="">
 										<span id="errotherSchoolMsg"></span>
 									</div>
 								</div>

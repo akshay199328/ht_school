@@ -183,7 +183,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <?php if($course_status11 == 1){ ?>
           <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
         <?php }else{ ?>
-          <span class="enroll">Enroll Now</span>
+          <span class="enroll">Enroll Now</span> 
         <?php } ?>
       <?php } ?>
       </div>

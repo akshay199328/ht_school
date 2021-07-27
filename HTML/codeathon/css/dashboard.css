@@ -52,20 +52,20 @@ html {
 .section-wrapper.dashboard_partner.partners{
     background: url('../images/dashboard-partner.png')no-repeat;
     background-size: cover;
+    padding-bottom: 135px;
 }
 .section-wrapper.dashboard_partner.dashboard_partner:after {
-        content: "";
-    /*height: 147px;
-    max-width: 729px;
-    background-image: url(../images/partner-doodle.png);
-    background-repeat: no-repeat;
-    background-position: center;
+    content: "";
+    height: 138px;
+    max-width: 488px;
+    background: url(../images/dashboard-partner-doodle.png) no-repeat bottom center;
+    background-size: 100% 100%;
     display: inline-block;
     position: absolute;
-    right: -17%;
+    right: 0%;
     z-index: 10;
     width: 100%;
-    bottom: 0;*/
+    bottom: 0;
 }
 .section-wrapper.dashboard_partner.partners:before,
 .section-wrapper.partners.partners .partners_slider:after{

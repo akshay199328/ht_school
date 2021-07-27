@@ -216,7 +216,7 @@ defined( 'ABSPATH' ) || exit;
 							"Course URL"		: allItemsList[i]["course_urls"],
 							"Course category"	: allItemsList[i]["item_category"],
 							"Course partner"	: allItemsList[i]["course_partners"],
-							"Course ID"			: allItemsList[i]["item_id"],
+							"Course ID"			: parseInt(allItemsList[i]["item_id"]),
 							"Age group"			: allItemsList[i]["course_age_groups"],
 							"Course duration"	: allItemsList[i]["course_durations"],
 							"Session duration"	: allItemsList[i]["session_durations"],

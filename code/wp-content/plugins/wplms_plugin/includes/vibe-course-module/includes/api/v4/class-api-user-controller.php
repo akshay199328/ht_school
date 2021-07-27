@@ -1507,7 +1507,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 								
 							}
 							$quiz_level_image = get_post_meta($item,'vibe_quiz_level_image',true);
-							$quiz_level_image_url = wp_get_attachment_url( $quiz_level_image);   
+							$quiz_level_image_url = wp_get_attachment_url( $quiz_level_image);  
+							$retakes=apply_filters('wplms_quiz_retake_count',get_post_meta($item,'vibe_quiz_retakes',true),$item,$course_id,$user_id); 
 							$curriculum_arr[] = apply_filters('bp_course_api_course_curriculum_quiz',array(
 								'key'		=> $i,
 								'id'		=> $item,
@@ -1519,6 +1520,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 								'icon_type' => $quiz_level_image_url ? 1 : 0,
 								'content'   => '',
 								'status'    => $complete,
+								'retakes'   => intval($retakes),
 								'meta'		=> array(),
 							));
 						}else if(bp_course_get_post_type($item) == 'wplms-assignment'){
@@ -1538,6 +1540,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 						}
 
 					}else{
+						$is_course_event = get_post_meta($course_id,'vibe_course_event',true);
 						$curriculum_arr[] = apply_filters('bp_course_api_course_curriculum_section',array(
 							'key'		=> $i,
 							'id'		=> 0,
@@ -1545,6 +1548,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 							'title'		=> $item,
 							'duration'	=> $section_duration,
 							'content'   => '',
+							'is_course_event' => $is_course_event,
 							'meta'		=> array()
 						));
 						$section_duration = 0;
@@ -3047,7 +3051,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
                     }
 	                global $wpdb;
 	                $now    = current_time( 'timestamp' );
-		      		$mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
+		      		$mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
 		            $wpdb->query($mycred_points);
                 }
 

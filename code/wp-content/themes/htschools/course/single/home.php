@@ -554,8 +554,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               "course_url"      : jQuery("#course_url_" + courseID).val(),
               "item_category"   : jQuery("#course_category_" + courseID).val(),
               "course_partner"  : jQuery("#course_partner_" + courseID).val(),
-              "category_id"     : jQuery("#category_id_" + courseID).val(),
-              "item_id"         : jQuery("#course_id_" + courseID).val(),
+              "category_id"     : parseInt(jQuery("#category_id_" + courseID).val()),
+              "item_id"         : parseInt(jQuery("#course_id_" + courseID).val()),
               "age_group"       : jQuery("#age_group_" + courseID).val(),
               "course_duration" : jQuery("#course_duration_" + courseID).val(),
               "session_duration": jQuery("#session_duration_" + courseID).val(),
@@ -574,9 +574,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
             let viewCourseMoegObj = {
               "Course Category" : jQuery("#course_category_" + courseID).val(),
-              "Category ID"     : jQuery("#category_id_" + courseID).val(),
+              "Category ID"     : parseInt(jQuery("#category_id_" + courseID).val()),
               "Course name"     : jQuery("#course_name_" + courseID).val(),
-              "Course ID"       : jQuery("#course_id_" + courseID).val(),
+              "Course ID"       : parseInt(jQuery("#course_id_" + courseID).val()),
               "Age group"       : jQuery("#age_group_" + courseID).val(),
               "Course Price"    : jQuery("#course_price_" + courseID).val(),
               "Course duration" : jQuery("#course_duration_" + courseID).val(),

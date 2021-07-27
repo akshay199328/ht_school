@@ -1035,6 +1035,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			$aiws_course_link = "";
 			$is_profile_complete = 0;
 			$is_live_course = 0;
+			$is_event_course = 0;
 
 			$user_mobile = get_profile_data('Phone');
 			$user_birthday = get_profile_data('Birthday');
@@ -1181,6 +1182,10 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 						if(strtolower($course_type) == "live classes" && !empty($product_attributes)){
 							$is_live_course = 1;
 						}
+						$is_event_type = get_post_meta($course_id,'vibe_course_event',true);
+						if($is_event_type == 1){
+							$is_event_course = 1;
+						}
 						//Course Status openning on Course Page
 						global $wpdb;
 						$get_live_course_start_data = $wpdb->get_results("SELECT bm.course_id,bm.batch_name,bm.variation_id,bsm.user_id,bm.start_on FROM ht_batch_master AS bm LEFT JOIN ht_batch_student_mapping AS bsm ON bsm.batch_id = bm.id WHERE bsm.user_id = '".$this->user->id."' AND course_id = '".$course_id."'");
@@ -1237,6 +1242,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							'is_live_course' => $is_live_course,
 							'live_course_starts_in_days' => $live_course_starts_in_days,
 							'is_live_course_start' => $is_live_course_start,
+							'is_event_course' => $is_event_course 
 						);
 						$return['course'] = $_course_data;
 						$return['text'] = $statuses[$status];

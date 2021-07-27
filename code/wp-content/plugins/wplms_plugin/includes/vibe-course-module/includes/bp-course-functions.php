@@ -424,7 +424,15 @@
       $return['quiz_attempt_2_points'] = !empty($quiz_attempt_2_points)?intval($quiz_attempt_2_points):0;
       $return['quiz_attempt_3_points'] = !empty($quiz_attempt_3_points)?intval($quiz_attempt_3_points):0;
       $return['next_unit'] = $next_unit;
+      global $wpdb;
+      $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='quiz_points' AND user_id = '".$user_id."' and ref_id = '".$item_id."' ");
+      $quiz_creds_json = json_decode( json_encode($sql), true);
+      $quiz_creds_total = $quiz_creds_json[0]['total_creds'];
+        $return['quiz_points'] = !empty($quiz_attempt_3_points)?intval($quiz_creds_total):0;
 
+      $is_event_type = get_post_meta($course,'vibe_course_event',true); 
+      
+      $return['is_event_type'] = !empty($is_event_type)?intval($is_event_type):0;
       
       if($status < 3){
         $t = get_user_meta($user_id,$item_id,true);

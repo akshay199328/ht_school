@@ -4291,7 +4291,9 @@
                 className: "show_quiz_result"
             },gn("div", {
                 className: "quiz_result_details"
-            },gn("h1",null,"Quiz Result:",gn("span", {
+            },gn("h1",null,"Quiz Result:",t.quiz_points > 0 && t.is_event_type ? gn("span", {
+                className: "result-show pass"
+            }, 'PASSED') : gn("span", {
                 className: "result-show failed"
             }, 'FAILED')),
             gn("span", {
@@ -4310,14 +4312,14 @@
                     __html: t.meta.auto ? "<span class='question-attempt'>"+UU+"</span>" + "/" + t.meta.questions.length : ""
                 }
             }),
-                gn("span", {
-                    dangerouslySetInnerHTML: {
-                    __html: quiz_points_credit ? "<span class='points'>"+quiz_points_credit+"</span>" : ""
-                }
+                // gn("span", {
+                //     dangerouslySetInnerHTML: {
+                //     __html: quiz_points_credit ? "<span class='points'>"+quiz_points_credit+"</span>" : ""
+                // }
 
-                })
+                // })
             ),gn("div", {
-                className: "quiz_result_icon"
+                className: t.quiz_points > 0 && t.is_event_type ? "quiz_result_icon" : "quiz_result_icon failed"
             }), Rt("div", {
                 className: "buttons_wrapper"
             },
@@ -7144,8 +7146,11 @@
                     },sr("span", {
                         className: "attempt-text"
                     }, 'Attempts Remaining'),sr("span", {
-                        className: "attempt-number correct"
-                    }, '1'))), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
+                        className: "attempt-number correct",
+                        onClick : function(){
+                            console.log(m.courseitems[W]);
+                        }
+                    }, m.courseitems[W].retakes))), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
                         var t = {
                             coursestatus: m,
                             type: m.courseitems[W].quiz_type,

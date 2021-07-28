@@ -220,7 +220,7 @@ get_footer(vibe_get_footer());
 ?>
 <!-- Modal -->
 <div class="modal modal-box fade contact-popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">

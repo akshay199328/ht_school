@@ -6608,8 +6608,9 @@ h6:empty,
   text-align: left;
   color: #000000;
   }
+.contact-popup .modal-dialog{transform: none;}
   #exampleModal .modal-content{
-    top: 100px;
+    top: 0;
     border-radius: 0px;
      box-shadow: -3px 0 6px 0 rgba(0, 0, 0, 0.16); 
   } 

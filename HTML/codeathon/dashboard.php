@@ -114,11 +114,13 @@
                                 </div>
                                 <div class="video_decp">
                                     <div class="col-12 col-md-4 col-sm-12 mrg pull-left">
-                                        <video width="100%" height="240" controls="" poster="images/video-poster.png">
-                                            <source src="images/videos/dummy.mp4" type="video/mp4">
-                                            <source src="images/videos/dummy.ogg" type="video/ogg">
-                                            Your browser does not support the video tag.
-                                        </video>
+                                        <div class="dashboard_video">
+                                            <video width="100%" height="240" controls="" poster="images/video-poster.png">
+                                                <source src="images/videos/dummy.mp4" type="video/mp4">
+                                                <source src="images/videos/dummy.ogg" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
                                     </div>
                                     <div class="col-12 col-md-8 col-sm-12 mrg pull-left">
                                         <div class="details">

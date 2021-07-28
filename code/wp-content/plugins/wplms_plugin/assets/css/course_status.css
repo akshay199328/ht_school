@@ -668,9 +668,45 @@
 .course_status .course_assignment_wrapper .upload_assignment {
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
+    order: 1;
 }
-
+.drag-text {
+    font-size: 15px;
+    line-height: 20px;
+    color: #575757;
+    text-align: center;
+    margin: 28px 0px 13px;
+}
+.assignment_progress_wrapper {
+    display: grid;
+    align-items: center;
+    min-width: 150px;
+    font-size: 0.75rem;
+    margin-top: 28px;
+}
+.assignment_progress_wrapper .course_progress {
+    position: relative;
+    width: 100%;
+    height: 7px;
+    background: #DDECFA!important;
+    order: 2;
+}
+.assignment_progress_wrapper .course_progress>span {
+    background: #51A0EB!important;
+}
+.assignment_progress_wrapper>span {
+    margin: 0 0 5.5px 0px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    text-align: left;
+    color: #0d0d0d;
+    order: 1;
+}
 .course_status .course_assignment_wrapper .assignment_right {
     display: flex;
     flex-direction: column-reverse;
@@ -685,9 +721,13 @@
 }
 
 .course_status .course_assignment_wrapper .allowed_file_extenstions span {
-    margin: 0.1rem
+    margin: 0 0px 0px 4px;
+    font-size: 11px;
+    line-height: 18px;
+    text-transform: capitalize;
+    color: #5C5C5C;
 }
-
+.course_status .course_assignment_wrapper .allowed_file_extenstions span:last-child{margin-right:0px;}
 .course_status .course_assignment_wrapper .allowed_file_extenstions span:not(:last-child):after {
     content: ','
 }
@@ -1029,7 +1069,7 @@
 .course_status .course_content .course_content_content_wrapper .unit_assignments .assignment {
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    margin: 25px 0 10px;
     display: flex;
     flex-direction: column;
 }
@@ -1051,7 +1091,7 @@
 }
 
 .assignment_content_wrapper .course_assignment_wrapper {
-    padding: 20px 0px 0px;
+    padding: 0px 0px 0px;
 }
 .assignment_content_wrapper .assignment_content{
     font-weight: 500;
@@ -1061,11 +1101,10 @@
 }
 .assignment_content_wrapper textarea,
 .assignment_content_wrapper input {
-    background-color: #fff;
-    margin-bottom: 10px;
-    border: 0px !important;
-    border-bottom: 1px solid #ccc !important;
-    padding: 6px 1px;
+    background-color: transparent;
+    margin-bottom: 0px;
+    border: 0px;
+    padding:0;
     font-size: 18px;
     border-radius: 0px;
     box-shadow: none;
@@ -1073,7 +1112,7 @@
     height: 100%;
 }
 .assignment_content_wrapper textarea{
-    height: 50px;
+    height: 50px;display: none;
 }
 .course_status .course_content .course_content_content_wrapper .unit_attachments {
     background: transparent;
@@ -1877,19 +1916,23 @@ border-bottom: 1px solid #E8E8E8;
 }
 .course_status .uploader {
     height: 100%;
-    border: 2px dashed var(--border);
+    /*border: 2px dashed var(--border);*/
     align-items: center;
     display: flex
 }
 
 .course_status .uploader .upload_file {
-    padding: 0.3rem;
-    font-size: 0.9rem;
+    background: url('../../assets/images/drag-file.png')no-repeat center center;
+    background-size: contain;
+    padding: 0;
+    font-size: 0;
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    min-height: 46px;
+    margin: 0;
 }
 
 .course_status .uploader .upload_file input {
@@ -3182,6 +3225,7 @@ border-bottom: 1px solid #E8E8E8;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .course_content_content .unit_assignments h3,
@@ -3424,8 +3468,14 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .course_assignment>*.assignment_content_wrapper {
-    flex: 3 0 480px;
-    margin-right: 60px;
+    flex: 100%;
+    margin: 0px;
+    background: #F7F7F7;
+    padding: 25px 10px;
+    border: 1.9px dashed rgb(0 0 0 / 40%);
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px 20px;
 }
 
 .course_assignment .assignment_content_wrapper .vibe_rich_editor {
@@ -3434,25 +3484,32 @@ border-bottom: 1px solid #E8E8E8;
 
 .course_assignment .assignment_content_wrapper .allowed_file_extenstions {
     font-size: 11px;
-    opacity: 0.6;
-    margin: 0.5rem -0.5rem;
+    line-height: 18px;
+    margin: 0;
     display: flex;
-    align-items: center
+    align-items: center;
+    order: 2;
+    font-weight: 300;
+    justify-content: center;
 }
-
+.course_assignment .assignment_content_wrapper .allowed_file_extenstions label {
+    font-weight: 300;
+    margin: 0;
+    color: #5C5C5C;
+}
 .course_assignment .assignment_content_wrapper .assignment_attachments {
-    background: var(--highlight);
-    bordeR: 1px solid var(--border);
+    background: transparent;
+    border: 0;
     text-align: center;
-    margin: 0.5rem 0;
-    padding: 0.5rem
+    margin: 0;
+    padding: 0;
 }
 
 .course_assignment .assignment_content_wrapper .assigment_evaluated {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
-    margin: 1rem 0
+    margin: 1rem 0;
 }
 
 .course_assignment .assignment_content_wrapper .assigment_evaluated .remarks {
@@ -3471,6 +3528,8 @@ border-bottom: 1px solid #E8E8E8;
     font-size: 1.5rem;
     font-weight: 600;
     background: var(--highlight);
+    position: absolute;
+    top: 16px;
 }
 
 .course_assignment .assignment_details .assignment_marks {
@@ -3484,6 +3543,7 @@ border-bottom: 1px solid #E8E8E8;
     font-size: 16px;
     line-height: 24px;
     font-weight: 300;
+    margin-right: 13px;
 }
 .course_assignment .assignment_details .assignment_marks .total_marks {
     font-size: 24px;

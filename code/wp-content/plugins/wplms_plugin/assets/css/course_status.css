@@ -3117,7 +3117,8 @@ border-bottom: 1px solid #E8E8E8;
     flex: 1 0 180px;
     margin: 0.25rem
 }
-.retake_quiz.button {margin-right: 17px;} 
+.quiz_retake .retake_quiz.button  {margin-right: 17px;} 
+.quiz_retake strong{display: none;}
 .course_status .incourse .confirmpopup_wrapper {
     position: fixed;
     top: 0;
@@ -4015,6 +4016,7 @@ a.button.is-primary {
     align-items: center;
 }
 .point-toaster {
+    display: none;
     background: #9156CE;
     padding: 11px;
     position: absolute;

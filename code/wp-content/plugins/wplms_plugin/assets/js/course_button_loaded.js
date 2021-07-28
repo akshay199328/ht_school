@@ -4092,7 +4092,11 @@
                                 jQuery('.result-show').text('PASSED');
                                 jQuery('#result-display').removeClass("failed");
                                 jQuery('#result-display').addClass("pass");
-                                jQuery('#quiz_result_icon').removeClass("failed")
+                                jQuery('#quiz_result_icon').removeClass("failed");
+                                jQuery('.right-info').hide();
+                            }
+                            if(t.$is_event_type == 0){
+                                jQuery('#quiz_result_icon').removeClass("failed");
                             }
                             jQuery('.attempt-number').text(t.retakes);
                         }

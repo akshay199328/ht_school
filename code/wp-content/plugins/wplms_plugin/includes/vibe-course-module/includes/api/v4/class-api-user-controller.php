@@ -3177,7 +3177,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 					$retake_count = 0;
 				}
 			}
-
+			
+			$is_event_type = get_post_meta($post['course_id'],'vibe_course_event',true);
 			$data = array(
 				'check_results_url'=>bp_core_get_user_domain( $this->user_id ).BP_COURSE_SLUG.'/'.BP_COURSE_RESULTS_SLUG.'/?action='.$post['quiz_id'],'status'=>true,
 				'message'=>$apimessage,
@@ -3192,7 +3193,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				'tags' => $tags,
 				'results' =>$results,
 				'quiz_points_credit' => !empty($quiz_points_credit)?intval($quiz_points_credit):0,
-				'retakes' => intval($retake_count)
+				'retakes' => intval($retake_count),
+				'is_event_type' =>$is_event_type
 			);
 						
 			return 	new WP_REST_Response( $data, 200 );

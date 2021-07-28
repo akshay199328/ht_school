@@ -31,7 +31,7 @@ if($page_name=="index.php"){
     })(window,document,'script','dataLayer','GTM-MVTH49L');</script>
     <!-- End Google Tag Manager -->
   </head>
-  <body class="<?=$page_classes?>">
+  <body class="<?=$page_classes?> test">
     <header class="header-wrapper">
             <span class="codeathon">
                 <img src="<?php echo get_bloginfo('template_url'); ?>/images/codeathon.svg">

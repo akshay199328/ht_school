@@ -1606,6 +1606,11 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				$return['lock'] = ((!empty($lock) && $lock == 'S')?1:0);
 				$is_event_type = get_post_meta($course_id,'vibe_course_event',true);
 				$return['is_event_type'] = !empty($is_event_type)?intval($is_event_type):0;
+				global $wpdb;
+				$sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM ht_mycred_log WHERE user_id = '".$user_id."'");
+				$total_creds_json = json_decode( json_encode($sql), true);
+				$total_creds_total = $total_creds_json[0]['total_creds'];
+				$return['total_creds'] = !empty($total_creds_total)?intval($total_creds_total):0;
 			}
 			// check package here for scorm or packages: 
 			// $package = get_post_meta($course_id,'vibe_course_package',true);

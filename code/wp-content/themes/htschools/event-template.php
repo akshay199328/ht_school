@@ -134,13 +134,6 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
     </div>
 </div>
 
-<section class="section-wrapper ad">
-  <div class="section-copy">
-    <span class="desktop"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ad.png"></span>
-    <span class="mobile"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ad-sm.png"></span>
-  </div>
-</section>
-
 <section class="section-wrapper learning" id="learning_section">
   <div class="section-copy">
     <span class="left-doodle"></span>

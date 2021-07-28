@@ -4345,7 +4345,22 @@
                 }
             },"Review Quiz Questions"))), Rt("div", {
                 className: "buttons_wrapper pull-right"
-            },
+            }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
+                className: "quiz_retake",
+                onClick: () => (a("retake"), void fetch(window.wplms_course_data.api_url + "/user/coursestatus/retake_single_quiz/" + e.quizid, {
+                    method: "post",
+                    body: JSON.stringify({
+                        token: k
+                    })
+                }).then(e => e.json()).then(t => {
+                    t && (t.status ? (L(), e.hasOwnProperty("update") && e.update("retake_quiz")) : t.message && (On("vibebp").addNotification({
+                        icon: "",
+                        text: t.message
+                    }), a(!1)))
+                }))
+            }, gn("a", {
+                className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
+            }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "",
             t.next_unit != null ? Rt("span", {
                 className: "button",
                 onClick: () => {
@@ -4470,22 +4485,7 @@
                 onClick: () => {
                     window.wplms_course_data.submit_popup ? f(!0) : N.length ? g(!0) : F()
                 }
-            }, window.wplms_course_data.translations.submit) : "", !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
-                className: "quiz_retake",
-                onClick: () => (a("retake"), void fetch(window.wplms_course_data.api_url + "/user/coursestatus/retake_single_quiz/" + e.quizid, {
-                    method: "post",
-                    body: JSON.stringify({
-                        token: k
-                    })
-                }).then(e => e.json()).then(t => {
-                    t && (t.status ? (L(), e.hasOwnProperty("update") && e.update("retake_quiz")) : t.message && (On("vibebp").addNotification({
-                        icon: "",
-                        text: t.message
-                    }), a(!1)))
-                }))
-            }, gn("a", {
-                className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
-            }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "") : "", gn("div", {
+            }, window.wplms_course_data.translations.submit) : "") : "", gn("div", {
                 className: ""
             }, t.start || t.submitted ? "" : gn("div", {
                 className: "quiz_content before_start",
@@ -7157,7 +7157,7 @@
                         dangerouslySetInnerHTML: {
                             __html: m.courseitems[W].title
                         }
-                    })),m.courseitems[W].quiz_mycreds == 0 ?sr("span", {
+                    })),m.courseitems[W].quiz_mycreds == 0 && m.courseitems[W].total_retakes != 0 ?sr("span", {
                         className: "right-info"
                     },sr("span", {
                         className: "attempt-text"

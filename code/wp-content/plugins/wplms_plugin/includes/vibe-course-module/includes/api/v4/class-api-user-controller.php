@@ -1539,6 +1539,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 								'content'   => '',
 								'status'    => $complete,
 								'retakes'   => intval($retake_count),
+								'total_retakes' => $retakes,
 								'quiz_mycreds' => !empty($quiz_creds_total)?intval($quiz_creds_total):0,
 								'meta'		=> array(),
 							));

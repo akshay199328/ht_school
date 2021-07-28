@@ -3107,17 +3107,18 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .course_status .incourse .quiz_retake {
-    display: flex;
+        display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0 -0.25rem
+    margin: 0 -0.25rem;
+    justify-content: flex-end;
 }
 
 .course_status .incourse .quiz_retake>* {
-    flex: 1 0 180px;
-    margin: 0.25rem
+    flex:none;
+    /*margin: 0.25rem*/
 }
-.quiz_retake .retake_quiz.button  {margin-right: 17px;} 
+
 .quiz_retake strong{display: none;}
 .course_status .incourse .confirmpopup_wrapper {
     position: fixed;
@@ -4310,6 +4311,13 @@ a.button.is-primary {
     color: #D5EBFF;
     padding: 12px 35px!important;
 }
+.show_result .buttons_wrapper .next_unit_button{margin-left: 17px;}
+.show_result .buttons_wrapper .next_unit_button.disabled{
+    background: #C9C9C9;
+    color: #fff;
+    border-color: transparent;
+    pointer-events: none;
+}
 .footer_parent .next_unit_button{
      padding: 12px 5px!important;
     min-width: 135px;
@@ -4320,6 +4328,8 @@ a.button.is-primary {
 }
 .show_result .buttons_wrapper.pull-right  {
     padding: 20px 0px;
+    display: flex;
+    justify-content: flex-end;
 }
 .show_result .buttons_wrapper.pull-right .button  {
     float: right;

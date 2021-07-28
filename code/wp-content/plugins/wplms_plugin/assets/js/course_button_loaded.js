@@ -4366,7 +4366,7 @@
                 className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
             }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "",
             t.next_unit != null ? Rt("span", {
-                className: "button",
+                className: "button next_unit_button",
                 onClick: () => {
                     document.getElementById("navigate_unit").click(); 
                 }
@@ -7090,13 +7090,13 @@
             className: q ? window.innerWidth < 480 ? "vicon vicon-angle-double-down" : "vicon vicon-angle-double-right" : window.innerWidth < 480 ? "vicon vicon-angle-double-up" : "vicon vicon-angle-double-left"
         }), sr("span", null, q ? window.wplms_course_data.translations.show_panel : window.wplms_course_data.translations.hide_panel)), sr("div", {
             className: "right_block"
-        },sr("span", {
+        },m.is_event_type ? sr("span", {
             className: "total-points"
         },sr("span", {
             className: "point-text"
         }, 'Total Points'),sr("span", {
             className: "point-number"
-        }, '2225'),sr("span", {
+        }, m.total_creds),sr("span", {
             className: "point-toaster"
         },sr("span", {
             className: "point-toaster-icon"
@@ -7104,7 +7104,7 @@
         sr("p", {
             className: "point-text",
             id: "point-text"
-        }, ''))), m.hasOwnProperty("comments_open") ? sr("span", {
+        }, ''))) : '', m.hasOwnProperty("comments_open") ? sr("span", {
             className: "review_block",
             onClick: () => (M(!1), void(E.hasOwnProperty("comment_ID") || fetch(`${window.wplms_course_data.api_url}/user/getreview/${e.course_id}`, {
                 method: "post",

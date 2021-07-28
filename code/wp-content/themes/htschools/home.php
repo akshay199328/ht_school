@@ -37,7 +37,7 @@ get_header(vibe_get_header());
             <?php $sub_title = $custom_fields['banner_sub_title'][0]; if($sub_title != '') { ?>
             <span class="name"><?php echo $sub_title; ?></span>
           <?php } ?>
-            <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>"><?php echo $custom_fields['cta_text'][0];?></a>
+            <a class="yellow-button" href="<?php echo $custom_fields['cta_link'][0];?>" target="_blank"><?php echo $custom_fields['cta_text'][0];?></a>
         </div>
     </div>
   <?php endwhile;endif; ?>
@@ -58,7 +58,8 @@ get_header(vibe_get_header());
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/career-mate.png">
                   <span>Get Started</span>
               </a>
-              <a target="_blank" href="https://www.htcodeathon.com/" class="column item">
+              <!-- <a target="_blank" href="https://www.htcodeathon.com/" class="column item"> -->
+                <a target="_blank" href="<?php echo get_bloginfo('url')?>/course-cat/coding-competition/" class="column item">
                   <img src="<?php echo get_bloginfo('template_url')?>/assets/images/learning/code-thon.png">
                   <span>Get Started</span>
               </a>

@@ -15,8 +15,11 @@ get_header(vibe_get_header());
             if(!isset($breadcrumbs) || !$breadcrumbs || vibe_validate($breadcrumbs)){
                 vibe_breadcrumbs();
             }
-          echo '<h2>'.vibe_get_title($id).'</h2>';
-          the_sub_title($id);
+          // echo '<h2>'.vibe_get_title($id).'</h2>';
+          // the_sub_title($id);
+          $page_object = get_queried_object();
+          $category_name = $page_object->name;
+          echo '<h2>'.$category_name.'</h2>';
         ?>
       </div>
     </section>
@@ -37,6 +40,7 @@ get_header(vibe_get_header());
                 }
                 $page_object = get_queried_object();
                 $term_id = $page_object->term_id;
+                
                 $args = array(
                   'post_type' => 'course',
                   'tax_query' => array(

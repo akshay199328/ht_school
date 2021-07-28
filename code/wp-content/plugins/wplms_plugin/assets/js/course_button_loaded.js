@@ -4083,6 +4083,12 @@
                                 });
                                 document.dispatchEvent(r)
                             }
+                            var point_toast = "You just earned "+quiz_points_credit+" Points"
+                            jQuery('.point-text').text(t.point_toast);
+
+                            jQuery('.point-toaster').fadeIn();
+                            jQuery('.point-toaster').fadeOut(10000)
+                            
                         }
                     })
                 },
@@ -6724,7 +6730,7 @@
                 }
             }
         }, sr("div", {
-            className: "course_status " + (q ? "moveonside" : ""),
+            className: m.is_event_type ? "course_status event_course_timeline" : "course_status " + (q ? "moveonside" : ""),
             ref: r
         }, L && m.hasOwnProperty("instructions") && m.instructions.length ? sr("div", {
             className: "course_instructions_popup",
@@ -6976,6 +6982,7 @@
         }), !s && !is(m) && m.hasOwnProperty("courseitems") && m.courseitems.length ? sr(or, null, sr("a", {
             className: "icon_search",
             onClick: () => {
+                console.log(m);
                 u(!0)
             }
         }), m.courseitems[W].hasOwnProperty("meta") && m.courseitems[W].meta.hasOwnProperty("access") && m.courseitems[W].meta.access ? sr(or, null, sr("a", {
@@ -7083,8 +7090,9 @@
             className: "point-toaster-icon"
         }),
         sr("p", {
-            className: "point-text"
-        }, 'You just earned 300 Points'))), m.hasOwnProperty("comments_open") ? sr("span", {
+            className: "point-text",
+            id: "point-text"
+        }, ''))), m.hasOwnProperty("comments_open") ? sr("span", {
             className: "review_block",
             onClick: () => (M(!1), void(E.hasOwnProperty("comment_ID") || fetch(`${window.wplms_course_data.api_url}/user/getreview/${e.course_id}`, {
                 method: "post",
@@ -7141,16 +7149,16 @@
                         dangerouslySetInnerHTML: {
                             __html: m.courseitems[W].title
                         }
-                    })),sr("span", {
+                    })),m.courseitems[W].quiz_mycreds == 0 ?sr("span", {
                         className: "right-info"
                     },sr("span", {
                         className: "attempt-text"
                     }, 'Attempts Remaining'),sr("span", {
-                        className: "attempt-number correct",
+                        className: m.courseitems[W].retakes == 0 ? "attempt-number incorrect" : "attempt-number correct",
                         onClick : function(){
                             console.log(m.courseitems[W]);
                         }
-                    }, m.courseitems[W].retakes))), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
+                    }, m.courseitems[W].retakes)) : ''), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
                         var t = {
                             coursestatus: m,
                             type: m.courseitems[W].quiz_type,

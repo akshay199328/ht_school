@@ -1539,7 +1539,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 								'content'   => '',
 								'status'    => $complete,
 								'retakes'   => intval($retake_count),
-								'quiz_mycreds' => $quiz_creds_total,
+								'quiz_mycreds' => !empty($quiz_creds_total)?intval($quiz_creds_total):0,
 								'meta'		=> array(),
 							));
 						}else if(bp_course_get_post_type($item) == 'wplms-assignment'){
@@ -3165,6 +3165,17 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
             if(!empty($tags_data)){
             	update_user_meta($this->user_id,'tags_data'.$post['quiz_id'],$tags_data);
             }
+            $retakes=apply_filters('wplms_quiz_retake_count',get_post_meta($post['quiz_id'],'vibe_quiz_retakes',true),$post['quiz_id'],$post['course_id'],$this->user_id);
+					
+			if(function_exists('bp_course_fetch_user_quiz_retake_count') && bp_is_active('activity')){
+				
+				$retake_count = bp_course_fetch_user_quiz_retake_count($post['quiz_id'],$this->user_id);
+				if(!empty($retakes) && $retakes > $retake_count){
+					$retake_count = $retakes - intval($retake_count);
+				}else{
+					$retake_count = 0;
+				}
+			}
 
 			$data = array(
 				'check_results_url'=>bp_core_get_user_domain( $this->user_id ).BP_COURSE_SLUG.'/'.BP_COURSE_RESULTS_SLUG.'/?action='.$post['quiz_id'],'status'=>true,
@@ -3179,7 +3190,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				'tags_data' => $tags_data,
 				'tags' => $tags,
 				'results' =>$results,
-				'quiz_points_credit' => $quiz_points_credit
+				'quiz_points_credit' => !empty($quiz_points_credit)?intval($quiz_points_credit):0,
+				'retakes' => intval($retake_count)
 			);
 						
 			return 	new WP_REST_Response( $data, 200 );

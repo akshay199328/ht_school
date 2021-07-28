@@ -4083,12 +4083,18 @@
                                 });
                                 document.dispatchEvent(r)
                             }
-                            var point_toast = "You just earned "+quiz_points_credit+" Points"
-                            jQuery('.point-text').text(t.point_toast);
+                            if(t.quiz_points_credit > 0){
+                                var point_toast = "You just earned "+t.quiz_points_credit+" Points"
+                                jQuery('#point-text').text(point_toast);
 
-                            jQuery('.point-toaster').fadeIn();
-                            jQuery('.point-toaster').fadeOut(10000)
-                            
+                                jQuery('.point-toaster').fadeIn();
+                                jQuery('.point-toaster').fadeOut(10000);
+                                jQuery('.result-show').text('PASSED');
+                                jQuery('#result-display').removeClass("failed");
+                                jQuery('#result-display').addClass("pass");
+                                jQuery('#quiz_result_icon').removeClass("failed")
+                            }
+                            jQuery('.attempt-number').text(t.retakes);
                         }
                     })
                 },
@@ -4300,7 +4306,8 @@
             },gn("h1",null,"Quiz Result:",t.quiz_points > 0 && t.is_event_type ? gn("span", {
                 className: "result-show pass"
             }, 'PASSED') : gn("span", {
-                className: "result-show failed"
+                className: "result-show failed",
+                id: "result-display"
             }, 'FAILED')),
             gn("span", {
                 className: "quiz_result_heading"
@@ -4325,7 +4332,8 @@
 
                 // })
             ),gn("div", {
-                className: t.quiz_points > 0 && t.is_event_type ? "quiz_result_icon" : "quiz_result_icon failed"
+                className: t.quiz_points > 0 && t.is_event_type ? "quiz_result_icon" : "quiz_result_icon failed",
+                id:'quiz_result_icon'
             }), Rt("div", {
                 className: "buttons_wrapper"
             },

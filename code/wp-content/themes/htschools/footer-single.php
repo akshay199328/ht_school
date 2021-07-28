@@ -1429,6 +1429,7 @@ border: 1px solid deepskyblue;
 
 	jQuery(document).ready(function(){
 		jQuery('.live_course_class .the_course_button').click(function(e){
+			jQuery(".alert-note").css('display','none');
 			var course_id = jQuery(this).data('id');
 			var course_name = jQuery('#course_name_' + course_id).val();
 			jQuery('#live_course_name').text(course_name);

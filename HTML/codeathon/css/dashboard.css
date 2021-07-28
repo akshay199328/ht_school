@@ -557,7 +557,7 @@ html {
     display: inline-block;
     z-index: -1;
     width: 100%;
-    right: -61%;
+    right: -54%;
     position: absolute;
     top: 0;
     z-index: 99999;
@@ -566,13 +566,13 @@ html {
 .leftcontent_tab:before{
     content:'';
     height: 152px;
-    max-width: 141px;
+    max-width: 107px;
     background: url(../images/leftcontent_tab-before.png) no-repeat left center;
     background-size: 100%;
     display: inline-block;
     z-index: -1;
     width: 100%;
-    left: -41%;
+    left: -36%;
     position: absolute;
     top: 5%;
     z-index: 99999;
@@ -1274,6 +1274,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     min-width: 100%;
     min-height: 57.87px;
     margin-top: 29px;
+}
+@media screen and (max-width:1440px) and (min-width:1367px){
+    .leader_board:before{left: 41%;}
+}
+@media screen and (max-width:1366px) and (min-width:1281px){
+    .leader_board:before{left: 30%;}
+    .points_board:after{right: -27%;max-width: 77px;}
+    .leftcontent_tab:before{left: -13%;max-width: 50px;}
+    .dashboard-wrapper:before{left: -84px;background-size: 77%;}
+}
+@media screen and (max-width:1280px) and (min-width:1200px){
+  .leader_board:before{left: 30%;}
+    .points_board:after{right: -27%;max-width: 77px;}
+    .leftcontent_tab:before{left: -13%;max-width: 50px;}
+    .dashboard-wrapper:before{left: -84px;background-size: 77%;}
 }
 @media screen and (max-width: 1024px) and (min-width: 768px){
     .tab_scroll {height: 360px;}

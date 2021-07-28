@@ -18,6 +18,9 @@ html {
 .mrg{
     padding: 0px;
 }
+.dashbaord_body .section-wrapper.about {
+    padding: 40px 0 102px 0;
+}
 .dashbaord_body .header-wrapper .header-right .account{
     display: inline-block;
 }
@@ -110,7 +113,7 @@ html {
     bottom: 55px;
 }
 .dashboard-wrapper .container{
-    z-index: 999;
+    z-index: 999;max-width: 1150px;
 }
 .notice-board {
     margin: 40px 0px 10px;
@@ -256,7 +259,7 @@ html {
     border: 4px solid #FFF;
     position: relative;
 }
-.leftcontent_tab:before {
+.leftcontent_tab:after {
     content: "";
     height: 83px;
     max-width: 73px;
@@ -279,6 +282,14 @@ html {
 }
 .details_footer{
     padding: 25px 35px 20px;
+}
+.dashboard_video{
+    background: url(../images/video-back.png) no-repeat center center;
+    background-size: 100% 243px;
+    /* min-height: 243px;*/
+}
+.dashboard_video video {
+    width: 97%;
 }
 .option_share {
     float: left;
@@ -310,6 +321,30 @@ html {
     right: 0;
     top: 100%;
 }
+.toggle-share:after,
+.toggle-share:before {
+    content: '';
+        display: block;
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    top: -32px;
+    border-style: solid;
+}
+
+.toggle-share:after {
+    right: 16px;
+    border-color: transparent transparent white #00000000;
+    border-width: 10px;
+    top: -20px;
+}
+
+.toggle-share:before {
+        right: 10px;
+    border-color: transparent transparent #ff9eb3 #00000000;
+    border-width: 16px;
+}
 .toggle-share h6 {
     font-size: 16px;
     font-weight: 500;
@@ -330,7 +365,7 @@ html {
 }
 .video_decp .details {
     padding-left: 20px;
-    margin-top: 10px;
+    margin-top: 0px;
     float: left;
     width: 100%;
 }
@@ -508,7 +543,7 @@ html {
     border: 4px solid white;
     border-radius: 10px;
     box-shadow: -0.86px -0.52px 3px #fff;
-    margin-left: 33px;
+    margin-left: 30px;
     position: relative;
 }
 .points_board:after{
@@ -518,11 +553,11 @@ html {
     background-image: url(../images/learning-doodle-gray.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 64%;
+    background-size: 100%;
     display: inline-block;
     z-index: -1;
-    width: 60%;
-    right: -195px;
+    width: 100%;
+    right: -61%;
     position: absolute;
     top: 0;
     z-index: 99999;
@@ -530,16 +565,14 @@ html {
 
 .leftcontent_tab:before{
     content:'';
-    height: 169px;
-    max-width: 283px;
-    background-image: url(../images/leftcontent_tab-before.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 40%;
+    height: 152px;
+    max-width: 141px;
+    background: url(../images/leftcontent_tab-before.png) no-repeat left center;
+    background-size: 100%;
     display: inline-block;
     z-index: -1;
     width: 100%;
-    left: -35%;
+    left: -41%;
     position: absolute;
     top: 5%;
     z-index: 99999;

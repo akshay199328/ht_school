@@ -125,7 +125,7 @@ if(have_posts()):while(have_posts()):the_post();
     }
 })
 
-  jQuery('.a2a_button_telegram').click(function(e){
+  jQuery('.wpcf7-submit').click(function(e){
     let courseSharedMoegObj = {
       "User identifier" : jQuery("#footer_user_identifier").val(),
       "Session source"  : jQuery("#footer_session_source").val(),
@@ -135,7 +135,7 @@ if(have_posts()):while(have_posts()):the_post();
       "Phone"           : jQuery("#mobileNumber").val(),
       "Pin code"        : jQuery("#pincode").val(),
       "Profile type"    : jQuery("#ProfileDropDown").val(),
-      "Message keywords": "",
+      "Message keywords": jQuery("#yourMessage").val(),
     }
 
     courseSharedMoegObj.event = "mo_Contact_Form_Submitted";
@@ -240,7 +240,7 @@ get_footer(vibe_get_footer());
 ?>
 <!-- Modal -->
 <div class="modal modal-box fade contact-popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">        
           <div class="modal-title" id="exampleModalLabel">

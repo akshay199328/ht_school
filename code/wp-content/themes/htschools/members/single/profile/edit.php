@@ -106,7 +106,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<span id="errSchoolMsg"></span>
 			</div>
 			<div style="display:none" id="other_school">
-				<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >				
+				<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >											
 				<span id="errotherSchoolMsg"></span>
 			</div>
 
@@ -232,7 +232,15 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	.ui-autocomplete li.ui-menu-item:last-child:hover .ui-menu-item-wrapper {
 		background-color: #d5ebff!important;
     	color: #000;    	
-	}
+	}	
+
+	#errotherSchoolMsg{
+	    color: red;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
 
 </style>
 
@@ -489,6 +497,26 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				}					
 			});	
 
+			$("#user_school_other").on("change", function (event, ui) {
+				var other_val = $("#user_school_other").val();
+
+				jQuery.ajax({
+				    type : "POST",
+				    dataType : "json",
+				    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
+				    data : {check_school_other : other_val},
+				    success: function(response) {
+						//alert(response.status);
+				        //alert(response.response);
+
+				        if(response.status == 1){
+				        	jQuery("#errotherSchoolMsg").text('School name is already exists!');
+				        	jQuery("#user_school_other").val('');
+				        }
+				    }
+				});
+			});
+			
 			$("#user_school_data").on("keyup", function (event, ui) {
 				var other_val = $("#user_school_data").val();
    

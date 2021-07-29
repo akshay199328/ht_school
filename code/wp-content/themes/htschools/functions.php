@@ -3488,6 +3488,39 @@ function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
   }
 }
 
+add_action("wp_ajax_check_school_other", "check_school_other");
+add_action( 'wp_ajax_nopriv_check_school_other', 'check_school_other' );
+
+function check_school_other(){
+$other_school_name = $_REQUEST['check_school_other'];
+
+  global $wpdb;
+ // $user_id = get_current_user_id();
+
+  $result_id = $wpdb->get_results("SELECT DISTINCT ID FROM ht_users WHERE display_name = '" . esc_attr($other_school_name) . "'");
+  $get_existing_id = $result_id[0]->ID;
+  
+  if($get_existing_id != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $get_existing_id
+    );
+
+    $response['status'] = 1;
+
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $get_existing_id
+    );
+
+    $response['status'] = 0;
+  }
+  
+  echo json_encode($response); 
+  exit;
+}
+
 
 add_action("wp_ajax_skip_dashboard_submit", "skip_dashboard_submit");
 add_action( 'wp_ajax_nopriv_skip_dashboard_submit', 'skip_dashboard_submit' );

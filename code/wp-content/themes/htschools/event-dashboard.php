@@ -19,8 +19,15 @@ $userID = $current_user->id;
 
 function credsPoints($userID){
 
-  global $wpdb;
-  $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `ht_mycred_log` WHERE `user_id` = '$userID'");
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+        $my_cred_table = 'ht_mycred_log';
+    }
+    else{
+        $my_cred_table = 'ht_myCRED_log';
+    }
+  $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID'");
   foreach($results as $row){ 
     $points = $row->points; 
   }

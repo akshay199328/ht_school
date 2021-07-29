@@ -3319,9 +3319,16 @@ function mycred_user_max( $run, $request, $mycred ) {
   $user_id = get_current_user_id();
   // This code snippet is only applicable for logging_in
   global $wpdb;
+  $table_name = "ht_mycred_log";
+	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+	    $my_cred_table = 'ht_mycred_log';
+	}
+	else{
+	    $my_cred_table = 'ht_myCRED_log';
+	}
   if ( $request['ref'] != 'logging_in' || $run === false ) return $run;
 
-  $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='logging_in' AND user_id = '".$user_id."'");
+  $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM $my_cred_table WHERE ref='logging_in' AND user_id = '".$user_id."'");
   $creds_json = json_decode( json_encode($sql), true);
   $creds_total = $creds_json[0]['total_creds'];
   // Maximum allowed
@@ -3357,6 +3364,13 @@ add_action("wp_ajax_social_share_points", "social_share_points");
 add_action( 'wp_ajax_nopriv_social_share_points', 'social_share_points' );
 function social_share_points(){
   global $wpdb;
+  	$table_name = "ht_mycred_log";
+	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+	    $my_cred_table = 'ht_mycred_log';
+	}
+	else{
+	    $my_cred_table = 'ht_myCRED_log';
+	}
     $response = array(
       'status' => 0,
       'message' => 'Failed to add points'
@@ -3369,7 +3383,7 @@ function social_share_points(){
     $limit_per_day = $_POST['limit_per_day'];
     $entry = "Points for sharing on ".$share_on."";
     $count = mycred_get_total_by_time( 'today', 'now', $ref, $user_id, 'mycred_engagement' );
-    $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='".$ref."' AND user_id = '".$user_id."'");
+    $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM $my_cred_table WHERE ref='".$ref."' AND user_id = '".$user_id."'");
     $creds_json = json_decode( json_encode($sql), true);
     $creds_total = $creds_json[0]['total_creds'];  
     
@@ -3390,16 +3404,23 @@ function social_share_points(){
 
 function referal_product_points(){
   global $wpdb;
+  $table_name = "ht_mycred_log";
+	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+	    $my_cred_table = 'ht_mycred_log';
+	}
+	else{
+	    $my_cred_table = 'ht_myCRED_log';
+	}
   $user_id = get_current_user_id();
   $response = array(
     'status' => 0,
     'message' => 'Failed to add points'
   );
   $now = current_time('timestamp');
-  $sql1 = $wpdb->get_results("SELECT user_id FROM ht_mycred_log WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
+  $sql1 = $wpdb->get_results("SELECT user_id FROM $table_name WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
   $referal_userid_json = json_decode( json_encode($sql1), true);
   $referal_userid = $referal_userid_json[0]['user_id'];
-  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM ht_mycred_log WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
+  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM $table_name WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
   $referal_total_userid_json = json_decode( json_encode($sql2), true);
   $referal_total_userid_count = $referal_total_userid_json[0]['user_count'];
   if($referal_total_userid_count <= 9){
@@ -3421,7 +3442,14 @@ function referal_product_points(){
 add_action("wp_ajax_platform_onboarding_points", "platform_onboarding_points");
 add_action( 'wp_ajax_nopriv_platform_onboarding_points', 'platform_onboarding_points' );
 function platform_onboarding_points(){
-  global $wpdb;
+  	global $wpdb;
+  	$table_name = "ht_mycred_log";
+	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+	    $my_cred_table = 'ht_mycred_log';
+	}
+	else{
+	    $my_cred_table = 'ht_myCRED_log';
+	}
   $response = array(
     'status' => 0,
     'message' => 'Failed to add points'
@@ -3433,7 +3461,7 @@ function platform_onboarding_points(){
   $ref_entry = $_POST['ref_entry'];
   $ref_key = $_POST['ref_key'];
   $entry = "Points for platform onboarding ".$ref_entry."";
-  $sql1 = $wpdb->get_results("SELECT user_id FROM ht_mycred_log WHERE user_id='".$user_id."' AND ref = '".$ref_key."'");
+  $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE user_id='".$user_id."' AND ref = '".$ref_key."'");
   $userid_json = json_decode( json_encode($sql1), true);
   $userid = $userid_json[0]['user_id'];
   if($user_id && $userid == 0){
@@ -3441,6 +3469,8 @@ function platform_onboarding_points(){
   }else{
     $response['message'] = 'Points will be added only once';
   }
+  
+  
   if($results == 1){
     $response['message'] = 'Points added successfully';
   }
@@ -3478,7 +3508,14 @@ function video_watched_points(){
 
 function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
   global $wpdb;
-  $mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry, data) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_engagement','".$now."','".$entry."', '".$data."')");
+  $table_name = "ht_mycred_log";
+	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+	    $my_cred_table = 'ht_mycred_log';
+	}
+	else{
+	    $my_cred_table = 'ht_myCRED_log';
+	}
+  $mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry, data) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_engagement','".$now."','".$entry."', '".$data."')");
   $result = $wpdb->query($mycred_points);
   if($result){
     return true;

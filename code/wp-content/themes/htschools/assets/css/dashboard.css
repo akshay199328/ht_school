@@ -989,7 +989,8 @@ html {
   .profile-progress .progressbar li.active {
       color: green;
   }
-  .profile-progress .progressbar li.active:before {
+.profile-progress .progressbar li.active:before,
+.profile-progress .progressbar li.completed:before{
         border-color: #ff9eb3;
         background-color: #ff9eb3;
         color: #fff;

@@ -95,8 +95,14 @@ if ( ! class_exists( 'myCRED_Hook_Logging_In' ) ) :
 
 			}
 			global $wpdb;
-
-			$sql = $wpdb->get_results("SELECT * FROM ht_mycred_log WHERE ref='logging_in' AND user_id = '".$user->ID."' AND FROM_UNIXTIME(TIME) BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE()");
+			$table_name = "ht_mycred_log";
+			if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+			    $my_cred_table = 'ht_mycred_log';
+			}
+			else{
+			    $my_cred_table = 'ht_myCRED_log';
+			}
+			$sql = $wpdb->get_results("SELECT * FROM $my_cred_table WHERE ref='logging_in' AND user_id = '".$user->ID."' AND FROM_UNIXTIME(TIME) BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE()");
 			$prev_creds_json = json_decode( json_encode($sql), true);
 			$prev_creds = $prev_creds_json[0]['creds'];
 

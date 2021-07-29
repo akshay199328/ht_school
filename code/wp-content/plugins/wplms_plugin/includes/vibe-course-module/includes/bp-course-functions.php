@@ -425,7 +425,14 @@
       $return['quiz_attempt_3_points'] = !empty($quiz_attempt_3_points)?intval($quiz_attempt_3_points):0;
       $return['next_unit'] = $next_unit;
       global $wpdb;
-      $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM ht_mycred_log WHERE ref='quiz_points' AND user_id = '".$user_id."' and ref_id = '".$item_id."' ");
+      $table_name = "ht_mycred_log";
+      if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+          $my_cred_table = 'ht_mycred_log';
+      }
+      else{
+          $my_cred_table = 'ht_myCRED_log';
+      }
+      $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM $my_cred_table WHERE ref='quiz_points' AND user_id = '".$user_id."' and ref_id = '".$item_id."' ");
       $quiz_creds_json = json_decode( json_encode($sql), true);
       $quiz_creds_total = $quiz_creds_json[0]['total_creds'];
         $return['quiz_points'] = !empty($quiz_attempt_3_points)?intval($quiz_creds_total):0;

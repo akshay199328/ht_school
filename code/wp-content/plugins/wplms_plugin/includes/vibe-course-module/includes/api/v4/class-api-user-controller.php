@@ -1524,7 +1524,14 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 								}
 							}
 							global $wpdb;
-					      	$sql = $wpdb->get_results("SELECT creds FROM ht_mycred_log WHERE ref='quiz_points' AND user_id = '".$user_id."' and ref_id = '".$item."' ");
+							$table_name = "ht_mycred_log";
+						      if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+						          $my_cred_table = 'ht_mycred_log';
+						      }
+						      else{
+						          $my_cred_table = 'ht_myCRED_log';
+						      }
+					      	$sql = $wpdb->get_results("SELECT creds FROM $my_cred_table WHERE ref='quiz_points' AND user_id = '".$user_id."' and ref_id = '".$item."' ");
 					      	$quiz_creds_json = json_decode( json_encode($sql), true);
 					      	$quiz_creds_total = $quiz_creds_json[0]['creds'];
 							$curriculum_arr[] = apply_filters('bp_course_api_course_curriculum_quiz',array(
@@ -1605,9 +1612,16 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				$lock = get_post_meta($course_id,'vibe_course_prev_unit_quiz_lock',true);
 				$return['lock'] = ((!empty($lock) && $lock == 'S')?1:0);
 				$is_event_type = get_post_meta($course_id,'vibe_course_event',true);
-				$return['is_event_type'] = !empty($is_event_type)?intval($is_event_type):0;
+					$return['is_event_type'] = intval($is_event_type);
 				global $wpdb;
-				$sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM ht_mycred_log WHERE user_id = '".$user_id."'");
+				$table_name = "ht_mycred_log";
+			      if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+			          $my_cred_table = 'ht_mycred_log';
+			      }
+			      else{
+			          $my_cred_table = 'ht_myCRED_log';
+			      }
+				$sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$user_id."'");
 				$total_creds_json = json_decode( json_encode($sql), true);
 				$total_creds_total = $total_creds_json[0]['total_creds'];
 				$return['total_creds'] = !empty($total_creds_total)?intval($total_creds_total):0;
@@ -3078,8 +3092,15 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
                         }
                     }
 	                global $wpdb;
+	                $table_name = "ht_mycred_log";
+				      if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+				          $my_cred_table = 'ht_mycred_log';
+				      }
+				      else{
+				          $my_cred_table = 'ht_myCRED_log';
+				      }
 	                $now    = current_time( 'timestamp' );
-		      		$mycred_points = $wpdb->prepare("INSERT INTO ht_mycred_log(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
+		      		$mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
 		            $wpdb->query($mycred_points);
                 }
 
@@ -3199,7 +3220,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				'results' =>$results,
 				'quiz_points_credit' => !empty($quiz_points_credit)?intval($quiz_points_credit):0,
 				'retakes' => intval($retake_count),
-				'is_event_type' =>$is_event_type
+				'is_event_type' =>intval($is_event_type)
 			);
 						
 			return 	new WP_REST_Response( $data, 200 );

@@ -63,7 +63,76 @@ if(intval($user_school) > 0){
     $user_school_name = get_user_by('id', $user_school)->display_name;
 }
 
-$dob = strtotime($user_birthday);
+$dob = date('Y-m-d',strtotime($user_birthday));
+
+$results = $wpdb->get_results("SELECT country_name FROM `ht_country_master` WHERE `country_id` = '$user_country'");
+foreach($results as $row){ 
+    $country_name = $row->country_name; 
+}
+
+$results2 = $wpdb->get_row("SELECT count(umeta_id) as profileStatus FROM `ht_usermeta` WHERE `user_id` = '$user_id' and `meta_key` = 'profile_status'");
+$profileStatus = $results2->profileStatus;
+
+
+$results11 = $wpdb->get_results("SELECT `ID` FROM `ht_posts` WHERE `post_type` = 'events' and post_status = 'publish' ORDER BY `ID`");
+foreach($results11 as $row11){ 
+  $post_id = $row11->ID; 
+}
+
+function getData($wpdb, $post_id, $meta_key){
+
+  $results = $wpdb->get_results( "SELECT * FROM `ht_postmeta` WHERE `post_id` = '$post_id' AND `meta_key` = '$meta_key'");
+  foreach($results as $row){ 
+    return $row->meta_value; 
+  }
+
+}
+
+$course_1 = getData($wpdb, $post_id, 'learning_modules_course_1');
+$course_2 = getData($wpdb, $post_id, 'learning_modules_course_2');
+$course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
+
+$course_status1 = 'course_status'.$course_1;
+$course_status2 = 'course_status'.$course_2;
+$course_status3 = 'course_status'.$course_3;
+
+$results1 = $wpdb->get_row("SELECT count(umeta_id) as course_status11 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status1'");
+$course_status11 = $results1->course_status11;
+
+$results2 = $wpdb->get_row("SELECT count(umeta_id) as course_status22 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status2'");
+$course_status22 = $results2->course_status22;
+
+$results3 = $wpdb->get_row("SELECT count(umeta_id) as course_status33 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status3'");
+$course_status33 = $results2->course_status33;
+
+if($course_status11 == 1){
+    $courseID = $course_1;
+}
+if($course_status22 == 1){
+    $courseID = $course_2;
+}
+if($course_status33 == 1){
+    $courseID = $course_3;
+}
+
+//$courseID = 204;
+
+do_action('wplms_course_curriculum_section',$courseID);
+
+$course_curriculum = ht_course_get_full_course_curriculum($courseID); 
+$countlesson=count($course_curriculum);
+$course_units = [];
+foreach($course_curriculum as $lesson){
+    if($lesson['type'] == 'unit'){
+        array_push($course_units, $lesson);
+    }
+}
+$countunit=count($course_units);
+$course_units_array = array_slice($course_units, 0, 4);
+$counter=0;
+
+$post = get_post($courseID);
+$slug = $post->post_name;
 
 ?>
 <section class="dashboard-wrapper">
@@ -146,9 +215,9 @@ $dob = strtotime($user_birthday);
                                             </svg>
                                             <div class="toggle-share ">
                                                 <h6>Share with your Friends</h6>
-                                                <ul id="social_share">
-                                                    <li value="Whatsapp Share">
-                                                        <a href="https://api.whatsapp.com//send?text=My Referrals Code is : <?php echo get_home_url();?>" target="_blank">
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://api.whatsapp.com//send?text=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
                                                                 <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"/>
                                                                 <path id="Path_84" data-name="Path 84" d="M4.962,51.2a.594.594,0,0,1-.573-.75L7.525,39a23.15,23.15,0,1,1,9.321,9.1L5.113,51.178A.543.543,0,0,1,4.962,51.2Z" transform="translate(-3.773 -3.906)" fill="#fff"/>
@@ -158,16 +227,16 @@ $dob = strtotime($user_birthday);
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li value="Twitter Share">
-                                                        <a href="https://twitter.com/intent/tweet?text=My Referral Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
+                                                    <li>
+                                                        <a href="https://twitter.com/intent/tweet?text=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"/>
                                                                 <path id="Path_89" data-name="Path 89" d="M40.611,17.527a13.383,13.383,0,0,1-3.576,1.049c1.214-.72,3.139-2.22,3.576-3.576a17.065,17.065,0,0,1-4.522,1.636,5.761,5.761,0,0,0-9.784,4.325v2.384c-4.768,0-9.418-3.632-12.311-7.153a5.738,5.738,0,0,0-.8,2.929c0,2.168,1.992,4.369,3.569,5.416a11.065,11.065,0,0,1-3.576-1.192v.068a5.345,5.345,0,0,0,4.664,5.272,7.465,7.465,0,0,1-3.386.621c.746,2.307,4.5,3.526,7.067,3.576-2.01,1.558-5.593,2.384-8.345,2.384A8.785,8.785,0,0,1,12,35.239a18.539,18.539,0,0,0,9.537,2.412c10.8,0,16.69-8.247,16.69-15.939,0-.253-.008-1.1-.021-1.347a9.057,9.057,0,0,0,2.406-2.837" transform="translate(-2.463 -1.887)" fill="#fff"/>
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li value="Facebook Share">
-                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=My Referrals Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
+                                                    <li>
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"/>
                                                                 <path id="Path_91" data-name="Path 91" d="M29.15,33.174h6.17l.969-6.268h-7.14V23.48c0-2.6.851-4.913,3.286-4.913h3.914V13.1a33.247,33.247,0,0,0-4.89-.3c-5.739,0-9.1,3.031-9.1,9.935v4.17h-5.9v6.268h5.9V50.4a23.891,23.891,0,0,0,3.566.295,24,24,0,0,0,3.228-.243Z" transform="translate(-2.08 -3.012)" fill="#fff"/>
@@ -181,19 +250,16 @@ $dob = strtotime($user_birthday);
                                 </div>
                                 <div class="video_decp">
                                     <div class="col-12 col-md-4 col-sm-12 mrg pull-left">
-                                        <video width="100%" height="240" controls="" poster="images/video-poster.png">
-                                            <source src="images/videos/dummy.mp4" type="video/mp4">
-                                            <source src="images/videos/dummy.ogg" type="video/ogg">
-                                            Your browser does not support the video tag.
-                                        </video>
+                                        <!-- <iframe src="https://player.vimeo.com/video/40877088?portrait=0" width="100%" height="200" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="<?php echo get_post_meta($courseID,'vibe_trailer_link',true); ?>" width="100%" allowfullscreen></iframe>
+                                        </div>
                                     </div>
                                     <div class="col-12 col-md-8 col-sm-12 mrg pull-left">
                                         <div class="details">
-                                            <h4>Website Development with HTML & CSS</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-                                            incididunt adipisicing elit, sed do eiusmo
-                                            incididunt </p>
-                                            <button type="button" class="resume_btn btn">Resume Learning</button>
+                                            <h4><?php echo get_the_title($courseID); ?></h4>
+                                            <p><?php echo get_the_excerpt($courseID); ?></p>
+                                            <button type="button" class="resume_btn btn"><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color:#fff;">Resume Learning</a></button>
                                         </div>
                                     </div>
                                 </div>
@@ -204,19 +270,22 @@ $dob = strtotime($user_birthday);
                                 </div>
                             </div>
                             <div class="details_footer">
-                                <span class="head">Total Chapter: 10</span>
+                                <span class="head">Total Chapter: <?php echo $countunit; ?></span>
                                 <div class="tab_scroll">
+                                <?php 
+                                  foreach($course_units as $lesson_units){ 
+                                    $lessonId = get_post($lesson['id']); ?>
                                     <div class="list">
                                         <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5>Chapter 1 : Elements 
-                                        <span class="toggle_icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
-                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                            <h5><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color: #2d2d2d;"><?php echo $lesson_units['title'];?></a>
+                                                <span class="toggle_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
+                                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                                     </svg>
                                                 </span>
                                             </h5>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
+                                        <!-- <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
                                             <h6 class="">
                                                 <span class="icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="21.626" height="21.626" viewBox="0 0 21.626 21.626">
@@ -224,7 +293,7 @@ $dob = strtotime($user_birthday);
                                                     </svg>
                                                 </span>800 / 1000
                                             </h6>
-                                        </div>
+                                        </div> -->
                                         <div class="col-12 col-md-12 col-sm-12 mrg mobile-show">
                                             <div class="progressbar">
                                                 <span class="pull-left">
@@ -239,185 +308,9 @@ $dob = strtotime($user_birthday);
                                                     <div class="progress-bar w-40" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
-                                            <!-- <iframe id="player1" allowfullscreen="allowfullscreen" width="100%" height="240" src="https://player.vimeo.com/video/76979871?player_id=player_1"></iframe> -->
                                         </div>
                                     </div>
-                                    <div class="list">
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5>Chapter 1 : Elements
-                                                <span class="toggle_icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
-                                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    </svg>
-                                                </span>
-                                            </h5>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
-                                            <h6>
-                                                <span class="icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="21.626" height="21.626" viewBox="0 0 21.626 21.626">
-                                                        <path id="Shape_882" data-name="Shape 882" d="M3382.348,786.705a10.813,10.813,0,1,0,10.813,10.813A10.813,10.813,0,0,0,3382.348,786.705Zm7.006,10.071-2.8,2.728.665,3.843a.973.973,0,0,1-.391.949.957.957,0,0,1-1.027.078l-3.451-1.819-3.451,1.819a.972.972,0,0,1-1.037-.078.993.993,0,0,1-.391-.949l.665-3.843-2.8-2.728a.975.975,0,0,1,.548-1.662l3.852-.567,1.731-3.491a1.009,1.009,0,0,1,1.75,0l1.731,3.491,3.853.567a.976.976,0,0,1,.548,1.662Z" transform="translate(-3371.536 -786.705)" fill="#ffcd35"/>
-                                                    </svg>
-                                                </span>800 / 1000
-                                            </h6>
-                                        </div>
-                                        <div class="col-12 col-md-12 col-sm-12 mobile-show mrg">
-                                            <div class="progressbar">
-                                                <span class="pull-left">
-                                                    <p>Completed</p>
-                                                </span>
-                                                <span class="pull-right">
-                                                    <h6>40%</h6>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-12 col-sm-12 mrg pull-left">
-                                                <div class="progress">
-                                                    <div class="progress-bar w-40" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5>Chapter 1 : Elements
-                                                <span class="toggle_icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
-                                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    </svg>
-                                                </span>
-                                            </h5>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
-                                            <h6>
-                                                <span class="icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="21.626" height="21.626" viewBox="0 0 21.626 21.626">
-                                                        <path id="Shape_882" data-name="Shape 882" d="M3382.348,786.705a10.813,10.813,0,1,0,10.813,10.813A10.813,10.813,0,0,0,3382.348,786.705Zm7.006,10.071-2.8,2.728.665,3.843a.973.973,0,0,1-.391.949.957.957,0,0,1-1.027.078l-3.451-1.819-3.451,1.819a.972.972,0,0,1-1.037-.078.993.993,0,0,1-.391-.949l.665-3.843-2.8-2.728a.975.975,0,0,1,.548-1.662l3.852-.567,1.731-3.491a1.009,1.009,0,0,1,1.75,0l1.731,3.491,3.853.567a.976.976,0,0,1,.548,1.662Z" transform="translate(-3371.536 -786.705)" fill="#ffcd35"/>
-                                                    </svg>
-                                                </span>800 / 1000
-                                            </h6>
-                                        </div>
-                                        <div class="col-12 col-md-12 col-sm-12 mobile-show mrg">
-                                            <div class="progressbar">
-                                                <span class="pull-left">
-                                                    <p>Completed</p>
-                                                </span>
-                                                <span class="pull-right">
-                                                    <h6>40%</h6>
-                                                </span>
-                                            </div>
-                                            <div class="col-12 col-md-12 col-sm-12 mrg pull-left">
-                                                <div class="progress">
-                                                    <div class="progress-bar w-40" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5>Chapter 1 : Elements
-                                                <span class="toggle_icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
-                                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    </svg>
-                                                </span>
-                                            </h5>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
-                                            <h6 class="disabled">
-                                                <span class="icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="21.626" height="21.626" viewBox="0 0 21.626 21.626">
-                                                        <path id="Shape_882" data-name="Shape 882" d="M3382.348,786.705a10.813,10.813,0,1,0,10.813,10.813A10.813,10.813,0,0,0,3382.348,786.705Zm7.006,10.071-2.8,2.728.665,3.843a.973.973,0,0,1-.391.949.957.957,0,0,1-1.027.078l-3.451-1.819-3.451,1.819a.972.972,0,0,1-1.037-.078.993.993,0,0,1-.391-.949l.665-3.843-2.8-2.728a.975.975,0,0,1,.548-1.662l3.852-.567,1.731-3.491a1.009,1.009,0,0,1,1.75,0l1.731,3.491,3.853.567a.976.976,0,0,1,.548,1.662Z" transform="translate(-3371.536 -786.705)" fill="#ffcd35"/>
-                                                    </svg>
-                                                </span>0 / 1000
-                                            </h6>
-                                        </div>
-                                        <div class="col-12 col-md-12 col-sm-12 mobile-show mrg">
-                                            <div class="progressbar">
-                                                <span class="pull-left">
-                                                    <p>Completed</p>
-                                                </span>
-                                                <span class="pull-right">
-                                                    <h6>0%</h6>
-                                                </span>
-                                            </div>
-                                            <div class="col-12 col-md-12 col-sm-12 mrg pull-left">
-                                                <div class="progress">
-                                                    <div class="progress-bar w-0" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5>Chapter 1 : Elements
-                                                <span class="toggle_icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
-                                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    </svg>
-                                                </span>
-                                            </h5>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
-                                            <h6 class="disabled">
-                                                <span class="icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="21.626" height="21.626" viewBox="0 0 21.626 21.626">
-                                                        <path id="Shape_882" data-name="Shape 882" d="M3382.348,786.705a10.813,10.813,0,1,0,10.813,10.813A10.813,10.813,0,0,0,3382.348,786.705Zm7.006,10.071-2.8,2.728.665,3.843a.973.973,0,0,1-.391.949.957.957,0,0,1-1.027.078l-3.451-1.819-3.451,1.819a.972.972,0,0,1-1.037-.078.993.993,0,0,1-.391-.949l.665-3.843-2.8-2.728a.975.975,0,0,1,.548-1.662l3.852-.567,1.731-3.491a1.009,1.009,0,0,1,1.75,0l1.731,3.491,3.853.567a.976.976,0,0,1,.548,1.662Z" transform="translate(-3371.536 -786.705)" fill="#ffcd35"/>
-                                                    </svg>
-                                                </span>0 / 1000
-                                            </h6>
-                                        </div>
-                                        <div class="col-12 col-md-12 col-sm-12 mobile-show mrg">
-                                            <div class="progressbar">
-                                                <span class="pull-left">
-                                                    <p>Completed</p>
-                                                </span>
-                                                <span class="pull-right">
-                                                    <h6>0%</h6>
-                                                </span>
-                                            </div>
-                                            <div class="col-12 col-md-12 col-sm-12 mrg pull-left">
-                                                <div class="progress">
-                                                    <div class="progress-bar w-0" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list">
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5>Chapter 1 : Elements
-                                                <span class="toggle_icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
-                                                        <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    </svg>
-                                                </span>
-                                            </h5>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
-                                            <h6 class="disabled">
-                                                <span class="icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="21.626" height="21.626" viewBox="0 0 21.626 21.626">
-                                                        <path id="Shape_882" data-name="Shape 882" d="M3382.348,786.705a10.813,10.813,0,1,0,10.813,10.813A10.813,10.813,0,0,0,3382.348,786.705Zm7.006,10.071-2.8,2.728.665,3.843a.973.973,0,0,1-.391.949.957.957,0,0,1-1.027.078l-3.451-1.819-3.451,1.819a.972.972,0,0,1-1.037-.078.993.993,0,0,1-.391-.949l.665-3.843-2.8-2.728a.975.975,0,0,1,.548-1.662l3.852-.567,1.731-3.491a1.009,1.009,0,0,1,1.75,0l1.731,3.491,3.853.567a.976.976,0,0,1,.548,1.662Z" transform="translate(-3371.536 -786.705)" fill="#ffcd35"/>
-                                                    </svg>
-                                                </span>0 / 1000
-                                            </h6>
-                                        </div>
-                                        <div class="col-12 col-md-12 col-sm-12 mobile-show mrg">
-                                            <div class="progressbar">
-                                                <span class="pull-left">
-                                                    <p>Completed</p>
-                                                </span>
-                                                <span class="pull-right">
-                                                    <h6>0%</h6>
-                                                </span>
-                                            </div>
-                                            <div class="col-12 col-md-12 col-sm-12 mrg pull-left">
-                                                <div class="progress">
-                                                    <div class="progress-bar w-0" role="progressbar"  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -442,7 +335,7 @@ $dob = strtotime($user_birthday);
                                 </div>
                                 <div class="board-button">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#refer-popup">REFERRALS</button>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#profile-popup">UPLOAD PROJECT</button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#">UPLOAD PROJECT</button>
                                 </div>
                             </div>
                         </div>
@@ -608,9 +501,9 @@ $dob = strtotime($user_birthday);
                         </div>
                         <div class="col-6 col-sm-7 pull-right">
                             <div class="copy">
-                                <h3 class="title">Lorem ipsum dolor sit amet, </h3>
+                                <h3 class="title"><?php echo $custom_fields['about_our_partners_title'][0];?></h3>
                                 <p><?php echo $custom_fields['description'][0];?></p>
-                                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>">Read More >></a>
+                                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>">Visit Partner >></a>
                             </div>
                         </div>
                     </div>
@@ -786,7 +679,7 @@ $dob = strtotime($user_birthday);
                                                 <div class="form-group">
                                                     <label class="form-label">Date of Birth*</label>
                                                     <div class="input-group input-date">
-                                                        <input type="date" class="form-control" name="user_dob" id="user_dob" placeholder="mm/dd/yyy" value="<?php echo date("m/d/Y", $dob); ?>">
+                                                        <input type="date" class="form-control" name="user_dob" id="user_dob" placeholder="mm/dd/yyyy" value="<?php echo $dob; ?>">
                                                         <!-- <div class="input-group-text">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="23.351" height="25.623" viewBox="0 0 23.351 25.623">
                                                                 <path id="Path_101" data-name="Path 101" d="M21.848,4.562H19.513V3.281a1.173,1.173,0,1,0-2.335,0V4.562H10.173V3.281A1.228,1.228,0,0,0,9.005,2,1.228,1.228,0,0,0,7.838,3.281V4.562H5.5A3.685,3.685,0,0,0,2,8.406V23.78a3.685,3.685,0,0,0,3.5,3.843H21.848a3.685,3.685,0,0,0,3.5-3.843V8.406a3.685,3.685,0,0,0-3.5-3.843ZM23.016,23.78a1.228,1.228,0,0,1-1.168,1.281H5.5A1.228,1.228,0,0,1,4.335,23.78V14.812h18.68Zm0-11.53H4.335V8.406A1.228,1.228,0,0,1,5.5,7.125H7.838V8.406A1.228,1.228,0,0,0,9.005,9.687a1.228,1.228,0,0,0,1.168-1.281V7.125h7.005V8.406a1.173,1.173,0,1,0,2.335,0V7.125h2.335a1.228,1.228,0,0,1,1.168,1.281Z" transform="translate(-2 -2)" fill="#ccc"/>
@@ -837,7 +730,7 @@ $dob = strtotime($user_birthday);
                                         <div class="list">
                                             <div class="form-group">
                                                 <label class="form-label">Select Gender*</label>
-                                                <div class="switch-button">
+                                                <div class="switch-field">
                                                     <input type="radio" class="switch-input user_radio_btn" name="user_gender" value="Female" id="one" <?php if($user_gender == '' || $user_gender == null){ echo "checked"; } else if($user_gender == 'Female'){ echo "checked"; } ?>>
                                                     <label for="one" class="switch-label switch-label-off">
                                                         <span>Female</span>
@@ -852,10 +745,20 @@ $dob = strtotime($user_birthday);
                                         </div>
                                         <div class="list">
                                             <div class="form-group">
+                                                <label class="form-label">School Name*</label>
+                                                <div class="input-group input-search">
+                                                    <input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
+                                                    <input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+                                                </div>
+                                                <span id="errSchoolMsg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="list">
+                                            <div class="form-group">
                                                 <label class="form-label">Country</label>
                                                 <div class="input-group input-search">
-                                                    <input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Country" value="<?php echo $user_country; ?>">
-                                                <input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
+                                                    <input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Country" value="<?php echo $country_name; ?>">
+                                                    <input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -906,7 +809,7 @@ $dob = strtotime($user_birthday);
                             </div>
                             <div class="float-start">
                                 <div class="profile-add">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="209" height="232" viewBox="0 0 209 232">
+                                    <svg id="profile-add" xmlns="http://www.w3.org/2000/svg" width="209" height="232" viewBox="0 0 209 232">
                                         <g id="Group_145" data-name="Group 145" transform="translate(-419 -345)">
                                             <g id="Group_144" data-name="Group 144">
                                                 <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="104.5" cy="105" rx="104.5" ry="105" transform="translate(419 345)" fill="#e3e3e3"/>
@@ -923,9 +826,14 @@ $dob = strtotime($user_birthday);
                                             <text id="_" data-name="+" transform="translate(524 564)" fill="#fff" font-size="38" font-family="Poppins-Light, Poppins" font-weight="300" letter-spacing="0.03em"><tspan x="-12.445" y="0">+</tspan></text>
                                         </g>
                                     </svg>
+                                    <div id="profileimage"></div>
+                                    <input type="file" id="inputfile" value="">
+                                    <input type="hidden" id="school_card_img" value="" name="school_card_img">
                                     <span class="text"> School ID card to get all 100 points instantly!!</span>
+                                    <span id="errSchoolIDMsg"></span>
                                 </div>
-                                <button type="button" class="skip-button">Skip to Dashboard</button>
+                                <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
+                                <button type="button" class="skip-button" id="skipDashboard">Skip to Dashboard</button>
                             </div>
                             <div class="float-end">
                                 <div class="profile-ratingdetail">
@@ -947,7 +855,8 @@ $dob = strtotime($user_birthday);
                                             </div>
                                         </div>
                                     </div>
-                                   <button type="button" class="next-button">save</button>
+                                   <button type="button" class="next-button" id="saveStep3">Save</button>
+                                   <p id="response_message3" class="" style="margin: 10px 0; display: none;">
                                 </div>
                             </div>
                         </div>
@@ -957,6 +866,24 @@ $dob = strtotime($user_birthday);
         </div>
     </div>
 <!-- Referral Code -->
+    <!-- Modal Congrats Popup -->
+    <div class="modal fade congrats-popup" id="congrats-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/codeathon.svg" class="codeathon-logo">
+                    <div class="content">
+                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/dashboard/congrats-hero.png">
+                        <p class="congrats">Congratulations!</p>
+                        <h2 class="earned">You have earned</h2>
+                        <span class="coupon">100 points</span>
+                        <!-- <span class="coupon-1">50 points</span> -->
+                        <a class="skip">Skip to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <script type="text/javascript">
 function myFunction() {
   var copyText = document.getElementById("myInput");

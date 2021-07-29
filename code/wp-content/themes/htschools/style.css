@@ -8508,8 +8508,8 @@ input.form-control{margin-left: 0px!important;}
   pointer-events: none;
 }
 .course-header .right-side .sort{
-  width: 205px!important;    
-  display: flex;
+    width: 205px!important;    
+    display: flex;
     flex-direction: row;
     align-items: center;
     float: right;

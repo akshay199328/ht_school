@@ -1371,6 +1371,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 @media screen and (max-width: 575px) and (min-width: 320px){
     .modal-dialog {max-width: 98%;}
+    .switch-field label{    width: 110px;}
+    .profile-progress .progressbar li:after{left: -33%;}
 }
 .congrats-popup .modal-dialog{max-width:740px;}
 .congrats-popup .modal-content{text-align:center;border:4px solid #D5ACFF;padding:52px;background-image:url("../images/dashboard/congrats-bg.png");background-repeat: no-repeat;background-position:center;}

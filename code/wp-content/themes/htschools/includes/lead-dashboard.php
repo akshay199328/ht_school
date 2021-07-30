@@ -44,12 +44,13 @@ if($page_name=="index.php"){
                 </div>
                 <div class="column">
                     <span class="title">CAUSE PARTNER</span>
+                    <img src="<?php echo get_bloginfo('template_url'); ?>/images/group-logo/speed.png">
                 </div>
             </div>
         <div class="header-right">
             <span class="ht-school"><img src="<?php echo get_bloginfo('template_url'); ?>/images/ht-school.svg"></span>
             <div class="account">
-                <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register">Home</a>
+                <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register"><span class="caption">Home</span></a>
                 <a href="#!" class="login"><img src="<?php echo get_bloginfo('template_url'); ?>/images/login-profile.png"></a>
             </div>
         </div>

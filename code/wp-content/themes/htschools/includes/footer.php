@@ -232,6 +232,9 @@ setTimeout(()=>popup.classList.add("show", "in"));
             $(".home-button").click(function () {
                 $("body").toggleClass('menuOpened');
             });
+            $(".earn-points-btn").click(function () {
+                $("body").toggleClass('menuOpened');
+            });
           $(document).ready(function(){
                $('body').addClass('home');
           });

@@ -215,8 +215,8 @@ $slug = $post->post_name;
                                             </svg>
                                             <div class="toggle-share ">
                                                 <h6>Share with your Friends</h6>
-                                                <ul>
-                                                    <li>
+                                                <ul id="social_share">
+                                                    <li value="whatsapp">
                                                         <a href="https://api.whatsapp.com//send?text=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
                                                                 <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"/>
@@ -227,7 +227,7 @@ $slug = $post->post_name;
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li>
+                                                    <li value="twitter">
                                                         <a href="https://twitter.com/intent/tweet?text=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"/>
@@ -235,7 +235,7 @@ $slug = $post->post_name;
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li>
+                                                    <li value="facebook">
                                                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"/>

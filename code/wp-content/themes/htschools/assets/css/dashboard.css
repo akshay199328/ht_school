@@ -1244,12 +1244,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: translateX(100%);
     background:grey;
 }
-.profile-image {position: relative;}
+.profile-image {position: relative;    margin-bottom: 20px;}
 .profile-image #inputfile {
     position: absolute;
     bottom: -7px;
     left: 39%;
     width: 47px;
+    height: 47px;
     margin: 0px auto;
     text-align: center;
     cursor: pointer;
@@ -1264,6 +1265,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-size: 100%;
     min-height: 50px;
     min-width: 46px;
+}
+.profile-image  #profileimage {
+    height: 210px;
 }
 .profile-add .text {
     font-size: 16px;

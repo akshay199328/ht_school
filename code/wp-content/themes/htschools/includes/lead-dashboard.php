@@ -56,7 +56,7 @@ if($page_name=="index.php"){
             </span>
             <div class="account">
                 <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register"><span class="caption">Home</span></a>
-                <a href="#!" class="login"><img src="<?php echo get_bloginfo('template_url'); ?>/images/login-profile.png"></a>
+                <a href="#!" class="ms-3"><img src="<?php echo get_bloginfo('template_url'); ?>/images/login-profile.png"></a>
             </div>
         </div>
     </header>

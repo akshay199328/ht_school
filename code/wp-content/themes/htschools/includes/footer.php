@@ -192,8 +192,10 @@ setTimeout(()=>popup.classList.add("show", "in"));
   
   /* Close the popup when a city is selected. */
   jQuery('.refer-popup .modal-content .btn-close').click(function(){
-     jQuery('.refer-popup').hide()
-  }) 
+     jQuery('.refer-popup').hide();
+     $('body').removeClass('modal-open');
+  });
+  $('body').addClass('modal-open'); 
 };
         $(document).ready(function(){
           jQuery(document).ready(function($) {

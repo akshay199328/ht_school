@@ -3497,5 +3497,19 @@ body.menuOpened .side-navigation {
 .page-template-event-prelaunch .header .header-copy .right-menu .custom_topmenu .loggedin_user{flex-wrap:wrap;padding:8px 30px 8px 8px !important;}
 .page-template-event-prelaunch .header .header-copy .right-menu .custom_topmenu .loggedin_user img{margin-right:0}
 .page-template-event-prelaunch .header .header-copy .right-menu .custom_topmenu .loggedin_user .vibebp_name{margin-right:0;padding-left:10px}
+@media (max-width:450px){
+    .page-template-event-prelaunch .header .header-copy .middle-menu{display:flex;align-items:center;}
+    .page-template-event-prelaunch .header .header-copy .middle-menu .mobile-nav-toggle{margin-right:10px}
+    .page-template-event-prelaunch .header .header-copy .middle-menu .logo{
+        background-size: 100%;
+        background-position: center;
+        width:130px;
+        height:56px;
+    }
+    .page-template-event-prelaunch .header .header-copy .middle-menu .logo img{
+        display:none !important;
+    }
+    .page-template-event-prelaunch .home_slider .owl-item img{height:auto}
+}
 
 .page-template-event-prelaunch .footer-wrapper .footer-title{font-weight:400 !important}

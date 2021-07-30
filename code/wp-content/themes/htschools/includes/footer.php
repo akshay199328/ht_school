@@ -133,6 +133,7 @@ else if(isset($_COOKIE['PHPSESSID']))
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/assets/js/navigation-custom.js"></script>
     <script type="text/javascript">
      $(".navigation-wrapper ul li a").click(function(){
     $("body").removeClass("menuOpened");
@@ -228,10 +229,12 @@ setTimeout(()=>popup.classList.add("show", "in"));
                       }
                   });
           });
-
             $(".home-button").click(function () {
                 $("body").toggleClass('menuOpened');
             });
+          $(document).ready(function(){
+               $('body').addClass('home');
+          });
             // $("body").click(function(){
             //     $("body").removeClass("menuOpened");
             // });

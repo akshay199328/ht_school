@@ -78,9 +78,6 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
 
           <div class="loginContent_right">
 
-
-
-
             <div class="login-right" id="login-step-1">
               <h4>Login / Sign Up</h4>
               <form method="POST" id="ht_reg_email">
@@ -118,12 +115,12 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
                     <p id="email-otp-message"></p>
                   </div>
                   <div id="otp" class="flex justify-center">
-                    <input class="text-center form-control to_next" type="text" name="num_1" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_2" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_3" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_4" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_5" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_6" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_1" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_2" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_3" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_4" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_5" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_6" maxlength="1" />
                   </div>
                   <p class="error" style="display: none;" id="ht_resend_error"></p>
                   <div class="resend-info">
@@ -195,12 +192,12 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
                       <p id="mobile-otp-message"></p>
                     </div>
                     <div id="otp" class="flex justify-center mobile-otp">
-                      <input class="text-center form-control to_next" type="text" name="num_1" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_2" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_3" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_4" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_5" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_6" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_1" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_2" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_3" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_4" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_5" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_6" maxlength="1" />
                     </div>
                     <p class="error" style="display: none;" id="mobile_resend_error"></p>
                     <div class="resend-info">
@@ -340,6 +337,43 @@ jQuery(window).load(function(){
 <script type="text/javascript">
 
     jQuery(document).ready(function(){
+      document.addEventListener("paste", function(e) {
+        // if the target is a text input
+        if (e.target.type === "text") {
+         var data = e.clipboardData.getData('Text');
+         // split clipboard text into single characters
+         data = data.split('');
+         // find all other text inputs
+         [].forEach.call(document.querySelectorAll(".email_otp"), (node, index) => {
+            // And set input value to the relative character
+            node.value = data[index];
+            jQuery("#verify-otp-btn").removeAttr("disabled");
+          });
+        }
+        if (e.target.type === "text") {
+         var data = e.clipboardData.getData('Text');
+         // split clipboard text into single characters
+         data = data.split('');
+         // find all other text inputs
+         [].forEach.call(document.querySelectorAll(".mobile_otp"), (node, index) => {
+            // And set input value to the relative character
+            node.value = data[index];
+            jQuery("#verify-mob-otp-btn").removeAttr("disabled");
+          });
+        }
+      });
+      jQuery(".email_otp").keydown(function(event){
+        var key = event.keyCode || event.charCode;
+        if((key == 8 || key == 46) && jQuery(this).val() ==''){
+          jQuery(this).prev('input').focus();
+        }
+      })
+      jQuery(".mobile_otp").keydown(function(event){
+        var key = event.keyCode || event.charCode;
+        if((key == 8 || key == 46) && jQuery(this).val() ==''){
+          jQuery(this).prev('input').focus();
+        }
+      })
         jQuery("#verify-otp-btn").prop("disabled", true);
         jQuery("#verify-mob-otp-btn").prop("disabled", true);
 
@@ -497,6 +531,7 @@ jQuery(window).load(function(){
         });
 
         jQuery("#reg_submit").click(function(){
+            jQuery('.mobile_otp').val('');
             jQuery("#reg_submit").html("Please wait...");
             jQuery("#reg_submit").attr("disabled", "disabled");
 

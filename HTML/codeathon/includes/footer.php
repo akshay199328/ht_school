@@ -135,7 +135,9 @@ setTimeout(()=>popup.classList.add("show", "in"));
   /* Close the popup when a city is selected. */
   jQuery('.refer-popup .modal-content .btn-close').click(function(){
      jQuery('.refer-popup').hide()
+     $('body').removeClass('modal-open');
   }) 
+  $('body').addClass('modal-open');
 };
 //scrollspy
 $(window).on('scroll', function () {
@@ -158,21 +160,19 @@ $(window).on('scroll', function () {
 });
      jQuery(document).ready(function(){
           jQuery(".share svg").click(function(){
-               // alert("BHAVNA");
                jQuery(this).next().slideToggle();
           });
 
           jQuery(".next-button").click(function(){
-               // alert("BHAVNA");
                jQuery('#step-2').show();
                jQuery('#step-1').hide();
           });
           jQuery(".step-2-next").click(function(){
-               // alert("BHAVNA");
-               jQuery('#step-2').hide();
+               Query('#step-2').hide();
                jQuery('#step-1').hide();
                jQuery('#step-3').show();
           });
+
      })
         $(document).ready(function(){
           jQuery(document).ready(function($) {

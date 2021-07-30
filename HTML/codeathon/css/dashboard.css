@@ -304,7 +304,7 @@ html {
     cursor: pointer;
 }
 .refer-popup.show{
-        background: #00000069;
+    background: #00000069;
 }
 
 .toggle-share {
@@ -319,7 +319,7 @@ html {
     text-align: left;
     position: absolute;
     right: 0;
-    top: 100%;
+    top: 37px;
 }
 .toggle-share:after,
 .toggle-share:before {
@@ -1039,7 +1039,9 @@ html {
   opacity: 30%
 }
 input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-moz-inner-spin-button,
+input[type="date"]::-moz-calendar-picker-indicator {
     /*display: none;
     -webkit-appearance: none;*/
     background: url('../images/calendar.png') no-repeat bottom right;
@@ -1278,6 +1280,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     letter-spacing: 0.48px;
     width: 64%;
 }
+.profile-add .text .block {display: block;}
 .profile-add {
     display: flex;
     width: 100%;
@@ -1308,6 +1311,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	display: block;
     position: relative;
     width: 100%;
+}
+@media (max-width: 768px){
+	.header-wrapper .header-right .account {display: none!important;}
 }
 @media screen and (max-width:1440px) and (min-width:1367px){
     .leader_board:before{left: 41%;}
@@ -1353,7 +1359,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .dashboard-wrapper:before{left: -128px;background-size: 65%;}
 }
 @media screen and (max-width: 767px) and (min-width: 320px){
-    .dashboard-wrapper{width: 100%;}
+    .dashboard-wrapper{width: 100%;padding-bottom: 0px;}
     .container {max-width: 100%;padding: 0;}
     .notice-board .pull-left {width: 80%;}
     .notice-board .pull-left h6, .board_point h6 {font-size: 14px;letter-spacing: 1px;}
@@ -1371,7 +1377,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .tab_scroll{height: 100%!important;overflow-y: auto;padding-right: 0px;}
     .leftcontent_tab{border-radius: 0;border: 0px;}
     .details_header, .details_footer{    padding: 20px 15px;}
-    .video_decp .details {padding-left: 0px;}
+    .video_decp .details {padding-left: 0px;margin-top: 19px;}
     .points_board, .leader_board{margin-left: 0px;margin: 30px 11px 0px;}
     .dashboard-wrapper:before,
     .leftcontent_tab:before, 
@@ -1414,6 +1420,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .switch-field label{    width: 110px;}
     .profile-progress .progressbar li:after{left: -33%;}
     .refer-note button{    min-width: 71%;}
+}
+@media (max-width: 450px){
+	.dashbaord_body .section-wrapper.about .partner-copy {width: 100%!important;}
+}
+@media screen and (max-width: 375px) and (min-width: 320px){
+	.profile-progress .progressbar li:after {left: -23%;}
 }
 .congrats-popup .modal-dialog{max-width:740px;}
 .congrats-popup .modal-content{text-align:center;border:4px solid #D5ACFF;padding:52px;background-image:url("../images/dashboard/congrats-bg.png");background-repeat: no-repeat;background-position:center;}

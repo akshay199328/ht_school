@@ -498,10 +498,10 @@ $slug = $post->post_name;
             ?>
                 <div class="item">
                     <div class="partner-copy">
-                        <div class="col-6 col-sm-5 pull-left">
+                        <div class="col-12 col-sm-5 pull-left">
                             <figure class="image"><img src="<?php echo $image_url; ?>"></figure>
                         </div>
-                        <div class="col-6 col-sm-7 pull-right">
+                        <div class="col-12 col-sm-7 pull-right">
                             <div class="copy">
                                 <h3 class="title"><?php echo $custom_fields['about_our_partners_title'][0];?></h3>
                                 <p><?php echo $custom_fields['description'][0];?></p>
@@ -829,7 +829,7 @@ $slug = $post->post_name;
                                         <input type="file" id="inputfile" value="">
                                         <input type="hidden" id="school_card_img" value="" name="school_card_img">
                                     </div>
-                                    <span class="text"> School ID card to get all 100 points instantly!!</span>
+                                    <span class="text"> School ID card to get<span class="block"></span> all 100 points instantly!!</span>
                                     <span id="errSchoolIDMsg"></span>
                                     <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
                                     <button type="button" class="skip-button" id="skipDashboard">Skip to Dashboard</button>

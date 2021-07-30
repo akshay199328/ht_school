@@ -173,14 +173,17 @@ class ACUI_Import{
                 $restricted_fields = $acui_helper->get_restricted_fields();
                 $all_roles = array_keys( wp_roles()->roles );
                 $editable_roles = array_keys( get_editable_roles() );
-    
+
                 $users_registered = array();
                 $headers = array();
+
                 $headers_filtered = array();
                 $is_backend = !$is_frontend && !$is_cron;			
                 $update_existing_users = isset( $form_data["update_existing_users"] ) ? sanitize_text_field( $form_data["update_existing_users"] ) : '';
     
                 $role_default = isset( $form_data["role"] ) ? $form_data["role"] : array( '' );
+
+
                 if( !is_array( $role_default ) )
                     $role_default = array( $role_default );
                 array_walk( $role_default, 'sanitize_text_field' );
@@ -226,12 +229,14 @@ class ACUI_Import{
                 $delimiter = $acui_helper->detect_delimiter( $file );
     
                 $manager = new SplFileObject( $file );
+
                 while ( $data = $manager->fgetcsv( $delimiter ) ):
+   
                     $row++;
 
                     if( count( $data ) == 1 )
                         $data = $data[0];
-                    
+                   
                     if( $data == NULL ){
                         break;
                     }
@@ -240,22 +245,24 @@ class ACUI_Import{
                         break;
                     }
     
-                    foreach ( $data as $key => $value ){
+                    foreach ( $data as $key => $value ){ 
                         $data[ $key ] = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', trim( $value ) );
                     }
     
                     for( $i = 0; $i < count($data); $i++ ){
                         $data[$i] = $acui_helper->string_conversion( $data[$i] );
-    
+  
                         if( is_serialized( $data[$i] ) ) // serialized
+        
                             $data[$i] = maybe_unserialize( $data[$i] );
                         elseif( strpos( $data[$i], "::" ) !== false  ) // list of items
                             $data[$i] = explode( "::", $data[$i] );
+    
                     }
-                    
+                  
                     if( $row == 1 ):
                         $data = apply_filters( 'pre_acui_import_header', $data );
-    
+     
                         // check min columns username - email
                         if(count( $data ) < 2){
                             echo "<div id='message' class='error'>" . __( 'File must contain at least 2 columns: username and email', 'import-users-from-csv-with-meta' ) . "</div>";
@@ -267,10 +274,11 @@ class ACUI_Import{
                         $id_position = false;
                         
                         foreach ( $restricted_fields as $acui_restricted_field ) {
+
                             $positions[ $acui_restricted_field ] = false;
                         }
     
-                        foreach( $data as $element ){
+                        foreach( $data as $element ){ 
                             $headers[] = $element;
     
                             if( in_array( strtolower( $element ) , $restricted_fields ) )
@@ -281,38 +289,48 @@ class ACUI_Import{
     
                             $i++;
                         }
-    
+   
                         $columns = count( $data );
     
                         update_option( "acui_columns", $headers_filtered );
     
                         $acui_helper->basic_css();
-                        
+                      
                         $acui_helper->print_table_header_footer( $headers );
                     else:
                         $data = apply_filters( 'pre_acui_import_single_user_data', $data, $headers );
-                        
+                         
                         if( count( $data ) != $columns ): // if number of columns is not the same that columns in header
                             $errors[] = $acui_helper->new_error( $row, __( 'Row does not have the same columns than the header, we are going to ignore this row', 'import-users-from-csv-with-meta') );
                             continue;
                         endif;
     
                         do_action('pre_acui_import_single_user', $headers, $data );
-                        $data = apply_filters('pre_acui_import_single_user_data', $data, $headers);
-    
+                        $data = apply_filters('pre_acui_import_single_user_data', $data, $headers);     
                         $username = empty( $data[0] ) ? $acui_helper->get_random_unique_username( 'user_' ) : $data[0];
+
                         $email = $data[1];
+
                         $user_id = 0;
                         $password_position = $positions["password"];
                         $password = ( $password_position === false ) ? wp_generate_password( apply_filters( 'acui_auto_password_length', 12 ), apply_filters( 'acui_auto_password_special_chars', true ), apply_filters( 'acui_auto_password_extra_special_chars', false ) ) : $data[ $password_position ];
                         $role_position = $positions["role"];
-                        $role = "";
+                       
+                        $role = "";        
                         $id_position = $positions["id"];
                         $id = ( empty( $id_position ) ) ? '' : $data[ $id_position ];
+    
                         $created = true;
+/*----------------------code by sayali----------------------------------*/
+                        $batch_id=$data[9];
+                        global $wpdb;
+                        $csf_db_table = $wpdb->prefix . "batch_master";
+                        $variation_id = $wpdb->get_results($wpdb->prepare("SELECT variation_id
+                                         FROM " .$csf_db_table. " WHERE id= ".$batch_id." "));
+/*----------------------code by sayali----------------------------------*/
                         
                         if( $role_position === false ){
-                            $role = $role_default;
+                            $role = $role_default;   
                         }
                         else{
                             $roles_cells = explode( ',', $data[ $role_position ] );
@@ -323,23 +341,25 @@ class ACUI_Import{
                             array_walk( $roles_cells, 'trim' );
                             
                             foreach( $roles_cells as $it => $role_cell )
+                                
                                 $roles_cells[ $it ] = strtolower( $role_cell );
                             
-                            $role = $roles_cells;
+                            $role = $roles_cells;                           
                         }
     
                         if ( !empty( array_diff( $role, $all_roles ) ) ){
                             $errors[] = $acui_helper->new_error( $row, sprintf( __( 'Some of the next roles "%s" does not exists', 'import-users-from-csv-with-meta' ), implode( ', ', $role ) ) );
-                            continue;
+                            continue;                            
                         }
-    
+
                         if ( !empty( array_diff( $role, $editable_roles ) ) ){ // users only are able to import users with a role they are allowed to edit
                             $errors[] = $acui_helper->new_error( $row, sprintf( __( 'You do not have permission to assign some of the next roles "%s"', 'import-users-from-csv-with-meta' ), implode( ', ', $role ) ) );     
                             $created = false;
                             continue;
                         }
-    
+
                         if( !empty( $email ) && ( ( sanitize_email( $email ) == '' ) ) ){ // if email is invalid
+        
                             $errors[] = $acui_helper->new_error( $row, sprintf( __( 'Invalid email "%s"', 'import-users-from-csv-with-meta' ), $email ) );     
                             $data[0] = __('Invalid EMail','import-users-from-csv-with-meta')." ($email)";
                         }
@@ -347,24 +367,26 @@ class ACUI_Import{
                             $errors[] = $acui_helper->new_error( $row, __( 'Email not specified', 'import-users-from-csv-with-meta' ) );     
                             $data[0] = __( 'EMail not specified', 'import-users-from-csv-with-meta' );
                         }
-    
+ 
                         if( !empty( $id ) ){ // if user have used id
                             if( $acui_helper->user_id_exists( $id ) ){
                                 if( $update_existing_users == 'no' ){
                                     $errors[] = $acui_helper->new_error( $row, sprintf( __( 'User with ID "%s" exists, we ignore it', 'import-users-from-csv-with-meta' ), $id ), 'notice' );     
                                     continue;
                                 }
-    
+ 
                                 // we check if username is the same than in row
                                 $user = get_user_by( 'ID', $id );
     
-                                if( $user->user_login == $username ){
+                                    if( $user->user_login == $username ){
                                     $user_id = $id;
                                     
                                     if( $password !== "" && $update_allow_update_passwords == 'yes' )
                                         wp_set_password( $password, $user_id );
     
                                     $new_user_id = $acui_helper->maybe_update_email( $user_id, $email, $password, $update_emails_existing_users );
+
+                                   
                                     if( empty( $new_user_id ) ){
                                         $errors[] = $acui_helper->new_error( $row, sprintf( __( 'User with email "%s" exists, we ignore it', 'import-users-from-csv-with-meta' ), $email ), 'notice' );     
                                         continue;
@@ -408,8 +430,7 @@ class ACUI_Import{
                             }
     
                             $user_object = get_user_by( "login", $username );
-                            $user_id = $user_object->ID;
-    
+                            $user_id = $user_object->ID;   
                             if( $password !== "" && $update_allow_update_passwords == 'yes' )
                                 wp_set_password( $password, $user_id );
     
@@ -601,7 +622,19 @@ class ACUI_Import{
                         }
 
                         $_SESSION['course_data'] = $data;
+                        
                         $_SESSION['course_user_id'] = $user_id;
+
+/*--------------------------code by sayali------------------------------*/
+                        $get_new_id = $_SESSION['course_user_id'];
+
+                        $date = date('Y-m-d H:i:s');
+                        $batch_insert = $wpdb->prepare("INSERT INTO ht_batch_student_mapping (batch_id, user_id, variation_id,created_on) VALUES (".$batch_id.", ".$get_new_id.", ". $variation_id[0]->variation_id.",'".$date."')");
+                        $wpdb->query($batch_insert);
+
+
+                        
+/*----------------------------code by sayali-----------------------------*/                        
                         $_SESSION['course_user_row'] = $headers;
                         $acui_helper->print_row_imported( $row, $data, $errors );
     
@@ -624,9 +657,9 @@ class ACUI_Import{
     
                         // wordpress default user created and edited emails
                         if( get_option('acui_automatic_created_edited_wordpress_email') === 'true' ){
-                            ( $created ) ? do_action( 'register_new_user', $user_id ) : do_action( 'edit_user_created_user', $user_id, 'both' );
+                            ( $created ) ? do_action( 'register_new_user', $user_id ) : do_action( 'edit_user_created_user', $user_id, 'both' );        
                         }
-                            
+                           
                         // send mail
                         if( isset( $mail_for_this_user ) && $mail_for_this_user ){
                             ACUI_Email_Options::send_email( $user_object, $positions, $headers, $data, $created, $password );
@@ -688,8 +721,7 @@ class ACUI_Import{
                 }
     
                 if( $delete_users_flag ):
-                    require_once( ABSPATH . 'wp-admin/includes/user.php');	
-    
+                    require_once( ABSPATH . 'wp-admin/includes/user.php');	   
                     global $wp_roles; // get all roles
                     $all_roles = $wp_roles->roles;
                     $exclude_roles = array_diff( array_keys( $all_roles ), $editable_roles ); // remove editable roles

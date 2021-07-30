@@ -251,8 +251,10 @@ $slug = $post->post_name;
                                 <div class="video_decp">
                                     <div class="col-12 col-md-4 col-sm-12 mrg pull-left">
                                         <!-- <iframe src="https://player.vimeo.com/video/40877088?portrait=0" width="100%" height="200" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="<?php echo get_post_meta($courseID,'vibe_trailer_link',true); ?>" width="100%" allowfullscreen></iframe>
+                                        <div class="dashboard_video">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="<?php echo get_post_meta($courseID,'vibe_trailer_link',true); ?>" width="100%" allowfullscreen></iframe>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-8 col-sm-12 mrg pull-left">
@@ -276,7 +278,7 @@ $slug = $post->post_name;
                                   foreach($course_units as $lesson_units){ 
                                     $lessonId = get_post($lesson['id']); ?>
                                     <div class="list">
-                                        <div class="col-12 col-lg-6 col-md-12 col-sm-12 mrg pull-left">
+                                        <div class="col-12 col-lg-8 col-md-12 col-sm-12 mrg pull-left">
                                             <h5><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color: #2d2d2d;"><?php echo $lesson_units['title'];?></a>
                                                 <span class="toggle_icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
@@ -285,7 +287,7 @@ $slug = $post->post_name;
                                                 </span>
                                             </h5>
                                         </div>
-                                        <!-- <div class="col-12 col-lg-6 col-md-12 col-sm-12 mobile-show mrg pull-right">
+                                        <!-- <div class="col-12 col-lg-4 col-md-12 col-sm-12 mobile-show mrg pull-right">
                                             <h6 class="">
                                                 <span class="icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="21.626" height="21.626" viewBox="0 0 21.626 21.626">
@@ -809,29 +811,26 @@ $slug = $post->post_name;
                             </div>
                             <div class="float-start">
                                 <div class="profile-add">
-                                    <svg id="profile-add" xmlns="http://www.w3.org/2000/svg" width="209" height="232" viewBox="0 0 209 232">
-                                        <g id="Group_145" data-name="Group 145" transform="translate(-419 -345)">
-                                            <g id="Group_144" data-name="Group 144">
+                                    <div class="profile-image">
+                                        <svg id="profile-add" xmlns="http://www.w3.org/2000/svg" width="209" height="210" viewBox="0 0 209 210">
+                                            <g id="Group_145" data-name="Group 145" transform="translate(-419 -345)">
                                                 <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="104.5" cy="105" rx="104.5" ry="105" transform="translate(419 345)" fill="#e3e3e3"/>
                                                 <g id="katman_2" data-name="katman 2" transform="translate(476 411.113)">
-                                                    <path id="Path_102" data-name="Path 102" d="M22.551,4H9.62A8.62,8.62,0,0,0,1,12.62V64.341a8.62,8.62,0,0,0,8.62,8.62H87.2a8.62,8.62,0,0,0,8.62-8.62V12.62A8.62,8.62,0,0,0,87.2,4H57.031" transform="translate(-1 4.427)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    <line id="Line_6" data-name="Line 6" x2="77.403" transform="translate(0.358 26.081)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    <rect id="Rectangle_22" data-name="Rectangle 22" width="16.827" height="12.62" transform="translate(39.059 0)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    <rect id="Rectangle_23" data-name="Rectangle 23" width="17.668" height="16.827" transform="translate(17.185 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    <line id="Line_7" data-name="Line 7" x2="26.081" transform="translate(51.679 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                                    <line id="Line_8" data-name="Line 8" x2="17.668" transform="translate(51.679 59.735)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                  <path id="Path_102" data-name="Path 102" d="M22.551,4H9.62A8.62,8.62,0,0,0,1,12.62V64.341a8.62,8.62,0,0,0,8.62,8.62H87.2a8.62,8.62,0,0,0,8.62-8.62V12.62A8.62,8.62,0,0,0,87.2,4H57.031" transform="translate(-1 4.427)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                  <line id="Line_6" data-name="Line 6" x2="77.403" transform="translate(0.358 26.081)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                  <rect id="Rectangle_22" data-name="Rectangle 22" width="16.827" height="12.62" transform="translate(39.059 0)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                  <rect id="Rectangle_23" data-name="Rectangle 23" width="17.668" height="16.827" transform="translate(17.185 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                  <line id="Line_7" data-name="Line 7" x2="26.081" transform="translate(51.679 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                                  <line id="Line_8" data-name="Line 8" x2="17.668" transform="translate(51.679 59.735)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                                 </g>
                                             </g>
-                                            <circle id="Ellipse_7" data-name="Ellipse 7" cx="23" cy="23" r="23" transform="translate(500.5 526.5)" fill="#06ea8c"/>
-                                            <text id="_" data-name="+" transform="translate(524 564)" fill="#fff" font-size="38" font-family="Poppins-Light, Poppins" font-weight="300" letter-spacing="0.03em"><tspan x="-12.445" y="0">+</tspan></text>
-                                        </g>
-                                    </svg>
+                                        </svg>
                                     <div id="profileimage"></div>
                                     <input type="file" id="inputfile" value="">
                                     <input type="hidden" id="school_card_img" value="" name="school_card_img">
-                                    <span class="text"> School ID card to get all 100 points instantly!!</span>
-                                    <span id="errSchoolIDMsg"></span>
                                 </div>
+                                <span class="text"> School ID card to get all 100 points instantly!!</span>
+                                <span id="errSchoolIDMsg"></span>
                                 <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
                                 <button type="button" class="skip-button" id="skipDashboard">Skip to Dashboard</button>
                             </div>

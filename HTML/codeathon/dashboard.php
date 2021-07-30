@@ -898,23 +898,23 @@
                     </div>
                     <div class="float-start">
                         <div class="profile-add">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="209" height="232" viewBox="0 0 209 232">
-                                <g id="Group_145" data-name="Group 145" transform="translate(-419 -345)">
-                                    <g id="Group_144" data-name="Group 144">
+                            <div class="profile-image">
+                                <svg id="profile-add" xmlns="http://www.w3.org/2000/svg" width="209" height="210" viewBox="0 0 209 210">
+                                    <g id="Group_145" data-name="Group 145" transform="translate(-419 -345)">
                                         <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="104.5" cy="105" rx="104.5" ry="105" transform="translate(419 345)" fill="#e3e3e3"/>
                                         <g id="katman_2" data-name="katman 2" transform="translate(476 411.113)">
-                                            <path id="Path_102" data-name="Path 102" d="M22.551,4H9.62A8.62,8.62,0,0,0,1,12.62V64.341a8.62,8.62,0,0,0,8.62,8.62H87.2a8.62,8.62,0,0,0,8.62-8.62V12.62A8.62,8.62,0,0,0,87.2,4H57.031" transform="translate(-1 4.427)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                            <line id="Line_6" data-name="Line 6" x2="77.403" transform="translate(0.358 26.081)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                            <rect id="Rectangle_22" data-name="Rectangle 22" width="16.827" height="12.62" transform="translate(39.059 0)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                            <rect id="Rectangle_23" data-name="Rectangle 23" width="17.668" height="16.827" transform="translate(17.185 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                            <line id="Line_7" data-name="Line 7" x2="26.081" transform="translate(51.679 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                            <line id="Line_8" data-name="Line 8" x2="17.668" transform="translate(51.679 59.735)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                          <path id="Path_102" data-name="Path 102" d="M22.551,4H9.62A8.62,8.62,0,0,0,1,12.62V64.341a8.62,8.62,0,0,0,8.62,8.62H87.2a8.62,8.62,0,0,0,8.62-8.62V12.62A8.62,8.62,0,0,0,87.2,4H57.031" transform="translate(-1 4.427)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                          <line id="Line_6" data-name="Line 6" x2="77.403" transform="translate(0.358 26.081)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                          <rect id="Rectangle_22" data-name="Rectangle 22" width="16.827" height="12.62" transform="translate(39.059 0)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                          <rect id="Rectangle_23" data-name="Rectangle 23" width="17.668" height="16.827" transform="translate(17.185 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                          <line id="Line_7" data-name="Line 7" x2="26.081" transform="translate(51.679 42.908)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                          <line id="Line_8" data-name="Line 8" x2="17.668" transform="translate(51.679 59.735)" fill="none" stroke="#bebebe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                         </g>
                                     </g>
-                                    <circle id="Ellipse_7" data-name="Ellipse 7" cx="23" cy="23" r="23" transform="translate(500.5 526.5)" fill="#06ea8c"/>
-                                    <text id="_" data-name="+" transform="translate(524 564)" fill="#fff" font-size="38" font-family="Poppins-Light, Poppins" font-weight="300" letter-spacing="0.03em"><tspan x="-12.445" y="0">+</tspan></text>
-                                </g>
-                            </svg>
+                                </svg>
+                                <input type="file" id="inputfile" value="">
+                                <input type="hidden" id="school_card_img" value="" name="school_card_img">
+                            </div>
                             <span class="text"> School ID card to get all 100 points instantly!!</span>
                         </div>
                         <button type="button" class="skip-button">Skip to Dashboard</button>

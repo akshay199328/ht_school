@@ -1244,6 +1244,27 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: translateX(100%);
     background:grey;
 }
+.profile-image {position: relative;}
+.profile-image #inputfile {
+    position: absolute;
+    bottom: -7px;
+    left: 39%;
+    width: 47px;
+    margin: 0px auto;
+    text-align: center;
+    cursor: pointer;
+}
+.profile-image #inputfile::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.profile-image #inputfile::before {
+    content: '';
+    display: inline-block;
+    background: url(../images/select-profile.png)no-repeat center;
+    background-size: 100%;
+    min-height: 50px;
+    min-width: 46px;
+}
 .profile-add .text {
     font-size: 16px;
     line-height: 25px;
@@ -1261,7 +1282,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-wrap: wrap;
 }
 .profile-add svg {
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-bottom: 20px;
 }
 .skip-button{
@@ -1276,6 +1297,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     min-height: 57.87px;
     margin-top: 29px;
 }
+.modal-open {
+    overflow: hidden;
+}
+.list .ui-helper-hidden-accessible{
+    display: block;
+    position: relative;
+    width: 100%;
+}
 @media screen and (max-width:1440px) and (min-width:1367px){
     .leader_board:before{left: 41%;}
 }
@@ -1286,7 +1315,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .dashboard-wrapper:before{left: -84px;background-size: 77%;}
 }
 @media screen and (max-width:1280px) and (min-width:1200px){
-  .leader_board:before{left: 30%;}
+    .leader_board:before{left: 23%;}
     .points_board:after{right: -27%;max-width: 77px;}
     .leftcontent_tab:before{left: -13%;max-width: 50px;}
     .dashboard-wrapper:before{left: -84px;background-size: 77%;}
@@ -1358,22 +1387,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .refer-popup .modal-body .share-option ul li svg {width: 47.69px;}
     .modal-dialog {max-width: 80%;}
     .refer-popup .modal-header, .modal-body, .modal-footer{    align-items: center;}
-    .refer-popup .modal-title {font-size: 24px;line-height: 26px;}
+    .refer-popup .modal-title {font-size: 24px!important;line-height: 26px!important;margin-top: 20px;}
     .refer-popup p {font-size: 14px;}
     .float-start, .float-end{width: 100%;}
     .profile-pointrating, .profile-progressbar{display: none;}
-    .next-button{    background-size: 275.5px;min-width: 275.5px;}
+    .next-button{    background-size: 100%;    min-width: 84%;}
     .skip-button {min-width: 275.5px;margin-bottom: 11px;    font-size: 18px;}
     .profile-form .list{    text-align: left;}
     .float-end .profile-ratingdetail {padding-left: 0;}
     .refer-popup .modal-content {padding: 40px 25px;}
-    .section-wrapper.dashboard_partner.partners{    padding-bottom: 125px;}
-    .section-wrapper.dashboard_partner.dashboard_partner:after{background: url(../images/dashboard-partner-doodle.png) no-repeat bottom right;background-size: 66% 60%;/*right: -17%;*/}
+    .section-wrapper.dashboard_partner.partners{    padding-bottom: 187px;}
+    .section-wrapper.dashboard_partner.dashboard_partner:after{
+        background: url(../images/dashboard-partner-doodle.png) no-repeat bottom right;
+        background-size: 100% 52%;
+        max-width: 220px;/*right: -17%;*/
+    }
+    .refer-note button{    min-width: 58%;background-size: 100%;}
+    .float-start .profile-form {padding-right: 0px;}
 }
 @media screen and (max-width: 575px) and (min-width: 320px){
     .modal-dialog {max-width: 98%;}
     .switch-field label{    width: 110px;}
     .profile-progress .progressbar li:after{left: -33%;}
+    .refer-note button{    min-width: 71%;}
 }
 .congrats-popup .modal-dialog{max-width:740px;}
 .congrats-popup .modal-content{text-align:center;border:4px solid #D5ACFF;padding:52px;background-image:url("../images/dashboard/congrats-bg.png");background-repeat: no-repeat;background-position:center;}

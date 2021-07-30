@@ -528,10 +528,13 @@
     bottom: 0;
 }*/
 .course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer a:first-child {
-    order: 2;
+    order: 2;display: none!important;
 }
 .course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer a:last-child {
     order: 1;
+}
+.reviewform .skip-button{
+    display: none!important;
 }
 .course_status .reviewpopup_wrapper .reviewpopup_content .popup-footer a .vicon{
     display: none!important

@@ -206,7 +206,7 @@ $(window).on('scroll', function () {
                   });
           });
 
-            $(".home-button").click(function () {
+            $(".earn-points-btn").click(function () {
                 $("body").toggleClass('menuOpened');
             });
             // $("body").click(function(){

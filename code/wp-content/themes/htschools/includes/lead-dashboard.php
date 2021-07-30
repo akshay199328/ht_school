@@ -49,7 +49,6 @@ if($page_name=="index.php"){
             </div>
         <div class="header-right">
             <span class="ht-school">
-                <span class="ht-school">
                 <a href="<?php echo get_bloginfo('url'); ?>" class="register">
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ht-school.svg">
                 </a>

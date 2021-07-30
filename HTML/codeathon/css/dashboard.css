@@ -1247,7 +1247,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     transform: translateX(100%);
     background:grey;
 }
-.profile-image {position: relative;margin-bottom: 20px;max-height: 210px;}
+.profile-image {position: relative;margin-bottom: 20px;max-height: 222px;}
 .profile-image #inputfile {
     position: absolute;
     bottom: -7px;
@@ -1279,7 +1279,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     display: block;
     text-align: center;
     letter-spacing: 0.48px;
-    width: 64%;
+    width: 100%;
 }
 .profile-add .text .block {display: block;}
 .profile-add {

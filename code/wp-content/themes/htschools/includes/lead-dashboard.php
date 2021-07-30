@@ -48,7 +48,12 @@ if($page_name=="index.php"){
                 </div>
             </div>
         <div class="header-right">
-            <span class="ht-school"><img src="<?php echo get_bloginfo('template_url'); ?>/images/ht-school.svg"></span>
+            <span class="ht-school">
+                <span class="ht-school">
+                <a href="<?php echo get_bloginfo('url'); ?>" class="register">
+                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ht-school.svg">
+                </a>
+            </span>
             <div class="account">
                 <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register"><span class="caption">Home</span></a>
                 <a href="#!" class="login"><img src="<?php echo get_bloginfo('template_url'); ?>/images/login-profile.png"></a>

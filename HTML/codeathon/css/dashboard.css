@@ -286,10 +286,12 @@ html {
 .dashboard_video{
     background: url(../images/video-back.png) no-repeat center center;
     background-size: 100% 243px;
+    padding: 5px;
     /* min-height: 243px;*/
 }
 .dashboard_video video {
     width: 97%;
+    height: 100%;
 }
 .option_share {
     float: left;
@@ -320,6 +322,7 @@ html {
     position: absolute;
     right: 0;
     top: 37px;
+    z-index: 9;
 }
 .toggle-share:after,
 .toggle-share:before {
@@ -1039,9 +1042,7 @@ html {
   opacity: 30%
 }
 input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="date"]::-moz-inner-spin-button,
-input[type="date"]::-moz-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator{
     /*display: none;
     -webkit-appearance: none;*/
     background: url('../images/calendar.png') no-repeat bottom right;
@@ -1361,7 +1362,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
 @media screen and (max-width: 767px) and (min-width: 320px){
     .dashboard-wrapper{width: 100%;padding-bottom: 0px;}
     .container {max-width: 100%;padding: 0;}
-    .notice-board .pull-left {width: 80%;}
+    .notice-board .pull-left {width: 70%;}
     .notice-board .pull-left h6, .board_point h6 {font-size: 14px;letter-spacing: 1px;}
     .notice-board .pull-left p {font-size: 13px;line-height: 17px;}
     .board_point h3 {font-size: 28px;}
@@ -1401,7 +1402,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
     .refer-popup p {font-size: 14px;}
     .float-start, .float-end{width: 100%;}
     .profile-pointrating, .profile-progressbar{display: none;}
-    .next-button{    background-size: 100%;    min-width: 84%;}
+    .next-button{    background-size:100% 100%;    min-width: 84%;}
     .skip-button {min-width: 275.5px;margin-bottom: 11px;    font-size: 18px;}
     .profile-form .list{    text-align: left;}
     .float-end .profile-ratingdetail {padding-left: 0;}
@@ -1409,8 +1410,9 @@ input[type="date"]::-moz-calendar-picker-indicator {
     .section-wrapper.dashboard_partner.partners{    padding-bottom: 187px;}
     .section-wrapper.dashboard_partner.dashboard_partner:after{
     	background: url(../images/dashboard-partner-doodle.png) no-repeat bottom right;
-    	background-size: 100% 52%;
-	    max-width: 220px;/*right: -17%;*/
+        background-size: 100% 100%;
+        max-width: 220px;
+        height: 80px;
 	}
     .refer-note button{    min-width: 58%;background-size: 100%;}
     .float-start .profile-form {padding-right: 0px;}
@@ -1418,7 +1420,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
 @media screen and (max-width: 575px) and (min-width: 320px){
     .modal-dialog {max-width: 98%;}
     .switch-field label{    width: 110px;}
-    .profile-progress .progressbar li:after{left: -33%;}
+    .profile-progress .progressbar li:after{left: -31%;}
     .refer-note button{    min-width: 71%;}
 }
 @media (max-width: 450px){

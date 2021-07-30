@@ -12,8 +12,8 @@ if($page_name=="index.php"){
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon-bootstrap.css" rel="stylesheet">
+    <link rel="icon" type="image/svg" href="<?php echo bloginfo('template_url')?>/assets/images/favicon.svg"/>
+    <link href="<?php echo get_bloginfo('template_url'); ?>https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/dashboard.css" rel="stylesheet">
@@ -22,7 +22,7 @@ if($page_name=="index.php"){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Hello, world!</title>
+
   </head>
   <body class="<?=$page_classes?> dashbaord_body">
     <header class="header-wrapper">

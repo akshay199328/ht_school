@@ -48,8 +48,8 @@ if($page_name=="index.php"){
         <div class="header-right">
             <span class="ht-school"><img src="images/ht-school.svg"></span>
             <div class="account">
-                <a href="#!" class="register">Register</a>
-                <a href="#!">Login</a>
+                <a href="#!" class="register"><span class="caption">Register</span></a>
+                <a href="#!" class="login"><span class="caption">Login</span></a>
             </div>
             <button class="home-button">
                 <span class="burger"></span>
@@ -69,7 +69,7 @@ if($page_name=="index.php"){
             <li><a href="#!">Coding For Cause</a></li>
         </ul>
         <div class="account">
-            <a href="#!" class="register">Register</a>
-            <a href="#!">Login</a>
+            <a href="#!" class="register"><span class="caption">Register</span></a>
+            <a href="#!" class="login"><span class="caption">Login</span></a>
         </div>
     </div>

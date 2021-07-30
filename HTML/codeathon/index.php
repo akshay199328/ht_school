@@ -259,24 +259,43 @@
     <section class="section-wrapper videos">
     	<div class="section-copy">
     		<h2 class="section-title">What Our Partners Say</h2>
-    		<div id="customers-testimonials" class="owl-carousel">
-
+            <div class="owl-carousel owl-theme says_slider">
             <div class="item">
-                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <span class="image-copy">
+            <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="What Our Partners Say 5" data-youtubecode="BHACKCNDMW8"><img src="https://staging.ht-school.com/wp-content/themes/htschools/images/video-play.svg"></a>
+            <img src="https://img.youtube.com/vi/BHACKCNDMW8/maxresdefault.jpg" class="main">
+            </span>
+            <span class="caption">What Our Partners Say 5</span>
             </div>
             <div class="item">
-                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <span class="image-copy">
+            <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="What Our Partners Say 4" data-youtubecode="BHACKCNDMW8"><img src="https://staging.ht-school.com/wp-content/themes/htschools/images/video-play.svg"></a>
+            <img src="https://img.youtube.com/vi/BHACKCNDMW8/maxresdefault.jpg" class="main">
+            </span>
+            <span class="caption">What Our Partners Say 4</span>
             </div>
             <div class="item">
-                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <span class="image-copy">
+            <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="What Our Partners Say 3" data-youtubecode="BHACKCNDMW8"><img src="https://staging.ht-school.com/wp-content/themes/htschools/images/video-play.svg"></a>
+            <img src="https://img.youtube.com/vi/BHACKCNDMW8/maxresdefault.jpg" class="main">
+            </span>
+            <span class="caption">What Our Partners Say 3</span>
             </div>
             <div class="item">
-                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <span class="image-copy">
+            <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="What Our Partners Say 2" data-youtubecode="BHACKCNDMW8"><img src="https://staging.ht-school.com/wp-content/themes/htschools/images/video-play.svg"></a>
+            <img src="https://img.youtube.com/vi/BHACKCNDMW8/maxresdefault.jpg" class="main">
+            </span>
+            <span class="caption">What Our Partners Say 2</span>
             </div>
             <div class="item">
-                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lXJJ0wabpdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="image-copy">
+                    <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="What Our Partners Say 1" data-youtubecode="BHACKCNDMW8"><img src="https://staging.ht-school.com/wp-content/themes/htschools/images/video-play.svg"></a>
+                <img src="https://img.youtube.com/vi/BHACKCNDMW8/maxresdefault.jpg" class="main">
+                </span>
+                <span class="caption">What Our Partners Say 1</span>
             </div>
-          </div>
+            </div>
     		<!-- <div class="owl-carousel owl-theme says_slider" id="says_slider">
 		        <div class="item-video">
 		            <a class="owl-video" href="https://www.youtube.com/watch?v=KbtJaGu2I38"></a>

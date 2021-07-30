@@ -482,17 +482,15 @@
 }
 .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea {
         background: url(../../assets/images/textarea_icon.png) no-repeat;
-    background-position: 47px 4%;
+    background-position: 47px 7%;
     height: 352.8px;
     -webkit-backdrop-filter: blur(30px);
     backdrop-filter: blur(30px);
     background-color: #f8f8f8;
-    padding-top: 15.5px!important;
+    padding-top: 25px!important;
     border: 0;
     padding-left: 80px!important;
     border-top: 1px dotted hsl(0deg 0% 44% / 50%)!important;
-    
-    
 }
 .course_status .incourse .question_wrapper .incorrect{
     display: none!important;
@@ -3647,7 +3645,7 @@ border-bottom: 1px solid #E8E8E8;
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 27px!important;
+    margin-bottom: 25px!important;
 }
 
 .wplms-course-star-rating .vicon {

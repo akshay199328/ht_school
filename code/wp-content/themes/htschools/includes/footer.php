@@ -229,7 +229,7 @@ setTimeout(()=>popup.classList.add("show", "in"));
                       }
                   });
           });
-            $(".home-button").click(function () {
+            $(".earn-points-btn").click(function () {
                 $("body").toggleClass('menuOpened');
             });
           $(document).ready(function(){

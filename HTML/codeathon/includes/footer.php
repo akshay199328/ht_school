@@ -206,12 +206,12 @@ $(window).on('scroll', function () {
                   });
           });
 
+            $(".home-button").click(function () {
+                $("body").toggleClass('menuOpened');
+            });
             $(".earn-points-btn").click(function () {
                 $("body").toggleClass('menuOpened');
             });
-            // $("body").click(function(){
-            //     $("body").removeClass("menuOpened");
-            // });
         });
             // $('.home-button').click(function(){
             //     $('.home-button').not("body").removeClass('menuOpened');

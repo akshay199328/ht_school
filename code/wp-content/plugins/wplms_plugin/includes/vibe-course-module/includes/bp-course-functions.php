@@ -435,11 +435,14 @@
       $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM $my_cred_table WHERE ref='quiz_points' AND user_id = '".$user_id."' and ref_id = '".$item_id."' ");
       $quiz_creds_json = json_decode( json_encode($sql), true);
       $quiz_creds_total = $quiz_creds_json[0]['total_creds'];
-        $return['quiz_points'] = !empty($quiz_attempt_3_points)?intval($quiz_creds_total):0;
+        $return['quiz_points'] = !empty($quiz_creds_total)?intval($quiz_creds_total):0;
 
       $is_event_type = get_post_meta($course,'vibe_course_event',true); 
       
       $return['is_event_type'] = !empty($is_event_type)?intval($is_event_type):0;
+
+      $event_quiz_type = get_post_meta($item_id,'vibe_event_quiz_type',true);
+      $return['event_quiz_type'] = $event_quiz_type;
       
       if($status < 3){
         $t = get_user_meta($user_id,$item_id,true);
@@ -1766,6 +1769,7 @@ function bp_get_course_certificate($args){
   extract( $r, EXTR_SKIP );
 
     $url = apply_filters('bp_get_course_certificate_url',0,$course_id,$user_id);
+    $url ='';
     if(empty($url)){
         $certificate_template_id=get_post_meta($course_id,'vibe_certificate_template',true);
         if(!empty($certificate_template_id) && is_numeric($certificate_template_id)){

@@ -574,7 +574,18 @@ add_filter('wplms_quiz_metabox','quiz_first_attempt');
 
 function quiz_first_attempt($field1){
   $prefix = 'vibe_';
-    $prefix = 'vibe_';
+  $field1[]=array( // Single checkbox
+    'label' => __('Select quiz type for event','wplms'), // <label>
+    'desc'  => __('Select the type of the quiz for event','wplms'), // description
+    'id'  => $prefix.'event_quiz_type', // field id and name
+    'type'  => 'select',
+      'options' => apply_filters('wplms_event_quiz_types',array(
+        array('label'=>_x('Select Event Quiz Type','','wplms'),'value'=>''),
+        array('label'=>_x('Video','','wplms'),'value'=>'video'),
+        array('label'=>_x('Chapter','','wplms'),'value'=>'chapter'),
+        array('label'=>_x('Course','','wplms'),'value'=>'course')
+      ))
+    );
   $field1[]=array( 
   'label' => __('Quiz Image','vibe-quiz-image'), // <label>
   'desc'  => __('Quiz Image','vibe-quiz-image'), // description
@@ -582,21 +593,29 @@ function quiz_first_attempt($field1){
   'type'  => 'image' // type of field
   );
   $field1[]=array( // Text Input
-  'label' => __('Quiz Attempt 1','vibe-quiz-attempt-1'), // <label>
+  'label' => __('Quiz Attempt 1(Correct Answer)','vibe-quiz-attempt-1'), // <label>
   'desc'  => __('Add points for first quiz attempt','vibe-quiz-attempt-1'), // description
   'id'    => $prefix.'quiz-attempt-1', // field id and name
   'type'  => 'text', // type of field
   'std'   => 0
   );
   $field1[]=array( // Text Input
-  'label' => __('Quiz Attempt 2','vibe-quiz-attempt-2'), // <label>
+  'label' => __('Quiz Attempt 1(Wrong Answer)','vibe-quiz-attempt-wrong-1'), // <label>
+  'desc'  => __('Add points for first quiz attempt with wrong answer','vibe-quiz-attempt-wrong-1'), // description
+  'id'    => $prefix.'quiz-attempt-wrong-1', // field id and name
+  'type'  => 'text', // type of field
+  'std'   => 0
+  );
+  
+  $field1[]=array( // Text Input
+  'label' => __('Quiz Attempt 2(Correct Answer)','vibe-quiz-attempt-2'), // <label>
   'desc'  => __('Add points for second quiz attempt','vibe-quiz-attempt-1'), // description
   'id'    => $prefix.'quiz-attempt-2', // field id and name
   'type'  => 'text', // type of field
   'std'   => 0
   );
   $field1[]=array( // Text Input
-  'label' => __('Quiz Attempt 3','vibe-quiz-attempt-3'), // <label>
+  'label' => __('Quiz Attempt 3(Correct Answer)','vibe-quiz-attempt-3'), // <label>
   'desc'  => __('Add points for third quiz attempt','vibe-quiz-attempt-1'), // description
   'id'    => $prefix.'quiz-attempt-3', // field id and name
   'type'  => 'text', // type of field

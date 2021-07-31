@@ -4066,7 +4066,10 @@
                             retakes : t.meta.retakes,
                             quiz_attempt1_points : quiz_attempt1_points,
                             quiz_attempt2_points : quiz_attempt2_points,
-                            quiz_attempt3_points : quiz_attempt3_points
+                            quiz_attempt3_points : quiz_attempt3_points,
+                            quiz_attempt_1_wrong_points:
+                            quiz_attempt_1_wrong_points,
+                            event_quiz_type:event_quiz_type
                         })
                     }).then(e => e.json()).then(t => {
                         if (t) {
@@ -4084,6 +4087,9 @@
                                 document.dispatchEvent(r)
                             }
                             if(t.quiz_points_credit > 0){
+                                var prev_creds = jQuery('.point-number').text();
+                                var total_creds = parseInt(prev_creds) + parseInt(t.quiz_points_credit);
+                                jQuery('.point-number').text(total_creds);
                                 var point_toast = "You just earned "+t.quiz_points_credit+" Points"
                                 jQuery('#point-text').text(point_toast);
 
@@ -4094,11 +4100,16 @@
                                 jQuery('#result-display').addClass("pass");
                                 jQuery('#quiz_result_icon').removeClass("failed");
                                 jQuery('.right-info').hide();
+                                jQuery('.next_unit_button').removeClass('disabled');
                             }
                             if(t.$is_event_type == 0){
                                 jQuery('#quiz_result_icon').removeClass("failed");
                             }
                             jQuery('.attempt-number').text(t.retakes);
+                            if(t.retakes == 0){
+                                jQuery('.attempt-number').removeClass('incorrect');
+                                jQuery('.attempt-number').addClass('incorrect');
+                            }
                         }
                     })
                 },
@@ -4212,8 +4223,10 @@
                 var total_question = t.meta.questions.length;
                 var quiz_passing_score = t.quiz_passing_score;
                 var quiz_attempt1_points = t.quiz_attempt_1_points;
+                var quiz_attempt_1_wrong_points = t.quiz_attempt_1_wrong_points;
                 var quiz_attempt2_points = t.quiz_attempt_2_points;
                 var quiz_attempt3_points = t.quiz_attempt_3_points;
+                var event_quiz_type = t.event_quiz_type;
                 var correct_answer_based_percent = (t.quiz_passing_score/100)*t.meta.questions.length;
                 var quiz_points_credit = 0;
                 var quiz_attempt_number = 0;
@@ -4307,24 +4320,17 @@
                 className: "show_quiz_result"
             },gn("div", {
                 className: "quiz_result_details"
-            },gn("h1",null,"Quiz Result:",t.quiz_points > 0 && t.is_event_type ? gn("span", {
+            },t.is_event_type == 1 && t.event_quiz_type != "video" ? gn("h1",null,"Quiz Result:",t.quiz_points > 0 && t.is_event_type ? gn("span", {
                 className: "result-show pass"
             }, 'PASSED') : gn("span", {
                 className: "result-show failed",
                 id: "result-display"
-            }, 'FAILED')),
+            }, 'FAILED')) : gn("h1",null,"Quiz Result"),
             gn("span", {
                 className: "quiz_result_heading"
             },"Correct Answers "),
                 gn("span", {
                 className: "score",
-                onClick : () =>{
-                    console.log(t.meta.retakes);
-                    console.log(UU);
-                    console.log(correct_answer_based_percent);
-                    console.log(parseInt(quiz_points_credit));
-                    console.log(parseInt(quiz_attempt1_points));
-                },
                 dangerouslySetInnerHTML: {
                     __html: t.meta.auto ? "<span class='question-attempt'>"+UU+"</span>" + "/" + t.meta.questions.length : ""
                 }
@@ -4335,19 +4341,27 @@
                 // }
 
                 // })
-            ),gn("div", {
+            ),t.is_event_type ? gn("div", {
                 className: t.quiz_points > 0 && t.is_event_type ? "quiz_result_icon" : "quiz_result_icon failed",
                 id:'quiz_result_icon'
+            }) : gn("div", {
+                className: "quiz_result_icon"
             }), Rt("div", {
                 className: "buttons_wrapper"
             },
-            Rt("span", {
+            t.meta.retakes == 0 && t.event_quiz_type !='video' ? Rt("span", {
                 className: "button",
                 onClick: () => {
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"))), Rt("div", {
+            },"Review Quiz Questions") : t.meta.retakes > 0 && t.quiz_points > 0 ? Rt("span", {
+                className: "button",
+                onClick: () => {
+                    document.getElementById('show_result').style.display = 'none';
+                    document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
+                }
+            },"Review Quiz Questions")  : '')), Rt("div", {
                 className: "buttons_wrapper pull-right"
             }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
                 className: "quiz_retake",
@@ -4366,7 +4380,7 @@
                 className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
             }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "",
             t.next_unit != null ? Rt("span", {
-                className: "button next_unit_button",
+                className: t.meta.retakes != 0 && t.quiz_points == 0 && t.is_event_type ==1 ? "button next_unit_button disabled" : "button next_unit_button",
                 onClick: () => {
                     document.getElementById("navigate_unit").click(); 
                 }
@@ -7161,16 +7175,18 @@
                         dangerouslySetInnerHTML: {
                             __html: m.courseitems[W].title
                         }
-                    })),m.courseitems[W].quiz_mycreds == 0 && m.courseitems[W].total_retakes != 0 ?sr("span", {
+                    })),m.courseitems[W].quiz_mycreds == 0 && m.courseitems[W].total_retakes != 0 ? sr("span", {
                         className: "right-info"
-                    },sr("span", {
+                    },m.courseitems[W].is_event_type ? sr("span", {
                         className: "attempt-text"
-                    }, 'Attempts Remaining'),sr("span", {
+                    }, 'Attempts Remaining') : '',m.courseitems[W].is_event_type ? sr("span", {
                         className: m.courseitems[W].retakes == 0 ? "attempt-number incorrect" : "attempt-number correct",
                         onClick : function(){
+                            console.log(m);
                             console.log(m.courseitems[W]);
+                            console.log(m.courseitems[W].is_event_type);
                         }
-                    }, m.courseitems[W].retakes)) : ''), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
+                    }, m.courseitems[W].retakes) : '') : ''), m.courseitems[W].hasOwnProperty("quiz_type") ? sr("div", null, (() => {
                         var t = {
                             coursestatus: m,
                             type: m.courseitems[W].quiz_type,

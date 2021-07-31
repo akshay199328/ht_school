@@ -1,9 +1,12 @@
-<script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-    </script>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-<link rel="stylesheet" type="text/css" href="/wp-content/themes/htschools/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="/wp-content/themes/htschools/style.css">
 <style type="text/css">body{font-family: GT-Walsheim-Pro!important;}</style>
+</head>
+<body>
 <?php
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -33,6 +36,7 @@ $style = (is_numeric($width)?'width:'.$width.'px;':'').''.(is_numeric($height)?'
 do_action('wplms_certificate_before_full_content');
 
 $htmlContent='
+<center>
 <section id="certificate">
     <div class="container-fluid">
         <div class="row">
@@ -48,7 +52,8 @@ $htmlContent='
             </div>
         </div>
     </div>
-</section>';
+</section>
+</center>';
 echo $htmlContent;
   
 endwhile;
@@ -95,3 +100,5 @@ var doc = new jsPDF('l', 'mm', 'a4'); // optional parameters
             });
         }
     </script>
+</body>
+</html>

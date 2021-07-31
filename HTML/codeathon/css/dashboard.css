@@ -3,6 +3,11 @@ html {
 }
 :focus-visible {
     outline: -webkit-focus-ring-color auto 0px;
+    outline: -moz-focus-ring-color auto 0px;
+    outline:  auto 0px;
+}
+*:focus  {
+    outline: none;
 }
 .fixed_header{
     /*position: fixed;*/

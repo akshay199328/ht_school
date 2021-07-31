@@ -114,8 +114,9 @@ else if(isset($_COOKIE['PHPSESSID']))
                <li><a title="Cookie Policy" href="<?php echo get_bloginfo('url'); ?>/cookie-policy/">Cookie Policy</a></li>
                <li><a title="Privacy Policy" href="<?php echo get_bloginfo('url'); ?>/privacy-policy/">Privacy Policy</a></li>
                <li><a title="Terms of Use" href="<?php echo get_bloginfo('url'); ?>/terms-of-use/">Terms of Use</a></li>
-                    </ul>
-               </div>
+               <li><a title="Product Terms and Conditions" href="<?php echo get_bloginfo('url'); ?>/product-terms-and-conditions/">Product Terms and Conditions</a></li>
+             </ul>
+            </div>
 
             <div class="column newsletter">
               <h6 class="footer-title">Subscribe Now</h6>
@@ -130,6 +131,8 @@ else if(isset($_COOKIE['PHPSESSID']))
         <div class="copyright">Copyright © 2021 HTML. All rights reserved.</div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -140,8 +143,12 @@ else if(isset($_COOKIE['PHPSESSID']))
   });
      //in case js in turned off
    $(window).on('load', function () {
+        //$('body').addClass('home');
         $("#header-scroll").removeClass("small");
-        $('#profile-popup').show();
+        <?php if($profileStatus == 0){ ?>
+          $('#profile-popup').show();
+          $('body').addClass('modal-open');
+        <?php } ?>
   });
 
 //scrollspy
@@ -181,23 +188,25 @@ jQuery(document).ready(function(){
      });*/
 });
 
-window.onload = function () {
-  /* Cache the popup. */
-  var popup = document.getElementById("profile-popup");
-  
-  /* Show the popup. */
-  popup.classList.remove("hidden");
-  
-  /* Fade the popup in */
-setTimeout(()=>popup.classList.add("show", "in"));
-  
-  /* Close the popup when a city is selected. */
-  jQuery('.refer-popup .modal-content .btn-close').click(function(){
-     jQuery('.refer-popup').hide();
-     $('body').removeClass('modal-open');
-  });
-  $('body').addClass('modal-open'); 
-};
+          window.onload = function () {
+            /* Cache the popup. */
+            var popup = document.getElementById("profile-popup");
+            
+            /* Show the popup. */
+            popup.classList.remove("hidden");
+            
+            /* Fade the popup in */
+          setTimeout(()=>popup.classList.add("show", "in"));
+            
+            /* Close the popup when a city is selected. */
+            jQuery('.refer-popup .modal-content .btn-close').click(function(){
+               jQuery('.refer-popup').hide();
+               $('body').removeClass('modal-open');
+            });
+            
+          };
+
+
         $(document).ready(function(){
           jQuery(document).ready(function($) {
                "use strict";
@@ -229,15 +238,10 @@ setTimeout(()=>popup.classList.add("show", "in"));
                       }
                   });
           });
+
             $(".home-button").click(function () {
                 $("body").toggleClass('menuOpened');
             });
-            $(".earn-points-btn").click(function () {
-                $("body").toggleClass('menuOpened');
-            });
-          $(document).ready(function(){
-               $('body').addClass('home');
-          });
             // $("body").click(function(){
             //     $("body").removeClass("menuOpened");
             // });
@@ -435,6 +439,44 @@ setTimeout(()=>popup.classList.add("show", "in"));
         });
     </script>
     <script type="text/javascript">
+
+      $("#user_firstname").keypress(function(e) {
+       var keyCode = e.keyCode || e.which;
+
+       $("#errFirstName").text("");
+
+       //Regex for Valid Characters i.e. Alphabets.
+       var regex = /^[A-Za-z]+$/;
+
+       //Validate TextBox value against the Regex.
+       var isValid = regex.test(String.fromCharCode(keyCode));
+       if (!isValid) {
+            $("#errFirstName").text("Please enter only alphabets");
+       }
+
+       return isValid;
+
+     });
+
+     $("#user_lastname").keypress(function(e) {
+       var keyCode = e.keyCode || e.which;
+
+       $("#errLastName").text("");
+
+       //Regex for Valid Characters i.e. Alphabets.
+       var regex = /^[A-Za-z]+$/;
+
+       //Validate TextBox value against the Regex.
+       var isValid = regex.test(String.fromCharCode(keyCode));
+       if (!isValid) {
+            $("#errLastName").text("Please enter only alphabets");
+       }
+
+       return isValid;
+
+     });
+
+
       jQuery(document).ready(function() {
           
           jQuery('.list h5').click(function() {
@@ -466,26 +508,31 @@ setTimeout(()=>popup.classList.add("show", "in"));
          }
           jQuery('#send_invitation').click(function(){
               var refer_email = jQuery("#refer_email").val();
-              if(validateEmails(refer_email)){
-                   jQuery('#refer_message').text('');
-                   jQuery.ajax({
-                         type : "POST",
-                         dataType : "json",
-                         url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=refer_email_submit",
-                         data : {refer_email : refer_email},
-                         success: function(response) {
-                              if(response.status == 1){
-                                   jQuery('#refer_email').val('');
-                                   jQuery('#refer_message').text(response.message);
+
+              if(refer_email != ''){
+                   if(validateEmails(refer_email)){
+                        jQuery('#refer_message').text('');
+                        jQuery.ajax({
+                              type : "POST",
+                              dataType : "json",
+                              url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=refer_email_submit",
+                              data : {refer_email : refer_email},
+                              success: function(response) {
+                                   if(response.status == 1){
+                                        jQuery('#refer_email').val('');
+                                        jQuery('#refer_message').text(response.message);
+                                   }
+                                   else{
+                                        jQuery('#refer_message').text(response.message);
+                                   }
                               }
-                              else{
-                                   jQuery('#refer_message').text(response.message);
-                              }
-                         }
-                    })
-               }
-               else{
-                    jQuery("#refer_message").text('Please enter valid Email ID');
+                         })
+                    }
+                    else{
+                         jQuery("#refer_message").text('Please enter valid Email ID');
+                    }
+               }else{
+                    jQuery("#refer_message").text('Please enter Email ID');
                }
           });
           jQuery('#social_share li').click(function(){
@@ -501,6 +548,23 @@ setTimeout(()=>popup.classList.add("show", "in"));
                          console.log(response);
                     }
                });
+          });
+
+          jQuery('.skipDashboard').click(function(){
+
+              jQuery.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=skip_dashboard_submit",
+                    data : {skip_dashboard : 1},
+                    success: function(response) {
+
+                         window.location.reload();
+
+                    }
+
+               });
+
           });
 
       });
@@ -539,7 +603,8 @@ setTimeout(()=>popup.classList.add("show", "in"));
 
     //  });
     </script>
-    <script type="text/javascript">
+     
+     <script type="text/javascript">
          window.onbeforeunload = null;
          (function($) {
              $(document).ready(function(){
@@ -620,14 +685,16 @@ setTimeout(()=>popup.classList.add("show", "in"));
                      return isValid;
                  }
 
-                 /*$("#user_dob_display").datepicker({
+                 $("#user_dob_display").datepicker({
                      altField: "#user_dob",
                      altFormat: "yy-mm-dd",
                      changeMonth: true,
                      changeYear: true,
                      yearRange: '1980:-3',
                      maxDate: '-3y',    
-                 });*/
+                 });
+
+                 
 
                  $('body').on('click', '#saveStep1', function(){
 
@@ -650,7 +717,7 @@ setTimeout(()=>popup.classList.add("show", "in"));
                                  $("#saveStep1").removeAttr("disabled");
                                  
                                  if(response.status == 1){
-                                   jQuery.ajax({
+                                    jQuery.ajax({
                                         type : "POST",
                                         dataType : "json",
                                         url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=platform_onboarding_points",
@@ -658,7 +725,7 @@ setTimeout(()=>popup.classList.add("show", "in"));
                                         success: function(response) {
                                              console.log(response);
                                         }
-                                   });
+                                    });
                                     jQuery('#step-2').show();
                                     jQuery('#step-1').hide();
                                  }else{
@@ -676,9 +743,25 @@ setTimeout(()=>popup.classList.add("show", "in"));
                      }   
                  });
 
+
+                 function validation_step2(){ 
+
+                     $("#errSchoolMsg").text("");
+
+                     var school_data = $('#user_school_data').val();
+                     var isValid = true;
+
+                     if(school_data == '' || school_data == undefined){
+                         $("#errSchoolMsg").text("Please enter school name");
+                         isValid = false;
+                     }
+
+                     return isValid;
+                 }
+
                  $('body').on('click', '#saveStep2', function(){
 
-                     if(validation_step1() != true){
+                     if(validation_step2() != true){
                          return false;
                      }
                      else{
@@ -697,15 +780,15 @@ setTimeout(()=>popup.classList.add("show", "in"));
                                  $("#saveStep3").removeAttr("disabled");
                                  
                                  if(response.status == 1){
-                                   jQuery.ajax({
+                                    jQuery.ajax({
                                         type : "POST",
                                         dataType : "json",
                                         url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=platform_onboarding_points",
-                                        data : {ref_key: 'platform_onboarding_step2',ref_entry : 'Step 2'},
+                                        data : {ref_key:'platform_onboarding_step2',ref_entry : 'Step 2'},
                                         success: function(response) {
                                              console.log(response);
                                         }
-                                   });
+                                    });
                                     jQuery('#step-3').show();
                                     jQuery('#step-2').hide();
                                  }else{
@@ -724,22 +807,130 @@ setTimeout(()=>popup.classList.add("show", "in"));
                  });
 
 
-                 window.selectedCountry = "<?php echo $user_country; ?>";
-                 var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
+                 function validation_step3(){ 
 
-                 $( "#user_country_data" ).autocomplete({
-                     source: countryUrl,
-                     minLength: 2,
-                     select: function(event, ui) {
-                         event.preventDefault();
-                         $("#user_country_data").val(ui.item.label);
-                         $("#user_country").val(ui.item.value);
-                         window.selectedCountry = ui.item.label;
-                     },
-                 }); 
+                     $("#errSchoolIDMsg").text("");
+
+                     var school_data = $('#school_card_img').val();
+                     var isValid = true;
+
+                     if(school_data == '' || school_data == undefined){
+                         $("#errSchoolIDMsg").text("Please select school id card");
+                         isValid = false;
+                     }
+
+                     return isValid;
+                 }
+
+
+                 $('body').on('click', '#saveStep3', function(){
+
+                     if(validation_step3() != true){
+                         return false;
+                     }
+                     else{
+                         $("#saveStep3").html("Please wait...");
+                         $("#saveStep3").attr("disabled", "disabled");
+                         $('form#modalAjaxTrying :submit').trigger('click');
+                         var form_data = {'action' : 'acf/validate_save_post'};
+                         $.ajax({
+                             type : "POST",
+                             dataType : "json",
+                             url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                             data : $("#profile-edit-form-step1").serialize(),
+                             success: function(response) {
+                                
+                                 $("#saveStep3").html("Submit");
+                                 
+                                 if(response.status == 1){
+                                    jQuery.ajax({
+                                        type : "POST",
+                                        dataType : "json",
+                                        url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=platform_onboarding_points",
+                                        data : {ref_key:'platform_onboarding_step3',ref_entry : 'Step 3'},
+                                        success: function(response) {
+                                             console.log(response);
+                                        }
+                                    });
+                                    $('#profile-popup').hide();
+                                    $('#congrats-popup').modal('show');
+                                 }else{
+                                     $("#response_message3").html(response.message);
+                                     $("#response_message3").addClass('error');
+                                     $("#response_message3").removeClass('success');
+                                     $("#response_message3").show();
+                                     setTimeout(function(){
+                                         $("#response_message3").html('');
+                                         $("#response_message3").hide();
+                                     }, 5000);
+                                 }
+                             }
+                         }); 
+                     }   
+                 });
 
              });
          })( jQuery );
+
+          window.selectedCountry = "<?php echo $user_country; ?>";
+          var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
+
+          $( "#user_country_data" ).autocomplete({
+               source: countryUrl,
+               minLength: 2,
+               select: function(event, ui) {
+                    event.preventDefault();
+                    $("#user_country_data").val(ui.item.label);
+                    $("#user_country").val(ui.item.value);
+                    window.selectedCountry = ui.item.label;
+               },
+          }); 
+
+          var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
+
+         $( "#user_school_data" ).autocomplete({
+               source: schoolUrl,
+               minLength: 2,
+               select: function(event, ui) {
+                  event.preventDefault();
+                  $("#user_school_data").val(ui.item.label);
+                  $("#user_school").val(ui.item.value);
+              },
+          });  
+
+          $('#inputfile').change(function(){
+                                        
+               var file_data = $("#inputfile").prop("files")[0];
+               var userid = "<?php echo $current_user->id; ?>";
+               var form_data = new FormData();                  
+               form_data.append("file", file_data);
+               
+               $.ajax({
+                    url: "<?php echo get_bloginfo('template_url'); ?>/uploads.php",
+                    type: "POST",
+                    data:  form_data,
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data){
+
+                         $('#profile-add').hide();
+                         var image = '<img style="width: 200px; height: 200px; border-radius: 100%;" src="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/avatars/'+data+'">';
+                         $("#profileimage").html(image);
+                         $("#school_card_img").val(data);
+                              
+                    }
+
+               });
+
+          });
+
+          $('.videoplay').click(function(){
+               var videotitle = $(this).attr('data-title');
+               var youtubecode = $(this).attr('data-youtubecode');
+               $(".videotitle").text(videotitle);
+               document.getElementById('videolink').src = 'https://www.youtube-nocookie.com/embed/'+youtubecode;
+          });
      </script>
 
      <script type="text/javascript">
@@ -842,6 +1033,10 @@ setTimeout(()=>popup.classList.add("show", "in"));
            console.log(allCourseObj);
          }
        });
+
+       <?php if($profileStatus == 1){ ?>
+          $('body').removeClass('modal-open');
+        <?php } ?>
      </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

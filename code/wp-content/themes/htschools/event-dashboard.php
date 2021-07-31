@@ -96,13 +96,13 @@ $course_status1 = 'course_status'.$course_1;
 $course_status2 = 'course_status'.$course_2;
 $course_status3 = 'course_status'.$course_3;
 
-$results1 = $wpdb->get_row("SELECT count(umeta_id) as course_status11 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status1'");
+$results1 = $wpdb->get_row("SELECT count(umeta_id) as course_status11 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status1'");
 $course_status11 = $results1->course_status11;
 
-$results2 = $wpdb->get_row("SELECT count(umeta_id) as course_status22 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status2'");
+$results2 = $wpdb->get_row("SELECT count(umeta_id) as course_status22 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status2'");
 $course_status22 = $results2->course_status22;
 
-$results3 = $wpdb->get_row("SELECT count(umeta_id) as course_status33 FROM `ht_usermeta` WHERE `user_id` = '$userIdentifier' and `meta_key` = '$course_status3'");
+$results3 = $wpdb->get_row("SELECT count(umeta_id) as course_status33 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status3'");
 $course_status33 = $results2->course_status33;
 
 if($course_status11 == 1){
@@ -135,6 +135,27 @@ $post = get_post($courseID);
 $slug = $post->post_name;
 
 ?>
+<style type="text/css">
+.ui-autocomplete {
+    z-index: 9999;
+    background: #fff;
+    width: 30%!important;
+    height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+li.ui-menu-item {
+    margin-left: -25px;
+    padding: 5px;
+    cursor: pointer;
+}
+li.ui-menu-item a{
+    color: #000;
+}
+.ui-helper-hidden-accessible{
+    display: none;
+}
+</style>
 <section class="dashboard-wrapper">
     <div class="container">
         <div class="notice-board">
@@ -215,8 +236,8 @@ $slug = $post->post_name;
                                             </svg>
                                             <div class="toggle-share ">
                                                 <h6>Share with your Friends</h6>
-                                                <ul id="social_share">
-                                                    <li value="whatsapp">
+                                                <ul>
+                                                    <li>
                                                         <a href="https://api.whatsapp.com//send?text=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
                                                                 <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"/>
@@ -227,7 +248,7 @@ $slug = $post->post_name;
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li value="twitter">
+                                                    <li>
                                                         <a href="https://twitter.com/intent/tweet?text=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"/>
@@ -235,7 +256,7 @@ $slug = $post->post_name;
                                                             </svg>
                                                         </a>
                                                     </li>
-                                                    <li value="facebook">
+                                                    <li>
                                                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"/>
@@ -628,14 +649,14 @@ $slug = $post->post_name;
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Complete your profile</h5>
                     <p>Lorem ipsum Dummy Text</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
                           <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
                             <line id="Line_2" data-name="Line 2" x1="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
                             <line id="Line_3" data-name="Line 3" x2="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"/>
                           </g>
                         </svg>
-                    </button>
+                    </button> -->
                 </div>
                 <div class="modal-body">
                     <form class="row row-cols-lg-auto g-3 align-items-center" id="profile-edit-form-step1" type="POST">
@@ -643,9 +664,9 @@ $slug = $post->post_name;
                         <div id="step-1">
                             <div class="profile-progress">
                                 <ul class="progressbar">
-                                    <li class="active"></li>
-                                    <li></li>
-                                    <li></li>
+                                    <li class="stepli1 active"></li>
+                                    <li class="stepli2"></li>
+                                    <li class="stepli3"></li>
                                 </ul>
                             </div>
                                 <div class="float-start">
@@ -722,7 +743,7 @@ $slug = $post->post_name;
                         <div id="step-2">
                             <div class="profile-progress">
                                 <ul class="progressbar">
-                                    <li></li>
+                                    <li class="completed"></li>
                                     <li class="active"></li>
                                     <li></li>
                                 </ul>
@@ -804,8 +825,8 @@ $slug = $post->post_name;
                         <div id="step-3">
                             <div class="profile-progress">
                                 <ul class="progressbar">
-                                    <li></li>
-                                    <li></li>
+                                    <li class="completed"></li>
+                                    <li class="completed"></li>
                                     <li class="active"></li>
                                 </ul>
                             </div>
@@ -832,7 +853,7 @@ $slug = $post->post_name;
                                     <span class="text"> School ID card to get<span class="block"></span> all 100 points instantly!!</span>
                                     <span id="errSchoolIDMsg"></span>
                                     <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
-                                    <button type="button" class="skip-button" id="skipDashboard">Skip to Dashboard</button>
+                                    <button type="button" class="skip-button skipDashboard" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button>
                                 </div>
                             </div>
                             <div class="float-end">
@@ -878,7 +899,7 @@ $slug = $post->post_name;
                         <h2 class="earned">You have earned</h2>
                         <span class="coupon">100 points</span>
                         <!-- <span class="coupon-1">50 points</span> -->
-                        <a class="skip">Skip to Dashboard</a>
+                        <a class="skip skipDashboard" style="cursor: pointer;">Skip to Dashboard</a>
                     </div>
                 </div>
             </div>

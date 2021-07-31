@@ -1534,6 +1534,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 					      	$sql = $wpdb->get_results("SELECT creds FROM $my_cred_table WHERE ref='quiz_points' AND user_id = '".$user_id."' and ref_id = '".$item."' ");
 					      	$quiz_creds_json = json_decode( json_encode($sql), true);
 					      	$quiz_creds_total = $quiz_creds_json[0]['creds'];
+					      	$is_event_type = get_post_meta($course_id,'vibe_course_event',true);
+					      	$event_quiz_type = get_post_meta($item_id,'vibe_event_quiz_type',true);
 							$curriculum_arr[] = apply_filters('bp_course_api_course_curriculum_quiz',array(
 								'key'		=> $i,
 								'id'		=> $item,
@@ -1546,8 +1548,10 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 								'content'   => '',
 								'status'    => $complete,
 								'retakes'   => intval($retake_count),
-								'total_retakes' => $retakes,
+								'total_retakes' => intval($retakes),
 								'quiz_mycreds' => !empty($quiz_creds_total)?intval($quiz_creds_total):0,
+								'is_event_type' => intval($is_event_type),
+								'event_quiz_type' => intval($event_quiz_type),
 								'meta'		=> array(),
 							));
 						}else if(bp_course_get_post_type($item) == 'wplms-assignment'){
@@ -1613,6 +1617,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				$return['lock'] = ((!empty($lock) && $lock == 'S')?1:0);
 				$is_event_type = get_post_meta($course_id,'vibe_course_event',true);
 					$return['is_event_type'] = intval($is_event_type);
+				$event_quiz_type = get_post_meta($post['quiz_id'],'vibe_event_quiz_type',true);
+				$return['event_quiz_type'] = intval($event_quiz_type);
 				global $wpdb;
 				$table_name = "ht_mycred_log";
 			      if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
@@ -2151,8 +2157,10 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 					
 					$quiz_passing_score = get_post_meta($item_id,'vibe_quiz_passing_score',true);
 					$quiz_attempt_1_points = get_post_meta($item_id,'vibe_quiz-attempt-1',true);
+					$quiz_attempt_1_wrong_points = get_post_meta($item_id,'vibe_quiz-attempt-wrong-1',true);
 			        $quiz_attempt_2_points = get_post_meta($item_id,'vibe_quiz-attempt-2',true);
 			        $quiz_attempt_3_points = get_post_meta($item_id,'vibe_quiz-attempt-3',true);
+			        $event_quiz_type = get_post_meta($item_id,'vibe_event_quiz_type',true);
 					$retake_count = intval($retake_count);
 					$return['meta'] = array(
 						'access' => 1,
@@ -2167,6 +2175,8 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 						'quiz_attempt_1_points' => $quiz_attempt_1_points,
 						'quiz_attempt_2_points' => $quiz_attempt_2_points,
 						'quiz_attempt_3_points' => $quiz_attempt_3_points,
+						'quiz_attempt_1_wrong_points' =>$quiz_attempt_1_wrong_points,
+						'event_quiz_type' =>$event_quiz_type,
 						'quiz_passing_score' => $quiz_passing_score, 
 						'completion_message'=>  do_shortcode(get_post_meta($item_id,'vibe_quiz_message',true)),
 					);
@@ -3063,9 +3073,15 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 					if( $value['raw']['usercorrect'] == 1){
 						$pp[] = $value['raw']['usercorrect'];
 					}
+					else if($value['raw']['usercorrect'] == 0){
+						$ww[] = $value['raw']['usercorrect'];
+					}
 					$ss[] = $value['raw']['usercorrect'];
 				}
-				if($post['correct_answer_based_percent'] != 0 && $post['correct_answer_based_percent'] <= count($pp))
+				$event_quiz_type = get_post_meta($post['quiz_id'],'vibe_event_quiz_type',true);
+				$quiz_attempt_wrong_1 = get_post_meta($post['quiz_id'],'vibe_quiz-attempt-wrong-1',true);
+				
+				if($post['correct_answer_based_percent'] != 0 && $post['correct_answer_based_percent'] <= count($pp) && $event_quiz_type != 'video')
                 {
                 	if($post['total_retakes'] == 2){ 
                         if($post['retakes'] == $post['total_retakes']){
@@ -3100,8 +3116,25 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				          $my_cred_table = 'ht_myCRED_log';
 				      }
 	                $now    = current_time( 'timestamp' );
-		      		$mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ')");
+	                
+		      		$mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ','".$course_id."')");
 		            $wpdb->query($mycred_points);
+                }
+                else if($event_quiz_type == 'video'){
+                	$quiz_correct_points_credit = count($pp) * $post['quiz_attempt1_points'];
+                	$quiz_incorrect_points_credit = count($ww) * $quiz_attempt_wrong_1;
+                	$quiz_points_credit = $quiz_correct_points_credit + $quiz_incorrect_points_credit;
+                	global $wpdb;
+	                $table_name = "ht_mycred_log";
+				      if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+				          $my_cred_table = 'ht_mycred_log';
+				      }
+				      else{
+				          $my_cred_table = 'ht_myCRED_log';
+				      }
+	                $now    = current_time( 'timestamp' ); 
+		      		$mycred_total_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for video quiz attempt','".$course_id."')");
+		            $wpdb->query($mycred_total_points); 
                 }
 
 				$auto = get_post_meta($post['quiz_id'],'vibe_quiz_auto_evaluate',true);
@@ -3205,6 +3238,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 			}
 			
 			$is_event_type = get_post_meta($post['course_id'],'vibe_course_event',true);
+			$event_quiz_type = get_post_meta($post['quiz_id'],'vibe_event_quiz_type',true);
 			$data = array(
 				'check_results_url'=>bp_core_get_user_domain( $this->user_id ).BP_COURSE_SLUG.'/'.BP_COURSE_RESULTS_SLUG.'/?action='.$post['quiz_id'],'status'=>true,
 				'message'=>$apimessage,
@@ -3219,6 +3253,9 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				'tags' => $tags,
 				'results' =>$results,
 				'quiz_points_credit' => !empty($quiz_points_credit)?intval($quiz_points_credit):0,
+				'course_id_string' =>$course_id_string,
+				'course_id' =>$course_id,
+				'event_quiz_type'=>$event_quiz_type,
 				'retakes' => intval($retake_count),
 				'is_event_type' =>intval($is_event_type)
 			);

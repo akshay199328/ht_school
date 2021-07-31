@@ -114,7 +114,7 @@ html {
     left: -3px;
     z-index: 10;
     width: 100%;
-    bottom: 55px;
+    bottom: 130px;
 }
 .dashboard-wrapper .container{
     z-index: 999;max-width: 1150px;
@@ -675,7 +675,7 @@ html {
 .leader_board .rank-people{
     display: flex;
     width: 100%;
-    margin-top: 70px;
+    margin-top: 125px;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -693,6 +693,10 @@ html {
     position: relative;
     margin-right: 25px;
     z-index: 9;
+    margin-top: -34px;
+}
+.rank-one figure {
+    zoom: 1.1;
 }
 .rank-one figure:before{
     content: '';
@@ -711,14 +715,13 @@ html {
 .leader_board .rank-people .rank-one:before{
     content: '';
     background: url(../images/1.png) no-repeat;
-    /* background-size: contain; */
     position: absolute;
     left: -15px;
-    top: 2px;
+    top: 10px;
     display: block;
     min-width: 28px;
     height: 84px;
-        z-index: -1;
+    z-index: -1;
 }
 .leader_board .rank-people .rank-two:before{
     content: '';
@@ -1001,13 +1004,18 @@ html {
   .profile-progress .progressbar li.active {
       color: green;
   }
-.profile-progress .progressbar li.active:before,
-.profile-progress .progressbar li.completed:before{
+.profile-progress .progressbar li.active:before{
         border-color: #ff9eb3;
         background-color: #ff9eb3;
         color: #fff;
         font-size: 26px;
-  }
+}
+.profile-progress .progressbar li.completed:before{
+    border-color: #ff9eb3;
+    background-color: #ff9eb3;
+    color: #fff;
+    font-size: 18px;
+}
   .profile-progress .progressbar li.active + li:after {
       background-color: #ff9eb3;
   }
@@ -1317,6 +1325,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     min-width: 100%;
     min-height: 57.87px;
     margin-top: 29px;
+    z-index: 9999;
 }
 .modal-open {
     overflow: hidden;
@@ -1326,6 +1335,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     position: relative;
     width: 100%;
 }
+.dashbaord_body.modal-open .ui-autocomplete{width: 19.7%!important;}
 @media (max-width: 768px){
 	.header-wrapper .header-right .account {display: none!important;}
 }
@@ -1438,15 +1448,17 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     .refer-share .pull-right, .refer-share .pull-right .share-option{
         width: 100%;float: left;text-align: center;
     }
+    .dashbaord_body.modal-open .ui-autocomplete {width: 70%!important;}
 }
 @media screen and (max-width: 575px) and (min-width: 320px){
     .modal-dialog {max-width: 98%;}
     .switch-field label{    width: 110px;}
     .profile-progress .progressbar li:after{left: -31%;}
     .refer-note button{    min-width: 71%;}
+    .dashbaord_body.modal-open .ui-autocomplete {width:100%!important;}
 }
 @media (max-width: 450px){
-	.dashbaord_body .section-wrapper.about .partner-copy {width: 100%!important;}
+	.dashbaord_body .section-wrapper.about .partner-copy {width: 95%!important;}
 }
 @media screen and (max-width: 375px) and (min-width: 320px){
 	.profile-progress .progressbar li:after {left: -23%;}

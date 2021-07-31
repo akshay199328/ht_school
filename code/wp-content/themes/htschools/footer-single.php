@@ -609,7 +609,14 @@ border: 1px solid deepskyblue;
 				var mobNum = $('#user_mobile').val();
 				var firstName = $('#user_firstname').val();
 				var lastName = $('#user_lastname').val();
-				var otherschool = $('#user_school_other').val();
+				
+				if($('#user_school_other').val() !=""){
+              		var otherschool = $('#user_school_other').val();
+              		 if(otherschool == '' || otherschool == undefined){
+                  	$("#errotherSchoolMsg").text("Please enter school name");
+                  	isValid = false;
+                  }
+              	}
 
 				  var filter = /^(?!0+$)\d{8,}$/;
 				  var isValid = true;
@@ -636,10 +643,10 @@ border: 1px solid deepskyblue;
 					isValid = false;
 				  }
 
-				  if(otherschool == '' || otherschool == undefined){
+				  /*if(otherschool == '' || otherschool == undefined){
                   	$("#errotherSchoolMsg").text("Please enter school name");
                   	isValid = false;
-                  }
+                  }*/
 
 				  return isValid;
 			}
@@ -783,16 +790,17 @@ border: 1px solid deepskyblue;
 				}
 			});
 
-			$("#user_school_data").on("keyup", function (event, ui) {
+			$("#user_school_data").on("change", function (event, ui) {
 				var other_val = $("#user_school_data").val();
    
     			if(other_val === "Others"){
-					$("#other_school").removeAttr("style").hide();
-					$("#other_school").show();										
+					$("#other_school").show();							
 				}
 				else{
-					$("#other_school").hide();	
-				}	
+					$('#other_school').slideUp();						
+					$("#user_school_other").val('');		
+						
+				}		
 			});
 
 			$('.ui-autocomplete').on('click', '.ui-menu-item', function(){
@@ -801,14 +809,13 @@ border: 1px solid deepskyblue;
 
 			$("#user_school_data").click(function(){
     			var other_val = $("#user_school_data").val();
-    			//console.log(other_val);
-
+    			
     			if(other_val === "Others"){
-					$("#other_school").removeAttr("style").hide();
-					$("#other_school").show();								
+					$("#other_school").show();							
 				}
 				else{
-					$("#other_school").hide();	
+					$('#other_school').slideUp();						
+					$("#user_school_other").val('');		
 				}	
 			});
 

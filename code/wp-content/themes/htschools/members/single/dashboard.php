@@ -24,26 +24,63 @@ if($user_role=='instructor'){
 
 vibe_include_template("profile/top$profile_layout.php");  
 ?>
+<style type="text/css">
+	.scroll {
+   width: 300px;
+    height: 630px;
+    position: relative;
+     overflow-y: auto;
+}
+</style>
 
 <div class="wplms-dashboard row">
 	<div class="col-sm-12 dashboard-info">
 		<div class="col-sm-12 col-md-3 mrg">
 			<div class="left-listing">
-				<ul class="mobile-slider">
+				<ul class="mobile-slider scroll">
 					<?php global $wpdb;    
 					$user = wp_get_current_user();
 			            $query = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '".$user->ID."' ORDER BY rel.meta_key"));
 			            $result = $wpdb->get_results($query);
 			            
+			            	/*echo "<pre>";
+			            	print_r($result);exit();
+			            	echo "</pre>";*/
+
 			            foreach($result as $course){
 			                $args['post__in'][]=$course->course_id;
 			            }
 			            $query_args = apply_filters('wplms_mycourses',array(
 			                'post_type'=>'course',
-			                'post__in'=>$args['post__in']
+			                'post__in'=>$args['post__in'],
+			                'post_status' => 'publish',
+			                'order' =>'ASC',
+			                'posts_per_page' =>100,
+			                'meta_query' => array(
+						      'relation' => 'AND',
+						      array(
+						        'key' => 'vibe_leader_board',
+						        'value' => 'Yes',
+						        'comapare' => '='
+						        )  
+						      )
+						    /*'meta_query' => array(
+						      'relation' => 'AND',
+						      array(
+						        'key' => 'vibe_course_event',
+						        'value' => '1',
+						        'comapare' => '='
+						        )  
+						      )*/   
 			            ));
 
 			            $course_query = new WP_Query($query_args);
+
+			            /*echo "<pre>";
+			            	print_r($course_query);exit();
+			            	echo "</pre>";*/	
+
+
 			            global $bp,$wpdb;
 			            while($course_query->have_posts()){
 	                    $course_query->the_post();
@@ -73,6 +110,9 @@ vibe_include_template("profile/top$profile_layout.php");
 		</div>
 		<div class="col-sm-12 col-md-6 mrg">
 			<div class="middle-table">
+				<div id="user_rank">
+						
+				</div>
 				<table class="table table-responsive">
 					<thead>
 						<tr>
@@ -103,6 +143,7 @@ vibe_include_template("profile/top$profile_layout.php");
 	            $("ul .dashboard-li:first").addClass("active");
 	            getScore(course_id);
 	            getRank(course_id);
+	            getUserRank(course_id);
          	});	
 			$('.dashboard-li').click(function(e){
 			  e.preventDefault();
@@ -111,6 +152,7 @@ vibe_include_template("profile/top$profile_layout.php");
 			  var course_id = $(this).val();
 			  getScore(course_id);
 			  getRank(course_id);
+			  getUserRank(course_id);
 			})
 
 			function getScore(course_id){
@@ -125,6 +167,20 @@ vibe_include_template("profile/top$profile_layout.php");
 				    }
 			  	});
 			}
+
+			function getUserRank(course_id){
+							$.ajax({
+							    type: 'POST',
+							    url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+							    data: {"action": "get_user_rank", course_id: course_id },
+							    success: function(response) {
+							    	if(response.length > 0){
+							    		$('#user_rank').html(response);
+							    	}
+							    }
+						  	});
+						}
+
 
 			function getRank(course_id){
 				$.ajax({

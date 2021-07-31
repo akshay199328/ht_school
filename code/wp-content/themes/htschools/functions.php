@@ -1580,19 +1580,20 @@ function prefix_load_cat_posts () {
     }
     else
     {
-      $array1 = array();
+     
       $array2 = array();
       foreach($result as $course){
+        
+        
+          array_push($array2,$course);
+        
         if($course->user_id == $user->ID){
           array_push($array1,$course);
         }
-        else{
-          array_push($array2,$course);
-        }
-
       }
 
-      $dashboard_data = array_merge($array1,$array2);
+      $dashboard_data = $array2;
+      //echo "<pre>";print_r($dashboard_data);exit();
       $i = 0;
       foreach($dashboard_data as $course){
         $rank = $i + 1;
@@ -1604,7 +1605,7 @@ function prefix_load_cat_posts () {
         }
         $response .= '<td scope="row"><span class="circle">'.$rank.'</span></td>';
         if($course->user_id == $user->ID){
-          $response .= '<td>You</td>';
+          $response .= '<td>'.get_display_name($course->user_id) .'</td>';
         }else{
 
           $response .= '<td>'. get_display_name($course->user_id) .'</td>';
@@ -1612,13 +1613,64 @@ function prefix_load_cat_posts () {
         $response .= '<td>'. $course->score .'</td>';
         $response .= '</tr>';
         echo $response;
-        $i++;
+        $i++; 
       }
     }
 
   wp_reset_postdata();
 
   die(1);
+}
+
+add_action( 'wp_ajax_nopriv_get_user_rank', 'get_user_rank' );
+add_action( 'wp_ajax_get_user_rank', 'get_user_rank' );
+
+function get_user_rank () {
+    global $post,$wpdb;
+  $course_id = $_POST[ 'course_id' ];
+  $user = wp_get_current_user();
+  $query =apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='".$course_id."' ORDER BY rel.meta_value DESC"));
+  $result = $wpdb->get_results($query);
+    if ($wpdb->num_rows<=0) {
+      echo '0';
+    }
+    else
+    {
+     
+      $array2 = array();
+      foreach($result as $course){
+        
+        
+          array_push($array2,$course);
+        
+        if($course->user_id == $user->ID){
+          array_push($array1,$course);
+        }
+      }
+
+      $dashboard_data = $array2;
+      foreach($dashboard_data as $key => $course){
+       
+        if($course->user_id == $user->ID){
+          $response = '<tr style="background: #D5EBFF;">';
+        }
+        else{
+          $response = '<tr>';
+        }
+        
+        if($course->user_id == $user->ID){
+          $rank = $key + 1;
+           $response .= '<td>My Rank- </td>';
+        $response .= '<td scope="row"><span class="circle">'.$rank.'</span></td>';
+          
+          $response .= '<td>My Points- </td>';
+        $response .= '<td>'. $course->score .'</td>';
+        }
+        $response .= '</tr>';
+        echo $response;
+        $i++;
+      }
+    }
 }
 
 add_action( 'wp_ajax_nopriv_get-rank', 'get_rank' );
@@ -1630,10 +1682,11 @@ function get_rank () {
   $user = wp_get_current_user();
   $query =apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='".$course_id."' ORDER BY rel.meta_value DESC LIMIT 0,3"));
   $result = $wpdb->get_results($query);
-
+$i = 1;
     foreach($result as $course){
+      $rankID = $i++;
       $response = '<li><div class="col-xs-8 col-sm-9 col-md-9 mrg"><div class="content">';
-      $response.='<p>Rank 1</p>';
+      $response.='<p>Rank '.$rankID.'</p>';
       $response.='<h5>'.get_display_name($course->user_id).'</h5>';
       $response.='<span class="light">'.$course->score.' Pts</span>';
       $response.='</div></div><div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">';
@@ -3628,3 +3681,35 @@ $featured_args_course = array(
     return $address_fields;}
 add_action( 'woocommerce_before_main_content', 'mandatory_category_display_message', 30 ); // for product mandatory category archives pages
 add_action( 'woocommerce_check_cart_items', 'mandatory_category_display_message' );
+
+function display_leaderboard() {
+
+  $featured_args_course = array(
+      'post_type' => 'course',
+      'post_status' => 'publish',
+      'meta_query' => array(
+      'relation' => 'AND',
+      array(
+        'key' => 'vibe_leader_board',
+        'value' => 'Yes',
+        'comapare' => '='
+        )  
+      )
+    );
+
+   $featured_query_course = new WP_Query( $featured_args_course );
+  //print_r($featured_query_course);
+  $product_id = array();
+  //print_r($featured_query_course->have_posts());
+  if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
+    $course_id = get_the_ID();
+    $productId = get_post_meta($course_id,'vibe_product',true);
+    $product_id[] = $productId;
+  endwhile;
+  endif;
+  /*$product_in_cart = array();
+  foreach( WC()->cart->get_cart() as $cart_item ) {
+    $product_in_cart[] = $cart_item['product_id']; */ 
+  }
+add_action( 'wp_ajax_nopriv_load-filter', 'display_leaderboard' );
+add_action( 'wp_ajax_load-filter', 'display_leaderboard' );

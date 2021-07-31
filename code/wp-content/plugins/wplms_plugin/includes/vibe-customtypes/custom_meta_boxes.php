@@ -23,6 +23,11 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 	                        array( 'label' =>__('Yes','wplms'),'value'=>'1'),
 	                    ));
 
+	$leaderBoardArray = apply_filters('wplms_course_types',array(
+                      array( 'label' =>__('Yes','wplms'),'value'=>'Yes'),
+                      array( 'label' =>__('No','wplms'),'value'=>'No'),
+                    ));
+
 	foreach($sidebars as $sidebar){
 		if(!in_array($sidebar['id'],array('student_sidebar','instructor_sidebar')))
 	    	$sidebararray[]= array('label'=>$sidebar['name'],'value'=>$sidebar['id']);
@@ -264,6 +269,14 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 			'type'	=> 'select',
 	        'options' => $addressFormArray,
 	        'std'=>'address_form'
+	        ),
+		$prefix.'leaderboard_field'=>array( // Single checkbox
+			'label'	=> __('Leader Board','wplms'), // <label>
+			'desc'	=> __('Select Leader Board'), // description
+			'id'	=> $prefix.'leader_board', // field id and name
+			'type'	=> 'select',
+	        'options' => $leaderBoardArray,
+	        'std'=>'leader_board'
 	        ),
 
 		$prefix.'course_prev_unit_quiz_lock'=>array( // Text Input

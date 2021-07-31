@@ -51,7 +51,7 @@ function bp_remove_profile_menus() {
 	bp_core_remove_nav_item( 'activity' );
 	bp_core_remove_nav_item( 'course-stats' );
 	bp_core_remove_nav_item( 'assignment_results' );
-  bp_core_remove_nav_item( 'dashboard' );
+  //bp_core_remove_nav_item( 'dashboard' );
 }
 
 function rt_change_profile_tab_order() {

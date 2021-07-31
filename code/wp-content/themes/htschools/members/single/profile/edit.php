@@ -197,7 +197,6 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<button type="button" class="btn btn-default" id="edit_profile_submit">Submit</button>
 				<button type="button" class=" btn-default button-border" id="profile_cancel"><a href="<?php echo get_bloginfo('url')?>/members-directory/<?php echo $currentUser->user_nicename?>" class="can_btn">Cancel</a></button>
 			</div>
-
 		</form>
 	</div>
 </div>
@@ -375,12 +374,21 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
             	$("#errFirstName").text("");
             	$("#errLastName").text("");
             	$("#errSchoolMsg").text("");
+            	$("#errotherSchoolMsg").text("");
+            	
               	var mobNum = $('#user_mobile').val();
               	var firstName = $('#user_firstname').val();
               	var lastName = $('#user_lastname').val();
               	var userSchool = $('#user_school_data').val();
-              	var otherschool = $('#user_school_other').val();
 
+              	if($('#user_school_other').val() !=""){
+              		var otherschool = $('#user_school_other').val();
+              		 if(otherschool == '' || otherschool == undefined){
+                  	$("#errotherSchoolMsg").text("Please enter school name");
+                  	isValid = false;
+                  }
+              	}
+              	
                   var filter = /^(?!0+$)\d{8,}$/;
                   var isValid = true;
                   if(mobNum == '' || mobNum == undefined){
@@ -410,12 +418,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
                   	$("#errSchoolMsg").text("Please select school name");
                   	isValid = false;
                   }
-
-                  if(otherschool == '' || otherschool == undefined){
-                  	$("#errotherSchoolMsg").text("Please enter school name");
-                  	isValid = false;
-                  }
-
+              
                   return isValid;
             }
 
@@ -482,8 +485,8 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			        $("#child_school").val(ui.item.label);
 			        $("#child_school_id").val(ui.item.value);
 			    },
-			});	
-
+			});				
+			
 			$( "#user_school_data" ).autocomplete({
 				source: schoolUrl,
 				minLength: 2,
@@ -496,36 +499,39 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 					ui.content.push({value:"Others", label:"Others"});
 				}					
 			});	
-
+		
 			$("#user_school_other").on("change", function (event, ui) {
 				var other_val = $("#user_school_other").val();
 
-				jQuery.ajax({
-				    type : "POST",
-				    dataType : "json",
-				    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
-				    data : {check_school_other : other_val},
-				    success: function(response) {
+				if(other_val != ""){
+					jQuery.ajax({
+					    type : "POST",
+					    dataType : "json",
+					    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
+					    data : {check_school_other : other_val},
+					    success: function(response) {
 						//alert(response.status);
-				        //alert(response.response);
-
-				        if(response.status == 1){
-				        	jQuery("#errotherSchoolMsg").text('School name is already exists!');
-				        	jQuery("#user_school_other").val('');
-				        }
-				    }
-				});
+						//alert(response.response);	
+					        if(response.status == 1){
+					        	jQuery("#errotherSchoolMsg").text('School name is already exists!');
+					        	jQuery("#user_school_other").val('');
+					        }
+					    }
+					});
+				}
 			});
 			
-			$("#user_school_data").on("keyup", function (event, ui) {
+			/*$("#user_school_data").on("keyup", function (event, ui) {*/
+			$("#user_school_data").on("change", function (event, ui) {
 				var other_val = $("#user_school_data").val();
    
     			if(other_val === "Others"){
-					$("#other_school").removeAttr("style").hide();
-					$("#other_school").show();										
+					$("#other_school").show();							
 				}
 				else{
-					$("#other_school").hide();	
+					$('#other_school').slideUp();						
+					$("#user_school_other").val('');		
+						
 				}	
 			});
 
@@ -535,15 +541,14 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 
 			$("#user_school_data").click(function(){
     			var other_val = $("#user_school_data").val();
-    			//console.log(other_val);
-
-    			if(other_val === "Others"){
-					$("#other_school").removeAttr("style").hide();
-					$("#other_school").show();								
+    			
+				if(other_val === "Others"){
+					$("#other_school").show();							
 				}
 				else{
-					$("#other_school").hide();	
-				}	
+					$('#other_school').slideUp();						
+					$("#user_school_other").val('');		
+				}
 			});
 			
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';

@@ -1,22 +1,12 @@
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<link rel="stylesheet" type="text/css" href="/wp-content/themes/htschools/assets/css/style.css">
+<style type="text/css">body{font-family: GT-Walsheim-Pro!important;}</style>
 <?php
 
 if ( ! defined( 'ABSPATH' ) ) exit;
-
-if(isset($_GET['pdf'])){
-    ?>
-  <!DOCTYPE html>
-  <html <?php language_attributes(); ?>>
-  <head>
-  <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <?php
-      wp_head();
-  ?>
-  </head>
-  <body <?php body_class(); ?>>
-  <?php
-}else{
-    get_header(vibe_get_header());    
-}
 
 if ( have_posts() ) : while ( have_posts() ) : the_post();
 
@@ -41,60 +31,67 @@ $certificate_class = apply_filters('wplms_certificate_class','');
 
 $style = (is_numeric($width)?'width:'.$width.'px;':'').''.(is_numeric($height)?'height:'.$height.'px':'');
 do_action('wplms_certificate_before_full_content');
-?>
-<section id="certificate" <?php echo 'style="'.apply_filters('wplms_certificate_template_style',$style).'"'; ?> <?php echo (empty($certificate_class)?'':'class="'.$certificate_class.'"'); ?>>
+
+$htmlContent='
+<section id="certificate">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <?php do_action('wplms_certificate_before_content'); ?>
-                    <div class="extra_buttons">
-                        <?php do_action('wplms_certificate_extra_buttons');
-                        if(vibe_validate($print)){
-                            echo '<a href="#" class="certificate_close"><i class="vicon vicon-close"></i></a>';
-                            echo '<a href="#" class="certificate_print"><i class="vicon vicon-printer"></i></a>';
-                            echo '<a href="#" class="certificate_pdf"><i class="vicon vicon-file"></i></a>';
-                            echo '<a href="#" class="certificate_download"><i class="vicon vicon-download"></i></a>';                            
-                          }
-                          ?>
-                    </div>
-                    <div class="certificate_content <?php echo vibe_sanitizer($class,'text');?>" style="<?php
-                            if(isset($bgimg_id) && $bgimg_id && isset($bgimg['src']))
-                                echo 'background:url('.$bgimg['src'].');';
-                        ?>" <?php 
-                        
-                        if(is_numeric($width))
-                            echo 'data-width="'.$width.'" ';
-                        
-                        if(is_numeric($height))
-                            echo 'data-height="'.$height.'" ';
-                        ?>>
-                        <?php echo (isset($css)?'<style>'.$css.'</style>':'');?>
-                        <?php
-                            the_content(); 
-                        ?>
-                         <?php do_action('wplms_certificate_after_content'); ?>
-                    </div>
-                </div>
-                <?php
+                <div>';
+
+                $htmlContent.='<div class="certificate_content" style="background:url('. $bgimg['src'].');" data-width="600" data-height="400">';
+
+                $htmlContent.= '<style>'.$css.'</style>'. the_content().'</div>';
+
+                $htmlContent3.='
                 
-                endwhile;
-                endif;
-                ?>
             </div>
         </div>
     </div>
-</section>
-<?php
-do_action('wplms_certificate_after_full_content');
+</section>';
+echo $htmlContent;
+  
+endwhile;
+ endif;
 
-if(isset($_GET['pdf'])){
-    wp_footer();
-  ?>   
-  </body>
-  </html>
-  <?php
-}else{
-    get_footer(vibe_get_footer());
-}
+
 ?>
+   <!-- <button onclick="downloadimage()" id="btn" class="clickbtn">Click To Download Image</button> -->
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+  <script>
+    $(document).ready(function() {
+       downloadimage();
+    });
+        function downloadimage() {
+            //var container = document.getElementById("image-wrap"); //specific element on page
+           var container = document.body; // full page 
+            html2canvas(container, { allowTaint: true }).then(function (canvas) {
+
+   //              var link = document.createElement("a");
+   //              document.body.appendChild(link);
+   //              link.download = "html_image.png";
+   //              link.href = canvas.toDataURL('image/png');
+   //              link.target = '_blank';
+   //              link.click();
+   //              // var pdf = new jsPDF();
+
+   //              // pdf.addImage(canvas.toDataURL('image/png'), 'JPEG', 0, 0);
+
+   //              // pdf.save('screenshot.pdf');
+
+
+   //              var pdf = new jsPDF();
+   //  pdf.addImage(canvas.toDataURL("image/png"),"png",0,0)
+var doc = new jsPDF('l', 'mm', 'a4'); // optional parameters
+
+
+   var img = new Image();
+        img.src = canvas.toDataURL('image/png');
+        img.onload = function() {
+            doc.addImage(img, 'PNG', 0, 0);
+            doc.save('certificate.pdf');
+         };
+            });
+        }
+    </script>

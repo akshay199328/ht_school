@@ -3975,6 +3975,26 @@
                         body: JSON.stringify(s)
                     }).then(e => e.json()).then(e => {
                         if (e) {
+                            jQuery('.attempt-number').text(e.meta.retakes);
+                            if(e.meta.retakes == 0){
+                                jQuery('.right-info').addClass('show-right-info');
+                                jQuery('.attempt-number').removeClass('correct');
+                                jQuery('.attempt-number').addClass('incorrect');
+                            }
+                            else if(e.meta.retakes > 0 && e.quiz_points > 0 && e.is_event_type == 1){
+                                jQuery('.right-info').removeClass('show-right-info');
+                            }
+                            // if(e.meta.retakes > 0){
+                            //     jQuery('.right-info').addClass('show-right-info');
+                            // }
+                            // else{
+                            //     jQuery('.right-info').removeClass('show-right-info');
+                            // }
+                            console.log(e.submitted);
+                            console.log(e);
+                            if(e.submitted != undefined && e.submitted == true){
+                                jQuery('.right-info').addClass('show-right-info');
+                            }
                             if (S(null), e.meta && e.meta.questions) {
                                 let t = 0,
                                     s = 0;
@@ -4099,15 +4119,18 @@
                                 jQuery('#result-display').removeClass("failed");
                                 jQuery('#result-display').addClass("pass");
                                 jQuery('#quiz_result_icon').removeClass("failed");
-                                jQuery('.right-info').hide();
+                                jQuery('.right-info').removeClass('show-right-info');
                                 jQuery('.next_unit_button').removeClass('disabled');
+                                jQuery('#retake-quiz').removeClass('hide-retake');
+                                jQuery('#retake-quiz').addClass('button');
                             }
+                            //jQuery('.right-info').addClass('show-right-info');
                             if(t.$is_event_type == 0){
                                 jQuery('#quiz_result_icon').removeClass("failed");
                             }
                             jQuery('.attempt-number').text(t.retakes);
                             if(t.retakes == 0){
-                                jQuery('.attempt-number').removeClass('incorrect');
+                                jQuery('.attempt-number').removeClass('correct');
                                 jQuery('.attempt-number').addClass('incorrect');
                             }
                         }
@@ -4349,19 +4372,14 @@
             }), Rt("div", {
                 className: "buttons_wrapper"
             },
-            t.meta.retakes == 0 && t.event_quiz_type !='video' ? Rt("span", {
-                className: "button",
+            Rt("span", {
+                className: t.meta.retakes == 0 && t.event_quiz_type !='video' ? "button" : t.meta.retakes > 0 && t.quiz_points > 0 ? "button" : "hide-retake",
+                id:"retake-quiz",
                 onClick: () => {
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions") : t.meta.retakes > 0 && t.quiz_points > 0 ? Rt("span", {
-                className: "button",
-                onClick: () => {
-                    document.getElementById('show_result').style.display = 'none';
-                    document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
-                }
-            },"Review Quiz Questions")  : '')), Rt("div", {
+            },"Review Quiz Questions"))), Rt("div", {
                 className: "buttons_wrapper pull-right"
             }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
                 className: "quiz_retake",
@@ -4384,7 +4402,12 @@
                 onClick: () => {
                     document.getElementById("navigate_unit").click(); 
                 }
-            },"Next Unit") : '')) : '', gn("div", {
+            },"Next Unit") : t.next_unit == null && t.is_event_type == 1 ? Rt("span", {
+                className: "button next_unit_button",
+                onClick: () => {
+                    window.location.href = window.wplms_course_data.home_url + '/event-dashboard'; 
+                }
+            },"Go to Dashboard") : '')) : '', gn("div", {
                 className: U
             }, gn("div", {
                 id: "ajaxloader",

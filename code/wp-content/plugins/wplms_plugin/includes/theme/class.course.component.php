@@ -149,6 +149,7 @@ class WPLMS_Course_Component_Init{
 
             'api_url'=> apply_filters('vibebp_rest_api',get_rest_url($blog_id,WPLMS_API_NAMESPACE)),
             'user_id'=>get_current_user_id(), 
+            'home_url'=>get_home_url(), 
             'timestamp'=>time(),
             'chartjs'=>plugins_url('../../assets/js/Chart.min.js',__FILE__),
             'jquery' =>    includes_url( '/js/jquery/jquery.js' ),

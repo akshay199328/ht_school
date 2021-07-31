@@ -841,11 +841,12 @@
 }
 .top-heading .right-info {
     width: 30%;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
 }
+.show-right-info{display: flex!important;}
 .top-heading .attempt-text {
     font-size: 15px;
     line-height: 20px;

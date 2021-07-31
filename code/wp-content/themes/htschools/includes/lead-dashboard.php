@@ -25,8 +25,9 @@ if($page_name=="index.php"){
 
   </head>
   <body class="<?=$page_classes?> dashbaord_body">
-    <header class="header-wrapper">
-        <span class="codeathon">
+    <header class="fixed_header">
+        <div class="header-wrapper">
+            <span class="codeathon">
                 <img src="<?php echo get_bloginfo('template_url'); ?>/images/codeathon.svg">
             </span>
             <div class="group-logos">
@@ -47,31 +48,33 @@ if($page_name=="index.php"){
                     <img src="<?php echo get_bloginfo('template_url'); ?>/images/group-logo/speed.png">
                 </div>
             </div>
-        <div class="header-right">
-            <span class="ht-school">
-                <a href="<?php echo get_bloginfo('url'); ?>" class="register">
-                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ht-school.svg">
-                </a>
-            </span>
-            <div class="account">
-                <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register"><span class="caption">Home</span></a>
-                <a href="#!" class="ms-3"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/login-profile.png"></a>
+            <div class="header-right">
+                <span class="ht-school">
+                    <a href="<?php echo get_bloginfo('url'); ?>" class="register">
+                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ht-school.svg">
+                    </a>
+                </span>
+                <div class="account">
+                    <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register"><span class="caption">Home</span></a>
+                    <a href="#!" class="ms-3 profile-click"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/login-profile.png"></a>
+                    <ul class="profile-menu">
+                            <li><a href="#!">Menu 1</a></li>
+                            <li><a href="#!">Menu 2</a></li>
+                            <li><a href="#!">Menu 3</a></li>
+                        </ul>
+                </div>
+                <button class="home-button">
+                    <span class="burger"></span>
+                </button>
             </div>
-            <button class="home-button">
-                <span class="burger"></span>
-            </button>
         </div>
     </header>
-    <!-- <div class="navigation-wrapper">
+    <div class="after_header_space"></div>
+    <div class="navigation-wrapper">
         <ul>
-            <li><a href="#!">About Us</a></li>
-            <li><a href="#!">Learning Modules</a></li>
-            <li><a href="#!">How it works</a></li>
-            <li><a href="#!">Leaderboard</a></li>
-            <li class="active"><a href="#!">About Our Partners</a></li>
-            <li><a href="#!">Project Gallery</a></li>
-            <li><a href="#!">What Our Partners Say</a></li>
-            <li><a href="#!">Blog</a></li>
-            <li><a href="#!">Coding For Cause</a></li>
+            <li><a href="#!">Menu 1</a></li>
+            <li><a href="#!">Menu 2</a></li>
+            <li><a href="#!">Menu 3</a></li>
         </ul>
-    </div> -->
+    </div>
+    

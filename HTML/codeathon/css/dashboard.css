@@ -1481,13 +1481,23 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     }
     .dashbaord_body.modal-open .ui-autocomplete {width: 70%!important;}
     .navigation-wrapper{display: flex!important;}
+    .profile-progress .progressbar li:after{    left: -32%;}
 }
 @media screen and (max-width: 575px) and (min-width: 320px){
     .modal-dialog {max-width: 98%;}
     .switch-field label{    width: 110px;}
-    .profile-progress .progressbar li:after{left: -31%;}
+    
     .refer-note button{    min-width: 71%;}
     .dashbaord_body.modal-open .ui-autocomplete {width:100%!important;}
+}
+@media screen and (max-width: 575px) and (min-width: 490px){
+    .profile-progress .progressbar li:after{left: -34%;}
+}
+@media screen and (max-width: 489px) and (min-width: 420px){
+    .profile-progress .progressbar li:after{left: -30%;}
+}
+@media screen and (max-width: 419px) and (min-width: 320px){
+    .profile-progress .progressbar li:after{left: -28%;}
 }
 @media (max-width: 450px){
     .dashbaord_body .section-wrapper.about .partner-copy {width: 95%!important;}

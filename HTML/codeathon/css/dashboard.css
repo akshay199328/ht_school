@@ -84,7 +84,7 @@ html {
 .partner-copy .copy .title {
     font-size: 18px;
     line-height: 22.18px;
-    font-weight: bold;
+    font-weight: 700;
 }
 .partner-copy .copy p{
     font-size: 16px;
@@ -375,7 +375,7 @@ html {
 .video_decp .details h4{
     font-size: 22px;
     line-height: 28px;
-    font-weight: bold;
+    font-weight: 700;
     padding-right: 65px;
 }
 
@@ -666,7 +666,7 @@ html {
 }
 .leader_board .pull-right h6 .rank{
     color: #025bc6;
-    font-weight: bold;
+    font-weight: 700;
 }
 .leader_board .rank-people{
     display: flex;
@@ -844,7 +844,7 @@ html {
     font-size: 16px;
     font-weight: 500;
     line-height: 16.8px;
-    margin: 0px 0px 10px;
+    margin: 10px 0px 15px;
 }
 .refer-popup .share-link h6, .share-option h6{
     font-size: 16px;
@@ -880,7 +880,7 @@ html {
     background: url('../images/copy-button.png');
         font-size: 20px;
     line-height: 24px;
-    font-weight: bold;
+    font-weight: 700;
     color: #000;
     border: 0;
     width: 168.67px;
@@ -914,7 +914,7 @@ html {
 .refer-note h5{
     font-size: 18px;
     line-height: 22.18px;
-    font-weight: bold;
+    font-weight: 700;
     margin: 0px 0px 10px;
     text-align: left;
 }
@@ -935,7 +935,7 @@ html {
     background: url('../images/send-button.png');
         font-size: 18px;
     line-height: 24px;
-    font-weight: bold;
+    font-weight: 700;
     border: 0px;
     min-width: 297px;
     min-height: 57px;
@@ -1028,6 +1028,9 @@ html {
     line-height: 16px;
     font-weight: 500;
     color:#000;
+}
+.profile-form .input-search .form-control{
+    padding-right: 40px;
 }
 .profile-form .form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   opacity: 30%
@@ -1204,7 +1207,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     background: url(../images/send-button.png)no-repeat;
     font-size: 18px;
     line-height: 24px;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
     border: 0px;
     min-width: 100%;
@@ -1297,7 +1300,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     background: url(../images/skip-button.png)no-repeat;
     font-size: 20px;
     line-height: 24px;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
     border: 0px;
     background-size: 100% 100%;
@@ -1358,6 +1361,9 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     .leader_board .rank-people .rank-three:before{background-size: 55%;left: -12px;}
     .leader_board .pull-right, .details_footer .list .pull-left{float: left;width: 100%;}
     .dashboard-wrapper:before{left: -128px;background-size: 65%;}
+}
+@media screen and (max-width: 958px) and (min-width: 320px){
+    .switch-field label{    width: 117px;}
 }
 @media screen and (max-width: 767px) and (min-width: 320px){
     .dashboard-wrapper{width: 100%;padding-bottom: 0px;}

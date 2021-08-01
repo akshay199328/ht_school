@@ -56,7 +56,31 @@ if ( ! class_exists( 'myCRED_Hook_Logging_In' ) ) :
 				$user = get_user_by( 'email', $user_login );
 				if ( ! is_object( $user ) ) return;
 			}
+			global $wpdb;
+			$table_name = "ht_mycred_log";
+			if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+			    $my_cred_table = 'ht_mycred_log';
+			}
+			else{
+			    $my_cred_table = 'ht_myCRED_log';
+			}
+			$sql = $wpdb->get_results("SELECT * FROM $my_cred_table WHERE ref='logging_in' AND user_id = '".$user->ID."' AND FROM_UNIXTIME(TIME) BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE()");
+			$prev_creds_json = json_decode( json_encode($sql), true);
+			$prev_creds = $prev_creds_json[0]['creds'];
 
+			// $sql1= $wpdb->get_results("SELECT * FROM ht_mycred_log WHERE ref='logging_in' AND user_id = '".$user->ID."' AND FROM_UNIXTIME(TIME) BETWEEN DATE_SUB(DATE(NOW()), INTERVAL 2 DAY) AND DATE_SUB(DATE(NOW()), INTERVAL 1 DAY)");
+			// $prev2_days_creds_json = json_decode( json_encode($sql), true);
+			// $prev2_days_creds = $prev2_days_creds_json[0]['creds'];
+
+			if($prev_creds == 100){
+				$creds = 100;
+			}
+			else if(count($sql) == 0){
+				$creds = $this->prefs['creds'];
+			}
+			else{
+				$creds = $this->prefs['creds'] + $prev_creds;
+			}
 			// Check for exclusion
 			if ( $this->core->exclude_user( $user->ID ) ) return;
 
@@ -65,7 +89,7 @@ if ( ! class_exists( 'myCRED_Hook_Logging_In' ) ) :
 				$this->core->add_creds(
 					'logging_in',
 					$user->ID,
-					$this->prefs['creds'],
+					$creds,
 					$this->prefs['log'],
 					0,
 					'',

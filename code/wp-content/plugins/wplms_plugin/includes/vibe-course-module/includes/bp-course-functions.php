@@ -439,7 +439,7 @@
 
       $is_event_type = get_post_meta($course,'vibe_course_event',true); 
       
-      $return['is_event_type'] = !empty($is_event_type)?intval($is_event_type):0;
+      $return['is_event_type'] = intval($is_event_type);
 
       $event_quiz_type = get_post_meta($item_id,'vibe_event_quiz_type',true);
       $return['event_quiz_type'] = $event_quiz_type;

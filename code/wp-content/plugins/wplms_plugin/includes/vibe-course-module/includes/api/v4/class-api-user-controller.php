@@ -3237,7 +3237,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				}
 			}
 			
-			$is_event_type = get_post_meta($post['course_id'],'vibe_course_event',true);
+			$is_event_type = get_post_meta($course_id,'vibe_course_event',true);
 			$event_quiz_type = get_post_meta($post['quiz_id'],'vibe_event_quiz_type',true);
 			$data = array(
 				'check_results_url'=>bp_core_get_user_domain( $this->user_id ).BP_COURSE_SLUG.'/'.BP_COURSE_RESULTS_SLUG.'/?action='.$post['quiz_id'],'status'=>true,
@@ -3253,7 +3253,6 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				'tags' => $tags,
 				'results' =>$results,
 				'quiz_points_credit' => !empty($quiz_points_credit)?intval($quiz_points_credit):0,
-				'course_id_string' =>$course_id_string,
 				'course_id' =>$course_id,
 				'event_quiz_type'=>$event_quiz_type,
 				'retakes' => intval($retake_count),

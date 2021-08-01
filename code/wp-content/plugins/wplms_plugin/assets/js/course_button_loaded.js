@@ -4124,6 +4124,10 @@
                                 jQuery('#retake-quiz').removeClass('hide-retake');
                                 jQuery('#retake-quiz').addClass('button');
                             }
+                            else{
+                                jQuery('.right-info').addClass('show-right-info');
+
+                            }
                             //jQuery('.right-info').addClass('show-right-info');
                             if(t.$is_event_type == 0){
                                 jQuery('#quiz_result_icon').removeClass("failed");

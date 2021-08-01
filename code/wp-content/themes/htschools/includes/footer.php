@@ -161,12 +161,13 @@ else if(isset($_COOKIE['PHPSESSID']))
   });
      //in case js in turned off
    $(window).on('load', function () {
-        //$('body').addClass('home');
+        $('body').addClass('home');
         $("#header-scroll").removeClass("small");
         <?php if($profileStatus == 0){ ?>
           $('#profile-popup').show();
           $('body').addClass('modal-open');
         <?php } ?>
+        $('.profile-click img').prop({alt:'',width:'50',height:'50'});
   });
 
 //scrollspy
@@ -949,6 +950,14 @@ jQuery(document).ready(function(){
                $(".videotitle").text(videotitle);
                document.getElementById('videolink').src = 'https://www.youtube-nocookie.com/embed/'+youtubecode;
           });
+
+          $('.videoplayLearning').click(function(){
+               var videotitle = $(this).attr('data-title');
+               var viemocode = $(this).attr('data-viemocode');
+               $(".videotitlelearning").text(videotitle);
+               document.getElementById('videolinklearning').src = 'https://player.vimeo.com/video/'+viemocode;
+          });
+
      </script>
 
      <script type="text/javascript">

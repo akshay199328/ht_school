@@ -125,7 +125,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
             </span>
             <div class="account">
             <?php if (!is_user_logged_in()){ ?>
-                <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="register"><span class="caption">Register</span></a>
+                <a href="#learning_section" class="register"><span class="caption">Register</span></a>
                 <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="login"><span class="caption">Login</span></a>
             <?php }else{ ?>
                 <?php if($purchase_status == 0){ ?>
@@ -133,7 +133,10 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
                 <?php }else{ ?>
                     <a href="<?php echo get_bloginfo('url'); ?>/event-dashboard" class="register dashboard"><span class="caption">Dashboard</span></a>
                 <?php } ?>
-                <a href="#!" class="ms-3 profile-click">
+                <a href="#!" class="ms-3 profile-click1">
+                    <img loading="lazy" src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">
+                </a>
+                <a href="#!" class="ms-3 profile-click" style="display: none;">
                     <?php 
                         $n=vbp_current_user_notification_count(); 
                         if($n != 0){
@@ -167,7 +170,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
         </ul>
         <div class="account">
             <?php if (!is_user_logged_in()){ ?>
-                <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="register"><span class="caption">Register</span></a>
+                <a href="#learning_section" class="register"><span class="caption">Register</span></a>
                 <a href="<?php echo get_bloginfo('url'); ?>/login-register" class="login"><span class="caption">Login</span></a>
             <?php }else{ ?>
                 <?php if($purchase_status == 0){ ?>

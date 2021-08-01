@@ -9,7 +9,10 @@ if(isset($loggedInUserID) && $loggedInUserID > 0)
 else if(isset($_COOKIE['PHPSESSID']))
 {
     $userIdentifier = $_COOKIE['PHPSESSID'];
-} ?>
+} 
+
+
+?>
 
 <input type="hidden" id="footer_user_identifier" value="<?php echo $userIdentifier; ?>">
 <input type="hidden" id="footer_timestamp" value="<?php echo date('c', time()); ?>">
@@ -131,11 +134,20 @@ else if(isset($_COOKIE['PHPSESSID']))
         <div class="copyright">Copyright © 2021 HTML. All rights reserved.</div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+     <link rel='stylesheet' id='acf-datepicker-css'  href='https://staging.ht-school.com/wp-content/plugins/advanced-custom-fields/assets/inc/datepicker/jquery-ui.min.css?ver=1.11.4' type='text/css' media='all' />
+
+    <script type='text/javascript' src='https://staging.ht-school.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.12.1' id='jquery-ui-datepicker-js'></script>
+     <script type='text/javascript' id='jquery-ui-datepicker-js-after'>
+     jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+     </script>
+
     <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/assets/js/navigation-custom.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -167,6 +179,8 @@ else if(isset($_COOKIE['PHPSESSID']))
           $('#profile-popup').show();
           $('body').addClass('modal-open');
         <?php } ?>
+        $(".profile-click1").hide();
+        $(".profile-click").show();
         $('.profile-click img').prop({alt:'',width:'50',height:'50'});
   });
 
@@ -569,6 +583,13 @@ jQuery(document).ready(function(){
                });
           });
 
+          jQuery('.skipDashboard2').click(function(){
+
+               $('#profile-popup').hide();
+               $('#congrats-popup2').modal('show');
+
+          });
+
           jQuery('.skipDashboard').click(function(){
 
               jQuery.ajax({
@@ -703,6 +724,7 @@ jQuery(document).ready(function(){
 
                      return isValid;
                  }
+
 
                  $("#user_dob_display").datepicker({
                      altField: "#user_dob",
@@ -956,6 +978,12 @@ jQuery(document).ready(function(){
                var viemocode = $(this).attr('data-viemocode');
                $(".videotitlelearning").text(videotitle);
                document.getElementById('videolinklearning').src = 'https://player.vimeo.com/video/'+viemocode;
+          });
+
+          $('.vibebp-logout').click(function(){
+               //alert('Hii');
+               //setTimeout(function(){ window.location.assign(""); }, 3000);
+               <?php //wp_logout(); ?>
           });
 
      </script>

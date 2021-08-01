@@ -63,6 +63,7 @@ if(intval($user_school) > 0){
     $user_school_name = get_user_by('id', $user_school)->display_name;
 }
 
+$dobDate = date('M d, Y',strtotime($user_birthday));
 $dob = date('Y-m-d',strtotime($user_birthday));
 
 $results = $wpdb->get_results("SELECT country_name FROM `ht_country_master` WHERE `country_id` = '$user_country'");
@@ -158,6 +159,9 @@ li.ui-menu-item a{
 }
 .ui-helper-hidden-accessible{
     display: none;
+}
+div#ui-datepicker-div{
+    z-index: 9999!important;
 }
 </style>
 <section class="dashboard-wrapper">
@@ -708,8 +712,8 @@ li.ui-menu-item a{
                                                     <label class="form-label">Date of Birth*</label>
                                                     <div class="input-group input-date">
                                                         <!-- <input type="date" class="form-control" name="user_dob" id="user_dob" placeholder="mm/dd/yyyy" value="<?php //echo $dob; ?>"> -->
-                                                        <input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="" value="<?php echo $dob; ?>" readonly>
-                                                        <input id="user_dob" type="hidden" name="user_dob" value="1992-09-08">
+                                                        <input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="" value="<?php echo $dobDate; ?>" readonly>
+                                                        <input id="user_dob" type="hidden" name="user_dob" value="<?php echo $dob; ?>">
                                                         <!-- <div class="input-group-text">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="23.351" height="25.623" viewBox="0 0 23.351 25.623">
                                                                 <path id="Path_101" data-name="Path 101" d="M21.848,4.562H19.513V3.281a1.173,1.173,0,1,0-2.335,0V4.562H10.173V3.281A1.228,1.228,0,0,0,9.005,2,1.228,1.228,0,0,0,7.838,3.281V4.562H5.5A3.685,3.685,0,0,0,2,8.406V23.78a3.685,3.685,0,0,0,3.5,3.843H21.848a3.685,3.685,0,0,0,3.5-3.843V8.406a3.685,3.685,0,0,0-3.5-3.843ZM23.016,23.78a1.228,1.228,0,0,1-1.168,1.281H5.5A1.228,1.228,0,0,1,4.335,23.78V14.812h18.68Zm0-11.53H4.335V8.406A1.228,1.228,0,0,1,5.5,7.125H7.838V8.406A1.228,1.228,0,0,0,9.005,9.687a1.228,1.228,0,0,0,1.168-1.281V7.125h7.005V8.406a1.173,1.173,0,1,0,2.335,0V7.125h2.335a1.228,1.228,0,0,1,1.168,1.281Z" transform="translate(-2 -2)" fill="#ccc"/>
@@ -860,7 +864,7 @@ li.ui-menu-item a{
                                     <span class="text"> School ID card to get<span class="block"></span> all 100 points instantly!!</span>
                                     <span id="errSchoolIDMsg"></span>
                                     <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
-                                    <button type="button" class="skip-button skipDashboard" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button>
+                                    <button type="button" class="skip-button skipDashboard2" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button>
                                 </div>
                             </div>
                             <div class="float-end">
@@ -896,6 +900,23 @@ li.ui-menu-item a{
 <!-- Referral Code -->
     <!-- Modal Congrats Popup -->
     <div class="modal fade congrats-popup" id="congrats-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/codeathon.svg" class="codeathon-logo">
+                    <div class="content">
+                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/dashboard/congrats-hero.png">
+                        <p class="congrats">Congratulations!</p>
+                        <h2 class="earned">You have earned</h2>
+                        <span class="coupon">150 points</span>
+                        <!-- <span class="coupon-1">50 points</span> -->
+                        <a class="skip skipDashboard" style="cursor: pointer;">Skip to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade congrats-popup" id="congrats-popup2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body">

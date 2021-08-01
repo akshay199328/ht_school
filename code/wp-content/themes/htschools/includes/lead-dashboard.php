@@ -22,7 +22,7 @@ if($page_name=="index.php"){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- <script type='text/javascript' src='<?php //echo get_bloginfo('url'); ?>/wp-content/plugins/vibebp/assets/js/profile.js?ver=1.5.3.6' id='vibebpprofile-js'></script> -->
-    <title>Codeathone Event, HT School</title>
+    <title>Codeathone Dashboard, HT School</title>
   </head>
   <body class="<?=$page_classes?> dashbaord_body">
     <header class="header-wrapper">
@@ -54,8 +54,11 @@ if($page_name=="index.php"){
                 </a>
             </span>
             <div class="account">
-                <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register"><span class="caption">Home</span></a>
-                <a href="#!" class="ms-3 profile-click">
+                <a href="<?php echo get_bloginfo('url'); ?>/code-a-thon" class="register"><span class="caption">Home</span></a>
+                <a href="#!" class="ms-3 profile-click1">
+                    <img loading="lazy" src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">
+                </a>
+                <a href="#!" class="ms-3 profile-click" style="display: none;">
                     <?php 
                         $n=vbp_current_user_notification_count(); 
                         if($n != 0){
@@ -81,7 +84,7 @@ if($page_name=="index.php"){
     <div class="navigation-wrapper" id="header-scroll">
         <nav>
             <div class="account">
-                <a href="<?php echo get_bloginfo('url'); ?>/code-a-thone" class="register"><span class="caption">Home</span></a>
+                <a href="<?php echo get_bloginfo('url'); ?>/code-a-thon" class="register"><span class="caption">Home</span></a>
                 <a href="#!" class="ms-3 profile-click1"></a>
                 <a href="#!" class="ms-3 profile-click" style="display: none;">
                     <?php 

@@ -191,6 +191,7 @@ $(window).on('scroll', function () {
 });
 
 jQuery(document).ready(function(){
+     $('.page-template-event-prelaunch').addClass('home');
      jQuery(".share svg").click(function(){
           jQuery(this).next().slideToggle();
      });

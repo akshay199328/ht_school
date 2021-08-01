@@ -392,21 +392,30 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				jQuery('.checkout-button').click(function(e){
 
-					e.preventDefault();
-					var link = jQuery(this).attr("href");
+					var eventcart = jQuery('#eventcart').text();
 
-					// dataLayer.push({ ecommerce: null });
-					dataLayer.push(beginCheckoutObj);
-					console.log(beginCheckoutObj);
+					if(eventcart != 1){
+						e.preventDefault();
+						var link = jQuery(this).attr("href");
 
-					beginCheckoutMoegObj.event = "mo_Checkout_Initiated";
-					dataLayer.push({ ecommerce: null }); 
-					dataLayer.push(beginCheckoutMoegObj);
-					// Moengage.track_event("Checkout_Initiated", beginCheckoutMoegObj);
+						// dataLayer.push({ ecommerce: null });
+						dataLayer.push(beginCheckoutObj);
+						console.log(beginCheckoutObj);
 
-					setTimeout(function(){
-						window.location.href = link;
-					}, 500);
+						beginCheckoutMoegObj.event = "mo_Checkout_Initiated";
+						dataLayer.push({ ecommerce: null }); 
+						dataLayer.push(beginCheckoutMoegObj);
+						// Moengage.track_event("Checkout_Initiated", beginCheckoutMoegObj);
+
+						setTimeout(function(){
+							window.location.href = link;
+						}, 500);
+					}else{
+						alert('Add only one codeathon course in cart');
+						return false;
+					}
+
+					
 				});
 			}
 

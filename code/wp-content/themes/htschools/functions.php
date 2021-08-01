@@ -3673,7 +3673,7 @@ $featured_args_course = array(
     $product_in_cart[] = $cart_item['product_id'];  
   }
     if(count(array_intersect($product_id, $product_in_cart)) > 1){
-      wc_add_notice( sprintf( '<strong>Add only one codeathon course in cart </strong>' ), 'error' );
+      wc_add_notice( sprintf( '<strong>Add only one codeathon course in cart </strong><span id="eventcart" class="eventcart" style="display:none;">1</span>' ), 'error' );
     }
     // else{
     //  wc_add_notice( sprintf( '<strong>test</strong>' ), 'error' );

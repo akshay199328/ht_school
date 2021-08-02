@@ -38,7 +38,7 @@ html {
 .dashbaord_body .account .login {
     border: 0 !important
 }
-
+.dashbaord_body .account .profile-click{border: 0!important; padding: 0!important;} 
 .dashbaord_body .account .login img,
 .dashbaord_body .account .ms-3 img {
     border: 4px solid #06ea8c;

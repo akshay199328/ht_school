@@ -74,6 +74,7 @@ if($page_name=="index.php"){
                         <button class="home-button">
                             <span class="burger"></span>
                         </button>
+                        <span class="divider"></span>
                         <li>
                             <a href="<?php bp_loggedin_user_link(); ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17.187" height="19.643" viewBox="0 0 17.187 19.643">

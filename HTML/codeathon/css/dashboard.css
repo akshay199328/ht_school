@@ -1652,6 +1652,7 @@ input[type=date]::-webkit-inner-spin-button {
         flex-wrap: wrap;
     }
     .menuOpened .profile-menu {opacity: 1;visibility: visible;margin: 0;}
+    .menuOpened .profile-menu .divider{margin-bottom: 50px;}
     .profile-menu li {font-size: 18px!important;color: #FFF!important;font-weight: 600!important;line-height: 55px; display: block;}
     .profile-menu li a{color: #FFF!important;}
     .home-button{z-index: 999!important;}

@@ -147,7 +147,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
                         }
                     ?>
                 </a>
-                <ul class="profile-menu">
+                <ul class="profile-menu home-profile-menu">
                     <button class="home-button">
                             <span class="burger"></span>
                         </button>
@@ -178,7 +178,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
                                 Logout 
                             </a>
                         </li>
-                    
+
                 </ul>
             <?php } ?>
             </div>

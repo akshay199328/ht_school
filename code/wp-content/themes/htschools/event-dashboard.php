@@ -939,7 +939,7 @@ function myFunction() {
   copyText.select();
   copyText.setSelectionRange(0, 99999)
   document.execCommand("copy");
-  document.getElementById("successMsg").innerHTML = "Referral Code Copy Successfully";
+  document.getElementById("successMsg").innerHTML = "Referral Code Coiped Successfully";
 }
 </script>
 <?php include("includes/footer.php"); ?>

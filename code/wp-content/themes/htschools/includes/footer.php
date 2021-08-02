@@ -140,7 +140,8 @@ else if(isset($_COOKIE['PHPSESSID']))
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
+    <script src="<?php echo get_bloginfo('template_url'); ?>/assets/js/scroll.js"></script>
+    <script>window.noZensmooth = true</script>
      <link rel='stylesheet' id='acf-datepicker-css'  href='https://staging.ht-school.com/wp-content/plugins/advanced-custom-fields/assets/inc/datepicker/jquery-ui.min.css?ver=1.11.4' type='text/css' media='all' />
 
     <script type='text/javascript' src='https://staging.ht-school.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.12.1' id='jquery-ui-datepicker-js'></script>

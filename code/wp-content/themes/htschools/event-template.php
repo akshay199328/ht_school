@@ -545,7 +545,8 @@ if($bannerCount == 1){
               </button>
           </div>
           <div class="modal-body">
-              <iframe id="videolinklearning" height="400" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="top:0; left:0; width:100%;"></iframe>
+              <div style="padding:56.25% 0 0 0;position:relative;"><iframe id="videolinklearning" src="" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+              <!-- <iframe id="videolinklearning" height="400" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" style="top:0; left:0; width:100%;"></iframe> -->
           </div>
       </div>
   </div>

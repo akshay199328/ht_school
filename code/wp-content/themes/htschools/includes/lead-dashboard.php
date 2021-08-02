@@ -72,7 +72,7 @@ if($page_name=="index.php"){
                 <ul class="profile-menu">
                     <li><a href="<?php bp_loggedin_user_link(); ?>">My profile</a></li>
                     <li><a href="<?php bp_loggedin_user_link(); ?>/preference">Preference</a></li>
-                    <li><a href="#!" class="vibebp-logout"><span class="vicon"></span>Logout </a></li>
+                    <li><a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="vibebp-logout"><span class="vicon"></span>Logout </a></li>
                 </ul>
             </div>
             <button class="home-button">
@@ -100,7 +100,7 @@ if($page_name=="index.php"){
                 <ul class="profile-menu">
                     <li><a href="<?php bp_loggedin_user_link(); ?>">My profile</a></li>
                     <li><a href="<?php bp_loggedin_user_link(); ?>/preference">Preference</a></li>
-                    <li><a href="#!" class="vibebp-logout"><span class="vicon"></span>Logout </a></li>
+                    <li><a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="vibebp-logout"><span class="vicon"></span>Logout </a></li>
                 </ul>
             </div>
         </nav>

@@ -4246,7 +4246,7 @@ a.button.is-primary {
     flex-direction: column;
 }
 .show_quiz_result {
-        border: 1px solid #aeaeae;
+    border: 1px solid #aeaeae;
     padding: 20px;
     width: 100%;
     position: relative;
@@ -4255,6 +4255,7 @@ a.button.is-primary {
     border-radius: 4px;
     flex-direction: row;
     flex-wrap: wrap;
+    min-height: 210px;
 }
 
 .quiz_result_details {

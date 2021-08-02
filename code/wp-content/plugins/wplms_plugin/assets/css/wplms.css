@@ -4255,6 +4255,7 @@ a.button.is-primary {
     border-radius: 4px;
     flex-direction: row;
     flex-wrap: wrap;
+    min-height: 210px;
 }
 
 .quiz_result_details {

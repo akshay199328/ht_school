@@ -332,8 +332,11 @@ jQuery(document).ready(function(){
           // autoWidth:true,
           responsive : {
                0 : {
+                    margin:0,
                     items:2,
                     dots:true,
+                    autoWidth:true,
+                    center:false,
                },
                // breakpoint from 480 up
                480 : {
@@ -361,7 +364,7 @@ jQuery(document).ready(function(){
           // autoWidth:true,
           responsive : {
                0 : {
-                    items:2,
+                    items:1,
                },
                // breakpoint from 480 up
                480 : {

@@ -643,11 +643,6 @@ border: 1px solid deepskyblue;
 					isValid = false;
 				  }
 
-				  /*if(otherschool == '' || otherschool == undefined){
-                  	$("#errotherSchoolMsg").text("Please enter school name");
-                  	isValid = false;
-                  }*/
-
 				  return isValid;
 			}
 
@@ -763,6 +758,7 @@ border: 1px solid deepskyblue;
 				});
 			  }
 			});
+
 		  var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
 
 			$( "#user_school_data" ).autocomplete({
@@ -790,6 +786,17 @@ border: 1px solid deepskyblue;
 				}
 			});
 
+			$("#user_school_data").on("keyup", function (event, ui) {		var other_val = $("#user_school_data").val();
+   
+    			if(other_val === "Others"){
+					$("#other_school").show();							
+				}
+				else{
+					$('#other_school').slideUp();						
+					$("#user_school_other").val('');						
+				}	
+			});
+
 			$("#user_school_data").on("change", function (event, ui) {
 				var other_val = $("#user_school_data").val();
    
@@ -798,8 +805,7 @@ border: 1px solid deepskyblue;
 				}
 				else{
 					$('#other_school').slideUp();						
-					$("#user_school_other").val('');		
-						
+					$("#user_school_other").val('');						
 				}		
 			});
 

@@ -520,8 +520,18 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 					});
 				}
 			});
-			
-			/*$("#user_school_data").on("keyup", function (event, ui) {*/
+					
+			$("#user_school_data").on("keyup", function (event, ui) {		var other_val = $("#user_school_data").val();
+   
+    			if(other_val === "Others"){
+					$("#other_school").show();							
+				}
+				else{
+					$('#other_school').slideUp();						
+					$("#user_school_other").val('');						
+				}	
+			});
+
 			$("#user_school_data").on("change", function (event, ui) {
 				var other_val = $("#user_school_data").val();
    
@@ -530,8 +540,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				}
 				else{
 					$('#other_school').slideUp();						
-					$("#user_school_other").val('');		
-						
+					$("#user_school_other").val('');						
 				}	
 			});
 

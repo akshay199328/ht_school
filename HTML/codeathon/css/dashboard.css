@@ -66,6 +66,7 @@ html {
     text-transform: inherit!important;
     margin-left: 0px!important;
 }
+.profile-menu li:hover a{font-weight: 700!important;}
 .navigation-wrapper ul{
     justify-content: flex-start;
     padding: 0px;

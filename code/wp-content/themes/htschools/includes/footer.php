@@ -150,22 +150,25 @@ else if(isset($_COOKIE['PHPSESSID']))
 
     <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/assets/js/navigation-custom.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-               var slideOut = $('.profile-menu'), 
-               tease = function () { 
-                    slideOut.hide();
-               };
-               $('.profile-click').click(function (e) {
-                    if (slideOut.is(":hidden")) {
-                         slideOut.clearQueue().slideDown("slow");
-                    } else {
-                         slideOut.clearQueue().slideUp("slow");
-                    }
-                    e.preventDefault();
-                    return false;
-               });
-               tease(); //tease with the slide-out
+     $(document).ready(function () {
+          /*var slideOut = $('.profile-menu'), 
+          tease = function () { 
+               alert("hide");
+               slideOut.hide();
+          };*/
+          $('.profile-click').click(function (e) {
+               // alert('hello')
+               $('.profile-menu').slideToggle()
+               /*if (slideOut.is(":hidden")) {
+                    slideOut.clearQueue().slideDown("slow");
+               } else {
+                    slideOut.clearQueue().slideUp("slow");
+               }
+               e.preventDefault();
+               return false;*/
           });
+          tease(); //tease with the slide-out
+     });
     </script>
     <script type="text/javascript">
      $(".navigation-wrapper ul li a").click(function(){

@@ -3976,7 +3976,7 @@
                     }).then(e => e.json()).then(e => {
                         if (e) {
                             jQuery('.attempt-number').text(e.meta.retakes);
-                            if(e.meta.retakes == 0){
+                            if(e.meta.retakes == 0 && e.submitted){
                                 jQuery('.right-info').addClass('show-right-info');
                                 jQuery('.attempt-number').removeClass('correct');
                                 jQuery('.attempt-number').addClass('incorrect');
@@ -3992,7 +3992,7 @@
                             // }
                             console.log(e.submitted);
                             console.log(e);
-                            if(e.submitted != undefined && e.submitted == true){
+                            if(e.submitted != undefined && e.submitted == true && e.quiz_points > 0){
                                 jQuery('.right-info').addClass('show-right-info');
                             }
                             if (S(null), e.meta && e.meta.questions) {

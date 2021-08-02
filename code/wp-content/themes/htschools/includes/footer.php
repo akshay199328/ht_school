@@ -157,6 +157,7 @@ else if(isset($_COOKIE['PHPSESSID']))
                     alert("hide");
                     slideOut.hide();
                };*/
+               $('.profile-menu').hide()
                $('.profile-click').click(function (e) {
                     // alert('hello')
                     $('.profile-menu').slideToggle()
@@ -170,7 +171,11 @@ else if(isset($_COOKIE['PHPSESSID']))
                });
                tease(); //tease with the slide-out
           }
-          $('.home-button .burger').click(function (e) {
+          $('.navigation-wrapper .profile-menu').hide()
+          $('.navigation-wrapper .profile-click').click(function (e) {
+               $('.navigation-wrapper .profile-menu').slideToggle()
+          });
+          $('.dashbaord_body .home-button .burger').click(function (e) {
                // alert('hello')
                $('.profile-menu').show()
           })

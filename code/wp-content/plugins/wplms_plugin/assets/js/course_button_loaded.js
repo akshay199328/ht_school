@@ -4393,6 +4393,7 @@
                         token: k
                     })
                 }).then(e => e.json()).then(t => {
+                    jQuery('.right-info').removeClass('show-right-info');
                     t && (t.status ? (L(), e.hasOwnProperty("update") && e.update("retake_quiz")) : t.message && (On("vibebp").addNotification({
                         icon: "",
                         text: t.message

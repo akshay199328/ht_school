@@ -27,7 +27,50 @@
   background-color: #000;
   color: #FFF;
 }
+.profile-menu {
+    z-index: 999;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    background: #fff;
+    box-shadow: 0 8px 10px #00000010;
+    border-radius: 0;
+    padding: 15px;
+    border: 1px solid #e8e8e8;
+    width: 100%
+}
+.profile-menu .divider {
+    /*border: 1px solid #707070;
+    padding: 0!important;
+    margin-bottom: 15px;*/
+}
+.profile-menu li {
+    display: block;
+    text-align: left;
+    color: #000;
+    font-size: 15px;
+    line-height: 40px;
+    color: #4b4b4b;
+    font-weight: 400;
+    padding: 0 0
+}
 
+.profile-menu li a {
+    color: #000 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    text-transform: inherit !important;
+    margin-left: 0 !important
+}
+
+.profile-menu li:hover a {
+    font-weight: 700 !important;
+}
+.profile-menu li a svg{margin-right:8px;}
+.profile-menu li a svg path{fill: #848484}
+.profile-menu li:hover a svg path,
+.profile-menu li a:hover svg path {fill: #000}
 @media (max-width: 450px) {
   .black-button {
     padding: 8px 24px;
@@ -448,4 +491,12 @@ body {
 
 .footer-wrapper .footer-copy .info p {
   margin-bottom: 10px;
+}
+@media (max-width:768px) {
+
+  .home-profile-menu{right: 0;
+      left: 40px;
+      top: inherit;
+      width: 47%;
+  }
 }

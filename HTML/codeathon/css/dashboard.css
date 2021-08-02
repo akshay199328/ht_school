@@ -537,7 +537,13 @@ html {
     line-height: 28px;
     color: #2d2d2d;
     font-weight: 700;
-    margin: 0
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .toggle_icon {
@@ -1774,10 +1780,13 @@ input[type=date]::-webkit-inner-spin-button {
     .toggle_icon {
         display: block;
         float: right
+        padding-left: 20px;
     }
 
     .list h5.active .toggle_icon {
         transform: rotate(178deg) scale(1.2)
+        padding-left: 0;
+        padding-right: 20px;
     }
 
     .points_board .points {

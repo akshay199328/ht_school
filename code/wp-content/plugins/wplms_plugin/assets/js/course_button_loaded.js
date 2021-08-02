@@ -6555,6 +6555,38 @@
                                 });
                                 document.dispatchEvent(i), document.dispatchEvent(new Event("VibeBP_Editor_Content"))
                             }
+                            console.log("test");
+                            
+                            var iframe = document.querySelector('iframe');
+                            var player = new Vimeo.Player(iframe);
+
+                             var currentPos, percentage, vdoEndTym = "";
+                             var vdo_play = "";
+                                // player.on('timeupdate', function (getAll)
+                                // {
+                                //     currentPos = getAll.seconds; //get currentime
+                                //     vdoEndTym = getAll.duration; //get video duration
+                                //     percentage = (getAll.percent * 100)+"%";
+                                //     console.log('currentPos: ' + currentPos);
+                                //     console.log('percentage: ' + percentage);
+                                //     console.log('vdoEndTym: ' + vdoEndTym);
+                                // });
+                                player.on('ended', function (){
+                                    let d = hs("vibebp").getUser();
+                                    d.token = hs("vibebp").getToken();
+                                    console.log("finished");
+                                    fetch(window.wplms_course_data.api_url + "/user/videowatched", {
+                                        method: "POST",
+                                        body: JSON.stringify({
+                                            quiz_id: n.courseitems[t].id,
+                                            course_id: e.course_id,
+                                            token: d.token
+                                        })
+                                    }).then(e => e.json()).then(e => {
+                                        console.log(e);
+                                    })
+                                })
+                            
                         }).catch(e => {
                             "AbortError" === e.name ? console.log("Fetch aborted") : console.error("Uh oh, an error!", e)
                         })

@@ -317,6 +317,14 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 					'permission_callback' 		=> array( $this, 'get_user_permissions_check' ),
 				),
 			));
+
+			register_rest_route( $this->namespace, '/'. $this->type .'/videowatched', array(
+				array(
+					'methods'                   =>  'POST',
+					'callback'                  =>  array( $this, 'save_video_points' ),
+					'permission_callback' 		=> array( $this, 'get_user_permissions_check' ),
+				),
+			));
 			
 			register_rest_route( $this->namespace,  '/'. $this->type .'/signin/', array(
 				'methods'                   =>  'POST',
@@ -3334,6 +3342,40 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 			}
 			$data = array('status'=>true,'message'=>_x('Marked answer saved','','wplms'));
 			return 	new WP_REST_Response( $data, 200 );
+		}
+
+		function save_video_points($request){
+			$post = json_decode(file_get_contents('php://input'));
+			$this->get_user_id($request);
+			$quiz_id = $post->quiz_id;
+			$course_id = $post->course_id;
+			global $wpdb;
+            $table_name = "ht_mycred_log";
+		    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+		        $my_cred_table = 'ht_mycred_log';
+		    }
+		    else{
+		        $my_cred_table = 'ht_myCRED_log';
+		    }
+		    $is_event_type = get_post_meta($course_id,'vibe_course_event',true);
+		    if($is_event_type == 1){
+			    $sql = $wpdb->get_results("SELECT creds FROM $my_cred_table WHERE ref='video_watched' AND user_id = '".$this->user_id."' and ref_id = '".$quiz_id."' ");
+		      	$unit_video_creds_json = json_decode( json_encode($sql), true);
+		      	$unit_video_creds_total = $unit_video_creds_json[0]['creds'];
+
+		      	if($unit_video_creds_total == 0){
+		            $now = current_time('timestamp');
+		            $quiz_points_credit = 100;
+		      		$mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('video_watched', '".$quiz_id."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for video watched ','".$course_id."')");
+		            $wpdb->query($mycred_points);
+					$data = array('status'=>true,'message'=>_x('Points added for video watched','','wplms'));
+					return 	new WP_REST_Response( $data, 200 );
+		      	}
+		      	else{
+		      		$data = array('status'=>false,'message'=>_x('Points will be added only once','','wplms'));
+					return 	new WP_REST_Response( $data, 200 );
+		      	}
+		    }
 		}
 
 		/*

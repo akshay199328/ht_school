@@ -270,7 +270,7 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css?v=1.1');
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
     // wp_enqueue_script( 'wplms-froogaloop2', '//f.vimeocdn.com/js/froogaloop2.min.js', '', '', true );
-    // wp_enqueue_script( 'wplms-player', '//player.vimeo.com/api/player.js', '', '', true );
+    wp_enqueue_script( 'wplms-player', '//player.vimeo.com/api/player.js', '', '', true );
     
     // wp_enqueue_script( 'vimeo-api-js', get_template_directory_uri(). '/assets/js/vimeo-api-demo.js', '', '', true );
 

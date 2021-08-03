@@ -3771,8 +3771,9 @@ body.menuOpened .side-navigation {
     }
 }
 
-.page-template-event-prelaunch {
-    font-family: Poppins !important
+.page-template-event-prelaunch{
+    font-family: Poppins !important;
+    overflow:scroll !important;
 }
 
 .page-template-event-prelaunch h1,

@@ -148,7 +148,7 @@ function earnPointsLogReg($userID,$earnFrom){
         $my_cred_table = 'ht_myCRED_log';
     }
 
-    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom'");
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_engagement'");
     foreach($results as $row){ 
         $points = $row->points; 
     }
@@ -171,7 +171,7 @@ function earnPointsVideo($userID,$earnFrom,$courseID){
         $my_cred_table = 'ht_myCRED_log';
     }
 
-    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `data` = '$courseID'");
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `data` = '$courseID' AND `ctype` = 'mycred_intellectual'");
     foreach($results as $row){ 
         $points = $row->points; 
     }
@@ -854,12 +854,20 @@ div#ui-datepicker-div{
                                         </div>
                                         <div class="list">
                                             <div class="form-group">
+                                                <label class="form-label">State</label>
+                                                <div class="input-group input-search">
+                                                    <input type="text" class="form-control" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="list">
+                                            <div class="form-group">
                                                 <label class="form-label">City</label>
                                                 <div class="input-group input-search">
                                                     <input type="text" class="form-control" id="user_city" name="user_city" placeholder="City" value="<?php echo $user_city; ?>">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="float-end">

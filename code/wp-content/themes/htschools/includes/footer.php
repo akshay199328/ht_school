@@ -932,6 +932,7 @@ jQuery(document).ready(function(){
 
              });
          })( jQuery );
+         
 
           window.selectedCountry = "<?php echo $user_country; ?>";
           var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
@@ -946,6 +947,30 @@ jQuery(document).ready(function(){
                     window.selectedCountry = ui.item.label;
                },
           }); 
+
+
+          var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_states';
+
+          $( "#user_state" ).autocomplete({
+               source: function (request, response) {
+                   $.ajax({
+                      dataType: "json",
+                      type : 'POST',
+                      data: { term: request.term, country: window.selectedCountry },
+                      url: stateUrl,
+                      success: function(data) {
+                          response(data);
+                      },
+                      error: function(data) {
+                      }
+                  });
+              },
+               minLength: 2,
+               select: function(event, ui) {
+                  event.preventDefault();
+                  $("#user_state").val(ui.item.label);
+              },
+          });
 
           var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
 

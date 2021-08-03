@@ -138,6 +138,29 @@ $parts = explode("/", $link);
 $viemocode = end($parts);
 
 
+function earnPointsOnboarding($userID,$earnFrom){
+
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+        $my_cred_table = 'ht_mycred_log';
+    }else{
+        $my_cred_table = 'ht_myCRED_log';
+    }
+
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_default'");
+    foreach($results as $row){ 
+        $points = $row->points; 
+    }
+
+    if($points != ''){
+        return $points;
+    }else{
+        return 0;
+    }
+
+}
+
 function earnPointsLogReg($userID,$earnFrom){
 
     global $wpdb;
@@ -187,7 +210,9 @@ function earnPointsVideo($userID,$earnFrom,$courseID){
 
 $learning_points = earnPointsVideo($userID,'video_watched',$courseID)+earnPointsVideo($userID,'chapter_points',$courseID)+earnPointsVideo($userID,'video_points',$courseID)+earnPointsVideo($userID,'course_points',$courseID);
 
-$engagement_points = earnPointsLogReg($userID,'social_sharing')+earnPointsLogReg($userID,'logging_in')+earnPointsLogReg($userID,'registration')+earnPointsLogReg($userID,'reward');
+$onboarding_points = earnPointsOnboarding($userID,'platform_onboarding_step1')+earnPointsOnboarding($userID,'platform_onboarding_step2')+earnPointsOnboarding($userID,'platform_onboarding_step3');
+
+$engagement_points = earnPointsLogReg($userID,'social_sharing')+earnPointsLogReg($userID,'logging_in')+earnPointsLogReg($userID,'registration')+earnPointsLogReg($userID,'reward')+$onboarding_points;
 
 $total_points = $learning_points+$engagement_points;
 
@@ -1245,6 +1270,18 @@ div#ui-datepicker-div{
                               </g>
                             </svg>
                             <span><?php echo earnPointsLogReg($userID,'reward'); ?></span>
+                        </span>
+                    </div>
+                    <div class="column">
+                        <span class="copy">Onboarding Points</span>
+                        <span class="number">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
+                              <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">
+                                <circle id="Ellipse_1821" data-name="Ellipse 1821" cx="0.551" cy="0.551" r="0.551" transform="translate(1216 475.061)" fill="#fff"/>
+                                <path id="Path_30137" data-name="Path 30137" d="M627.15-195a.619.619,0,0,0-.619.619.619.619,0,0,0,.619.619.619.619,0,0,0,.619-.619A.619.619,0,0,0,627.15-195Zm.4.577-.16.156.038.22a.056.056,0,0,1-.022.054.055.055,0,0,1-.059,0l-.2-.1-.2.1a.056.056,0,0,1-.059,0,.057.057,0,0,1-.022-.054l.038-.22-.16-.156a.055.055,0,0,1-.014-.057.056.056,0,0,1,.045-.038l.221-.032.1-.2a.058.058,0,0,1,.1,0l.1.2.221.032a.056.056,0,0,1,.045.038A.055.055,0,0,1,627.552-194.423Z" transform="translate(589.469 670)" fill="#ffcd35"/>
+                              </g>
+                            </svg>
+                            <span><?php echo $onboarding_points; ?></span>
                         </span>
                     </div>
                 </div>

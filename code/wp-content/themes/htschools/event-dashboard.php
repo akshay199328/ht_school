@@ -229,13 +229,13 @@ function getQuizPointsTypeCount($quiz_type,$courseID){
       $course_quiz = array();
       foreach($quiz_arr as $quiz_id){
         $event_quiz_type = get_post_meta($quiz_id,'vibe_event_quiz_type',true);
-        if($event_quiz_type == $quiz_type){
+        if($event_quiz_type == 'video'){
           $video_quiz[] = $quiz_id;
         }
-        else if($event_quiz_type == $quiz_type){
+        else if($event_quiz_type == 'chapter'){
           $chapter_quiz[] = $quiz_id;
         }
-        else if($event_quiz_type == $quiz_type){
+        else if($event_quiz_type == 'course'){
           $course_quiz[] = $quiz_id;
         }
       }

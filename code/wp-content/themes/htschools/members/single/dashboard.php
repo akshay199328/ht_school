@@ -22,11 +22,13 @@ if($user_role=='instructor'){
 	$profile_layout = 'blank';
 }
 
-vibe_include_template("profile/top$profile_layout.php");  
+wp_register_style( 'dataTables', 'https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css' );
+wp_enqueue_style('dataTables'); 
+vibe_include_template("profile/top$profile_layout.php"); 
+
 ?>
-<style type="text/css">
-	
-</style>
+
+
 
 <div class="wplms-dashboard row">
 	<div class="col-sm-12 dashboard-info">
@@ -108,7 +110,7 @@ vibe_include_template("profile/top$profile_layout.php");
 				<div id="user_rank">
 						
 				</div>
-				<table class="table table-responsive">
+				<table class="table table-responsive" id="myTable">
 					<thead>
 						<tr>
 							<th>Rank</th>
@@ -151,16 +153,24 @@ vibe_include_template("profile/top$profile_layout.php");
 			})
 
 			function getScore(course_id){
-				$.ajax({
-				    type: 'POST',
-				    url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-				    data: {"action": "load-filter", course_id: course_id },
-				    success: function(response) {
-				    	if(response.length > 0){
-				    		$('#data').html(response);
-				    	}
-				    }
-			  	});
+				
+				$(document).ready(function(){
+					$.ajax({
+					    type: 'POST',
+					    url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+					    data: {"action": "load-filter", course_id: course_id },
+					    success: function(response) {
+					    	if(response.length > 0){
+					    		$('#data').html(response);
+					    	}
+					    }
+				  	});
+				});
+				  	
+
+
+				$('#myTable').DataTable();
+
 			}
 
 			function getUserRank(course_id){
@@ -205,7 +215,10 @@ vibe_include_template("profile/top$profile_layout.php");
 	<?php do_action( 'bp_after_dashboard_body' ); ?>
 </div>	<!-- .wplms-dashbaord -->
 <?php
-
+wp_register_script( 'jQuery', 'https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js');
+wp_enqueue_script('jQuery');
+/*wp_register_script( 'jQuery', 'https://code.jquery.com/jquery-3.5.1.js');
+wp_enqueue_script('jQuery');*/
 vibe_include_template("profile/bottom.php");  
 
 get_footer( vibe_get_footer() );  						

@@ -7,9 +7,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 include("includes/lead-dashboard.php"); 
 
-/*if (!is_user_logged_in()){
-    header("Location: ".bloginfo('url')."", TRUE, 301);
-}*/
+if ( !is_user_logged_in() ) {
+    $url = site_url();
+    header('Location: '.$url);
+}
 
 $current_user = wp_get_current_user();
 $userID = $current_user->id; 

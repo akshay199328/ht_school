@@ -6555,7 +6555,6 @@
                                 });
                                 document.dispatchEvent(i), document.dispatchEvent(new Event("VibeBP_Editor_Content"))
                             }
-                            console.log("test");
                             
                             var iframe = document.querySelector('iframe');
                             var player = new Vimeo.Player(iframe);

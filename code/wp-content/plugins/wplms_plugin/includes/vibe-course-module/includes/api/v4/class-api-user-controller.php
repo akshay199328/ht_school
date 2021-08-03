@@ -3125,7 +3125,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				      }
 	                $now    = current_time( 'timestamp' );
 	                
-		      		$mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number."st attempt quiz ','".$course_id."')");
+		      		$mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('".$event_quiz_type."_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for ".$quiz_attempt_number." attempt quiz ','".$course_id."')");
 		            $wpdb->query($mycred_points);
                 }
                 else if($event_quiz_type == 'video'){
@@ -3141,7 +3141,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				          $my_cred_table = 'ht_myCRED_log';
 				      }
 	                $now    = current_time( 'timestamp' ); 
-		      		$mycred_total_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('quiz_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for video quiz attempt','".$course_id."')");
+		      		$mycred_total_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('".$event_quiz_type."_points', '".$post['quiz_id']."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for video quiz attempt','".$course_id."')");
 		            $wpdb->query($mycred_total_points); 
                 }
 

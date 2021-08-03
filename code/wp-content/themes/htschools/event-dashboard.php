@@ -216,6 +216,80 @@ $engagement_points = earnPointsLogReg($userID,'social_sharing')+earnPointsLogReg
 
 $total_points = $learning_points+$engagement_points;
 
+function getQuizPointsTypeCount($quiz_type,$courseID){
+    $course_curriculum = bp_course_get_full_course_curriculum($courseID);
+      $quiz_arr = array();
+      foreach($course_curriculum as $row){
+        if($row['type'] == 'quiz'){
+          $quiz_arr[] = $row['id'];
+        }
+      }
+      $video_quiz = array();
+      $chapter_quiz = array();
+      $course_quiz = array();
+      foreach($quiz_arr as $quiz_id){
+        $event_quiz_type = get_post_meta($quiz_id,'vibe_event_quiz_type',true);
+        if($event_quiz_type == $quiz_type){
+          $video_quiz[] = $quiz_id;
+        }
+        else if($event_quiz_type == $quiz_type){
+          $chapter_quiz[] = $quiz_id;
+        }
+        else if($event_quiz_type == $quiz_type){
+          $course_quiz[] = $quiz_id;
+        }
+      }
+
+      if($event_quiz_type == 'video'){
+        return count($video_quiz);
+      }
+      else if($event_quiz_type == 'chapter'){
+        return count($chapter_quiz);
+      }
+      else if($event_quiz_type == 'course'){
+        return count($course_quiz);
+      }
+}
+
+function getQuizPoints($userID,$ref,$courseID){
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+    }
+    else{
+      $my_cred_table = 'ht_myCRED_log';
+    }
+    $sql = $wpdb->get_results("SELECT count(id) as total_quiz FROM $my_cred_table WHERE ref='".$ref."' AND user_id = '".$userID."' and data = '".$courseID."' and ctype = 'mycred_intellectual' ");
+    
+    $quiz_creds_json = json_decode( json_encode($sql), true);
+    return $quiz_creds_json[0]['total_quiz'];
+}
+function getVideosCount($courseID){
+    $course_curriculum = bp_course_get_full_course_curriculum($courseID);
+    $unit_arr = array();
+    foreach($course_curriculum as $row){
+        if($row['type'] == 'unit'){
+          $unit_arr[] = $row['id'];
+        }
+    }
+    return count($unit_arr);
+}
+function getVideoPoints($userID,$courseID){
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+    }
+    else{
+      $my_cred_table = 'ht_myCRED_log';
+    }
+    $sql = $wpdb->get_results("SELECT count(id) as total_quiz FROM $my_cred_table WHERE ref='video_watched' AND user_id = '".$userID."' and data = '".$courseID."' and ctype = 'mycred_intellectual' ");
+    
+    $unit_creds_json = json_decode( json_encode($sql), true);
+    return $unit_creds_json[0]['total_quiz'];
+}
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}
@@ -1161,7 +1235,7 @@ div#ui-datepicker-div{
                 </div>
                 <div class="points">
                     <div class="column">
-                        <span class="rating">3<span>/5</span></span>
+                        <span class="rating"><?php echo getVideoPoints($userID,$courseID)?><span>/<?php echo getVideosCount($courseID)?></span></span>
                         <span class="copy">Videos Watched</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
@@ -1174,7 +1248,7 @@ div#ui-datepicker-div{
                         </span>
                     </div>
                     <div class="column">
-                        <span class="rating">3<span>/5</span></span>
+                        <span class="rating"><?php echo getQuizPoints($userID,'video_points',$courseID)?><span>/<?php echo getQuizPointsTypeCount('video',$courseID)?></span></span>
                         <span class="copy">Videos Quiz Attempt</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
@@ -1187,7 +1261,7 @@ div#ui-datepicker-div{
                         </span>
                     </div>
                     <div class="column">
-                        <span class="rating">3<span>/5</span></span>
+                        <span class="rating"><?php echo getQuizPoints($userID,'chapter_points',$courseID)?><span>/<?php echo getQuizPointsTypeCount('chapter',$courseID)?></span></span>
                         <span class="copy">Chapter Quiz Taken</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
@@ -1200,7 +1274,7 @@ div#ui-datepicker-div{
                         </span>
                     </div>
                     <div class="column">
-                        <span class="rating">3<span>/5</span></span>
+                        <span class="rating"><?php echo getQuizPoints($userID,'course_points',$courseID)?><span>/<?php echo getQuizPointsTypeCount('course',$courseID)?></span></span>
                         <span class="copy">Course Quiz Attempt</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">

@@ -510,7 +510,7 @@ div#ui-datepicker-div{
                                 </div>
                                 <div class="pull-right">
                                     <span class="total_point">Total<span class="break">Points</span> </span>
-                                    <span class="points"><?php echo $points; ?></span>
+                                    <span class="points"><?php echo $total_points; ?></span>
                                 </div>
                                 <div class="board-button">
                                     <button type="button" class="earn-points-btn">VIEW POINTS DETAILS</button>

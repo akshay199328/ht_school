@@ -7,11 +7,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 include("includes/lead-dashboard.php"); 
 
-//$redirectURL1 = bloginfo('url');
-//$redirectURL = $redirectURL1."/code-a-thone";
-
 /*if (!is_user_logged_in()){
-    header("Location: ".$redirectURL."", TRUE, 301);
+    header("Location: ".bloginfo('url')."", TRUE, 301);
 }*/
 
 $current_user = wp_get_current_user();

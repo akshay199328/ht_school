@@ -11,9 +11,7 @@ else if(isset($_COOKIE['PHPSESSID']))
     $userIdentifier = $_COOKIE['PHPSESSID'];
 } 
 
-
 ?>
-
 <input type="hidden" id="footer_user_identifier" value="<?php echo $userIdentifier; ?>">
 <input type="hidden" id="footer_timestamp" value="<?php echo date('c', time()); ?>">
 <input type="hidden" id="footer_session_source">

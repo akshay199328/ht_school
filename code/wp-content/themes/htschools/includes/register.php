@@ -339,7 +339,9 @@ class WPLMS_Register{
 
             wp_deregister_style( 'font-awesome');
             wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',array(),WPLMS_VERSION);
-            wp_enqueue_style('wplms-style', VIBE_URL.'/assets/css/style.legacy.css',array(),WPLMS_VERSION);
+            if ( !is_page_template('event-dashboard.php')){
+              wp_enqueue_style('wplms-style', VIBE_URL.'/assets/css/style.legacy.css',array(),WPLMS_VERSION);
+            }
             wp_enqueue_style('wplms-v4style', VIBE_URL.'/assets/css/v4.min.css',array(),WPLMS_VERSION);    
           }
           

@@ -534,6 +534,6 @@ td .add-wishlist{
 .newsletter .wpcf7 form.sent .wpcf7-response-output{
     display: block;
 }
-.woocommerce-error .eventcart{
-    display: none;
+.woocommerce-error .eventcart, .page-template-event-dashboard .pusher .header{
+    display: none!important;
 }

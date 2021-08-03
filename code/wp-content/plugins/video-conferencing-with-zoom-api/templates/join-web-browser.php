@@ -33,15 +33,15 @@ if ( video_conference_zoom_check_login() ) {
 			$bypass_notice = apply_filters( 'vczapi_api_bypass_notice', false );
 			if ( ! $bypass_notice ) {
 				?>
-                <div class="vczapi-zoom-browser-meeting--info">
+                <!--<div class="vczapi-zoom-browser-meeting--info">
 					<?php if ( ! is_ssl() ) { ?>
                         <p style="line-height: 1.5;">
                             <strong style="color:red;"><?php _e( '!!!ALERT!!!: ', 'video-conferencing-with-zoom-api' ); ?></strong><?php _e(
 								'Browser did not detect a valid SSL certificate. Audio and Video for Zoom meeting will not work on a non HTTPS site, please install a valid SSL certificate to allow audio and video in your Meetings via browser.', 'video-conferencing-with-zoom-api' ); ?>
                         </p>
 					<?php } ?>
-                    <!-- <div class="vczapi-zoom-browser-meeting--info__browser"></div> -->
-                </div>
+                     <div class="vczapi-zoom-browser-meeting--info__browser"></div> 
+                </div-->
 			<?php } ?>
             <form class="vczapi-zoom-browser-meeting--meeting-form" id="vczapi-zoom-browser-meeting-join-form" action="">
 				<?php $full_name = ! empty( $current_user->first_name ) ? $current_user->first_name . ' ' . $current_user->last_name : $current_user->display_name; ?>

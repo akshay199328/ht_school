@@ -4,7 +4,7 @@
  */
 
 if ( !defined( 'ABSPATH' ) ) exit;
-
+get_header(vibe_get_header());
 include("includes/lead-dashboard.php"); 
 
 if ( !is_user_logged_in() ) {
@@ -171,7 +171,7 @@ function earnPointsVideo($userID,$earnFrom,$courseID){
         $my_cred_table = 'ht_myCRED_log';
     }
 
-    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ref_id` = '$courseID'");
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `data` = '$courseID'");
     foreach($results as $row){ 
         $points = $row->points; 
     }
@@ -343,7 +343,10 @@ div#ui-datepicker-div{
                                         <div class="details">
                                             <h4><?php echo get_the_title($courseID); ?></h4>
                                             <p><?php echo get_the_excerpt($courseID); ?></p>
-                                            <button type="button" class="resume_btn btn"><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color:#fff;">Resume Learning</a></button><button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn">Practice</button>
+                                            <div class="resume_btn">
+                                                <?php the_course_button($courseID)?>
+                                            </div>
+                                            <!-- <button type="button" class="resume_btn btn"><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color:#fff;">Resume Learning</a></button> --><button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn">Practice</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1239,7 +1242,15 @@ div#ui-datepicker-div{
             </div>
         </section>
     </div>
+
 <script type="text/javascript">
+jQuery(document).ready(function(){
+    jQuery('.page-template-event-dashboard .pusher .header').remove();
+    // jQuery('.page-template-event-dashboard .global#global').remove();
+    jQuery('.page-template-event-dashboard .global .course-filter-wrapper').remove();
+    jQuery('.page-template-event-dashboard #footer.new-footer').remove();
+    jQuery('#wplms-customizer-css2-css').remove();
+})
 function myFunction() {
   var copyText = document.getElementById("myInput");
   copyText.select();
@@ -1248,4 +1259,7 @@ function myFunction() {
   document.getElementById("successMsg").innerHTML = "Referral Code Coiped Successfully";
 }
 </script>
+<?php
+  get_footer(vibe_get_footer());
+?>
 <?php include("includes/footer.php"); ?>

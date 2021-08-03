@@ -176,7 +176,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: var(--body);
+    background: #ffffff;
     margin: 0;
     z-index: 9999;
     overflow-y: scroll;
@@ -185,7 +185,8 @@
 
 .course_status_fullscreen .course_status .course_timeline>ul {
     position: sticky;
-    top: 3rem
+    top: 3rem;
+    padding-left: 0px;
 }
 
 .course_status_fullscreen.admin-bar .course_status {

@@ -1,7 +1,9 @@
 html {
     scroll-behavior: smooth
 }
-
+body.page-template-event-dashboard{
+    padding: 0!important;
+}
 :focus-visible {
     outline: -webkit-focus-ring-color auto 0;
     outline: -moz-focus-ring-color auto 0;
@@ -11,7 +13,12 @@ html {
 :focus {
     outline: 0
 }
-
+.page-template-event-dashboard .user_menu .active.user_active,
+.page-template-event-dashboard .pusher .header{display: none!important}
+.page-template-event-dashboard #footer.new-footer, 
+.page-template-event-dashboard .pagesidebar,
+.page-template-event-dashboard #searchdiv,
+.page-template-event-dashboard .pusher .header{display: none!important}
 .fixed_header {
     width: 100%;
     background: #fff;
@@ -19,8 +26,6 @@ html {
     top: 0;
     z-index: 99
 }
-
-
 
 .mrg {
     padding: 0
@@ -38,7 +43,12 @@ html {
 .dashbaord_body .account .login {
     border: 0 !important
 }
-.dashbaord_body .ms-3.profile-click{border: 0!important; padding: 0!important;} 
+
+.dashbaord_body .ms-3.profile-click {
+    border: 0 !important;
+    padding: 0 !important
+}
+
 .dashbaord_body .account .login img,
 .dashbaord_body .account .ms-3 img {
     border: 4px solid #06ea8c;
@@ -49,52 +59,8 @@ html {
     color: #000
 }
 
-.profile-menu {
-    z-index: 999;
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 55px;
-    background: #fff;
-    box-shadow: 0 8px 10px #00000010;
-    border-radius: 0;
-    padding: 15px;
-    border: 1px solid #e8e8e8;
-    width: 100%
-}
-.profile-menu .divider {
-    /*border: 1px solid #707070;
-    padding: 0!important;
-    margin-bottom: 15px;*/
-}
-.profile-menu li {
-    display: block;
-    text-align: left;
-    color: #000;
-    font-size: 15px;
-    line-height: 40px;
-    color: #4b4b4b;
-    font-weight: 400;
-    padding: 0px !important;    border: 0px !important;
-}
 
-.profile-menu li a {
-    color: #000 !important;
-    font-weight: 400 !important;
-    letter-spacing: 0 !important;
-    text-transform: inherit !important;
-    margin-left: 0 !important
-    padding: 0px !important;
-    border: 0px !important;
-}
 
-.profile-menu li:hover a {
-    font-weight: 700 !important;
-}
-.profile-menu li a svg{margin-right:8px;}
-.profile-menu li a svg path{fill: #848484}
-.profile-menu li:hover a svg path,
-.profile-menu li a:hover svg path {fill: #000}
 .navigation-wrapper ul {
     justify-content: flex-start;
     padding: 0
@@ -169,11 +135,11 @@ html {
     position: relative;
     display: flex;
     background: url(../images/number-doodle.png) no-repeat right top;
-    padding-bottom: 100px;
+    padding-bottom: 0px;
     z-index: 9
 }
 
-.dashboard-wrapper:before {
+.details_footer:after {
     content: "";
     height: 202px;
     max-width: 729px;
@@ -182,15 +148,16 @@ html {
     background-position: center;
     display: inline-block;
     position: absolute;
-    left: -3px;
-    z-index: 10;
+    left: -34%;
+    z-index: -1;
     width: 100%;
-    bottom: 155px
+    bottom: -75px;
 }
 
 .dashboard-wrapper .container {
     z-index: 999;
-    max-width: 1150px
+    max-width: 1150px;    
+    padding: 0;
 }
 
 .notice-board {
@@ -505,17 +472,33 @@ html {
     margin: 0
 }
 
-.resume_btn.btn {
+.resume_btn {
     background: #004ba5;
     color: #fff;
-    font-size: 14px;
-    font-weight: 800;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     border-radius: 0;
-    padding: 14px 25px;
-    margin-top: 20px
+    padding: 0px 0px;
+    margin-top: 20px;
+    display:inline-block;
 }
-
+.video_decp .details a, 
+.video_decp .details button, 
+.video_decp .details input{
+    background: #00d98e!important;
+    color: #fff!important;
+    line-height: 45px;
+    background-color: #000;
+    color: #FADE3B;
+    display: inline-block;
+    padding: 0px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    width: auto;
+    border: none;
+}
 .details_footer .head {
     font-size: 14px;
     letter-spacing: 0;
@@ -545,7 +528,7 @@ html {
     flex-direction: row;
     width: 100%;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .toggle_icon {
@@ -722,7 +705,7 @@ html {
     display: inline-block;
     z-index: -1;
     width: 100%;
-    right: -54%;
+    right: -50%;
     position: absolute;
     top: 0;
     z-index: 99999
@@ -942,7 +925,8 @@ html {
     color: #000;
     font-weight: 500;
     text-align: center;
-    margin: 3px 0 0
+    margin: 3px 0 0;
+    font-family: "Poppins"!important;
 }
 
 .leader_board .board-list .tab_scroll {
@@ -1041,7 +1025,7 @@ html {
 }
 
 .refer-popup .modal-content .btn-close {
-        position: absolute;
+    position: absolute;
     top: 35px;
     right: 35px;
     padding: 0;
@@ -1050,8 +1034,7 @@ html {
     font-weight: 900;
     background: 0 0;
     width: 26px;
-    height: 26px;
-
+    height: 26px
 }
 
 .refer-popup .modal-title {
@@ -1625,12 +1608,15 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 @media (max-width:768px) {
-    .header-wrapper .header-right .account{display: block !important}
+    .header-wrapper .header-right .account {
+        display: block !important
+    }
+
     .account .register,
-    .ms-3
-     {
+    .ms-3 {
         display: none !important
     }
+
     .profile-menu {
         position: fixed;
         top: 0;
@@ -1642,8 +1628,8 @@ input[type=date]::-webkit-inner-spin-button {
         opacity: 0;
         visibility: hidden;
         background-color: #004ba6;
-        -webkit-transition: all 0.6s ease-in-out;
-        transition: all 0.6s ease-in-out;
+        -webkit-transition: all .6s ease-in-out;
+        transition: all .6s ease-in-out;
         padding: 20px 40px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -1654,24 +1640,55 @@ input[type=date]::-webkit-inner-spin-button {
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: wrap
     }
-    .menuOpened .profile-menu {opacity: 1;visibility: visible;margin: 0;}
-    .menuOpened .profile-menu .divider{margin-bottom: 50px;}
-    .profile-menu li {font-size: 18px!important;color: #FFF!important;font-weight: 600!important;line-height: 55px; display: block;}
-    .profile-menu li a{color: #FFF!important;}
-    .home-button{z-index: 999!important;}
-    .menuOpened .home-button{opacity: 0;visibility: hidden;}
-    .menuOpened .profile-menu .home-button{opacity: 1;visibility: visible;}
+
+    .menuOpened .profile-menu {
+        opacity: 1;
+        visibility: visible;
+        margin: 0
+    }
+
+    .menuOpened .profile-menu .divider {
+        margin-bottom: 50px
+    }
+
+    .profile-menu li {
+        font-size: 18px !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        line-height: 55px;
+        display: block
+    }
+
+    .profile-menu li a {
+        color: #fff !important
+    }
+
+    .home-button {
+        z-index: 999 !important
+    }
+
+    .menuOpened .home-button {
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .menuOpened .profile-menu .home-button {
+        opacity: 1;
+        visibility: visible
+    }
+
     .profile-menu li a svg path {
-        fill: #ffffff;
-        stroke: #fff;
+        fill: #fff;
+        stroke: #fff
     }
+
     .profile-menu .divider {
         margin-bottom: 60px;
         display: block;
         float: left;
-        width: 100%;
+        width: 100%
     }
 }
 
@@ -1687,7 +1704,7 @@ input[type=date]::-webkit-inner-spin-button {
     }
 
     .points_board:after {
-        right: -27%;
+        right: -25%;
         max-width: 77px
     }
 
@@ -1785,14 +1802,12 @@ input[type=date]::-webkit-inner-spin-button {
 
     .toggle_icon {
         display: block;
-        float: right
-        padding-left: 20px;
+        float: right padding-left: 20px
     }
 
     .list h5.active .toggle_icon {
-        transform: rotate(178deg) scale(1.2)
-        padding-left: 0;
-        padding-right: 20px;
+        transform: rotate(178deg) scale(1.2) padding-left: 0;
+        padding-right: 20px
     }
 
     .points_board .points {
@@ -1802,10 +1817,6 @@ input[type=date]::-webkit-inner-spin-button {
     .leftcontent_tab:before {
         left: -25px;
         background-size: 25% 42%
-    }
-
-    .leader_board .rank-people {
-        /*margin-top: 95px*/
     }
 
     .leader_board .pull-right h6 {
@@ -2104,8 +2115,6 @@ input[type=date]::-webkit-inner-spin-button {
         width: 70% !important
     }
 
-    
-
     .profile-progress .progressbar li:after {
         left: -32%
     }
@@ -2242,16 +2251,6 @@ input[type=date]::-webkit-inner-spin-button {
     margin-top: 30px;
     color: #000;
     border: #707070
-}
-.practice_btn{
-    background-color:#06ea8c;
-    font-size: 14px;
-    font-weight: 800;
-    text-transform: uppercase;
-    border-radius: 0;
-    padding: 14px 25px;
-    vertical-align:bottom;
-    letter-spacing:1px;
 }
 
 .practice-popup .highlight,

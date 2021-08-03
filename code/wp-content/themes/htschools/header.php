@@ -112,7 +112,6 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
             <?php
             $fix=vibe_get_option('header_fix');
         ?>
-        <?php if ( !is_page_template('event-dashboard.php')){?>
             <div id="" class="header fixed-top <?php if(isset($fix) && $fix){echo 'fix';} ?>">
                 <div class="fix-background">
                     <div class="navegacion">
@@ -314,4 +313,3 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                 </div>
             </div>
             <div id="close-navigation-header">
-        <?php }?>

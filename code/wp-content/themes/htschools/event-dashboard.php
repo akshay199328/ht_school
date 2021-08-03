@@ -409,7 +409,7 @@ div#ui-datepicker-div{
                                     <span class="points"><?php echo $points; ?></span>
                                 </div>
                                 <div class="board-button">
-                                    <button type="button" data-toggle="modal" data-target="#exampleModal">VIEW POINTS DETAILS</button>
+                                    <button type="button" class="earn-points-btn">VIEW POINTS DETAILS</button>
                                 </div>
                             </div>
                             <div class="earn-points">
@@ -418,7 +418,7 @@ div#ui-datepicker-div{
                                 </div>
                                 <div class="board-button">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#refer-popup">REFERRALS</button>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#">UPLOAD PROJECT</button>
+                                    <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#">UPLOAD PROJECT</button> -->
                                 </div>
                             </div>
                         </div>

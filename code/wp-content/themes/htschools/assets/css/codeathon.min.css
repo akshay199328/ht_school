@@ -3753,11 +3753,27 @@ body.menuOpened .side-navigation {
     letter-spacing: .4px
 }
 
-.menuOpened {
-    overflow: hidden
+.page-template-event-dashboard:before{
+    content:"";
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:113;
+    opacity:0;
+    visibility:hidden;
+    transition:all .6s ease-in-out;
 }
-
-.menuOpened .earnpoints-wrapper {
+.earn-opened{
+    overflow:hidden;
+}
+.earn-opened:before{
+    background-color:rgba(0,0,0, 0.8);
+    opacity:1;
+    visibility:visible;
+}
+.earn-opened .earnpoints-wrapper {
     -webkit-transform: translateX(0);
     transform: translateX(0);
     visibility: visible;
@@ -3778,7 +3794,7 @@ body.menuOpened .side-navigation {
         right: 30px
     }
 
-    .menuOpened .earnpoints-wrapper {
+    .earn-opened .earnpoints-wrapper {
         -webkit-transform: scale(1) translateY(-50%);
         transform: scale(1) translateY(-50%);
         opacity: 1;

@@ -346,17 +346,22 @@ jQuery(document).ready(function(){
           responsive : {
                0 : {
                     margin:0,
-                    items:2,
+                    items:1,
                     dots:true,
                     autoWidth:true,
                     center:false,
                },
                // breakpoint from 480 up
                480 : {
+                    items:1,
+                    margin:0,
+                    dots:true,
+                    autoWidth:true,
+                    center:false,
                },
                // breakpoint from 768 up
                768 : {
-                    items:3,
+                    items:2,
                }
           }
      });
@@ -490,7 +495,7 @@ jQuery(document).ready(function(){
     <script type="text/javascript">
 
       $(".earn-points-btn").click(function () {
-        $("body").toggleClass('menuOpened');
+        $("body").toggleClass('earn-opened');
       });
 
       $("#user_firstname").keypress(function(e) {

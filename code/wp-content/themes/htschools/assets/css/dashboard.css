@@ -13,8 +13,12 @@ body.page-template-event-dashboard{
 :focus {
     outline: 0
 }
-.page-template-event-dashboard .user_menu .active.user_active,
-.page-template-event-dashboard .pusher .header{display: none!important}
+a:hover{
+    text-decoration: none;
+    text-shadow: none!important;
+    transform: none!important;
+}
+.course-filter-wrapper,
 .page-template-event-dashboard #footer.new-footer, 
 .page-template-event-dashboard .pagesidebar,
 .page-template-event-dashboard #searchdiv,
@@ -484,10 +488,11 @@ body.page-template-event-dashboard{
 .video_decp .details a, 
 .video_decp .details button, 
 .video_decp .details input{
-    background: #00d98e!important;
+    background: url(../images/resume_btn.svg) no-repeat;
+    /* background-size: 100% 100%; */
     color: #fff!important;
     line-height: 45px;
-    background-color: #000;
+    /* background-color: #000; */
     color: #FADE3B;
     display: inline-block;
     padding: 0px 24px;

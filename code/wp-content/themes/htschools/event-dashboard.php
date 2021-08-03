@@ -193,6 +193,7 @@ $total_points = $learning_points+$engagement_points;
 
 ?>
 <style type="text/css">
+.page-template-event-dashboard .pusher .header{display: none!important}
 .ui-autocomplete {
     z-index: 9999!important;
     background: #fff;
@@ -1245,9 +1246,8 @@ div#ui-datepicker-div{
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
-    jQuery('.page-template-event-dashboard .pusher .header').remove();
-    // jQuery('.page-template-event-dashboard .global#global').remove();
-    jQuery('.page-template-event-dashboard .global .course-filter-wrapper').remove();
+    
+    jQuery('.course-filter-wrapper').remove();
     jQuery('.page-template-event-dashboard #footer.new-footer').remove();
     jQuery('#wplms-customizer-css2-css').remove();
 })

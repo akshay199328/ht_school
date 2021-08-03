@@ -131,7 +131,7 @@
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
                                             incididunt adipisicing elit, sed do eiusmo
                                             incididunt </p>
-                                            <button type="button" class="resume_btn btn">Resume Learning</button>
+                                            <button type="button" class="resume_btn btn">Resume Learning</button><button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn">Practice</button>
                                         </div>
                                     </div>
                                 </div>
@@ -637,20 +637,37 @@
             </div>
     </section>
 
+
+    <!-- Modal Congrats Popup -->
+<div class="modal fade practice-popup" id="practice-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Modal Congrats Popup -->
 <div class="modal fade congrats-popup" id="congrats-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-body">
-                <img src="images/codeathon.svg" class="codeathon-logo">
-                <div class="content">
-                    <img src="images/dashboard/congrats-hero.png">
-                    <p class="congrats">Congratulations!</p>
-                    <h2 class="earned">You have earned</h2>
-                    <span class="coupon">100 points</span>
-                    <!-- <span class="coupon-1">50 points</span> -->
-                    <a class="skip">Skip to Dashboard</a>
-                </div>
+                <h5 class="modal-title" id="exampleModalLabel">Tools and Software</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
+                      <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
+                        <line id="Line_2" data-name="Line 2" x1="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"></line>
+                        <line id="Line_3" data-name="Line 3" x2="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"></line>
+                      </g>
+                    </svg>
+                </button>
+                <p>HT Codeathon, one of India’s largest Coding Olympiads, is an ideal platform for school students to learn coding, showcase their talent and win exciting prizes.</p>
+                <p>HT Codeathon has won several accolades in both National and International forums. It was recently recognized as the “Best in South Asia” in the Global Media Awards hosted by the International News Media Association (INMA), which also had entrants such as The New York Times and The Wall Street Journal vying for the top spot.</p>
+                <h2 class="sub-title">So, Why Coding?</h2>
+                <p>Coding, the language of the future, is a mandatory skill set that is required for students to succeed in the 21st century. Coding improves problem-solving skills, structural thinking, creativity, logical thinking, tech savviness and overall academic development.</p>
+                <p>HT Codeathon provides the perfect environment to develop coding skills, with loads of interesting opportunities for budding young coders!</p>
             </div>
         </div>
     </div>

@@ -2243,3 +2243,13 @@ input[type=date]::-webkit-inner-spin-button {
     color: #000;
     border: #707070
 }
+.practice_btn{
+    background-color:#06ea8c;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 14px 25px;
+    vertical-align:bottom;
+    letter-spacing:1px;
+}

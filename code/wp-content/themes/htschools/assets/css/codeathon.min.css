@@ -1233,7 +1233,7 @@ body.menuOpened {
     .section-wrapper.about-code .section-copy .content-copy .exchange ul {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-        justify-content: flex-start;
+        justify-content: space-between;
     }
 
     .section-wrapper.about-code .section-copy .content-copy .exchange ul li {

@@ -663,42 +663,38 @@ div#ui-datepicker-div{
         </div>
     </div>
 </section>
-<section class="section-wrapper about">
-        <div class="section-copy">
-            <h2 class="section-title">About Our Partners</h2>
-            <div class="owl-carousel owl-theme about_slider">
-            <?php
-                $args1 = array(
-                  'post_type' => 'event_about_our_part',
-                  'post_status' => 'publish',
-                  'orderby' => 'publish_date',
-                  'order' => 'DESC',        
-                  'nopaging' => true
-                );
-                $Query1 = new WP_Query( $args1 );
-                
-                if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
-                  $custom_fields = get_post_custom();
-                  $image_url = wp_get_attachment_url($custom_fields['upload_image'][0]);
-            ?>
-                <div class="item">
-                    <div class="partner-copy">
-                        <div class="col-12 col-sm-5 pull-left">
-                            <figure class="image"><img src="<?php echo $image_url; ?>"></figure>
-                        </div>
-                        <div class="col-12 col-sm-7 pull-right">
-                            <div class="copy">
-                                <h3 class="title"><?php echo $custom_fields['about_our_partners_title'][0];?></h3>
-                                <p><?php echo $custom_fields['description'][0];?></p>
-                                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>">Visit Partner >></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endwhile;endif; ?>
+<section class="section-wrapper about" id="About_Partners">
+  <div class="section-copy">
+    <h2 class="section-title">About Our Partners</h2>
+    <div class="owl-carousel owl-theme about_slider">
+      <?php
+        $args1 = array(
+          'post_type' => 'event_about_our_part',
+          'post_status' => 'publish',
+          'orderby' => 'publish_date',
+          'order' => 'DESC',        
+          'nopaging' => true
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+          $custom_fields = get_post_custom();
+          $image_url = wp_get_attachment_url($custom_fields['upload_image'][0]);
+      ?>
+        <div class="item">
+            <div class="partner-copy">
+              <figure class="image"><img src="<?php echo $image_url; ?>"></figure>
+              <div class="copy">
+                <h3 class="title"><?php echo $custom_fields['about_our_partners_title'][0];?></h3>
+                <p><?php echo $custom_fields['description'][0];?></p>
+                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>">Visit Partner >></a>
+              </div>
             </div>
         </div>
-    </section>
+      <?php endwhile;endif; ?>
+    </div>
+  </div>
+</section>
     <section class="section-wrapper partners dashboard_partner">
         <div class="section-copy">
             <h2 class="section-title">Our Partners Logo</h2>

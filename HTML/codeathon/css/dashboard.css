@@ -75,7 +75,7 @@ html {
     line-height: 40px;
     color: #4b4b4b;
     font-weight: 400;
-    padding: 0 0
+    padding: 0px !important;    border: 0px !important;
 }
 
 .profile-menu li a {

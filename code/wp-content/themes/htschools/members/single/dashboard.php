@@ -25,12 +25,7 @@ if($user_role=='instructor'){
 vibe_include_template("profile/top$profile_layout.php");  
 ?>
 <style type="text/css">
-	.scroll {
-   width: 300px;
-    height: 630px;
-    position: relative;
-     overflow-y: auto;
-}
+	
 </style>
 
 <div class="wplms-dashboard row">

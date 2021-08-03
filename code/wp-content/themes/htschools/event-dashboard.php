@@ -343,7 +343,7 @@ div#ui-datepicker-div{
                                         <div class="details">
                                             <h4><?php echo get_the_title($courseID); ?></h4>
                                             <p><?php echo get_the_excerpt($courseID); ?></p>
-                                            <button type="button" class="resume_btn btn"><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color:#fff;">Resume Learning</a></button>
+                                            <button type="button" class="resume_btn btn"><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color:#fff;">Resume Learning</a></button><button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn">Practice</button>
                                         </div>
                                     </div>
                                 </div>
@@ -950,6 +950,37 @@ div#ui-datepicker-div{
         </div>
     </div>
 <!-- Referral Code -->
+
+<div class="modal fade about-popup practice-popup" id="practice-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tools and Software</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
+                      <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
+                        <line id="Line_2" data-name="Line 2" x1="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"></line>
+                        <line id="Line_3" data-name="Line 3" x2="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"></line>
+                      </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>For App Development course we will be using App Inventor Platform developed by MIT. This is a drag n drop based coding platform used to develop apps for android mobile devices. You need internet connection and login using any gmail id to use this platform and this can be accessed from the link below:</p>
+                <p class="highlight">App Inventor : <a href="http://ai2.appinventor.mit.edu/" target="_blank">ai2.appinventor.mit.edu</a></p>
+                <p>For Website Designing, the software to be used is Brackets. The languages that you will use are HTML5, CSS3, and JS. You can download Brackets from the link below:</p>
+                <p class="highlight">
+                Brackets : <a href="http://brackets.io/" target="_blank">brackets.io</a>Scratch : <a href="#!" target="_blank">scratch.mit</a>
+                </p>
+                <p>For Game Development, the software to be used is Anaconda with PyGame module. The language that you will learn is Python. You can download Anaconda from the link below:</p>
+                <p class="highlight">Anaconda : <a href="https://www.anaconda.com/" target="_blank">www.anaconda.com</a></p>
+                <p>You can go and practice your video lessons on the software given above. However, for additional resources, you can practise by using IDE.</p>
+                <p>An Online Integrated Development environment, also known as a web IDE or Cloud IDE, is a browser-based integrated development environment. An online IDE can be accessed from a web browser, such as Google Chrome or Internet Explorer, enabling software development on low-powered devices that are normally unsuitable.</p>
+                <p> You can always go to your video lesson and practice using the IDE provided there, If you want to try more such IDEs below are some of the third party Online IDE you can use to practice what you have learned without having any software installed by clicking on the below links you will be redirected out of Codeathon website where you can practice. Happy Learning!</p>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Modal Congrats Popup -->
     <div class="modal fade congrats-popup" id="congrats-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered modal-lg">

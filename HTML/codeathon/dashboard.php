@@ -654,11 +654,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>HT Codeathon, one of India’s largest Coding Olympiads, is an ideal platform for school students to learn coding, showcase their talent and win exciting prizes.</p>
-                <p>HT Codeathon has won several accolades in both National and International forums. It was recently recognized as the “Best in South Asia” in the Global Media Awards hosted by the International News Media Association (INMA), which also had entrants such as The New York Times and The Wall Street Journal vying for the top spot.</p>
-                <h2 class="sub-title">So, Why Coding?</h2>
-                <p>Coding, the language of the future, is a mandatory skill set that is required for students to succeed in the 21st century. Coding improves problem-solving skills, structural thinking, creativity, logical thinking, tech savviness and overall academic development.</p>
-                <p>HT Codeathon provides the perfect environment to develop coding skills, with loads of interesting opportunities for budding young coders!</p>
+                <p>For App Development course we will be using App Inventor Platform developed by MIT. This is a drag n drop based coding platform used to develop apps for android mobile devices. You need internet connection and login using any gmail id to use this platform and this can be accessed from the link below:</p>
+                <h2 class="sub-title"><a href="http://ai2.appinventor.mit.edu/" target="_blank">App Inventor</a></h2>
+                <p>For Website Designing, the software to be used is Brackets. The languages that you will use are HTML5, CSS3, and JS. You can download Brackets from the link below:<br>
+                <a href="http://brackets.io/" target="_blank">Brackets</a><br>
+                <a href="#!" target="_blank">Scratch</a>
+                </p>
+                <p>For Game Development, the software to be used is Anaconda with PyGame module. The language that you will learn is Python. You can download Anaconda from the link below:</p>
+                <h2 class="sub-title"><a href="https://www.anaconda.com/" target="_blank">Anaconda</a></h2>
+                <p>You can go and practice your video lessons on the software given above. However, for additional resources, you can practise by using IDE.</p>
+                <p>An Online Integrated Development environment, also known as a web IDE or Cloud IDE, is a browser-based integrated development environment. An online IDE can be accessed from a web browser, such as Google Chrome or Internet Explorer, enabling software development on low-powered devices that are normally unsuitable.</p>
+                <p> You can always go to your video lesson and practice using the IDE provided there, If you want to try more such IDEs below are some of the third party Online IDE you can use to practice what you have learned without having any software installed by clicking on the below links you will be redirected out of Codeathon website where you can practice. Happy Learning!</p>
             </div>
         </div>
     </div>

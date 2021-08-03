@@ -1366,13 +1366,6 @@ jQuery(document).ready(function(){
     jQuery('.page-template-event-dashboard #footer.new-footer').remove();
     jQuery('#wplms-customizer-css2-css').remove();
 })
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-  document.getElementById("successMsg").innerHTML = "Referral Code Coiped Successfully";
-}
 </script>
 <?php
   get_footer(vibe_get_footer());

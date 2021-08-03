@@ -505,6 +505,7 @@ jQuery(document).ready(function(){
        var isValid = regex.test(String.fromCharCode(keyCode));
        if (!isValid) {
             $("#errFirstName").text("Please enter only alphabets");
+            setTimeout(function(){ $("#errFirstName").html(''); }, 5000);
        }
 
        return isValid;
@@ -523,6 +524,7 @@ jQuery(document).ready(function(){
        var isValid = regex.test(String.fromCharCode(keyCode));
        if (!isValid) {
             $("#errLastName").text("Please enter only alphabets");
+            setTimeout(function(){ $("#errLastName").html(''); }, 5000);
        }
 
        return isValid;
@@ -574,18 +576,22 @@ jQuery(document).ready(function(){
                                    if(response.status == 1){
                                         jQuery('#refer_email').val('');
                                         jQuery('#refer_message').text(response.message);
+                                        setTimeout(function(){ $("#refer_message").html(''); }, 5000);
                                    }
                                    else{
                                         jQuery('#refer_message').text(response.message);
+                                        setTimeout(function(){ $("#refer_message").html(''); }, 5000);
                                    }
                               }
                          })
                     }
                     else{
                          jQuery("#refer_message").text('Please enter valid Email ID');
+                         setTimeout(function(){ $("#refer_message").html(''); }, 5000);
                     }
                }else{
                     jQuery("#refer_message").text('Please enter Email ID');
+                    setTimeout(function(){ $("#refer_message").html(''); }, 5000);
                }
           });
           jQuery('#social_share li').click(function(){

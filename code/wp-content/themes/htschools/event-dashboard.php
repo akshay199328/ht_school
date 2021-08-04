@@ -464,7 +464,7 @@ div#ui-datepicker-div{
                                     $lessonId = get_post($lesson['id']); ?>
                                     <div class="list">
                                         <div class="col-12 col-lg-8 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color: #2d2d2d;"><?php echo $lesson_units['title'];?></a>
+                                            <h5><?php echo $lesson_units['title'];?>
                                                 <span class="toggle_icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
                                                         <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
@@ -1339,7 +1339,7 @@ div#ui-datepicker-div{
                                 <path id="Path_30137" data-name="Path 30137" d="M627.15-195a.619.619,0,0,0-.619.619.619.619,0,0,0,.619.619.619.619,0,0,0,.619-.619A.619.619,0,0,0,627.15-195Zm.4.577-.16.156.038.22a.056.056,0,0,1-.022.054.055.055,0,0,1-.059,0l-.2-.1-.2.1a.056.056,0,0,1-.059,0,.057.057,0,0,1-.022-.054l.038-.22-.16-.156a.055.055,0,0,1-.014-.057.056.056,0,0,1,.045-.038l.221-.032.1-.2a.058.058,0,0,1,.1,0l.1.2.221.032a.056.056,0,0,1,.045.038A.055.055,0,0,1,627.552-194.423Z" transform="translate(589.469 670)" fill="#ffcd35"/>
                               </g>
                             </svg>
-                            <span><?php echo earnPointsLogReg($userID,'reward'); ?></span>
+                            <span><?php echo earnPointsLogReg($userID,'referral_registration_payment'); ?></span>
                         </span>
                     </div>
                     <div class="column">

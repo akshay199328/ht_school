@@ -5,6 +5,9 @@
 
 if ( !defined( 'ABSPATH' ) ) exit;
 
+$current_user = wp_get_current_user();
+$userID = $current_user->id; 
+
 $results11 = $wpdb->get_results("SELECT `ID` FROM `ht_posts` WHERE `post_type` = 'events' and post_status = 'publish' ORDER BY `ID`");
 foreach($results11 as $row11){ 
   $post_id = $row11->ID; 
@@ -57,8 +60,6 @@ if ( !is_user_logged_in() ) {
     header('Location: '.$url);
 }
 
-$current_user = wp_get_current_user();
-$userID = $current_user->id; 
 
 function credsPoints($userID){
 

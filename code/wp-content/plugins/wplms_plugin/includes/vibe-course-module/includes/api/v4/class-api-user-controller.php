@@ -3368,7 +3368,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 		            $quiz_points_credit = 100;
 		      		$mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry,data) VALUES ('video_watched', '".$quiz_id."', '".$this->user_id."','".$quiz_points_credit."','mycred_intellectual','".$now."','Points for video watched ','".$course_id."')");
 		            $wpdb->query($mycred_points);
-					$data = array('status'=>true,'message'=>_x('Points added for video watched','','wplms'));
+					$data = array('status'=>true,'points'=>100,'message'=>_x('Points added for video watched','','wplms'));
 					return 	new WP_REST_Response( $data, 200 );
 		      	}
 		      	else{

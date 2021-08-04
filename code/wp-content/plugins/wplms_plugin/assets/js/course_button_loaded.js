@@ -6582,7 +6582,16 @@
                                             token: d.token
                                         })
                                     }).then(e => e.json()).then(e => {
-                                        console.log(e);
+                                        if(e.status == true){ 
+                                            var prev_creds = jQuery('.point-number').text();
+                                            var total_creds = parseInt(prev_creds) + parseInt(e.points);
+                                            jQuery('.point-number').text(total_creds);
+                                            var point_toast = "You just earned "+e.points+" Points"
+                                            jQuery('#point-text').text(point_toast);
+
+                                            jQuery('.point-toaster').fadeIn();
+                                            jQuery('.point-toaster').fadeOut(10000);
+                                        }
                                     })
                                 })
                             

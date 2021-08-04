@@ -341,7 +341,7 @@ jQuery(document).ready(function(){
           margin:22,
           nav:true,
           mouseDrag:false,
-          center:true,
+          center:false,
           dots:false,
           // autoWidth:true,
           responsive : {

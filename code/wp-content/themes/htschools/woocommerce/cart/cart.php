@@ -348,11 +348,14 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				let cartViewedMoegObj = {
 					"Item count"		: totalItems,
-					"Total cart amount"	: parseFloat(totalDiscountAmount).toFixed(2),
-					"courses"			: {
-						"items"	: moengageItemList,
-					}
+					"Total cart amount"	: parseInt(totalDiscountAmount),
+					
 				};
+
+					for (var i = 0; i < totalItems; i++) {
+						cartViewedMoegObj["course_name_"+(i+1)] = allItems[i]["course_name"];
+						cartViewedMoegObj["course_id_"+(i+1)] = parseInt(allItems[i]["course_id"]);
+					}
 
 				dataLayer.push(cartViewedObj);
 				console.log(cartViewedObj);
@@ -371,8 +374,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"item_count"			: totalItems,
 					"coupon_applied"		: couponApplied,
 					"coupon"				: coupon,
-					"original_cart_value"	: parseFloat(totalOrigAmount).toFixed(2),
-					"total_cart_amount"		: parseFloat(totalDiscountAmount).toFixed(2),
+					"original_cart_value"	: parseInt(totalOrigAmount),
+					"total_cart_amount"		: parseInt(totalDiscountAmount),
 					"ecommerce"				: {
 						"items"	: beginCheckoutItems,
 					}
@@ -383,11 +386,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 					"Session source"						: jQuery("#footer_session_source").val(),
 					"Timestamp"								: jQuery("#footer_timestamp").val(),
 					"UTM tags"								: jQuery("#footer_utm_tags").val(),
-					"Courses in cart"						: totalItems,
 					"Coupon applied"						: couponApplied,
 					"Coupon code"							: coupon,
-					"Original cart value"					: parseFloat(totalOrigAmount).toFixed(2),
-					"Discounted cart value (after coupon)"	: parseFloat(totalDiscountAmount).toFixed(2),
+					//"Original cart value"					: parseInt(totalOrigAmount),
+					"Discounted cart value (after coupon)"	: parseInt(totalDiscountAmount),
 				};
 
 				jQuery('.checkout-button').click(function(e){

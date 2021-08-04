@@ -137,7 +137,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($courseID);
 $countlesson=count($course_curriculum);
 $course_units = [];
 foreach($course_curriculum as $lesson){
-    if($lesson['type'] == 'unit'){
+    if($lesson['type'] == 'section'){
         array_push($course_units, $lesson);
     }
 }
@@ -163,7 +163,7 @@ function earnPointsOnboarding($userID,$earnFrom){
         $my_cred_table = 'ht_myCRED_log';
     }
 
-    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_default'");
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_engagement'");
     foreach($results as $row){ 
         $points = $row->points; 
     }

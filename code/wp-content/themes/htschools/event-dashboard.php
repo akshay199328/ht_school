@@ -1077,7 +1077,7 @@ div#ui-datepicker-div{
                 <p class="highlight">App Inventor : <a href="http://ai2.appinventor.mit.edu/" target="_blank">ai2.appinventor.mit.edu</a></p>
                 <p>For Website Designing, the software to be used is Brackets. The languages that you will use are HTML5, CSS3, and JS. You can download Brackets from the link below:</p>
                 <p class="highlight">
-                Brackets : <a href="http://brackets.io/" target="_blank">brackets.io</a>Scratch : <a href="#!" target="_blank">scratch.mit</a>
+                Brackets : <a href="http://brackets.io/" target="_blank">brackets.io</a>Scratch : <a href="https://scratch.mit.edu/" target="_blank">scratch.mit</a>
                 </p>
                 <p>For Game Development, the software to be used is Anaconda with PyGame module. The language that you will learn is Python. You can download Anaconda from the link below:</p>
                 <p class="highlight">Anaconda : <a href="https://www.anaconda.com/" target="_blank">www.anaconda.com</a></p>

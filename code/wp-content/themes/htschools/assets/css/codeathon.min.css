@@ -3861,7 +3861,8 @@ body.menuOpened .side-navigation {
 
 .page-template-event-prelaunch {
     font-family: Poppins !important;
-    overflow: scroll !important
+    overflow: scroll !important;
+    overflow-x:hidden !important;
 }
 
 .page-template-event-prelaunch h1,

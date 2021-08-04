@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>popup</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,6 +12,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
+<script type="text/javascript">
+$(document).ready(function(){
+  alert(1234)
+  $(".btn").attr("disabled", "disabled");
+})
+  
+</script>
 <style type="text/css">
   .modal-body{padding: 0px;}
 
@@ -19,10 +26,10 @@
 <body>
 
 <div class="container">
-  <!-- <h2>Modal Example</h2> -->
+  
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#livecourse_popup">
-    Open modal
+  <button type="button" class="btn btn-primary" id="btn">
+    Join This Course
   </button>
 
   <!-- The Modal -->

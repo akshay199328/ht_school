@@ -5,6 +5,7 @@ $(document).ready(function()
   setTimeout(function()
     {
       $('span.vibebp_name').css('display','block');
+      
     }, 
     2000);
 });

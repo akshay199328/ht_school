@@ -4073,13 +4073,13 @@ Course Details
   padding: 15px 30px;
 }
 .batch_details .batch_list{
-  margin:15px 0px 30px 0px;
+  margin:15px 0px 15px 0px;
       float: left;
     width: 100%;
 }
-/*.batch_details .batch_list:last-child{
+.batch_details .batch_list:last-child{
   margin:15px 0px 15px 0px;
-}*/
+}
 .batch_list .heading{
   margin-bottom: 10px;
     float: left;

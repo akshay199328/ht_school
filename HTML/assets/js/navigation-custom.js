@@ -5,18 +5,18 @@ $(document).ready(function(){
     // alert("CLICK")
     if($('#button-menu').attr('class') == 'bi bi-bars' ){
 
-      $('.navegacion').css({'width':'100%', 'background':'rgba(0,0,0,.5)'}); // Mostramos al fondo transparente
-      $('#button-menu').removeClass('bi bi-bars').addClass('bi bi-close'); // Agregamos el icono X
+      $('.navegacion').css({'width':'100%', 'background':'rgba(0,0,0,.5)', 'display' : 'none'}); // Mostramos al fondo transparente
+      /*$('#button-menu').removeClass('bi bi-bars').addClass('bi bi-close'); // Agregamos el icono X
       $('.navegacion .menu-back').css({'left':'-445px'}); // Ocultamos el Menu
-      $('.navegacion .menu').css({'left':'-445px'}); // Mostramos el menu
+      $('.navegacion .menu').css({'left':'-445px'}); // Mostramos el menu*/
 
     } else{
 
-      $('.navegacion').css({'width':'0%', 'background':'rgba(0,0,0,.0)'}); // Ocultamos el fonto transparente
-      $('#button-menu').removeClass('fa fa-close').addClass('bi bi-bars'); // Agregamos el icono del Menu
+      $('.navegacion').css({'width':'0%', 'background':'rgba(0,0,0,.0)', 'display' : 'block'}); // Ocultamos el fonto transparente
+      /*$('#button-menu').removeClass('fa fa-close').addClass('bi bi-bars'); // Agregamos el icono del Menu
       $('.navegacion .submenu').css({'left':'-445px'}); // Ocultamos los submenus
       $('.navegacion .menu-back').css({'left':'0px'}); // Ocultamos el Menu
-      $('.navegacion .menu').css({'left':'0px'}); // Ocultamos el Menu
+      $('.navegacion .menu').css({'left':'0px'}); // Ocultamos el Menu*/
 
     }
   });
@@ -34,15 +34,15 @@ $(document).ready(function(){
   // OCULTANDO SUBMENU
   $('.navegacion .submenu li.go-back').click(function(){
 
-    $(this).parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
-    $(this).parent().css({'left':'-445px'}); // Ocultamos el submenu
+    $(this).parent().parent().css({'display' : 'none'}); // Ocultamos el submenu
+    /*$(this).parent().css({'left':'-445px'}); // Ocultamos el submenu*/
 
   });
 
   $('.navegacion .menu li.title-menu svg').click(function(){
     // alert("CLOSE");
-    $(this).parent().parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
-    $(this).parent().parent().css({'left':'-445px'}); // Ocultamos el submenu
+    $(this).parent().parent().parent().css({, 'display' : 'block'}); // Ocultamos el submenu
+   /* $(this).parent().parent().css({'left':'-445px'}); // Ocultamos el submenu*/
 
   });
 

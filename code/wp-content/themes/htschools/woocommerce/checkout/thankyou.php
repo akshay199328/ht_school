@@ -129,7 +129,6 @@ defined( 'ABSPATH' ) || exit;
 					if ($aiws_course_id) {
 						$coursePartner = "AIWS";
 					}
-
 					add_user_meta($currentUser->ID, 'purchased_on'.$courseID, time());
 					add_user_meta($currentUser->ID, 'purchased_type'.$courseID, 'online');
 

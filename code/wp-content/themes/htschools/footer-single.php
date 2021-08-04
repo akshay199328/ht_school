@@ -1266,7 +1266,7 @@ border: 1px solid deepskyblue;
     <form class="variations_form cart live-course-details" data-product_id="" data-product_variations="false" id="product_slot">
     	<div class="alert-note" style="display: none;">
               <span class="light-red">
-                <img src="<?php echo bloginfo('template_url')?>/assets/images/alert.svg">Please Select batch and time Slots to join the course
+                <img src="<?php echo bloginfo('template_url')?>/assets/images/alert.svg">Please select the Preferred Date and Time Slot to join the course.
               </span>
             </div>
     	<div class="batch_details">
@@ -1299,7 +1299,7 @@ border: 1px solid deepskyblue;
         </div>
 		<div class="transparent-note" style="display:none;">
           	<span class="transparent">
-            	Class schedule subject to change. Final schedule will be communicated over email.
+            	The class schedule is subject to change. Please note that the final schedule will be communicated over email.
           	</span>
         </div>
 		<div class="livecourse_button">

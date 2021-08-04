@@ -248,7 +248,12 @@ function getQuizPointsTypeCount($quiz_type,$courseID){
           $total_quiz[] = $quiz_id;
         }
       }
-      return count($total_quiz);
+      if($total_quiz){
+        return count($total_quiz);
+      }
+      else{
+        return 0;
+      }
 }
 
 function getQuizPoints($userID,$ref,$courseID){

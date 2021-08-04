@@ -1043,6 +1043,15 @@ jQuery(document).ready(function(){
                document.getElementById('videolinklearning').src = 'https://player.vimeo.com/video/'+viemocode;
           });
 
+          function myFunction() {
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            document.getElementById("successMsg").innerHTML = "Referral Code Copy Successfully";
+            setTimeout(function(){ $("#successMsg").html(''); }, 5000);
+          }
+
           $('.vibebp-logout').click(function(){
                //alert('Hii');
                //setTimeout(function(){ window.location.assign(""); }, 3000);

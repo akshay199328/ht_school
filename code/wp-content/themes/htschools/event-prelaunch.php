@@ -31,6 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     debug_logs: 1
   });
 </script>
+
 <?php
 $user = wp_get_current_user();
 $userIdentifier = $user->ID;

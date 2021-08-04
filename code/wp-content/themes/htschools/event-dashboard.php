@@ -39,13 +39,13 @@ $course_status33 = $results3->course_status33;
 $purchase_status = $course_status11+$course_status22+$course_status33;
 
 if($purchase_status == 0){
+    $url = site_url();
+    header('Location: '.$url);
+}else{
     if ( !is_user_logged_in() ) {
         $url = site_url();
         header('Location: '.$url);
     }
-}else{
-    $url = site_url();
-    header('Location: '.$url);
 }
 
 get_header(vibe_get_header());

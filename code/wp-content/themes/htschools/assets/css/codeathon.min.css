@@ -2307,7 +2307,6 @@ body.menuOpened {
     background-image: url(../images/school-bg.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size:auto 100%;
 }
 
 .section-wrapper.school .section-copy {
@@ -2344,7 +2343,10 @@ body.menuOpened {
     align-items: center;
     background: #fff;
     padding: 20px;
-    height: 174px
+    height: 174px;
+    justify-content:center;
+    width:174px;
+    margin:auto;
 }
 
 .section-wrapper.school .section-copy .school_slider .owl-stage .owl-item .item .logo img {

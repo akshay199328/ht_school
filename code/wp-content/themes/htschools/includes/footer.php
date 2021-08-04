@@ -316,6 +316,7 @@ jQuery(document).ready(function(){
             mouseDrag:true,
             stagePadding:0,
             smartSpeed:1900,
+            autoplay:true,
             responsive : {
                 0 : {
                     items:1,

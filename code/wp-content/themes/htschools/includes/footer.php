@@ -1042,7 +1042,7 @@ jQuery(document).ready(function(){
             copyText.select();
             copyText.setSelectionRange(0, 99999)
             document.execCommand("copy");
-            document.getElementById("successMsg").innerHTML = "Referral Code Copy Successfully";
+            document.getElementById("successMsg").innerHTML = "Referral Code Copied Successfully";
             setTimeout(function(){ $("#successMsg").html(''); }, 5000);
           }
 

@@ -4,7 +4,52 @@
  */
 
 if ( !defined( 'ABSPATH' ) ) exit;
+
+$results11 = $wpdb->get_results("SELECT `ID` FROM `ht_posts` WHERE `post_type` = 'events' and post_status = 'publish' ORDER BY `ID`");
+foreach($results11 as $row11){ 
+  $post_id = $row11->ID; 
+}
+
+function getData($wpdb, $post_id, $meta_key){
+
+  $results = $wpdb->get_results( "SELECT * FROM `ht_postmeta` WHERE `post_id` = '$post_id' AND `meta_key` = '$meta_key'");
+  foreach($results as $row){ 
+    return $row->meta_value; 
+  }
+
+}
+
+$course_1 = getData($wpdb, $post_id, 'learning_modules_course_1');
+$course_2 = getData($wpdb, $post_id, 'learning_modules_course_2');
+$course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
+
+$course_status1 = 'course_status'.$course_1;
+$course_status2 = 'course_status'.$course_2;
+$course_status3 = 'course_status'.$course_3;
+
+$results1 = $wpdb->get_row("SELECT count(umeta_id) as course_status11 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status1'");
+$course_status11 = $results1->course_status11;
+
+$results2 = $wpdb->get_row("SELECT count(umeta_id) as course_status22 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status2'");
+$course_status22 = $results2->course_status22;
+
+$results3 = $wpdb->get_row("SELECT count(umeta_id) as course_status33 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status3'");
+$course_status33 = $results3->course_status33;
+
+$purchase_status = $course_status11+$course_status22+$course_status33;
+
+if($purchase_status == 0){
+    if ( !is_user_logged_in() ) {
+        $url = site_url();
+        header('Location: '.$url);
+    }
+}else{
+    $url = site_url();
+    header('Location: '.$url);
+}
+
 get_header(vibe_get_header());
+
 include("includes/lead-dashboard.php"); 
 
 if ( !is_user_logged_in() ) {
@@ -72,37 +117,6 @@ foreach($results as $row){
 $results2 = $wpdb->get_row("SELECT count(umeta_id) as profileStatus FROM `ht_usermeta` WHERE `user_id` = '$user_id' and `meta_key` = 'profile_status'");
 $profileStatus = $results2->profileStatus;
 
-
-$results11 = $wpdb->get_results("SELECT `ID` FROM `ht_posts` WHERE `post_type` = 'events' and post_status = 'publish' ORDER BY `ID`");
-foreach($results11 as $row11){ 
-  $post_id = $row11->ID; 
-}
-
-function getData($wpdb, $post_id, $meta_key){
-
-  $results = $wpdb->get_results( "SELECT * FROM `ht_postmeta` WHERE `post_id` = '$post_id' AND `meta_key` = '$meta_key'");
-  foreach($results as $row){ 
-    return $row->meta_value; 
-  }
-
-}
-
-$course_1 = getData($wpdb, $post_id, 'learning_modules_course_1');
-$course_2 = getData($wpdb, $post_id, 'learning_modules_course_2');
-$course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
-
-$course_status1 = 'course_status'.$course_1;
-$course_status2 = 'course_status'.$course_2;
-$course_status3 = 'course_status'.$course_3;
-
-$results1 = $wpdb->get_row("SELECT count(umeta_id) as course_status11 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status1'");
-$course_status11 = $results1->course_status11;
-
-$results2 = $wpdb->get_row("SELECT count(umeta_id) as course_status22 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status2'");
-$course_status22 = $results2->course_status22;
-
-$results3 = $wpdb->get_row("SELECT count(umeta_id) as course_status33 FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$course_status3'");
-$course_status33 = $results2->course_status33;
 
 if($course_status11 == 1){
     $courseID = $course_1;

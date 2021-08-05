@@ -67,6 +67,9 @@ function rt_change_profile_tab_order() {
       'position' => 30,
    ), 'course' );
    $bp->members->nav->edit_nav( array(
+      'position' => 40,
+   ), 'event' );
+   $bp->members->nav->edit_nav( array(
 	'name' => 'Account Info',
 	), 'profile' );
    $bp->members->nav->edit_nav( array(
@@ -75,7 +78,11 @@ function rt_change_profile_tab_order() {
    $bp->members->nav->edit_nav( array(
 	'name' => 'My Courses',
 	), 'course' );
+   $bp->members->nav->edit_nav( array(
+  'name' => 'Event Course',
+  ), 'event' );
 }
+
 add_action( 'bp_init', 'rt_change_profile_tab_order', 999 );
 
 function bp_remove_nav_item() {
@@ -376,6 +383,16 @@ function bp_page_nav(){
     
     ) );
 
+    bp_core_new_subnav_item( array(
+    'name' => __( 'Active Courses', 'buddypress navigation' ), 
+    'slug' => 'event_course',
+    'parent_url' => $user_domain,
+    'parent_slug' => 'event_course',
+    'screen_function' => 'active_event_course_template',
+    'position' => 40
+ 
+    ) );
+
     // bp_core_new_subnav_item( array(
     // 'name' => __( 'Referral Code', 'buddypress' ), 
     // 'slug' => 'referral-code',
@@ -410,6 +427,9 @@ function saved_articles_template() {
 function referral_code_template() {
       bp_core_load_template( 'referral-code' );
 } 
+function active_event_course_template() {
+      bp_core_load_template( 'active-event-course' );
+}
 
 
 // add_action('init','wplms_remove_snapshot_for_all',11);

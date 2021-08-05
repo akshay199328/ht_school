@@ -289,26 +289,26 @@
 }
 .c100:after {
   position: absolute;
-  top: 0.08em;
-  left: 0.08em;
-  display: block;
-  content: " ";
-  border-radius: 50%;
-  background-color: #fff;
-  width: 0.84em;
-  height: 0.84em;
-  -webkit-transition-property: all;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-in;
-  -moz-transition-timing-function: ease-in;
-  -o-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
+    top: 0.06em;
+    left: 0.06em;
+    display: block;
+    content: " ";
+    border-radius: 50%;
+    background-color: #fff;
+    width: 0.89em;
+    height: 0.89em;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
 }
 .c100 .slice {
   position: absolute;

@@ -1437,7 +1437,7 @@ border: 1px solid deepskyblue;
 			price = jQuery(this).find('.woocommerce-Price-amount').html().replace(/<[^>]*>?/gm, "").replace("₹", "").replace(",", "");
 		}
 
-		jQuery('#course_price_'+courseID).val(parseFloat(price).toFixed(2));
+		jQuery('#course_price_'+courseID).val(price);
 	});
 
 	jQuery(document).ready(function(){

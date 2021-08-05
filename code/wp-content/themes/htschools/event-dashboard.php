@@ -748,7 +748,7 @@ div#ui-datepicker-div{
                         <h6>Your Referral Code:</h6>
                         <div class="link">
                             <!-- <span><?php //echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?></span> -->
-                            <input type="text" id="myInput" value="<?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" style="width: 100%; padding: 10px; border: 3px solid #000000ad;">
+                            <input type="text" id="myInput" value="<?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" >
                             <button type="button" onclick="myFunction()" class="copy_button">Copy</button>
                         </div>
                         <p id="successMsg"></p>

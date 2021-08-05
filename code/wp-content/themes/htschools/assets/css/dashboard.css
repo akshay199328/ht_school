@@ -1122,7 +1122,7 @@ a:hover {
     line-height: 16.8px;
     letter-spacing: .48px;
     margin: 0;
-    font-weight: 500;
+    font-weight: 500!important;
     font-family: Poppins !important
 }
 
@@ -1131,14 +1131,17 @@ a:hover {
     margin-top: 18px
 }
 
-.refer-popup .share-link span {
+.refer-popup .share-link input {
     float: left;
-    border: 1px solid #ccc;
-    padding: 15px 25px;
+    border: 0;
+    background: url(../images/share-link-button.svg) no-repeat;
+    width: 63%;
+    padding: 5px 17px 5px 25px!important;
     font-size: 24px;
     line-height: 22px;
     font-weight: 600;
-    color: #000
+    color: #000;
+    word-break: break-word;
 }
 
 .left_border {
@@ -1165,18 +1168,21 @@ a:hover {
 }
 
 .refer-popup .share-link .copy_button {
-    background: url(../images/copy-button.png);
+    background: url(../images/copy-button.png) no-repeat;
     font-size: 20px;
     line-height: 24px;
     font-weight: 700;
     color: #000;
     border: 0;
     width: 168.67px;
-    background-size: 100% 100%;
+    background-size: 98% 98%;
+    height: 58px;
     position: relative;
-    left: -5px
+    left: -5px;
 }
-
+.link:hover:after {
+    display: none;
+}
 .refer-share {
     display: block;
     float: left;
@@ -1665,7 +1671,8 @@ button[disabled=disabled].next-button{    color: #ccab00!important;}
     min-width: 100%;
     min-height: 57.87px;
     margin-top: 29px;
-    z-index: 9999
+    z-index: 9999;
+    color: #000;
 }
 
 .modal-open {
@@ -1683,7 +1690,8 @@ button[disabled=disabled].next-button{    color: #ccab00!important;}
 }
 
 .page-template-event-dashboard .modal-backdrop.show {
-    opacity: 0
+    opacity: 0;
+    display: none!important;
 }
 
 .page-template-event-dashboard .ui-widget-header {

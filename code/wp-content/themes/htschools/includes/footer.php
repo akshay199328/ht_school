@@ -17,6 +17,7 @@ else if(isset($_COOKIE['PHPSESSID']))
 <input type="hidden" id="footer_session_source">
 <input type="hidden" id="footer_utm_tags">
 <div class="terms">Codeathon Terms and Conditions</div>
+
 <footer class="footer-wrapper">
       <div class="new-footer-copy">
         <div class="new-footer-top">

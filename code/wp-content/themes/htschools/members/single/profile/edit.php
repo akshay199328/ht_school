@@ -58,6 +58,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		<form id="profile-edit-form" name="profile-form" class="standard-form">
 			
 			<input type="hidden" name="action" value="save_custom_profile">
+			<input type="text" id="user_identifier" name="user_identifier" value="<?php echo $user_id;?>">
 			<div class="form-group">
 				<label for="first_name">First Name*</label>
 				<input type="text" class="form-control" name="first_name" placeholder="" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
@@ -620,7 +621,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		                        $("#response_message").removeClass('error');
 		                        $("#response_message").show();
 		                        let profilePopupUpdatedMoegObj2 = {
-		                        	"User identifier"	: jQuery("#user_identifier").val(),
+		                        	"User identifier"	: parseInt(jQuery("#user_identifier").val()),
 															"School"	: jQuery("#user_school_data").val(),
 															"Grade/Standard"	: jQuery("#grade").val(),
 															"Section/Division"	: jQuery("#division").val(),

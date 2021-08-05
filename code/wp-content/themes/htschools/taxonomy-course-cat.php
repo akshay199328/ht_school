@@ -67,7 +67,7 @@ get_header(vibe_get_header());
                     $category_array = get_the_terms( $post->ID, 'course-cat');
                     $excerpt = get_post_field('post_excerpt', $post->ID);
                     $courseID = $post->ID;
-                    $courseslug=get_site_url().'/?p='.$courseID;
+                    $courseslug=get_the_permalink($courseID);
                     $usersFavorites = wpfp_get_users_favorites();
                     $user = wp_get_current_user();
 

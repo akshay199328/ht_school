@@ -77,7 +77,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <?php
                       $courseID = $post->ID;
                       $category_array = get_the_terms( $courseID, 'course-cat');
-                      $courseslug=get_site_url().'/?p='.$courseID;
+                      $courseslug=get_the_permalink($courseID);
                       $usersFavorites = wpfp_get_users_favorites();
                       $user = wp_get_current_user();
                       $userIdentifier = "";
@@ -487,7 +487,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           $category_array = get_the_terms( $post->ID, 'course-cat');
                           $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                           $courseID = $post->ID;
-                          $courseslug=get_site_url().'/?p='.$courseID;
+                          $courseslug=get_the_permalink($courseID);
                           $coursePartner = "";
                           $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
                           if ($cb_course_id) {
@@ -563,7 +563,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
             let viewCourseObj = {
               "event"          : 'view_item',
-              "user_identifier": jQuery("#footer_user_identifier").val(),
+              "user_identifier": parseInt(jQuery("#footer_user_identifier").val()),
               "session_source" : jQuery("#footer_session_source").val(),
               "timestamp"      : jQuery("#footer_timestamp").val(),
               "utm_tags"       : jQuery("#footer_utm_tags").val(),
@@ -578,7 +578,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               "Course name"     : jQuery("#course_name_" + courseID).val(),
               "Course ID"       : parseInt(jQuery("#course_id_" + courseID).val()),
               "Age group"       : jQuery("#age_group_" + courseID).val(),
-              "Course Price"    : jQuery("#course_price_" + courseID).val(),
+              "Course Price"    : parseInt(jQuery("#course_price_" + courseID).val()),
               "Course duration" : jQuery("#course_duration_" + courseID).val(),
               "Session duration": jQuery("#session_duration_" + courseID).val(),
               "Course URL"      : jQuery("#course_url_" + courseID).val(),
@@ -586,7 +586,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               "Timestamp"       : jQuery("#footer_timestamp").val(),
               "Session source"  : jQuery("#footer_session_source").val(),
               "UTM tags"        : jQuery("#footer_utm_tags").val(),
-              "User identifier" : jQuery("#footer_user_identifier").val(),
+              "User identifier" : parseInt(jQuery("#footer_user_identifier").val()),
             };
 
             // dataLayer.push({ ecommerce: null });

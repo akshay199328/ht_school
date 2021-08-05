@@ -131,7 +131,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         $age_limit = $custom_fields['vibe_course_age_group'][0];
                         $category_array = get_the_terms( $post->ID, 'course-cat');
                         $courseID = $post->ID;
-                        $courseslug=get_site_url().'/?p='.$courseID;
+                        $courseslug=get_the_permalink($courseID);
                         $usersFavorites = wpfp_get_users_favorites();
                         $coursePartner = "";
 

@@ -331,7 +331,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				let cartViewedObj = {
 					"event"				: 'view_cart',
-					"user_identifier"	: jQuery("#footer_user_identifier").val(),
+					"user_identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 					"session_source"	: jQuery("#footer_session_source").val(),
 					"timestamp"			: jQuery("#footer_timestamp").val(),
 					"utm_tags"			: jQuery("#footer_utm_tags").val(),
@@ -367,7 +367,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				let beginCheckoutObj = {
 					"event"					: 'begin_checkout',
-					"user_identifier"		: jQuery("#footer_user_identifier").val(),
+					"user_identifier"		: parseInt(jQuery("#footer_user_identifier").val()),
 					"session_source"		: jQuery("#footer_session_source").val(),
 					"timestamp"				: jQuery("#footer_timestamp").val(),
 					"utm_tags"				: jQuery("#footer_utm_tags").val(),
@@ -382,7 +382,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				};
 
 				let beginCheckoutMoegObj = {
-					"User identifier"						: jQuery("#footer_user_identifier").val(),
+					"User identifier"						: parseInt(jQuery("#footer_user_identifier").val()),
 					"Session source"						: jQuery("#footer_session_source").val(),
 					"Timestamp"								: jQuery("#footer_timestamp").val(),
 					"UTM tags"								: jQuery("#footer_utm_tags").val(),
@@ -449,7 +449,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 				let removeFromCartObj = {
 					"event"					: 'remove_from_cart',
-					"user_identifier"		: jQuery("#footer_user_identifier").val(),
+					"user_identifier"		: parseInt(jQuery("#footer_user_identifier").val()),
 					"session_source"		: jQuery("#footer_session_source").val(),
 					"timestamp"				: jQuery("#footer_timestamp").val(),
 					"utm_tags"				: jQuery("#footer_utm_tags").val(),
@@ -462,7 +462,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 				};
 
 				let removeFromCartMoegObj = {
-					"User identifier"					: jQuery("#footer_user_identifier").val(),
+					"User identifier"					: parseInt(jQuery("#footer_user_identifier").val()),
 					"Session source"					: jQuery("#footer_session_source").val(),
 					"Timestamp"							: jQuery("#footer_timestamp").val(),
 					"UTM tags"							: jQuery("#footer_utm_tags").val(),

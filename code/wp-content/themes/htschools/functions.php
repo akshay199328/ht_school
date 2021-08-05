@@ -3478,10 +3478,10 @@ function referal_product_points(){
     'message' => 'Failed to add points'
   );
   $now = current_time('timestamp');
-  $sql1 = $wpdb->get_results("SELECT user_id FROM $table_name WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
+  $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
   $referal_userid_json = json_decode( json_encode($sql1), true);
   $referal_userid = $referal_userid_json[0]['user_id'];
-  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM $table_name WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
+  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM $my_cred_table WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
   $referal_total_userid_json = json_decode( json_encode($sql2), true);
   $referal_total_userid_count = $referal_total_userid_json[0]['user_count'];
   if($referal_total_userid_count <= 9){

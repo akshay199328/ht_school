@@ -3084,6 +3084,8 @@ function check_and_trigger_signup_tag() {
             add_user_meta($currentUserID, 'signup_ga_tag_pushed', time());
             if(isset($_SERVER['HTTP_USER_AGENT'])) update_user_meta($currentUserID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
 
+            $currentUser = wp_get_current_user();
+
             $_SESSION['sign_up_data'] = array(
                 "datalayer" => array(
                     "event"           => 'sign_up',
@@ -3100,21 +3102,25 @@ function check_and_trigger_signup_tag() {
                 ),
                 "moengage" => array(
                     "User identifier"                     => $currentUserID,
+                    "First Name"                          =>$currentUser->user_firstname,
+                    "Last Name"                           =>$currentUser->user_lastname,
                     "Session source"                      => "",
                     "Timestamp"                           => date('c', time()),
                     "UTM tags"                            => "",
                     "Signed up on on Date and time (IST)" => date('c', time()),
                     "Sign up source"                      => $socialType,
                     "Email"                               => isset($userDetails->data->user_email) ? $userDetails->data->user_email : "",
-                    "Phone number"                        => "",
+                    "Phone number"                        => get_profile_data('Phone',$currentUserID),
                     "status"                              => "success",
                     "failure_reason"                      => "",
                 ),
                 "moengage_type" => "Signed_Up",
             );
+            
         }
     }
 }
+
 
 
 add_action('woocommerce_log_ga_tag', 'log_ga_tag_in_db', 10, 2);

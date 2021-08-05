@@ -493,7 +493,7 @@ border: 1px solid deepskyblue;
 								  <label for="">Grade / Standard</label>
 								  <div class="col-md-12 mrg">
 									<div class="input-group popup_dropdown">
-								  <select name="grade">
+								  <select name="grade" id="grade">
 									<option value="1st" <?php if($child[0]->grade=="1st") echo 'selected="selected"'; ?>>1st</option>
 									<option value="2nd" <?php if($child[0]->grade=="2nd") echo 'selected="selected"'; ?>>2nd</option>
 									<option value="3rd" <?php if($child[0]->grade=="3rd") echo 'selected="selected"'; ?>>3rd</option>
@@ -512,7 +512,7 @@ border: 1px solid deepskyblue;
 								  <label for="">Section / Division</label>
 								  <div class="col-md-12 mrg">
 									<div class="input-group popup_dropdown">
-									  <select name="division">
+									  <select name="division" id="section">
 										<option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
 										<option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
 										<option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
@@ -880,7 +880,7 @@ border: 1px solid deepskyblue;
 			  else{
 				$("#profile_submit").html("Please wait...");
 				$("#profile_submit").attr("disabled", "disabled");
-
+				
 				var form_data = {'action' : 'acf/validate_save_post'};
 				$.ajax({
 					type : "POST",
@@ -915,6 +915,22 @@ border: 1px solid deepskyblue;
 								$("#response_message").html('');
 								$("#response_message").hide();
 							}, 5000);
+
+							 let profilePopupUpdatedMoegObj = {
+							 	"User identifier"	: jQuery("#user_identifier").val(),
+								"School"	: jQuery("#user_school_data").val(),
+								"Grade/Standard"	: jQuery("#grade").val(),
+								"Section/Division"	: jQuery("#division").val(),
+								"Country"	    : jQuery("input[name=user_country_data]").val(),
+								"State"	    : jQuery("input[name=user_state]").val(),
+								"City"	    : jQuery("input[name=user_city]").val(),
+								"Date of Birth"	    : jQuery("input[name=user_dob_display]").val(),
+								"Gender"	    : jQuery("input[name=user_gender]").val(),
+								
+							}
+						   	profilePopupUpdatedMoegObj.event = "mo_profile_updated";
+						   	dataLayer.push({ ecommerce: null }); 
+						   	dataLayer.push(profilePopupUpdatedMoegObj);
 
 						}else{
 							$("#response_message").html(response.message);
@@ -1319,12 +1335,16 @@ border: 1px solid deepskyblue;
 		jQuery(document).ready(function(){
 			var signUpDataLayerObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["datalayer"]); ?>');
 			var signUpDataMoengObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage"]); ?>');
+
+			var UserSchoolDataMoengObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_school_data"]["school_user_properties"]); ?>');
 			console.log(signUpDataLayerObj);
 			dataLayer.push(signUpDataLayerObj);
 
 			signUpDataMoengObj.event = "mo_" + "<?php echo $_SESSION['sign_up_data']['moengage_type']; ?>";
 			dataLayer.push({ ecommerce: null }); 
 			dataLayer.push(signUpDataMoengObj);
+
+
 			// Moengage.track_event("<?php //echo $_SESSION['sign_up_data']['moengage_type']; ?>", signUpDataMoengObj);
 		});
 	</script>
@@ -1595,11 +1615,12 @@ border: 1px solid deepskyblue;
 					"Course partner"	: jQuery("#course_partner_" + courseID).val(),
 					"Category ID"		: parseInt(jQuery("#category_id_" + courseID).val()),
 					"Course ID"			: parseInt(jQuery("#course_id_" + courseID).val()),
-					"Course Price"		: jQuery("#course_price_" + courseID).val(),
+					"Course Price"		: parseInt(jQuery("#course_price_" + courseID).val()),
 					"Age group"			: jQuery("#age_group_" + courseID).val(),
 					"Course duration"	: jQuery("#course_duration_" + courseID).val(),
-					"Session duration"	: jQuery("#session_duration_" + courseID).val(),
-					"Wishlisted course"	: jQuery("#wishlisted_course_" + courseID).val(),
+					"Session duration"	: jQuery("#session_duration_" + courseID).val(),	
+					"wishlisted_course"	: jQuery("#wishlisted_course_" + courseID).val() == "1" ? true : false,
+				
 				};
 
 				// dataLayer.push({ ecommerce: null });

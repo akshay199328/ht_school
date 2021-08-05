@@ -251,7 +251,7 @@
 }
 .c100 > span.complete-text {
   position: absolute;
-    width: 85%;
+    width: 79%;
     margin: 0px auto;
     z-index: 1;
     left: 11px;
@@ -276,9 +276,10 @@
     font-size: 36px;
     font-weight: 500;
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    align-content: center;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    font-family: Poppins !important;
+    justify-content: center;
 }
 .c100 > span .text {
         display: block;

@@ -970,6 +970,7 @@ body.menuOpened {
     font-weight: 800;
     font-size: 49px;
     color: #383838;
+    font-family: Poppins !important
     margin-bottom: 40px
 }
 
@@ -1831,7 +1832,8 @@ body.menuOpened {
 .section-wrapper.about .section-copy .about_slider .owl-item .partner-copy .copy .title {
     font-size: 18px;
     font-weight: 600;
-    color: #383838
+    font-family: Poppins !important;
+    color: #383838;
 }
 
 .section-wrapper.about .section-copy .about_slider .owl-item .partner-copy .copy p {
@@ -2678,7 +2680,7 @@ body.menuOpened {
     margin-bottom: 10px;
     font-size: 18px;
     color: #d5ebff;
-    font-weight: 400
+    font-weight: 400!important;
 }
 
 .footer-wrapper .newsletter {
@@ -3019,6 +3021,7 @@ body.menuOpened {
     font-weight: 800!important;
     text-transform: uppercase;
     line-height: 1.2;
+    color: #000;
     font-family: 'Poppins'!important;
 }
 
@@ -4072,5 +4075,5 @@ body.menuOpened .side-navigation {
         width: 47%
     }
 }
-.terms{background-color: #d5acff;padding:10px 0;text-align:center;text-transform:uppercase;font-weight:600}
+.terms{background-color: #d5acff;padding:10px 0;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;margin-top:10px;}
 .page-template-event-dashboard .pusher{z-index:auto}

@@ -162,7 +162,8 @@ a:hover {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
-    font-family: Poppins !important
+    font-family: Poppins !important;
+    margin: 0;
 }
 
 .dashboard-wrapper {
@@ -170,7 +171,8 @@ a:hover {
     display: flex;
     background: url(../images/number-doodle.png) no-repeat right top;
     padding-bottom: 0;
-    z-index: 9
+    z-index: 9;
+    padding-top: 0;
 }
 
 .details_footer:after {
@@ -190,7 +192,7 @@ a:hover {
 
 .dashboard-wrapper .container {
     z-index: 999;
-    max-width: 1150px;
+    max-width: 1150px!important;
     padding: 0
 }
 
@@ -209,7 +211,7 @@ a:hover {
     color: #776489;
     font-weight: 800;
     text-transform: uppercase;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
     font-family: Poppins !important
 }
 
@@ -494,6 +496,7 @@ a:hover {
 }
 
 .video_decp .details {
+    padding: 0;
     padding-left: 20px;
     margin-top: 0;
     float: left;
@@ -505,7 +508,8 @@ a:hover {
     line-height: 28px;
     font-weight: 700;
     padding-right: 65px;
-    font-family: Poppins !important
+    color: #2D2D2D;
+    font-family: Poppins !important;
 }
 
 .video_decp .details p {
@@ -513,7 +517,8 @@ a:hover {
     line-height: 22px;
     font-weight: 300;
     margin: 0;
-    font-family: Poppins !important
+    color: #010101;
+    font-family: Poppins !important;
 }
 
 .resume_btn {
@@ -525,10 +530,10 @@ a:hover {
     display: inline-block
 }
 
-.video_decp .details a,
-.video_decp .details button,
-.video_decp .details input {
-    background: url(../images/resume_btn.svg) no-repeat;
+.resume_btn a,
+.resume_btn button,
+.resume_btn input {
+    background: url(../images/resume_btn.svg) no-repeat!important;
     color: #fff !important;
     line-height: 40px;
     color: #fade3b;
@@ -548,7 +553,18 @@ a:hover {
     background: url(../images/practice_btn.svg) no-repeat !important;
     line-height: 42px !important;
     margin: 0;
-    margin-left: -5px
+    margin-left: -5px;
+    color: #fade3b!important;
+    display: inline-block;
+    padding: 0 24px;
+    font-weight: 600;
+    font-size: 15px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    display: inline-block;
+    width: auto;
+    border: none;
+    box-shadow: none !important
 }
 
 .details_footer .head {
@@ -802,7 +818,8 @@ a:hover {
     line-height: 18px;
     color: #555;
     font-weight: 500;
-    margin-right: 10px
+    margin-right: 10px;
+    font-family: Poppins !important
 }
 
 .points_board .break {
@@ -813,7 +830,8 @@ a:hover {
 .points_board .points {
     font-size: 37px;
     color: #2d2d2d;
-    font-weight: 800
+    font-family: Poppins !important
+    font-weight: 800;
 }
 
 .points_board .board-button {
@@ -832,7 +850,8 @@ a:hover {
     font-weight: 800;
     border: 0;
     display: block;
-    margin-top: 19px
+    margin-top: 19px;
+    font-family: Poppins !important
 }
 
 .earn-points {
@@ -1285,7 +1304,8 @@ a:hover {
     z-index: 111;
     color: #000;
     font-size: 18px;
-    font-weight: 700
+    font-family: Poppins !important;
+    font-weight: 700;
 }
 
 .profile-progress .progressbar li:after {
@@ -1346,7 +1366,9 @@ a:hover {
     font-size: 14px;
     line-height: 16px;
     margin-bottom: 12px;
-    font-weight: 700
+    font-weight: 700;
+    font-family: Poppins !important;
+    color: #000;
 }
 
 .profile-form .form-control {
@@ -1357,7 +1379,8 @@ a:hover {
     line-height: 16px;
     font-weight: 500;
     color: #000;
-    margin: 0 !important
+    font-family: Poppins !important;
+    margin: 0 !important;
 }
 
 .profile-form .input-search .form-control {
@@ -1455,7 +1478,9 @@ input#user_dob_display {
     letter-spacing: -.8px;
     display: flex;
     flex-direction: row;
-    align-items: center
+    align-items: center;
+    font-family: Poppins !important;
+    color: #000;
 }
 
 .number {
@@ -1546,7 +1571,8 @@ input#user_dob_display {
     border: 0;
     min-width: 100%;
     min-height: 57px;
-    color: #000
+    color: #000;
+    font-family: Poppins !important;
 }
 button[disabled=disabled].next-button{    color: #ccab00!important;}
 .switch {

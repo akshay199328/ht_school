@@ -3680,15 +3680,15 @@ h3.assignment_heading.heading>strong>span{float:left;margin-left:10px;}
   color: #b4b3b3; }
 
 .ui-datepicker-calendar td:first-child .ui-state-active {
-  width: 29px;
+  width: 100%;
   margin-left: 0; }
 
 .ui-datepicker-calendar td:last-child .ui-state-active {
-  width: 29px;
+  width: 100%;
   margin-right: 0; }
 
 .ui-datepicker-calendar tr:last-child .ui-state-active {
-  height: 29px;
+  height: 100%;
   margin-bottom: 0; }
 
 /* == Misc == */

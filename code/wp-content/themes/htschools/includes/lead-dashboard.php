@@ -16,6 +16,7 @@ if($page_name=="index.php"){
     <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon-bootstrap.css" rel="stylesheet">
     <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?php echo get_bloginfo('template_url'); ?>/style.css" rel="stylesheet">
     <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/dashboard.css" rel="stylesheet">
     <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/circle.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">

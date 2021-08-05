@@ -3625,6 +3625,7 @@ border-bottom: 1px solid #E8E8E8;
     opacity: 0.6;
     font-weight: 400;
 }
+.course_assignment .assignment_details .quiztimer {display: none;}
 @media (max-width: 768px) {
     .course_status .course_content .course_content_header {
         height: 3rem
@@ -4305,6 +4306,8 @@ a.button.is-primary {
     background: transparent;
     color: #000;
     height: auto;
+    letter-spacing: normal;
+    font-family: GT-Walsheim-Pro;
 
 }
 .cancel_button{

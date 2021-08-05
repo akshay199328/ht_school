@@ -58,7 +58,7 @@ if($page_name=="index.php"){
     </header>
     <div class="navigation-wrapper">
         <ul>
-            <li><a href="#!">About Us</a></li>
+            <li><a href="#about-section">About Us</a></li>
             <li><a href="#!">Learning Modules</a></li>
             <li><a href="#!">How it works</a></li>
             <li><a href="#!">Leaderboard</a></li>

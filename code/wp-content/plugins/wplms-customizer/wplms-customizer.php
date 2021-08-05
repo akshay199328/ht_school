@@ -313,6 +313,20 @@ function my_setup_nav() {
 
 }
 
+add_action( 'bp_setup_nav', 'my_setup_nav_event' );
+function my_setup_nav_event() {
+      global $bp;
+
+      bp_core_new_nav_item( array( 
+            'name' => __( 'Event Course', 'buddypress' ), 
+            'slug' => 'event_course', 
+            'position' => 30,
+            'screen_function' => 'event_course_template', 
+            'default_subnav_slug' => 'event_course',
+      ) );
+
+}
+
 // Load a page template for your custom item. You'll need to have an item-one-template.php and item-two-template.php in your theme root.
 
 

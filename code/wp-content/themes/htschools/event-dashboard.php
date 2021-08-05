@@ -477,6 +477,7 @@ div#ui-datepicker-div{
                                                 </span>
                                             </h5>
                                         </div>
+                                        
                                         <!-- <div class="col-12 col-lg-4 col-md-12 col-sm-12 mobile-show mrg pull-right">
                                             <h6 class="">
                                                 <span class="icon">

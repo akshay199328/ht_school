@@ -221,6 +221,7 @@ $(window).on('scroll', function () {
   });
 });
 
+
 jQuery(document).ready(function(){
      jQuery(".share svg").click(function(){
           jQuery(this).next().slideToggle();

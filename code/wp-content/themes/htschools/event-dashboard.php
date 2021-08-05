@@ -486,7 +486,7 @@ div#ui-datepicker-div{
                                                 </span>800 / 1000
                                             </h6>
                                         </div> -->
-                                        <div class="col-12 col-md-12 col-sm-12 mrg mobile-show">
+                                        <!-- <div class="col-12 col-md-12 col-sm-12 mrg mobile-show">
                                             <div class="progressbar">
                                                 <span class="pull-left">
                                                     <p>Completed</p>
@@ -500,7 +500,7 @@ div#ui-datepicker-div{
                                                     <div class="progress-bar w-40" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 <?php } ?>
                                 </div>

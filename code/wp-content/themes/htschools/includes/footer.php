@@ -136,17 +136,17 @@ else if(isset($_COOKIE['PHPSESSID']))
     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="<?php echo get_bloginfo('template_url'); ?>/assets/js/scroll.js"></script>
     <script>window.noZensmooth = true</script>
-    <link rel='stylesheet' id='acf-datepicker-css'  href='<?php echo get_bloginfo('url'); ?>/wp-content/plugins/advanced-custom-fields/assets/inc/datepicker/jquery-ui.min.css?ver=1.11.4' type='text/css' media='all' />
+    <!-- <link rel='stylesheet' id='acf-datepicker-css'  href='<?php echo get_bloginfo('url'); ?>/wp-content/plugins/advanced-custom-fields/assets/inc/datepicker/jquery-ui.min.css?ver=1.11.4' type='text/css' media='all' />
 
-    <script type='text/javascript' src='<?php echo get_bloginfo('url'); ?>/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.12.1' id='jquery-ui-datepicker-js'></script>
+    <script type='text/javascript' src='<?php //echo get_bloginfo('url'); ?>/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.12.1' id='jquery-ui-datepicker-js'></script>
      <script type='text/javascript' id='jquery-ui-datepicker-js-after'>
      jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
-     </script>
+     </script> -->
 
     <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/assets/js/navigation-custom.js"></script>
     <script type="text/javascript">
@@ -190,9 +190,12 @@ else if(isset($_COOKIE['PHPSESSID']))
         $('body').addClass('home');
         $("#header-scroll").removeClass("small");
         <?php if($profileStatus == 0){ ?>
-          $('#profile-popup').show();
+          $('#profile-popup').addClass("show in");
           $('body').addClass('modal-open');
-        <?php } ?>
+        <?php }else{ ?>
+          $('#profile-popup').removeClass("show in");
+          $('body').removeClass('modal-open');
+       <?php } ?>
         $(".profile-click1").hide();
         $(".profile-click").show();
         $('.profile-click img').prop({alt:'',width:'50',height:'50'});
@@ -243,7 +246,7 @@ jQuery(document).ready(function(){
             popup.classList.remove("hidden");
             
             /* Fade the popup in */
-          setTimeout(()=>popup.classList.add("show", "in"));
+          //setTimeout(()=>popup.classList.add("show", "in"));
             
             /* Close the popup when a city is selected. */
             jQuery('.refer-popup .modal-content .btn-close').click(function(){
@@ -617,9 +620,11 @@ jQuery(document).ready(function(){
           });
 
           jQuery('.skipDashboard2').click(function(){
+               $('#profile-popup').removeClass("show in");
+               $('#congrats-popup2').modal("show");
 
-               $('#profile-popup').hide();
-               $('#congrats-popup2').modal('show');
+               // $('#profile-popup').modal("hide");
+               // $('#congrats-popup2').modal("show");
 
           });
 
@@ -926,7 +931,7 @@ jQuery(document).ready(function(){
                                              console.log(response);
                                         }
                                     });
-                                    $('#profile-popup').hide();
+                                    $('#profile-popup').removeClass("show in");
                                     $('#congrats-popup').modal('show');
                                  }else{
                                      $("#response_message3").html(response.message);

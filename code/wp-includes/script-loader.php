@@ -78,7 +78,7 @@ function wp_default_packages_vendor( $scripts ) {
 	global $wp_locale;
 
 	$suffix = wp_scripts_get_suffix();
-if(is_user_logged_in() || !is_home()){ 
+
 	$vendor_scripts = array(
 		'react'     => array( 'wp-polyfill' ),
 		'react-dom' => array( 'react' ),
@@ -121,7 +121,6 @@ if(is_user_logged_in() || !is_home()){
 		$scripts->add( $handle, $path, $dependencies, $version, 1 );
 	}
 
-  
 	$scripts->add( 'wp-polyfill', null, array( 'wp-polyfill' ) );
 	did_action( 'init' ) && $scripts->add_inline_script(
 		'wp-polyfill',
@@ -138,7 +137,6 @@ if(is_user_logged_in() || !is_home()){
 			)
 		)
 	);
-}
 
 	did_action( 'init' ) && $scripts->add_inline_script( 'lodash', 'window.lodash = _.noConflict();' );
 
@@ -843,8 +841,6 @@ function wp_default_scripts( $scripts ) {
 	$scripts->add( 'masonry', '/wp-includes/js/masonry.min.js', array( 'imagesloaded' ), '4.2.2', 1 );
 	$scripts->add( 'jquery-masonry', "/wp-includes/js/jquery/jquery.masonry$dev_suffix.js", array( 'jquery', 'masonry' ), '3.1.2b', 1 );
 
-	if(is_user_logged_in() || !is_home()){ 
-
 	$scripts->add( 'thickbox', '/wp-includes/js/thickbox/thickbox.js', array( 'jquery' ), '3.1-20121105', 1 );
 	did_action( 'init' ) && $scripts->localize(
 		'thickbox',
@@ -860,12 +856,10 @@ function wp_default_scripts( $scripts ) {
 		)
 	);
 
-
-
 	$scripts->add( 'jcrop', '/wp-includes/js/jcrop/jquery.Jcrop.min.js', array( 'jquery' ), '0.9.12' );
 
 	$scripts->add( 'swfobject', '/wp-includes/js/swfobject.js', array(), '2.2-20120417' );
-}
+
 	// Error messages for Plupload.
 	$uploader_l10n = array(
 		'queue_limit_exceeded'      => __( 'You have attempted to queue too many files.' ),
@@ -941,7 +935,7 @@ function wp_default_scripts( $scripts ) {
 	$scripts->add( 'revisions', "/wp-admin/js/revisions$suffix.js", array( 'wp-backbone', 'jquery-ui-slider', 'hoverIntent' ), false, 1 );
 
 	$scripts->add( 'imgareaselect', "/wp-includes/js/imgareaselect/jquery.imgareaselect$suffix.js", array( 'jquery' ), false, 1 );
-if(is_user_logged_in() || !is_home()){ 
+
 	$scripts->add( 'mediaelement', false, array( 'jquery', 'mediaelement-core', 'mediaelement-migrate' ), '4.2.16', 1 );
 	$scripts->add( 'mediaelement-core', "/wp-includes/js/mediaelement/mediaelement-and-player$suffix.js", array(), '4.2.16', 1 );
 	$scripts->add( 'mediaelement-migrate', "/wp-includes/js/mediaelement/mediaelement-migrate$suffix.js", array(), false, 1 );
@@ -1032,7 +1026,6 @@ if(is_user_logged_in() || !is_home()){
 		),
 		'before'
 	);
-}
 
 	$scripts->add( 'mediaelement-vimeo', '/wp-includes/js/mediaelement/renderers/vimeo.min.js', array( 'mediaelement' ), '4.2.16', 1 );
 	$scripts->add( 'wp-mediaelement', "/wp-includes/js/mediaelement/wp-mediaelement$suffix.js", array( 'mediaelement' ), false, 1 );
@@ -1257,7 +1250,7 @@ if(is_user_logged_in() || !is_home()){
 
 	$scripts->add( 'wp-api', "/wp-includes/js/wp-api$suffix.js", array( 'jquery', 'backbone', 'underscore', 'wp-api-request' ), false, 1 );
 
-	if(is_user_logged_in() || !is_home()){ 
+	if ( is_admin() ) {
 		$scripts->add( 'admin-tags', "/wp-admin/js/tags$suffix.js", array( 'jquery', 'wp-ajax-response' ), false, 1 );
 		$scripts->set_translations( 'admin-tags' );
 
@@ -1479,16 +1472,13 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'customize-preview', "/wp-includes/css/customize-preview$suffix.css", array( 'dashicons' ) );
 	$styles->add( 'wp-embed-template-ie', "/wp-includes/css/wp-embed-template-ie$suffix.css" );
 	$styles->add_data( 'wp-embed-template-ie', 'conditional', 'lte IE 8' );
-if(is_user_logged_in() || !is_home()){ 
+
 	// External libraries and friends.
 	$styles->add( 'imgareaselect', '/wp-includes/js/imgareaselect/imgareaselect.css', array(), '0.9.8' );
 	$styles->add( 'wp-jquery-ui-dialog', "/wp-includes/css/jquery-ui-dialog$suffix.css", array( 'dashicons' ) );
 	$styles->add( 'mediaelement', '/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css', array(), '4.2.16' );
 	$styles->add( 'wp-mediaelement', "/wp-includes/js/mediaelement/wp-mediaelement$suffix.css", array( 'mediaelement' ) );
-
-	
 	$styles->add( 'thickbox', '/wp-includes/js/thickbox/thickbox.css', array( 'dashicons' ) );
-}
 	$styles->add( 'wp-codemirror', '/wp-includes/js/codemirror/codemirror.min.css', array(), '5.29.1-alpha-ee20357' );
 
 	// Deprecated CSS.

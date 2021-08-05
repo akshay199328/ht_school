@@ -117,7 +117,7 @@ defined( 'ABSPATH' ) || exit;
 					$courseID = $vcourses[0];
 
 					$courseCatInfo	= get_the_terms($courseID, 'course-cat');
-					$courseslug		= get_site_url().'/?p='.$courseID;
+					$courseslug=get_the_permalink($courseID);
 					$coursePartner	= "";
 
 					$cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
@@ -226,7 +226,7 @@ defined( 'ABSPATH' ) || exit;
 
 					let purchaseObj = {
 						"event"				: 'purchase',
-						"user_identifier"	: jQuery("#footer_user_identifier").val(),
+						"user_identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 						"session_source"	: jQuery("#footer_session_source").val(),
 						"timestamp"			: jQuery("#footer_timestamp").val(),
 						"utm_tags"			: jQuery("#footer_utm_tags").val(),
@@ -234,7 +234,7 @@ defined( 'ABSPATH' ) || exit;
 					};
 
 					let purchaseCompletedDetailMoegObj = {
-						"User identifier"		: jQuery("#footer_user_identifier").val(),
+						"User identifier"		: parseInt(jQuery("#footer_user_identifier").val()),
 						"Session source"		: jQuery("#footer_session_source").val(),
 						"Timestamp"				: jQuery("#footer_timestamp").val(),
 						"UTM tags"				: jQuery("#footer_utm_tags").val(),

@@ -917,7 +917,7 @@ border: 1px solid deepskyblue;
 							}, 5000);
 
 							 let profilePopupUpdatedMoegObj = {
-							 	"User identifier"	: jQuery("#user_identifier").val(),
+							 	"User identifier"	: parseInt(jQuery("#user_identifier").val()),
 								"School"	: jQuery("#user_school_data").val(),
 								"Grade/Standard"	: jQuery("#grade").val(),
 								"Section/Division"	: jQuery("#division").val(),
@@ -1360,7 +1360,7 @@ border: 1px solid deepskyblue;
 
 	jQuery( ".epaper a" ).click(function() {
 	  let ePaperViewedMoegObj = {
-			"User identifier"	: jQuery("#user_identifier").val(),
+			"User identifier"	: parseInt(jQuery("#user_identifier").val()),
 			"Session source"	: jQuery("#session_source").val(),
 			"Timestamp"			: jQuery("#timestamp").val(),
 			"UTM tags"			: jQuery("#utm_tags").val(),
@@ -1372,7 +1372,7 @@ border: 1px solid deepskyblue;
 	});
 	jQuery( ".logos a" ).click(function() {
 		let visitedMoejObj = {
-			"User identifier"	: jQuery("#user_identifier").val(),
+			"User identifier"	: parseInt(jQuery("#user_identifier").val()),
 			"Session source"	: jQuery("#session_source").val(),
 			"Timestamp"			: jQuery("#timestamp").val(),
 			"UTM tags"			: jQuery("#utm_tags").val(),
@@ -1595,7 +1595,7 @@ border: 1px solid deepskyblue;
 
 				let addToCartObj = {
 					"event"				: 'add_to_cart',
-					"user_identifier"	: jQuery("#footer_user_identifier").val(),
+					"user_identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 					"session_source"	: jQuery("#footer_session_source").val(),
 					"timestamp"			: jQuery("#footer_timestamp").val(),
 					"utm_tags"			: jQuery("#footer_utm_tags").val(),
@@ -1605,7 +1605,7 @@ border: 1px solid deepskyblue;
 				};
 
 				let addToCartMoegObj = {
-					"User identifier"	: jQuery("#footer_user_identifier").val(),
+					"User identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 					"Session source"	: jQuery("#footer_session_source").val(),
 					"Timestamp"			: jQuery("#footer_timestamp").val(),
 					"UTM tags"			: jQuery("#footer_utm_tags").val(),
@@ -1658,7 +1658,7 @@ border: 1px solid deepskyblue;
 
 			let addWishlistObj = {
 				"event"				: 'add_to_wishlist',
-				"user_identifier"	: jQuery("#footer_user_identifier").val(),
+				"user_identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 				"session_source"	: jQuery("#footer_session_source").val(),
 				"timestamp"			: jQuery("#footer_timestamp").val(),
 				"utm_tags"			: jQuery("#footer_utm_tags").val(),
@@ -1668,7 +1668,7 @@ border: 1px solid deepskyblue;
 			};
 
 			let addWishlistMoegObj = {
-				"User identifier"	: jQuery("#footer_user_identifier").val(),
+				"User identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 				"Session source"	: jQuery("#footer_session_source").val(),
 				"Timestamp"			: jQuery("#footer_timestamp").val(),
 				"UTM tags"			: jQuery("#footer_utm_tags").val(),
@@ -1718,7 +1718,7 @@ border: 1px solid deepskyblue;
 
 			let selectCourseObj = {
 				"event"				: 'select_item',
-				"user_identifier"	: jQuery("#footer_user_identifier").val(),
+				"user_identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 				"session_source"	: jQuery("#footer_session_source").val(),
 				"timestamp"			: jQuery("#footer_timestamp").val(),
 				"utm_tags"			: jQuery("#footer_utm_tags").val(),
@@ -1765,7 +1765,7 @@ border: 1px solid deepskyblue;
 
 			let allCourseObj = {
 				"event"				: 'view_item_list',
-				"user_identifier"	: jQuery("#footer_user_identifier").val(),
+				"user_identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 				"session_source"	: jQuery("#footer_session_source").val(),
 				"timestamp"			: jQuery("#footer_timestamp").val(),
 				"utm_tags"			: jQuery("#footer_utm_tags").val(),
@@ -1777,7 +1777,7 @@ border: 1px solid deepskyblue;
 			if(itemListName == "other_courses")	allCourseObj.item_list_name = itemListName;
 
 			let allCourseListMoegObj = {
-				"User identifier"	: jQuery("#footer_user_identifier").val(),
+				"User identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 				"Session source"	: jQuery("#footer_session_source").val(),
 				"Timestamp"			: jQuery("#footer_timestamp").val(),
 				"UTM tags"			: jQuery("#footer_utm_tags").val(),
@@ -1824,7 +1824,7 @@ border: 1px solid deepskyblue;
 
 		function courseShared(courseID, shareChannel) {
 			let courseSharedMoegObj = {
-				"User identifier"	: jQuery("#footer_user_identifier").val(),
+				"User identifier"	: parseInt(jQuery("#footer_user_identifier").val()),
 				"Session source"	: jQuery("#footer_session_source").val(),
 				"Timestamp"			: jQuery("#footer_timestamp").val(),
 				"UTM tags"			: jQuery("#footer_utm_tags").val(),

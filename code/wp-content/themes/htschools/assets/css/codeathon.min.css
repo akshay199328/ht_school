@@ -3488,13 +3488,15 @@ body.menuOpened .side-navigation {
     z-index: 1001;
     background-color: #fff;
     height: 100vh;
-    overflow: scroll
+    overflow: scroll;
+    font-family: "Poppins";
 }
 
 .earnpoints-wrapper .earn-title {
     font-size: 25px;
     margin-bottom: 18px;
-    font-weight: 700
+    font-weight: 700;
+    font-family: inherit !important;
 }
 
 @media (max-width:430px) {
@@ -3667,7 +3669,8 @@ body.menuOpened .side-navigation {
 
 .earnpoints-wrapper .earnpoints-copy .points .copy {
     text-align: left;
-    flex: 1
+    flex: 1;
+    font-weight:600
 }
 
 .earnpoints-wrapper .earnpoints-copy .points .column.pink {
@@ -4070,3 +4073,4 @@ body.menuOpened .side-navigation {
     }
 }
 .terms{background-color: #d5acff;padding:10px 0;text-align:center;text-transform:uppercase;font-weight:600}
+.page-template-event-dashboard .pusher{z-index:auto}

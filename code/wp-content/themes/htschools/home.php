@@ -6,6 +6,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 get_header(vibe_get_header());
 ?>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- ======= Hero Section ======= -->
 
 <main id="main">
@@ -225,11 +226,11 @@ get_header(vibe_get_header());
                         <a class="a2a_button_google_gmail"></a>
                         <a class="a2a_button_whatsapp"></a>
                         <a class="a2a_button_telegram"></a>
-                      </div><script async src="https://static.addtoany.com/menu/page.js"></script>
+                      </div>
                     </div>
                   </li>
                 </ul>
-                <script async src="https://static.addtoany.com/menu/page.js"></script>
+               
             </div>
           </div>
             <?php

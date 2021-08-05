@@ -1433,8 +1433,8 @@ border: 1px solid deepskyblue;
 		let price    = 0;
 		let courseID = jQuery(this).attr('data-id');
 
-		if(jQuery(this).find('.course_price').length > 0) {
-			price = jQuery(this).find('.course_price').html().replace(/<[^>]*>?/gm, "").replace("₹", "").replace(",", "");
+		if(jQuery(this).find('.woocommerce-Price-amount').length > 0) {
+			price = jQuery(this).find('.woocommerce-Price-amount').html().replace(/<[^>]*>?/gm, "").replace("₹", "").replace(",", "");
 		}
 
 		jQuery('#course_price_'+courseID).val(parseFloat(price).toFixed(2));

@@ -146,6 +146,7 @@ get_header(vibe_get_header());
                       $wp_query = new WP_Query($query_args);
                     }
                   }
+                  
                   if(isset($_GET['sort_by']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['category'])){
                     $args=array('post_type' => 'course','post_status' => 'publish','posts_per_page' => 16,'paged' => $paged);
           

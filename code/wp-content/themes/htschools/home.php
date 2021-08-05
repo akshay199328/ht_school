@@ -137,6 +137,7 @@ get_header(vibe_get_header());
                 )
               )
           );  
+          
           $all_course = new WP_Query( $args_all_course );
           if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();
             if (!in_array($post->ID, $course_id)){

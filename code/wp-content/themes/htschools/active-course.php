@@ -69,6 +69,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 $wp_query = new WP_Query($query_args);
 
             if(!empty($wp_query)){
+                
             ?>
 
                 <section id="Popular-Courses" class="">

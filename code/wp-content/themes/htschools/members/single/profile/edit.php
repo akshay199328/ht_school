@@ -116,7 +116,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 
 				<div class="form-group profile_dropdown">
 	                <label for="">Grade / Standard*</label>
-	                <select name="grade">
+	                <select name="grade" id="grade">
 	                	<option value="K1" <?php if($child[0]->grade=="K1") echo 'selected="selected"'; ?>>K1</option>
 	                	<option value="K2" <?php if($child[0]->grade=="K2") echo 'selected="selected"'; ?>>K2</option>
 	                  	<option value="1" <?php if($child[0]->grade=="1") echo 'selected="selected"'; ?>>1</option>
@@ -135,7 +135,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	            </div>
 	            <div class="form-group profile_dropdown">
 	                <label for="">Section / Division* <?php echo $child->division?></label>
-	                <select name="division">
+	                <select name="division" id="division">
 	                  <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
 	                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
 	                  <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
@@ -619,11 +619,27 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		                        $("#response_message").addClass('success');
 		                        $("#response_message").removeClass('error');
 		                        $("#response_message").show();
+		                        let profilePopupUpdatedMoegObj2 = {
+		                        	"User identifier"	: jQuery("#user_identifier").val(),
+															"School"	: jQuery("#user_school_data").val(),
+															"Grade/Standard"	: jQuery("#grade").val(),
+															"Section/Division"	: jQuery("#division").val(),
+															"Country"	    : jQuery("input[name=user_country_data]").val(),
+															"State"	    : jQuery("input[name=user_state]").val(),
+															"City"	    : jQuery("input[name=user_city]").val(),
+															"Date of Birth"	    : jQuery("input[name=user_dob_display]").val(),
+															"Gender"	    : jQuery("input[name=user_gender]").val(),
+															
+														}
+													   	profilePopupUpdatedMoegObj2.event = "mo_profile_updated";
+													   	dataLayer.push({ ecommerce: null }); 
+													   	dataLayer.push(profilePopupUpdatedMoegObj2);
 		                        window.location.href='<?php echo get_bloginfo('url')?>/members-directory/<?php echo $currentUser->user_nicename?>';
 		                        setTimeout(function(){
 		                            $("#response_message").html('');
 		                            $("#response_message").hide();
 		                        }, 5000);
+
 
 		                    }else{
 		                        $("#response_message").html(response.message);

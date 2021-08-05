@@ -1715,10 +1715,10 @@ button[disabled=disabled].next-button{    color: #ccab00!important;}
     width: 19.7% !important
 }
 
-.page-template-event-dashboard .modal-backdrop.show {
+/*.page-template-event-dashboard .modal-backdrop.show {
     opacity: 0;
     display: none!important;
-}
+}*/
 
 .page-template-event-dashboard .ui-widget-header {
     border: 1px solid #0b59cb;

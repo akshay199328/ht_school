@@ -227,7 +227,7 @@ $learning_points = earnPointsVideo($userID,'video_watched',$courseID)+earnPoints
 
 $onboarding_points = earnPointsOnboarding($userID,'platform_onboarding_step1')+earnPointsOnboarding($userID,'platform_onboarding_step2')+earnPointsOnboarding($userID,'platform_onboarding_step3');
 
-$engagement_points = earnPointsLogReg($userID,'social_sharing')+earnPointsLogReg($userID,'logging_in')+earnPointsLogReg($userID,'registration')+earnPointsLogReg($userID,'reward')+$onboarding_points;
+$engagement_points = earnPointsLogReg($userID,'social_sharing')+earnPointsLogReg($userID,'logging_in')+earnPointsLogReg($userID,'registration')+earnPointsLogReg($userID,'referral_registration_payment')+$onboarding_points;
 
 $total_points = $learning_points+$engagement_points;
 

@@ -1026,7 +1026,7 @@ div#ui-datepicker-div{
                                         <button type="button" id="inputfile2" style="display: none;">Delete</button>
                                         <input type="hidden" id="school_card_img" value="" name="school_card_img">
                                     </div>
-                                    <span class="text"> School ID card to get<span class="block"></span> all 100 points instantly!!</span>
+                                    <span class="text"> School ID card to get<span class="block"></span> all 50 points instantly!!</span>
                                     <span id="errSchoolIDMsg"></span>
                                     <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
                                     <button type="button" class="skip-button skipDashboard2" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button>

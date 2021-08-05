@@ -1707,14 +1707,17 @@ button[disabled=disabled].next-button{    color: #ccab00!important;}
 .page-template-event-dashboard .ui-datepicker .ui-datepicker-header::before {
     height: 64px;
     top: -1px;
-    margin-top: -26px
+    /*margin-top: -26px*/
 }
-
+.page-template-event-dashboard .ui-datepicker-next:before,
+.page-template-event-dashboard .ui-datepicker-prev:before{margin-top: -26px;}
 .page-template-event-dashboard .ui-datepicker select {
     line-height: 64px;
     height: 62px
 }
-
+.page-template-event-dashboard .ui-state-default.ui-state-active{
+    background: #007fff!important;
+}
 @media (max-width:768px) {
     .header-wrapper .header-right .account {
         display: block !important

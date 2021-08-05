@@ -55,7 +55,15 @@ vibe_include_template("profile/top$profile_layout.php");
                     'post_type'=>'course',
                     'post__in'=>$args['post__in'],
                     'posts_per_page'=>6,
-                    'paged'=>$paged
+                    'paged'=>$paged,
+                    'meta_query'  => array(
+                      'relation'  => 'AND',
+                      array(
+                        'key'   =>'vibe_course_event',
+                        'value'   => '0',
+                        'compare' => '='
+                        )
+                      )
                 ),$user->ID);
 
                 $wp_query = new WP_Query($query_args);

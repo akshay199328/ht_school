@@ -133,6 +133,14 @@ get_header(vibe_get_header());
                           'post_status' => 'publish',
                           'orderby' => 'post__in', 
                           'paged'=>$paged,
+                          'meta_query'  => array(
+                          'relation'  => 'AND',
+                          array(
+                            'key'   =>'vibe_course_event',
+                            'value'   => '0',
+                            'compare' => '='
+                            )
+                          )
                       ));
 
                       $wp_query = new WP_Query($query_args);

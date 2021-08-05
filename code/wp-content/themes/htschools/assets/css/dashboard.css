@@ -1180,7 +1180,7 @@ a:hover {
     position: relative;
     left: -5px;
 }
-.link:hover:after {
+.link:hover:after, .link:after {
     display: none;
 }
 .refer-share {

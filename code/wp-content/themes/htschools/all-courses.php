@@ -133,11 +133,20 @@ get_header(vibe_get_header());
                           'post_status' => 'publish',
                           'orderby' => 'post__in', 
                           'paged'=>$paged,
+                          'meta_query'  => array(
+                          'relation'  => 'AND',
+                          array(
+                            'key'   =>'vibe_course_event',
+                            'value'   => '0',
+                            'compare' => '='
+                            )
+                          )
                       ));
 
                       $wp_query = new WP_Query($query_args);
                     }
                   }
+                  
                   if(isset($_GET['sort_by']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['category'])){
                     $args=array('post_type' => 'course','post_status' => 'publish','posts_per_page' => 16,'paged' => $paged);
           

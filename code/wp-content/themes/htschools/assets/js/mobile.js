@@ -9,6 +9,9 @@ $(document).ready(function()
     }, 
     2000);
 });
+
+$('.woocommerce-error .eventcart').parent().show();
+
 // $(document).ready(function(){
 
 //     var iframe = document.querySelector('iframe');

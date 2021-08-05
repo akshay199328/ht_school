@@ -67,6 +67,13 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 							$course_id=$courseinfo[0][0];
 
+							$vibe_course_event = get_post_meta($course_id,'vibe_course_event',true);
+							if($vibe_course_event == 1){
+								$classnane = 'codeathoncart';
+							}else{
+								$classnane = '';
+							}
+
 							$courseslug=get_site_url().'/?p='.$course_id;
 
 							if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
@@ -122,7 +129,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 								<input type="hidden" id="session_duration_<?php echo $course_id;?>" value="<?php echo get_post_meta($course_id, "vibe_course_session_length", true);?>">
 								<input type="hidden" id="wishlisted_course_<?php echo $course_id;?>" value="<?php echo in_array($course_id, $usersFavorites) ? '1' : '0';?>">
 
-								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+								<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?> <?php echo $classnane; ?>">
 
 									<td class="product-remove">
 										<?php

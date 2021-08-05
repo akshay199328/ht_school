@@ -128,7 +128,16 @@ get_header(vibe_get_header());
             'post_type' => 'course',
             'post_status' => 'publish',
             'posts_per_page' => 8,
+            'meta_query'  => array(
+              'relation'  => 'AND',
+              array(
+                'key'   =>'vibe_course_event',
+                'value'   => '0',
+                'compare' => '='
+                )
+              )
           );  
+          
           $all_course = new WP_Query( $args_all_course );
           if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();
             if (!in_array($post->ID, $course_id)){
@@ -142,6 +151,14 @@ get_header(vibe_get_header());
                 'post__in'=>$course_id,
                 'posts_per_page'=>8,
                 'orderby' => 'post__in', 
+                'meta_query'  => array(
+                'relation'  => 'AND',
+                  array(
+                    'key'   =>'vibe_course_event',
+                    'value'   => '0',
+                    'compare' => '='
+                    )
+                  )
             ));
 
             $Query_course = new WP_Query($query_args);

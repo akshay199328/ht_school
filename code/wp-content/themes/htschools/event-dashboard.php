@@ -748,7 +748,7 @@ div#ui-datepicker-div{
                         <h6>Your Referral Code:</h6>
                         <div class="link">
                             <!-- <span><?php //echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?></span> -->
-                            <input type="text" id="myInput" value="<?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" style="width: 100%; padding: 10px; border: 3px solid #000000ad;">
+                            <input type="text" id="myInput" value="<?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" >
                             <button type="button" onclick="myFunction()" class="copy_button">Copy</button>
                         </div>
                         <p id="successMsg"></p>
@@ -1026,7 +1026,7 @@ div#ui-datepicker-div{
                                         <button type="button" id="inputfile2" style="display: none;">Delete</button>
                                         <input type="hidden" id="school_card_img" value="" name="school_card_img">
                                     </div>
-                                    <span class="text"> School ID card to get<span class="block"></span> all 100 points instantly!!</span>
+                                    <span class="text"> School ID card to get<span class="block"></span> all 50 points instantly!!</span>
                                     <span id="errSchoolIDMsg"></span>
                                     <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
                                     <button type="button" class="skip-button skipDashboard2" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button>

@@ -251,13 +251,14 @@
 }
 .c100 > span.complete-text {
   position: absolute;
-    width: 100%;
+    width: 85%;
+    margin: 0px auto;
     z-index: 1;
-    left: 0;
+    left: 11px;
     top: 45px;
     line-height: 46px;
     color: #000000;
-    display: block;
+    display: flex;
     text-align: center;
     white-space: break-spaces;
     -webkit-transition-property: all;
@@ -276,6 +277,8 @@
     font-weight: 500;
     flex-direction: column;
     flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
 }
 .c100 > span .text {
         display: block;
@@ -289,14 +292,14 @@
 }
 .c100:after {
   position: absolute;
-    top: 0.06em;
-    left: 0.06em;
+    top: 0.05em;
+    left: 0.05em;
     display: block;
     content: " ";
     border-radius: 50%;
     background-color: #fff;
-    width: 0.89em;
-    height: 0.89em;
+    width: 0.90em;
+    height: 0.90em;
     -webkit-transition-property: all;
     -moz-transition-property: all;
     -o-transition-property: all;

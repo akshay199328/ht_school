@@ -1023,7 +1023,7 @@ div#ui-datepicker-div{
                                         </svg>
                                         <div id="profileimage"></div>
                                         <input type="file" id="inputfile" value="">
-                                        <input type="file" id="inputfile2" value="" style="display: none;">
+                                        <button type="button" id="inputfile2" style="display: none;">Delete</button>
                                         <input type="hidden" id="school_card_img" value="" name="school_card_img">
                                     </div>
                                     <span class="text"> School ID card to get<span class="block"></span> all 100 points instantly!!</span>

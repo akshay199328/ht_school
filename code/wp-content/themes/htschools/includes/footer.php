@@ -1027,6 +1027,7 @@ jQuery(document).ready(function(){
 
 
           $('#inputfile2').click(function(){
+               $('#school_card_img').val('');
                $('#inputfile2').hide();
                $("#profileimage").html('');
                $('#profile-add').show();

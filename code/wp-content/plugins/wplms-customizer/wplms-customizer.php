@@ -82,6 +82,7 @@ function rt_change_profile_tab_order() {
   'name' => 'Event Course',
   ), 'event' );
 }
+
 add_action( 'bp_init', 'rt_change_profile_tab_order', 999 );
 
 function bp_remove_nav_item() {

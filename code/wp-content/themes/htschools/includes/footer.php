@@ -1013,15 +1013,26 @@ jQuery(document).ready(function(){
                     success: function(data){
 
                          $('#profile-add').hide();
+                         $('#inputfile').hide();
                          var image = '<img style="width: 200px; height: 200px; border-radius: 100%;" src="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/avatars/'+data+'">';
                          $("#profileimage").html(image);
                          $("#school_card_img").val(data);
+                         $('#inputfile2').show();
                               
                     }
 
                });
 
           });
+
+
+          $('#inputfile2').click(function(){
+               $('#inputfile2').hide();
+               $("#profileimage").html('');
+               $('#profile-add').show();
+               $('#inputfile').show();
+          });
+          
 
           $('.videoplay').click(function(){
                var videotitle = $(this).attr('data-title');

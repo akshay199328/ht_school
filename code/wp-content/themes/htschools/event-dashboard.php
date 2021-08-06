@@ -468,7 +468,7 @@ div#ui-datepicker-div{
                                   foreach($course_units as $lesson_units){ 
                                     $lessonId = get_post($lesson['id']); ?>
                                     <div class="list">
-                                        <div class="col-12 col-lg-8 col-md-12 col-sm-12 mrg pull-left">
+                                        <div class="col-12 col-lg-12 col-md-12 col-sm-12 mrg pull-left">
                                             <h5 class="course_section_link"><?php echo $lesson_units['title'];?>
                                                 <span class="toggle_icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">

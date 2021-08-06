@@ -1050,8 +1050,11 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 			/*if($dob > '1970-01-01' && $user_city != '' && $user_state != '' && $user_country != '' && $user_gender != ''){
 				$is_profile_complete = 1;
 			}*/
-
-			if($dob!='' && $user_gender != '' && $user_mobile != '' && $user_school != ''){
+			$is_event = get_post_meta($course_id,'vibe_course_event',true);
+			if($is_event ==1){
+				$is_profile_complete = 1;
+			}
+			else if($dob!='' && $user_gender != '' && $user_mobile != '' && $user_school != '' ){
 				$is_profile_complete = 1;
 			}
 

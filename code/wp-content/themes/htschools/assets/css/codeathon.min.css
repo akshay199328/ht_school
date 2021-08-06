@@ -1350,12 +1350,12 @@ body.menuOpened {
 }
 
 .section-wrapper.learning .column-wrapper .column {
-    border: 4px solid #fff;
     max-width: 346px;
     width: 100%;
     padding: 30px 25px 40px 25px;
     border-radius: 12px;
-    z-index: 11
+    z-index: 11;
+    box-shadow:0 -3px 0 #fff;
 }
 
 .section-wrapper.learning .column-wrapper .column:first-child {
@@ -2312,9 +2312,9 @@ body.menuOpened {
     position: relative;
     padding-bottom: 180px;
     padding-top: 67px;
-    background-image: url(../images/school-bg.svg);
+    /*background-image: url(../images/school-bg.svg);
     background-repeat: no-repeat;
-    background-position: center
+    background-position: center*/
 }
 
 .section-wrapper.school .section-copy {
@@ -4076,5 +4076,10 @@ body.menuOpened .side-navigation {
         width: 47%
     }
 }
-.terms{background-color: #d5acff;padding:20px 0 10px;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;margin-top:10px;background-repeat: no-repeat;background-image:url(../images/menu-top.svg);background-position:50% -27px;margin-top:10px;color:#5a5a5a}
+.terms{background-color: #d5acff;padding:10px 0;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;color:#5a5a5a;}
+.terms a{color:#5a5a5a}
+.terms a:hover{color:#464646}
 .page-template-event-dashboard .pusher{z-index:auto}
+@media (max-width:480px){
+    .terms{position:relative;z-index:11}
+}

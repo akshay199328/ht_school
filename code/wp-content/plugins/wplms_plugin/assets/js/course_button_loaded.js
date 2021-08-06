@@ -6556,7 +6556,7 @@
                                 document.dispatchEvent(i), document.dispatchEvent(new Event("VibeBP_Editor_Content"))
                             }
                             
-                            var iframe = document.querySelector('iframe');
+                            var iframe = document.querySelector('#player_id');
                             var player = new Vimeo.Player(iframe);
 
                              var currentPos, percentage, vdoEndTym = "";

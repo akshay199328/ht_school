@@ -1179,9 +1179,9 @@ add_filter('woocommerce_checkout_fields', function($fields) {
   $fields['billing']['billing_city']['priority'] = 45;
 
   // Sort the fields based on their 'priority'
-  usort($fields['billing'], function($a, $b) {
-    return $a['priority'] <=> $b['priority'];
-  });
+  // usort($fields['billing'], function($a, $b) {
+  //   return $a['priority'] <=> $b['priority'];
+  // });
 
   // Send the fields to the function that receives the fields data
   return $fields;

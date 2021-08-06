@@ -41,7 +41,6 @@ vibe_include_template("profile/top$profile_layout.php");
 /* Style the buttons inside the tab */
 .tab button {
   background-color: inherit;
-  /*float: left;*/
   border: none;
   outline: none;
   cursor: pointer;
@@ -321,19 +320,19 @@ vibe_include_template("profile/top$profile_layout.php");
 
         })( jQuery );
 
-            function openCity(evt, cityName) {
-              var i, tabcontents, tablinks;
-              tabcontents = document.getElementsByClassName("tabcontents");
-              for (i = 0; i < tabcontents.length; i++) {
-                tabcontents[i].style.display = "none";
-              }
-              tablinks = document.getElementsByClassName("tablinks");
-              for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-              }
-              document.getElementById(cityName).style.display = "block";
-              evt.currentTarget.className += " active";
-            }
+function openCity(evt, cityName) {
+  var i, tabcontents, tablinks;
+  tabcontents = document.getElementsByClassName("tabcontents");
+  for (i = 0; i < tabcontents.length; i++) {
+    tabcontents[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
 
     </script>
     <?php do_action( 'bp_before_dashboard_body' ); ?>

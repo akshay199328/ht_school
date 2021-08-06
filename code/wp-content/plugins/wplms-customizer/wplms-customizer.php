@@ -311,6 +311,15 @@ function my_setup_nav() {
             'default_subnav_slug' => 'preference',
       ) );
 
+      bp_core_new_nav_item( array( 
+            'name' => __( 'Parent Dashboard', 'buddypress' ), 
+            'slug' => 'parent_dashboard', 
+            'position' => 30,
+            'screen_function' => 'parent_dashboard_template', 
+            'default_subnav_slug' => 'parent_dashboard',
+      ) );
+
+
 }
 
 add_action( 'bp_setup_nav', 'my_setup_nav_event' );
@@ -366,6 +375,18 @@ function bp_page_nav(){
     'position' => 20
  
     ) );
+
+
+     bp_core_new_subnav_item( array(
+    'name' => __( 'Parent Dashboard', 'buddypress navigation' ), 
+    'slug' => 'parent_dashboard',
+    'parent_url' => $user_domain.'parent_dashboard',
+    'parent_slug' => 'parent_dashboard',
+    'screen_function' => 'parent_dashboard_template',
+    'position' => 30
+ 
+    ) );
+
 
      bp_core_new_subnav_item( array(
     'name' => __( 'Areas of Interest', 'buddypress navigation' ), 
@@ -429,6 +450,11 @@ function recommended_course_template() {
 function past_course_template() {
       bp_core_load_template( 'past-course' );
 }
+
+function parent_dashboard_template() {
+      bp_core_load_template( 'parent_dashboard' );
+}
+
 function preferences_template() {
       bp_core_load_template( 'preferences' );
 }

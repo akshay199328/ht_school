@@ -1831,7 +1831,7 @@ body.menuOpened {
 
 .section-wrapper.about .section-copy .about_slider .owl-item .partner-copy .copy .title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 600!important;
     font-family: Poppins !important;
     color: #383838;
 }
@@ -3013,7 +3013,8 @@ body.menuOpened {
 
 .modal-content .modal-header {
     padding: 0;
-    border: none
+    border: none;
+    background: transparent;
 }
 
 .modal-content .modal-header .modal-title {

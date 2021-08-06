@@ -196,7 +196,7 @@ class ACUI_Email_Options{
 		$user_login= $user_object->user_login;
 		$user_email = $user_object->user_email;
 		global $wpdb;
-		$course_array= $wpdb->get_results("SELECT posts.ID AS id, posts.post_title, meta.* FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key WHERE posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND   meta.user_id   = '".$user_id."'  AND  meta.meta_value > '".time()."'");
+		$course_array= $wpdb->get_results("SELECT posts.ID AS id, posts.post_title, meta.* FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key WHERE posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND   meta.user_id   = '".$user_id."'");
 		
 		$arr = array_slice($course_array, count($course_array) - $course_count, $course_count);
         $array = json_decode( json_encode($arr), true);

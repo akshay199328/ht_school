@@ -643,6 +643,91 @@ function reg_verify_otp(){
 
 }
 
+add_action("wp_ajax_parent_reg_verify_otp", "parent_reg_verify_otp");
+add_action( 'wp_ajax_nopriv_parent_reg_verify_otp', 'parent_reg_verify_otp' );
+
+function parent_reg_verify_otp(){
+  $parent = get_site_url().'/parent-login/';
+  $current="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+       
+    global $wpdb;
+    $num1 = isset($_REQUEST['num_1']) ? intval($_REQUEST['num_1']) : 0;
+    $num2 = isset($_REQUEST['num_2']) ? intval($_REQUEST['num_2']) : 0;
+    $num3 = isset($_REQUEST['num_3']) ? intval($_REQUEST['num_3']) : 0;
+    $num4 = isset($_REQUEST['num_4']) ? intval($_REQUEST['num_4']) : 0;
+    $num5 = isset($_REQUEST['num_5']) ? intval($_REQUEST['num_5']) : 0;
+    $num6 = isset($_REQUEST['num_6']) ? intval($_REQUEST['num_6']) : 0;
+
+    $otp = $num1 . $num2 . $num3 . $num4 . $num5 . $num6;
+
+    $response = array(
+        'status' => 0,
+        'is_registered' => 0,
+        'email' => $_SESSION['user_otp_email'],
+        'message' => 'Unable to verify OTP, please try again'
+    );
+    $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
+    $array_otp=json_decode( json_encode($getotp), true);
+    $db_otp = $array_otp[0]['otp'];
+    if (!empty(count($array_otp))) {
+      $sqlUpdate = $wpdb->prepare("DELETE FROM ht_authentication WHERE otp = '" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."'");
+      $wpdb->query($sqlUpdate);
+        unset($_SESSION['user_otp']);
+        $userEmail = $_SESSION['user_otp_email'];
+        $_SESSION['user_email_verified'] = 1;
+
+
+
+        $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" . $_SESSION['user_otp_email'] . "'");
+  $username = $users[0]->user_nicename;
+
+
+    
+           $response['previous_page_url'] = get_bloginfo('url').'/members-directory/'.$username.'/parent_dashboard/';
+       
+
+        $reg = false;
+
+        if(email_exists($userEmail)){
+            $user = get_user_by( 'email', $userEmail );
+            if( $user ) {
+                $response['is_registered'] = 1;
+                $user_id = $user->ID;
+
+                if(isset($_SERVER['HTTP_USER_AGENT']))
+                    update_user_meta($user_id, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
+
+                if(isset($_REQUEST['screenWidth']) && isset($_REQUEST['screenHeight']))
+                    update_user_meta($user_id, 'screen_info', $_REQUEST['screenWidth']."x".$_REQUEST['screenHeight']);
+
+                wp_set_current_user( $user_id, $user->user_login );
+                wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+             //   $userData->profile_link = get_edit_profile_url($user->ID);
+                $response['user'] = json_encode($userData);
+            }else{
+                $reg = true;
+            }
+        }else{
+            $reg = true;
+        }
+
+        if($reg){
+            $response['email'] = $userEmail;
+        }
+
+        $response['status'] = 1;
+        $response['message'] = 'OTP verified successfully.';
+    } else {
+        $response['message'] = 'Invalid OTP entered.';
+    }
+
+    echo json_encode($response); exit;
+
+}
+
 add_action("wp_ajax_reg_new_user", "reg_new_user");
 add_action( 'wp_ajax_nopriv_reg_new_user', 'reg_new_user' );
 
@@ -809,6 +894,93 @@ function reg_verify_mob_otp(){
            // $userData->profile_link = get_edit_profile_url($user->ID);
             $response['user'] = json_encode($userData);
             $response['previous_page_url'] = $_SESSION['previousPageUrl'];
+        }
+
+        $response['status'] = 1;
+        $response['message'] = 'OTP verified successfully.';
+    } else {
+        $response['message'] = 'Invalid OTP entered.';
+    }
+    echo json_encode($response); exit;
+}
+
+
+add_action("wp_ajax_parent_reg_verify_mob_otp", "parent_reg_verify_mob_otp");
+add_action( 'wp_ajax_nopriv_parent_reg_verify_mob_otp', 'parent_reg_verify_mob_otp' );
+
+function parent_reg_verify_mob_otp(){
+    global $wpdb;
+    $num1 = isset($_REQUEST['num_1']) ? intval($_REQUEST['num_1']) : 0;
+    $num2 = isset($_REQUEST['num_2']) ? intval($_REQUEST['num_2']) : 0;
+    $num3 = isset($_REQUEST['num_3']) ? intval($_REQUEST['num_3']) : 0;
+    $num4 = isset($_REQUEST['num_4']) ? intval($_REQUEST['num_4']) : 0;
+    $num5 = isset($_REQUEST['num_5']) ? intval($_REQUEST['num_5']) : 0;
+    $num6 = isset($_REQUEST['num_6']) ? intval($_REQUEST['num_6']) : 0;
+
+    $otp = $num1 . $num2 . $num3 . $num4 . $num5 . $num6;
+
+    $response = array(
+        'status' => 0,
+        'mobile' => isset($_SESSION['user_otp_mobile']) ? $_SESSION['user_otp_mobile'] : "",
+        'message' => 'Unable to verify OTP, please try again'
+    );
+
+    $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
+    $array_otp=json_decode( json_encode($getotp), true);
+    $db_otp = $array_otp[0]['otp'];
+    if (!empty(count($array_otp))) {
+      $sqlUpdate = $wpdb->prepare("DELETE FROM ht_authentication WHERE otp = '" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."'");
+      $wpdb->query($sqlUpdate);
+        unset($_SESSION['user_otp']);
+        $userEmail = $_SESSION['user_otp_email'];
+        $_SESSION['user_mobile_verified'] = 1;
+        $reg = false;
+
+        $userEmail = $_SESSION['new_user_email'];
+        $userFirstName = $_SESSION['new_user_first_name'];
+        $userLastName = $_SESSION['new_user_last_name'];
+        $userMobile = $_SESSION['new_user_mobile'];
+        $userGender = $_SESSION['new_user_gender'];
+
+        $user_id = wp_create_user( $userEmail, md5($userEmail) . mt_rand(100000,999999), $userEmail );
+
+        wp_update_user([
+            'ID' => $user_id,
+            'first_name' => $userFirstName,
+            'last_name' => $userLastName,
+        ]);
+
+        add_user_meta( $user_id, 'gender', $userGender);
+        add_user_meta( $user_id, 'mobile', $userMobile);
+        xprofile_set_field_data('Gender', $user_id, trim($userGender));
+        xprofile_set_field_data('Phone', $user_id, trim($userMobile));
+
+        $user = get_user_by( 'ID', $user_id );
+        if( $user ) {
+            $response['is_registered'] = 1;
+            wp_set_current_user( $user_id, $user->user_login );
+            wp_set_auth_cookie( $user_id );
+            do_action( 'wp_login', $user->user_login, $user);
+
+            if(isset($_SERVER['HTTP_USER_AGENT']))
+                update_user_meta($user->ID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
+
+            if(isset($_REQUEST['screenWidth']) && isset($_REQUEST['screenHeight']))
+                update_user_meta($user->ID, 'screen_info', $_REQUEST['screenWidth']."x".$_REQUEST['screenHeight']);
+
+            $userData = $user->data;
+            $userData->mobile =  $userMobile;
+            $userData->avatar =  get_avatar_url( $user->ID );
+           // $userData->profile_link = get_edit_profile_url($user->ID);
+            $response['user'] = json_encode($userData);
+           
+           $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" . $_SESSION['user_otp_email'] . "'");
+  $username = $users[0]->user_nicename;
+
+
+    
+           $response['previous_page_url'] = get_bloginfo('url').'/members-directory/'.$username.'/parent_dashboard/';
+        
         }
 
         $response['status'] = 1;
@@ -2510,6 +2682,104 @@ function ht_social_login(){
                // $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
                 $response['previous_page_url'] = $_SESSION['previousPageUrl'];
+
+                $response['status'] = 1;
+                $response['previous_page_url'] = '';
+                $response['message'] = 'OTP verified successfully.';
+            }
+
+        }
+    }
+
+    echo json_encode($response); exit;
+
+}
+
+
+add_action("wp_ajax_parent_ht_social_login", "parent_ht_social_login");
+add_action( 'wp_ajax_nopriv_parent_ht_social_login', 'parent_ht_social_login' );
+
+function parent_ht_social_login(){
+
+    $response = array(
+        'status' => 0,
+        'message' => 'Unable to Login, please try again'
+    );
+
+    if(isset($_REQUEST['type']) && ( $_REQUEST['type'] == 'facebook' || $_REQUEST['type'] == 'google' )){
+
+        $users = get_users(array(
+            'meta_key'     => 'social_id',
+            'meta_value'   => $_REQUEST['id'],
+            'meta_compare' => '=',
+        ));
+
+        $first_name =  isset($_REQUEST['first_name']) ? trim($_REQUEST['first_name']) : "";
+        $last_name =  isset($_REQUEST['last_name']) ? trim($_REQUEST['last_name']) : "";
+        $name =  isset($_REQUEST['name']) ? trim($_REQUEST['name']) : "";
+        $email = trim($_REQUEST['email']);
+        $social_type = trim($_REQUEST['social_type']);
+        $social_id = trim($_REQUEST['social_id']);
+
+        if($first_name == ''){
+          $nameParts = explode(" ", $name);
+          $first_name = $nameParts[0];
+          if(count($nameParts) > 1){
+            $last_name = $nameParts[1];
+          }
+        }
+
+        if(count($users) > 0){
+
+        }else if(email_exists($email)){
+            $user = get_user_by( 'email', $email );
+            if( $user ) {
+                $response['is_registered'] = 1;
+                $user_id = $user->ID;
+                wp_set_current_user( $user_id, $user->user_login );
+                wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+             //   $userData->profile_link = get_edit_profile_url($user->ID);
+                $response['user'] = json_encode($userData);
+
+                 $response['status'] = 1;
+                $response['message'] = 'OTP verified successfully.';
+            }
+        }else{
+
+            $user_id = wp_create_user( preg_replace('/[^A-Za-z0-9\-]/', '', $email), md5($email) . mt_rand(100000,999999), $email );
+
+            wp_update_user([
+                'ID' => $user_id,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+            ]);
+
+            add_user_meta( $user_id, 'social_id', $social_id);
+            add_user_meta( $user_id, 'social_type', $social_type);
+
+            $user = get_user_by( 'ID', $user_id );
+            if( $user ) {
+                $response['is_registered'] = 1;
+                wp_set_current_user( $user_id, $user->user_login );
+                wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+               // $userData->profile_link = get_edit_profile_url($user->ID);
+                $response['user'] = json_encode($userData);
+
+                $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" .$email . "'");
+  $username = $users[0]->user_nicename;
+
+
+    
+           $response['previous_page_url'] = get_bloginfo('url').'/members-directory/'.$username.'/parent_dashboard/';
+       
+
+        
 
                 $response['status'] = 1;
                 $response['previous_page_url'] = '';

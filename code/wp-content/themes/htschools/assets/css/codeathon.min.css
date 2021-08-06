@@ -4075,5 +4075,5 @@ body.menuOpened .side-navigation {
         width: 47%
     }
 }
-.terms{background-color: #d5acff;padding:10px 0;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;margin-top:10px;}
+.terms{background-color: #d5acff;padding:20px 0 10px;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;margin-top:10px;background-repeat: no-repeat;background-image:url(../images/menu-top.svg);background-position:50% -27px;margin-top:10px;color:#5a5a5a}
 .page-template-event-dashboard .pusher{z-index:auto}

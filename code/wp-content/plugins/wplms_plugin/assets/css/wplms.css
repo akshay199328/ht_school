@@ -1,76 +1,3 @@
-
-@font-face {
-    font-family: 'GT-Walsheim-Pro';
-    src: url('../fonts/GTWalsheimPro-Black.eot');
-    src: local('../fonts/GT Walsheim Pro Black'), local(../fonts/'GTWalsheimPro-Black'),
-        url('../fonts/GTWalsheimPro-Black.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GTWalsheimPro-Black.woff2') format('woff2'),
-        url('../fonts/GTWalsheimPro-Black.woff') format('woff'),
-        url('../fonts/GTWalsheimPro-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'GT Walsheim Pro';
-    src: url('../fonts/GTWalsheimPro-Light.eot');
-    src: url('../fonts/GTWalsheimPro-Light.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GTWalsheimPro-Light.woff2') format('woff2'),
-        url('../fonts/GTWalsheimPro-Light.woff') format('woff'),
-        url('../fonts/GTWalsheimPro-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'GT-Walsheim-Pro';
-    src: url('../fonts/GTWalsheimPro-Bold.eot');
-    src: local('../GT Walsheim Pro Bold'), local('../fonts/GTWalsheimPro-Bold'),
-        url('../fonts/GTWalsheimPro-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GTWalsheimPro-Bold.woff2') format('woff2'),
-        url('../fonts/GTWalsheimPro-Bold.woff') format('woff'),
-        url('../fonts/GTWalsheimPro-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GT-Walsheim-Pro';
-    src: url('../fonts/GTWalsheimPro-Regular.eot');
-    src: local('../fonts/GT Walsheim Pro Regular'), local('../fonts/GTWalsheimPro-Regular'),
-        url('../fonts/GTWalsheimPro-Regular.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GTWalsheimPro-Regular.woff2') format('woff2'),
-        url('../fonts/GTWalsheimPro-Regular.woff') format('woff'),
-        url('../fonts/GTWalsheimPro-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GT-Walsheim-Pro';
-    src: url('../fonts/GTWalsheimPro-Medium.eot');
-    src: local('../fonts/GT Walsheim Pro Medium'), local('../fonts/GTWalsheimPro-Medium'),
-        url('../fonts/GTWalsheimPro-Medium.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GTWalsheimPro-Medium.woff2') format('woff2'),
-        url('../fonts/GTWalsheimPro-Medium.woff') format('woff'),
-        url('../fonts/GTWalsheimPro-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'opensans_regular';
-    src: url('assets/fonts/OpenSans-Regular.eot');
-    src: url('assets/fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
-        url('assets/fonts/OpenSans-Regular.woff2') format('woff2'),
-        url('assets/fonts/OpenSans-Regular.woff') format('woff'),
-        url('assets/fonts/OpenSans-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 .dropdown {
     display: inline-flex;
     position: relative;
@@ -3625,6 +3552,7 @@ border-bottom: 1px solid #E8E8E8;
     opacity: 0.6;
     font-weight: 400;
 }
+.course_assignment .assignment_details .quiztimer {display: none;}
 @media (max-width: 768px) {
     .course_status .course_content .course_content_header {
         height: 3rem
@@ -4305,6 +4233,8 @@ a.button.is-primary {
     background: transparent;
     color: #000;
     height: auto;
+    letter-spacing: normal;
+    font-family: GT-Walsheim-Pro;
 
 }
 .cancel_button{

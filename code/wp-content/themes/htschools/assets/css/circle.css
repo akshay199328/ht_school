@@ -250,17 +250,17 @@
   font-size: 80px;
 }
 .c100 > span.complete-text {
-  position: absolute;
+    position: absolute;
     width: 79%;
     margin: 0px auto;
     z-index: 1;
-    left: 11px;
+    left: 15px;
     top: 45px;
+    text-align: center;
     line-height: 46px;
     color: #000000;
     display: flex;
-    text-align: center;
-    white-space: break-spaces;
+    /* white-space: break-spaces; */
     -webkit-transition-property: all;
     -moz-transition-property: all;
     -o-transition-property: all;
@@ -277,9 +277,10 @@
     font-weight: 500;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     font-family: Poppins !important;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-content: center;
 }
 .c100 > span .text {
         display: block;

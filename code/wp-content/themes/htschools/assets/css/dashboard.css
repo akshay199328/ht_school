@@ -476,7 +476,8 @@ a:hover {
 
 .toggle-share h6 {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 500!important;
+    color: #000;
     line-height: 25px
 }
 
@@ -554,7 +555,7 @@ a:hover {
     line-height: 42px !important;
     margin: 0;
     margin-left: -5px;
-    color: #fade3b!important;
+    color: #ffffff!important;
     display: inline-block;
     padding: 0 24px;
     font-weight: 600;
@@ -564,7 +565,8 @@ a:hover {
     display: inline-block;
     width: auto;
     border: none;
-    box-shadow: none !important
+    box-shadow: none !important;
+    margin-top: -3px;
 }
 
 .details_footer .head {
@@ -717,7 +719,7 @@ a:hover {
 
 .dahboard_tab .progress {
     height: 5px;
-    background: #fff;
+    background: #fff!important;
     border-radius: 2.5px
 }
 
@@ -727,7 +729,8 @@ a:hover {
 
 .dahboard_tab .progress-bar {
     background: #00d98e;
-    border-radius: 2.5px
+    border-radius: 2.5px;
+    box-shadow: none;
 }
 
 .tab_scroll {
@@ -819,7 +822,7 @@ a:hover {
     color: #555;
     font-weight: 500;
     margin-right: 10px;
-    font-family: Poppins !important
+    font-family: Poppins !important;
 }
 
 .points_board .break {
@@ -830,7 +833,7 @@ a:hover {
 .points_board .points {
     font-size: 37px;
     color: #2d2d2d;
-    font-family: Poppins !important
+    font-family: Poppins !important;
     font-weight: 800;
 }
 
@@ -851,7 +854,7 @@ a:hover {
     border: 0;
     display: block;
     margin-top: 19px;
-    font-family: Poppins !important
+    font-family: Poppins !important;
 }
 
 .earn-points {
@@ -1635,9 +1638,9 @@ button[disabled=disabled].next-button{    color: #ccab00!important;}
     cursor: pointer
 }
 .profile-image #inputfile2  {
-    background: url(../images/file-delete.png) no-repeat center #06ea8c;
+    background: url(../images/file-delete.svg) no-repeat center #06ea8c;
     display: block;
-    background-size: 50% 50%;
+    background-size: 22px 23px;
     position: relative;
     position: absolute;
     bottom: -7px;
@@ -1715,10 +1718,10 @@ button[disabled=disabled].next-button{    color: #ccab00!important;}
     width: 19.7% !important
 }
 
-/*.page-template-event-dashboard .modal-backdrop.show {
+.page-template-event-dashboard .modal-backdrop.show {
     opacity: 0;
     display: none!important;
-}*/
+}
 
 .page-template-event-dashboard .ui-widget-header {
     border: 1px solid #0b59cb;
@@ -1743,6 +1746,9 @@ button[disabled=disabled].next-button{    color: #ccab00!important;}
 }
 .page-template-event-dashboard .ui-state-default.ui-state-active{
     background: #007fff!important;
+}
+.modal-dialog-centered{
+    min-height: calc(100% - 0rem)!important;
 }
 @media (max-width:768px) {
     .header-wrapper .header-right .account {

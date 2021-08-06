@@ -970,8 +970,8 @@ body.menuOpened {
     font-weight: 800;
     font-size: 49px;
     color: #383838;
-    font-family: Poppins !important
-    margin-bottom: 40px
+    font-family: Poppins !important;
+    margin-bottom: 40px;
 }
 
 @media (max-width:480px) {

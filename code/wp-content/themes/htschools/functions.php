@@ -262,8 +262,8 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     $current_slug = add_query_arg( array(), $wp->request );
   if(!is_admin()){
     if ( !is_page_template('event-dashboard.php')){
-    wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css?v=1.1' );
     }
+    wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css?v=1.1' );
       wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css?v=1.1' );
       wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css?v=1.1');
     wp_enqueue_style( 'wplms-customizer-css-v1', get_template_directory_uri(). '/style-v1.css?v=1.1' );

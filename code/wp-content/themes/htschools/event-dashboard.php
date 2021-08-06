@@ -301,7 +301,7 @@ function getVideoPoints($userID,$courseID){
 .ui-autocomplete {
     z-index: 9999!important;
     background: #fff;
-    width: 30%!important;
+    width: 19%!important;
     height: 250px;
     overflow-y: auto;
     border: 1px solid #ddd;

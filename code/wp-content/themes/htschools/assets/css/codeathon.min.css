@@ -3810,8 +3810,8 @@ body.menuOpened .side-navigation {
         height: 90vh;
         top: 50%;
         border: 4px solid #ff9eb3;
-        left: 30px;
-        right: 30px
+        left: 20px;
+        right: 20px
     }
 
     .earn-opened .earnpoints-wrapper {

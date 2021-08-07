@@ -178,6 +178,7 @@ class ACUI_Import{
                 $headers = array();
 
                 $headers_filtered = array();
+
                 $is_backend = !$is_frontend && !$is_cron;			
                 $update_existing_users = isset( $form_data["update_existing_users"] ) ? sanitize_text_field( $form_data["update_existing_users"] ) : '';
     
@@ -231,7 +232,6 @@ class ACUI_Import{
                 $manager = new SplFileObject( $file );
 
                 while ( $data = $manager->fgetcsv( $delimiter ) ):
-   
                     $row++;
 
                     if( count( $data ) == 1 )
@@ -280,13 +280,13 @@ class ACUI_Import{
     
                         foreach( $data as $element ){ 
                             $headers[] = $element;
-    
+ 
                             if( in_array( strtolower( $element ) , $restricted_fields ) )
                                 $positions[ strtolower( $element ) ] = $i;
     
                             if( !in_array( strtolower( $element ), $restricted_fields ) )
                                 $headers_filtered[] = $element;
-    
+      
                             $i++;
                         }
    
@@ -295,11 +295,11 @@ class ACUI_Import{
                         update_option( "acui_columns", $headers_filtered );
     
                         $acui_helper->basic_css();
-                      
+                       
                         $acui_helper->print_table_header_footer( $headers );
                     else:
                         $data = apply_filters( 'pre_acui_import_single_user_data', $data, $headers );
-                         
+                      
                         if( count( $data ) != $columns ): // if number of columns is not the same that columns in header
                             $errors[] = $acui_helper->new_error( $row, __( 'Row does not have the same columns than the header, we are going to ignore this row', 'import-users-from-csv-with-meta') );
                             continue;
@@ -321,13 +321,6 @@ class ACUI_Import{
                         $id = ( empty( $id_position ) ) ? '' : $data[ $id_position ];
     
                         $created = true;
-/*----------------------code by sayali----------------------------------*/
-                        $batch_id=$data[9];
-                        global $wpdb;
-                        $csf_db_table = $wpdb->prefix . "batch_master";
-                        $variation_id = $wpdb->get_results($wpdb->prepare("SELECT variation_id
-                                         FROM " .$csf_db_table. " WHERE id= ".$batch_id." "));
-/*----------------------code by sayali----------------------------------*/
                         
                         if( $role_position === false ){
                             $role = $role_default;   
@@ -592,7 +585,7 @@ class ACUI_Import{
                                         else{
                                             wp_update_user( array( 'ID' => $user_id, $headers[ $i ] => $data[ $i ] ) );
                                             continue;
-                                        }										
+                                        }									
                                     }
                                     elseif( in_array( $headers[ $i ], $acui_helper->get_not_meta_fields() ) ){
                                         continue;
@@ -609,7 +602,6 @@ class ACUI_Import{
                                             continue;
                                         }
                                     }
-    
                                 }
                             endfor;
                         }
@@ -621,20 +613,53 @@ class ACUI_Import{
                             }
                         }
 
-                        $_SESSION['course_data'] = $data;
-                        
+                        $_SESSION['course_data'] = $data;                       
                         $_SESSION['course_user_id'] = $user_id;
+                                              
+/*----------------------------code by sayali-------------------------------*/
+        $arrbatch[] = array(); 
+        $get_data_array = array();
+        $get_new_id = 0;        
+        $get_data_array = $_SESSION['course_data'];
+        $get_new_id = $_SESSION['course_user_id'];
 
-/*--------------------------code by sayali------------------------------*/
-                        $get_new_id = $_SESSION['course_user_id'];
+        for($v=0; $v<=count($get_data_array); $v++){
+            if($get_data_array[$v] == "1624693467"){
 
-                        $date = date('Y-m-d H:i:s');
-                        $batch_insert = $wpdb->prepare("INSERT INTO ht_batch_student_mapping (batch_id, user_id, variation_id,created_on) VALUES (".$batch_id.", ".$get_new_id.", ". $variation_id[0]->variation_id.",'".$date."')");
-                        $wpdb->query($batch_insert);
+                $batch_id = $get_data_array[$v+1];
+                if(!empty($batch_id)){
+                    array_push($arrbatch, $batch_id);    
+                }                
+            }
+        }
+ 
+        foreach ($arrbatch as $key => $value) {
+            $get_batch_id = 0;
+            $get_batch_id = $value;
 
+            if(!empty($get_batch_id)){
 
-                        
-/*----------------------------code by sayali-----------------------------*/                        
+                $retrieve_variation_id = 0;                
+                $date = date('Y-m-d H:i:s');                
+                global $wpdb;
+
+                $csf_db_table = $wpdb->prefix . "batch_master";
+                $variation_id = $wpdb->get_results($wpdb->prepare("SELECT variation_id FROM " .$csf_db_table. " WHERE id= ".$get_batch_id." "));
+
+                $retrieve_variation_id = $variation_id[0]->variation_id;
+                $arrvariations[] = $variation_id[0]->variation_id;   
+
+                if(!empty($retrieve_variation_id)){
+                    $batch_insert = $wpdb->prepare("INSERT INTO ht_batch_student_mapping (batch_id, user_id, variation_id,created_on) VALUES (".$batch_id.", ".$get_new_id.", ". $variation_id[0]->variation_id.",'".$date."')");                    
+                    $wpdb->query($batch_insert);
+                }                                
+            }
+        }                
+                     
+        unset($get_data_array);
+        unset($arrbatch);
+                                              
+/*-----------------------------code by sayali------------------------------*/                    
                         $_SESSION['course_user_row'] = $headers;
                         $acui_helper->print_row_imported( $row, $data, $errors );
     
@@ -667,7 +692,7 @@ class ACUI_Import{
 
                         // results
                         ( $created ) ? $results['created']++ : $results['updated']++;
-                    endif;
+                    endif;                   
                 endwhile;
 
                 // Start email queue to send emails

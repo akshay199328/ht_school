@@ -3826,8 +3826,10 @@ body.menuOpened .side-navigation {
     }
 
     .earnpoints-wrapper .earnpoints-copy .points-wrapper .column {
-        width: 226px;
-        margin: auto
+        min-width: 200px;
+        margin: auto;
+        max-width: 230px;
+        width: 100%;
     }
 
     .earnpoints-wrapper .earnpoints-copy .points .copy {

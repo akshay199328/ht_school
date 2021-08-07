@@ -295,6 +295,18 @@ function getVideoPoints($userID,$courseID){
     return $unit_creds_json[0]['total_quiz'];
 }
 
+$metakey = 'progress'.$courseID;
+$results1 = $wpdb->get_results("SELECT `meta_value` FROM `ht_usermeta` WHERE `user_id` = '$userID' AND `meta_key` = '$metakey'");
+foreach($results1 as $row1){ 
+    $progressVal = $row1->meta_value; 
+}
+
+if($progressVal != ''){
+    $progressVal = $progressVal;
+}else{
+    $progressVal=0;
+}
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}
@@ -458,7 +470,7 @@ div#ui-datepicker-div{
                             </div>
                             <div class="col-12 col-md-12 col-sm-12 mrg pull-left">
                                 <div class="progress">
-                                    <div class="progress-bar w-40" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar w-<?php echo $progressVal; ?>" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="details_footer">
@@ -938,7 +950,7 @@ div#ui-datepicker-div{
                                             <div class="form-group">
                                                 <label class="form-label">School Name*</label>
                                                 <div class="input-group input-search">
-                                                    <input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
+                                                    <input type="text" class="form-control" id="user_school_data1" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
                                                     <input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
                                                 </div>
                                                 <span id="errSchoolMsg"></span>
@@ -946,19 +958,21 @@ div#ui-datepicker-div{
                                         </div>
                                         <div class="list">
                                             <div class="form-group">
-                                                <label class="form-label">Country</label>
+                                                <label class="form-label">Country*</label>
                                                 <div class="input-group input-search">
-                                                    <input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="Country" value="<?php echo $country_name; ?>">
+                                                    <input type="text" class="form-control" id="user_country_data1" name="user_country_data" placeholder="Country" value="<?php echo $country_name; ?>">
                                                     <input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
                                                 </div>
+                                                <span id="errCountryMsg"></span>
                                             </div>
                                         </div>
                                         <div class="list">
                                             <div class="form-group">
-                                                <label class="form-label">State</label>
+                                                <label class="form-label">State*</label>
                                                 <div class="input-group input-search">
-                                                    <input type="text" class="form-control" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>" autocomplete="off">
+                                                    <input type="text" class="form-control" id="user_state1" name="user_state" placeholder="" value="<?php echo $user_state; ?>" autocomplete="off">
                                                 </div>
+                                                <span id="errSteMsg"></span>
                                             </div>
                                         </div>
                                         <!-- <div class="list">

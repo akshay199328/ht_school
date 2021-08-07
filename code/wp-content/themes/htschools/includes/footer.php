@@ -825,12 +825,26 @@ jQuery(document).ready(function(){
                  function validation_step2(){ 
 
                      $("#errSchoolMsg").text("");
+                     $("#errCountryMsg").text("");
+                     $("#errSteMsg").text("");
 
-                     var school_data = $('#user_school_data').val();
+                     var school_data = $('#user_school_data1').val();
+                     var country_data = $('#user_country_data1').val();
+                     var state_data = $('#user_state1').val();
                      var isValid = true;
 
                      if(school_data == '' || school_data == undefined){
                          $("#errSchoolMsg").text("Please enter school name");
+                         isValid = false;
+                     }
+
+                     if(country_data == '' || country_data == undefined){
+                         $("#errCountryMsg").text("Please enter country name");
+                         isValid = false;
+                     }
+
+                     if(state_data == '' || state_data == undefined){
+                         $("#errSteMsg").text("Please enter state name");
                          isValid = false;
                      }
 
@@ -954,12 +968,12 @@ jQuery(document).ready(function(){
           window.selectedCountry = "<?php echo $user_country; ?>";
           var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
-          $( "#user_country_data" ).autocomplete({
+          $( "#user_country_data1" ).autocomplete({
                source: countryUrl,
                minLength: 2,
                select: function(event, ui) {
                     event.preventDefault();
-                    $("#user_country_data").val(ui.item.label);
+                    $("#user_country_data1").val(ui.item.label);
                     $("#user_country").val(ui.item.value);
                     window.selectedCountry = ui.item.label;
                },
@@ -968,7 +982,7 @@ jQuery(document).ready(function(){
 
           var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_states';
 
-          $( "#user_state" ).autocomplete({
+          $( "#user_state1" ).autocomplete({
                source: function (request, response) {
                    $.ajax({
                       dataType: "json",
@@ -985,18 +999,18 @@ jQuery(document).ready(function(){
                minLength: 2,
                select: function(event, ui) {
                   event.preventDefault();
-                  $("#user_state").val(ui.item.label);
+                  $("#user_state1").val(ui.item.label);
               },
           });
 
           var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
 
-         $( "#user_school_data" ).autocomplete({
+         $( "#user_school_data1" ).autocomplete({
                source: schoolUrl,
                minLength: 2,
                select: function(event, ui) {
                   event.preventDefault();
-                  $("#user_school_data").val(ui.item.label);
+                  $("#user_school_data1").val(ui.item.label);
                   $("#user_school").val(ui.item.value);
               },
           });  

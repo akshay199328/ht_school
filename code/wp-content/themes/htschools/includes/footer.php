@@ -181,7 +181,7 @@ else if(isset($_COOKIE['PHPSESSID']))
      });
     </script>
     <script type="text/javascript">
-     $(".navigation-wrapper ul li a").click(function(){
+     $(".navigation-wrapper ul li a, .navigation-wrapper .account").click(function(){
     $("body").removeClass("menuOpened");
   });
      //in case js in turned off

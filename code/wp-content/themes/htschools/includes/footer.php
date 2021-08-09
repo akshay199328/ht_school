@@ -16,7 +16,7 @@ else if(isset($_COOKIE['PHPSESSID']))
 <input type="hidden" id="footer_timestamp" value="<?php echo date('c', time()); ?>">
 <input type="hidden" id="footer_session_source">
 <input type="hidden" id="footer_utm_tags">
-<div class="terms"><a href="#!">Codeathon Terms and Conditions</a></div>
+<div class="terms"><a href="<?php echo get_bloginfo('url'); ?>/codeathon-terms-and-conditions">Codeathon Terms and Conditions</a></div>
 
 <footer class="footer-wrapper">
       <div class="new-footer-copy">

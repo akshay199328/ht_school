@@ -28791,7 +28791,7 @@ label.strong span {
         clear: both
     }
 }
-
+.my-account.parent_dashboard .myprofile_content .item-list-tabs{display: none!important}
 #buddypress #item-nav {
     clear: both
 }
@@ -38351,7 +38351,8 @@ section#title.search_page .pagetitle h1 {
 
 .right-part-menu {
     display: flex;
-    justify-content: flex-end
+    /*justify-content: flex-end;*/
+    justify-content: flex-start;
 }
 
 @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1) {

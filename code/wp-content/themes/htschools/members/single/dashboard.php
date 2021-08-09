@@ -26,53 +26,7 @@ if($user_role=='instructor'){
 vibe_include_template("profile/top$profile_layout.php"); 
 
 ?>
-<style>
-/*body {font-family: Arial;}*/
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-weight: 600;
-
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  /*float: left;*/
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 15px 20px;
-  transition: 0.3s;
-  font-size: 17px;
-  color: #000;
-}
-
-
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #000;
-  color: #fff;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #000;
-  color: #fff;
-}
-
-/* Style the tab content */
-.tabcontents {
-  /*display: none;*/
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
 
 
 

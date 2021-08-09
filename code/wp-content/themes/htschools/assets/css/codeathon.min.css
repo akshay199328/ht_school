@@ -4081,7 +4081,7 @@ body.menuOpened .side-navigation {
     }
 }
 .terms{background-color: #d5acff;padding:10px 0;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;color:#5a5a5a;}
-.terms a{color:#5a5a5a}
+.terms a{color:#5a5a5a;font-weight:inherit}
 .terms a:hover{color:#464646}
 .page-template-event-dashboard .pusher{z-index:auto}
 @media (max-width:480px){

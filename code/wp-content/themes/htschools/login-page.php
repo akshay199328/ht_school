@@ -716,7 +716,6 @@ jQuery(window).load(function(){
                 success: function(response) {
                   jQuery("#verify-otp-btn").html("Verify OTP");
                     jQuery("#verify-otp-btn").removeAttr("disabled");
-
                     let otpVerificationMoegObj = {
                       "Type"          : "email",
                       "Email"         : response.email,
@@ -732,8 +731,8 @@ jQuery(window).load(function(){
                     if(response.status == 1){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
-
                         var user = jQuery.parseJSON(response.user);
+
                         /*ga('send', 'event', 'Login', 'successful', user.ID);*/
 
                         let logInObj = {
@@ -760,6 +759,26 @@ jQuery(window).load(function(){
                         dataLayer.push(logInMoegObj);
                         // Moengage.track_event("Logged_In", logInMoegObj);
 
+                        jQuery.ajax({
+                          type : "POST",
+                          dataType : "json",
+                          url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                          data : {"action": "user_purchase_details", user_id: user.ID },
+                          success: function(response) {
+                            console.log(response);
+                            let userPurchaseDetailsMoegObj = {
+                              "User identifier" : user.ID,
+                              "Total Purchase"  : response.total_purchase,
+                              "First Purchase"  : response.first_purchase,
+                              "Last Purchase"  : response.last_purchase,
+                              "Area of Interest"  : response.area_of_interest,
+                            }
+                            userPurchaseDetailsMoegObj.event = "mo_user_purchase_updated";
+                            dataLayer.push({ ecommerce: null }); 
+                            dataLayer.push(userPurchaseDetailsMoegObj);
+
+                          }
+                        });
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);
                         }else{

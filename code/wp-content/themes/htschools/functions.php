@@ -608,7 +608,6 @@ function reg_verify_otp(){
             if( $user ) {
                 $response['is_registered'] = 1;
                 $user_id = $user->ID;
-
                 if(isset($_SERVER['HTTP_USER_AGENT']))
                     update_user_meta($user_id, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
 
@@ -3991,3 +3990,48 @@ function display_leaderboard() {
   }
 add_action( 'wp_ajax_nopriv_load-filter', 'display_leaderboard' );
 add_action( 'wp_ajax_load-filter', 'display_leaderboard' );
+
+add_action( 'wp_ajax_user_purchase_details', 'user_purchase_details' );
+add_action( 'wp_ajax_nopriv_user_purchase_details', 'user_purchase_details' );
+
+function user_purchase_details(){
+  global $wpdb;
+  $response = array();
+  $results = $wpdb->get_results("SELECT meta_value as purchased_on FROM ht_usermeta WHERE user_id= '".$_REQUEST['user_id']."' AND meta_key LIKE '%purchased_on%' ORDER BY umeta_id DESC LIMIT 1");
+  $last_purchase=json_decode( json_encode($results), true);
+  if($last_purchase){
+    $response['last_purchase'] = date('d-m-Y H:i:s', $last_purchase[0]['purchased_on']);
+  }
+
+  $results1 = $wpdb->get_results("SELECT meta_value as purchased_on FROM ht_usermeta WHERE user_id= '".$_REQUEST['user_id']."' AND meta_key LIKE '%purchased_on%' ORDER BY umeta_id ASC LIMIT 1");
+  $first_purchase=json_decode( json_encode($results1), true);
+  if($first_purchase){
+    $response['first_purchase'] = date('d-m-Y H:i:s', $first_purchase[0]['purchased_on']);
+  }
+
+  $get_total_purchase = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$_REQUEST['user_id']));
+  $result = $wpdb->get_results($get_total_purchase);
+  foreach($result as $course){
+    $args['post__in'][]=$course->id;
+  }
+  $total_purchase =  count($args['post__in']);
+  if($total_purchase > 0){
+    $response['total_purchase'] = count($args['post__in']);
+  }
+
+  $tb_meta = get_user_meta($_REQUEST['user_id'], 'interest', true);
+  $tag_array = array();
+  $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
+  
+  $area_of_interest = array();
+
+  foreach ($get_user_interest as $key => $value){
+      $area_of_interest[$key] = $value->name;
+  }
+
+  $response['area_of_interest'] = implode(",", $area_of_interest);
+
+  echo json_encode($response); 
+
+  exit;
+}

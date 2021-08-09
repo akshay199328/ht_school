@@ -3574,7 +3574,22 @@
             const t = document.createElement("script");
             t.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js", t.async = !0, t.onload = () => {
                 document.dispatchEvent(new Event("VibeBP_Editor_Content"))
+                //jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
             }, document.body.appendChild(t)
+            // if(jQuery(window).width() <= 767) {
+            //     const b = document.createElement("script");
+            //     b.src = "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js", t.async = !0, b.onload = () => {
+            //         jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
+            //         jQuery('.quiz_pagination_wrapper.owl-carousel').owlCarousel({
+            //             margin: 0,
+            //             loop: true,
+            //             autoWidth: true,
+            //             items: 4,
+            //             nav: true,
+            //             dots:true
+            //         });
+            //     }, document.body.appendChild(b)
+            // }
         }, [e.quiz, e.currentQuestions]), Ht(() => {
             n(e.quiz), o(null, 1)
         }, [e.filter]), Ht(() => {
@@ -3653,17 +3668,17 @@
                         })
                         let e = n;
                         r == e ? a.unshift(jt("span", {
-                            className: quiz_question_result[e-1] === 1 ? 'button user-correct active' :quiz_question_result[e-1] === 2 ? 'button unattempted active' : quiz_question_result[e-1] === 0 ? 'button user-incorrect active' : 'button active',
+                            className: quiz_question_result[e-1] === 1 ? 'button item user-correct active' :quiz_question_result[e-1] === 2 ? 'button item unattempted active' : quiz_question_result[e-1] === 0 ? 'button item user-incorrect active' : 'button active',
                             onClick: t => {
                                 o(t, e)
                             }
                         }, n)) : (r - 1 >= 1 || r + 1 <= s) ? a.unshift(jt("span", {
-                            className: quiz_question_result[e-1] === 1 ? 'button correct' : quiz_question_result[e-1] === 2 ? 'button unattempt' : quiz_question_result[e-1] === 0 ? 'button incorrect' : 'button',
+                            className: quiz_question_result[e-1] === 1 ? 'button item correct' : quiz_question_result[e-1] === 2 ? 'button item unattempt' : quiz_question_result[e-1] === 0 ? 'button item incorrect' : 'button',
                             onClick: t => {
                                 o(t, e)
                             }
                         }, n)) : i < 5 && (a.unshift(jt("span", {
-                            className: "button"
+                            className: "button item"
                         }, "...")), i++), n--
                     } return a
         })() : "", e.questions[s[s.length - 1] + 1] && "undefined" != e.questions[s[s.length - 1] + 1] ? jt("span", {
@@ -3975,14 +3990,26 @@
                         body: JSON.stringify(s)
                     }).then(e => e.json()).then(e => {
                         if (e) {
-                            jQuery('.attempt-number').text(e.meta.retakes);
-                            if(e.meta.retakes == 0 && e.submitted){
+                               jQuery('.attempt-number').text(e.meta.retakes);
+                            if(e.submitted != undefined && e.submitted == true && e.quiz_points > 0){
+                                jQuery('.right-info').removeClass('show-right-info');
+                                jQuery('.result-show').text('PASSED');
+                                jQuery('#result-display').removeClass("failed");
+                                jQuery('#result-display').addClass("pass");
+                            }
+                            else if(e.meta.retakes == 0 && e.submitted == true && e.is_event_type == 1 && e.quiz_points == 0){
                                 jQuery('.right-info').addClass('show-right-info');
                                 jQuery('.attempt-number').removeClass('correct');
                                 jQuery('.attempt-number').addClass('incorrect');
                             }
+                            else if(e.meta.retakes > 0 && e.quiz_points == 0 && e.is_event_type == 1){
+                                jQuery('.right-info').addClass('show-right-info');
+                            }
                             else if(e.meta.retakes > 0 && e.quiz_points > 0 && e.is_event_type == 1){
                                 jQuery('.right-info').removeClass('show-right-info');
+                                jQuery('.result-show').text('PASSED');
+                                jQuery('#result-display').removeClass("failed");
+                                jQuery('#result-display').addClass("pass");
                             }
                             // if(e.meta.retakes > 0){
                             //     jQuery('.right-info').addClass('show-right-info');
@@ -3992,9 +4019,6 @@
                             // }
                             console.log(e.submitted);
                             console.log(e);
-                            if(e.submitted != undefined && e.submitted == true && e.quiz_points > 0){
-                                jQuery('.right-info').addClass('show-right-info');
-                            }
                             if (S(null), e.meta && e.meta.questions) {
                                 let t = 0,
                                     s = 0;

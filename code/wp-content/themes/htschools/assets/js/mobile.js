@@ -1,16 +1,20 @@
 /*global $f:false */
-$(document).ready(function()
-{
+$(document).ready(function(){
+
   $('span.vibebp_name').css('display','none');
-  setTimeout(function()
-    {
+  setTimeout(function(){
       $('span.vibebp_name').css('display','block');
       
-    }, 
-    2000);
-});
+  }, 
+  2000);
 
-$('.woocommerce-error .eventcart').parent().show();
+  $('.woocommerce-error .eventcart').parent().show();
+
+  $('.flexMenu-viewMore').click(function(){
+      $('.flexMenu-popup').css('position','relative');
+  });
+
+});
 
 // $(document).ready(function(){
 

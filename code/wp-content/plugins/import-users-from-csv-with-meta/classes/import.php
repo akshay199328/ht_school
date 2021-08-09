@@ -256,8 +256,7 @@ class ACUI_Import{
         
                             $data[$i] = maybe_unserialize( $data[$i] );
                         elseif( strpos( $data[$i], "::" ) !== false  ) // list of items
-                            $data[$i] = explode( "::", $data[$i] );
-    
+                            $data[$i] = explode( "::", $data[$i] );   
                     }
                   
                     if( $row == 1 ):
@@ -280,13 +279,11 @@ class ACUI_Import{
     
                         foreach( $data as $element ){ 
                             $headers[] = $element;
- 
                             if( in_array( strtolower( $element ) , $restricted_fields ) )
                                 $positions[ strtolower( $element ) ] = $i;
     
                             if( !in_array( strtolower( $element ), $restricted_fields ) )
-                                $headers_filtered[] = $element;
-      
+                                $headers_filtered[] = $element;     
                             $i++;
                         }
    
@@ -378,7 +375,6 @@ class ACUI_Import{
                                         wp_set_password( $password, $user_id );
     
                                     $new_user_id = $acui_helper->maybe_update_email( $user_id, $email, $password, $update_emails_existing_users );
-
                                    
                                     if( empty( $new_user_id ) ){
                                         $errors[] = $acui_helper->new_error( $row, sprintf( __( 'User with email "%s" exists, we ignore it', 'import-users-from-csv-with-meta' ), $email ), 'notice' );     
@@ -627,6 +623,7 @@ class ACUI_Import{
             if($get_data_array[$v] == "1624693467"){
 
                 $batch_id = $get_data_array[$v+1];
+
                 if(!empty($batch_id)){
                     array_push($arrbatch, $batch_id);    
                 }                
@@ -646,9 +643,7 @@ class ACUI_Import{
                 $csf_db_table = $wpdb->prefix . "batch_master";
                 $variation_id = $wpdb->get_results($wpdb->prepare("SELECT variation_id FROM " .$csf_db_table. " WHERE id= ".$get_batch_id." "));
 
-                $retrieve_variation_id = $variation_id[0]->variation_id;
-                $arrvariations[] = $variation_id[0]->variation_id;   
-
+                $retrieve_variation_id = $variation_id[0]->variation_id;                
                 if(!empty($retrieve_variation_id)){
                     $batch_insert = $wpdb->prepare("INSERT INTO ht_batch_student_mapping (batch_id, user_id, variation_id,created_on) VALUES (".$batch_id.", ".$get_new_id.", ". $variation_id[0]->variation_id.",'".$date."')");                    
                     $wpdb->query($batch_insert);
@@ -657,8 +652,7 @@ class ACUI_Import{
         }                
                      
         unset($get_data_array);
-        unset($arrbatch);
-                                              
+        unset($arrbatch);                                             
 /*-----------------------------code by sayali------------------------------*/                    
                         $_SESSION['course_user_row'] = $headers;
                         $acui_helper->print_row_imported( $row, $data, $errors );
@@ -682,7 +676,7 @@ class ACUI_Import{
     
                         // wordpress default user created and edited emails
                         if( get_option('acui_automatic_created_edited_wordpress_email') === 'true' ){
-                            ( $created ) ? do_action( 'register_new_user', $user_id ) : do_action( 'edit_user_created_user', $user_id, 'both' );        
+                            ( $created ) ? do_action( 'register_new_user', $user_id ) : do_action( 'edit_user_created_user', $user_id, 'both' );
                         }
                            
                         // send mail

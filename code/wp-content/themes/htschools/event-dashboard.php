@@ -970,7 +970,7 @@ div#ui-datepicker-div{
                                                 <span id="errSchoolMsg"></span>
                                             </div>
                                         </div>
-                                        <div class="list" style="display:none" id="other_school1">
+                                        <div class="list" style="display:none" id="other_school11">
                                             <div class="form-group">
                                                 <label class="form-label">Other School Name</label>
                                                 <div>

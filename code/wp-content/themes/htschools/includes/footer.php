@@ -1072,10 +1072,10 @@ jQuery(document).ready(function(){
          $("#user_school_data1").on("keyup", function (event, ui) {   var other_val = $("#user_school_data1").val();
    
           if(other_val === "Others"){
-            $("#other_school1").show();              
+            $("#other_school11").show();              
           }
           else{
-            $('#other_school1').slideUp();           
+            $('#other_school11').slideUp();           
             $("#user_school_other1").val('');            
           } 
         });
@@ -1084,7 +1084,7 @@ jQuery(document).ready(function(){
           var other_val = $("#user_school_data1").val();
      
             if(other_val === "Others"){
-            $("#other_school1").show();              
+            $("#other_school11").show();              
           }
           else{
             $('#other_school1').slideUp();           
@@ -1100,10 +1100,10 @@ jQuery(document).ready(function(){
             var other_val = $("#user_school_data1").val();
             
           if(other_val === "Others"){
-            $("#other_school1").show();              
+            $("#other_school11").show();              
           }
           else{
-            $('#other_school1').slideUp();           
+            $('#other_school11').slideUp();           
             $("#user_school_other1").val('');    
           }
         });

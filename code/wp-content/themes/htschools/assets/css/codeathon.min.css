@@ -695,7 +695,9 @@ body.menuOpened {
     transform: translateY(-50%);
     width: 40px;
     border: none !important;
-    border-radius: 50px
+    border-radius: 50px;
+    outline:none;
+    box-shadow:none;
 }
 
 .owl-carousel .owl-nav .owl-next span,
@@ -1905,8 +1907,8 @@ body.menuOpened {
 
 .section-wrapper.videos .section-copy .says_slider .owl-stage .owl-item {
     opacity: .5;
-    -webkit-transition: all .5s cubic-bezier(.69, .11, .3, .78);
-    transition: all .5s cubic-bezier(.69, .11, .3, .78);
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     z-index: 12;
     -webkit-transform: scale(.8);
     transform: scale(.8)

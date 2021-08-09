@@ -1628,23 +1628,57 @@ add_filter('facebook_login_redirect_url', function($redirectUrl, $provider){
 
 
 add_filter('google_login_redirect_url', function($redirectUrl, $provider){
-	setSocialLoginData('google');
-	if(isset($_SESSION['previousPageUrl'])){
-		//$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
-    $redirectUrl = $_SESSION['previousPageUrl'];
-		return $redirectUrl;
-	}
+  setSocialLoginData('google');
+  if(isset($_SESSION['previousPageUrl'])){
+    //$redirectUrl = header("Refresh:0; url=".$_SESSION['previousPageUrl']."");
+  //   $redirectUrl = $_SESSION['previousPageUrl'];
+    // return $redirectUrl;
+  }
 }, 10, 2);
 
 function setSocialLoginData($socialType)
 {
     global $wpdb;
-	$currentUserID = get_current_user_id();
+  $currentUserID = get_current_user_id();
 
-	if(isset($currentUserID) && $currentUserID > 0)
-	{
-		$userDetails = get_userdata($currentUserID);
+  if(isset($currentUserID) && $currentUserID > 0)
+  {
+    $userDetails = get_userdata($currentUserID);
 
+    $response = array();
+    $results = $wpdb->get_results("SELECT meta_value as purchased_on FROM ht_usermeta WHERE user_id= '".$currentUserID."' AND meta_key LIKE '%purchased_on%' ORDER BY umeta_id DESC LIMIT 1");
+    $last_purchase=json_decode( json_encode($results), true);
+    if($last_purchase){
+      $last_purchase = date('d-m-Y H:i:s', $last_purchase[0]['purchased_on']);
+    }
+
+    $results1 = $wpdb->get_results("SELECT meta_value as purchased_on FROM ht_usermeta WHERE user_id= '".$currentUserID."' AND meta_key LIKE '%purchased_on%' ORDER BY umeta_id ASC LIMIT 1");
+    $first_purchase=json_decode( json_encode($results1), true);
+    if($first_purchase){
+      $first_purchase = date('d-m-Y H:i:s', $first_purchase[0]['purchased_on']);
+    }
+
+    $get_total_purchase = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$currentUserID));
+    $result = $wpdb->get_results($get_total_purchase);
+    foreach($result as $course){
+      $args['post__in'][]=$course->id;
+    }
+    $total_purchase =  count($args['post__in']);
+    if($total_purchase > 0){
+      $total_purchase = count($args['post__in']);
+    }
+
+    $tb_meta = get_user_meta($currentUserID, 'interest', true);
+    $tag_array = array();
+    $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
+    
+    $area_of_interest = array();
+
+    foreach ($get_user_interest as $key => $value){
+        $area_of_interest[$key] = $value->name;
+    }
+
+    $area_of_interest = implode(",", $area_of_interest);
         /*$registerTime = 0;
         $result = $wpdb->get_results("SELECT TIMESTAMPDIFF(MINUTE, user_registered, NOW()) AS diff FROM ht_users WHERE ID = '" . $currentUserID . "'");
 
@@ -1655,7 +1689,7 @@ function setSocialLoginData($socialType)
 
         if(isset($_SERVER['HTTP_USER_AGENT'])) update_user_meta($currentUserID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
 
-      	$_SESSION['sign_up_data'] = array(
+        $_SESSION['sign_up_data'] = array(
             "datalayer" => array(
                 "event"           => 'log_in',
                 "user_identifier" => $currentUserID,
@@ -1678,8 +1712,17 @@ function setSocialLoginData($socialType)
                 "Login type"      => $socialType,
             ),
             "moengage_type" => "Logged_In",
-        );
-	}
+            "moengage_purchase" => array(
+              "User identifier" => $currentUserID,
+              "Total Purchase"  => $total_purchase,
+              "First Purchase"  => $first_purchase,
+              "Last Purchase"  => $last_purchase,
+              "Area of Interest"  => $area_of_interest,
+            ),
+            "moengage_type_purchase" => "user_purchase_updated",
+          );
+        
+  }
 }
 
 function wpfp_save_link( $return = 0, $action = "", $show_span = 1, $args = array() ) {
@@ -3354,7 +3397,39 @@ function check_and_trigger_signup_tag() {
             if(isset($_SERVER['HTTP_USER_AGENT'])) update_user_meta($currentUserID, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
 
             $currentUser = wp_get_current_user();
+            $results = $wpdb->get_results("SELECT meta_value as purchased_on FROM ht_usermeta WHERE user_id= '".$currentUserID."' AND meta_key LIKE '%purchased_on%' ORDER BY umeta_id DESC LIMIT 1");
+            $last_purchase=json_decode( json_encode($results), true);
+            if($last_purchase){
+              $last_purchase = date('d-m-Y H:i:s', $last_purchase[0]['purchased_on']);
+            }
 
+            $results1 = $wpdb->get_results("SELECT meta_value as purchased_on FROM ht_usermeta WHERE user_id= '".$currentUserID."' AND meta_key LIKE '%purchased_on%' ORDER BY umeta_id ASC LIMIT 1");
+            $first_purchase=json_decode( json_encode($results1), true);
+            if($first_purchase){
+              $first_purchase = date('d-m-Y H:i:s', $first_purchase[0]['purchased_on']);
+            }
+
+            $get_total_purchase = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$currentUserID));
+            $result = $wpdb->get_results($get_total_purchase);
+            foreach($result as $course){
+              $args['post__in'][]=$course->id;
+            }
+            $total_purchase =  count($args['post__in']);
+            if($total_purchase > 0){
+              $total_purchase = count($args['post__in']);
+            }
+
+            $tb_meta = get_user_meta($currentUserID, 'interest', true);
+            $tag_array = array();
+            $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
+            
+            $area_of_interest = array();
+
+            foreach ($get_user_interest as $key => $value){
+                $area_of_interest[$key] = $value->name;
+            }
+
+            $area_of_interest = implode(",", $area_of_interest);
             $_SESSION['sign_up_data'] = array(
                 "datalayer" => array(
                     "event"           => 'sign_up',
@@ -3384,6 +3459,14 @@ function check_and_trigger_signup_tag() {
                     "failure_reason"                      => "",
                 ),
                 "moengage_type" => "Signed_Up",
+                "moengage_purchase" => array(
+                  "User identifier" => $currentUserID,
+                  "Total Purchase"  => $total_purchase,
+                  "First Purchase"  => $first_purchase,
+                  "Last Purchase"  => $last_purchase,
+                  "Area of Interest"  => $area_of_interest,
+                ),
+                "moengage_type_purchase" => "user_purchase_updated",
             );
             
         }
@@ -3650,12 +3733,12 @@ function mycred_user_max( $run, $request, $mycred ) {
   // This code snippet is only applicable for logging_in
   global $wpdb;
   $table_name = "ht_mycred_log";
-	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-	    $my_cred_table = 'ht_mycred_log';
-	}
-	else{
-	    $my_cred_table = 'ht_myCRED_log';
-	}
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
   if ( $request['ref'] != 'logging_in' || $run === false ) return $run;
 
   $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM $my_cred_table WHERE ref='logging_in' AND user_id = '".$user_id."'");
@@ -3694,13 +3777,13 @@ add_action("wp_ajax_social_share_points", "social_share_points");
 add_action( 'wp_ajax_nopriv_social_share_points', 'social_share_points' );
 function social_share_points(){
   global $wpdb;
-  	$table_name = "ht_mycred_log";
-	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-	    $my_cred_table = 'ht_mycred_log';
-	}
-	else{
-	    $my_cred_table = 'ht_myCRED_log';
-	}
+    $table_name = "ht_mycred_log";
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
     $response = array(
       'status' => 0,
       'message' => 'Failed to add points'
@@ -3735,12 +3818,12 @@ function social_share_points(){
 function referal_product_points(){
   global $wpdb;
   $table_name = "ht_mycred_log";
-	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-	    $my_cred_table = 'ht_mycred_log';
-	}
-	else{
-	    $my_cred_table = 'ht_myCRED_log';
-	}
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
   $user_id = get_current_user_id();
   $response = array(
     'status' => 0,
@@ -3772,14 +3855,14 @@ function referal_product_points(){
 add_action("wp_ajax_platform_onboarding_points", "platform_onboarding_points");
 add_action( 'wp_ajax_nopriv_platform_onboarding_points', 'platform_onboarding_points' );
 function platform_onboarding_points(){
-  	global $wpdb;
-  	$table_name = "ht_mycred_log";
-	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-	    $my_cred_table = 'ht_mycred_log';
-	}
-	else{
-	    $my_cred_table = 'ht_myCRED_log';
-	}
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
   $response = array(
     'status' => 0,
     'message' => 'Failed to add points'
@@ -3839,12 +3922,12 @@ function video_watched_points(){
 function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
   global $wpdb;
   $table_name = "ht_mycred_log";
-	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-	    $my_cred_table = 'ht_mycred_log';
-	}
-	else{
-	    $my_cred_table = 'ht_myCRED_log';
-	}
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
   $mycred_points = $wpdb->prepare("INSERT INTO $my_cred_table(ref, ref_id, user_id, creds,ctype,time,entry, data) VALUES ('".$ref."', '".$ref_id."', '".$user_id."','".$creds."','mycred_engagement','".$now."','".$entry."', '".$data."')");
   $result = $wpdb->query($mycred_points);
   if($result){

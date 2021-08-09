@@ -864,6 +864,19 @@ jQuery(document).ready(function(){
                          isValid = false;
                      }
 
+                     var otherschool = $('#user_school_data1').val();
+                      if(otherschool == 'Others'){
+
+                        $("#errotherSchoolMsg").text("");
+
+                        var user_school_other = $('#user_school_other').val();
+                    
+                        if(user_school_other == '' || user_school_other == undefined){
+                            $("#errotherSchoolMsg").text("Please enter other school name");
+                            isValid = false;
+                        } 
+                      }
+
                      return isValid;
                  }
 
@@ -1029,7 +1042,68 @@ jQuery(document).ready(function(){
                   $("#user_school_data1").val(ui.item.label);
                   $("#user_school").val(ui.item.value);
               },
-          });  
+          });
+
+         $("#user_school_other").on("change", function (event, ui) {
+              var other_val = $("#user_school_other").val();
+
+              if(other_val != ""){
+                jQuery.ajax({
+                  type : "POST",
+                  dataType : "json",
+                  url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
+                  data : {check_school_other : other_val},
+                  success: function(response) {
+                      if(response.status == 1){
+                        jQuery("#errotherSchoolMsg").text('School name is already exists!');
+                        jQuery("#user_school_other").val('');
+                        setTimeout(function(){ 
+                          jQuery("#errotherSchoolMsg").text(''); 
+                        }, 5000);
+                      }
+                  }
+                });
+            }
+          });
+
+         $("#user_school_data1").on("keyup", function (event, ui) {   var other_val = $("#user_school_data1").val();
+   
+          if(other_val === "Others"){
+            $("#other_school").show();              
+          }
+          else{
+            $('#other_school').slideUp();           
+            $("#user_school_other").val('');            
+          } 
+        });
+
+        $("#user_school_data1").on("change", function (event, ui) {
+          var other_val = $("#user_school_data1").val();
+     
+            if(other_val === "Others"){
+            $("#other_school").show();              
+          }
+          else{
+            $('#other_school').slideUp();           
+            $("#user_school_other").val('');            
+          } 
+        });
+
+        $('.ui-autocomplete').on('click', '.ui-menu-item', function(){
+            $("#user_school_data1").trigger('click');
+        });
+
+        $("#user_school_data1").click(function(){
+            var other_val = $("#user_school_data1").val();
+            
+          if(other_val === "Others"){
+            $("#other_school").show();              
+          }
+          else{
+            $('#other_school').slideUp();           
+            $("#user_school_other").val('');    
+          }
+        });
 
           $('#inputfile').change(function(){
                                         

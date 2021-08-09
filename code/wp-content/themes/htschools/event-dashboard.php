@@ -482,11 +482,11 @@ div#ui-datepicker-div{
                                     <div class="list">
                                         <div class="col-12 col-lg-12 col-md-12 col-sm-12 mrg pull-left">
                                             <h5 class="course_section_link"><?php echo $lesson_units['title'];?>
-                                                <span class="toggle_icon">
+                                                <!-- <span class="toggle_icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
                                                         <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                                     </svg>
-                                                </span>
+                                                </span> -->
                                             </h5>
                                         </div>
                                         
@@ -954,6 +954,15 @@ div#ui-datepicker-div{
                                                     <input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
                                                 </div>
                                                 <span id="errSchoolMsg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="list" style="display:none" id="other_school">
+                                            <div class="form-group">
+                                                <label class="form-label">Other School Name</label>
+                                                <div>
+                                                    <input type="text" class="form-control" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >                                         
+                                                    <span id="errotherSchoolMsg"></span>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="list">

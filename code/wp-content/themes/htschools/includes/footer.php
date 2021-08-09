@@ -1042,9 +1042,9 @@ jQuery(document).ready(function(){
                   $("#user_school_data1").val(ui.item.label);
                   $("#user_school").val(ui.item.value);
               },
-              response: function(event, ui){
-               ui.content.push({value:"Others", label:"Others"});
-              }
+              // response: function(event, ui){
+              //  ui.content.push({value:"Others", label:"Others"});
+              // }
           });
 
          $("#user_school_other1").on("change", function (event, ui) {

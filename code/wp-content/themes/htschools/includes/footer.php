@@ -318,7 +318,7 @@ jQuery(document).ready(function(){
             nav:true,
             mouseDrag:true,
             stagePadding:0,
-            smartSpeed:800,
+            smartSpeed:1900,
             autoplay:true,
             responsive : {
                 0 : {
@@ -382,7 +382,7 @@ jQuery(document).ready(function(){
           video:true,
           lazyLoad:true,
           center:true,
-          smartSpeed:450,
+          smartSpeed:1200,
           // autoWidth:true,
           responsive : {
                0 : {
@@ -1042,9 +1042,9 @@ jQuery(document).ready(function(){
                   $("#user_school_data1").val(ui.item.label);
                   $("#user_school").val(ui.item.value);
               },
-              // response: function(event, ui){
-              //  ui.content.push({value:"Others", label:"Others"});
-              // }
+              response: function(event, ui){
+               ui.content.push({value:"Others", label:"Others"});
+              }
           });
 
          $("#user_school_other1").on("change", function (event, ui) {

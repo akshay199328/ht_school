@@ -318,7 +318,7 @@ jQuery(document).ready(function(){
             nav:true,
             mouseDrag:true,
             stagePadding:0,
-            smartSpeed:1900,
+            smartSpeed:800,
             autoplay:true,
             responsive : {
                 0 : {
@@ -382,7 +382,7 @@ jQuery(document).ready(function(){
           video:true,
           lazyLoad:true,
           center:true,
-          smartSpeed:1200,
+          smartSpeed:450,
           // autoWidth:true,
           responsive : {
                0 : {

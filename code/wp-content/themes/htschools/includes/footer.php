@@ -869,7 +869,7 @@ jQuery(document).ready(function(){
 
                         $("#errotherSchoolMsg").text("");
 
-                        var user_school_other = $('#user_school_other').val();
+                        var user_school_other = $('#user_school_other1').val();
                     
                         if(user_school_other == '' || user_school_other == undefined){
                             $("#errotherSchoolMsg").text("Please enter other school name");
@@ -1042,10 +1042,13 @@ jQuery(document).ready(function(){
                   $("#user_school_data1").val(ui.item.label);
                   $("#user_school").val(ui.item.value);
               },
+              response: function(event, ui){
+               ui.content.push({value:"Others", label:"Others"});
+              }
           });
 
-         $("#user_school_other").on("change", function (event, ui) {
-              var other_val = $("#user_school_other").val();
+         $("#user_school_other1").on("change", function (event, ui) {
+              var other_val = $("#user_school_other1").val();
 
               if(other_val != ""){
                 jQuery.ajax({
@@ -1056,7 +1059,7 @@ jQuery(document).ready(function(){
                   success: function(response) {
                       if(response.status == 1){
                         jQuery("#errotherSchoolMsg").text('School name is already exists!');
-                        jQuery("#user_school_other").val('');
+                        jQuery("#user_school_other1").val('');
                         setTimeout(function(){ 
                           jQuery("#errotherSchoolMsg").text(''); 
                         }, 5000);
@@ -1069,11 +1072,11 @@ jQuery(document).ready(function(){
          $("#user_school_data1").on("keyup", function (event, ui) {   var other_val = $("#user_school_data1").val();
    
           if(other_val === "Others"){
-            $("#other_school").show();              
+            $("#other_school1").show();              
           }
           else{
-            $('#other_school').slideUp();           
-            $("#user_school_other").val('');            
+            $('#other_school1').slideUp();           
+            $("#user_school_other1").val('');            
           } 
         });
 
@@ -1081,11 +1084,11 @@ jQuery(document).ready(function(){
           var other_val = $("#user_school_data1").val();
      
             if(other_val === "Others"){
-            $("#other_school").show();              
+            $("#other_school1").show();              
           }
           else{
-            $('#other_school').slideUp();           
-            $("#user_school_other").val('');            
+            $('#other_school1').slideUp();           
+            $("#user_school_other1").val('');            
           } 
         });
 
@@ -1097,11 +1100,11 @@ jQuery(document).ready(function(){
             var other_val = $("#user_school_data1").val();
             
           if(other_val === "Others"){
-            $("#other_school").show();              
+            $("#other_school1").show();              
           }
           else{
-            $('#other_school').slideUp();           
-            $("#user_school_other").val('');    
+            $('#other_school1').slideUp();           
+            $("#user_school_other1").val('');    
           }
         });
 

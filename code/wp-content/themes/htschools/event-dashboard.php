@@ -332,6 +332,20 @@ li.ui-menu-item a{
 div#ui-datepicker-div{
     z-index: 9999!important;
 }
+
+.ui-autocomplete li.ui-menu-item:last-child .ui-menu-item-wrapper,
+    .ui-autocomplete li.ui-menu-item:last-child:hover .ui-menu-item-wrapper {
+        background-color: #d5ebff!important;
+        color: #000;        
+    }   
+
+    #errotherSchoolMsg{
+        color: red;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    }
 </style>
 <section class="dashboard-wrapper">
     <div class="container">
@@ -956,11 +970,11 @@ div#ui-datepicker-div{
                                                 <span id="errSchoolMsg"></span>
                                             </div>
                                         </div>
-                                        <div class="list" style="display:none" id="other_school">
+                                        <div class="list" style="display:none" id="other_school1">
                                             <div class="form-group">
                                                 <label class="form-label">Other School Name</label>
                                                 <div>
-                                                    <input type="text" class="form-control" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >                                         
+                                                    <input type="text" class="form-control" id="user_school_other1" name="user_school_other" placeholder="Please enter others school name" value="" >                                         
                                                     <span id="errotherSchoolMsg"></span>
                                                 </div>
                                             </div>

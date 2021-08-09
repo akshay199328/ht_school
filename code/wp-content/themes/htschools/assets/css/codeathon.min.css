@@ -2726,8 +2726,9 @@ body.menuOpened {
 .footer-wrapper .newsletter form.sent.sent .wpcf7-response-output {
     margin: 0 !important;
     border: none;
-    color: #00d98e;
-    font-size: 18px
+    color: #fade3b;
+    font-size: 18px;
+    padding:0;
 }
 
 .footer-wrapper .newsletter .wpcf7-submit,

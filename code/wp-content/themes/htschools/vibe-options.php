@@ -1005,8 +1005,22 @@ $sections[] = array(
 							'sub_desc' => __('Google Analytics account', 'vibe'),
 							'desc' => __('Please enter full code with javascript tags.', 'vibe'),
 						),
-
-					 				
+						/*--------------code by sayali------------------*/
+						array(
+							'id' => 'gtm_code_header',
+							'type' => 'textarea',
+							'title' => __('Header GTM Code', 'vibe'), 
+							'sub_desc' => __('Header GTM Code', 'vibe'),
+							'desc' => __('Please enter full code with javascript tags.', 'vibe'),
+						),
+						array(
+							'id' => 'gtm_code_footer',
+							'type' => 'textarea',
+							'title' => __('Footer GTM Code', 'vibe'), 
+							'sub_desc' => __('Footer GTM Code', 'vibe'),
+							'desc' => __('Please enter full code with javascript tags.', 'vibe'),
+						),
+						/*--------------code by sayali------------------*/				 				
 					)
 				);
 $sections[] = array(

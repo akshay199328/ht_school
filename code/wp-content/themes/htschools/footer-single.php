@@ -916,7 +916,7 @@ border: 1px solid deepskyblue;
 								$("#response_message").hide();
 							}, 5000);
 
-							 let profilePopupUpdatedMoegObj = {
+							let profilePopupUpdatedMoegObj = {
 							 	"User identifier"	: parseInt(jQuery("#user_identifier").val()),
 								"School"	: jQuery("#user_school_data").val(),
 								"Grade/Standard"	: jQuery("#grade").val(),
@@ -1335,8 +1335,7 @@ border: 1px solid deepskyblue;
 		jQuery(document).ready(function(){
 			var signUpDataLayerObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["datalayer"]); ?>');
 			var signUpDataMoengObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage"]); ?>');
-
-			var UserSchoolDataMoengObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_school_data"]["school_user_properties"]); ?>');
+			var userPurchaseDetailsMoegObj = JSON.parse('<?php echo json_encode($_SESSION["sign_up_data"]["moengage_purchase"]); ?>');
 			console.log(signUpDataLayerObj);
 			dataLayer.push(signUpDataLayerObj);
 
@@ -1344,8 +1343,10 @@ border: 1px solid deepskyblue;
 			dataLayer.push({ ecommerce: null }); 
 			dataLayer.push(signUpDataMoengObj);
 
-
-			// Moengage.track_event("<?php //echo $_SESSION['sign_up_data']['moengage_type']; ?>", signUpDataMoengObj);
+			userPurchaseDetailsMoegObj.event = "mo_" + "<?php echo $_SESSION['sign_up_data']['moengage_type_purchase']; ?>";
+			dataLayer.push({ ecommerce: null }); 
+			dataLayer.push(userPurchaseDetailsMoegObj);
+			// Moengage.track_event("<?php //echo $_SESSION['sign_up_data']['moengage_type_purchase']; ?>", userPurchaseDetailsMoegObj);
 		});
 	</script>
 	<?php unset($_SESSION['sign_up_data']);

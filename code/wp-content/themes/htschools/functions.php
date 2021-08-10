@@ -4128,7 +4128,7 @@ add_action('wp_head', 'get_header_gtm_code');
 
 function get_header_gtm_code(){
 
-echo vibe_get_option('gtm_code_header'); 
+ vibe_get_option('gtm_code_header'); 
  
 }
 
@@ -4136,7 +4136,7 @@ add_action('wp_footer', 'get_footer_gtm_code');
 
 function get_footer_gtm_code(){
 
-echo vibe_get_option('gtm_code_footer'); 
+ vibe_get_option('gtm_code_footer'); 
  
 }
 /*------------------------CODE BY SAYALI--------------------------------*/

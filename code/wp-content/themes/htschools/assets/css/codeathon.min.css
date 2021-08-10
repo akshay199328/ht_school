@@ -2463,8 +2463,6 @@ body.menuOpened {
 @media (max-width:450px) {
     .section-wrapper.school {
         padding-bottom: 166px;
-        background-size: auto 100%;
-        background-color: transparent
     }
 }
 
@@ -4088,3 +4086,17 @@ body.menuOpened .side-navigation {
 @media (max-width:480px){
     .terms{position:relative;z-index:11}
 }
+code{
+        font-weight: bold;
+    background: #f7f7f7;
+    font-size: 90%;
+    font-weight: normal;
+    padding: 1px 5px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.terms-conditions ol{line-height:1.6}
+.terms-conditions ol li strong{font-weight:600}
+.terms-conditions ol li a{color:#004ba6}
+.terms-conditions ol li{margin-bottom:15px}

@@ -1678,9 +1678,9 @@ function setSocialLoginData($socialType)
       foreach ($get_user_interest as $key => $value){
           $area_of_interest[$key] = $value->name;
       }
+      $area_of_interest = implode(",", $area_of_interest);
     }
 
-    $area_of_interest = implode(",", $area_of_interest);
         /*$registerTime = 0;
         $result = $wpdb->get_results("SELECT TIMESTAMPDIFF(MINUTE, user_registered, NOW()) AS diff FROM ht_users WHERE ID = '" . $currentUserID . "'");
 
@@ -3416,9 +3416,11 @@ function check_and_trigger_signup_tag() {
             foreach($result as $course){
               $args['post__in'][]=$course->id;
             }
-            $total_purchase =  count($args['post__in']);
-            if($total_purchase > 0){
-              $total_purchase = count($args['post__in']);
+            if($args['post__in']){ 
+              $total_purchase =  count($args['post__in']);
+              if($total_purchase > 0){
+                $total_purchase = count($args['post__in']);
+              }
             }
 
             $tb_meta = get_user_meta($currentUserID, 'interest', true);
@@ -4101,9 +4103,11 @@ function user_purchase_details(){
   foreach($result as $course){
     $args['post__in'][]=$course->id;
   }
-  $total_purchase =  count($args['post__in']);
-  if($total_purchase > 0){
-    $response['total_purchase'] = count($args['post__in']);
+  if($args['post__in']){ 
+    $total_purchase =  count($args['post__in']);
+    if($total_purchase > 0){
+      $response['total_purchase'] = count($args['post__in']);
+    }
   }
 
   $tb_meta = get_user_meta($_REQUEST['user_id'], 'interest', true);

@@ -4002,7 +4002,7 @@
                                 jQuery('.attempt-number').removeClass('correct');
                                 jQuery('.attempt-number').addClass('incorrect');
                             }
-                            else if(e.meta.retakes > 0 && e.quiz_points == 0 && e.is_event_type == 1){
+                            else if(e.meta.retakes > 0 && e.quiz_points == 0 && e.is_event_type == 1 && e.submitted == true){
                                 jQuery('.right-info').addClass('show-right-info');
                             }
                             else if(e.meta.retakes > 0 && e.quiz_points > 0 && e.is_event_type == 1){

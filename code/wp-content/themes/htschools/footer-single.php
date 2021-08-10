@@ -825,6 +825,27 @@ border: 1px solid deepskyblue;
 				}	
 			});
 
+			$("#user_school_other").on("change", function (event, ui) {
+				var other_val = $("#user_school_other").val();
+
+				if(other_val != ""){
+					jQuery.ajax({
+					    type : "POST",
+					    dataType : "json",
+					    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
+					    data : {check_school_other : other_val},
+					    success: function(response) {
+						//alert(response.status);
+						//alert(response.response);	
+					        if(response.status == 1){
+					        	jQuery("#errotherSchoolMsg").text('School name is already exists!');
+					        	jQuery("#user_school_other").val('');
+					        }
+					    }
+					});
+				}
+			});
+
 			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
 			$( "#user_country_data" ).autocomplete({

@@ -1669,13 +1669,15 @@ function setSocialLoginData($socialType)
     }
 
     $tb_meta = get_user_meta($currentUserID, 'interest', true);
-    $tag_array = array();
-    $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
-    
-    $area_of_interest = array();
+    if($tb_meta){    
+      $tag_array = array();
+      $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
+      
+      $area_of_interest = array();
 
-    foreach ($get_user_interest as $key => $value){
-        $area_of_interest[$key] = $value->name;
+      foreach ($get_user_interest as $key => $value){
+          $area_of_interest[$key] = $value->name;
+      }
     }
 
     $area_of_interest = implode(",", $area_of_interest);
@@ -3420,16 +3422,18 @@ function check_and_trigger_signup_tag() {
             }
 
             $tb_meta = get_user_meta($currentUserID, 'interest', true);
-            $tag_array = array();
-            $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
-            
-            $area_of_interest = array();
+            if($tb_meta){
+              $tag_array = array();
+              $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
+              
+              $area_of_interest = array();
 
-            foreach ($get_user_interest as $key => $value){
-                $area_of_interest[$key] = $value->name;
+              foreach ($get_user_interest as $key => $value){
+                  $area_of_interest[$key] = $value->name;
+              }
+              $area_of_interest = implode(",", $area_of_interest);
             }
 
-            $area_of_interest = implode(",", $area_of_interest);
             $_SESSION['sign_up_data'] = array(
                 "datalayer" => array(
                     "event"           => 'sign_up',

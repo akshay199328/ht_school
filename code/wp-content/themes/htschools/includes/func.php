@@ -1436,7 +1436,7 @@ function wplms_redirect_to_course($order_id){
 
         $product_name = $item['name'];
         
-        $product_id = apply_filters('bp_course_product_id',$item['product_id'],$item);
+        $product_id = apply_filters('bp_course_product_id',$item['product_id'],$item);        
 
         $vcourses=vibe_sanitize(get_post_meta($item['product_id'],'vibe_courses',false));
         if(isset($vcourses) && is_array($vcourses) && count($vcourses) && $vcourses !=''){
@@ -1457,9 +1457,6 @@ function wplms_redirect_to_course($order_id){
       }
 
       if(isset($order_courses) && is_array($order_courses) && count($order_courses)){
-
-          //$course_event=get_post_meta($product_id,'vibe_course_event',true);.
-          $course_event=1;
 
           echo 
           '<h3 class="heading course-order-details-heading">'.__('Courses Subscribed','vibe').'</h3>
@@ -1492,6 +1489,22 @@ function wplms_redirect_to_course($order_id){
 
             foreach($order_courses as $order_course){
                 foreach($order_course['courses'] as $course){
+
+                  /*$vcourses=vibe_sanitize(get_post_meta($product_id,'vibe_courses',false));
+                  $countvcourses=count($vcourses);
+                  foreach($vcourses as $courseNewID){
+                      $courseNewID = $courseNewID;
+                  }
+
+                  $dataNew = $course.'-'.$countvcourses.'-'.$courseNewID.'-'.$course_event;*/
+
+                  $course_event=get_post_meta($course,'vibe_course_event',true);
+
+                  if($course_event == 0){
+                    $ostatus=__('GO TO MY COURSES','vibe');
+                  }else{
+                    $ostatus=__('GO TO EVENT DASHBOARD','vibe');
+                  }
 
                   $button_access = get_post_meta($course,'vibe_course_button',true);
                   if( vibe_validate($button_access) && ($order->status == 'completed' || $order->status == 'complete') ){

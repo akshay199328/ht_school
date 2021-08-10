@@ -4401,7 +4401,7 @@
                 className: "buttons_wrapper"
             },
             Rt("span", {
-                className: t.meta.retakes == 0 && t.event_quiz_type !='video' ? "button" : t.meta.retakes > 0 && t.quiz_points > 0 ? "button" : "hide-retake",
+                className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "button" : t.meta.retakes > 0 && t.quiz_points > 0 ? "button" : t.meta.retakes == 0 && t.event_quiz_type =='video' && t.submitted == true  ? "button" : "hide-retake",
                 id:"retake-quiz",
                 onClick: () => {
                     document.getElementById('show_result').style.display = 'none';

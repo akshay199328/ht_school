@@ -164,6 +164,73 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				</ul>
 			</li>
 			<li>Outcome of the Olympiad shall be final and binding any challenge to the same shall be not entertained. </li>
+			<li>
+				<p>Details of Prize to be awarded to the Winners of the Olympiad:</p>
+				<ul>
+					<li>Certificate of Participation for each Participant Laptops, Smart Watches, Alexa and lot of other goodies to be won</li>
+					<li>Exact details of prizes won will be updated on the hompage</li>
+				</ul>
+			</li>
+			<li>HTML reserves the right to amend/replace the Prize(s) to be distributed to the Winners. No objection in this regard shall be entertained.</li>
+			<li>Any travelling and/or lodging cost associated with participation in the Olympiad or enrolling in the Program shall be solely borne by the Participant.</li>
+			<li>HTML reserves the right to postpone the Olympiad or withdraw or amend the terms and conditions of the Olympiad as it may deem necessary or fit.</li>
+			<li>Children of HTML employees or any of its Group Companies’ employees may participate in the Olympiad. However, if they participate, they won’t be able to claim the prizes under the Olympiad. </li>
+			<li>The prizes for the Olympiad will be given to the winner as set out in the Terms. The winner must accept his/her prize in that form. Prizes are non-negotiable, non-transferable, non-refundable and not exchangeable for cash credit or kind, either in part or in full except at the sole and absolute discretion of the HTML.</li>
+			<li>HTML reserves the right in its sole and absolute discretion to deal with any unclaimed prizes in any manner.</li>
+			<li>HTML shall not be liable in any way for any failure or breach by any party in connection with the Olympiad, prize or prizes and accepts no responsibility for any loss suffered by a participant arising from the Olympiad, prize or prizes.</li>
+			<li>Any winner of the Olympiad may, at no cost to HTML, be requested to participate in public relations events tied to the campaign to generate press coverage of the Olympiad. This may include, but not be limited to, quotes given for inclusion in press releases and press conferences, interviews, etc.</li>
+			<li>By participating in the Olympiad, the Participant allows: (a) the usage of their photos, name, quotes and/or likeness, without compensation, for HTML promotional and marketing purposes; and (b) to use their answers to the Olympiad questions, without compensation, for HTML’s promotional and marketing purposes, either directly or through any third party. </li>
+			<li>Any attempt by a Participant to deliberately damage or undermine the legitimate operation of the Olympiad is a violation of Criminal and Civil Laws and should such an attempt be made, HTML reserves its right to seek damages from any such Participant to the fullest extent as permitted by law.</li>
+			<li>Any content created by any Participant during the Program or the Olympiad shall be the sole proprietary of HTML. The Participant hereby agrees to assist in transfer of all/any right that accrues to the participant due to the creation of the content under the applicable law. Such transfer shall be without any compensation and/or future royalties (if any). </li>
+			<li>All entries will be treated as the property of HTML only and can be used by HTML  (or any third party authorized by HTML in this regard) for any promotional and / or commercial activity & the participants/winners waive all rights of whatsoever nature in the said entries in favour of HTML  by participating in the Olympiad.</li>
+			<li>Winners may be required by HTML to participate in a photo, video and/or film session and acknowledge that HTML has the absolute and exclusive right to use such photos, videos and/or films in any medium and in any reasonable manner it may deem fit for publicity without any consideration or payment of similar nature to such participants/winners.</li>
+			<li>HTML in its absolute discretion may publicize, broadcast or otherwise disclose a participant's/winner's name, character, likeness, statements, or any recording of their voice in advertising or promotional activities concerning this Olympiad, or generally. HTML may promote or advertise that a winner has won the Olympiad.</li>
+			<li>HTML, and/or its subsidiaries, offices and representatives shall not be liable to any person or entity for any direct, indirect, incidental, special, punitive or consequential damages, including loss of profits, incurred by the winner or any third party, whether in connection with this Olympiad, or for breach of any warranty or in tort.</li>
+			<li>Participant/User agrees to indemnify HTML, its agents, employees, representatives, associates, affiliates, parent and subsidiary companies against any and all claim, losses, costs, damages, liability and expenses arising out of the Participant’s breach of any of the T&C or arising out of or in connection with their entries to the Olympiad.</li>
+			<li>Participant, by entering the Olympiad, expressly releases HTML from any claim, action or demand arising out of or in connection with the Olympiad or their prize, if any.</li>
+			<li>HTML shall not assume any responsibility for incorrect or inaccurate capture of any Participant’s information. This will include but not limited to technical malfunctions, human or technical error, seeding or printing errors, lost or delayed or garbled data or transmissions, omission, interruption, deletion, defect or failures of any telephone or computer line or network, computer equipment, software or any combination thereof.</li>
+			<li>The laws of the India shall govern these T&C. The courts of Delhi will have exclusive jurisdiction in case of any dispute arising under the Terms and Conditions herein.</li>
+			<li>Any provision of the T&C that is prohibited or unenforceable in any jurisdiction shall ineffective as to that jurisdiction to the extent of that prohibition or unenforceability. That does not affect the validity or enforceability of that provision in any other jurisdiction nor invalidate the remaining provisions of the T&C.</li>
+			<li>Any provision of the T&C that is prohibited or unenforceable in any jurisdiction shall ineffective as to that jurisdiction to the extent of that prohibition or unenforceability. That does not affect the validity or enforceability of that provision in any other jurisdiction nor invalidate the remaining provisions of the T&C.</li>
+			<li>HTML shall not be responsible for any loss or damage suffered by the participants while participating in the Olympiad.</li>
+			<li>Failure by HTML to enforce any of these Terms and Conditions in any instance(s) shall not give rise to any claim by any person.</li>
+			<li>This Olympiad is being created as a promotional activity for HTML and all goodwill, copyright, moral rights or other intellectual rights associated thereto shall vest exclusively with HTML.</li>
+			<li>The Olympiad is valid subject to the winner complying with all T&C and/or formalities as required by HTML. Any failure on the part of the Participant to comply with any specified term, condition and/or formality shall render the Participant liable for disqualification at the sole discretion of HTML.</li>
+			<li>
+				<p><strong>Payments</strong></p>
+				<p>The Platform is a paid service and the payments made by the User registering as a Participant shall be according to the plans opted by the participant through the Platform. All payments by Users shall be through the payment mechanism put in place by HTML. Users shall been various options to choose from and proceed with the payment for the enrollment/participation via payment mechanisms including but not limited to Card Payment facilities, EMI Payment, Online Bank Transfer and Wallet Payment. It is hereby clarified that the payment gateway mechanisms are governed by the terms and conditions of the third party providers as listed on the Platform and the User agrees to be bound by those terms. Valid Credit / Debit/ Cash Card/ online bank transfers and other payment instruments are processed using a Credit Card payment gateway or appropriate payment system infrastructure and the same will also be governed by the terms agreed to between the Users and the respective issuing bank and payment instrument issuing company. HTML shall not be liable for any unauthorized use, fraud, payment refunds, lost amount etc. in the transaction.</p>
+			</li>
+			<li>
+				<p><strong>Points System</strong></p>
+				<ul>
+					<li>
+						<p>Points will be rewarded for the following interactions on this website:</p>
+						<ul>
+							<li>Registrations</li>
+							<li>Payments</li>
+							<li>Referral(s)</li>
+							<li>Daily login</li>
+							<li>Social engagements </li>
+							<li>Chapter completion</li>
+							<li>Quiz completion </li>
+							<li>Video completion</li>
+							<li>Project Submission</li>
+						</ul>
+					</li>
+					<li>Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code<code>&lt;a&gt;</code>thon Finale.</li>
+					<li>Details of the point system will be provided to each Participant through the Participant's dashboard.</li>
+				</ul>
+			</li>
+			<li><strong>User Communication: </strong>Participants hereby explicitly consent to receiving communication from HTML or representative by email, telephone, Whatsapp or text message for the purposes of providing alerts and information about our services.</li>
+			<li><strong>User Content: </strong>The information, photo, image, chat communication, text, software, data, music, sound, graphics, messages, videos or other materials transmitted, uploaded, posted, emailed or otherwise made available to HTML (“User Content“), are entirely user’s/participant’s responsibility and HTML will not be held responsible, in any manner whatsoever, in connection to the User Content.  The User/Participant  agrees not to encourage or assist or engage others as well as himself/herself in transmitting, hosting, displaying, uploading, modifying, publishing transmitting, updating or sharing any information that belongs to another person and to which the user does not have any right to. HTML shall in no way be held responsible for examining or evaluating User Content, nor does it assume any responsibility or liability for the User Content. HTML does not endorse or control the User Content transmitted or posted on the Site by the User and therefore, accuracy, integrity or quality of User Content is not guaranteed by HTML. User/Participant understands that by using the Site, he/she may be exposed to User Content that is offensive, indecent or objectionable to him/her. Under no circumstances will HTML be liable in any way for any User Content, including without limitation, for any errors or omissions in any User Content, or for any loss or damage of any kind incurred by him/her as a result of the use of any User Content transmitted, uploaded, posted, e-mailed or otherwise made available via the Site. User hereby waive all rights to any claims against HTML for any alleged or actual infringements of any proprietary rights, rights of privacy and publicity, moral rights, and rights of attribution in connection with User Content.</li>
+			<li>
+				<p><strong>Account: </strong>User/Participant will be responsible for maintaining confidentiality of his/her account, password, and restricting access to his/her computer, and he/she hereby accepts responsibility for all activities that occur under his/her account and password.  Participant acknowledges that the information he/she provides, in any manner whatsoever, are not confidential or proprietary and does not infringe any rights of any third party.</p>
+				<p>If a User is accessing, browsing and using the Site on someone else’s behalf; he/she represents that he/she have the authority to bind that person to all the terms and conditions herein. In the event that the person refuses to be bound as the principal to the Terms of Use, he/she agrees to accept liability for any harm caused by any wrongful use of the Site resulting from such access or use of the Site.</p>
+				<p>If a User knows or has reasons to believe that the security of he/her account has been breached, he/she should contact HTML immediately at the Contact Information provided below. If HTML finds a breach or suspects breach of the security of a User’s /Participant’s account, HTML may require the User to change the password, or suspend the account without any liability to HTML.</p>
+				<p>HTML reserves the right to refuse service and/or terminate accounts without prior notice if these Terms of Use are violated or if HTML decides, in HTML’s sole discretion. A User/Participant is solely responsible for all content that he/she uploads, posts, emails or otherwise transmits via the Site. The information provided to HTML shall be maintained by HTML in accordance with HTML’s Privacy Policy.</p>
+			</li>
+			<li>HTML reserves the right, in its sole and absolute discretion, to amend or vary any of these Terms & Conditions at any time without prior notice or intimation.</li>
+			<li>By enrolling into the Program and/or participating in the Olympiad hereby acknowledges and agrees to abide by the Terms of Use, Privacy Policy, Cookie Policy, and other policies as may be amended from time to time.</li>
 		</ol>
 	</div>
 </div>

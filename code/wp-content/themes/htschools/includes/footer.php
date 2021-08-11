@@ -441,6 +441,8 @@ jQuery(document).ready(function(){
           responsive : {
                0 : {
                     items:2,
+                    autoWidth:true,
+                    margin:10,
                },
                // breakpoint from 480 up
                480 : {

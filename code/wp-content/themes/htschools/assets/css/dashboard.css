@@ -1782,12 +1782,11 @@ button[disabled=disabled].next-button {
         display: block !important
     }
 
-    .account .register,
-    .ms-3 {
+    .register {
         display: none !important
     }
 
-    .profile-menu {
+    .account  {
         position: fixed;
         top: 0;
         bottom: 0;

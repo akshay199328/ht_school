@@ -224,7 +224,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <?php if($course_status11 == 1){ ?>
           <!-- <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
           <div class="resume_btn">
-            <?php the_course_button($course_1)?>
+            <?php the_course_button($course_1); ?>
           </div>
         <?php }else{ ?>
           <button class="enroll" disabled>Enroll Now</button>
@@ -279,7 +279,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           <?php if($course_status22 == 1){ ?>
             <!-- <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
             <div class="resume_btn">
-                <?php the_course_button($course_2)?>
+                <?php the_course_button($course_2); ?>
             </div>
           <?php }else{ ?>
             <button class="enroll" disabled>Enroll Now</button>
@@ -334,7 +334,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           <?php if($course_status33 == 1){ ?>
             <!-- <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
             <div class="resume_btn">
-                <?php the_course_button($course_3)?>
+                <?php the_course_button($course_3); ?>
             </div>
           <?php }else{ ?>
             <button class="enroll" disabled>Enroll Now</button>

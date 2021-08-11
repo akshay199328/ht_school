@@ -11,12 +11,20 @@ else if(isset($_COOKIE['PHPSESSID']))
     $userIdentifier = $_COOKIE['PHPSESSID'];
 } 
 
+$basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
+$uri = substr($_SERVER['REQUEST_URI'], strlen($basepath));
+if (strstr($uri, '?')) $uri = substr($uri, 0, strpos($uri, '?'));
+$pageSlug = trim($uri, '/');
+
+
 ?>
 <input type="hidden" id="footer_user_identifier" value="<?php echo $userIdentifier; ?>">
 <input type="hidden" id="footer_timestamp" value="<?php echo date('c', time()); ?>">
 <input type="hidden" id="footer_session_source">
 <input type="hidden" id="footer_utm_tags">
+<?php if($pageSlug != 'codeathon-terms-and-conditions'){ ?>
 <div class="terms"><a href="<?php echo get_bloginfo('url'); ?>/codeathon-terms-and-conditions">Codeathon Terms and Conditions</a></div>
+<?php } ?>
 
 <footer class="footer-wrapper">
       <div class="new-footer-copy">

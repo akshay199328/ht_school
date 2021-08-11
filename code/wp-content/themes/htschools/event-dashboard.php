@@ -1402,7 +1402,7 @@ div#ui-datepicker-div{
             </div>
         </section>
     </div>
-
+<span class="overlay"></span>
 <script type="text/javascript">
 jQuery(document).ready(function(){
     

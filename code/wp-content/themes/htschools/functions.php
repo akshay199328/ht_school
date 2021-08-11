@@ -1801,8 +1801,7 @@ function prefix_load_cat_posts () {
      
       $array2 = array();
       foreach($result as $course){
-        
-        
+
           array_push($array2,$course);
         
         if($course->user_id == $user->ID){
@@ -1813,15 +1812,46 @@ function prefix_load_cat_posts () {
       $dashboard_data = $array2;
       //echo "<pre>";print_r($dashboard_data);exit();
       $i = 0;
-      foreach($dashboard_data as $course){
-        $rank = $i + 1;
+      $newarray = array();
+      $user_rank = array();
+      foreach($dashboard_data as $key => $csm)
+      {
+        $rank = $key + 1;
+        $dashboard_data[$key]->rank = $rank;
+      }
+
+      foreach($dashboard_data as $key => $csm)
+      {
+        if($dashboard_data[$key]->user_id == $user->ID){
+          $user_rank[] = $dashboard_data[$key]->rank;
+        }
+      }
+      $current_user_rank = implode($user_rank);
+      $prev_rank = $current_user_rank - 1;
+      $next_rank = $current_user_rank + 1;
+
+      $prev_rank_array = array();
+      $next_rank_array = array();
+      foreach($dashboard_data as $key => $v)
+      {
+        if($dashboard_data[$key]->rank <= $current_user_rank && $dashboard_data[$key]->rank >= $prev_rank){
+          $prev_rank_array[] = $v;
+        }
+        if($dashboard_data[$key]->rank > $current_user_rank && $dashboard_data[$key]->rank <= $next_rank){
+          $next_rank_array[] = $v;
+        }
+        //$dashboard_data[$key]['flag'] = 1;
+      }
+      $user_rank_list = array_merge($prev_rank_array,$next_rank_array);
+ 
+      foreach($user_rank_list as $course){
         if($course->user_id == $user->ID){
           $response = '<tr style="background: #D5EBFF;">';
         }
         else{
           $response = '<tr>';
         }
-        $response .= '<td scope="row"><span class="circle">'.$rank.'</span></td>';
+        $response .= '<td scope="row"><span class="circle">'.$course->rank.'</span></td>';
         if($course->user_id == $user->ID){
           $response .= '<td>'.get_display_name($course->user_id) .'</td>';
         }else{
@@ -1831,7 +1861,6 @@ function prefix_load_cat_posts () {
         $response .= '<td>'. $course->score .'</td>';
         $response .= '</tr>';
         echo $response;
-        $i++; 
       }
     }
 

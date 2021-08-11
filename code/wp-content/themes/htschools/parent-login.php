@@ -4,15 +4,19 @@ $_SESSION['previousPageUrl']="";
 if(isset($_SERVER['HTTP_REFERER'])){
   $_SESSION['previousPageUrl']=$_SERVER['HTTP_REFERER'];
 }
-
 /**
  * Template Name: Parent Login Page 
  */
 global $bp;
 
+ global $current_user;
+get_currentuserinfo();
+ $email=$current_user->user_email; 
+ $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" .$email . "'");
+  $username = $users[0]->user_nicename;
 
 if(is_user_logged_in()){
-    wp_redirect(bp_loggedin_user_domain());
+    wp_redirect(get_bloginfo('url').'/members-directory/'.$username.'/parent_dashboard/');
     exit();
 }
 
@@ -47,7 +51,6 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
        text-align: center;
       }
 
-
     .abcRioButton.abcRioButtonLightBlue {
         margin: 0 auto;
         display: inline-block;
@@ -60,6 +63,8 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
         margin: 0 auto;
       }
 </style>
+
+
 <main id="main">
   <section class="login">
     <div class="innerheader-space"></div>
@@ -73,8 +78,6 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/login-back.jpg" class="img-fluid"/>
             </div>
           </div>
-
-
 
           <div class="loginContent_right">
 
@@ -335,6 +338,8 @@ jQuery(window).load(function(){
    jQuery('#login_page_register_tab').tab('show');
 });
 </script> -->
+
+
 <script type="text/javascript">
 
     jQuery(document).ready(function(){
@@ -747,7 +752,6 @@ jQuery(window).load(function(){
         });
 
     });
-
 
     function startTimer() {
         var presentTime = document.getElementById('reg-otp-timer').innerHTML;

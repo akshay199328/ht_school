@@ -21,35 +21,28 @@ if($user_role=='instructor'){
 
     $profile_layout = 'blank';
 }
-
+$user = wp_get_current_user();
 
 vibe_include_template("profile/top$profile_layout.php"); 
 
 ?>
-
-
-
 
 <div class="wplms-dashboard row">
     <div class="col-sm-12 dashboard-info">
         <div class="col-sm-12 col-md-3 mrg">
             <div class="left-listing">
                 <div class="tab">
-  <button class="tablinks active" onclick="openCity(event, 'Events')">Events</button>
-  <button class="tablinks" onclick="openCity(event, 'Courses')">Courses</button>
+  <button class="tablinks active" id="Event" onclick="CouseEvent(event, 'Events')">Events</button>
+  <button class="tablinks" id="Course" onclick="CouseEvent(event, 'Courses')">Courses</button>
 </div>
 
-<div id="Events" class="tabcontents">
+<div id="Events" class="tabcontents Events">
     <ul class="mobile-slider scroll">
                     <?php global $wpdb;    
                     $user = wp_get_current_user();
                         $query = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '".$user->ID."' ORDER BY rel.meta_key"));
                         $result = $wpdb->get_results($query);
                         
-                            /*echo "<pre>";
-                            print_r($result);exit();
-                            echo "</pre>";*/
-
                         foreach($result as $course){
                             $args['post__in'][]=$course->course_id;
                         }
@@ -79,10 +72,6 @@ vibe_include_template("profile/top$profile_layout.php");
 
                         $course_query = new WP_Query($query_args);
 
-                        /*echo "<pre>";
-                            print_r($course_query);exit();
-                            echo "</pre>";*/    
-
 
                         global $bp,$wpdb;
                         while($course_query->have_posts()){
@@ -90,7 +79,7 @@ vibe_include_template("profile/top$profile_layout.php");
                         global $post;
                         
                     ?>
-                    <li class="item dashboard-li" value="<?php echo get_the_ID();?>">
+                    <li class="item edashboard-li" value="<?php echo get_the_ID();?>">
                         <input type="hidden" class="course_id" >
                         <a href="#">
                             <div class="col-xs-3 col-sm-3 col-md-3 mrg">
@@ -118,10 +107,6 @@ vibe_include_template("profile/top$profile_layout.php");
                         $query = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '".$user->ID."' ORDER BY rel.meta_key"));
                         $result = $wpdb->get_results($query);
                         
-                            /*echo "<pre>";
-                            print_r($result);exit();
-                            echo "</pre>";*/
-
                         foreach($result as $course){
                             $args['post__in'][]=$course->course_id;
                         }
@@ -139,22 +124,10 @@ vibe_include_template("profile/top$profile_layout.php");
                                 'comapare' => '='
                                 )  
                               )
-                            /*'meta_query' => array(
-                              'relation' => 'AND',
-                              array(
-                                'key' => 'vibe_course_event',
-                                'value' => '1',
-                                'comapare' => '='
-                                )  
-                              )  */ 
+                           
                         ));
 
                         $course_query = new WP_Query($query_args);
-
-                        /*echo "<pre>";
-                            print_r($course_query);exit();
-                            echo "</pre>";*/    
-
 
                         global $bp,$wpdb;
                         while($course_query->have_posts()){
@@ -215,14 +188,33 @@ vibe_include_template("profile/top$profile_layout.php");
     </div>
     <script type="text/javascript">
         (function($) {
-            $(document).ready(function() {
+           $(document).ready(function() {
                 /* Select link with an id of first and a class of big.*/
-                var course_id = $("ul .dashboard-li:first").val();
-                $("ul .dashboard-li:first").addClass("active");
+                var course_id = $("ul .edashboard-li:first").val();
+                $("ul .edashboard-li:first").addClass("active");
                 getScore(course_id);
                 getRank(course_id);
                 getUserRank(course_id);
             }); 
+            $('.edashboard-li').click(function(e){
+              e.preventDefault();
+                $('.mobile-slider li').removeClass("active");
+                $(this).addClass("active");
+              var course_id = $(this).val();
+              getScore(course_id);
+              getRank(course_id);
+              getUserRank(course_id);
+            })
+            $('#Event').click(function(e){
+             
+               e.preventDefault();
+                var course_id = $("ul .edashboard-li:first").val();
+                $("ul .edashboard-li:first").addClass("active");
+              getScore(course_id);
+              getRank(course_id);
+              getUserRank(course_id);
+            })
+             
             $('.dashboard-li').click(function(e){
               e.preventDefault();
                 $('.mobile-slider li').removeClass("active");
@@ -232,6 +224,19 @@ vibe_include_template("profile/top$profile_layout.php");
               getRank(course_id);
               getUserRank(course_id);
             })
+
+            $('#Course').click(function(e){
+              
+               e.preventDefault();
+                $('.mobile-slider li').removeClass("active");
+                var course_id = $("ul .dashboard-li:first").val();
+                $("ul .dashboard-li:first").addClass("active");
+              getScore(course_id);
+              getRank(course_id);
+              getUserRank(course_id);
+                
+            })
+            
 
             function getScore(course_id){
                     $.ajax({
@@ -275,19 +280,19 @@ vibe_include_template("profile/top$profile_layout.php");
 
         })( jQuery );
 
-            function openCity(evt, cityName) {
-              var i, tabcontents, tablinks;
-              tabcontents = document.getElementsByClassName("tabcontents");
-              for (i = 0; i < tabcontents.length; i++) {
-                tabcontents[i].style.display = "none";
-              }
-              tablinks = document.getElementsByClassName("tablinks");
-              for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-              }
-              document.getElementById(cityName).style.display = "block";
-              evt.currentTarget.className += " active";
-            }
+function CouseEvent(evt, CouseEventName) {
+  var i, tabcontents, tablinks;
+  tabcontents = document.getElementsByClassName("tabcontents");
+  for (i = 0; i < tabcontents.length; i++) {
+    tabcontents[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(CouseEventName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
 
     </script>
     <?php do_action( 'bp_before_dashboard_body' ); ?>

@@ -176,7 +176,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
         <ul>
             <li><a href="#about_section">About Us</a></li>
             <li><a href="#learning_section">Learning Modules</a></li>
-            <li><a href="#How_it_works">How it works</a></li>
+            <li><a href="#How_it_works">How It Works</a></li>
             <li><a href="#About_Partners">About Our Partners</a></li>
             <li><a href="#Partner_says">What Our Partners Say</a></li>
         </ul>

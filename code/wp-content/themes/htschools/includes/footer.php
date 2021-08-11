@@ -537,6 +537,27 @@ jQuery(document).ready(function(){
 
      });
 
+     $("#user_firstname").on("keydown", function (event, ui) { 
+
+       var keyCode = e.keyCode || e.which;
+
+       $("#errFirstName").text("");
+
+       //Regex for Valid Characters i.e. Alphabets.
+       var regex = /^[A-Za-z]+$/;
+
+       //Validate TextBox value against the Regex.
+       var isValid = regex.test(String.fromCharCode(keyCode));
+       if (!isValid) {
+            $("#errFirstName").text("Please enter only alphabets");
+            setTimeout(function(){ $("#errFirstName").html(''); }, 5000);
+       }
+
+       return isValid;
+
+     });
+
+
      $("#user_lastname").keypress(function(e) {
        var keyCode = e.keyCode || e.which;
 
@@ -556,6 +577,26 @@ jQuery(document).ready(function(){
 
      });
 
+
+     $("#user_lastname").on("keydown", function (event, ui) { 
+
+       var keyCode = e.keyCode || e.which;
+
+       $("#errLastName").text("");
+
+       //Regex for Valid Characters i.e. Alphabets.
+       var regex = /^[A-Za-z]+$/;
+
+       //Validate TextBox value against the Regex.
+       var isValid = regex.test(String.fromCharCode(keyCode));
+       if (!isValid) {
+            $("#errLastName").text("Please enter only alphabets");
+            setTimeout(function(){ $("#errLastName").html(''); }, 5000);
+       }
+
+       return isValid;
+
+     });
 
       jQuery(document).ready(function() {
           
@@ -1069,7 +1110,9 @@ jQuery(document).ready(function(){
             }
           });
 
-         $("#user_school_data1").on("keyup", function (event, ui) {   var other_val = $("#user_school_data1").val();
+         $("#user_school_data1").on("keyup", function (event, ui) {   
+
+          var other_val = $("#user_school_data1").val();
    
           if(other_val === "Others"){
             $("#other_school11").show();              

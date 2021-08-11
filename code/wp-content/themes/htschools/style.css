@@ -6009,7 +6009,11 @@ div.nsl-container .nsl-container-buttons {
 }
 
 .profile-heading {
-    padding: 10px 0
+    /*padding: 10px 0*/
+    padding: 5px 0;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
 }
 
 .profile-heading .heading-align {
@@ -6340,7 +6344,9 @@ div.nsl-container .nsl-container-buttons {
 .page-template-parent-login .menu .my-course {
     display: none !important
 }
-
+.parent_dashboard .border-menu.home_button{
+    display: flex!important;
+}
 .left-listing .tab {
     overflow: hidden;
     border: 0
@@ -6361,11 +6367,14 @@ div.nsl-container .nsl-container-buttons {
     font-weight: 700;
     color: #000;
     margin: 0;
-    width: 50%;
+    width: 49%;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    margin-right: 5px;
 }
-
+.left-listing .tab button:last-child{
+    margin-right: 0px;
+}
 .left-listing .tab button:hover {
     background-color: #000;
     color: #fff
@@ -11684,4 +11693,7 @@ input.form-control {
 
 .woocommerce table.shop_table tbody tr.codeathoncart {
     background-color: #eee
+}
+.page-template-codeathon-terms-and-conditions.modal-open{
+        overflow: initial!important;
 }

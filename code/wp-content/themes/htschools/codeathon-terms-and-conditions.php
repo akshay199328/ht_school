@@ -2,16 +2,40 @@
 /**
  * Template Name: Codeathone Terms And Conditions
  */
-
 if ( !defined( 'ABSPATH' ) ) exit;
 
-include("includes/lead.php"); ?>
+get_header(vibe_get_header());
+?>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon-bootstrap.css" rel="stylesheet">
+<link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg" href="<?php echo bloginfo('template_url')?>/assets/images/favicon.svg"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MXXRRC3');</script>
+<!-- End Google Tag Manager -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m,n){i.moengage_object=r;t={};q=function(f){return function(){(i.moengage_q=i.moengage_q||[]).push({f:f,a:arguments})}};f=['track_event','add_user_attribute','add_first_name','add_last_name','add_email','add_mobile','add_user_name','add_gender','add_birthday','destroy_session','add_unique_user_id','moe_events','call_web_push','track','location_type_attribute'],h={onsite:["getData","registerCallback"]};for(k in f){t[f[k]]=q(f[k])}for(k in h)for(l in h[k]){null==t[k]&&(t[k]={}),t[k][h[k][l]]=q(k+"."+h[k][l])}a=s.createElement(o);m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);i.moe=i.moe||function(){n=arguments[0];return t};a.onload=function(){if(n){i[r]=moe(n)}}})(window,document,'script','https://cdn.moengage.com/webpush/moe_webSdk.min.latest.js','Moengage')
+
+  Moengage = moe({
+    app_id:"5G83B74ZQGQUARJAI23JB9JY_DEBUG",
+    debug_logs: 1
+  });
+</script>
 
 <div class="section-wrapper terms-conditions">
 	<div class="section-copy">
-		<h2 class="section-title">Tearms and Conditions</h2>
+		<h2 class="section-title">Terms and Conditions</h2>
 		<ol>
-			<li>These Terms and Conditions ("T&C"), as amended from time to time are the complete and exclusive statements of understanding between HT Media Limited and its affiliate(s) ("HTML") & the Participant/Users (through Parent/Legal guardian/School) and shall enroll for the course on HT Codeathon (hereinafter referred to as the "Program") and to participate in HT Jr. Code <code>&lt;a&gt;</code> thon Qualifier and Finale (hereinafter referred to as "Olympiad"). It supersedes all other prior understanding, whether oral or written. All representation or other communications between the HTML & the Participant amounts to acceptance of these terms & conditions.</li>
+			<li>These Terms and Conditions ("T&C"), as amended from time to time are the complete and exclusive statements of understanding between HT Media Limited and its affiliate(s) ("HTML") & the Participant/Users (through Parent/Legal guardian/School) and shall enroll for the course on HT Codeathon (hereinafter referred to as the "Program") and to participate in HT Jr. Code-a-thon Qualifier and Finale (hereinafter referred to as "Olympiad"). It supersedes all other prior understanding, whether oral or written. All representation or other communications between the HTML & the Participant amounts to acceptance of these terms & conditions.</li>
 			<li>HTML is offering a premium course in Coding ("Program") and a Coding Olympiad ("Olympiad") for the students of VI to IX Grade. The User/Participants may enroll either directly or through the respective schools.</li>
 			<li><strong>Age of the Participant:</strong> A Participant must be within 16 years of age in order to be eligible for competing in the Olympiad. HTML reserves the right to disqualify Participants for any misrepresentation or otherwise</li>
 			<li>HTML shall provide an online platform for enrolling into the Program and participating in the Olympiad to the Users/Participants. All registration and payment procedures shall be in accordance with the terms and conditions herein, as may be amended from time to time and/or any other communication as shared by HTML from time to time. </li>
@@ -110,7 +134,7 @@ include("includes/lead.php"); ?>
 					</li>
 					<li>All videos, chapter quizzes are unsurpassable</li>
 					<li>Participants need to complete one video and quiz before he goes to the next one </li>
-					<li>Completion of all of the videos and video quizzes is necessary for eligibility for the Code<code>&lt;a&gt;</code>thon Qualifiers.</li>
+					<li>Completion of all of the videos and video quizzes is necessary for eligibility for the Code-a-thon Qualifiers.</li>
 					<li>There are points awarded on completion of every Video and Chapter Quiz.</li>
 					<li>The Participant will be ranked on the acquired points during the course of the program.</li>
 				</ul>
@@ -134,7 +158,7 @@ include("includes/lead.php"); ?>
 						<p>South Zone : Andaman and Nicobar Islands, Andhra Pradesh, Dadra and Nagar Haveli, Goa, Gujarat, Chhattisgarh , Odisha Karnataka, Kerala, Madhya Pradesh, Maharashtra, Puducherry, Tamil Nadu, Telangana, Lakshwadeep,</p>
 					</li>
 					<li>HT in its sole discretion may introduce a maximum of (03) Participant(s) directly in the Finale (without the mandate of qualifying the Qualifier) as wild card entries. However, the same shall be in addition to the 100 participants qualified for finale through the Qualifier. Details of such wild card entries shall be disclosed only at the time to introducing such wild card entries to HT Codeathon Finale.</li>
-					<li>Finale may take place online and Participants will be notified well in advance. Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code<code>&lt;a&gt;</code>thon Finale.</li>
+					<li>Finale may take place online and Participants will be notified well in advance. Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code-a-thon Finale.</li>
 					<li>The finalists will be chosen based on the overall performance and points collected till the end of Qualifiers.</li>
 					<li>The Outcome of the Finale will be published on the website and emails will be sent to the Participants.</li>
 				</ul>
@@ -193,7 +217,7 @@ include("includes/lead.php"); ?>
 							<li>Project Submission</li>
 						</ul>
 					</li>
-					<li>Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code<code>&lt;a&gt;</code>thon Finale.</li>
+					<li>Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code-a-thon Finale.</li>
 					<li>Details of the point system will be provided to each Participant through the Participant's dashboard.</li>
 				</ul>
 			</li>

@@ -1827,8 +1827,8 @@ function prefix_load_cat_posts () {
         }
       }
       $current_user_rank = implode($user_rank);
-      $prev_rank = $current_user_rank - 1;
-      $next_rank = $current_user_rank + 1;
+      $prev_rank = $current_user_rank - 5;
+      $next_rank = $current_user_rank + 5;
 
       $prev_rank_array = array();
       $next_rank_array = array();

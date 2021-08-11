@@ -453,7 +453,7 @@ jQuery(document).ready(function(){
                0 : {
                     items:2,
                     autoWidth:true,
-                    margin:10,
+                    margin:20,
                },
                // breakpoint from 480 up
                480 : {

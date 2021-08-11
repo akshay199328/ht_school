@@ -132,9 +132,14 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
 </div>
 
 
-            <div class="header-copy">
 
-                <div class="mrg left-menu">
+            <div class="header-copy">
+<?php
+if ( !is_page_template('event-dashboard.php')){
+  ?>
+ 
+<div class="mrg left-menu">
+        
                     <?php
 
 
@@ -154,7 +159,9 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                            foreach ($menuitems as $menu) {
                             $current = ( $_SERVER['REQUEST_URI'] == parse_url( $menu->url, PHP_URL_PATH ) ) ? 'active' : '';
                               if($menu->title == 'Menu'){
-                                echo '<li class="border-menu ' . $current . ' "><a>' . $menu->title . '</a></li>';
+                                echo '<li class="border-menu hide-menu ' . $current . ' "><a>' . $menu->title . '</a></li>';
+                              $home= 'Home';
+                                echo '<li class="border-menu home_button ' . $current . ' "><a>' . $home . '</a></li>';
                               }
                               else{
                               if($post_slug != 'login-register'){
@@ -176,6 +183,12 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                         <span class="lines"></span>
                     </a>
                 </div>
+                 <?php
+            }
+          ?>
+          <?php
+if ( !is_page_template('event-dashboard.php')){
+  ?>
                 <div class="middle-menu">
                     <i class="bi bi-list mobile-nav-toggle"></i>
                     <?php
@@ -196,6 +209,10 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                         }
                     ?>
                 </div>
+                <?php
+            }
+          ?>
+
                 <div class="mrg right-menu">
                 <?php  global $post;
                     $post_slug = $post->post_name;
@@ -213,6 +230,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                     }else{
 
 
+                      if ( !is_page_template('event-dashboard.php')){
                     if ( function_exists('bp_loggedin_user_link') && is_user_logged_in() ) :
                         ?>
                             <li><a href="<?php bp_loggedin_user_link(); ?>" class="smallimg vbplogin"><?php $n=vbp_current_user_notification_count(); echo ((isset($n) && $n)?'<em></em>':''); bp_loggedin_user_avatar( 'type=full' ); ?><?php bp_loggedin_user_fullname(); ?></a></li>
@@ -231,9 +249,10 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                             </li>
                     <?php
                     endif;
-                }
+                }}
                 ?>
                 </ul>
+
               <?php } ?>
                 <?php
                    $menu_name = 'top-menu'; //menu slug
@@ -244,6 +263,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                     global $post;
                     $post_slug = $post->post_name;
                     if($post_slug != 'login-register'){
+                        if ( !is_page_template('event-dashboard.php')){
                      //print_r($menuitems);
                      echo "<ul class='after_loginspace'><li class='search-icon'><a href='/?s'><img alt='Search' title='Search' src=".get_bloginfo('template_url')."/assets/images/search.svg></a></li>";
                      do_action('woocommerce_add_to_cart_fragments');
@@ -254,14 +274,22 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                       <img alt='News' title='News' src=".get_bloginfo('template_url')."/assets/images/news-icon.svg>
                      </a>
                      </li>";
-                     foreach ($menuitems as $menu) {  ?>
+                     foreach ($menuitems as $menu) {  
+                      
+                      ?>
+                         
                          <li class="epaper"><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
+
                      <?php }
                      echo "</ul>";
-                    }
+                    }}
                    ?>
                 </div>
             </div>
+          
+         
+
+
         </div>
         <div id="close-navigation-header">
 

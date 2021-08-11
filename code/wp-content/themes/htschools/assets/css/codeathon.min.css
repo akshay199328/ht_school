@@ -4119,6 +4119,11 @@ code{
     font-family: "Poppins"!important;
     font-size: 16px;
 }
+.terms-conditions ol li p{
+    font-family: "Poppins"!important;
+    font-size: 16px;
+    font-weight: 400;
+}
 .terms-conditions ol li a{color:#004ba6}
 .terms-conditions ol li{
     margin-bottom:15px;

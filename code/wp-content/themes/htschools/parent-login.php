@@ -754,6 +754,8 @@ jQuery(window).load(function(){
     });
 
 
+
+
     function startTimer() {
         var presentTime = document.getElementById('reg-otp-timer').innerHTML;
         var timeArray = presentTime.split(/[:]+/);
@@ -820,7 +822,6 @@ jQuery(window).load(function(){
         return sec;
     }
 </script>
-
 <?php
 /*}*/
 get_footer( vibe_get_footer() );

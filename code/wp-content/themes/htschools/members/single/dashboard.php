@@ -25,9 +25,7 @@ $user = wp_get_current_user();
 
 vibe_include_template("profile/top$profile_layout.php"); 
 
-
 ?>
-
 
 <div class="wplms-dashboard row">
     <div class="col-sm-12 dashboard-info">

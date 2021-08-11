@@ -1522,8 +1522,8 @@ function wplms_redirect_to_course($order_id){
                     }else{
                       echo apply_filters('wplms_course_purchased','<li>
                           <a class="course_name">'.get_post_field('post_title',$course).'</a>
-                          <a href="'.get_bloginfo('url').'/event-dashboard"  class="button">
-                          '.$ostatus.'</a>'.$order_course['subs'].'
+                          <!--<a href="'.get_bloginfo('url').'/event-dashboard"  class="button">
+                          '.$ostatus.'</a>-->'.$order_course['subs'].'
                           </li>',$course,$item_id,$item,$order); 
                     }
                   }

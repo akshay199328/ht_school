@@ -188,7 +188,7 @@ if($bannerCount == 1){
 
           $age_limit = get_post_meta($course_1,'vibe_course_age_group',true);
         ?>
-        <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>" data-id="<?php echo $course_1; ?>">Enrol Now</a>
+        <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>" data-id="<?php echo $course_1; ?>">Enrol Now </a>
         <input type="hidden" id="course_name_<?php echo $course_1; ?>" value="<?php echo get_the_title($course_1); ?>">
         <input type="hidden" id="course_url_<?php echo $course_1; ?>" value="<?php echo $courseslug; ?>">
         <input type="hidden" id="course_category_<?php echo $course_1; ?>" value="<?php echo $category_array[0]->name;?>">
@@ -205,7 +205,7 @@ if($bannerCount == 1){
         <?php if($course_status11 == 1){ ?>
           <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
         <?php }else{ ?>
-          <button class="enroll" disabled>Enrol Now</button>
+          <button class="enroll" disabled>Enrol Now </button>
         <?php } ?>
       <?php } ?>
       </div>
@@ -240,7 +240,7 @@ if($bannerCount == 1){
 
             $age_limit = get_post_meta($course_2,'vibe_course_age_group',true);
           ?>
-          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>" data-id="<?php echo $course_3; ?>">Enrol Now</a>
+          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>" data-id="<?php echo $course_3; ?>">Enrol Now </a>
           <input type="hidden" id="course_name_<?php echo $course_2; ?>" value="<?php echo get_the_title($course_2); ?>">
           <input type="hidden" id="course_url_<?php echo $course_2; ?>" value="<?php echo $courseslug; ?>">
           <input type="hidden" id="course_category_<?php echo $course_2; ?>" value="<?php echo $category_array[0]->name;?>">
@@ -257,7 +257,7 @@ if($bannerCount == 1){
           <?php if($course_status22 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
           <?php }else{ ?>
-            <button class="enroll" disabled>Enrol Now</button>
+            <button class="enroll" disabled>Enrol Now </button>
           <?php } ?>
         <?php } ?>
       </div>
@@ -292,7 +292,7 @@ if($bannerCount == 1){
 
             $age_limit = get_post_meta($course_3,'vibe_course_age_group',true);
           ?>
-          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" data-id="<?php echo $course_3; ?>">Enrol Now</a>
+          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" data-id="<?php echo $course_3; ?>">Enrol Now </a>
           <input type="hidden" id="course_name_<?php echo $course_3; ?>" value="<?php echo get_the_title($course_3); ?>">
           <input type="hidden" id="course_url_<?php echo $course_3; ?>" value="<?php echo $courseslug; ?>">
           <input type="hidden" id="course_category_<?php echo $course_3; ?>" value="<?php echo $category_array[0]->name;?>">
@@ -309,7 +309,7 @@ if($bannerCount == 1){
           <?php if($course_status33 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
           <?php }else{ ?>
-            <button class="enroll" disabled>Enrol Now</button>
+            <button class="enroll" disabled>Enrol Now </button>
           <?php } ?>
         <?php } ?>
       </div>

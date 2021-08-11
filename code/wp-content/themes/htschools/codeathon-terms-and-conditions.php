@@ -33,9 +33,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div class="section-wrapper terms-conditions">
 	<div class="section-copy">
-		<h2 class="section-title">Tearms and Conditions</h2>
+		<h2 class="section-title">Terms and Conditions</h2>
 		<ol>
-			<li>These Terms and Conditions ("T&C"), as amended from time to time are the complete and exclusive statements of understanding between HT Media Limited and its affiliate(s) ("HTML") & the Participant/Users (through Parent/Legal guardian/School) and shall enroll for the course on HT Codeathon (hereinafter referred to as the "Program") and to participate in HT Jr. Code <code>&lt;a&gt;</code> thon Qualifier and Finale (hereinafter referred to as "Olympiad"). It supersedes all other prior understanding, whether oral or written. All representation or other communications between the HTML & the Participant amounts to acceptance of these terms & conditions.</li>
+			<li>These Terms and Conditions ("T&C"), as amended from time to time are the complete and exclusive statements of understanding between HT Media Limited and its affiliate(s) ("HTML") & the Participant/Users (through Parent/Legal guardian/School) and shall enroll for the course on HT Codeathon (hereinafter referred to as the "Program") and to participate in HT Jr. Code-a-thon Qualifier and Finale (hereinafter referred to as "Olympiad"). It supersedes all other prior understanding, whether oral or written. All representation or other communications between the HTML & the Participant amounts to acceptance of these terms & conditions.</li>
 			<li>HTML is offering a premium course in Coding ("Program") and a Coding Olympiad ("Olympiad") for the students of VI to IX Grade. The User/Participants may enroll either directly or through the respective schools.</li>
 			<li><strong>Age of the Participant:</strong> A Participant must be within 16 years of age in order to be eligible for competing in the Olympiad. HTML reserves the right to disqualify Participants for any misrepresentation or otherwise</li>
 			<li>HTML shall provide an online platform for enrolling into the Program and participating in the Olympiad to the Users/Participants. All registration and payment procedures shall be in accordance with the terms and conditions herein, as may be amended from time to time and/or any other communication as shared by HTML from time to time. </li>
@@ -134,7 +134,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					</li>
 					<li>All videos, chapter quizzes are unsurpassable</li>
 					<li>Participants need to complete one video and quiz before he goes to the next one </li>
-					<li>Completion of all of the videos and video quizzes is necessary for eligibility for the Code<code>&lt;a&gt;</code>thon Qualifiers.</li>
+					<li>Completion of all of the videos and video quizzes is necessary for eligibility for the Code-a-thon Qualifiers.</li>
 					<li>There are points awarded on completion of every Video and Chapter Quiz.</li>
 					<li>The Participant will be ranked on the acquired points during the course of the program.</li>
 				</ul>
@@ -158,7 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						<p>South Zone : Andaman and Nicobar Islands, Andhra Pradesh, Dadra and Nagar Haveli, Goa, Gujarat, Chhattisgarh , Odisha Karnataka, Kerala, Madhya Pradesh, Maharashtra, Puducherry, Tamil Nadu, Telangana, Lakshwadeep,</p>
 					</li>
 					<li>HT in its sole discretion may introduce a maximum of (03) Participant(s) directly in the Finale (without the mandate of qualifying the Qualifier) as wild card entries. However, the same shall be in addition to the 100 participants qualified for finale through the Qualifier. Details of such wild card entries shall be disclosed only at the time to introducing such wild card entries to HT Codeathon Finale.</li>
-					<li>Finale may take place online and Participants will be notified well in advance. Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code<code>&lt;a&gt;</code>thon Finale.</li>
+					<li>Finale may take place online and Participants will be notified well in advance. Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code-a-thon Finale.</li>
 					<li>The finalists will be chosen based on the overall performance and points collected till the end of Qualifiers.</li>
 					<li>The Outcome of the Finale will be published on the website and emails will be sent to the Participants.</li>
 				</ul>
@@ -217,7 +217,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							<li>Project Submission</li>
 						</ul>
 					</li>
-					<li>Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code<code>&lt;a&gt;</code>thon Finale.</li>
+					<li>Points earned/acquired during the entire Program will be taken into account for a Participant to qualify for the Code-a-thon Finale.</li>
 					<li>Details of the point system will be provided to each Participant through the Participant's dashboard.</li>
 				</ul>
 			</li>

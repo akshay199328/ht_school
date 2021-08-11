@@ -27,6 +27,7 @@ vibe_include_template("profile/top$profile_layout.php");
 
 ?>
 
+
 <div class="wplms-dashboard row">
     <div class="col-sm-12 dashboard-info">
         <div class="col-sm-12 col-md-3 mrg">
@@ -155,7 +156,6 @@ vibe_include_template("profile/top$profile_layout.php");
                     <?php } ?>
                 </ul>
 </div>
-
 
             </div>
         </div>

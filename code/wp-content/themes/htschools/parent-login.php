@@ -51,7 +51,6 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
        text-align: center;
       }
 
-
     .abcRioButton.abcRioButtonLightBlue {
         margin: 0 auto;
         display: inline-block;
@@ -64,6 +63,8 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
         margin: 0 auto;
       }
 </style>
+
+
 <main id="main">
   <section class="login">
     <div class="innerheader-space"></div>

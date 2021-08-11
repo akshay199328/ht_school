@@ -3487,6 +3487,7 @@ body.menuOpened .side-navigation {
     box-shadow: 0 5px 17px rgba(0, 0, 0, .11);
     position: fixed;
     max-width: 570px;
+    width:100%;
     top: 0;
     right: 0;
     bottom: 0;
@@ -3607,7 +3608,7 @@ body.menuOpened .side-navigation {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .earnpoints-wrapper .earnpoints-copy .points-wrapper .column.pink {
@@ -3640,6 +3641,8 @@ body.menuOpened .side-navigation {
 .earnpoints-wrapper .earnpoints-copy .points-wrapper .column .copy .sub-title {
     font-size: 12px
 }
+
+.earnpoints-wrapper .earnpoints-copy .points-wrapper .column .icon {position:relative;top:-2px}
 
 .earnpoints-wrapper .earnpoints-copy .points-wrapper .column .number {
     font-size: 16px;

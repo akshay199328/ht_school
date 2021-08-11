@@ -1168,9 +1168,9 @@ div#ui-datepicker-div{
         </div>
     </div>
     <div class="earnpoints-wrapper">
-        <section class="section">
+        <button class="earn-points-btn" type="button"></button>
+        <!-- <section class="section">
             <h3 class="earn-title first">Earn Points</h3>
-            <button class="earn-points-btn" type="button"></button>
             <div class="earnpoints-copy">
                 <div class="points-wrapper">
                     <div class="column pink">
@@ -1255,7 +1255,7 @@ div#ui-datepicker-div{
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <section class="section total">
             <div class="section-header">
                 <h3 class="earn-title">Total Points Earned</h3>

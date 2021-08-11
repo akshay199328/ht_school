@@ -1500,11 +1500,13 @@ function wplms_redirect_to_course($order_id){
 
                   $course_event=get_post_meta($course,'vibe_course_event',true);
 
-                  if($course_event == 0){
+                  /*if($course_event == 0){
                     $ostatus=__('GO TO MY COURSES','vibe');
                   }else{
                     $ostatus=__('GO TO EVENT DASHBOARD','vibe');
-                  }
+                  }*/
+
+                  $ostatus=__('GO TO MY COURSES','vibe');
 
                   $button_access = get_post_meta($course,'vibe_course_button',true);
                   if( vibe_validate($button_access) && ($order->status == 'completed' || $order->status == 'complete') ){

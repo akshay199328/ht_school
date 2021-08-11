@@ -2330,6 +2330,9 @@ button[disabled=disabled].next-button {
         background-color: transparent;
         color: #000
     }
+    .congrats-popup .modal-content:before {
+        background-image: url(../images/dashboard/mobile-coins.png);
+    }
 }
 
 @media screen and (max-width:575px) and (min-width:320px) {

@@ -1259,6 +1259,12 @@ div#ui-datepicker-div{
         <section class="section total">
             <div class="section-header">
                 <h3 class="earn-title">Total Points Earned</h3>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#total_earn_info" class="info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17.834" height="17.836" viewBox="0 0 17.834 17.836" class="declaration">
+                        <path id="Shape_924" data-name="Shape 924" d="M3192.22,367.219a8.916,8.916,0,1,0-12.979-.392l.083.062a4.207,4.207,0,0,1-1.834,2.081.351.351,0,0,0,.1.659,5.044,5.044,0,0,0,3.791-1.03l.02.021A8.941,8.941,0,0,0,3192.22,367.219Zm-5.933-11.806a1.463,1.463,0,0,1,0,2.926,1.463,1.463,0,1,1,0-2.926Zm-2.328,9.375c.062-.515.144-1.051.247-1.566.144-.907.31-1.813.474-2.72,0-.062.02-.123.02-.165,0-.371-.124-.515-.494-.556a3.3,3.3,0,0,1-.474-.082.331.331,0,0,1-.247-.371.318.318,0,0,1,.329-.288,1.755,1.755,0,0,1,.33-.021h2.76a.494.494,0,0,1,.556.494,5.617,5.617,0,0,1-.082.845c-.185,1.03-.371,2.081-.577,3.111-.062.35-.123.68-.164,1.03a1.311,1.311,0,0,0,.041.494.384.384,0,0,0,.432.31,2.3,2.3,0,0,0,.536-.144c.144-.062.268-.145.412-.206a.233.233,0,0,1,.33.288.879.879,0,0,1-.206.351,2.722,2.722,0,0,1-1.916.865,5.994,5.994,0,0,1-1.051-.062A1.622,1.622,0,0,1,3183.959,364.788Z" transform="translate(-3176.997 -351.997)" fill="#fff"></path>
+                    </svg>
+                </button>
+
                 <div class="star">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.239" height="1.239" viewBox="0 0 1.239 1.239">
                       <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">
@@ -1401,6 +1407,26 @@ div#ui-datepicker-div{
                 </div>
             </div>
         </section>
+    </div>
+    <div class="modal fade about-popup" id="total_earn_info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Total Points Earned</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
+                          <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
+                            <line id="Line_2" data-name="Line 2" x1="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"></line>
+                            <line id="Line_3" data-name="Line 3" x2="16" y2="16" transform="translate(1048.556 814)" fill="none" stroke="#373737" stroke-linecap="round" stroke-width="4"></line>
+                          </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    fsdfsd
+                </div>
+            </div>
+        </div>
     </div>
 <span class="overlay"></span>
 <script type="text/javascript">

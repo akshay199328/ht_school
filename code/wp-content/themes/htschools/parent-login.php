@@ -4,7 +4,6 @@ $_SESSION['previousPageUrl']="";
 if(isset($_SERVER['HTTP_REFERER'])){
   $_SESSION['previousPageUrl']=$_SERVER['HTTP_REFERER'];
 }
-
 /**
  * Template Name: Parent Login Page 
  */
@@ -752,9 +751,6 @@ jQuery(window).load(function(){
         });
 
     });
-
-
-
 
     function startTimer() {
         var presentTime = document.getElementById('reg-otp-timer').innerHTML;

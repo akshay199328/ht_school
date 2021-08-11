@@ -107,7 +107,6 @@ vibe_include_template("profile/top$profile_layout.php");
                         $result = $wpdb->get_results($query);
                         
                   
-
                         foreach($result as $course){
                             $args['post__in'][]=$course->course_id;
                         }

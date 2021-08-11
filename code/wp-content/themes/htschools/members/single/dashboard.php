@@ -107,7 +107,6 @@ vibe_include_template("profile/top$profile_layout.php");
                         $query = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '".$user->ID."' ORDER BY rel.meta_key"));
                         $result = $wpdb->get_results($query);
                         
-                  
 
                         foreach($result as $course){
                             $args['post__in'][]=$course->course_id;

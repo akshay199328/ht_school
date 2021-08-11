@@ -153,7 +153,7 @@ if($bannerCount == 1){
 
     ?>
       <div class="column view_codeathon_course" data-id="<?php echo $course_1; ?>">
-        <span class="title">Classes IV - V</span>
+        <span class="title">Classes IV-V</span>
         <!-- <span class="video">
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="<?php //echo get_post_meta($course_1,'vibe_trailer_link',true); ?>" allowfullscreen></iframe>
@@ -188,7 +188,7 @@ if($bannerCount == 1){
 
           $age_limit = get_post_meta($course_1,'vibe_course_age_group',true);
         ?>
-        <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>" data-id="<?php echo $course_1; ?>">Enroll Now</a>
+        <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>" data-id="<?php echo $course_1; ?>">Enrol Now</a>
         <input type="hidden" id="course_name_<?php echo $course_1; ?>" value="<?php echo get_the_title($course_1); ?>">
         <input type="hidden" id="course_url_<?php echo $course_1; ?>" value="<?php echo $courseslug; ?>">
         <input type="hidden" id="course_category_<?php echo $course_1; ?>" value="<?php echo $category_array[0]->name;?>">
@@ -205,12 +205,12 @@ if($bannerCount == 1){
         <?php if($course_status11 == 1){ ?>
           <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
         <?php }else{ ?>
-          <button class="enroll" disabled>Enroll Now</button>
+          <button class="enroll" disabled>Enrol Now</button>
         <?php } ?>
       <?php } ?>
       </div>
       <div class="column view_codeathon_course" data-id="<?php echo $course_2; ?>">
-        <span class="title">Classes VI - VII</span>
+        <span class="title">Classes VI-VII</span>
         <span class="video">
           <a class="play videoplayLearning" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup-learning" data-title="<?php echo get_the_title($course_2); ?>" data-viemocode="<?php echo $viemocode2; ?>"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/video-play.svg"></a>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 242 157.001">
@@ -240,7 +240,7 @@ if($bannerCount == 1){
 
             $age_limit = get_post_meta($course_2,'vibe_course_age_group',true);
           ?>
-          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>" data-id="<?php echo $course_3; ?>">Enroll Now</a>
+          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>" data-id="<?php echo $course_3; ?>">Enrol Now</a>
           <input type="hidden" id="course_name_<?php echo $course_2; ?>" value="<?php echo get_the_title($course_2); ?>">
           <input type="hidden" id="course_url_<?php echo $course_2; ?>" value="<?php echo $courseslug; ?>">
           <input type="hidden" id="course_category_<?php echo $course_2; ?>" value="<?php echo $category_array[0]->name;?>">
@@ -257,12 +257,12 @@ if($bannerCount == 1){
           <?php if($course_status22 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
           <?php }else{ ?>
-            <button class="enroll" disabled>Enroll Now</button>
+            <button class="enroll" disabled>Enrol Now</button>
           <?php } ?>
         <?php } ?>
       </div>
       <div class="column view_codeathon_course" data-id="<?php echo $course_3; ?>">
-        <span class="title">Classes VIII - IX</span>
+        <span class="title">Classes VIII-IX</span>
         <span class="video">
           <a class="play videoplayLearning" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup-learning" data-title="<?php echo get_the_title($course_3); ?>" data-viemocode="<?php echo $viemocode3; ?>"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/video-play.svg"></a>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 242 157.001">
@@ -292,7 +292,7 @@ if($bannerCount == 1){
 
             $age_limit = get_post_meta($course_3,'vibe_course_age_group',true);
           ?>
-          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" data-id="<?php echo $course_3; ?>">Enroll Now</a>
+          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" data-id="<?php echo $course_3; ?>">Enrol Now</a>
           <input type="hidden" id="course_name_<?php echo $course_3; ?>" value="<?php echo get_the_title($course_3); ?>">
           <input type="hidden" id="course_url_<?php echo $course_3; ?>" value="<?php echo $courseslug; ?>">
           <input type="hidden" id="course_category_<?php echo $course_3; ?>" value="<?php echo $category_array[0]->name;?>">
@@ -309,7 +309,7 @@ if($bannerCount == 1){
           <?php if($course_status33 == 1){ ?>
             <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a>
           <?php }else{ ?>
-            <button class="enroll" disabled>Enroll Now</button>
+            <button class="enroll" disabled>Enrol Now</button>
           <?php } ?>
         <?php } ?>
       </div>
@@ -334,7 +334,7 @@ if($bannerCount == 1){
 
 <section class="section-wrapper about" id="About_Partners">
   <div class="section-copy">
-    <h2 class="section-title">About Our Partners</h2>
+    <h2 class="section-title">Code-a-thon Sponsors</h2>
     <div class="owl-carousel owl-theme about_slider">
       <?php
         $args1 = array(
@@ -356,7 +356,7 @@ if($bannerCount == 1){
               <div class="copy">
                 <h3 class="title"><?php echo $custom_fields['about_our_partners_title'][0];?></h3>
                 <p><?php echo $custom_fields['description'][0];?></p>
-                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>">Visit Partner >></a>
+                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>">Visit Sponsor >></a>
               </div>
             </div>
         </div>
@@ -367,7 +367,7 @@ if($bannerCount == 1){
 
 <section class="section-wrapper videos" id="Partner_says">
   <div class="section-copy">
-    <h2 class="section-title">What Our Partners Say</h2>
+    <h2 class="section-title">Sponsor Testimonials</h2>
     <div class="owl-carousel owl-theme says_slider">
       <?php
         $args1 = array(
@@ -427,7 +427,7 @@ if($bannerCount == 1){
 
 <section class="section-wrapper partners">
   <div class="section-copy">
-    <h2 class="section-title">Our Partners Logos</h2>
+    <h2 class="section-title">Sponsor Logos</h2>
     <div class="owl-carousel owl-theme partners_slider">
       <?php
         $args1 = array(

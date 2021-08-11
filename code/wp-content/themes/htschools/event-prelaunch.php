@@ -11,6 +11,7 @@ get_header(vibe_get_header());
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon-bootstrap.css" rel="stylesheet">
 <link href="<?php echo get_bloginfo('template_url'); ?>/assets/css/codeathon.min.css?<?php echo date("H:i:s");?>" rel="stylesheet">
+<!-- <link href="<?php //echo get_bloginfo('template_url'); ?>/assets/css/dashboard.css" rel="stylesheet"> -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,7 +222,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <input type="hidden" id="wishlisted_course_<?php echo $course_1; ?>" value="">
       <?php }else{ ?>
         <?php if($course_status11 == 1){ ?>
-          <!-- <a class="enroll" href="<?php //echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
+          <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug1; ?>">Start Course</a>
         <?php }else{ ?>
           <button class="enroll" disabled>Enroll Now</button>
         <?php } ?>
@@ -273,7 +274,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           <input type="hidden" id="wishlisted_course_<?php echo $course_2; ?>" value="">
         <?php }else{ ?>
           <?php if($course_status22 == 1){ ?>
-            <!-- <a class="enroll" href="<?php //echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
+            <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug2; ?>">Start Course</a>
           <?php }else{ ?>
             <button class="enroll" disabled>Enroll Now</button>
           <?php } ?>
@@ -325,7 +326,7 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           <input type="hidden" id="wishlisted_course_<?php echo $course_3; ?>" value="">
         <?php }else{ ?>
           <?php if($course_status33 == 1){ ?>
-            <!-- <a class="enroll" href="<?php //echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
+            <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug3; ?>">Start Course</a>
           <?php }else{ ?>
             <button class="enroll" disabled>Enroll Now</button>
           <?php } ?>

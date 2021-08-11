@@ -1500,11 +1500,13 @@ function wplms_redirect_to_course($order_id){
 
                   $course_event=get_post_meta($course,'vibe_course_event',true);
 
-                  if($course_event == 0){
+                  /*if($course_event == 0){
                     $ostatus=__('GO TO MY COURSES','vibe');
                   }else{
                     $ostatus=__('GO TO EVENT DASHBOARD','vibe');
-                  }
+                  }*/
+
+                  $ostatus=__('GO TO MY COURSES','vibe');
 
                   $button_access = get_post_meta($course,'vibe_course_button',true);
                   if( vibe_validate($button_access) && ($order->status == 'completed' || $order->status == 'complete') ){
@@ -1522,7 +1524,9 @@ function wplms_redirect_to_course($order_id){
                     }else{
                       echo apply_filters('wplms_course_purchased','<li>
                           <a class="course_name">'.get_post_field('post_title',$course).'</a>
-                          <a href="'.get_bloginfo('url').'/event-dashboard"  class="button">
+                          <!--<a href="'.get_bloginfo('url').'/event-dashboard"  class="button">
+                          '.$ostatus.'</a>-->
+                          <a href="'.get_bloginfo('url').'/my-courses"  class="button">
                           '.$ostatus.'</a>'.$order_course['subs'].'
                           </li>',$course,$item_id,$item,$order); 
                     }

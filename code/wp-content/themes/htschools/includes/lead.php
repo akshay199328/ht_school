@@ -42,6 +42,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
 
 ?>
 
+
 <!doctype html>
 <html lang="en">
   <head>

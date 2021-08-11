@@ -3735,9 +3735,9 @@ body.menuOpened .side-navigation {
     align-items: center;
     position: fixed;
     padding: 0;
-    right: 40px;
-    top: 40px;
-    background-color: #fff;
+    right: 20px;
+    top: 20px;
+    background-color: transparent;
     border: none;
     width: 20px;
     height: 20px;

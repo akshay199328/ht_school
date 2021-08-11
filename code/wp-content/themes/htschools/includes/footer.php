@@ -291,6 +291,9 @@ jQuery(document).ready(function(){
             $(".home-button").click(function () {
                 $("body").toggleClass('menuOpened');
             });
+            $(".overlay").click(function(){
+              $("body").removeClass("earn-opened");
+            });
             // $("body").click(function(){
             //     $("body").removeClass("menuOpened");
             // });

@@ -221,9 +221,10 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
         <input type="hidden" id="wishlisted_course_<?php echo $course_1; ?>" value="">
       <?php }else{ ?>
         <?php if($course_status11 == 1){ ?>
-          <!-- <a class="enroll" href="<?php //echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
+          <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/my-courses">Go To My Course</a>
         <?php }else{ ?>
-          <button class="enroll" disabled>Enroll Now</button>
+          <!-- <button class="enroll" disabled>Enroll Now</button> -->
+          <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id1 ?>" data-id="<?php echo $course_1; ?>">Enroll Now</a>
         <?php } ?>
       <?php } ?>
       </div>
@@ -273,9 +274,9 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           <input type="hidden" id="wishlisted_course_<?php echo $course_2; ?>" value="">
         <?php }else{ ?>
           <?php if($course_status22 == 1){ ?>
-            <!-- <a class="enroll" href="<?php //echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
+            <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/my-courses">Go To My Course</a>
           <?php }else{ ?>
-            <button class="enroll" disabled>Enroll Now</button>
+            <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id2 ?>" data-id="<?php echo $course_3; ?>">Enroll Now</a>
           <?php } ?>
         <?php } ?>
       </div>
@@ -325,9 +326,9 @@ $course_3 = getData($wpdb, $post_id, 'learning_modules_course_3');
           <input type="hidden" id="wishlisted_course_<?php echo $course_3; ?>" value="">
         <?php }else{ ?>
           <?php if($course_status33 == 1){ ?>
-            <!-- <a class="enroll" href="<?php //echo get_bloginfo('url'); ?>/event-dashboard">Go To Dashboard</a> -->
+            <a class="enroll" href="<?php echo get_bloginfo('url'); ?>/my-courses">Go To My Course</a>
           <?php }else{ ?>
-            <button class="enroll" disabled>Enroll Now</button>
+            <a class="enroll add_to_wishlist_codeathon" href="<?php echo wc_get_cart_url() . '?add-to-cart=' . $product_id3 ?>" data-id="<?php echo $course_3; ?>">Enroll Now</a>
           <?php } ?>
         <?php } ?>
       </div>

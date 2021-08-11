@@ -29,9 +29,6 @@ vibe_include_template("profile/top$profile_layout.php");
 ?>
 
 
-
-
-
 <div class="wplms-dashboard row">
     <div class="col-sm-12 dashboard-info">
         <div class="col-sm-12 col-md-3 mrg">
@@ -76,10 +73,6 @@ vibe_include_template("profile/top$profile_layout.php");
                         ));
 
                         $course_query = new WP_Query($query_args);
-
-                        /*echo "<pre>";
-                            print_r($course_query);exit();
-                            echo "</pre>";*/    
 
 
                         global $bp,$wpdb;
@@ -139,8 +132,6 @@ vibe_include_template("profile/top$profile_layout.php");
                         ));
 
                         $course_query = new WP_Query($query_args);
-
-
 
                         global $bp,$wpdb;
                         while($course_query->have_posts()){
@@ -250,8 +241,6 @@ vibe_include_template("profile/top$profile_layout.php");
                 
             })
             
-
-
 
             function getScore(course_id){
                     $.ajax({

@@ -79,8 +79,6 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
             </div>
           </div>
 
-
-
           <div class="loginContent_right">
 
             <div class="login-right" id="login-step-1">
@@ -340,6 +338,8 @@ jQuery(window).load(function(){
    jQuery('#login_page_register_tab').tab('show');
 });
 </script> -->
+
+
 <script type="text/javascript">
 
     jQuery(document).ready(function(){
@@ -820,6 +820,7 @@ jQuery(window).load(function(){
         return sec;
     }
 </script>
+
 <?php
 /*}*/
 get_footer( vibe_get_footer() );

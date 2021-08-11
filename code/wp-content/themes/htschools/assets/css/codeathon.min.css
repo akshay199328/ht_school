@@ -4107,4 +4107,9 @@ code{
 .terms-conditions ol{line-height:1.6}
 .terms-conditions ol li strong{font-weight:600}
 .terms-conditions ol li a{color:#004ba6}
-.terms-conditions ol li{margin-bottom:15px}
+.terms-conditions ol li{
+    margin-bottom:15px;
+    font-family: "Poppins"!important;
+    font-size: 1rem;
+    font-weight: 400;
+}

@@ -1408,11 +1408,11 @@ div#ui-datepicker-div{
             </div>
         </section>
     </div>
-    <div class="modal fade about-popup" id="total_earn_info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade about-popup points_system" id="total_earn_info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Total Points Earned</h3>
+                    <h3 class="modal-title">Point System</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
                           <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
@@ -1423,7 +1423,37 @@ div#ui-datepicker-div{
                     </button>
                 </div>
                 <div class="modal-body">
-                    fsdfsd
+                    <ul>
+                        <li>Points will be rewarded for every student interaction. They are divided into 2 types.
+                            <ul>
+                                <li>Engagement Points
+                                    <ul>
+                                        <li>Registration – On successful registration</li>
+                                        <li>Payment – On successful payment</li>
+                                        <li>Referral Registration – On successfully registration using your referral code</li>
+                                        <li>Upload School ID – On successfully uploading School ID to your profile</li>
+                                        <li>Upload Photo – On successfully uploading photograph to your profile</li>
+                                        <li>Social Sharing – For every Social sharing</li>
+                                        <li>Everyday Login – For Regular login on the Codeathon website</li>
+                                        <li>Project upload – On successfully uploading project file</li>
+                                    </ul>
+                                </li>
+                                <li>Intellectual Points
+                                    <ul>
+                                        <li>Video Watch –On watching video lectures</li>
+                                        <li>Video Quiz – Score obtained on video quizzes</li>
+                                        <li>Chapter Quiz – Score obtained on Chapter quizzes</li>
+                                        <li>Course Quiz – Score obtained on Course quizzes</li>
+                                        <li>Qualifier – Score obtained on Qualifier quiz</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <li>A student will qualify for the Codeathon Finale on the basis of the points they have acquired during the entire program.</li>
+                            <li>The top 100 students from each zone and each category will be selected based on their performance in the qualifier and the total score.</li>
+                            <li>The finalists will be chosen based on their overall performance and points collected till the end of qualifiers.</li>
+                            <li>Details of the point system will be provided to each student through their personal dashboard.</li>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

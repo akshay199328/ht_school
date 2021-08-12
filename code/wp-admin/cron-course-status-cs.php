@@ -38,7 +38,8 @@ function writeCountFile($saveCount)
 function getCountFromFile()
 {
 	global $fileName;
-	return file_get_contents($fileName);
+	$count = file_get_contents($fileName);
+	return $count == "" ? 0 : $count;
 }
 
 if(!file_exists($fileName))

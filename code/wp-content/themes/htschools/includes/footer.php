@@ -229,9 +229,9 @@ $(window).on('scroll', function () {
 });
 
 jQuery(document).ready(function(){
-     jQuery(".share svg").click(function(){
+     /*jQuery(".share svg").hover(function(){
           jQuery(this).next().slideToggle();
-     });
+     });*/
 
      /*jQuery(".next-button").click(function(){
           jQuery('#step-2').show();

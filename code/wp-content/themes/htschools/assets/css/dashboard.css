@@ -284,7 +284,9 @@ a:hover {
     align-items: center;
     justify-content: center
 }
-
+.dahboard_tab .top-tab li:hover button.nav-link{
+    pointer-events: fill;
+}
 .dahboard_tab .top-tab li .nav-link:before {
     content: '';
     background: url(../images/lock-up.png) center center no-repeat;
@@ -339,7 +341,7 @@ a:hover {
 .lock {
     margin-right: 16px
 }
-
+.dahboard_tab .top-tab li .nav-link.active .declaration{display: none}
 .declaration {
     margin-left: 8px
 }
@@ -363,6 +365,70 @@ a:hover {
     fill: #fff
 }
 
+#pop{
+    display: none;
+    width: 400px;
+    background-color: #fff;
+    border: 4px solid #ff9eb3;
+    color: #000;
+    text-align: justify;
+    border-radius: 6px;
+    padding: 15px 20px;
+    position: absolute;
+    top: -34px;
+    right: 76px;
+    margin-left: -60px;
+    height: max-content;
+    z-index: 99999;
+}
+
+#pop:after, #pop:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    top: -32px;
+    border-style: solid;
+}
+#pop:before {
+        right: -33px;
+    border-color: transparent transparent #ff9eb300 #ff9eb3;
+    border-width: 16px;
+    top: 38px;
+}
+#pop:after {
+    right: -20px;
+    border-color: transparent transparent #fff0 #ffffff;
+    border-width: 10px;
+    top: 44px;
+}
+.dahboard_tab .nav-link:hover #pop{
+    display: block;
+}
+#pop ul, #learning_popup ul{
+    list-style-type: square;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding: 0 20px;
+
+}
+#pop ul li, #learning_popup ul li{
+    font-size: 16px;
+    font-weight: 300 !important;
+    color: #000;
+    line-height: 25px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    margin-bottom: 10px;
+}
+#learning_popup ul li ol{
+    list-style-type: circle;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding: 0 20px;
+}
 .dahboard_tab .tab-content {
     margin-top: 18px
 }
@@ -375,7 +441,8 @@ a:hover {
     border-radius: 10px;
     box-shadow: -.86px -.52px 3px #fff;
     border: 4px solid #fff;
-    position: relative
+    position: relative;
+    z-index: 9;
 }
 
 .leftcontent_tab:after {
@@ -432,7 +499,8 @@ a:hover {
 
 .congrats-popup.show,
 .practice-popup.show,
-.refer-popup.show {
+.refer-popup.show,
+#learning_popup.show {
     background: rgba(0, 0, 0, .8)
 }
 
@@ -446,9 +514,9 @@ a:hover {
     padding: 25px 35px;
     text-align: left;
     position: absolute;
-    right: 0;
-    top: 37px;
-    z-index: 9
+    right: -16px;
+    top: 30px;
+    z-index: 99;
 }
 
 .toggle-share:after,
@@ -475,7 +543,7 @@ a:hover {
     border-color: transparent transparent #ff9eb3 #00000000;
     border-width: 16px
 }
-
+.share:hover .toggle-share{display: block}
 .toggle-share h6 {
     font-size: 16px;
     font-weight: 500 !important;
@@ -893,7 +961,8 @@ a:hover {
     font-size: 26px;
     line-height: 28px;
     color: #000;
-    font-weight: 700
+    font-weight: 700;
+    position: relative;
 }
 
 .leader_board .pull-right h6 {
@@ -903,7 +972,13 @@ a:hover {
     font-family: Poppins !important;
     font-weight: 500
 }
-
+.leader_board .head .share svg {
+    position: relative;
+    top: -2px;
+}
+.leader_board .head .toggle-share{
+        top: 43px;
+}
 .leader_board .pull-right h6 .rank {
     color: #025bc6;
     font-weight: 700

@@ -62,13 +62,13 @@ function rt_change_profile_tab_order() {
    ), 'profile' );
    $bp->members->nav->edit_nav( array(
       'position' => 20,
-   ), 'dashboard' );
-   $bp->members->nav->edit_nav( array(
-      'position' => 30,
    ), 'course' );
    $bp->members->nav->edit_nav( array(
-      'position' => 40,
+      'position' => 20,
    ), 'event' );
+   $bp->members->nav->edit_nav( array(
+      'position' => 40,
+   ), 'dashboard' );
    $bp->members->nav->edit_nav( array(
 	'name' => 'Account Info',
 	), 'profile' );
@@ -79,7 +79,7 @@ function rt_change_profile_tab_order() {
 	'name' => 'My Courses',
 	), 'course' );
    $bp->members->nav->edit_nav( array(
-  'name' => 'Event Course',
+  'name' => 'My Events',
   ), 'event' );
 }
 
@@ -306,7 +306,7 @@ function my_setup_nav() {
       bp_core_new_nav_item( array( 
             'name' => __( 'Preferences', 'buddypress' ), 
             'slug' => 'preference', 
-            'position' => 30,
+            'position' => 40,
             'screen_function' => 'preferences_template', 
             'default_subnav_slug' => 'preference',
       ) );
@@ -314,7 +314,7 @@ function my_setup_nav() {
       bp_core_new_nav_item( array( 
             'name' => __( 'Parent Dashboard', 'buddypress' ), 
             'slug' => 'parent_dashboard', 
-            'position' => 30,
+            'position' => 50,
             'screen_function' => 'parent_dashboard_template', 
             'default_subnav_slug' => 'parent_dashboard',
       ) );
@@ -327,11 +327,11 @@ function my_setup_nav_event() {
       global $bp;
 
       bp_core_new_nav_item( array( 
-            'name' => __( 'Event Course', 'buddypress' ), 
-            'slug' => 'event_course', 
+            'name' => __( 'My Events', 'buddypress' ), 
+            'slug' => 'event-course', 
             'position' => 30,
             'screen_function' => 'event_course_template', 
-            'default_subnav_slug' => 'event_course',
+            'default_subnav_slug' => 'event-course',
       ) );
 
 }
@@ -420,9 +420,9 @@ function bp_page_nav(){
 
     bp_core_new_subnav_item( array(
     'name' => __( 'Active Courses', 'buddypress navigation' ), 
-    'slug' => 'event_course',
+    'slug' => 'event-course',
     'parent_url' => $user_domain,
-    'parent_slug' => 'event_course',
+    'parent_slug' => 'event-course',
     'screen_function' => 'active_event_course_template',
     'position' => 40
  

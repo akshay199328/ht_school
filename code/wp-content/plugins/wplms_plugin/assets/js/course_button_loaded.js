@@ -4407,7 +4407,7 @@
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"),t.is_event_type==1 ? Rt("span", {
+            },"Review Quiz Questions"),t.is_event_type==1 && t.event_quiz_type !='video'? Rt("span", {
                 className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
             },gn("h6",{
                 onClick: () => {

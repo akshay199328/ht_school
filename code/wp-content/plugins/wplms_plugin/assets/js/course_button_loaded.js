@@ -4407,8 +4407,8 @@
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"),Rt("span", {
-                className: "share result-share",
+            },"Review Quiz Questions"),t.is_event_type==1 ? Rt("span", {
+                className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
             },gn("h6",{
                 onClick: () => {
                 jQuery(".toggle-share").slideToggle();
@@ -4420,12 +4420,19 @@
                 className: "button-test"
             },gn("p", null,"Share with your Friends"),
             gn("li",{
+            },gn("a", {
                 className: "share-whatsapp",
-            }), gn("li",{
-                    className: "share-twitter",
-            }), gn("li",{
-                    className: "share-facebook",
-            })))))), Rt("div", {
+            href: "https://api.whatsapp.com//send?text="+t.share_quiz_content+"",
+            target: "_blank"})), gn("li",{
+                    
+            },gn("a", {
+                className: "share-twitter",
+            href: "https://twitter.com/intent/tweet?text="+t.share_quiz_content+"",
+            target: "_blank"})), gn("li",{
+            },gn("a", {
+                className: "share-facebook",
+            href: "https://www.facebook.com/sharer/sharer.php?text="+t.share_quiz_content+"",
+            target: "_blank"}))))): '')), Rt("div", {
                 className: "buttons_wrapper pull-right"
             }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
                 className: "quiz_retake",

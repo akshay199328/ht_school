@@ -445,6 +445,14 @@
       $event_quiz_type = get_post_meta($item_id,'vibe_event_quiz_type',true);
       $return['event_quiz_type'] = $event_quiz_type;
       
+      if($event_quiz_type == 'course'){
+        $share_quiz_content = "Hey! I just completed a course quiz in HT Codeathon 2021 and passed it with a score of ".$quiz_creds_total."! Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads.Learn. Participate. Win "; 
+      }
+      else if($event_quiz_type == 'chapter'){
+        $share_quiz_content = "Hey! I just completed a chapter quiz in HT Codeathon 2021 and passed it with a score of ".$quiz_creds_total."! Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win ";
+      }
+
+      $return['share_quiz_content'] = $share_quiz_content;
       if($status < 3){
         $t = get_user_meta($user_id,$item_id,true);
         if(!empty($t)){

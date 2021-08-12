@@ -471,7 +471,6 @@ function active_event_course_template() {
       bp_core_load_template( 'active-event-course' );
 }
 
-
 // add_action('init','wplms_remove_snapshot_for_all',11);
 // function wplms_remove_snapshot_for_all(){
 //   remove_action('bp_before_profile_content','show_profile_snapshot');

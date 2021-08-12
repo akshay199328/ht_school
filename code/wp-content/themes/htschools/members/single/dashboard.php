@@ -123,7 +123,14 @@ vibe_include_template("profile/top$profile_layout.php");
                                 'value' => 'Yes',
                                 'comapare' => '='
                                 )  
-                              )
+                              ),'meta_query' => array(
+                              'relation' => 'AND',
+                              array(
+                                'key' => 'vibe_course_event',
+                                'value' => '0',
+                                'comapare' => '='
+                                )  
+                              )   
                            
                         ));
 

@@ -306,7 +306,7 @@ if($progressVal != ''){
 }else{
     $progressVal=0;
 }
-
+  $table_name = "ht_mycred_log";
 if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
       $my_cred_table = 'ht_mycred_log';
   }

@@ -25,7 +25,11 @@ $user = wp_get_current_user();
 
 vibe_include_template("profile/top$profile_layout.php"); 
 
+
 ?>
+
+
+
 
 
 <div class="wplms-dashboard row">
@@ -53,14 +57,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             'post_status' => 'publish',
                             'order' =>'ASC',
                             'posts_per_page' =>100,
-                            /*'meta_query' => array(
-                              'relation' => 'AND',
-                              array(
-                                'key' => 'vibe_leader_board',
-                                'value' => 'Yes',
-                                'comapare' => '='
-                                )  
-                              )*/
+                            
                             'meta_query' => array(
                               'relation' => 'AND',
                               array(
@@ -72,6 +69,11 @@ vibe_include_template("profile/top$profile_layout.php");
                         ));
 
                         $course_query = new WP_Query($query_args);
+
+                        /*echo "<pre>";
+                            print_r($course_query);exit();
+                            echo "</pre>";*/    
+
 
                         global $bp,$wpdb;
                         while($course_query->have_posts()){
@@ -108,27 +110,32 @@ vibe_include_template("profile/top$profile_layout.php");
                         $result = $wpdb->get_results($query);
                         
                   
+
                         foreach($result as $course){
                             $args['post__in'][]=$course->course_id;
                         }
-                        $query_args = apply_filters('wplms_mycourses',array(
+                       $query_args = apply_filters('wplms_mycourses',array(
                             'post_type'=>'course',
                             'post__in'=>$args['post__in'],
                             'post_status' => 'publish',
                             'order' =>'ASC',
                             'posts_per_page' =>100,
+                            
                             'meta_query' => array(
                               'relation' => 'AND',
                               array(
-                                'key' => 'vibe_leader_board',
-                                'value' => 'Yes',
+                                'key' => 'vibe_course_event',
+                                'value' => '0',
                                 'comapare' => '='
                                 )  
-                              )
+                              ) 
+
                            
                         ));
 
                         $course_query = new WP_Query($query_args);
+
+
 
                         global $bp,$wpdb;
                         while($course_query->have_posts()){
@@ -156,6 +163,7 @@ vibe_include_template("profile/top$profile_layout.php");
                     <?php } ?>
                 </ul>
 </div>
+
 
             </div>
         </div>
@@ -220,7 +228,7 @@ vibe_include_template("profile/top$profile_layout.php");
                 $('.mobile-slider li').removeClass("active");
                 $(this).addClass("active");
               var course_id = $(this).val();
-              getScore(course_id);
+              get_course_score(course_id);
               getRank(course_id);
               getUserRank(course_id);
             })
@@ -231,14 +239,28 @@ vibe_include_template("profile/top$profile_layout.php");
                 $('.mobile-slider li').removeClass("active");
                 var course_id = $("ul .dashboard-li:first").val();
                 $("ul .dashboard-li:first").addClass("active");
-              getScore(course_id);
+              get_course_score(course_id);
               getRank(course_id);
               getUserRank(course_id);
                 
             })
             
 
-            function getScore(course_id){
+
+
+            function get_course_score(course_id){
+                    $.ajax({
+                        type: 'POST',
+                        url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                        data: {"action": "get_course_score", course_id: course_id },
+                        success: function(response) {
+                            if(response.length > 0){
+                                $('#data').html(response);
+                            }
+                        }
+                    });
+                }
+                function getScore(course_id){
                     $.ajax({
                         type: 'POST',
                         url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",

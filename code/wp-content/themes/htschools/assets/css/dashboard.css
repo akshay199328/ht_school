@@ -257,7 +257,9 @@ a:hover {
 
 .dahboard_tab .top-tab {
     border-bottom: 0;
-    justify-content: center
+    justify-content: center;
+    position: relative;
+    z-index: 50;
 }
 
 .dahboard_tab .top-tab li {
@@ -286,6 +288,15 @@ a:hover {
 }
 .dahboard_tab .top-tab li:hover button.nav-link{
     pointer-events: fill;
+}
+.dahboard_tab .top-tab li:focus button.nav-link,
+.dahboard_tab .top-tab li:visited button.nav-link,
+.dahboard_tab .top-tab li:focus button.nav-link:focus,
+.dahboard_tab .top-tab li:visited button.nav-link:visited,
+.dahboard_tab .top-tab li button.nav-link:focus,
+.dahboard_tab .top-tab li button.nav-link:visited
+{
+    pointer-events: none;
 }
 .dahboard_tab .top-tab li .nav-link:before {
     content: '';
@@ -364,7 +375,7 @@ a:hover {
 .dahboard_tab .top-tab li .nav-link.active .declaration path {
     fill: #fff
 }
-
+.info-pop{position: relative;display: block;}
 #pop{
     display: none;
     visibility: hidden;
@@ -377,11 +388,11 @@ a:hover {
     border-radius: 6px;
     padding: 15px 20px;
     position: absolute;
-    top: -34px;
-    right: 76px;
+    top: -50px;
+    right: 31px;
     margin-left: -60px;
     height: max-content;
-    z-index: 9;
+    z-index: 20;
 }
 
 #pop:after, #pop:before {
@@ -406,11 +417,10 @@ a:hover {
     border-width: 10px;
     top: 44px;
 }
-.dahboard_tab .nav-link:hover #pop{
-    display: none;
-    /*display: block;
+.dahboard_tab .nav-link .info-pop:hover #pop{
+    display: block;
     visibility: visible;
-    opacity: 1;*/
+    opacity: 1;
 }
 #pop ul, #learning_popup ul{
     list-style-type: square;
@@ -1087,6 +1097,7 @@ a:hover {
     color: #000;
     font-weight: 500;
     text-align: center;
+    word-break: break-word;
     margin: 3px 0 0;
     font-family: Poppins !important
 }
@@ -1940,17 +1951,35 @@ button[disabled=disabled].next-button {
         width: 100%
     }
 }
-
+@media screen and (max-width:2560px) and (min-width:1901px) {
+    .leftcontent_tab:before {left: -58%;}
+}
+@media screen and (max-width:1900px) and (min-width:1801px) {
+    .leftcontent_tab:before {left: -50%}
+}
+@media screen and (max-width:1800px) and (min-width:1701px) {
+    .leftcontent_tab:before {left: -47%}
+    .details_footer:after{left: -47%;}
+}
+@media screen and (max-width:1700px) and (min-width:1601px) {
+    .leftcontent_tab:before {left: -35%}
+    .details_footer:after{left: -35%;}
+}
+@media screen and (max-width:1600px) and (min-width:1501px) {
+    .leader_board:before {left: -27%}
+    .details_footer:after{left: -27%;}
+}
+@media screen and (max-width:1500px) and (min-width:1441px) {
+    .leader_board:before { left: -23%;}
+    .details_footer:after{left: -23%;}
+}
 @media screen and (max-width:1440px) and (min-width:1367px) {
-    .leader_board:before {
-        left: 41%
-    }
+    .leader_board:before {left: 41%}
+    /*.details_footer:after{left: -35%;}*/
 }
 
 @media screen and (max-width:1366px) and (min-width:1281px) {
-    .leader_board:before {
-        left: 30%
-    }
+    .leader_board:before {left: 30%}
 
     .points_board:after {
         right: -25%;
@@ -2022,10 +2051,10 @@ button[disabled=disabled].next-button {
 
     .board-list ul li,
     .dahboard_tab .top-tab li {
-        min-width: auto;
-        width: auto !important
+        min-width: 25%;
+        width: 25%!important;
     }
-
+    #pop ul li, #learning_popup #pop ul li{width: 100%!important;}
     .leader_board:before {
         max-width: 77px;
         background-size: 55% 55%;
@@ -2174,7 +2203,8 @@ button[disabled=disabled].next-button {
     .dahboard_tab .top-tab li .nav-link {
         font-size: 12px;
         padding: 15px 11px;
-        display: block
+        display: block;
+        height: 100%;
     }
 
     .dahboard_tab .tab-content {

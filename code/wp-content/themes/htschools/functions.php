@@ -1903,6 +1903,91 @@ foreach($results as $key2 => $v2)
   die(1);
 }
 
+add_action( 'wp_ajax_nopriv_get_course_score', 'get_course_score' );
+add_action( 'wp_ajax_get_course_score', 'get_course_score' );
+
+function get_course_score () {
+  global $post,$wpdb;
+  $course_id = $_POST[ 'course_id' ];
+  $user = wp_get_current_user();
+  $query =apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='".$course_id."' ORDER BY rel.meta_value DESC"));
+  $result = $wpdb->get_results($query);
+    if ($wpdb->num_rows<=0) {
+      echo '0';
+    }
+    else
+    {
+     
+      $array2 = array();
+      foreach($result as $course){
+
+          array_push($array2,$course);
+        
+        if($course->user_id == $user->ID){
+          array_push($array1,$course);
+        }
+      }
+
+      $dashboard_data = $array2;
+      //echo "<pre>";print_r($dashboard_data);exit();
+      $i = 0;
+      $newarray = array();
+      $user_rank = array();
+      foreach($dashboard_data as $key => $csm)
+      {
+        $rank = $key + 1;
+        $dashboard_data[$key]->rank = $rank;
+      }
+
+      foreach($dashboard_data as $key => $csm)
+      {
+        if($dashboard_data[$key]->user_id == $user->ID){
+          $user_rank[] = $dashboard_data[$key]->rank;
+        }
+      }
+      $current_user_rank = implode($user_rank);
+      $prev_rank = $current_user_rank - 4;
+      $next_rank = $current_user_rank + 5;
+
+      $prev_rank_array = array();
+      $next_rank_array = array();
+      foreach($dashboard_data as $key => $v)
+      {
+        if($dashboard_data[$key]->rank <= $current_user_rank && $dashboard_data[$key]->rank >= $prev_rank){
+          $prev_rank_array[] = $v;
+        }
+        if($dashboard_data[$key]->rank > $current_user_rank && $dashboard_data[$key]->rank <= $next_rank){
+          $next_rank_array[] = $v;
+        }
+        //$dashboard_data[$key]['flag'] = 1;
+      }
+      $user_rank_list = array_merge($prev_rank_array,$next_rank_array);
+ 
+      foreach($user_rank_list as $course){
+        if($course->user_id == $user->ID){
+          $response = '<tr style="background: #D5EBFF;">';
+        }
+        else{
+          $response = '<tr>';
+        }
+        $response .= '<td scope="row"><span class="circle">'.$course->rank.'</span></td>';
+        if($course->user_id == $user->ID){
+          $response .= '<td>'.get_display_name($course->user_id) .'</td>';
+        }else{
+
+          $response .= '<td>'. get_display_name($course->user_id) .'</td>';
+        }
+        $response .= '<td>'. $course->score .'</td>';
+        $response .= '</tr>';
+        echo $response;
+      }
+    }
+
+  wp_reset_postdata();
+
+  die(1);
+}
+
 add_action( 'wp_ajax_nopriv_get_user_rank', 'get_user_rank' );
 add_action( 'wp_ajax_get_user_rank', 'get_user_rank' );
 

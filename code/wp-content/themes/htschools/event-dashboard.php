@@ -751,21 +751,13 @@ div#ui-datepicker-div{
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <tbody>
+                                                        <?php foreach($user_rank_list as $user_rank_data){ ?>
                                                         <tr>
-                                                            <td>01</td>
-                                                            <td>Dummy name</td>
-                                                            <td class="numbers">1000</td>
+                                                            <td><?php echo $user_rank_data->rank?></td>
+                                                            <td><?php echo get_display_name($user_rank_data->user_id);?></td>
+                                                            <td class="numbers"><?php echo $user_rank_data->points ?></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>02</td>
-                                                            <td>Dummy name</td>
-                                                            <td class="numbers">800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>03</td>
-                                                            <td>Dummy name</td>
-                                                            <td class="numbers">800</td>
-                                                        </tr>
+                                                        <?php }?>
                                                     </tbody>
                                                 </table>
                                             </div>

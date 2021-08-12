@@ -537,7 +537,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="facebook">
-                                                        <a href="https://www.facebook.com/sharer/sharer.php?text=Hey, I have completed <?php echo $progressVal; ?>% of <?php echo get_the_title($courseID); ?> with Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. 
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey, I have completed <?php echo $progressVal; ?>% of <?php echo get_the_title($courseID); ?> with Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. 
                                                         Learn. Participate. Win" target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"/>
@@ -651,7 +651,8 @@ div#ui-datepicker-div{
                         <div class="leader_board">
                             <div class="col-12 col-sm-12 mrg">
                                 <div class="pull-left">
-                                    <span class="head">Leaderboard <span class="share">
+                                    <span class="head">Leaderboard 
+                                        <span class="share share-zone">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16">
                                                 <path id="Shape_874" data-name="Shape 874" d="M3516.475,431l9.524,7.407-9.524,7.408v-3.852c-.507-.023-9.338-.306-15.476,5.037,2.457-7.534,10.171-10.811,15.476-12.148Z" transform="translate(-3500.999 -430.999)"></path>
                                             </svg>
@@ -659,9 +660,7 @@ div#ui-datepicker-div{
                                                 <h6>Share with your Friends</h6>
                                                 <ul id="social_share">
                                                     <li value="whatsapp">
-                                                        <a href="https://api.whatsapp.com//send?text=Hey, I have completed 75% of Database Management with Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. 
-                                                        Learn. Participate. Win
-                                                        " target="_blank">
+                                                        <a href="https://api.whatsapp.com//send?text=Hey! I am ranked <?php echo $current_user_rank; ?> out of 10 users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
                                                                 <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"></path>
                                                                 <path id="Path_84" data-name="Path 84" d="M4.962,51.2a.594.594,0,0,1-.573-.75L7.525,39a23.15,23.15,0,1,1,9.321,9.1L5.113,51.178A.543.543,0,0,1,4.962,51.2Z" transform="translate(-3.773 -3.906)" fill="#fff"></path>
@@ -672,8 +671,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="twitter">
-                                                        <a href="https://twitter.com/intent/tweet?text=Hey, I have completed 75% of Database Management with Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. 
-                                                        Learn. Participate. Win" target="_blank">
+                                                        <a href="https://twitter.com/intent/tweet?text=Hey! I am ranked <?php echo $current_user_rank; ?> out of 10 users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"></path>
                                                                 <path id="Path_89" data-name="Path 89" d="M40.611,17.527a13.383,13.383,0,0,1-3.576,1.049c1.214-.72,3.139-2.22,3.576-3.576a17.065,17.065,0,0,1-4.522,1.636,5.761,5.761,0,0,0-9.784,4.325v2.384c-4.768,0-9.418-3.632-12.311-7.153a5.738,5.738,0,0,0-.8,2.929c0,2.168,1.992,4.369,3.569,5.416a11.065,11.065,0,0,1-3.576-1.192v.068a5.345,5.345,0,0,0,4.664,5.272,7.465,7.465,0,0,1-3.386.621c.746,2.307,4.5,3.526,7.067,3.576-2.01,1.558-5.593,2.384-8.345,2.384A8.785,8.785,0,0,1,12,35.239a18.539,18.539,0,0,0,9.537,2.412c10.8,0,16.69-8.247,16.69-15.939,0-.253-.008-1.1-.021-1.347a9.057,9.057,0,0,0,2.406-2.837" transform="translate(-2.463 -1.887)" fill="#fff"></path>
@@ -681,8 +679,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="facebook">
-                                                        <a href="https://www.facebook.com/sharer/sharer.php?text=Hey, I have completed 75% of Database Management with Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. 
-                                                        Learn. Participate. Win" target="_blank">
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey! I am ranked <?php echo $current_user_rank; ?> out of 10 users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"></path>
                                                                 <path id="Path_91" data-name="Path 91" d="M29.15,33.174h6.17l.969-6.268h-7.14V23.48c0-2.6.851-4.913,3.286-4.913h3.914V13.1a33.247,33.247,0,0,0-4.89-.3c-5.739,0-9.1,3.031-9.1,9.935v4.17h-5.9v6.268h5.9V50.4a23.891,23.891,0,0,0,3.566.295,24,24,0,0,0,3.228-.243Z" transform="translate(-2.08 -3.012)" fill="#fff"></path>
@@ -691,7 +688,45 @@ div#ui-datepicker-div{
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </span></span>
+                                        </span>
+                                        <span class="share share-schools" style="display: none;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 25 16">
+                                                <path id="Shape_874" data-name="Shape 874" d="M3516.475,431l9.524,7.407-9.524,7.408v-3.852c-.507-.023-9.338-.306-15.476,5.037,2.457-7.534,10.171-10.811,15.476-12.148Z" transform="translate(-3500.999 -430.999)"></path>
+                                            </svg>
+                                            <div class="toggle-share ">
+                                                <h6>Share with your Friends</h6>
+                                                <ul id="social_share">
+                                                    <li value="whatsapp">
+                                                        <a href="https://api.whatsapp.com//send?text=Hey! I am now ranked <?php echo $current_user_rank; ?> out of ABC users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
+                                                            <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
+                                                                <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"></path>
+                                                                <path id="Path_84" data-name="Path 84" d="M4.962,51.2a.594.594,0,0,1-.573-.75L7.525,39a23.15,23.15,0,1,1,9.321,9.1L5.113,51.178A.543.543,0,0,1,4.962,51.2Z" transform="translate(-3.773 -3.906)" fill="#fff"></path>
+                                                                <path id="Path_85" data-name="Path 85" d="M27.8,5.188a22.56,22.56,0,0,1,0,45.119H27.8a22.534,22.534,0,0,1-10.78-2.746L5.056,50.7l3.2-11.686A22.562,22.562,0,0,1,27.8,5.188m0,45.119h0m0,0h0M27.8,4h0A23.753,23.753,0,0,0,6.981,39.171L3.91,50.386a1.188,1.188,0,0,0,1.448,1.463l11.51-3.018A23.749,23.749,0,1,0,27.8,4Z" transform="translate(-3.868 -4)" fill="#cfd8dc"></path>
+                                                                <path id="Path_86" data-name="Path 86" d="M40.246,13.7A18.752,18.752,0,0,0,11.1,36.924l.447.709-1.9,6.916,7.1-1.861.686.406a18.714,18.714,0,0,0,9.543,2.613h.007A18.751,18.751,0,0,0,40.246,13.7Z" transform="translate(-3.046 -3.209)" fill="#40c351"></path>
+                                                                <path id="Path_87" data-name="Path 87" d="M20.191,16.2c-.422-.939-.866-.958-1.269-.974-.329-.014-.7-.013-1.08-.013a2.072,2.072,0,0,0-1.5.706,6.318,6.318,0,0,0-1.974,4.7c0,2.773,2.02,5.454,2.3,5.829s3.9,6.249,9.629,8.508c4.761,1.877,5.731,1.5,6.764,1.41s3.335-1.363,3.8-2.679a4.72,4.72,0,0,0,.329-2.679c-.141-.235-.517-.375-1.08-.658s-3.335-1.646-3.852-1.833-.892-.282-1.269.283-1.455,1.833-1.785,2.209-.658.424-1.221.141a15.429,15.429,0,0,1-4.533-2.8,16.982,16.982,0,0,1-3.136-3.9c-.329-.563-.036-.869.247-1.15.253-.253.563-.658.846-.987a3.855,3.855,0,0,0,.563-.94,1.037,1.037,0,0,0-.048-.987C21.787,20.1,20.692,17.316,20.191,16.2Z" transform="translate(-1.892 -1.89)" fill="#fff" fill-rule="evenodd"></path>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                    <li value="twitter">
+                                                        <a href="https://twitter.com/intent/tweet?text=Hey! I am now ranked <?php echo $current_user_rank; ?> out of ABC users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
+                                                            <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
+                                                                <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"></path>
+                                                                <path id="Path_89" data-name="Path 89" d="M40.611,17.527a13.383,13.383,0,0,1-3.576,1.049c1.214-.72,3.139-2.22,3.576-3.576a17.065,17.065,0,0,1-4.522,1.636,5.761,5.761,0,0,0-9.784,4.325v2.384c-4.768,0-9.418-3.632-12.311-7.153a5.738,5.738,0,0,0-.8,2.929c0,2.168,1.992,4.369,3.569,5.416a11.065,11.065,0,0,1-3.576-1.192v.068a5.345,5.345,0,0,0,4.664,5.272,7.465,7.465,0,0,1-3.386.621c.746,2.307,4.5,3.526,7.067,3.576-2.01,1.558-5.593,2.384-8.345,2.384A8.785,8.785,0,0,1,12,35.239a18.539,18.539,0,0,0,9.537,2.412c10.8,0,16.69-8.247,16.69-15.939,0-.253-.008-1.1-.021-1.347a9.057,9.057,0,0,0,2.406-2.837" transform="translate(-2.463 -1.887)" fill="#fff"></path>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                    <li value="facebook">
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey! I am now ranked <?php echo $current_user_rank; ?> out of ABC users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
+                                                            <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
+                                                                <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"></path>
+                                                                <path id="Path_91" data-name="Path 91" d="M29.15,33.174h6.17l.969-6.268h-7.14V23.48c0-2.6.851-4.913,3.286-4.913h3.914V13.1a33.247,33.247,0,0,0-4.89-.3c-5.739,0-9.1,3.031-9.1,9.935v4.17h-5.9v6.268h5.9V50.4a23.891,23.891,0,0,0,3.566.295,24,24,0,0,0,3.228-.243Z" transform="translate(-2.08 -3.012)" fill="#fff"></path>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </span>
+                                    </span>
                                 </div>
                                 <div class="pull-right">
                                     <h6>Your Rank <span class="rank">08</span></h6>
@@ -721,10 +756,10 @@ div#ui-datepicker-div{
                             <div class="board-list">
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="pills-zone-tab" data-bs-toggle="pill" data-bs-target="#pills-zone" type="button" role="tab" aria-controls="pills-zone" aria-selected="true">ZONES</button>
+                                        <button class="nav-link active zoneBtn" id="pills-zone-tab" data-bs-toggle="pill" data-bs-target="#pills-zone" type="button" role="tab" aria-controls="pills-zone" aria-selected="true">ZONES</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="pills-school-tab" data-bs-toggle="pill" data-bs-target="#pills-school" type="button" role="tab" aria-controls="pills-school" aria-selected="false">SCHOOLS</button>
+                                        <button class="nav-link schoolsBtn" id="pills-school-tab" data-bs-toggle="pill" data-bs-target="#pills-school" type="button" role="tab" aria-controls="pills-school" aria-selected="false">SCHOOLS</button>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="pills-tabContent">
@@ -872,7 +907,7 @@ div#ui-datepicker-div{
                         <h6>Share code on</h6>
                         <ul>
                             <li>
-                                <a href="https://api.whatsapp.com//send?text=My Referrals Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
+                                <a href="https://api.whatsapp.com//send?text=Hey! My referral code is <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>. Please use this referral code to register at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Also earn points for your successful registration! Learn. Participate. Win" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59.251" viewBox="0 0 59 59.251">
                                         <g id="icons8-whatsapp" transform="translate(-3.868 -4)">
                                             <path id="Path_83" data-name="Path 83" d="M4.868,61.309l3.96-14.458A27.913,27.913,0,1,1,33.015,60.826H33a27.881,27.881,0,0,1-13.338-3.4Z" transform="translate(0.47 0.47)" fill="#fff"/>
@@ -885,7 +920,7 @@ div#ui-datepicker-div{
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/intent/tweet?text=My Referral Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
+                                <a href="https://twitter.com/intent/tweet?text=Hey! My referral code is <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>. Please use this referral code to register at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Also earn points for your successful registration! Learn. Participate. Win" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59">
                                         <g id="icons8-twitter-circled" transform="translate(-4 -4)">
                                             <path id="Path_88" data-name="Path 88" d="M33.5,4A29.5,29.5,0,1,0,63,33.5,29.5,29.5,0,0,0,33.5,4Z" fill="#03a9f4"/>
@@ -895,7 +930,7 @@ div#ui-datepicker-div{
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=My Referrals Code is : <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>" target="_blank">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey! My referral code is <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>. Please use this referral code to register at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Also earn points for your successful registration! Learn. Participate. Win" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59">
                                         <g id="icons8-facebook" transform="translate(-5 -5)">
                                             <path id="Path_90" data-name="Path 90" d="M34.5,5A29.5,29.5,0,1,0,64,34.5,29.5,29.5,0,0,0,34.5,5Z" fill="#1976d3"/>

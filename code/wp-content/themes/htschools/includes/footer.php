@@ -1232,6 +1232,16 @@ jQuery(document).ready(function(){
                <?php //wp_logout(); ?>
           });
 
+          $('.zoneBtn').click(function(){
+              $('.share-zone').show();
+              $('.share-schools').hide();
+          });
+
+          $('.schoolsBtn').click(function(){
+              $('.share-schools').show();
+              $('.share-zone').hide();
+          });
+
      </script>
 
      <script type="text/javascript">

@@ -503,7 +503,7 @@ body {
     justify-content: space-between
 }
 
-.header .header-copy .left-menu .menu li.border-menu {
+.header .header-copy .left-menu .menu li.border-menu, .header .header-copy .left-menu .menu li.home_button{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -667,15 +667,15 @@ body {
     color: #fff
 }
 
-.home .header .header-copy .left-menu .menu li.border-menu {
+.home .header .header-copy .left-menu .menu li.border-menu, .header .header-copy .left-menu .menu li.home_button {
     border-color: currentColor
 }
 
-.home .header .header-copy .left-menu .menu li.border-menu:after {
+.home .header .header-copy .left-menu .menu li.border-menu:after, .header .header-copy .left-menu .menu li.home_button:after {
     color: currentColor
 }
 
-.home .header .header-copy .left-menu .menu li.border-menu a {
+.home .header .header-copy .left-menu .menu li.border-menu a, .header .header-copy .left-menu .menu li.home_button a{
     color: currentColor !important
 }
 

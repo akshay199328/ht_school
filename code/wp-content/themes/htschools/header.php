@@ -161,7 +161,8 @@ if ( !is_page_template('event-dashboard.php')){
                               if($menu->title == 'Menu'){
                                 echo '<li class="border-menu hide-menu ' . $current . ' "><a>' . $menu->title . '</a></li>';
                               $home= 'Home';
-                                echo '<li class="border-menu home_button ' . $current . ' "><a>' . $home . '</a></li>';
+                              $home_url= get_bloginfo('url');
+                                echo '<li class="home_button ' . $current . ' "><a href ="'.$home_url.'">' . $home . '</a></li>';
                               }
                               else{
                               if($post_slug != 'login-register'){

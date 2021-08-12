@@ -1791,8 +1791,42 @@ function prefix_load_cat_posts () {
   global $post,$wpdb;
   $course_id = $_POST[ 'course_id' ];
   $user = wp_get_current_user();
-  $query =apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='".$course_id."' ORDER BY rel.meta_value DESC"));
-  $result = $wpdb->get_results($query);
+  $table_name = "ht_mycred_log";
+
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
+  $sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='".$course_id."' ";
+  $results = $wpdb->get_results($sql);
+  foreach($results as $key1 => $v){
+    $sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$v->user_id."' and ref !='signup_referral' and ctype !='mycred_default' ");
+    foreach($sql as $key => $csm){
+      if($csm->total_creds != ''){
+        $results[$key1]->points = $csm->total_creds;
+      }
+      else{
+        $results[$key1]->points = 0;
+      }
+    }
+  }
+// $sort = array();
+// foreach($results as $k=>$v) {
+//     $sort['points'][$k] = $v['points'];
+// }
+
+//array_multisort($sort['points'], SORT_DESC, $arr);
+$price = array_column($results, 'points');
+array_multisort($price, SORT_DESC, $results);
+foreach($results as $key2 => $v2)
+{
+  $rank = $key2 + 1;
+  $results[$key2]->rank = $rank;
+}
+
+    
     if ($wpdb->num_rows<=0) {
       echo '0';
     }
@@ -1800,7 +1834,7 @@ function prefix_load_cat_posts () {
     {
      
       $array2 = array();
-      foreach($result as $course){
+      foreach($results as $course){
 
           array_push($array2,$course);
         
@@ -1827,7 +1861,7 @@ function prefix_load_cat_posts () {
         }
       }
       $current_user_rank = implode($user_rank);
-      $prev_rank = $current_user_rank - 5;
+      $prev_rank = $current_user_rank - 4;
       $next_rank = $current_user_rank + 5;
 
       $prev_rank_array = array();
@@ -1843,7 +1877,7 @@ function prefix_load_cat_posts () {
         //$dashboard_data[$key]['flag'] = 1;
       }
       $user_rank_list = array_merge($prev_rank_array,$next_rank_array);
- 
+
       foreach($user_rank_list as $course){
         if($course->user_id == $user->ID){
           $response = '<tr style="background: #D5EBFF;">';
@@ -1858,7 +1892,7 @@ function prefix_load_cat_posts () {
 
           $response .= '<td>'. get_display_name($course->user_id) .'</td>';
         }
-        $response .= '<td>'. $course->score .'</td>';
+        $response .= '<td>'. $course->points .'</td>';
         $response .= '</tr>';
         echo $response;
       }

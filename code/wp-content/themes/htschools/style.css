@@ -6333,18 +6333,19 @@ div.nsl-container .nsl-container-buttons {
 .page-template-parent-login .header .header-copy {
     justify-content: flex-start !important
 }
-.border-menu.home_button,
-.border-menu.home_button.active,
+.home_button,
+.home_button.active,
 .my-account.parent_dashboard .border-menu.hide-menu,
 .my-account.parent_dashboard .header .header-copy .right-menu,
 .my-account.parent_dashboard .menu .my-course,
 .page-template-parent-login .border-menu.hide-menu,
 .page-template-parent-login .custom-dropdown,
 .page-template-parent-login .header .header-copy .right-menu,
-.page-template-parent-login .menu .my-course {
+.page-template-parent-login .menu .my-course,
+#dashboard_menu .parent_dashboard-personal-li {
     display: none !important
 }
-.parent_dashboard .border-menu.home_button{
+.parent_dashboard .home_button{
     display: flex!important;
 }
 .left-listing .tab {
@@ -10485,18 +10486,18 @@ section#content.section_contact {
     padding: 11px 15px !important
 }
 
-.header .left-menu .menu li.border-menu {
+.header .left-menu .menu li.border-menu, .header .left-menu .menu li.home_button {
     width: 114px !important;
     border: 1px solid #000
 }
 
-.my-account.parent_dashboard .border-menu.home_button,
-.page-template-parent-login .border-menu.home_button {
+.my-account.parent_dashboard .home_button,
+.page-template-parent-login .home_button {
     justify-content: space-between
 }
 
-.my-account.parent_dashboard .border-menu.home_button:before,
-.page-template-parent-login .border-menu.home_button:before {
+.my-account.parent_dashboard .home_button:before,
+.page-template-parent-login .home_button:before {
     content: "\f284";
     font-family: bootstrap-icons !important;
     font-style: normal;
@@ -10510,8 +10511,8 @@ section#content.section_contact {
     left: 3px
 }
 
-.my-account.parent_dashboard .border-menu.home_button:after,
-.page-template-parent-login .border-menu.home_button:after {
+.my-account.parent_dashboard .home_button:after,
+.page-template-parent-login .home_button:after {
     display: none
 }
 

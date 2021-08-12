@@ -313,6 +313,7 @@ if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
   else{
       $my_cred_table = 'ht_myCRED_log';
   }
+
   $sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='".$courseID."' ";
   $leaderboard_result = $wpdb->get_results($sql);
   foreach($leaderboard_result as $key1 => $v){
@@ -382,6 +383,19 @@ if($user_rank){
 else{
     $user_rank_list = $leaderboard_result;
 }
+
+
+$resultsRank = $wpdb->get_row("SELECT count(umeta.user_id) as totalCount
+        FROM ht_usermeta AS umeta
+        LEFT JOIN ht_posts AS posts ON umeta.meta_key = posts.ID
+        LEFT JOIN ht_users AS users ON users.Id = umeta.user_id
+        WHERE   posts.post_type     = 'course'
+        AND     posts.post_status   = 'publish'
+        AND     posts.id    = '".$courseID."'
+        AND     umeta.meta_key REGEXP '^[0-9]+$'
+        ORDER BY umeta.user_id DESC;");
+$totalRank = $resultsRank->totalCount;
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}
@@ -528,8 +542,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="twitter">
-                                                        <a href="https://twitter.com/intent/tweet?text=Hey, I have completed <?php echo $progressVal; ?>% of <?php echo get_the_title($courseID); ?> with Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. 
-                                                        Learn. Participate. Win" target="_blank">
+                                                        <a href="https://twitter.com/intent/tweet?text=Hey, I have completed <?php echo $progressVal; ?>%25 of <?php echo get_the_title($courseID); ?> with Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win" target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"/>
                                                                 <path id="Path_89" data-name="Path 89" d="M40.611,17.527a13.383,13.383,0,0,1-3.576,1.049c1.214-.72,3.139-2.22,3.576-3.576a17.065,17.065,0,0,1-4.522,1.636,5.761,5.761,0,0,0-9.784,4.325v2.384c-4.768,0-9.418-3.632-12.311-7.153a5.738,5.738,0,0,0-.8,2.929c0,2.168,1.992,4.369,3.569,5.416a11.065,11.065,0,0,1-3.576-1.192v.068a5.345,5.345,0,0,0,4.664,5.272,7.465,7.465,0,0,1-3.386.621c.746,2.307,4.5,3.526,7.067,3.576-2.01,1.558-5.593,2.384-8.345,2.384A8.785,8.785,0,0,1,12,35.239a18.539,18.539,0,0,0,9.537,2.412c10.8,0,16.69-8.247,16.69-15.939,0-.253-.008-1.1-.021-1.347a9.057,9.057,0,0,0,2.406-2.837" transform="translate(-2.463 -1.887)" fill="#fff"/>
@@ -660,7 +673,7 @@ div#ui-datepicker-div{
                                                 <h6>Share with your Friends</h6>
                                                 <ul id="social_share">
                                                     <li value="whatsapp">
-                                                        <a href="https://api.whatsapp.com//send?text=Hey! I am ranked <?php echo $current_user_rank; ?> out of 10 users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
+                                                        <a href="https://api.whatsapp.com//send?text=Hey! I am ranked <?php echo $current_user_rank; ?> out of <?php echo $totalRank; ?> users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
                                                                 <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"></path>
                                                                 <path id="Path_84" data-name="Path 84" d="M4.962,51.2a.594.594,0,0,1-.573-.75L7.525,39a23.15,23.15,0,1,1,9.321,9.1L5.113,51.178A.543.543,0,0,1,4.962,51.2Z" transform="translate(-3.773 -3.906)" fill="#fff"></path>
@@ -671,7 +684,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="twitter">
-                                                        <a href="https://twitter.com/intent/tweet?text=Hey! I am ranked <?php echo $current_user_rank; ?> out of 10 users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
+                                                        <a href="https://twitter.com/intent/tweet?text=Hey! I am ranked <?php echo $current_user_rank; ?> out of <?php echo $totalRank; ?> users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"></path>
                                                                 <path id="Path_89" data-name="Path 89" d="M40.611,17.527a13.383,13.383,0,0,1-3.576,1.049c1.214-.72,3.139-2.22,3.576-3.576a17.065,17.065,0,0,1-4.522,1.636,5.761,5.761,0,0,0-9.784,4.325v2.384c-4.768,0-9.418-3.632-12.311-7.153a5.738,5.738,0,0,0-.8,2.929c0,2.168,1.992,4.369,3.569,5.416a11.065,11.065,0,0,1-3.576-1.192v.068a5.345,5.345,0,0,0,4.664,5.272,7.465,7.465,0,0,1-3.386.621c.746,2.307,4.5,3.526,7.067,3.576-2.01,1.558-5.593,2.384-8.345,2.384A8.785,8.785,0,0,1,12,35.239a18.539,18.539,0,0,0,9.537,2.412c10.8,0,16.69-8.247,16.69-15.939,0-.253-.008-1.1-.021-1.347a9.057,9.057,0,0,0,2.406-2.837" transform="translate(-2.463 -1.887)" fill="#fff"></path>
@@ -679,7 +692,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="facebook">
-                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey! I am ranked <?php echo $current_user_rank; ?> out of 10 users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey! I am ranked <?php echo $current_user_rank; ?> out of <?php echo $totalRank; ?> users in my zone on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"></path>
                                                                 <path id="Path_91" data-name="Path 91" d="M29.15,33.174h6.17l.969-6.268h-7.14V23.48c0-2.6.851-4.913,3.286-4.913h3.914V13.1a33.247,33.247,0,0,0-4.89-.3c-5.739,0-9.1,3.031-9.1,9.935v4.17h-5.9v6.268h5.9V50.4a23.891,23.891,0,0,0,3.566.295,24,24,0,0,0,3.228-.243Z" transform="translate(-2.08 -3.012)" fill="#fff"></path>
@@ -697,7 +710,7 @@ div#ui-datepicker-div{
                                                 <h6>Share with your Friends</h6>
                                                 <ul id="social_share">
                                                     <li value="whatsapp">
-                                                        <a href="https://api.whatsapp.com//send?text=Hey! I am now ranked <?php echo $current_user_rank; ?> out of ABC users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
+                                                        <a href="https://api.whatsapp.com//send?text=Hey! I am now ranked <?php echo $current_user_rank; ?> out of <?php echo $totalRank; ?> users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-whatsapp" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.888" viewBox="0 0 47.685 47.888">
                                                                 <path id="Path_83" data-name="Path 83" d="M4.868,50.51l3.2-11.686A22.56,22.56,0,1,1,27.617,50.119h-.01a22.534,22.534,0,0,1-10.78-2.746Z" transform="translate(-3.679 -3.812)" fill="#fff"></path>
                                                                 <path id="Path_84" data-name="Path 84" d="M4.962,51.2a.594.594,0,0,1-.573-.75L7.525,39a23.15,23.15,0,1,1,9.321,9.1L5.113,51.178A.543.543,0,0,1,4.962,51.2Z" transform="translate(-3.773 -3.906)" fill="#fff"></path>
@@ -708,7 +721,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="twitter">
-                                                        <a href="https://twitter.com/intent/tweet?text=Hey! I am now ranked <?php echo $current_user_rank; ?> out of ABC users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
+                                                        <a href="https://twitter.com/intent/tweet?text=Hey! I am now ranked <?php echo $current_user_rank; ?> out of <?php echo $totalRank; ?> users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-twitter-circled" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_88" data-name="Path 88" d="M27.842,4A23.842,23.842,0,1,0,51.685,27.842,23.842,23.842,0,0,0,27.842,4Z" transform="translate(-4 -4)" fill="#03a9f4"></path>
                                                                 <path id="Path_89" data-name="Path 89" d="M40.611,17.527a13.383,13.383,0,0,1-3.576,1.049c1.214-.72,3.139-2.22,3.576-3.576a17.065,17.065,0,0,1-4.522,1.636,5.761,5.761,0,0,0-9.784,4.325v2.384c-4.768,0-9.418-3.632-12.311-7.153a5.738,5.738,0,0,0-.8,2.929c0,2.168,1.992,4.369,3.569,5.416a11.065,11.065,0,0,1-3.576-1.192v.068a5.345,5.345,0,0,0,4.664,5.272,7.465,7.465,0,0,1-3.386.621c.746,2.307,4.5,3.526,7.067,3.576-2.01,1.558-5.593,2.384-8.345,2.384A8.785,8.785,0,0,1,12,35.239a18.539,18.539,0,0,0,9.537,2.412c10.8,0,16.69-8.247,16.69-15.939,0-.253-.008-1.1-.021-1.347a9.057,9.057,0,0,0,2.406-2.837" transform="translate(-2.463 -1.887)" fill="#fff"></path>
@@ -716,7 +729,7 @@ div#ui-datepicker-div{
                                                         </a>
                                                     </li>
                                                     <li value="facebook">
-                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey! I am now ranked <?php echo $current_user_rank; ?> out of ABC users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_bloginfo('url')?>&quote=Hey! I am now ranked <?php echo $current_user_rank; ?> out of <?php echo $totalRank; ?> users in my school on Hindustan Times Codeathon. Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads Learn. Participate. Win." target="_blank">
                                                             <svg id="icons8-facebook" xmlns="http://www.w3.org/2000/svg" width="47.685" height="47.685" viewBox="0 0 47.685 47.685">
                                                                 <path id="Path_90" data-name="Path 90" d="M28.842,5A23.842,23.842,0,1,0,52.685,28.842,23.842,23.842,0,0,0,28.842,5Z" transform="translate(-5 -5)" fill="#1976d3"></path>
                                                                 <path id="Path_91" data-name="Path 91" d="M29.15,33.174h6.17l.969-6.268h-7.14V23.48c0-2.6.851-4.913,3.286-4.913h3.914V13.1a33.247,33.247,0,0,0-4.89-.3c-5.739,0-9.1,3.031-9.1,9.935v4.17h-5.9v6.268h5.9V50.4a23.891,23.891,0,0,0,3.566.295,24,24,0,0,0,3.228-.243Z" transform="translate(-2.08 -3.012)" fill="#fff"></path>
@@ -729,7 +742,7 @@ div#ui-datepicker-div{
                                     </span>
                                 </div>
                                 <div class="pull-right">
-                                    <h6>Your Rank <span class="rank">08</span></h6>
+                                    <h6>Your Rank <span class="rank"><?php echo $current_user_rank; ?></span></h6>
                                 </div>
                             </div>
                             <div class="rank-people">

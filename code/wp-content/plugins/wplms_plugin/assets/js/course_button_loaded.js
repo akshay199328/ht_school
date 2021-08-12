@@ -4407,7 +4407,25 @@
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"))), Rt("div", {
+            },"Review Quiz Questions"),Rt("span", {
+                className: "share result-share",
+            },gn("h6",{
+                onClick: () => {
+                jQuery(".toggle-share").slideToggle();
+            }
+            }, null,"Share"),gn("div", {
+                className: "toggle-share ",
+
+            },gn("ul", {
+                className: "button-test"
+            },gn("p", null,"Share with your Friends"),
+            gn("li",{
+                className: "share-whatsapp",
+            }), gn("li",{
+                    className: "share-twitter",
+            }), gn("li",{
+                    className: "share-facebook",
+            })))))), Rt("div", {
                 className: "buttons_wrapper pull-right"
             }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
                 className: "quiz_retake",

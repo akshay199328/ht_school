@@ -86,19 +86,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
             </span>
             <div class="group-logos">
                 <div class="column">
-                    <span class="title">PRESENTED BY</span>
-                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/dell.png">
-                </div>
-                <div class="column">
-                    <span class="title">PARTNER</span>
-                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/delhi-sarkar.png">
-                </div>
-                <div class="column">
                     <span class="title">POWERED BY</span>
-                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/ibm.png">
-                </div>
-                <div class="column">
-                    <span class="title">CAUSE PARTNER</span>
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/speed.png">
                 </div>
             </div>

@@ -351,7 +351,7 @@ foreach($leaderboard_result as $key1 => $rank)
 }
 
 $user_rank = array();
-if($user_rank){
+
 
     foreach($leaderboard_result as $key => $csm)
     {
@@ -378,10 +378,7 @@ if($user_rank){
     //$leaderboard_result[$key]['flag'] = 1;
     }
     $user_rank_list = array_merge($prev_rank_array,$next_rank_array);
-}
-else{
-    $user_rank_list = $leaderboard_result;
-}
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}

@@ -352,7 +352,6 @@ foreach($leaderboard_result as $key1 => $rank)
 
 $user_rank = array();
 
-
     foreach($leaderboard_result as $key => $csm)
     {
        
@@ -360,6 +359,7 @@ $user_rank = array();
           $user_rank[] = $leaderboard_result[$key]->rank;
         }
     }
+if($user_rank){
     
     $current_user_rank = implode($user_rank);
     $prev_rank = $current_user_rank - 4;
@@ -378,7 +378,10 @@ $user_rank = array();
     //$leaderboard_result[$key]['flag'] = 1;
     }
     $user_rank_list = array_merge($prev_rank_array,$next_rank_array);
-
+}
+else{
+    $user_rank_list = $leaderboard_result;
+}
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}

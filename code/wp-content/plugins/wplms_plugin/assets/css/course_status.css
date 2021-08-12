@@ -4391,6 +4391,7 @@ a.button.is-primary {
     display: inline-block;
     margin-right: 16px;
 }
+.result-share li a{display: block}
 .result-share .toggle-share .share-whatsapp{
     background: url('../images/share-whatsapp.svg')no-repeat;
     width: 48px;

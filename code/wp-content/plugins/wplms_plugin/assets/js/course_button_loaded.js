@@ -3574,9 +3574,10 @@
             const t = document.createElement("script");
             t.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js", t.async = !0, t.onload = () => {
                 document.dispatchEvent(new Event("VibeBP_Editor_Content"))
-                jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
+                
             }, document.body.appendChild(t)
             if(jQuery(window).width() <= 767) {
+                jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
                 const b = document.createElement("script");
                 b.src = "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js", t.async = !0, b.onload = () => {
                     jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');

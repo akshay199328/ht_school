@@ -341,8 +341,8 @@
     align-content: space-around;
 }
 .course_status .reviewpopup_wrapper.complete_course_popup .reviewpopup_content{
-    width: 30%!important;
-     padding: 30px 75px 50px!important;
+    max-width: 450px;
+     padding:40px 40px!important;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
       height: auto;

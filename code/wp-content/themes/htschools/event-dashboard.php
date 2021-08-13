@@ -1149,7 +1149,7 @@ div#ui-datepicker-div{
                                         <div class="list">
                                             <div class="form-group profile_dropdown">
                                                 <label for="">Grade / Standard*</label>
-                                                <div class="input-group input-search">
+                                                <div class="input-group input-dropdown">
                                                     <select class="form-control" name="grade" id="grade">
                                                         <option value="K1" <?php if($child[0]->grade=="K1") echo 'selected="selected"'; ?>>K1</option>
                                                         <option value="K2" <?php if($child[0]->grade=="K2") echo 'selected="selected"'; ?>>K2</option>
@@ -1172,7 +1172,7 @@ div#ui-datepicker-div{
                                         <div class="list">
                                             <div class="form-group profile_dropdown">
                                                 <label for="">Section / Division* <?php echo $child->division?></label>
-                                                <div class="input-group input-search">
+                                                <div class="input-group input-dropdown">
                                                     <select class="form-control" name="division" id="division">
                                                       <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
                                                       <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>

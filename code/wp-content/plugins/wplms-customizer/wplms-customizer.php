@@ -697,4 +697,15 @@ function track_ajax_unit_views($id){
 
 }
 
- 
+add_filter('wplms_course_metabox','practice_popup');
+function practice_popup($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Practice Popup','vibe-session_length'), // <label>
+  'desc'  => __('Practice Popup','vibe-session_length'), // description
+  'id'    => $prefix.'practice_popup', // field id and name
+  'type'  => 'editor' // type of field
+                       );
+  return $field1;
+   
+}

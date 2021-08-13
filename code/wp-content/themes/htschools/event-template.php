@@ -356,7 +356,7 @@ if($bannerCount == 1){
               <div class="copy">
                 <h3 class="title"><?php echo $custom_fields['about_our_partners_title'][0];?></h3>
                 <p><?php echo $custom_fields['description'][0];?></p>
-                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>">Visit Sponsor >></a>
+                <a class="read-more" href="<?php echo $custom_fields['link'][0];?>" target="_blank">Visit Sponsor >></a>
               </div>
             </div>
         </div>

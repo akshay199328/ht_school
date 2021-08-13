@@ -64,9 +64,11 @@ if($bannerCount == 1){
     if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
       $custom_fields = get_post_custom();
       $image_url = wp_get_attachment_url($custom_fields['upload_image'][0]);
+      $image_url_mob = wp_get_attachment_url($custom_fields['mobile_image'][0]);
   ?>
   <div class="item">
       <img src="<?php echo $image_url; ?>">
+      <img src="<?php echo $image_url_mob; ?>" style="display: none;">
       <div class="caption">
           <?php echo $custom_fields['description'][0];?>
       </div>

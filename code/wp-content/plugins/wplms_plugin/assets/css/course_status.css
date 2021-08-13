@@ -341,11 +341,11 @@
     align-content: space-around;
 }
 .course_status .reviewpopup_wrapper.complete_course_popup .reviewpopup_content{
-    max-width: 450px;
-     padding:40px 40px!important;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-      height: auto;
+    max-width: 450px!important;
+    padding: 40px 40px!important;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    height: auto;
 }
 .course_status .reviewpopup_wrapper.complete_course_popup .reviewpopup_content .close {
     right: 30px;
@@ -3833,8 +3833,9 @@ a.button.is-primary {
     color: var(--primarycolor);
     background: var(--primary)
 }
-.pagination_merge.submitted .owl-carousel .owl-stage{
-    width: 100%!important;
+.pagination_merge.submitted .owl-carousel .owl-stage .owl-item:first-child,
+.pagination_merge.submitted .owl-carousel .owl-stage .owl-item:last-child{
+    display: none!important;
 }
 .pagination_merge.submitted .owl-carousel .ques_link.left.prevq,
 .pagination_merge.submitted .owl-carousel .ques_link.left.prevq {display: none;}
@@ -4582,8 +4583,8 @@ a.button.is-primary {
     .course_status .incourse .pagination_merge{width: 100%!important;padding: 0px 5px;align-content: center;justify-content: center;align-items: center;}
     .footer_parent{flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: center;}
     .course_status .incourse .quiz_pagination_wrapper.buttons.has-addons{margin: 20px 0px;}
-    .course_status .incourse .pagination_merge.submitted .buttons.has-addons{justify-content: center;padding-right: 15px;}
-    .course_status .incourse .pagination_merge.submitted .buttons.has-addons .button.right { position: absolute; right: 0;}
+    .course_status .incourse .pagination_merge.submitted .buttons.has-addons{justify-content: center;padding-right: 0px;}
+    .course_status .incourse .pagination_merge.submitted .buttons.has-addons .button.right {display: none; position: absolute; right: 0;}
     .pagination_pagetext{width: 55%;line-height: 15px;font-size: 11px;}
     .course_status .incourse .quiz_pagination_wrapper>.button i {font-size: 12px;    line-height: 25px;}
     .course_status .incourse .pagination_merge.submitted .button i {font-size: 12px;line-height: 33px;}
@@ -4598,6 +4599,71 @@ a.button.is-primary {
     .top-heading{flex-direction: column;}
     .top-heading .left-info, 
     .top-heading .right-info {width: 100%;justify-content: flex-start;}
+    .pagination_merge.submitted .owl-carousel .owl-stage-outer {
+        margin: 0px 30px;
+    }
+    .quiz_pagination_wrapper.buttons.has-addons.owl-carousel .button {
+        /* display: none; */
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        padding: 0;
+        text-align: center;
+        margin: 0px;
+        font-size: 15px!important;
+        text-transform: uppercase;
+        font-weight: 300;
+        color: #000;
+        border: 1px solid #717171;
+        background: transparent;
+        text-align: center;
+        line-height: 29px;
+        cursor: pointer;
+    }
+    .quiz_pagination_wrapper.buttons.has-addons.owl-carousel .button.correct {
+        background: #D7F5CB!important;
+        border-color: #8AE963!important;
+    }
+    .quiz_pagination_wrapper.buttons.has-addons.owl-carousel .button.incorrect {
+        background: #FF9898!important;
+        border-color: #FC5656!important;
+    }
+    .quiz_pagination_wrapper .owl-nav .owl-prev {
+        position: absolute;
+        top: 7px;
+        left: 0;
+    }
+    .quiz_pagination_wrapper .owl-nav .owl-next {
+        position: absolute;
+        top: 7px;
+        right: 0;
+    }
+    .quiz_pagination_wrapper .owl-nav .owl-prev:after{
+        content: "\e64a";
+        font-family: 'vicon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .quiz_pagination_wrapper .owl-nav .owl-next:after{
+        content: "\e649";
+        font-family: 'vicon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .quiz_pagination_wrapper .owl-nav button.disabled:after {color: rgb(0 0 0 / 40%);}
+    .owl-nav span{display: none;}
 }
 @media screen and (max-width:480px) and (min-width:320px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{

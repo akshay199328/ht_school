@@ -3574,22 +3574,25 @@
             const t = document.createElement("script");
             t.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js", t.async = !0, t.onload = () => {
                 document.dispatchEvent(new Event("VibeBP_Editor_Content"))
-                //jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
+                jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
             }, document.body.appendChild(t)
-            // if(jQuery(window).width() <= 767) {
-            //     const b = document.createElement("script");
-            //     b.src = "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js", t.async = !0, b.onload = () => {
-            //         jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
-            //         jQuery('.quiz_pagination_wrapper.owl-carousel').owlCarousel({
-            //             margin: 0,
-            //             loop: true,
-            //             autoWidth: true,
-            //             items: 4,
-            //             nav: true,
-            //             dots:true
-            //         });
-            //     }, document.body.appendChild(b)
-            // }
+            if(jQuery(window).width() <= 767) {
+                const b = document.createElement("script");
+                b.src = "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js", t.async = !0, b.onload = () => {
+                    jQuery('.pagination_merge.submitted .quiz_pagination_wrapper').addClass('owl-carousel owl-theme');
+                    jQuery('.quiz_pagination_wrapper.owl-carousel').owlCarousel({
+                        margin:10,
+                        loop:false,
+                        nav:true,
+                        mouseDrag:false,
+                        autoWidth:true,
+                        slideBy: 1,
+                        items:4,
+                        autoplayHoverPause: false
+                        
+                    });
+                }, document.body.appendChild(b)
+            }
         }, [e.quiz, e.currentQuestions]), Ht(() => {
             n(e.quiz), o(null, 1)
         }, [e.filter]), Ht(() => {

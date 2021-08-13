@@ -118,6 +118,8 @@ foreach($results as $row){
 $results2 = $wpdb->get_row("SELECT count(umeta_id) as profileStatus FROM `ht_usermeta` WHERE `user_id` = '$user_id' and `meta_key` = 'profile_status'");
 $profileStatus = $results2->profileStatus;
 
+$child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
+
 
 if($course_status11 == 1){
     $courseID = $course_1;
@@ -1144,6 +1146,48 @@ div#ui-datepicker-div{
                                                 </div>
                                             </div>
                                         </div> -->
+                                        <div class="list">
+                                            <div class="form-group profile_dropdown">
+                                                <label for="">Grade / Standard*</label>
+                                                <div class="input-group input-search">
+                                                    <select class="form-control" name="grade" id="grade">
+                                                        <option value="K1" <?php if($child[0]->grade=="K1") echo 'selected="selected"'; ?>>K1</option>
+                                                        <option value="K2" <?php if($child[0]->grade=="K2") echo 'selected="selected"'; ?>>K2</option>
+                                                        <option value="1" <?php if($child[0]->grade=="1") echo 'selected="selected"'; ?>>1</option>
+                                                        <option value="2" <?php if($child[0]->grade=="2") echo 'selected="selected"'; ?>>2</option>
+                                                        <option value="3" <?php if($child[0]->grade=="3") echo 'selected="selected"'; ?>>3</option>
+                                                        <option value="4" <?php if($child[0]->grade=="4") echo 'selected="selected"'; ?>>4</option>
+                                                        <option value="5" <?php if($child[0]->grade=="5") echo 'selected="selected"'; ?>>5</option>
+                                                        <option value="6" <?php if($child[0]->grade=="6") echo 'selected="selected"'; ?>>6</option>
+                                                        <option value="7" <?php if($child[0]->grade=="7") echo 'selected="selected"'; ?>>7</option>
+                                                        <option value="8" <?php if($child[0]->grade=="8") echo 'selected="selected"'; ?>>8</option>
+                                                        <option value="9" <?php if($child[0]->grade=="9") echo 'selected="selected"'; ?>>9</option>
+                                                        <option value="10" <?php if($child[0]->grade=="10") echo 'selected="selected"'; ?>>10</option>
+                                                        <option value="11" <?php if($child[0]->grade=="11") echo 'selected="selected"'; ?>>11</option>
+                                                        <option value="12" <?php if($child[0]->grade=="12") echo 'selected="selected"'; ?>>12</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list">
+                                            <div class="form-group profile_dropdown">
+                                                <label for="">Section / Division* <?php echo $child->division?></label>
+                                                <div class="input-group input-search">
+                                                    <select class="form-control" name="division" id="division">
+                                                      <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
+                                                      <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
+                                                      <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
+                                                      <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
+                                                      <option value="E" <?php if($child[0]->division=="E") echo 'selected="selected"'; ?>>E</option>
+                                                      <option value="F" <?php if($child[0]->division=="F") echo 'selected="selected"'; ?>>F</option>
+                                                      <option value="G" <?php if($child[0]->division=="G") echo 'selected="selected"'; ?>>G</option>
+                                                      <option value="H" <?php if($child[0]->division=="H") echo 'selected="selected"'; ?>>H</option>
+                                                      <option value="I" <?php if($child[0]->division=="I") echo 'selected="selected"'; ?>>I</option>
+                                                      <option value="J" <?php if($child[0]->division=="J") echo 'selected="selected"'; ?>>J</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="float-end">

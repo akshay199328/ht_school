@@ -536,13 +536,13 @@ body.menuOpened .home-button .burger:after {
         background-color: #004ba6;
         -webkit-transition: all .6s ease-in-out;
         transition: all .6s ease-in-out;
-        padding: 20px 40px;
+        padding:40px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
+        /*-webkit-box-pack: center;
         -ms-flex-pack: center;
-        justify-content: center;
+        justify-content: center;*/
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -650,7 +650,7 @@ body.menuOpened .home-button .burger:after {
     }
 
     .navigation-wrapper ul li {
-        margin-bottom: 5px
+        margin-bottom:15px
     }
 
     .navigation-wrapper ul li a {
@@ -979,7 +979,7 @@ body.menuOpened {
 @media (max-width:480px) {
     .section-wrapper .section-copy .section-title {
         font-size: 28px;
-        margin-bottom: 35px
+        margin-bottom: 35px;
     }
 }
 
@@ -1848,13 +1848,18 @@ body.menuOpened {
 }
 
 @media (max-width:480px) {
+    .section-wrapper.about .section-copy .section-title{
+        max-width:240px;
+        margin-left:auto;
+        margin-right:auto;
+    }
     .section-wrapper.about .section-copy .about_slider .owl-item .partner-copy {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
-        width: 247px;
-        padding: 0 20px
+        width: auto;
+        padding: 0
     }
 
     .section-wrapper.about .section-copy .about_slider .owl-item .partner-copy .copy {
@@ -2188,7 +2193,8 @@ body.menuOpened {
 .section-wrapper.partners .section-copy .partners_slider .owl-stage {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex
+    display: flex;
+    padding-left:30px
 }
 
 .section-wrapper.partners .section-copy .partners_slider .owl-stage .owl-item {
@@ -4096,7 +4102,7 @@ body.menuOpened .side-navigation {
         width: 47%
     }
 }
-.terms{background-color: #d5acff;padding:10px 0;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;color:#5a5a5a;}
+.terms{background-color: #d5acff;padding:5px 0;text-align:center;text-transform:uppercase;font-family: Poppins !important;font-weight:600;color:#5a5a5a;font-size:12px}
 .terms a{color:#5a5a5a;font-weight:inherit}
 .terms a:hover{color:#464646}
 .page-template-event-dashboard .pusher{z-index:auto}

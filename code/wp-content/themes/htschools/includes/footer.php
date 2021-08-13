@@ -357,22 +357,25 @@ jQuery(document).ready(function(){
           mouseDrag:false,
           center:false,
           dots:false,
+          stagePadding:0,
           // autoWidth:true,
           responsive : {
                0 : {
-                    margin:0,
-                    items:1,
+                    margin:40,
+                    items:1.5,
                     dots:true,
-                    autoWidth:true,
+                    autoWidth:false,
                     center:false,
+                    stagePadding:30,
                },
                // breakpoint from 480 up
                480 : {
-                    items:1,
-                    margin:0,
+                    items:1.5,
+                    margin:40,
                     dots:true,
-                    autoWidth:true,
+                    autoWidth:false,
                     center:false,
+                    stagePadding:30,
                },
                // breakpoint from 768 up
                768 : {
@@ -425,7 +428,7 @@ jQuery(document).ready(function(){
           responsive : {
                0 : {
                     items:2,
-                    center:true
+                    center:true,
                },
                // breakpoint from 480 up
                480 : {
@@ -451,9 +454,10 @@ jQuery(document).ready(function(){
           smartSpeed:800,
           responsive : {
                0 : {
-                    items:2,
+                    items:2.5,
                     autoWidth:true,
-                    margin:20,
+                    margin:40,
+                    stagePadding:0,
                },
                // breakpoint from 480 up
                480 : {

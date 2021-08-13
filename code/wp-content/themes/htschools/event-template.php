@@ -67,8 +67,12 @@ if($bannerCount == 1){
       $image_url_mob = wp_get_attachment_url($custom_fields['mobile_image'][0]);
   ?>
   <div class="item">
-      <img src="<?php echo $image_url; ?>">
-      <img src="<?php echo $image_url_mob; ?>" style="display: none;">
+      <!-- <img src="<?php echo $image_url; ?>">
+      <img src="<?php echo $image_url_mob; ?>"> -->
+      <picture>
+        <source media="(max-width:480px)" srcset="<?php echo $image_url_mob; ?>">
+        <img src="<?php echo $image_url; ?>" alt="">
+      </picture>
       <div class="caption">
           <?php echo $custom_fields['description'][0];?>
       </div>

@@ -770,10 +770,11 @@ body.menuOpened {
     object-fit: cover
 }
 
-@media (max-width:450px) {
+@media (max-width:480px) {
     .home_slider .owl-item img {
-        height: 400px;
-        min-height: 400px
+        height: 550px;
+        min-height: 550px;
+        object-position:bottom;
     }
 }
 

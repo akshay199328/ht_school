@@ -2274,9 +2274,15 @@ function get_rank()
     }
 }
 
+function change_woocommerce_order_number($order_id) {
+  $order = new WC_Order( $order_id );
+  $items = $order->get_items();
+  foreach ($items as $item_id => $product ) {
+    $gen_id = rand(1000,9999);
+    return $order_id = 'HTS-'.$item_id.$gen_id;
+  }
+}
 add_filter('woocommerce_order_number', 'change_woocommerce_order_number');
-
-
 
 function modify_search_query( $query ) {
   // Make sure this isn't the admin or is the main query

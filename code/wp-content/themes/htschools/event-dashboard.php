@@ -589,7 +589,7 @@ div#ui-datepicker-div{
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-12 col-sm-12 mrg pull-left">
+                            <div class="col-12 col-md-12 col-sm-12 top_progress pull-left">
                                 <div class="progress">
                                     <div class="progress-bar w-<?php echo $progressVal; ?>" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>

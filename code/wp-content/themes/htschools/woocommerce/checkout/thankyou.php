@@ -144,6 +144,7 @@ defined( 'ABSPATH' ) || exit;
 					$event_course = get_post_meta($courseID,'vibe_course_event',true);
   					if($event_course == 1){ 
 						referal_product_points();
+						pre_register_users_points();
 					}
 					$orderTotal 	+= ($item['total'] + $item['total_tax']);
 					$discountAmt 	+= ($item['subtotal'] - $item['total']);

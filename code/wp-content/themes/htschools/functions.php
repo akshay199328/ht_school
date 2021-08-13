@@ -4006,6 +4006,29 @@ function referal_product_points(){
   }
   //echo json_encode($response); exit;
 }
+function pre_register_users_points(){
+  global $wpdb;
+  $table_name = "ht_mycred_log";
+  if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
+  $creds = 100;
+  $now = current_time('timestamp');
+  $user_id = get_current_user_id();
+  $referal_userid = 0;
+  $entry = "Points for becoming a member";
+  $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE user_id='".$user_id."' AND ref = 'registration'");
+
+  $userid_json = json_decode( json_encode($sql1), true);
+  $userid = $userid_json[0]['user_id'];
+
+  if($userid < 1){
+    $results = add_points('registration',$referal_userid,$user_id,$creds,$now,$entry);
+  }
+}
 add_action("wp_ajax_platform_onboarding_points", "platform_onboarding_points");
 add_action( 'wp_ajax_nopriv_platform_onboarding_points', 'platform_onboarding_points' );
 function platform_onboarding_points(){

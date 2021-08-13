@@ -158,34 +158,15 @@ $pageSlug = trim($uri, '/');
     <script type="text/javascript" src="<?php echo get_bloginfo('template_url'); ?>/assets/js/navigation-custom.js"></script>
     <script type="text/javascript">
      $(document).ready(function () {
-          if($(window).width() >= 768) {
-               /*var slideOut = $('.profile-menu'), 
-               tease = function () { 
-                    alert("hide");
-                    slideOut.hide();
-               };*/
+          
                $('.profile-menu').hide()
                $('.profile-click').click(function (e) {
                     // alert('hello')
                     $('.profile-menu').slideToggle()
-                    /*if (slideOut.is(":hidden")) {
-                         slideOut.clearQueue().slideDown("slow");
-                    } else {
-                         slideOut.clearQueue().slideUp("slow");
-                    }
-                    e.preventDefault();
-                    return false;*/
                });
-               tease(); //tease with the slide-out
-          }
-          $('.navigation-wrapper .profile-menu').hide()
-          $('.navigation-wrapper .profile-click').click(function (e) {
-               $('.navigation-wrapper .profile-menu').slideToggle()
-          });
-          $('.dashbaord_body .home-button .burger').click(function (e) {
-               // alert('hello')
-               $('.profile-menu').show()
-          })
+               
+          
+          
      });
     </script>
     <script type="text/javascript">

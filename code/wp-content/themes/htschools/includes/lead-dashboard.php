@@ -60,9 +60,7 @@ if($page_name=="index.php"){
                         ?>
                     </a>
                     <ul class="profile-menu">
-                        <button class="home-button">
-                            <span class="burger"></span>
-                        </button>
+                       
                         <span class="divider"></span>
                         <li>
                             <a href="<?php bp_loggedin_user_link(); ?>">

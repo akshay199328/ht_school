@@ -1635,10 +1635,14 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 			      else{
 			          $my_cred_table = 'ht_myCRED_log';
 			      }
-				$sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$user_id."' and ref !='signup_referral' and ref !='site_visit' and ctype !='mycred_default' ");
-				$total_creds_json = json_decode( json_encode($sql), true);
-				$total_creds_total = $total_creds_json[0]['total_creds'];
-				$return['total_creds'] = !empty($total_creds_total)?intval($total_creds_total):0;
+				$sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$user_id."' and ref !='signup_referral' and ref !='site_visit' and ctype ='mycred_engagement' ");
+				$total_engagement_creds_json = json_decode( json_encode($sql), true);
+				$total_engagement_creds_total = $total_engagement_creds_json[0]['total_creds'];
+				$sql2 = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$user_id."' and data = '".$course_id."' and ref !='signup_referral' and ref !='site_visit' and ctype ='mycred_intellectual' ");
+				$total_intellectual_creds_json = json_decode( json_encode($sql2), true);
+				$total_intellectual_creds_total = $total_intellectual_creds_json[0]['total_creds'];
+				$total_creds = $total_engagement_creds_total + $total_intellectual_creds_total;
+				$return['total_creds'] = !empty($total_creds)?intval($total_creds):0;
 			}
 			// check package here for scorm or packages: 
 			// $package = get_post_meta($course_id,'vibe_course_package',true);

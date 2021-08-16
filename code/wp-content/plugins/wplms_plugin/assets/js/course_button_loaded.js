@@ -6614,6 +6614,19 @@
 
                              var currentPos, percentage, vdoEndTym = "";
                              var vdo_play = "";
+                             var timeWatched = 0;
+
+                            player.on("timeupdate", function(data) {
+                              if (data.seconds - 1 < timeWatched && data.seconds > timeWatched) {
+                                timeWatched = data.seconds;
+                              }
+                            });
+
+                            player.on("seeked", function(data) {
+                              if (timeWatched < data.seconds) {
+                                player.setCurrentTime(timeWatched);
+                              }
+                            });
                                 // player.on('timeupdate', function (getAll)
                                 // {
                                 //     currentPos = getAll.seconds; //get currentime

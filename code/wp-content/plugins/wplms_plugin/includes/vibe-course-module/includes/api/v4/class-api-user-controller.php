@@ -1635,7 +1635,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 			      else{
 			          $my_cred_table = 'ht_myCRED_log';
 			      }
-				$sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$user_id."' and ref !='signup_referral' and ctype !='mycred_default' ");
+				$sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$user_id."' and ref !='signup_referral' and ref !='site_visit' and ctype !='mycred_default' ");
 				$total_creds_json = json_decode( json_encode($sql), true);
 				$total_creds_total = $total_creds_json[0]['total_creds'];
 				$return['total_creds'] = !empty($total_creds_total)?intval($total_creds_total):0;

@@ -1807,7 +1807,7 @@ function prefix_load_cat_posts()
     $results = $wpdb->get_results($sql);
     foreach ($results as $key1 => $v)
     {
-        $sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '" . $v->user_id . "' and ref !='signup_referral' and ctype !='mycred_default' ");
+        $sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '" . $v->user_id . "' and ref !='signup_referral' and ctype !='mycred_default' and ref !='site_visit'");
         foreach ($sql as $key => $csm)
         {
             if ($csm->total_creds != '')
@@ -2096,7 +2096,7 @@ function get_user_rank()
     $results = $wpdb->get_results($sql);
     foreach ($results as $key1 => $v)
     {
-        $sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '" . $v->user_id . "' and ref !='signup_referral' and ctype !='mycred_default' ");
+        $sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '" . $v->user_id . "' and ref !='signup_referral' and ctype !='mycred_default' and ref !='site_visit'");
         foreach ($sql as $key => $csm)
         {
             if ($csm->total_creds != '')

@@ -613,46 +613,46 @@ class ACUI_Import{
                         $_SESSION['course_user_id'] = $user_id;
                                               
 /*----------------------------code by sayali-------------------------------*/
-        $arrbatch[] = array(); 
+        
+        $arrbatch = array(); 
         $get_data_array = array();
         $get_new_id = 0;        
         $get_data_array = $_SESSION['course_data'];
         $get_new_id = $_SESSION['course_user_id'];
 
-        for($v=0; $v<=count($get_data_array); $v++){
-            if($get_data_array[$v] == "1624693467"){
+        for($v=0; $v<count($get_data_array); $v++){           
+            if($get_data_array[$v] == '1624693467'){
 
                 $batch_id = $get_data_array[$v+1];
-
+                
                 if(!empty($batch_id)){
-                    array_push($arrbatch, $batch_id);    
-                }                
-            }
+                    array_push($arrbatch, $batch_id);                       
+                }                                           
+            }                        
         }
- 
-        foreach ($arrbatch as $key => $value) {
-            $get_batch_id = 0;
-            $get_batch_id = $value;
+        
+        if(!empty($arrbatch)){
+            foreach ($arrbatch as $key => $value) {           
+                $get_batch_id = $value;
 
-            if(!empty($get_batch_id)){
+                if(!empty($get_batch_id)){
 
-                $retrieve_variation_id = 0;                
-                $date = date('Y-m-d H:i:s');                
-                global $wpdb;
+                    $retrieve_variation_id = 0;                
+                    $date = date('Y-m-d H:i:s');                
+                    global $wpdb;
 
-                $csf_db_table = $wpdb->prefix . "batch_master";
-                $variation_id = $wpdb->get_results($wpdb->prepare("SELECT variation_id FROM " .$csf_db_table. " WHERE id= ".$get_batch_id." "));
+                    $csf_db_table = $wpdb->prefix . "batch_master";
+                    $variation_id = $wpdb->get_results($wpdb->prepare("SELECT variation_id FROM " .$csf_db_table. " WHERE id= ".$get_batch_id." "));
 
-                $retrieve_variation_id = $variation_id[0]->variation_id;                
-                if(!empty($retrieve_variation_id)){
-                    $batch_insert = $wpdb->prepare("INSERT INTO ht_batch_student_mapping (batch_id, user_id, variation_id,created_on) VALUES (".$batch_id.", ".$get_new_id.", ". $variation_id[0]->variation_id.",'".$date."')");                    
-                    $wpdb->query($batch_insert);
-                }                                
+                    $retrieve_variation_id = $variation_id[0]->variation_id;                
+                    $batch_insert = $wpdb->prepare("INSERT INTO ht_batch_student_mapping (batch_id, user_id, variation_id,created_on) VALUES (".$get_batch_id.", ".$get_new_id.", ". $variation_id[0]->variation_id.",'".$date."')");                    
+                    $wpdb->query($batch_insert);                            
+                }
             }
-        }                
-                     
-        unset($get_data_array);
-        unset($arrbatch);                                             
+            unset($get_data_array);
+            unset($arrbatch); 
+        }      
+                                                                                                         
 /*-----------------------------code by sayali------------------------------*/                    
                         $_SESSION['course_user_row'] = $headers;
                         $acui_helper->print_row_imported( $row, $data, $errors );

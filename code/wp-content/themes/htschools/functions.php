@@ -4529,3 +4529,11 @@ function get_footer_gtm_code(){
  
 }
 /*------------------------CODE BY SAYALI--------------------------------*/
+
+
+
+add_action('woocommerce_add_to_cart', 'woo_custom_cookie');
+function woo_custom_cookie() {
+     setcookie('LtpaToken2', 'true', time() + 86400, '/'); // expire in a day
+
+}

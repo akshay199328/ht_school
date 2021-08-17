@@ -16,7 +16,7 @@ get_currentuserinfo();
   $username = $users[0]->user_nicename;
 
 if(is_user_logged_in()){
-    wp_redirect(get_bloginfo('url').'/members-directory/'.$username.'/parent_dashboard/');
+    wp_redirect($parent = get_site_url().'/members-directory/'.$username.'/parent_dashboard/');
     exit();
 }
 
@@ -343,6 +343,43 @@ jQuery(window).load(function(){
 <script type="text/javascript">
 
     jQuery(document).ready(function(){
+      document.addEventListener("paste", function(e) {
+        // if the target is a text input
+        if (e.target.type === "text") {
+         var data = e.clipboardData.getData('Text');
+         // split clipboard text into single characters
+         data = data.split('');
+         // find all other text inputs
+         [].forEach.call(document.querySelectorAll(".email_otp"), (node, index) => {
+            // And set input value to the relative character
+            node.value = data[index];
+            jQuery("#verify-otp-btn").removeAttr("disabled");
+          });
+        }
+        if (e.target.type === "text") {
+         var data = e.clipboardData.getData('Text');
+         // split clipboard text into single characters
+         data = data.split('');
+         // find all other text inputs
+         [].forEach.call(document.querySelectorAll(".mobile_otp"), (node, index) => {
+            // And set input value to the relative character
+            node.value = data[index];
+            jQuery("#verify-mob-otp-btn").removeAttr("disabled");
+          });
+        }
+      });
+      jQuery(".email_otp").keydown(function(event){
+        var key = event.keyCode || event.charCode;
+        if((key == 8 || key == 46) && jQuery(this).val() ==''){
+          jQuery(this).prev('input').focus();
+        }
+      })
+      jQuery(".mobile_otp").keydown(function(event){
+        var key = event.keyCode || event.charCode;
+        if((key == 8 || key == 46) && jQuery(this).val() ==''){
+          jQuery(this).prev('input').focus();
+        }
+      })
         jQuery("#verify-otp-btn").prop("disabled", true);
         jQuery("#verify-mob-otp-btn").prop("disabled", true);
 
@@ -500,6 +537,7 @@ jQuery(window).load(function(){
         });
 
         jQuery("#reg_submit").click(function(){
+            jQuery('.mobile_otp').val('');
             jQuery("#reg_submit").html("Please wait...");
             jQuery("#reg_submit").attr("disabled", "disabled");
 
@@ -684,7 +722,6 @@ jQuery(window).load(function(){
                 success: function(response) {
                   jQuery("#verify-otp-btn").html("Verify OTP");
                     jQuery("#verify-otp-btn").removeAttr("disabled");
-
                     let otpVerificationMoegObj = {
                       "Type"          : "email",
                       "Email"         : response.email,
@@ -700,8 +737,8 @@ jQuery(window).load(function(){
                     if(response.status == 1){
                       if(response.is_registered == 1){
                         sessionStorage.setItem('bp_user',response.user);
-
                         var user = jQuery.parseJSON(response.user);
+
                         /*ga('send', 'event', 'Login', 'successful', user.ID);*/
 
                         let logInObj = {
@@ -728,6 +765,26 @@ jQuery(window).load(function(){
                         dataLayer.push(logInMoegObj);
                         // Moengage.track_event("Logged_In", logInMoegObj);
 
+                        jQuery.ajax({
+                          type : "POST",
+                          dataType : "json",
+                          url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                          data : {"action": "user_purchase_details", user_id: user.ID },
+                          success: function(response) {
+                            console.log(response);
+                            let userPurchaseDetailsMoegObj = {
+                              "User identifier" : user.ID,
+                              "Total Purchase"  : response.total_purchase,
+                              "First Purchase"  : response.first_purchase,
+                              "Last Purchase"  : response.last_purchase,
+                              "Area of Interest"  : response.area_of_interest,
+                            }
+                            userPurchaseDetailsMoegObj.event = "mo_user_purchase_updated";
+                            dataLayer.push({ ecommerce: null }); 
+                            dataLayer.push(userPurchaseDetailsMoegObj);
+
+                          }
+                        });
                         if(response.previous_page_url != ''){
                           window.location.replace(response.previous_page_url);
                         }else{
@@ -752,6 +809,7 @@ jQuery(window).load(function(){
         });
 
     });
+
 
     function startTimer() {
         var presentTime = document.getElementById('reg-otp-timer').innerHTML;

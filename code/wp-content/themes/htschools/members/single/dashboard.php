@@ -50,21 +50,6 @@ foreach ($result as $courses)
 }
 
 //echo "<pre>"; print_r($courses); exit();
-if(empty($courses->course_id)) {
-?>
-<div class="empty_cart_div">
-                        <div class="empty_course_image"></div>
-                        <h4>No Courses here! You're missing out on some cool stuff!</h4>
-                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
-                    </div>
-<?php } else { ?>
-<div class="col-sm-12 dashboard-info mrg">
-    <div class="col-sm-12 col-md-3 mrg">
-      <div class="left-listing">
-            <!-- <ul class="mobile-slider scroll"> -->
-                
-            <ul class="mobile-slider scroll">
-<?php
 $query_args = apply_filters('wplms_mycourses', array(
     'post_type' => 'course',
     'post__in' => $args['post__in'],
@@ -85,6 +70,21 @@ $query_args = apply_filters('wplms_mycourses', array(
 
 $course_query = new WP_Query($query_args);
 //echo "<pre>"; print_r($course_query); exit();
+if(empty($course_query->have_posts())or empty($courses->course_id) ) {
+?>
+<div class="empty_cart_div">
+                        <div class="empty_course_image"></div>
+                        <h4>Your leaderboard is not active right now. Start your Journey now!</h4>
+                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+                    </div>
+<?php } else { ?>
+<div class="col-sm-12 dashboard-info mrg">
+    <div class="col-sm-12 col-md-3 mrg">
+      <div class="left-listing">
+            <!-- <ul class="mobile-slider scroll"> -->
+                
+            <ul class="mobile-slider scroll">
+<?php
 
 global $bp, $wpdb;
 while ($course_query->have_posts())
@@ -158,21 +158,6 @@ foreach ($results as $courses)
 {
     $args['post__in'][] = $courses->course_id;
 }
-if(empty($courses->course_id)) {
-?>
-<div class="empty_cart_div">
-                        <div class="empty_course_image"></div>
-                        <h4>No Courses here! You're missing out on some cool stuff!</h4>
-                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
-                    </div>
-<?php } else { ?>
-            <div class="col-sm-12 dashboard-info mrg">
-    <div class="col-sm-12 col-md-3 mrg">
-      <div class="left-listing">
-            <!-- <ul class="mobile-slider scroll"> -->
-                
-            <ul class="mobile-slider scroll">
-<?php
 $query_args = apply_filters('wplms_mycourses', array(
     'post_type' => 'course',
     'post__in' => $args['post__in'],
@@ -193,6 +178,21 @@ $query_args = apply_filters('wplms_mycourses', array(
 $course_query = new WP_Query($query_args);
 
 //echo "<pre>"; print_r($course_query); exit();
+if(empty($course_query->have_posts())or empty($courses->course_id) ) {
+?>
+<div class="empty_cart_div">
+                        <div class="empty_course_image"></div>
+                        <h4>Your leaderboard is not active right now. Start your Journey now!</h4>
+                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+                    </div>
+<?php } else { ?>
+            <div class="col-sm-12 dashboard-info mrg">
+    <div class="col-sm-12 col-md-3 mrg">
+      <div class="left-listing">
+            <!-- <ul class="mobile-slider scroll"> -->
+                
+            <ul class="mobile-slider scroll">
+<?php
 global $bp, $wpdb;
 while ($course_query->have_posts())
 {

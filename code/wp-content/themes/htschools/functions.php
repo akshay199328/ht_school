@@ -2045,6 +2045,7 @@ function get_user_course_rank()
         }
 
         $dashboard_data = $array2;
+       // echo "<pre>"; print_r($dashboard_data); exit();
         foreach ($dashboard_data as $key => $course)
         {
 
@@ -2059,9 +2060,9 @@ function get_user_course_rank()
 
             if ($course->user_id == $user->ID)
             {
-                $rank = $key + 1;
+              $rank = $key + 1;
                 $response .= '<td>My Rank- </td>';
-                $response .= '<td scope="row"><span class="circle">' . $rank . '</span></td>';
+                $response .= '<td scope="row"><span class="circle">' .$rank . '</span></td>';
 
                 $response .= '<td>My Points- </td>';
                 $response .= '<td>' . $course->score . '</td>';
@@ -2190,6 +2191,7 @@ function get_course_rank()
         $response .= '</li>';
         echo $response;
     }
+    exit();
 }
 
 add_action('wp_ajax_nopriv_get-rank', 'get_rank');
@@ -2271,6 +2273,7 @@ function get_rank()
             $response .= '</li>';
             echo $response;
         }
+        exit();
     }
 }
 

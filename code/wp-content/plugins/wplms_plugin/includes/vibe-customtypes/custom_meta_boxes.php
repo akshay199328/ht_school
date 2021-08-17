@@ -203,7 +203,7 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 			'desc'	=> __('Duration parameter','wplms'), // description
 			'id'	=> $prefix.'course_validity_parameter', // field id and name
 			'type'	=> 'duration', // type of field
-			'std'	=>$course_validity_parameter
+			'std'	=>'course_validity_parameter'
 		),
 
 		$prefix.'duration'=>array( // Text Input
@@ -227,7 +227,7 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 			'desc'	=> __('Certificate generation time based','wplms'), // description
 			'id'	=> $prefix.'certificate_course_complete_issue', // field id and name
 			'type'	=> 'number', // type of field
-			'std'	=>$certificate_course_complete_time
+			'std'	=>'certificate_course_complete_time'
 		)
 		,
 		$prefix.'certificate_course_complete_percentage'=>array( // Text Input
@@ -235,7 +235,7 @@ function vibe_meta_box_arrays($metabox){ // References added to Pick labels for 
 			'desc'	=> __('Certificate generation percentage completion','wplms'), // description
 			'id'	=> $prefix.'certificate_course_complete_percentage', // field id and name
 			'type'	=> 'number', // type of field
-			'std'	=>$certificate_course_complete_percentage
+			'std'	=>'certificate_course_complete_percentage'
 		),
 		$prefix.'students'=>array( // Text Input
 			'label'	=> __('Total number of Students in Course','wplms'), // <label>

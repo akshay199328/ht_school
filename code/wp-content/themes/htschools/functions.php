@@ -4512,7 +4512,7 @@ function user_purchase_details(){
   exit;
 }
 
-/*------------------------CODE BY SAYALI--------------------------------*/
+
 add_action('wp_head', 'get_header_gtm_code');
 
 function get_header_gtm_code(){
@@ -4528,7 +4528,7 @@ function get_footer_gtm_code(){
  vibe_get_option('gtm_code_footer'); 
  
 }
-/*------------------------CODE BY SAYALI--------------------------------*/
+
 
 
 

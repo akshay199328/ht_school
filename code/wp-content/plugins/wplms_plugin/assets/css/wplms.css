@@ -2601,6 +2601,9 @@ border-bottom: 1px solid #E8E8E8;
     background-color: #000000 !important;
 }
 /*.checkbox>input[type=checkbox]:checked+label:before*/
+.course_status .incourse .question_option label li:before{
+    display: none;
+}
 .course_status .incourse .question_option.radio+.radio {
     /*margin-left: 0*/
 }
@@ -4571,8 +4574,11 @@ a.button.is-primary {
     .show_result .buttons_wrapper.pull-right .button {float: initial;margin: 0px auto;display: table;}
     .quiz_result_details {width: 59%;}
     .quiz_result_icon, .quiz_result_icon.failed{    background-size: contain;height: 100%;right: 0px}
-    .show_result .buttons_wrapper {text-align: center;}
+    .show_result .buttons_wrapper {text-align: center;padding: 30px 0px 30px 0px;}
     .quiz_result_heading {font-size: 20px;}
+    .share.result-share{margin-top: 20px;margin-left: 0px;}
+    .share.result-share h6 {margin-bottom: 0;}
+    .incourse .incoursequiz_details.hide_controls {border-bottom: 0px!important;}
     .submitpopup_wrapper .confirmpopup_content{min-width: 90%;max-width: 90%;}
     .submitpopup_wrapper .confirmpopup_content .submitheading{max-width: 80%;font-size: 20px;line-height: 24px;}
     .quiz-text .text {font-size: 18px;line-height: 17px;}

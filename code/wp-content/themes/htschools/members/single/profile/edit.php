@@ -162,12 +162,10 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>">
 			</div>
 
-
 			<div class="form-group ">
 				<label for="user_city">City</label>
 				<input type="text" class="form-control" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
 			</div>
-
 			
 			<!-- <div class="form-group hide-acf-form">
 				<?php// acf_form( $args );?>
@@ -426,6 +424,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			window.selectedCountry = "<?php echo $user_country; ?>";
 			$("#child_name").val('');
 			$("#child_school").val('');
+			$("#child_user_school_other").val('');
 
 			$("#submit-child-btn").click(function(){
 				if($("#child_name").val() == ''){
@@ -486,8 +485,70 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			        $("#child_school").val(ui.item.label);
 			        $("#child_school_id").val(ui.item.value);
 			    },
-			});				
-			
+			    response: function(event, ui){
+					ui.content.push({value:"Others", label:"Others"});
+				}
+			});	
+
+			$("#child_user_school_other").on("change", function (event, ui) {
+				var other_val = $("#child_user_school_other").val();
+
+				if(other_val != ""){
+					jQuery.ajax({
+					    type : "POST",
+					    dataType : "json",
+					    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
+					    data : {check_school_other : other_val},
+					    success: function(response) {						
+					        if(response.status == 1){
+					        	jQuery("#errchildotherSchoolMsg").text('School name is already exists!');
+					        	jQuery("#child_other_school").val('');
+					        }
+					    }
+					});
+				}
+			});
+					
+			$("#child_school").on("keyup", function (event, ui) {		var other_val = $("#child_school").val();
+   
+    			if(other_val === "Others"){
+					$("#child_other_school").show();						
+				}
+				else{
+					$('#child_other_school').slideUp();						
+					$("#child_user_school_other").val('');				
+				}	
+			});
+
+			$("#child_school").on("change", function (event, ui) {
+				var other_val = $("#child_school").val();
+   
+    			if(other_val === "Others"){
+					$("#child_other_school").show();						
+				}
+				else{
+					$('#child_other_school').slideUp();						
+					$("#child_user_school_other").val('');					
+				}	
+			});
+
+			$('.ui-autocomplete').on('click', '.ui-menu-item', function(){
+    			$("#child_school").trigger('click');
+			});
+
+			$("#child_school").click(function(){
+    			var other_val = $("#child_school").val();
+    			
+				if(other_val === "Others"){
+					$("#child_other_school").show();						
+				}
+				else{
+					$('#child_other_school').slideUp();						
+					$("#child_user_school_other").val('');		
+				}
+			});
+
+/*-----------------------------------------------------------------------*/						
 			$( "#user_school_data" ).autocomplete({
 				source: schoolUrl,
 				minLength: 2,

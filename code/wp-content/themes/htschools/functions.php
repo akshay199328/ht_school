@@ -1453,21 +1453,29 @@ function save_custom_profile(){
         xprofile_set_field_data('Grade', $user_id, trim($_REQUEST['grade']));
         xprofile_set_field_data('Division', $user_id, trim($_REQUEST['division']));
 
-        $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );        
+        $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );  
+
+        //'school_name' => esc_attr($_REQUEST['user_school_data']),
+        //'school_id' => esc_attr($_REQUEST['user_school']),
+        if(!empty($schoolID)){
+            $child_school_id = $schoolID;
+        }else{
+            $child_school_id = $_REQUEST['user_school'];
+        }      
 
         if(count($child) == 0){
           $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
               'parent_id' => 0,
               'child_id' => $user_id,
               'child_name' => esc_attr($_REQUEST['first_name']),
-              'school_id' => esc_attr($_REQUEST['user_school']),
-              'school_name' => esc_attr($_REQUEST['user_school_data']),
+              'school_id' => esc_attr($child_school_id),
+              'school_name' => esc_attr($school_name),
               'grade' => esc_attr($_REQUEST['grade']),
               'division' => esc_attr($_REQUEST['division'])
           ));
         }
         else{
-          $wpdb->update( $wpdb->prefix . "parent_child_mapping", array( 'child_name' => esc_attr($_REQUEST['first_name']),'school_id' =>esc_attr($_REQUEST['user_school']),'grade' => esc_attr($_REQUEST['grade']),'division' => esc_attr($_REQUEST['division'])),array('child_id'=>$user_id));
+          $wpdb->update( $wpdb->prefix . "parent_child_mapping", array( 'child_name' => esc_attr($_REQUEST['first_name']),'school_id' =>esc_attr($child_school_id),'grade' => esc_attr($_REQUEST['grade']),'division' => esc_attr($_REQUEST['division'])),array('child_id'=>$user_id));
         }
 
         if(esc_attr( $_POST['first_name']) != ""
@@ -1503,14 +1511,63 @@ function save_child_entry(){
 
     $user_id = bp_loggedin_user_id();
 
+    $child_school_name = str_replace(',', ' ', $_REQUEST['child_school']);
+    if($child_school_name == "Others"){
+        $child_school_name = str_replace(',', ' ', $_REQUEST['child_user_school_other']);
+    }
+
+    $child_results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
+          LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
+          FROM ht_users INNER JOIN ht_usermeta
+          ON ht_users.ID = ht_usermeta.user_id
+          WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name ='" . esc_attr($child_school_name) . "'");
+
+    $child_result_id = $wpdb->get_results("SELECT DISTINCT ID FROM ht_users WHERE display_name = '" . esc_attr($child_school_name) . "'");   
+
+    $date = date('Y-m-d H:i:s');
+    if(count($child_results) == 0){
+        $child_school_insert = $wpdb->prepare("INSERT INTO ht_users (user_login,user_nicename, display_name,user_registered) VALUES ('".$child_school_name."', '".$child_school_name."', '".$child_school_name."','".$date."')");
+                  
+        $wpdb->query($child_school_insert);
+        $childschoolID = $wpdb->insert_id;
+        $tablename = $wpdb->prefix . "usermeta";
+
+        $userID     = $childschoolID; //string value use: %s
+        $userRole    = "ht_capabilities"; //string value use: %s
+        $meta_value    = 'a:1:{s:6:"school";b:1;}'; //numeric value use: %d
+
+        $sql = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (%s, %s, %s)", $userID, $userRole, $meta_value);
+        $wpdb->query($sql);
+        
+        $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$childschoolID.",'first_name','".$child_school_name."')");
+            $wpdb->query($sql1);
+       
+        $sql2 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$childschoolID.",'type','Manual')");
+        $wpdb->query($sql2);
+
+        $sql3 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$user_id.",'Linked School',".$childschoolID.")");
+        $wpdb->query($sql3);
+        
+        $sql4 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$childschoolID.",'nickname','".$child_school_name."')");
+        $wpdb->query($sql4);  
+    }
+
+    if(!empty($child_result_id)){
+        $child_school_id = $child_result_id;
+    }elseif(!empty($childschoolID)){
+        $child_school_id = $childschoolID;
+    }else{
+      $child_school_id = $_REQUEST['child_school_id'];
+    }
+
     try{
 
         $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
             'parent_id' => $user_id,
             'child_id' => 0,
             'child_name' => esc_attr($_REQUEST['child_name']),
-            'school_id' => esc_attr($_REQUEST['child_school_id']),
-            'school_name' => esc_attr($_REQUEST['child_school']),
+            'school_id' => esc_attr($child_school_id),
+            'school_name' => esc_attr($child_school_name),
             'grade' => esc_attr($_REQUEST['grade']),
             'division' => esc_attr($_REQUEST['division'])
         ));

@@ -313,6 +313,21 @@ border: 1px solid deepskyblue;
     	color: #000;    	
 	}
 
+	#errotherSchoolMsg{
+	    color: red;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+#errchildotherSchoolMsg{
+	    color: red;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
 </style>
 
 
@@ -984,54 +999,60 @@ border: 1px solid deepskyblue;
 
 			</div>
 			<form id="child-edit-form" class="standard-form">
-			  <input type="hidden" name="action" value="save_child_entry">
-			  <div class="modal-body">
-					<div class="child-form child-form-pop">
-					  <div class="add-pic">
-						  <span class="add-name">Add Pic</span>
-						  <span class="pic">
-							<img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg" height="auto" width="100%">
-						  </span>
-					  </div>
-					  <div class="form-group">
-						<label for="">Child's Name</label>
-						<input type="text" class="form-control edit-inline" id="child_name" name="child_name" placeholder="Enter Child's Name">
-					  </div>
-					  <div class="form-group profile_search">
-						<label for="">Name of your School</label>
-						<input type="text" class="form-control edit-inline" id="child_school" name="child_school" placeholder="Find your School">
-						<input type="hidden" name="child_school_id" id="child_school_id">
-					  </div>
-					  <div class="form-group profile_dropdown">
-						<label for="">Grade / Standard</label>
-						<select name="grade">
-						  <option value="1st">1st</option>
-						  <option value="2nd">2nd</option>
-						  <option value="3rd">3rd</option>
-						  <option value="4th">4th</option>
-						  <option value="5th">5th</option>
-						  <option value="6th">6th</option>
-						  <option value="7th">7th</option>
-						  <option value="8th">8th</option>
-						  <option value="9th">9th</option>
-						  <option value="10th">10th</option>
-						</select>
-					  </div>
-					  <div class="form-group profile_dropdown">
-						<label for="">Section / Division</label>
-						<select name="division">
-						  <option value="A">A</option>
-						  <option value="B">B</option>
-						  <option value="C">C</option>
-						  <option value="D">D</option>
-						</select>
-					  </div>
-					  <div class="content">
-						<p class="error" id="child_form_error" style="display: none;"></p>
-						<button type="button" class="btn" id="submit-child-btn">Add a Child</button>
-					  </div>
-					</div>
-			  </div>
+			  	<input type="hidden" name="action" value="save_child_entry">
+			  		<div class="modal-body">
+						<div class="child-form child-form-pop">
+					  		<div class="add-pic">
+						  		<span class="add-name">Add Pic</span>
+						  		<span class="pic">
+									<img src="<?php echo get_bloginfo('template_url')?>/assets/images/profile-img.svg" height="auto" width="100%">
+						  		</span>
+					  		</div>
+					  		<div class="form-group">
+								<label for="">Child's Name</label>
+								<input type="text" class="form-control edit-inline" id="child_name" name="child_name" placeholder="Enter Child's Name">
+						  	</div>
+					  		<div class="form-group profile_search">
+								<label for="child_school">Name of your School</label>
+								<input type="text" class="form-control edit-inline" id="child_school" name="child_school" placeholder="Find your School">
+								<input type="hidden" name="child_school_id" id="child_school_id">
+					  		</div>
+
+					  		<div class="form-group" style="display:none" id="child_other_school">							
+								<input type="text" class="form-control edit-inline" id="child_user_school_other" name="child_user_school_other" placeholder="Please enter others school name" value="" >
+								<span id="errchildotherSchoolMsg"></span>
+						  	</div>
+					  		
+							<div class="form-group profile_dropdown">
+								<label for="">Grade / Standard</label>
+								<select name="grade">
+									<option value="1st">1st</option>
+								  	<option value="2nd">2nd</option>
+								  	<option value="3rd">3rd</option>
+								  	<option value="4th">4th</option>
+								  	<option value="5th">5th</option>
+								  	<option value="6th">6th</option>
+								  	<option value="7th">7th</option>
+								  	<option value="8th">8th</option>
+								  	<option value="9th">9th</option>
+								  	<option value="10th">10th</option>
+								</select>
+							</div>
+					  		<div class="form-group profile_dropdown">
+								<label for="">Section / Division</label>
+								<select name="division">
+								  	<option value="A">A</option>
+								  	<option value="B">B</option>
+								  	<option value="C">C</option>
+								  	<option value="D">D</option>
+								</select>
+					  		</div>
+					  		<div class="content">
+								<p class="error" id="child_form_error" style="display: none;"></p>
+								<button type="button" class="btn" id="submit-child-btn">Add a Child</button>
+					  		</div>
+						</div>
+			  		</div>
 			</form>
 		</div>
 		<!-- modal-content -->

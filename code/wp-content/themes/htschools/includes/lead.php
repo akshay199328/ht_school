@@ -80,6 +80,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
       
   </style>
   <body class="<?=$page_classes?> test">
+    <div class="fixed_header fixed_wrapper">
     <header class="header-wrapper">
             <span class="codeathon">
                 <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/codeathon.svg">
@@ -160,7 +161,6 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
         </div>
     </header>
     <div class="navigation-wrapper" id="header-scroll">
-
         <nav>
         <ul>
             <li><a href="#about_section">About Us</a></li>
@@ -223,4 +223,5 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
             <?php } ?>
             </div>
         </nav>
+        </div>
     </div>

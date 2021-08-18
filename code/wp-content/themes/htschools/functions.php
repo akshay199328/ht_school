@@ -1070,57 +1070,105 @@ function check_if_logged_in()
       exit;
     }
 }
-
-add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1
-);
-function wc_npr_filter_phone( $address_fields ) {
-  echo get_post_meta('vibe_product',true);
-  $featured_args_course = array(
-    'post_type' => 'course',
-    'post_status' => 'publish',
-    'meta_query'  => array(
-    'relation'  => 'AND',
-    array(
-      'key'   =>'vibe_address_form',
-      'value'   => 'Yes',
-      'compare' => '='
+add_filter( 'woocommerce_default_address_fields', 'customising_checkout_fields', 1000, 1 );
+function customising_checkout_fields( $address_fields ) {
+     $featured_args_course = array(
+      'post_type' => 'course',
+      'post_status' => 'publish',
+      'meta_query'  => array(
+      'relation'  => 'AND',
+      array(
+        'key'   =>'vibe_address_form',
+        'value'   => 'Yes',
+        'compare' => '='
+        )
       )
-    )
-  );
+    );
 
-  $featured_query_course = new WP_Query( $featured_args_course );
-  //print_r($featured_query_course);
-  $product_id = array();
-  //print_r($featured_query_course->have_posts());
-  if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
-    $course_id = get_the_ID();
-    $productId = get_post_meta($course_id,'vibe_product',true);
-    $product_id[] = $productId;
-  endwhile;
-  endif;
-  $product_in_cart = array();
-  foreach( WC()->cart->get_cart() as $cart_item ) {
-    $product_in_cart[] = $cart_item['product_id'];  
-  }
-    $address_fields['billing_phone']['required'] = true;
-    $address_fields['billing_country']['required'] = false;
-    $address_fields['billing_last_name']['required'] = true;
-    $address_fields['billing_city']['required'] = false;
-    $address_fields['billing_email']['required'] = true;
-    $address_fields['billing_state']['required'] = true;
-    $address_fields['billing_address_2']['required'] = false;
+    $featured_query_course = new WP_Query( $featured_args_course );
+    //print_r($featured_query_course);
+    $product_id = array();
+    //print_r($featured_query_course->have_posts());
+    if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
+      $course_id = get_the_ID();
+      $productId = get_post_meta($course_id,'vibe_product',true);
+      $product_id[] = $productId;
+    endwhile;
+    endif;
+    $product_in_cart = array();
+    foreach( WC()->cart->get_cart() as $cart_item ) {
+      $product_in_cart[] = $cart_item['product_id'];  
+    }
+    $address_fields['first_name']['required'] = true;
+    $address_fields['last_name']['required'] = true;
+    $address_fields['company']['required'] = false;
+    $address_fields['country']['required'] = false;
+    $address_fields['city']['required'] = false;
+    $address_fields['state']['required'] = true;
+    $address_fields['address_2']['required'] = false;
+
     if(!empty(array_intersect($product_id, $product_in_cart))){
-      $address_fields['billing_address_1']['required'] = true;
-      $address_fields['billing_postcode']['required'] = true;
-      $address_fields['billing_address_1']['label'] = "Street address (Please share your correct address so that we can send the “Robotics Kit” to you. Address once entered, can’t be changed.)";
+      $address_fields['address_1']['required'] = true;
+      $address_fields['postcode']['required'] = true;
+      $address_fields['address_1']['label'] = "Street address (Please share your correct address so that we can send the “Robotics Kit” to you. Address once entered, can’t be changed.)";
     }
     else{
-      $address_fields['billing_address_1']['required'] = false;
-      $address_fields['billing_postcode']['required'] = false;
+      $address_fields['address_1']['required'] = false;
+      $address_fields['postcode']['required'] = false;
     }
     return $address_fields;
-
 }
+
+// add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1
+// );
+// function wc_npr_filter_phone( $address_fields ) {
+//   echo get_post_meta('vibe_product',true);
+//   $featured_args_course = array(
+//     'post_type' => 'course',
+//     'post_status' => 'publish',
+//     'meta_query'  => array(
+//     'relation'  => 'AND',
+//     array(
+//       'key'   =>'vibe_address_form',
+//       'value'   => 'Yes',
+//       'compare' => '='
+//       )
+//     )
+//   );
+
+//   $featured_query_course = new WP_Query( $featured_args_course );
+//   //print_r($featured_query_course);
+//   $product_id = array();
+//   //print_r($featured_query_course->have_posts());
+//   if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
+//     $course_id = get_the_ID();
+//     $productId = get_post_meta($course_id,'vibe_product',true);
+//     $product_id[] = $productId;
+//   endwhile;
+//   endif;
+//   $product_in_cart = array();
+//   foreach( WC()->cart->get_cart() as $cart_item ) {
+//     $product_in_cart[] = $cart_item['product_id'];  
+//   }
+//     $address_fields['billing_phone']['required'] = true;
+//     $address_fields['billing_country']['required'] = false;
+//     $address_fields['billing_last_name']['required'] = true;
+//     $address_fields['billing_city']['required'] = false;
+//     $address_fields['billing_email']['required'] = true;
+//     $address_fields['billing_state']['required'] = true;
+//     $address_fields['billing_address_2']['required'] = false;
+//     if(!empty(array_intersect($product_id, $product_in_cart))){
+//       $address_fields['billing_address_1']['required'] = true;
+//       $address_fields['billing_postcode']['required'] = true;
+//       $address_fields['billing_address_1']['label'] = "Street address (Please share your correct address so that we can send the “Robotics Kit” to you. Address once entered, can’t be changed.)";
+//     }
+//     else{
+//       $address_fields['billing_address_1']['required'] = false;
+//       $address_fields['billing_postcode']['required'] = false;
+//     }
+//     return $address_fields;
+
+// }
 
 // add_filter( 'wc_add_to_cart_message_html', 'empty_wc_add_to_cart_message');
 // function empty_wc_add_to_cart_message( $message, $products ) {

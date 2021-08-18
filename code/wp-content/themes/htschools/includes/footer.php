@@ -861,6 +861,8 @@ jQuery(document).ready(function(){
                                     });
                                     jQuery('#step-2').show();
                                     jQuery('#step-1').hide();
+                                    jQuery('.stepli1').addClass('active');
+                                    jQuery('.stepli2').addClass('active');
                                  }else{
                                      $("#response_message1").html(response.message);
                                      $("#response_message1").addClass('error');
@@ -951,6 +953,8 @@ jQuery(document).ready(function(){
                                     });
                                     jQuery('#step-3').show();
                                     jQuery('#step-2').hide();
+                                    jQuery('.stepli2').addClass('active');
+                                    jQuery('.stepli3').addClass('active');
                                  }else{
                                      $("#response_message2").html(response.message);
                                      $("#response_message2").addClass('error');
@@ -1225,6 +1229,33 @@ jQuery(document).ready(function(){
           $('.schoolsBtn').click(function(){
               $('.share-schools').show();
               $('.share-zone').hide();
+          });
+
+          $(".stepli1").click(function(){
+              $('#step-1').show();
+              $('#step-2').hide();
+              $('#step-3').hide();
+              $('.stepli1').addClass('active');
+              $('.stepli2').removeClass('active');
+              $('.stepli3').removeClass('active');
+          });
+
+          $(".stepli2").click(function(){
+              $('#step-2').show();
+              $('#step-1').hide();
+              $('#step-3').hide();
+              $('.stepli1').addClass('active');
+              $('.stepli2').addClass('active');
+              $('.stepli3').removeClass('active');
+          });
+
+          $(".stepli3").click(function(){
+              $('#step-3').show();
+              $('#step-1').hide();
+              $('#step-2').hide();
+              $('.stepli1').addClass('active');
+              $('.stepli2').addClass('active');
+              $('.stepli3').addClass('active');
           });
 
      </script>

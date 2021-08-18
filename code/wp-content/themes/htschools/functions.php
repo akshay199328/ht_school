@@ -1453,6 +1453,23 @@ function save_custom_profile(){
         xprofile_set_field_data('Grade', $user_id, trim($_REQUEST['grade']));
         xprofile_set_field_data('Division', $user_id, trim($_REQUEST['division']));
 
+        if($_REQUEST['user_state'] != ''){
+          $north_zone = array("Assam", "Bihar", "Chhattisgarh", "Haryana", "Himachal Pradesh", "Jammu and kashmir", "Jharkhand", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Delhi", "Odisha", "Punjab", "Rajasthan", "Tripura", "Tripura", "Uttarakhand", "West bengal");
+
+          $south_zone = array("Andaman and nicobar", "Andhra pradesh", "Arunachal pradesh", "Dadra and nagar haveli", "Goa", "Gujarat", "Karnataka", "Kerala", "Madhya pradesh", "Maharashtra", "Puducherry", "Tamil nadu", "Telangana");
+
+          if (in_array(trim($_REQUEST['user_state']), $north_zone)){
+            $zone='north';
+          }
+
+          if (in_array(trim($_REQUEST['user_state']), $south_zone)){
+            $zone='south';
+          }
+
+          xprofile_set_field_data('Zone', $user_id, trim($zone));
+
+        }
+
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );  
 
         //'school_name' => esc_attr($_REQUEST['user_school_data']),

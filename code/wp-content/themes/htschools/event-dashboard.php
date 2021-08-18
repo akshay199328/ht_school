@@ -100,6 +100,8 @@ $user_gender = get_profile_data('Gender');
 $user_country = get_profile_data('Country');
 $user_state = get_profile_data('State');
 $user_city = get_profile_data('City');
+$user_zone = get_profile_data('Zone');
+$school_id = get_profile_data('Linked School');
 
 $user_school_name = "";
 $user_school = get_profile_data('Linked School');
@@ -308,7 +310,10 @@ if($progressVal != ''){
 }else{
     $progressVal=0;
 }
-  $table_name = "ht_mycred_log";
+
+
+// Zone Listing
+$table_name = "ht_mycred_log";
 if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
       $my_cred_table = 'ht_mycred_log';
   }
@@ -316,7 +321,22 @@ if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
       $my_cred_table = 'ht_myCRED_log';
   }
 
-  $sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='".$courseID."' ";
+  //$sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='".$courseID."' ";
+
+  $sql = "SELECT posts.post_title AS course, rel.meta_key AS user_id, posts.ID AS course_id
+            FROM ht_usermeta AS umeta
+            LEFT JOIN ht_posts AS posts ON umeta.meta_key = posts.ID
+            LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id
+            LEFT JOIN ht_users AS users ON users.Id = umeta.user_id
+            LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = users.Id
+            WHERE   posts.post_type     = 'course'
+            AND     posts.post_status   = 'publish'
+            AND     posts.id    = '$courseID'
+            AND     xprofile.value = '$user_zone'
+            AND     rel.meta_key REGEXP '^[0-9]+$'
+            GROUP BY rel.meta_key
+            ORDER BY umeta.user_id DESC";
+
   $leaderboard_result = $wpdb->get_results($sql);
   foreach($leaderboard_result as $key1 => $v){
     $sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$v->user_id."' and ref !='signup_referral' and ctype !='mycred_default' ");
@@ -386,6 +406,97 @@ else{
     $user_rank_list = $leaderboard_result;
 }
 
+
+// School Listing
+$table_name = "ht_mycred_log";
+if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+      $my_cred_table = 'ht_mycred_log';
+  }
+  else{
+      $my_cred_table = 'ht_myCRED_log';
+  }
+
+  //$sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='".$courseID."' ";
+
+  $sql = "SELECT posts.post_title AS course, rel.meta_key AS user_id, posts.ID AS course_id
+            FROM ht_usermeta AS umeta
+            LEFT JOIN ht_posts AS posts ON umeta.meta_key = posts.ID
+            LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id
+            LEFT JOIN ht_users AS users ON users.Id = umeta.user_id
+            LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = users.Id
+            WHERE   posts.post_type     = 'course'
+            AND     posts.post_status   = 'publish'
+            AND     posts.id    = '$courseID'
+            AND     xprofile.value = '$school_id'
+            AND     rel.meta_key REGEXP '^[0-9]+$'
+            GROUP BY rel.meta_key
+            ORDER BY umeta.user_id DESC";
+
+  $leaderboard_result = $wpdb->get_results($sql);
+  foreach($leaderboard_result as $key1 => $v){
+    $sql = $wpdb->get_results("SELECT sum(creds) as total_creds FROM $my_cred_table WHERE user_id = '".$v->user_id."' and ref !='signup_referral' and ctype !='mycred_default' ");
+    foreach($sql as $key => $csm){
+      if($csm->total_creds != ''){
+        $leaderboard_result[$key1]->points = $csm->total_creds;
+      }
+      else{
+        $leaderboard_result[$key1]->points = 0;
+      }
+    }
+  }
+$price = array_column($leaderboard_result, 'points');
+array_multisort($price, SORT_DESC, $leaderboard_result);
+foreach($leaderboard_result as $key2 => $v2)
+{
+  $rank = $key2 + 1;
+  $leaderboard_result[$key2]->rank = $rank;
+}
+$firstThreeElements = array_slice($leaderboard_result, 0, 3);
+$first_rank = 0;
+$second_rank = 0;
+$third_rank = 0;
+foreach($leaderboard_result as $key1 => $rank)
+{
+    if($leaderboard_result[$key1]->rank == 1){
+        $first_rank = $leaderboard_result[$key1]->user_id;
+    }
+    if($leaderboard_result[$key1]->rank == 2){
+        $second_rank = $leaderboard_result[$key1]->user_id;
+    }
+    if($leaderboard_result[$key1]->rank == 3){
+        $third_rank = $leaderboard_result[$key1]->user_id;
+    }
+}
+
+$user_rank = array();
+
+foreach($leaderboard_result as $key => $csm){
+    if($leaderboard_result[$key]->user_id == $userID){
+      $user_rank[] = $leaderboard_result[$key]->rank;
+    }
+}
+
+if($user_rank){
+    
+    $current_user_rank = implode($user_rank);
+    $prev_rank = $current_user_rank - 4;
+    $next_rank = $current_user_rank + 5;
+
+    $prev_rank_array = array();
+    $next_rank_array = array();
+    foreach($leaderboard_result as $key => $v){
+        if($leaderboard_result[$key]->rank <= $current_user_rank && $leaderboard_result[$key]->rank >= $prev_rank){
+      $prev_rank_array[] = $v;
+    }
+    if($leaderboard_result[$key]->rank > $current_user_rank && $leaderboard_result[$key]->rank <= $next_rank){
+      $next_rank_array[] = $v;
+    }
+    //$leaderboard_result[$key]['flag'] = 1;
+    }
+    $user_rank_list_school = array_merge($prev_rank_array,$next_rank_array);
+}else{
+    $user_rank_list_school = $leaderboard_result;
+}
 
 $resultsRank = $wpdb->get_row("SELECT count(umeta.user_id) as totalCount
         FROM ht_usermeta AS umeta
@@ -791,7 +902,7 @@ div#ui-datepicker-div{
                                         <div class="tab_scroll">
                                             <div class="table-responsive">
                                                 <table class="table">
-                                                    <tbody>
+                                                    <tbody id="rankdatazone">
                                                         <?php foreach($user_rank_list as $user_rank_data){ ?>
                                                         <tr>
                                                             <td><?php echo $user_rank_data->rank?></td>
@@ -809,8 +920,8 @@ div#ui-datepicker-div{
                                         <div class="tab_scroll">
                                             <div class="table-responsive">
                                                 <table class="table">
-                                                    <tbody>
-                                                        <?php foreach($user_rank_list as $user_rank_data){ ?>
+                                                    <tbody id="rankdataschool">
+                                                        <?php foreach($user_rank_list_school as $user_rank_data){ ?>
                                                         <tr>
                                                             <td><?php echo $user_rank_data->rank?></td>
                                                             <td><?php echo get_display_name($user_rank_data->user_id);?></td>
@@ -1082,9 +1193,9 @@ div#ui-datepicker-div{
                         <div id="step-2">
                             <div class="profile-progress">
                                 <ul class="progressbar">
-                                    <li class="completed"></li>
-                                    <li class="active"></li>
-                                    <li></li>
+                                    <li class="stepli1 completed active"></li>
+                                    <li class="stepli2 active"></li>
+                                    <li class="stepli3"></li>
                                 </ul>
                             </div>
                                 <div class="float-start">
@@ -1225,9 +1336,9 @@ div#ui-datepicker-div{
                         <div id="step-3">
                             <div class="profile-progress">
                                 <ul class="progressbar">
-                                    <li class="completed"></li>
-                                    <li class="completed"></li>
-                                    <li class="active"></li>
+                                    <li class="stepli1 completed active"></li>
+                                    <li class="stepli2 completed active"></li>
+                                    <li class="stepli3 active"></li>
                                 </ul>
                             </div>
                             <div class="float-start">

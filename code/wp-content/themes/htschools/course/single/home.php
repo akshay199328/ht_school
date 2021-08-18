@@ -76,6 +76,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                     <h2><?php bp_course_name(); ?></h2>
                     <?php
                       $courseID = $post->ID;
+                      $courseIDViewItem = $post->ID;
                       $category_array = get_the_terms( $courseID, 'course-cat');
                       $courseslug=get_the_permalink($courseID);
                       $usersFavorites = wpfp_get_users_favorites();
@@ -545,7 +546,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
         <script type="text/javascript">
           jQuery(document).ready(function(){
-            let courseID = '<?php echo $courseID;?>';
+            let courseID = '<?php echo $courseIDViewItem;?>';
 
             var viewCourseItem = [];
             viewCourseItem.push({

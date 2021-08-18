@@ -954,7 +954,7 @@ a:hover {
 .points_board .points #pop {
     
     top: 8px;
-    left: -200px;
+    left: -205px;
     right: inherit;
     width: max-content;
     border-radius: 6px;
@@ -987,7 +987,7 @@ a:hover {
     line-height: 16px;
     margin: 0;
     color: #fff;
-    font-weight: 300 !important;
+    font-weight: 500 !important;
 }
 .points_board .board-button {
     display: flex;

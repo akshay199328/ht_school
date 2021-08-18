@@ -75,7 +75,7 @@ class WPLMS_Register{
             $favicon = VIBE_URL.'/images/favicon.png';
 
         $credits = vibe_get_option('credits');
-        echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        echo '<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
               <meta name="author" content="'.(isset($credits)?$credits:'vibethemes').'">';
 
        if(!empty($favicon)){

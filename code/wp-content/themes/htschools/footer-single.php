@@ -847,8 +847,8 @@ border: 1px solid deepskyblue;
 					jQuery.ajax({
 					    type : "POST",
 					    dataType : "json",
-					    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
-					    data : {check_school_other : other_val},
+					    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+					    data : {"action": "check_school_other",check_school_other : other_val},
 					    success: function(response) {
 						//alert(response.status);
 						//alert(response.response);	
@@ -861,14 +861,14 @@ border: 1px solid deepskyblue;
 				}
 			});
 
-			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
+			var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
 
 			$( "#user_country_data" ).autocomplete({
 				  source: function (request, response) {
 					 $.ajax({
 						dataType: "json",
 						type : 'POST',
-						data: { term: request.term},
+						data: {"action": "get_countries", term: request.term},
 						url: countryUrl,
 						success: function(data) {
 							response(data);
@@ -886,14 +886,14 @@ border: 1px solid deepskyblue;
 				},
 			});
 
-			var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_states';
+			var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
 
 			$( "#user_state" ).autocomplete({
 				source: function (request, response) {
 					 $.ajax({
 						dataType: "json",
 						type : 'POST',
-						data: { term: request.term, country: window.selectedCountry },
+						data: {"action": "get_states",term: request.term, country: window.selectedCountry },
 						url: stateUrl,
 						success: function(data) {
 							response(data);
@@ -1525,8 +1525,8 @@ border: 1px solid deepskyblue;
 				jQuery.ajax({
 					type : "POST",
 					dataType : "json",
-					url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot",
-					data : {course_id : course_id},
+					url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+					data : {"action": "get_product_slot",course_id : course_id},
 					success: function(response) {
 						if(response == 0){
 							window.location.href = link;
@@ -1557,8 +1557,8 @@ border: 1px solid deepskyblue;
 						        jQuery.ajax({
 									type : "POST",
 									dataType : "json",
-									url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_product_slot_time",
-									data : {course_id : course_id,selected_slot_date:selected_slot_date},
+									url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+									data : {"action": "get_product_slot_time",course_id : course_id,selected_slot_date:selected_slot_date},
 									
 									success: function(response) {
 									jQuery("#spinner-show").removeClass('spinner-show');

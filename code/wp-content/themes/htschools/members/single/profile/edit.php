@@ -58,7 +58,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		<form id="profile-edit-form" name="profile-form" class="standard-form">
 			
 			<input type="hidden" name="action" value="save_custom_profile">
-			<input type="text" id="user_identifier" name="user_identifier" value="<?php echo $user_id;?>">
+			<input type="hidden" id="user_identifier" name="user_identifier" value="<?php echo $user_id;?>">
 			<div class="form-group">
 				<label for="first_name">First Name*</label>
 				<input type="text" class="form-control" name="first_name" placeholder="" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
@@ -497,8 +497,8 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 					jQuery.ajax({
 					    type : "POST",
 					    dataType : "json",
-					    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
-					    data : {check_school_other : other_val},
+					    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+					    data : {"action": "check_school_other",check_school_other : other_val},
 					    success: function(response) {						
 					        if(response.status == 1){
 					        	jQuery("#errchildotherSchoolMsg").text('School name is already exists!');
@@ -635,14 +635,14 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			    },
 			});	
 
-			var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_states';
+			var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
 
 			$( "#user_state" ).autocomplete({
 				source: function (request, response) {
 			         $.ajax({
 			            dataType: "json",
 			            type : 'POST',
-			            data: { term: request.term, country: window.selectedCountry },
+			            data: {"action": "get_states",term: request.term, country: window.selectedCountry },
 			            url: stateUrl,
 			            success: function(data) {
 			                response(data);

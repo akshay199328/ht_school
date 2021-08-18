@@ -1066,7 +1066,7 @@ a:hover {
 
 .leader_board .pull-right h6 .rank {
     color: #025bc6;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .leader_board .rank-people {
@@ -1468,7 +1468,8 @@ a:hover {
     counter-reset: step;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between
+    justify-content: space-between;
+    margin: 10px 0px 30px;
 }
 
 .progressbar li {
@@ -1529,8 +1530,13 @@ a:hover {
     color: #fff;
     margin-top: -6px
 }
-
-.progressbar li.active+li:after {
+.progressbar li.completed:before {
+    border-color: #ff9eb3;
+    background-color: #ff9eb3;
+    color: #fff;
+}
+.progressbar li.active+li:after,
+.progressbar li.completed+li:after {
     background-color: #ff9eb3
 }
 

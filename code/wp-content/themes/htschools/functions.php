@@ -2171,19 +2171,39 @@ add_action('wp_ajax_get_course_rank', 'get_course_rank');
 
 function get_course_rank()
 {
-    global $post, $wpdb;
+     global $post, $wpdb;
     $course_id = $_POST['course_id'];
     $user = wp_get_current_user();
-    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY rel.meta_value DESC LIMIT 0,3"));
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY rel.meta_value DESC"));
     $result = $wpdb->get_results($query);
-    $i = 1;
-    foreach ($result as $course)
+    if ($wpdb->num_rows <= 0)
+    {
+        echo '0';
+    }
+    else
+    {
+
+        $array2 = array();
+        foreach ($result as $course)
+        {
+
+            array_push($array2, $course);
+
+            if ($course->user_id == $user->ID)
+            {
+                array_push($array1, $course);
+            }
+        }
+
+        $dashboard_data = $array2;
+         $firstThreeElements = array_slice($dashboard_data, 0, 3);
+    foreach ($firstThreeElements as $course)
     {
       $first_name = get_user_meta($course->user_id, 'first_name', true);
         $last_name = get_user_meta($course->user_id, 'last_name', true);
         $rankID = $i++;
         $response = '<li><div class="col-xs-8 col-sm-9 col-md-9 mrg"><div class="content">';
-        $response .= '<p>Rank ' . $rankID . '</p>';
+        $response .= '<p>Rank ' .  $course->rank. '</p>';
         $response .= '<h5>' . $first_name.' '.$last_name . '</h5>';
         $response .= '<span class="light">' . $course->score . ' Pts</span>';
         $response .= '</div></div><div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">';
@@ -2192,6 +2212,7 @@ function get_course_rank()
         echo $response;
     }
     exit();
+  }
 }
 
 add_action('wp_ajax_nopriv_get-rank', 'get_rank');

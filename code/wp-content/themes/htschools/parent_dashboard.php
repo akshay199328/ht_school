@@ -75,7 +75,7 @@ if(empty($course_query->have_posts())or empty($courses->course_id) ) {
 <div class="empty_cart_div">
                         <div class="empty_course_image"></div>
                         <h4>Your leaderboard is not active right now. Start your Journey now!</h4>
-                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
+                         <a href="<?php echo get_home_url();?>/code-a-thon/"><button class="empty_btn">Explore All Events</button></a>
                     </div>
 <?php } else { ?>
 <div class="col-sm-12 dashboard-info mrg">

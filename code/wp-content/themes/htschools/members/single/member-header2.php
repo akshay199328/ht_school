@@ -48,7 +48,20 @@ if($current_user->user_lastname != '')
 		</div>
 		<div class="col-xs-12 col-md-8 mrg right-part-menu">
 			<div id="item-nav" class="myprofile_content">
+			<?php 
+				global $current_user;
+				get_currentuserinfo();
+				 $email=$current_user->user_email; 
+				 $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" .$email . "'");
+				  $username = $users[0]->user_nicename;
+				$current_page = $current_url="https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+				$parent_page = get_bloginfo('url').'/members-directory/'.$username.'/parent_dashboard/';
+				
+				if ($current_page == $parent_page) { ?>
+					<h2> My Child's Profile</h2>
+			<?php	}else {?>
 			<h2> My Profile</h2>
+		<?php } ?>
 			<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 				<div class="<?php echo vibe_get_container(); ?>">
 					<div class="row">

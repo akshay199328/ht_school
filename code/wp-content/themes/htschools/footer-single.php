@@ -1622,6 +1622,32 @@ border: 1px solid deepskyblue;
 				var addToCartItem	= [];
 				let courseID		= jQuery(this).attr('data-id');
 
+				window.dataLayer = window.dataLayer || [];
+				window.dataLayer.push({
+				  event: 'eec.add',
+				  ecommerce: {
+				    add: {
+				      actionField: {
+				        list: 'Shopping cart'
+				      },
+				      products: [{
+				       	price				: parseInt(jQuery("#course_price_" + courseID).val()),
+					    name			: jQuery("#course_name_" + courseID).val(),
+					   id 		        : parseInt(jQuery("#course_id_" + courseID).val()),
+					   category		: jQuery("#course_category_" + courseID).val(),
+					   course_url		: jQuery("#course_url_" + courseID).val(),
+					  course_partner	: jQuery("#course_partner_" + courseID).val(),
+					  category_id		: parseInt(jQuery("#category_id_" + courseID).val()),
+					  age_group		: jQuery("#age_group_" + courseID).val(),
+					  course_duration	: jQuery("#course_duration_" + courseID).val(),
+					  session_duration	: jQuery("#session_duration_" + courseID).val(),
+					  wishlisted_course	: jQuery("#wishlisted_course_" + courseID).val() == "1" ? true : false,
+			
+				      }]
+				    }
+				  }
+				});
+				
 				addToCartItem.push({
 					"price"				: jQuery("#course_price_" + courseID).val(),
 					"item_name"			: jQuery("#course_name_" + courseID).val(),

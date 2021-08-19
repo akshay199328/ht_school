@@ -100,7 +100,7 @@ if($bannerCount == 1){
     <div class="modal-dialog  modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">ABOUT ht codeathon</h5>
+                <h5 class="modal-title" id="exampleModalLabel">ABOUT ht code-a-thon</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
                       <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">

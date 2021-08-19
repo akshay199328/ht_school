@@ -4566,7 +4566,7 @@ $featured_args_course = array(
   foreach( WC()->cart->get_cart() as $cart_item ) {
     $product_in_cart[] = $cart_item['product_id'];  
   }
-    if(count(array_intersect($product_id, $product_in_cart)) > 1){
+    if(count(array_intersect(array_unique($product_id), $product_in_cart)) > 1){
       wc_add_notice( sprintf( '<strong>Add only one codeathon course in cart </strong><span id="eventcart" class="eventcart" style="display:none;">1</span>' ), 'error' );
     }
     // else{

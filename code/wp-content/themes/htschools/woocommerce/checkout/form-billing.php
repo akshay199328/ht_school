@@ -43,7 +43,47 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 </div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push({
+		  event: 'eec.checkout',
+		  ecommerce: {
+		    checkout: {
+		      actionField: {
+		        step: 2
+		      }
+		    }
+		  }
+		});
+	});
+	jQuery( function($){
+						alert("test");
+        var fc = 'form.checkout',
+            pl = 'button[type="submit"][name="woocommerce_checkout_place_order"]';
 
+        $(fc).on( 'click', pl, function(e){
+            e.preventDefault(); // Disable "Place Order" button
+          	dataLayer.push({ ecommerce: null }); 
+          	window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+				  event: 'eec.checkout_option',
+				  ecommerce: {
+				    checkout_option: {
+				    actionField: {
+				        step: 3,
+				        option: 'Place Order Clicked'
+				      },
+				    }
+				  }
+				});
+            $(fc).off(); // Enable back "Place Order button
+            $(pl).trigger('click'); // Trigger submit
+               
+           
+        });
+    });
+</script>
 <?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
 	<div class="woocommerce-account-fields">
 		<?php if ( ! $checkout->is_registration_required() ) : ?>

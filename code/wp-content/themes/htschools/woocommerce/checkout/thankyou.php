@@ -110,6 +110,7 @@ defined( 'ABSPATH' ) || exit;
 
 				$orderTotal  = 0;
 				$discountAmt = 0;
+				$tax = 0;
 
 				foreach($order->get_items() as $item_id => $item)
 				{
@@ -148,6 +149,7 @@ defined( 'ABSPATH' ) || exit;
 					}
 					$orderTotal 	+= ($item['total'] + $item['total_tax']);
 					$discountAmt 	+= ($item['subtotal'] - $item['total']);
+					$tax += $item['total_tax'];
 
 					$items[] = array(
 						"item_name"			=> str_replace("'", "", $item['name']),
@@ -202,6 +204,7 @@ defined( 'ABSPATH' ) || exit;
 					var wishlistedCourseName	= [];
 					var moengageItemList		= [];
 					var allItemsList			= allItems.items;
+					var purchaseItemList		= [];
 
 					for (var i = 0; i < allItemsList.length; i++) {
 
@@ -221,7 +224,20 @@ defined( 'ABSPATH' ) || exit;
 							"Course duration"	: allItemsList[i]["course_durations"],
 							"Session duration"	: allItemsList[i]["session_durations"],
 							"wishlisted_course"	: allItemsList[i]["wishlisted_course"],
-							"Course Price"		: parseFloat(allItemsList[i]["original_price"]).toFixed(2),
+							"Course Price"		: parseInt(allItemsList[i]["original_price"]),
+						});
+
+						purchaseItemList.push({
+							"Course name"		: allItemsList[i]["item_name"],
+							"Course URL"		: allItemsList[i]["course_urls"],
+							"Course category"	: allItemsList[i]["item_category"],
+							"Course partner"	: allItemsList[i]["course_partners"],
+							"Course ID"			: parseInt(allItemsList[i]["item_id"]),
+							"Age group"			: allItemsList[i]["course_age_groups"],
+							"Course duration"	: allItemsList[i]["course_durations"],
+							"Session duration"	: allItemsList[i]["session_durations"],
+							"wishlisted_course"	: allItemsList[i]["wishlisted_course"],
+							"Course Price"		: parseInt(allItemsList[i]["original_price"]),
 						});
 					}
 
@@ -270,8 +286,39 @@ defined( 'ABSPATH' ) || exit;
 					dataLayer.push({ ecommerce: null }); 
 					dataLayer.push(purchaseCompletedSummaryMoegObj);
 
-					// Moengage.track_event("Purchase_Completed_Detail", purchaseCompletedDetailMoegObj);
-					// Moengage.track_event("Purchase_Completed_Summary", purchaseCompletedSummaryMoegObj);
+					dataLayer.push({ ecommerce: null }); 
+						window.dataLayer.push({
+					  event: 'eec.checkout_option',
+					  ecommerce: {
+					    checkout_option: {
+					    actionField: {
+					        step: 3,
+					        option: 'payment method - "<?php echo $order->get_payment_method();?>"'
+					      },
+					    }
+					  }
+					});
+
+					dataLayer.push({ ecommerce: null }); 
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+					  event: 'eec.purchase',
+					  ecommerce: {
+					    currencyCode: 'INR',
+					    purchase: {
+					      actionField: {
+					        id: "<?php echo $order->get_order_number(); ?>",
+					        affiliation: 'HT School',
+					        revenue: parseInt("<?php echo $orderTotal; ?>"),
+					        tax: parseInt("<?php echo $tax; ?>"),
+					        shipping: 0,
+					        coupon: "<?php echo $couponCode ?>"
+					      },
+					      products: purchaseItemList
+					    }
+					  }
+					});
+					
 				});
 			</script>
 

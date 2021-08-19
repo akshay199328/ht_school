@@ -44,7 +44,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</tbody>
 </table>
 </div>
-
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push({
+		  event: 'eec.checkout',
+		  ecommerce: {
+		    checkout: {
+		      actionField: {
+		        step: 3
+		      }
+		    }
+		  }
+		});
+	});
+</script>
 <div class="order_details_button customOrder_details">
 	<?php do_action( 'woocommerce_receipt_' . $order->get_payment_method(), $order->get_id() ); ?>
 </div>

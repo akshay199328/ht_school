@@ -406,6 +406,7 @@ jQuery(document).ready(function(){
           stagePadding:0,
           smartSpeed:1900,
           autoHeight: true,
+          autoplay:true,
           responsive : {
                0 : {
                     items:2,

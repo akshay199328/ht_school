@@ -645,6 +645,16 @@ function quiz_first_attempt($field1){
         array('label'=>_x('Course','','wplms'),'value'=>'course')
       ))
     );
+  $field1[]=array( // Single checkbox
+    'label' => __('Is Quiz Compulsory','wplms'), // <label>
+    'desc'  => __('Select quiz compulsory','wplms'), // description
+    'id'  => $prefix.'quiz_submit_type', // field id and name
+    'type'  => 'select',
+      'options' => apply_filters('wplms_quiz_submit_type',array(
+        array('label'=>_x('Yes','','wplms'),'value'=>'1'),
+        array('label'=>_x('No','','wplms'),'value'=>'0')
+      ))
+    );
   $field1[]=array( 
   'label' => __('Quiz Image','vibe-quiz-image'), // <label>
   'desc'  => __('Quiz Image','vibe-quiz-image'), // description

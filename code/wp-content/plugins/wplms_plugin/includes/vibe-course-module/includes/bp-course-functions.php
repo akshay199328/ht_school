@@ -444,6 +444,9 @@
 
       $event_quiz_type = get_post_meta($item_id,'vibe_event_quiz_type',true);
       $return['event_quiz_type'] = $event_quiz_type;
+
+      $quiz_submit_type = get_post_meta($item_id,'vibe_quiz_submit_type',true);
+      $return['quiz_submit_type'] = !empty($quiz_submit_type)?intval($quiz_submit_type):0;
       
       if($event_quiz_type == 'course'){
         $share_quiz_content = "Hey! I just completed a course quiz in HT Codeathon 2021 and passed it with a score of ".$quiz_creds_total."! Join today at www.htcodeathon.com and participate in one of India's biggest coding olympiads.Learn. Participate. Win "; 

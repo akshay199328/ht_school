@@ -3731,7 +3731,7 @@
     }),Rt("div", {
         className: "submitheading",
         dangerouslySetInnerHTML: {
-            __html: e.content
+            __html: e.IsAllAttempted == 1 && parseInt(e.MarkedAnswer) != e.QuestionCount ? 'Please attempt all questions' :  e.content
         }
     })), Rt("div", {
         className: "submit_info"
@@ -3741,6 +3741,8 @@
         className: "quiz-text",
         dangerouslySetInnerHTML: {
             __html: "<span class='text'>Question(s) Answered<span>"
+        },onClick :function(){
+            console.log(e.IsAllAttempted);
         }
     }), Rt("div", {
         className: "score",
@@ -3758,7 +3760,7 @@
             e.update(e.type, "nottrigger")
         }
     }, e.no),Rt("span", {
-        className: "button submit_button",
+        className: e.IsAllAttempted == 1 && parseInt(e.MarkedAnswer) != e.QuestionCount ? "button submit_button disabled" :  "button submit_button",
         onClick: t => {
             document.getElementById("quiz_questions_content").classList.add("quiz_after_submitted");
             e.yesfunction, e.update(e.type, "trigger")
@@ -4322,6 +4324,8 @@
                 var questionCount = Object.keys(t.meta.questions).length;
                 var CC = questionCount;
                 var PP = unmarkedCount;
+                var DD = t.quiz_submit_type;
+
                 t.meta.questions.map((function(t) {
                     t.marked_answer || (e = 0)
                 })), e || (Y = window.wplms_course_data.translations.submit_quizes_confirm);
@@ -4344,6 +4348,7 @@
                 content: Y,
                 MarkedAnswer : PP,
                 QuestionCount : CC,
+                IsAllAttempted : DD,
                 yes: window.wplms_course_data.translations.submit_button,
                 no: window.wplms_course_data.translations.cancel_button,
                 yesfunction: "submitQuiz"
@@ -4351,6 +4356,7 @@
                 active: v,
                 MarkedAnswer : PP,
                 QuestionCount : CC,
+                IsAllAttempted : DD,
                 update: R,
                 type: "submit",
                 content: window.wplms_course_data.translations.bookmark_confirm,

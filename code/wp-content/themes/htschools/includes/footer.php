@@ -23,7 +23,7 @@ $pageSlug = trim($uri, '/');
 <input type="hidden" id="footer_session_source">
 <input type="hidden" id="footer_utm_tags">
 <?php if($pageSlug != 'codeathon-terms-and-conditions'){ ?>
-<div class="terms"><a href="<?php echo get_bloginfo('url'); ?>/codeathon-terms-and-conditions" target="_blank" >Codeathon Terms and Conditions</a></div>
+<div class="terms"><a href="<?php echo get_bloginfo('url'); ?>/codeathon-terms-and-conditions" target="_blank" >Code-a-thon Terms and Conditions</a></div>
 <?php } ?>
 
 <footer class="footer-wrapper">

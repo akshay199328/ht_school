@@ -419,7 +419,7 @@ function bp_page_nav(){
     ) );
 
     bp_core_new_subnav_item( array(
-    'name' => __( 'Active Courses', 'buddypress navigation' ), 
+    'name' => __( 'Active Events', 'buddypress navigation' ), 
     'slug' => 'event-course',
     'parent_url' => $user_domain,
     'parent_slug' => 'event-course',

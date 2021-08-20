@@ -1,3 +1,18 @@
+.meeting-info-icon__icon-wrap{
+    width: 35px;
+    height: 100%;
+}
+.meeting-info-icon__icon--encryption {
+    background-position: -203px -28px;
+    width: 19px;
+    height: 19px;
+}
+.third-part-app-info__button-icon {
+    width: 14px;
+    height: 20px;
+    background-position: -279px -53px;
+}
+.vczapi-zoom-app-notice-wrap.zoom-app-notice{    padding: 50px 0 20px 0;}
 .dropdown {
     display: inline-flex;
     position: relative;

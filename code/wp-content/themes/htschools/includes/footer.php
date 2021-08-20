@@ -863,8 +863,10 @@ jQuery(document).ready(function(){
                                     });
                                     jQuery('#step-2').show();
                                     jQuery('#step-1').hide();
-                                    jQuery('.stepli1').addClass('active');
+                                    jQuery('.stepli1').removeClass('active');
+                                    jQuery('.stepli1').addClass('completed');
                                     jQuery('.stepli2').addClass('active');
+                                    jQuery('.stepli2').addClass('completed');
                                  }else{
                                      $("#response_message1").html(response.message);
                                      $("#response_message1").addClass('error');
@@ -955,8 +957,12 @@ jQuery(document).ready(function(){
                                     });
                                     jQuery('#step-3').show();
                                     jQuery('#step-2').hide();
-                                    jQuery('.stepli2').addClass('active');
+                                    jQuery('.stepli1').addClass('completed');
+                                    jQuery('.stepli1').removeClass('active');
+                                    jQuery('.stepli2').addClass('completed');
+                                    jQuery('.stepli2').removeClass('active');
                                     jQuery('.stepli3').addClass('active');
+                                    jQuery('.stepli3').addClass('completed');
                                  }else{
                                      $("#response_message2").html(response.message);
                                      $("#response_message2").addClass('error');
@@ -1238,26 +1244,35 @@ jQuery(document).ready(function(){
               $('#step-2').hide();
               $('#step-3').hide();
               $('.stepli1').addClass('active');
+              $('.stepli1').addClass('completed');
               $('.stepli2').removeClass('active');
+              $('.stepli2').removeClass('completed');
               $('.stepli3').removeClass('active');
+              $('.stepli3').removeClass('completed');
           });
 
           $(".stepli2").click(function(){
               $('#step-2').show();
               $('#step-1').hide();
               $('#step-3').hide();
-              $('.stepli1').addClass('active');
+              $('.stepli1').addClass('completed');
+              $('.stepli1').removeClass('active');
               $('.stepli2').addClass('active');
+              $('.stepli2').addClass('completed');
               $('.stepli3').removeClass('active');
+              $('.stepli3').removeClass('completed');
           });
 
           $(".stepli3").click(function(){
               $('#step-3').show();
               $('#step-1').hide();
               $('#step-2').hide();
-              $('.stepli1').addClass('active');
-              $('.stepli2').addClass('active');
+              $('.stepli1').addClass('completed');
+              $('.stepli1').removeClass('active');
+              $('.stepli2').addClass('completed');
+              $('.stepli2').removeClass('active');
               $('.stepli3').addClass('active');
+              $('.stepli3').addClass('completed');
           });
 
      </script>

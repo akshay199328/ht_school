@@ -864,7 +864,7 @@ div#ui-datepicker-div{
                                     </span>
                                 </div>
                                 <div class="pull-right">
-                                    <h6><span class="rank"><?php echo $current_user_rank; ?></span><p>Your Rank<span>North Zone</span></p> </h6>
+                                    <h6><span class="rank"><?php echo $current_user_rank; ?></span><p>Your Rank<span><?php echo $user_zone; ?> Zone</span></p> </h6>
                                 </div>
                             </div>
                             <div class="rank-people">

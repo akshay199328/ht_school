@@ -4260,6 +4260,10 @@ a.button.is-primary {
     font-family: GT-Walsheim-Pro;
 
 }
+.submit_button.disabled {
+    pointer-events: none;
+    opacity: .5;
+}
 .cancel_button{
     background: #000000!important;
     color: #D5EBFF !important;
@@ -4685,6 +4689,7 @@ a.button.is-primary {
     }
     .quiz_pagination_wrapper .owl-nav button.disabled:after {color: rgb(0 0 0 / 40%);}
     .owl-nav span{display: none;}
+    .join-dialog__tabs .zmu-tabs__tab-container .zmu-tabs__tabs-list .zmu-tabs__tab-bar{flex-basis: 50%;}
 }
 @media screen and (max-width:480px) and (min-width:320px){
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform textarea{

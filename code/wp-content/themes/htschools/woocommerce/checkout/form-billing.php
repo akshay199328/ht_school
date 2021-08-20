@@ -58,7 +58,7 @@ defined( 'ABSPATH' ) || exit;
 		});
 	});
 	jQuery( function($){
-						alert("test");
+					
         var fc = 'form.checkout',
             pl = 'button[type="submit"][name="woocommerce_checkout_place_order"]';
 
@@ -71,7 +71,7 @@ defined( 'ABSPATH' ) || exit;
 				  ecommerce: {
 				    checkout_option: {
 				    actionField: {
-				        step: 3,
+				        step: 2,
 				        option: 'Place Order Clicked'
 				      },
 				    }

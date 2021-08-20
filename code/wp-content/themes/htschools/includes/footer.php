@@ -113,7 +113,7 @@ $pageSlug = trim($uri, '/');
             <div class="column">
                 <ul id="menu-footer-middle-menu" class="menu">
                     <li id="menu-item-6163" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6163"><a href="https://www.hindustancareermate.com/">Career Mate</a></li>
-                    <li id="menu-item-6164" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6164"><a href="<?php echo get_bloginfo('url'); ?>/code-a-thon">Code-a-thon</a></li>
+                    <li id="menu-item-6164" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6164"><a href="<?php echo get_bloginfo('url'); ?>/code-a-thon" target="_blank">Code-a-thon</a></li>
                     <li id="menu-item-6166" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6166"><a href="https://www.lenovoscholarship.com/">Scholarship</a></li>
                     <li id="menu-item-6167" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6167"><a href="https://www.hindustanolympiad.in/">Olympiad</a></li>
                 </ul>

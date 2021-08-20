@@ -312,6 +312,18 @@ if($progressVal != ''){
 }
 
 
+
+$resultsZone = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Zone'");
+foreach($resultsZone as $rowZone){ 
+    $zonePriID = $rowZone->id; 
+}
+
+$resultsSchool = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Linked School'");
+foreach($resultsSchool as $rowSchool){ 
+    $schoolPriID = $rowSchool->id; 
+}
+
+
 // Zone Listing
 $table_name = "ht_mycred_log";
 if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
@@ -321,9 +333,13 @@ if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
       $my_cred_table = 'ht_myCRED_log';
   }
 
-  //$sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='".$courseID."' ";
+  $sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id 
+          FROM ht_posts AS posts 
+          LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id 
+          LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = rel.meta_key
+          WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND xprofile.value = '$user_zone' AND xprofile.field_id = '$zonePriID' AND posts.ID='".$courseID."' ";
 
-  $sql = "SELECT posts.post_title AS course, rel.meta_key AS user_id, posts.ID AS course_id
+  /*$sql = "SELECT posts.post_title AS course, rel.meta_key AS user_id, posts.ID AS course_id
             FROM ht_usermeta AS umeta
             LEFT JOIN ht_posts AS posts ON umeta.meta_key = posts.ID
             LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id
@@ -335,7 +351,7 @@ if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
             AND     xprofile.value = '$user_zone'
             AND     rel.meta_key REGEXP '^[0-9]+$'
             GROUP BY rel.meta_key
-            ORDER BY umeta.user_id DESC";
+            ORDER BY umeta.user_id DESC";*/
 
   $leaderboard_result = $wpdb->get_results($sql);
   foreach($leaderboard_result as $key1 => $v){
@@ -416,9 +432,13 @@ if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
       $my_cred_table = 'ht_myCRED_log';
   }
 
-  //$sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='".$courseID."' ";
+  $sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id 
+          FROM ht_posts AS posts 
+          LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id 
+          LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = rel.meta_key
+          WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND xprofile.value = '$school_id' AND xprofile.field_id = '$schoolPriID' AND posts.ID='".$courseID."' ";
 
-  $sql = "SELECT posts.post_title AS course, rel.meta_key AS user_id, posts.ID AS course_id
+  /*$sql = "SELECT posts.post_title AS course, rel.meta_key AS user_id, posts.ID AS course_id
             FROM ht_usermeta AS umeta
             LEFT JOIN ht_posts AS posts ON umeta.meta_key = posts.ID
             LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id
@@ -430,7 +450,7 @@ if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
             AND     xprofile.value = '$school_id'
             AND     rel.meta_key REGEXP '^[0-9]+$'
             GROUP BY rel.meta_key
-            ORDER BY umeta.user_id DESC";
+            ORDER BY umeta.user_id DESC";*/
 
   $leaderboard_result = $wpdb->get_results($sql);
   foreach($leaderboard_result as $key1 => $v){

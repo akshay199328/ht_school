@@ -210,6 +210,11 @@ $(window).on('scroll', function () {
 });
 
 jQuery(document).ready(function(){
+    $('.about_section').click(function() {
+        $('html, body').animate({
+            scrollTop: $("#about_section").offset().top - 134
+        }, 500)
+    }),
     $('.learning_section').click(function() {
         $('html, body').animate({
             scrollTop: $("#learning_section").offset().top - 134

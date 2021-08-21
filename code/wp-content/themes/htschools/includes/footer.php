@@ -210,20 +210,26 @@ $(window).on('scroll', function () {
 });
 
 jQuery(document).ready(function(){
-     /*jQuery(".share svg").hover(function(){
-          jQuery(this).next().slideToggle();
-     });*/
-
-     /*jQuery(".next-button").click(function(){
-          jQuery('#step-2').show();
-          jQuery('#step-1').hide();
-     });*/
-
-     /*jQuery(".step-2-next").click(function(){
-          jQuery('#step-2').hide();
-          jQuery('#step-1').hide();
-          jQuery('#step-3').show();
-     });*/
+    $('.learning_section').click(function() {
+        $('html, body').animate({
+            scrollTop: $("#learning_section").offset().top - 134
+        }, 500)
+    }),
+    $('.How_it_works').click(function() {
+        $('html, body').animate({
+            scrollTop: $("#How_it_works").offset().top - 134
+        }, 500)
+    }),
+    $('.About_Partners').click(function() {
+        $('html, body').animate({
+            scrollTop: $("#About_Partners").offset().top - 134
+        }, 500)
+    }),
+    $('.Partner_says').click(function() {
+        $('html, body').animate({
+            scrollTop: $("#Partner_says").offset().top - 134
+        }, 500)
+    })
 });
 
           window.onload = function () {

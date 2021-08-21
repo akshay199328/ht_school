@@ -1964,10 +1964,7 @@ function prefix_load_cat_posts()
 
             array_push($array2, $course);
 
-            if ($course->user_id == $user->ID)
-            {
-                array_push($array1, $course);
-            }
+           
         }
 
         $dashboard_data = $array2;
@@ -2047,7 +2044,7 @@ function get_course_score()
     global $post, $wpdb;
     $course_id = $_POST['course_id'];
     $user = wp_get_current_user();
-    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY rel.meta_value DESC"));
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY CAST(rel.meta_value as unsigned) DESC"));
     $result = $wpdb->get_results($query);
     if ($wpdb->num_rows <= 0)
     {
@@ -2062,10 +2059,7 @@ function get_course_score()
 
             array_push($array2, $course);
 
-            if ($course->user_id == $user->ID)
-            {
-                array_push($array1, $course);
-            }
+           
         }
 
         $dashboard_data = $array2;
@@ -2145,7 +2139,7 @@ function get_user_course_rank()
     global $post, $wpdb;
     $course_id = $_POST['course_id'];
     $user = wp_get_current_user();
-    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY rel.meta_value DESC"));
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY CAST(rel.meta_value as unsigned) DESC"));
     $result = $wpdb->get_results($query);
     if ($wpdb->num_rows <= 0)
     {
@@ -2160,10 +2154,7 @@ function get_user_course_rank()
 
             array_push($array2, $course);
 
-            if ($course->user_id == $user->ID)
-            {
-                array_push($array1, $course);
-            }
+           
         }
 
         $dashboard_data = $array2;
@@ -2253,10 +2244,7 @@ function get_user_rank()
 
             array_push($array2, $course);
 
-            if ($course->user_id == $user->ID)
-            {
-                array_push($array1, $course);
-            }
+           
         }
 
         $dashboard_data = $array2;
@@ -2296,7 +2284,7 @@ function get_course_rank()
      global $post, $wpdb;
     $course_id = $_POST['course_id'];
     $user = wp_get_current_user();
-    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY rel.meta_value DESC"));
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY CAST(rel.meta_value as unsigned) DESC"));
     $result = $wpdb->get_results($query);
     if ($wpdb->num_rows <= 0)
     {
@@ -2311,21 +2299,19 @@ function get_course_rank()
 
             array_push($array2, $course);
 
-            if ($course->user_id == $user->ID)
-            {
-                array_push($array1, $course);
-            }
+           
         }
 
         $dashboard_data = $array2;
          $firstThreeElements = array_slice($dashboard_data, 0, 3);
+         $i=1;
     foreach ($firstThreeElements as $course)
     {
       $first_name = get_user_meta($course->user_id, 'first_name', true);
         $last_name = get_user_meta($course->user_id, 'last_name', true);
         $rankID = $i++;
         $response = '<li><div class="col-xs-8 col-sm-9 col-md-9 mrg"><div class="content">';
-        $response .= '<p>Rank ' .  $course->rank. '</p>';
+        $response .= '<p>Rank ' .   $rankID. '</p>';
         $response .= '<h5>' . $first_name.' '.$last_name . '</h5>';
         $response .= '<span class="light">' . $course->score . ' Pts</span>';
         $response .= '</div></div><div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">';
@@ -2394,10 +2380,7 @@ function get_rank()
 
             array_push($array2, $course);
 
-            if ($course->user_id == $user->ID)
-            {
-                array_push($array1, $course);
-            }
+           
         }
 
         $dashboard_data = $array2;

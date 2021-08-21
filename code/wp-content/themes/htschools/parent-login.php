@@ -51,7 +51,9 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
        text-align: center;
       }
 
+
     .abcRioButton.abcRioButtonLightBlue {
+        /*! width: 100% !important; */
         margin: 0 auto;
         display: inline-block;
         border-radius: 4px;
@@ -63,8 +65,6 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
         margin: 0 auto;
       }
 </style>
-
-
 <main id="main">
   <section class="login">
     <div class="innerheader-space"></div>
@@ -79,11 +79,12 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
             </div>
           </div>
 
+
+
           <div class="loginContent_right">
 
             <div class="login-right" id="login-step-1">
-              <h4>Login to view</h4>
-              <h4>your Child's Progress</h4>
+              <h4>Login / Sign Up</h4>
               <form method="POST" id="ht_reg_email">
                 <input type="hidden" name="action" value="reg_send_otp">
                 <input type="hidden" name="prevPageurl" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
@@ -100,7 +101,7 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
                   <p class="error" style="display: none;" id="ht_otp_error"></p>
                 </div>
                 <button  id="ht_reg_email_btn" type="button" class="btn submit_btn">
-                  Send OTP
+                  Next
                 </button>
               </form>
               <div class="form-footer">
@@ -119,12 +120,12 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
                     <p id="email-otp-message"></p>
                   </div>
                   <div id="otp" class="flex justify-center">
-                    <input class="text-center form-control to_next" type="text" name="num_1" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_2" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_3" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_4" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_5" maxlength="1" />
-                    <input class="text-center form-control to_next" type="text" name="num_6" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_1" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_2" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_3" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_4" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_5" maxlength="1" />
+                    <input class="text-center form-control to_next email_otp" type="text" name="num_6" maxlength="1" />
                   </div>
                   <p class="error" style="display: none;" id="ht_resend_error"></p>
                   <div class="resend-info">
@@ -196,12 +197,12 @@ $userIdentifier = isset($_COOKIE['PHPSESSID']) ? $_COOKIE['PHPSESSID'] : "";
                       <p id="mobile-otp-message"></p>
                     </div>
                     <div id="otp" class="flex justify-center mobile-otp">
-                      <input class="text-center form-control to_next" type="text" name="num_1" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_2" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_3" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_4" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_5" maxlength="1" />
-                      <input class="text-center form-control to_next" type="text" name="num_6" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_1" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_2" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_3" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_4" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_5" maxlength="1" />
+                      <input class="text-center form-control to_next mobile_otp" type="text" name="num_6" maxlength="1" />
                     </div>
                     <p class="error" style="display: none;" id="mobile_resend_error"></p>
                     <div class="resend-info">
@@ -338,8 +339,6 @@ jQuery(window).load(function(){
    jQuery('#login_page_register_tab').tab('show');
 });
 </script> -->
-
-
 <script type="text/javascript">
 
     jQuery(document).ready(function(){

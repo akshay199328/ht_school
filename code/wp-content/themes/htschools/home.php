@@ -255,13 +255,14 @@ get_header(vibe_get_header());
                 $image_url = get_the_post_thumbnail_url();
               }
             ?>
-            <a class="course-hero select_course_item" data-id="<?php echo $post->ID;?>" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
+            <a class="course-hero select_course_item course_view" data-id="<?php echo $post->ID;?>" href="<?php echo get_permalink($post->ID);?>"><img alt="Celebrity Course" src="<?php echo $image_url; ?>"></a>
+            <input type="hidden" id="action_field" value="Trending Courses">
             <div class="course-copy">                                                     
              <?php if (!empty($course_type)){ ?>                            
                 <span class="badge <?php echo $badge_class;?>"><?php echo $course_type; ?></span> 
             <?php }?>
 
-            <h3 class="course-title"><?php echo bp_course_title(); ?></h3>
+            <h3 class="course-title course_view"><?php echo bp_course_title(); ?></h3>
             <ul class="data">
                 <li>
                     <span class="attribute">Duration</span>
@@ -525,7 +526,37 @@ get_header(vibe_get_header());
     </section>
 
   </main><!-- End #main -->
-
+    <script type="text/javascript">
+    jQuery('.select_course_item').click(function(e){
+      let courseID = jQuery(this).attr('data-id');
+      let viewDetailCourseMoegObj = {
+        "Course Category" : jQuery("#course_category_" + courseID).val(),
+        "Category ID"     : parseInt(jQuery("#category_id_" + courseID).val()),
+        "Course name"     : jQuery("#course_name_" + courseID).val(),
+        "Course ID"       : parseInt(jQuery("#course_id_" + courseID).val()),
+        "Age group"       : jQuery("#age_group_" + courseID).val(),
+        "Course Price"    : parseInt(jQuery("#course_price_" + courseID).val()),
+        "Course duration" : jQuery("#course_duration_" + courseID).val(),
+        "Session duration": jQuery("#session_duration_" + courseID).val(),
+        "Course URL"      : jQuery("#course_url_" + courseID).val(),
+        "Course partner"  : jQuery("#course_partner_" + courseID).val(),
+        "Timestamp"       : jQuery("#footer_timestamp").val(),
+        "User identifier" : parseInt(jQuery("#footer_user_identifier").val()),
+      };
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'eec.detail',
+        ecommerce: {
+          detail: {
+            actionField: {
+              list: 'Trending Courses'
+            },
+            products: viewDetailCourseMoegObj
+          }
+        }
+      });
+    });
+  </script>
   <?php
   get_footer(vibe_get_footer());
   ?>

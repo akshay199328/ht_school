@@ -43,7 +43,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
              $str1="LIVE CLASSES";
             $str2="BLENDED";
-            $str3="SELF PACED";
+            $str3="SELF-PACED";
         
     if(strcmp($str2, $course_type)==0){
        $badge_class = "blue";
@@ -133,7 +133,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       }
                       $courseDetails = array();
                       $courseDetails[] = array(
-                        'Age Group' => $ageGroup.' yrs',
+                        'Age Group' => $ageGroup.' Years',
                         'Certification' => $totalStudent,
                         'Course Duration' => $duration.' '.calculate_duration($courseDurationParameter),
                         'Frequency' => $frequency,
@@ -488,7 +488,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                           $category_array = get_the_terms( $post->ID, 'course-cat');
                           $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                           $courseID = $post->ID;
-                          $courseslug=get_site_url().'/?p='.$courseID;
+                          $courseslug=get_the_permalink($courseID);
                           $coursePartner = "";
                           $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
                           if ($cb_course_id) {
@@ -555,8 +555,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               "course_url"      : jQuery("#course_url_" + courseID).val(),
               "item_category"   : jQuery("#course_category_" + courseID).val(),
               "course_partner"  : jQuery("#course_partner_" + courseID).val(),
-              "category_id"     : jQuery("#category_id_" + courseID).val(),
-              "item_id"         : jQuery("#course_id_" + courseID).val(),
+              "category_id"     : parseInt(jQuery("#category_id_" + courseID).val()),
+              "item_id"         : parseInt(jQuery("#course_id_" + courseID).val()),
               "age_group"       : jQuery("#age_group_" + courseID).val(),
               "course_duration" : jQuery("#course_duration_" + courseID).val(),
               "session_duration": jQuery("#session_duration_" + courseID).val(),
@@ -564,7 +564,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 
             let viewCourseObj = {
               "event"          : 'view_item',
-              "user_identifier": jQuery("#footer_user_identifier").val(),
+              "user_identifier": parseInt(jQuery("#footer_user_identifier").val()),
               "session_source" : jQuery("#footer_session_source").val(),
               "timestamp"      : jQuery("#footer_timestamp").val(),
               "utm_tags"       : jQuery("#footer_utm_tags").val(),
@@ -574,31 +574,6 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             };
 
             let viewCourseMoegObj = {
-              "Course Category" : jQuery("#course_category_" + courseID).val(),
-              "Category ID"     : jQuery("#category_id_" + courseID).val(),
-              "Course name"     : jQuery("#course_name_" + courseID).val(),
-              "Course ID"       : jQuery("#course_id_" + courseID).val(),
-              "Age group"       : jQuery("#age_group_" + courseID).val(),
-              "Course Price"    : jQuery("#course_price_" + courseID).val(),
-              "Course duration" : jQuery("#course_duration_" + courseID).val(),
-              "Session duration": jQuery("#session_duration_" + courseID).val(),
-              "Course URL"      : jQuery("#course_url_" + courseID).val(),
-              "Course partner"  : jQuery("#course_partner_" + courseID).val(),
-              "Timestamp"       : jQuery("#footer_timestamp").val(),
-              "Session source"  : jQuery("#footer_session_source").val(),
-              "UTM tags"        : jQuery("#footer_utm_tags").val(),
-              "User identifier" : jQuery("#footer_user_identifier").val(),
-            };
-
-            // dataLayer.push({ ecommerce: null });
-            dataLayer.push(viewCourseObj);
-            console.log(viewCourseObj);
-
-            viewCourseMoegObj.event = "mo_Course_Viewed";
-            dataLayer.push(viewCourseMoegObj);
-            // Moengage.track_event("Course_Viewed", viewCourseMoegObj);
-            dataLayer.push({ ecommerce: null }); 
-            let viewDetailCourseMoegObj = {
               "Course Category" : jQuery("#course_category_" + courseID).val(),
               "Category ID"     : parseInt(jQuery("#category_id_" + courseID).val()),
               "Course name"     : jQuery("#course_name_" + courseID).val(),
@@ -614,19 +589,47 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
               "UTM tags"        : jQuery("#footer_utm_tags").val(),
               "User identifier" : parseInt(jQuery("#footer_user_identifier").val()),
             };
+
+            // dataLayer.push({ ecommerce: null });
+            dataLayer.push(viewCourseObj);
+            console.log(viewCourseObj);
+
+            viewCourseMoegObj.event = "mo_Course_Viewed";
+            dataLayer.push(viewCourseMoegObj);
+            // Moengage.track_event("Course_Viewed", viewCourseMoegObj);
+            dataLayer.push({ ecommerce: null }); 
+           
+          });
+          jQuery('.select_course_item').click(function(e){
+            let courseID = jQuery(this).attr('data-id');
+            let viewDetailCourseMoegObj = {
+              "Course Category" : jQuery("#course_category_" + courseID).val(),
+              "Category ID"     : parseInt(jQuery("#category_id_" + courseID).val()),
+              "Course name"     : jQuery("#course_name_" + courseID).val(),
+              "Course ID"       : parseInt(jQuery("#course_id_" + courseID).val()),
+              "Age group"       : jQuery("#age_group_" + courseID).val(),
+              "Course Price"    : parseInt(jQuery("#course_price_" + courseID).val()),
+              "Course duration" : jQuery("#course_duration_" + courseID).val(),
+              "Session duration": jQuery("#session_duration_" + courseID).val(),
+              "Course URL"      : jQuery("#course_url_" + courseID).val(),
+              "Course partner"  : jQuery("#course_partner_" + courseID).val(),
+              "Timestamp"       : jQuery("#footer_timestamp").val(),
+              "User identifier" : parseInt(jQuery("#footer_user_identifier").val()),
+            };
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
               event: 'eec.detail',
               ecommerce: {
                 detail: {
                   actionField: {
-                    list: 'Search Results'
+                    list: 'Recommended Courses'
                   },
                   products: viewDetailCourseMoegObj
                 }
               }
             });
           });
+
         </script>
 </main>
 

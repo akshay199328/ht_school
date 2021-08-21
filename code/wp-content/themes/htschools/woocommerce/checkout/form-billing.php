@@ -58,7 +58,6 @@ defined( 'ABSPATH' ) || exit;
 		});
 	});
 	jQuery( function($){
-					
         var fc = 'form.checkout',
             pl = 'button[type="submit"][name="woocommerce_checkout_place_order"]';
 
@@ -108,7 +107,22 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 
 		<?php endif; ?>
-
+		<script type="text/javascript">
+			jQuery('#place_order').click(function(e){
+				dataLayer.push({ ecommerce: null }); 
+					window.dataLayer.push({
+				  event: 'eec.checkout_option',
+				  ecommerce: {
+				    checkout_option: {
+				    actionField: {
+				        step: 3,
+				        option: 'Place Order Clicked'
+				      },
+				    }
+				  }
+				});
+			});
+		</script>
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 	</div>
 <?php endif; ?>

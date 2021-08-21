@@ -472,7 +472,7 @@ foreach($leaderboard_result as $key2 => $v2)
   $leaderboard_result[$key2]->rank = $rank;
 }
 $firstThreeElements = array_slice($leaderboard_result, 0, 3);
-$first_rank = 0;
+/*$first_rank = 0;
 $second_rank = 0;
 $third_rank = 0;
 foreach($leaderboard_result as $key1 => $rank)
@@ -486,7 +486,7 @@ foreach($leaderboard_result as $key1 => $rank)
     if($leaderboard_result[$key1]->rank == 3){
         $third_rank = $leaderboard_result[$key1]->user_id;
     }
-}
+}*/
 
 $user_rank = array();
 
@@ -533,6 +533,8 @@ $resultsRank2 = $wpdb->get_row("SELECT count(rel.meta_key) as totalCount
           WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND xprofile.value = '$school_id' AND xprofile.field_id = '$schoolPriID' AND posts.ID='".$courseID."' ");
 $totalRank2 = $resultsRank2->totalCount;
 
+//$prfileImage = bp_core_fetch_avatar( array('item_id' => 2) );
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}
@@ -577,7 +579,7 @@ div#ui-datepicker-div{
     <div class="container">
         <div class="notice-board">
             <div class="pull-left">
-                <h6>Notice Board</h6>
+                <h6>Notice Board <?php echo $prfileImage; ?></h6>
                 <p>Get 20% discount on cuemath coupon. Please use the <strong>Code CM20P123.</strong></p>
             </div>
             <!-- <div class="pull-right">
@@ -895,19 +897,31 @@ div#ui-datepicker-div{
 
                                 <span class="rank-two">
                                     <figure>
-                                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/rank2.png">
+                                      <?php if(bp_core_fetch_avatar(array('item_id' => $second_rank)) != ''){
+                                              echo bp_core_fetch_avatar(array('item_id' => $second_rank));
+                                            }else{ ?>
+                                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg">
+                                      <?php } ?>
                                     </figure>
                                     <p class="name"><?php echo get_display_name($second_rank);?></p>
                                 </span>
                                 <span class="rank-one">
                                     <figure>
-                                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/rank1.png">
+                                      <?php if(bp_core_fetch_avatar(array('item_id' => $first_rank)) != ''){
+                                              echo bp_core_fetch_avatar(array('item_id' => $first_rank));
+                                            }else{ ?>
+                                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg">
+                                      <?php } ?>
                                     </figure>
                                     <p class="name"><?php echo get_display_name($first_rank);?></p>
                                 </span>
                                 <span class="rank-three">
                                     <figure>
-                                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/rank3.png">
+                                      <?php if(bp_core_fetch_avatar(array('item_id' => $third_rank)) != ''){
+                                              echo bp_core_fetch_avatar(array('item_id' => $third_rank));
+                                            }else{ ?>
+                                        <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg">
+                                      <?php } ?>
                                     </figure>
                                     <p class="name"><?php echo get_display_name($third_rank);?></p>
                                 </span>

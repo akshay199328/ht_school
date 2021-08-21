@@ -1,0 +1,35 @@
+.custom_datatable {
+	padding: 15px;
+}
+.custom_datatable span{
+	width: unset;
+}
+.custom_datatable input[type=search], .wp-core-ui select {
+	line-height: 1;
+}
+.wp-core-ui select {
+	width: 50px;
+}
+.custom_datatable td {
+	border-bottom: 1px solid #ccc;
+}
+.table-search {
+	font-weight: normal;
+}
+.datatable-fix {
+	width: 100%;
+	min-width: 100% !important;
+	margin-left: 0;
+}
+
+.datatable-fix .vibe-reports-sidebar {
+	margin-left: 0;
+	width: 24%;
+}
+
+.datatable-fix .vibe-reports-main {
+	float: left;
+	width: 70%;
+	margin-left: 25px;
+	min-width: 72%;
+}

@@ -37,7 +37,10 @@ vibe_include_template("profile/top$profile_layout.php");
                             array_push($count_array, $post->ID);
                         }
                     }
+                    
                     $count = count($count_array);
+                    if($count > 0){
+
                     $paged = ( isset( $_GET['vp'] ) ) ? $_GET['vp'] : 1;
                     $query_args = array(
                       'post_type'=>'post',
@@ -129,7 +132,7 @@ vibe_include_template("profile/top$profile_layout.php");
             </div>
             <?php 
              }}
-            }
+            }}
             else {
             ?>
             <div class="empty_cart_div">

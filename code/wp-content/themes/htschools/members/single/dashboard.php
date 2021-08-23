@@ -118,9 +118,9 @@ while ($course_query->have_posts())
     </div>
      <div class="col-sm-12 col-md-6 mrg">
             <div class="middle-table">
-                <div id="user_rank" class="user_rank">
+                <!-- <div id="user_rank" class="user_rank">
                         
-                </div>
+                </div> -->
                 <table class="table table-responsive" id="myTable">
                     <thead>
                         <tr>
@@ -225,9 +225,9 @@ while ($course_query->have_posts())
     </div>
      <div class="col-sm-12 col-md-6 mrg">
             <div class="middle-table">
-                <div id="user_ranks" class="user_rank">
+                <!-- <div id="user_ranks" class="user_rank">
                   
-                </div>
+                </div> -->
                 <table class="table table-responsive" id="myTable">
                     <thead>
                         <tr>

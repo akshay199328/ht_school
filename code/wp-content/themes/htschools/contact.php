@@ -98,6 +98,7 @@ if(have_posts()):while(have_posts()):the_post();
           return true;
         }
   });
+
   jQuery("#fullName").keypress(function(e) {
     var keyCode = e.keyCode || e.which;
 
@@ -232,14 +233,11 @@ if (wordcount > maxWords) {
            setTimeout(initialize, 2000);
 </script>
 
-
-
-
 <?php
 get_footer(vibe_get_footer());
 ?>
 <!-- Modal -->
-<div class="modal modal-box fade contact-popup contact-popup_contact" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal modal-box fade contact-popup test contact-popup_contact" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content">
       <div class="modal-header">        
@@ -250,7 +248,7 @@ get_footer(vibe_get_footer());
             <p class="modal-para">Data Science Masterclass for Non-Programmers</p> -->
             <!-- <p class="modal-text">Congratulations on completing the Data Science Masterclass for Non-Programmers successfully. </p> -->
           </div>          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="window.location.href = '<?php echo bloginfo('url');?>'">
             <span>&times;</span>
           </button>
       </div>

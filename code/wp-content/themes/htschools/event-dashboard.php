@@ -533,7 +533,8 @@ $resultsRank2 = $wpdb->get_row("SELECT count(rel.meta_key) as totalCount
           WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND xprofile.value = '$school_id' AND xprofile.field_id = '$schoolPriID' AND posts.ID='".$courseID."' ");
 $totalRank2 = $resultsRank2->totalCount;
 
-//$prfileImage = bp_core_fetch_avatar( array('item_id' => 2) );
+$progress = bp_course_get_user_progress($userID,$courseID);
+$course_progress = empty($progress)?0:intval($progress);
 
 ?>
 <style type="text/css">
@@ -579,7 +580,7 @@ div#ui-datepicker-div{
     <div class="container">
         <div class="notice-board">
             <div class="pull-left">
-                <h6>Notice Board <?php echo $prfileImage; ?></h6>
+                <h6>Notice Board</h6>
                 <p>Get 20% discount on cuemath coupon. Please use the <strong>Code CM20P123.</strong></p>
             </div>
             <!-- <div class="pull-right">
@@ -730,7 +731,7 @@ div#ui-datepicker-div{
                             </div>
                             <div class="col-12 col-md-12 col-sm-12 top_progress pull-left">
                                 <div class="progress">
-                                    <div class="progress-bar w-<?php echo $progressVal; ?>" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar w-<?php echo $course_progress; ?>" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="details_footer">

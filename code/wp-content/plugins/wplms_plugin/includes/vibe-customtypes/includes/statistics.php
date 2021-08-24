@@ -1095,7 +1095,6 @@ function lms_student_info_data($page_num,$num){
 					$schoolList[$schoolIDList[0]->value] = $schoolName;
 				}
 			}
-
 			$student_info[$i]['user']	= get_the_author_meta('display_name',$st->user);
 			$student_info[$i]['school']	= $schoolName;
 			$student_info[$i]['avg']	= (is_numeric($avg)?$avg:'n/a');
@@ -1105,6 +1104,7 @@ function lms_student_info_data($page_num,$num){
 		$i++;
 	}
 
+			//echo "<pre>";print_r($student_info);exit();
 	return $student_info;
 }
 
@@ -1716,6 +1716,7 @@ function lms_student_school_info_data($page_num, $num)
 
 		if(count($schoolIDList) > 0)
 		{
+			 $school_id = $schoolIDList[0]->value;
 			if(isset($schoolList[$schoolIDList[0]->value]))
 			{
 				$schoolName = $schoolList[$schoolIDList[0]->value];
@@ -1726,9 +1727,12 @@ function lms_student_school_info_data($page_num, $num)
 				$schoolList[$schoolIDList[0]->value] = $schoolName;
 			}
 		}
+		 $last_activity = get_user_meta($st->ID,'last_activity',true);
 
 		$student_info[$i]['user_id']	= $st->ID;
 		$student_info[$i]['user_email']	= $st->user_email;
+		$student_info[$i]['school_id'] = $school_id;
+		$student_info[$i]['last_activity'] = $last_activity;
 		$student_info[$i]['user']		= get_user_meta($st->ID, 'first_name', true).' '.get_user_meta($st->ID, 'last_name', true);
 		$student_info[$i]['school']		= $schoolName;
 		$i++;

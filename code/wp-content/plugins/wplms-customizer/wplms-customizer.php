@@ -318,6 +318,13 @@ function my_setup_nav() {
             'screen_function' => 'parent_dashboard_template', 
             'default_subnav_slug' => 'parent_dashboard',
       ) );
+      bp_core_new_nav_item( array( 
+            'name' => __( 'School Dashboard', 'buddypress' ), 
+            'slug' => 'school_dashboard', 
+            'position' => 50,
+            'screen_function' => 'school_dashboard_template', 
+            'default_subnav_slug' => 'school_dashboard',
+      ) );
 
 
 }
@@ -383,6 +390,15 @@ function bp_page_nav(){
     'parent_url' => $user_domain.'parent_dashboard',
     'parent_slug' => 'parent_dashboard',
     'screen_function' => 'parent_dashboard_template',
+    'position' => 30
+ 
+    ) );
+      bp_core_new_subnav_item( array(
+    'name' => __( 'School Dashboard', 'buddypress navigation' ), 
+    'slug' => 'school_dashboard',
+    'parent_url' => $user_domain.'school_dashboard',
+    'parent_slug' => 'school_dashboard',
+    'screen_function' => 'school_dashboard_template',
     'position' => 30
  
     ) );
@@ -453,6 +469,10 @@ function past_course_template() {
 
 function parent_dashboard_template() {
       bp_core_load_template( 'parent_dashboard' );
+}
+
+function school_dashboard_template() {
+      bp_core_load_template( 'school_dashboard' );
 }
 
 function preferences_template() {

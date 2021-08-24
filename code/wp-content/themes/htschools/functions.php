@@ -727,6 +727,92 @@ function parent_reg_verify_otp(){
 
 }
 
+add_action("wp_ajax_school_reg_verify_otp", "school_reg_verify_otp");
+add_action( 'wp_ajax_nopriv_school_reg_verify_otp', 'school_reg_verify_otp' );
+
+function school_reg_verify_otp(){
+ 
+    global $wpdb;
+    $num1 = isset($_REQUEST['num_1']) ? intval($_REQUEST['num_1']) : 0;
+    $num2 = isset($_REQUEST['num_2']) ? intval($_REQUEST['num_2']) : 0;
+    $num3 = isset($_REQUEST['num_3']) ? intval($_REQUEST['num_3']) : 0;
+    $num4 = isset($_REQUEST['num_4']) ? intval($_REQUEST['num_4']) : 0;
+    $num5 = isset($_REQUEST['num_5']) ? intval($_REQUEST['num_5']) : 0;
+    $num6 = isset($_REQUEST['num_6']) ? intval($_REQUEST['num_6']) : 0;
+
+    $otp = $num1 . $num2 . $num3 . $num4 . $num5 . $num6;
+
+    $response = array(
+        'status' => 0,
+        'is_registered' => 0,
+        'email' => $_SESSION['user_otp_email'],
+        'message' => 'Unable to verify OTP, please try again'
+    );
+    $getotp = $wpdb->get_results("SELECT * FROM ht_authentication WHERE otp='" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."' AND expired!=1 AND NOW() <= DATE_ADD(created, INTERVAL 10 MINUTE)");
+    $array_otp=json_decode( json_encode($getotp), true);
+    $db_otp = $array_otp[0]['otp'];
+     $user = get_user_by( 'email', $_SESSION['user_otp_email'] );
+$userId = $user->ID;
+ $user = new WP_User($userId);
+$user_role = strval(wp_sprintf_l('%l', $user->roles));
+
+    if (!empty(count($array_otp)) && $user_role == 'school' ) {
+      $sqlUpdate = $wpdb->prepare("DELETE FROM ht_authentication WHERE otp = '" . $otp . "' AND email_id = '".$_SESSION['user_otp_email']."'");
+      $wpdb->query($sqlUpdate);
+        unset($_SESSION['user_otp']);
+        $userEmail = $_SESSION['user_otp_email'];
+        $_SESSION['user_email_verified'] = 1;
+$users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" . $_SESSION['user_otp_email'] . "'");
+  $username = $users[0]->user_nicename;
+
+
+
+    
+           $response['previous_page_url'] = get_bloginfo('url').'/members-directory/'.$username.'/school_dashboard/';
+       
+
+        $reg = false;
+
+        if(email_exists($userEmail)){
+            $user = get_user_by( 'email', $userEmail );
+            if( $user ) {
+                $response['is_registered'] = 1;
+                $user_id = $user->ID;
+
+                if(isset($_SERVER['HTTP_USER_AGENT']))
+                    update_user_meta($user_id, 'user_agent', $_SERVER['HTTP_USER_AGENT']);
+
+                if(isset($_REQUEST['screenWidth']) && isset($_REQUEST['screenHeight']))
+                    update_user_meta($user_id, 'screen_info', $_REQUEST['screenWidth']."x".$_REQUEST['screenHeight']);
+
+                wp_set_current_user( $user_id, $user->user_login );
+                wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $user->user_login, $user);
+                $userData = $user->data;
+                $userData->avatar =  get_avatar_url( $user->ID );
+             //   $userData->profile_link = get_edit_profile_url($user->ID);
+                $response['user'] = json_encode($userData);
+            }else{
+                $reg = true;
+            }
+        }else{
+            $reg = true;
+        }
+
+        if($reg){
+            $response['email'] = $userEmail;
+        }
+
+        $response['status'] = 1;
+        $response['message'] = 'OTP verified successfully.';
+    } else {
+        $response['message'] = 'Invalid OTP entered.';
+    }
+
+    echo json_encode($response); exit;
+
+}
+
 add_action("wp_ajax_reg_new_user", "reg_new_user");
 add_action( 'wp_ajax_nopriv_reg_new_user', 'reg_new_user' );
 

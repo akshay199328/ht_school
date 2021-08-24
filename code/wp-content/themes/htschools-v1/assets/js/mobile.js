@@ -147,4 +147,45 @@
                 }
             }
         });
+
+        
   });
+
+if($(window).width() >= 768) {
+  // alert(1234);
+  $(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 160) {
+        $("body .featured_tablist").addClass('sticky-nav');
+    } else {
+      $("body .featured_tablist").removeClass('sticky-nav');
+   }
+});
+
+}
+
+$(window).scroll(function() {
+    var windscroll = $(window).scrollTop();
+    if (windscroll >= 100) {
+
+        $('.articles').each(function(index,e) {
+            if ($(this).position().top <= windscroll + 200) {
+              var id = $(this).attr('id');
+                if(id != 'All'){
+                  $('.news-li.active').removeClass('active');
+                  $('.news-li[data-scroll="' + id + '"]').addClass('active');
+                }
+                else{
+                  $('.news-li.active').removeClass('active');
+                  $('.news-li[data-scroll="' + id + '"]').addClass('active');
+                }
+            }
+        });
+
+    } else {
+        
+        $('ul li:first').addClass('active');
+    }
+
+}).scroll();

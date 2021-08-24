@@ -36,12 +36,46 @@
         }
     });
 	$(document).ready(function(){
+        $(".overlay").click(function(){
+            $("body").removeClass("shared");
+        });
+        $(".sharing").click(function () {
+            $("body").toggleClass('shared');
+        });
+        $(".filter-button").click(function () {
+            $("body").toggleClass('filterOpened');
+        });
 		$(".home-button").click(function () {
             $("body").toggleClass('menuOpened');
         });
         $(".overlay").click(function(){
 	    $("body").removeClass("menuOpened");
 	    });
+        // $('.nav-tabs-wrapper .nav-tabs').owlCarousel({
+        //     navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
+        //     margin:0,
+        //     loop:false,
+        //     nav:true,
+        //     dots:false,
+        //     mouseDrag:false,
+        //     smartSpeed:1200,
+        //     autoWidth:true,
+        //     autoplay:true,
+        //     autoplayHoverPause:true,
+        //     merge:true,
+        //     responsive : {
+        //         320 : {
+        //             dots:true,
+        //         },
+        //         768 : {
+        //         },
+        //         1024 : {
+        //         },
+        //         1400 : {
+                    
+        //         },
+        //     }
+        // });
         $('.course_listing_slider').owlCarousel({
             navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:0,
@@ -95,7 +129,7 @@
         	navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:30,
             loop:true,
-            nav:false,
+            nav:true,
             dots:false,
             mouseDrag:false,
             stagePadding: 100,

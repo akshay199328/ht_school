@@ -3208,3 +3208,4 @@ body.search-results section#title {
 .contact-popup .modal-dialog {
     min-height: calc(100% - 0rem) !important
 }
+.profile-edit .ui-menu{width: 25%;}

@@ -11,8 +11,11 @@ a{
 .header-wrapper{box-shadow:none!important;}
 #header_mobile_logo{display: block;}
 #header_logo{display: none;}
+.home-section.editor_desk .section-header {
+   box-shadow: none;
+}
 .top-section.home-section.editor_desk .section-header {
-    margin: 15px 0;
+    margin: 0px 0 30px 0;
 }
 ol.breadcrumbs {
     display: flex;
@@ -22,6 +25,7 @@ ol.breadcrumbs {
     margin: 0;
     font-size: 12px;
     color: transparent;
+    margin-bottom: 30px;
 }
 ol.breadcrumbs li {
     color: #5A5A5A;
@@ -52,7 +56,7 @@ ol.breadcrumbs li a {
 
 ol.breadcrumbs li a span{color: #5A5A5A;}
 .top-section.home-section.editor_desk {
-    padding: 0 100px;    margin-top: 10px;
+    padding: 0 110px;    margin-top: 10px;
 }
 #All.home-section.editor_desk {
     padding-top: 0;

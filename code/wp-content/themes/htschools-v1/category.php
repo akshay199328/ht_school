@@ -65,7 +65,7 @@ get_header(vibe_get_header());
           </h2>
           <h5><?php echo term_description(); ?></h5>
       </header>
-      <div class="col-sm-12 col-md-9 mrg content-left">
+      <div class="content-left">
         <div class="content">
         <?php
           if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -88,7 +88,7 @@ get_header(vibe_get_header());
         ?>
       </div>
       </div>
-      <div class="col-sm-12 col-md-3 content-right mrg">
+      <div class="content-right mrg">
         <div class="category_topAD">
           <?php
             if ( is_active_sidebar( 'instructor_banner' ) ) :
@@ -102,7 +102,7 @@ get_header(vibe_get_header());
           ?>
           
         <div class="sidebar">
-          <h3>Popular on HTSchool</h3>
+          <h3>Most Popular</h3>
             <?php if (have_posts()) : $counter = 0; while (have_posts()) : the_post();
                 if ($counter <= 5) {
               ?>

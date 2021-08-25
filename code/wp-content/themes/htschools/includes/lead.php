@@ -166,7 +166,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
             <li><a href="#about_section" class="about_section">About Us</a></li>
             <li><a href="#learning_section" class="learning_section">Learning Modules</a></li>
             <li><a href="#How_it_works" class="How_it_works">How It Works</a></li>
-            <li><a href="#About_Partners" class="About_Partners">Code-a-thon Sponsors</a></li>
+            <li><a href="#About_Partners" class="About_Partners">Partners</a></li>
             <li><a href="#Partner_says" class="Partner_says">Sponsor Testimonials</a></li>
         </ul>
         <div class="account">

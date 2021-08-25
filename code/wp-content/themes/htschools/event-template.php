@@ -340,7 +340,32 @@ if($bannerCount == 1){
 
 <section class="section-wrapper about" id="About_Partners">
   <div class="section-copy">
-    <h2 class="section-title">Code-a-thon Sponsors</h2>
+    <h2 class="section-title">Partners</h2>
+    <?php /*
+    <ul class="static-slider">
+    $args1 = array(
+          'post_type' => 'event_about_our_part',
+          'post_status' => 'publish',
+          'orderby' => 'publish_date',
+          'order' => 'DESC',        
+          'nopaging' => true
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+          $custom_fields = get_post_custom();
+          $image_url = wp_get_attachment_url($custom_fields['upload_image'][0]);
+      ?>
+      <li class="partner-copy">
+        <figure class="image"><img src="<?php echo $image_url; ?>"></figure>
+        <div class="copy">
+          <h3 class="title"><?php echo $custom_fields['about_our_partners_title'][0];?></h3>
+          <p><?php echo $custom_fields['description'][0];?></p>
+          <a class="read-more" href="<?php echo $custom_fields['link'][0];?>" target="_blank">Visit Sponsor >></a>
+        </div>
+      </li>
+    <?php endwhile;endif;
+    </ul> */?>
     <div class="owl-carousel owl-theme about_slider">
       <?php
         $args1 = array(
@@ -434,11 +459,26 @@ if($bannerCount == 1){
 <section class="section-wrapper partners">
   <div class="section-copy">
     <h2 class="section-title">Our Partners</h2>
-    <ul class="logos">
-      <li><img src="https://logonoid.com/images/nutrilite-logo.png"></li>
-      <li><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"></li>
-      <li><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png"></li>
+    <div class="static-slider-wrapper">
+    <ul class="static-slider">
+      <?php
+        $args1 = array(
+          'post_type' => 'event_our_partners_l',
+          'post_status' => 'publish',
+          'orderby' => 'publish_date',
+          'order' => 'DESC',        
+          'nopaging' => true
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+          $custom_fields = get_post_custom();
+          $image_url = wp_get_attachment_url($custom_fields['upload_image'][0]);
+      ?>
+      <li><img src="<?php echo $image_url; ?>"></li>
+      <?php endwhile;endif; ?>
     </ul>
+    </div>
     <?php /*
     <div class="owl-carousel owl-theme partners_slider">
       <?php
@@ -465,7 +505,7 @@ if($bannerCount == 1){
 
 <section class="section-wrapper school">
   <div class="section-copy">
-    <h2 class="section-title">School Logos</h2>
+    <h2 class="section-title">Our Partners Schools</h2>
     <div class="owl-carousel owl-theme school_slider">
       <?php
         $args1 = array(

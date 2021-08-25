@@ -2,15 +2,24 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
-  <div class="innerheader-space"></div>
-<section class="news-listing grey-background">
-  <div class="<?php echo vibe_get_container(); ?>">
-    <div class="">
-    <div class="breadcrumbs background-breadcrumbs">
-      <?php vibe_breadcrumbs(); ?>  
+  <section class="top-section home-section editor_desk" >
+    <!-- <?php do_action('wplms_before_title'); ?> -->
+    <div class="home-copy">
+      <div class="pagetitle breadcrumbs background-breadcrumbs">
+            <?php
+            $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
+            if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
+              vibe_breadcrumbs();
+            ?>
+            <!-- <header class="section-header">
+              <h2 class="semi_medium-title"><?php the_title(); ?></h2>
+              <?php the_sub_title(); ?>
+            </header> -->
+        </div>
     </div>
-    <div class="course-tablist">
-      <div class="featured_tablist">
+  </section>
+<section id="All" class="home-section editor_desk">
+  <div class="featured_tablist">
         <ul class="tablist left_tab">
       <?php
           $menu_name = 'news-menu'; //menu slug
@@ -36,27 +45,26 @@ get_header(vibe_get_header());
       ?>
     </ul>
       </div>
-      <div class="pagetitle">
-      <h1>
-        <?php
-          if(is_month()){
-              single_month_title(' ');
-          }elseif(is_year()){
-              echo get_the_time('Y');
-          }else if(is_category()){
-              echo single_cat_title();
-          }else if(is_tag()){
-               single_tag_title();
-          }else if(is_tax()){
-              single_term_title();
-          }else{
-              post_type_archive_title();
-          }
-        ?>
-      </h1>
-      <h5><?php echo term_description(); ?></h5>
-      </div>
-    </div>
+      <header class="section-header">
+          <h2 class="semi_medium-title">
+            <?php
+              if(is_month()){
+                  single_month_title(' ');
+              }elseif(is_year()){
+                  echo get_the_time('Y');
+              }else if(is_category()){
+                  echo single_cat_title();
+              }else if(is_tag()){
+                   single_tag_title();
+              }else if(is_tax()){
+                  single_term_title();
+              }else{
+                  post_type_archive_title();
+              }
+            ?>
+          </h2>
+          <h5><?php echo term_description(); ?></h5>
+      </header>
       <div class="col-sm-12 col-md-9 mrg content-left">
         <div class="content">
         <?php
@@ -126,10 +134,6 @@ get_header(vibe_get_header());
           </div>
       </div>
       
-    
-    
-    </div>
-  </div>
 </section>
 <?php
 

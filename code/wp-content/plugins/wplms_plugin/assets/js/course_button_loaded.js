@@ -4153,6 +4153,8 @@
                                 jQuery('.next_unit_button').removeClass('disabled');
                                 jQuery('#retake-quiz').removeClass('hide-retake');
                                 jQuery('#retake-quiz').addClass('button');
+                                jQuery('#hide-share').removeClass('hide-share');
+                                jQuery('#hide-share').addClass('result-share');
                             }
                             else{
                                 jQuery('.right-info').addClass('show-right-info');
@@ -4418,7 +4420,8 @@
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
             },"Review Quiz Questions"),t.is_event_type==1 && t.event_quiz_type !='video' && t.quiz_points > 0? Rt("span", {
-                className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
+                className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share",
+                id:"hide-share"
             },gn("h6",{
                 onClick: () => {
                 jQuery(".toggle-share").slideToggle();
@@ -7276,6 +7279,7 @@
         }, sr("div", {
             className: "unit_prev navigate_unit",
             onClick: () => {
+                console.log(m.lock);
                 Z("prev")
             }
         }, f.prev ? sr(or, null, sr("span", {
@@ -7284,7 +7288,9 @@
             className: "unit_next navigate_unit",
             id:"navigate_unit",
             onClick: () => {
-                se();
+                if(m.lock == 0){
+                    se();
+                }
                 Z("next");
             }
         }, f.next ? sr(or, null, sr("span", null, window.wplms_course_data.translations.next_unit), sr("span", {

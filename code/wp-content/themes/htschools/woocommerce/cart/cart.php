@@ -23,6 +23,11 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 	wc_print_notices();
 
 	do_action( 'woocommerce_before_cart' ); ?>
+	<style type="text/css">
+		.woocommerce-error.alert-parent{display: block !important;}
+		.woocommerce-error li, .alert-parent li{display: none!important;}
+		.alert-parent li.alert-list, .woocommerce-error li.alert-list{display: block!important;}
+	</style>
 	<div class="row">
 			<div class="col-md-8">
 				<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
@@ -269,6 +274,10 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
+
+			jQuery('.woocommerce-error .eventcart').parent().parent().addClass('alert-parent');
+			jQuery('.woocommerce-error .eventcart').parent().addClass('alert-list');
+			jQuery('.woocommerce-error').attr('style', 'display: block !important');
 
 			var allItems = JSON.parse('<?php echo json_encode($dataLayerItems); ?>');
 

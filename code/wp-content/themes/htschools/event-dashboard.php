@@ -1134,8 +1134,8 @@ div#ui-datepicker-div{
         <div class="modal-dialog  modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Complete your profile</h5>
-                    <p>Lorem ipsum Dummy Text</p>
+                    <h5 class="modal-title" id="exampleModalLabel" style="margin-bottom: 20px;">Complete your profile</h5>
+                    <!-- <p>Lorem ipsum Dummy Text</p> -->
                     <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="21.657" height="21.657" viewBox="0 0 21.657 21.657">
                           <g id="Group_8" data-name="Group 8" transform="translate(-1045.728 -811.172)">
@@ -1174,7 +1174,7 @@ div#ui-datepicker-div{
                                             </div>
                                             <div class="list">
                                                 <div class="form-group">
-                                                    <label class="form-label">Email Id*</label>
+                                                    <label class="form-label">Email ID*</label>
                                                     <input type="email" class="form-control" name="user_email" placeholder="" value="<?php echo $currentUser->user_email; ?>" readonly>
                                                 </div>
                                             </div>
@@ -1190,7 +1190,11 @@ div#ui-datepicker-div{
                                                     <label class="form-label">Date of Birth*</label>
                                                     <div class="input-group input-date">
                                                         <!-- <input type="date" class="form-control" name="user_dob" id="user_dob" placeholder="mm/dd/yyyy" value="<?php //echo $dob; ?>"> -->
+                                                      <?php if($dob != '1970-01-01'){ ?>
                                                         <input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="" value="<?php echo $dobDate; ?>" readonly>
+                                                      <?php }else{ ?>
+                                                        <input id="user_dob_display" type="text" class="form-control" name="user_dob_display" placeholder="mm/dd/yyyy" value="" readonly>
+                                                      <?php } ?>
                                                         <input id="user_dob" type="hidden" name="user_dob" value="<?php echo $dob; ?>">
                                                         <!-- <div class="input-group-text">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="23.351" height="25.623" viewBox="0 0 23.351 25.623">
@@ -1401,7 +1405,7 @@ div#ui-datepicker-div{
                                         <button type="button" id="inputfile2" style="display: none;"></button>
                                         <input type="hidden" id="school_card_img" value="" name="school_card_img">
                                     </div>
-                                    <span class="text"> School ID card to get<span class="block"></span> all 50 points instantly!!</span>
+                                    <span class="text"> Upload your school ID card and<span class="block"></span> get 50 points instantly!</span>
                                     <span id="errSchoolIDMsg"></span>
                                     <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
                                     <button type="button" class="skip-button skipDashboard2" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button>
@@ -1800,6 +1804,7 @@ div#ui-datepicker-div{
         </div>
     </div>
 <span class="overlay"></span>
+
 <script type="text/javascript">
 jQuery(document).ready(function(){
     

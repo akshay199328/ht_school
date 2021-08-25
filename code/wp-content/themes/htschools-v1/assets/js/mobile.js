@@ -150,16 +150,20 @@
 
         
   });
-
-if($(window).width() >= 768) {
-  // alert(1234);
-    $(window).scroll(function() {    
-        var scroll = $(window).scrollTop();
-        if (scroll >= 160) {
-            $("body .featured_tablist").addClass('sticky-nav');
-        } else {
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+    if (scroll >= 160) {
+        $("body .featured_tablist").addClass('sticky-nav');
+    } else {
         $("body .featured_tablist").removeClass('sticky-nav');
     }
+})
+
+
+if($(window).width() <= 767) {
+  // alert(1234);
+    $(window).scroll(function() {    
+        
     // alert("HELLO")
     $('.tablist.left_tab').addClass('owl-carousel');
     $('.tablist.left_tab').addClass('owl-theme');

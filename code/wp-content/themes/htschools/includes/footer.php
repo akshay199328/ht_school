@@ -189,6 +189,7 @@ $pageSlug = trim($uri, '/');
         $('.profile-click img').prop({alt:'',width:'50',height:'50'});
   });
 
+
 //scrollspy
 $(window).on('scroll', function () {
    var sections = $('section')
@@ -998,7 +999,7 @@ jQuery(document).ready(function(){
                      var isValid = true;
 
                      if(school_data == '' || school_data == undefined){
-                         $("#errSchoolIDMsg").text("Please select school id card");
+                         $("#errSchoolIDMsg").text("Please upload your school ID card.");
                          isValid = false;
                      }
 

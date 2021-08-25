@@ -40,10 +40,11 @@ ol.breadcrumbs li {
     top: 2px;
     position: relative;
     padding-left: 5px;
-    color: #5A5A5A;
+    color: #000;
     content: "\f285";
     display: inline-block;
     font-family: bootstrap-icons!important;
+    font-size: 10px;
 }
 .breadcrumbs li:last-child::after{    visibility: hidden;}
 ol.breadcrumbs li a {
@@ -159,6 +160,33 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     flex-wrap: wrap;
     width: 100%;
 }
+.home-section.editor_desk .articles .date-time{color: #000}
+.link-article .advertisement {
+    margin-bottom: 20px;
+}
+.infographics .course-copy .course-footer .date-time {
+    font-size: 11px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+.infographics .course-copy .course-footer h2 {
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 1.3;
+    font-size: 18px;
+}
+.infographics .course-copy .course-footer h2 a{
+    font-weight: 600;
+    line-height: 1.3;
+    color: #0C5ACC;
+}
+.full-advertisement{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.course-card{min-height: 325px;}
 @media (min-width: 768px){
     #header_mobile_logo{display: none;}
     #header_logo{display: block;}
@@ -195,4 +223,17 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     .home-section.editor_desk .articles .img-artlce .column:last-child{margin-bottom: 0px;}
     .home-padding {padding: 28px 20px;}
     .home-section .home-copy .section-header{padding-right: 0px;padding-left: 0;}
+}
+
+
+/*----Editor listing CSS : Start----*/
+.content-left{
+    width: 73%;
+    float: left;
+    padding-right: 90px;
+}
+.content-right{
+    width: 27%;
+    /* width: 372.5px; */
+    float: left;
 }

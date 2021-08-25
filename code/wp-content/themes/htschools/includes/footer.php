@@ -1274,6 +1274,7 @@ jQuery(document).ready(function(){
           }
         });
 
+
           $('#inputfile').change(function(){
                                         
                var file_data = $("#inputfile").prop("files")[0];

@@ -859,7 +859,7 @@ jQuery(document).ready(function(){
                              data : $("#profile-edit-form-step1").serialize(),
                              success: function(response) {
                                 
-                                 $("#saveStep1").html("Submit");
+                                 $("#saveStep1").html("Next");
                                  $("#saveStep1").removeAttr("disabled");
                                  
                                  if(response.status == 1){
@@ -953,7 +953,7 @@ jQuery(document).ready(function(){
                              data : $("#profile-edit-form-step1").serialize(),
                              success: function(response) {
                                 
-                                 $("#saveStep2").html("Submit");
+                                 $("#saveStep2").html("Next");
                                  $("#saveStep3").removeAttr("disabled");
                                  
                                  if(response.status == 1){
@@ -1023,7 +1023,7 @@ jQuery(document).ready(function(){
                              data : $("#profile-edit-form-step1").serialize(),
                              success: function(response) {
                                 
-                                 $("#saveStep3").html("Submit");
+                                 $("#saveStep3").html("Save");
                                  
                                  if(response.status == 1){
                                     jQuery.ajax({

@@ -145,16 +145,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <div class="home-section editor_desk remove-leftpadding">
 <section class="home-copy">
 
-<?php
-
- $count=12;
-foreach ($menuitems as $key => $menu) { 
- /*if ($value == 'In') {
-        unset($array[$key]);
-    }
-  }
-echo "<pre>"; print_r($menuitems); echo "</pre>";die;
- foreach ($menuitems as $key => $menu) { */
+<?php $count=12;foreach ($menuitems as $key => $menu) { 
    
   ?>
   <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="articles">
@@ -277,7 +268,16 @@ echo "<pre>"; print_r($menuitems); echo "</pre>";die;
       </div>
     </div>
 
-<?php if($menu->title == 'Infographics'){?>
+  <?php } ?>
+  </section>
+</div>
+
+
+<?php $count=12;foreach ($menuitems as $key => $menu) { 
+   
+  ?>
+
+    <?php if($menu->title == 'Infographics'){?>
   <section class="home-section infographics" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
     <div class="home-copy">
       <header class="section-header">
@@ -327,10 +327,15 @@ echo "<pre>"; print_r($menuitems); echo "</pre>";die;
         </div>
     </section>
 <?php } ?>
+<?php } ?>
 
-<?php if($menu->title == 'Videos'){ ?>
+<?php $count=12;foreach ($menuitems as $key => $menu) { 
+   
+  ?>
+     <?php if($menu->title == 'Videos'){ ?>
   <section class="home-section videos" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
     <div class="home-copy">
+         
       <header class="section-header">
         <h2 class="semi_medium-title">Videos</h2>
           <a class="view-all" href="#!">View More</a>
@@ -375,27 +380,10 @@ echo "<pre>"; print_r($menuitems); echo "</pre>";die;
             endwhile; endif;
           ?> 
         </div>
-         </div>
+          </div>
     </section>
 <?php } ?>
-
-
-
-  <?php } ?>
-  </section>
-</div>
-
-    <!-- <section class="home-section infographics">
-      <div class="home-copy">
-       
-      </div>
-    </section>
-
-    <section class="home-section videos">
-      <div class="home-copy">
-       
-      </div>
-    </section> -->
+ <?php } ?>    
 
 
 <?php

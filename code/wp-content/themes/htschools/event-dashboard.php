@@ -578,18 +578,18 @@ div#ui-datepicker-div{
 </style>
 <section class="dashboard-wrapper">
     <div class="container">
-        <div class="notice-board">
+        <!-- <div class="notice-board">
             <div class="pull-left">
                 <h6>Notice Board</h6>
                 <p>Get 20% discount on cuemath coupon. Please use the <strong>Code CM20P123.</strong></p>
             </div>
-            <!-- <div class="pull-right">
+            <div class="pull-right">
                 <div class="board_point">
                     <h6>Points</h6>
-                    <h3><?php echo $points; ?></h3>
+                    <h3><?php //echo $points; ?></h3>
                 </div>
-            </div> -->
-        </div>
+            </div> 
+        </div>-->
         <div class="dahboard_tab">
             <ul class="nav nav-tabs top-tab" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">

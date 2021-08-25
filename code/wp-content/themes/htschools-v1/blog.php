@@ -38,7 +38,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
 <!-- ======= Featured ======= -->
 
-<section id="All" data-anchor="All" class="home-section editor_desk">
+<section id="All" class="home-section editor_desk">
   <div class="featured_tablist mrg">
         <ul class="tablist left_tab">
       <?php
@@ -67,7 +67,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
       if( $Query->current_post == 0 ) {
         ?>
-        <div class="articles">
+        <div id="All" data-anchor="All" class="articles">
         <div class="featured">
             <div class="image">
           <?php if ( has_post_thumbnail() ) {

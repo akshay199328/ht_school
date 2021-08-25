@@ -434,6 +434,12 @@ if($bannerCount == 1){
 <section class="section-wrapper partners">
   <div class="section-copy">
     <h2 class="section-title">Our Partners</h2>
+    <ul class="logos">
+      <li><img src="https://logonoid.com/images/nutrilite-logo.png"></li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"></li>
+      <li><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png"></li>
+    </ul>
+    <?php /*
     <div class="owl-carousel owl-theme partners_slider">
       <?php
         $args1 = array(
@@ -453,7 +459,7 @@ if($bannerCount == 1){
             <span class="logo"><img src="<?php echo $image_url; ?>"></span>
         </div>
       <?php endwhile;endif; ?>
-    </div>
+    </div> */ ?>
   </div>
 </section>
 

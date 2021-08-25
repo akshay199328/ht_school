@@ -1056,8 +1056,7 @@ jQuery(document).ready(function(){
          })( jQuery );
          
 
-          window.selectedCountry = "<?php echo $user_country; ?>";
-          var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
+          /*var countryUrl = '<?php //echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_countries';
 
           $( "#user_country_data1" ).autocomplete({
                source: countryUrl,
@@ -1068,10 +1067,36 @@ jQuery(document).ready(function(){
                     $("#user_country").val(ui.item.value);
                     window.selectedCountry = ui.item.label;
                },
-          }); 
+          }); */
+
+          window.selectedCountry = "<?php echo $user_country; ?>";
+          var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
+
+          $( "#user_country_data1" ).autocomplete({
+              source: function (request, response) {
+               $.ajax({
+                dataType: "json",
+                type : 'POST',
+                data: {"action": "get_countries", term: request.term},
+                url: countryUrl,
+                success: function(data) {
+                  response(data);
+                },
+                error: function(data) {
+                }
+              });
+            },
+            minLength: 2, 
+            select: function(event, ui) {
+              event.preventDefault();
+              $("#user_country_data1").val(ui.item.label);
+              $("#user_country").val(ui.item.label);
+              window.selectedCountry = ui.item.label;
+            },
+          });
 
 
-          var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_states';
+          /*var stateUrl = '<?php //echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_states';
 
           $( "#user_state1" ).autocomplete({
                source: function (request, response) {
@@ -1092,11 +1117,35 @@ jQuery(document).ready(function(){
                   event.preventDefault();
                   $("#user_state1").val(ui.item.label);
               },
+          });*/
+
+
+          var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
+
+          $( "#user_state1" ).autocomplete({
+            source: function (request, response) {
+               $.ajax({
+                dataType: "json",
+                type : 'POST',
+                data: {"action": "get_states",term: request.term, country: window.selectedCountry },
+                url: stateUrl,
+                success: function(data) {
+                  response(data);
+                },
+                error: function(data) {
+                }
+              });
+            },
+            minLength: 2,
+            select: function(event, ui) {
+              event.preventDefault();
+              $("#user_state1").val(ui.item.label);
+            },
           });
 
           var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
 
-         $( "#user_school_data1" ).autocomplete({
+         /*$( "#user_school_data1" ).autocomplete({
                source: schoolUrl,
                minLength: 2,
                select: function(event, ui) {
@@ -1107,16 +1156,45 @@ jQuery(document).ready(function(){
               response: function(event, ui){
                ui.content.push({value:"Others", label:"Others"});
               }
+          });*/
+
+
+          var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
+
+          $( "#user_school_data1" ).autocomplete({
+            source: function (request, response) {
+               $.ajax({
+                dataType: "json",
+                type : 'POST',
+                //data: {action: term: request.term},
+                data: {"action": "get_schools",term: request.term },
+                url: schoolUrl,
+                success: function(data) {
+                  response(data);
+                },
+                error: function(data) {
+                }
+              });
+            },
+            minLength: 2,
+            select: function(event, ui) {
+              event.preventDefault();
+              $("#user_school_data1").val(ui.item.label);
+              $("#user_school").val(ui.item.value);
+            },
+            response: function(event, ui){
+              ui.content.push({value:"Others", label:"Others"});
+            }
           });
 
-         $("#user_school_other1").on("change", function (event, ui) {
+         /*$("#user_school_other1").on("change", function (event, ui) {
               var other_val = $("#user_school_other1").val();
 
               if(other_val != ""){
                 jQuery.ajax({
                   type : "POST",
                   dataType : "json",
-                  url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
+                  url : "<?php //echo home_url(); ?>/wp-admin/admin-ajax.php?action=check_school_other",
                   data : {check_school_other : other_val},
                   success: function(response) {
                       if(response.status == 1){
@@ -1128,6 +1206,30 @@ jQuery(document).ready(function(){
                       }
                   }
                 });
+            }
+          });*/
+
+          $("#user_school_other1").on("change", function (event, ui) {
+            var other_val = $("#user_school_other1").val();
+
+            if(other_val != ""){
+              jQuery.ajax({
+                  type : "POST",
+                  dataType : "json",
+                  url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                  data : {"action": "check_school_other",check_school_other : other_val},
+                  success: function(response) {
+                //alert(response.status);
+                //alert(response.response); 
+                      if(response.status == 1){
+                        jQuery("#errotherSchoolMsg").text('School name is already exists!');
+                        jQuery("#user_school_other1").val('');
+                        setTimeout(function(){ 
+                          jQuery("#errotherSchoolMsg").text(''); 
+                        }, 5000);
+                      }
+                  }
+              });
             }
           });
 

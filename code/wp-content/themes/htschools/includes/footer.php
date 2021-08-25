@@ -954,7 +954,7 @@ jQuery(document).ready(function(){
                              success: function(response) {
                                 
                                  $("#saveStep2").html("Next");
-                                 $("#saveStep3").removeAttr("disabled");
+                                 $("#saveStep2").removeAttr("disabled");
                                  
                                  if(response.status == 1){
                                     jQuery.ajax({

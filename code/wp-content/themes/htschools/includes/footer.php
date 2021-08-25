@@ -107,7 +107,7 @@ $pageSlug = trim($uri, '/');
                     <li id="menu-item-6171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6171"><a href="<?php echo get_bloginfo('url'); ?>/about/">About HT Schools</a></li>
                     <li id="menu-item-6170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6170"><a href="<?php echo get_bloginfo('url'); ?>/contact-us/">Contact Us</a></li>
                     <li id="menu-item-6344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6344"><a href="<?php echo get_bloginfo('url'); ?>/become-a-course-partner/">Become a Course partner</a></li>
-                    <li id="menu-item-6345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6345"><a href="<?php echo get_bloginfo('url'); ?>/become-a-partner/">Become a Partner</a></li>
+                    <!-- <li id="menu-item-6345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6345"><a href="<?php //echo get_bloginfo('url'); ?>/become-a-partner/">Become a Partner</a></li> -->
                 </ul>
             </div>
             <div class="column">
@@ -859,7 +859,7 @@ jQuery(document).ready(function(){
                              data : $("#profile-edit-form-step1").serialize(),
                              success: function(response) {
                                 
-                                 $("#saveStep1").html("Submit");
+                                 $("#saveStep1").html("Next");
                                  $("#saveStep1").removeAttr("disabled");
                                  
                                  if(response.status == 1){
@@ -953,7 +953,7 @@ jQuery(document).ready(function(){
                              data : $("#profile-edit-form-step1").serialize(),
                              success: function(response) {
                                 
-                                 $("#saveStep2").html("Submit");
+                                 $("#saveStep2").html("Next");
                                  $("#saveStep3").removeAttr("disabled");
                                  
                                  if(response.status == 1){
@@ -1023,7 +1023,7 @@ jQuery(document).ready(function(){
                              data : $("#profile-edit-form-step1").serialize(),
                              success: function(response) {
                                 
-                                 $("#saveStep3").html("Submit");
+                                 $("#saveStep3").html("Save");
                                  
                                  if(response.status == 1){
                                     jQuery.ajax({

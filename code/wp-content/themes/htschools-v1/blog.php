@@ -146,13 +146,13 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <section class="home-copy">
 
 <?php $count=12;foreach ($menuitems as $key => $menu) { 
-   
+   if($menu->title != 'Infographics' && $menu->title != 'Videos'){
   ?>
   <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="articles">
     <div class="home-padding">
       <div class="section-header">
 
-        <?php if($menu->title != 'Infographics' && $menu->title != 'Videos'){?>
+        <!-- <?php if($menu->title != 'Infographics' && $menu->title != 'Videos'){?> -->
 
         <h2 class="semi_medium-title"><?php echo $menu->title;?></h2 >
         <a class="view-all" href="#!">View More</a>
@@ -264,20 +264,20 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                 </div>
  
         <?php $count++; endif;?>
-        <?php } ?>
+        <!-- <?php } ?> -->
       </div>
     </div>
 
-  <?php } ?>
+  <?php } } ?>
   </section>
 </div>
 
 
 <?php $count=12;foreach ($menuitems as $key => $menu) { 
-   
+   if($menu->title == 'Infographics'){
   ?>
 
-    <?php if($menu->title == 'Infographics'){?>
+    
   <section class="home-section infographics" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
     <div class="home-copy">
       <header class="section-header">
@@ -330,9 +330,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 <?php } ?>
 
 <?php $count=12;foreach ($menuitems as $key => $menu) { 
-   
+    if($menu->title == 'Videos'){ 
   ?>
-     <?php if($menu->title == 'Videos'){ ?>
+     
   <section class="home-section videos" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
     <div class="home-copy">
          

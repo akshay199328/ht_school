@@ -998,7 +998,7 @@ jQuery(document).ready(function(){
                      var isValid = true;
 
                      if(school_data == '' || school_data == undefined){
-                         $("#errSchoolIDMsg").text("Please select school id card");
+                         $("#errSchoolIDMsg").text("Please upload your school ID card.");
                          isValid = false;
                      }
 

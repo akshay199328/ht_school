@@ -248,7 +248,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                             <div class="clearfix"></div>
                                             <div class="profile-heading">
                                                 <h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
-                                                <h4><?php echo $author_company; ?></h4>
+                                                <h4><?php // echo $author_company; ?></h4>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>

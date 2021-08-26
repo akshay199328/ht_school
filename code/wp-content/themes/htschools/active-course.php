@@ -55,21 +55,12 @@ vibe_include_template("profile/top$profile_layout.php");
                     'post_type'=>'course',
                     'post__in'=>$args['post__in'],
                     'posts_per_page'=>6,
-                    'paged'=>$paged,
-                    'meta_query'  => array(
-                      'relation'  => 'AND',
-                      array(
-                        'key'   =>'vibe_course_event',
-                        'value'   => '0',
-                        'compare' => '='
-                        )
-                      )
+                    'paged'=>$paged
                 ),$user->ID);
 
                 $wp_query = new WP_Query($query_args);
 
             if(!empty($wp_query)){
-                
             ?>
 
                 <section id="Popular-Courses" class="">
@@ -85,7 +76,7 @@ vibe_include_template("profile/top$profile_layout.php");
 
             $str1="LIVE CLASSES";
             $str2="BLENDED";
-            $str3="SELF-PACED";
+            $str3="SELF PACED";
         
     if(strcmp($str2, $course_type)==0){
        $badge_class = "blue";
@@ -247,7 +238,7 @@ vibe_include_template("profile/top$profile_layout.php");
                                             <div class="clearfix"></div>
                                             <div class="profile-heading">
                                                 <h3 class="name"><strong><?php echo $author_name; ?></strong></h3>
-                                                <h4><?php echo $author_company; ?></h4>
+                                                <h4><?php // echo $author_company; ?></h4>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>

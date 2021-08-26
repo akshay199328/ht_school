@@ -4153,8 +4153,6 @@
                                 jQuery('.next_unit_button').removeClass('disabled');
                                 jQuery('#retake-quiz').removeClass('hide-retake');
                                 jQuery('#retake-quiz').addClass('button');
-                                jQuery('#hide-share').removeClass('hide-share');
-                                jQuery('#hide-share').addClass('result-share');
                             }
                             else{
                                 jQuery('.right-info').addClass('show-right-info');
@@ -4420,8 +4418,7 @@
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
             },"Review Quiz Questions"),t.is_event_type==1 && t.event_quiz_type !='video' && t.quiz_points > 0? Rt("span", {
-                className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share",
-                id:"hide-share"
+                className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
             },gn("h6",{
                 onClick: () => {
                 jQuery(".toggle-share").slideToggle();
@@ -6177,7 +6174,11 @@
             }
             return $a("div", {
                 className: "course_content_content"
-            }, e.hasOwnProperty("noLabels") && e.noLabels ? "" : $a(Ya, null, $a("span", {
+            }, e.hasOwnProperty("noLabels") && e.noLabels ? "" : $a(Ya, null, sr("div", {
+                        className: "top-heading"
+                    }, sr("span", {
+                        className: "left-info"
+                    }, $a("span", {
                 className: "lesson_info",
                 onClick : () =>{
                     console.log(s);
@@ -6189,10 +6190,11 @@
                 dangerouslySetInnerHTML: {
                     __html: s.title
                 }
-            }),$a("div",{
+            }))),$a("div",{
                 dangerouslySetInnerHTML: {
                     __html: s.join_meeting_link != 0 ? s.join_meeting_link : ""
                 }
+
             })), $a("div", null, s.meta.hasOwnProperty("access") && s.meta.access || !s.meta.hasOwnProperty("drip_time") ? s.meta.hasOwnProperty("video") && "object" == typeof s.meta.video && !Array.isArray(s.meta.video) ? "youtube" == s.meta.video.type ? $a("div", null, v && v.length ? $a(Sa, {
                 provider: "youtube",
                 index: e.index,
@@ -6280,7 +6282,7 @@
             })))) : "", $a("div", {
                 dangerouslySetInnerHTML: {
                     __html: s.content
-                },
+                },className:"incourse custom_incourse_list",
                 ref: e => {
                     e && !t && n(e)
                 }
@@ -7279,7 +7281,6 @@
         }, sr("div", {
             className: "unit_prev navigate_unit",
             onClick: () => {
-                console.log(m.lock);
                 Z("prev")
             }
         }, f.prev ? sr(or, null, sr("span", {
@@ -7288,9 +7289,7 @@
             className: "unit_next navigate_unit",
             id:"navigate_unit",
             onClick: () => {
-                if(m.lock == 0){
-                    se();
-                }
+                se();
                 Z("next");
             }
         }, f.next ? sr(or, null, sr("span", null, window.wplms_course_data.translations.next_unit), sr("span", {

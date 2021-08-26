@@ -2,24 +2,15 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
-  <section class="top-section home-section editor_desk" >
-    <!-- <?php do_action('wplms_before_title'); ?> -->
-    <div class="home-copy">
-      <div class="pagetitle breadcrumbs background-breadcrumbs">
-            <?php
-            $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
-            if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
-              vibe_breadcrumbs();
-            ?>
-            <!-- <header class="section-header">
-              <h2 class="semi_medium-title"><?php the_title(); ?></h2>
-              <?php the_sub_title(); ?>
-            </header> -->
-        </div>
+  <div class="innerheader-space"></div>
+<section class="news-listing grey-background">
+  <div class="<?php echo vibe_get_container(); ?>">
+    <div class="">
+    <div class="breadcrumbs background-breadcrumbs">
+      <?php vibe_breadcrumbs(); ?>  
     </div>
-  </section>
-<section id="All" class="home-section editor_desk">
-  <div class="featured_tablist">
+    <div class="course-tablist">
+      <div class="featured_tablist">
         <ul class="tablist left_tab">
       <?php
           $menu_name = 'news-menu'; //menu slug
@@ -31,10 +22,11 @@ get_header(vibe_get_header());
           ?>
           <li><a href="<?php echo get_site_url(); ?>/editorsdesk">Latest</a></li>
           <?php
-          foreach ($menuitems as $menu) {  
+          foreach ($menuitems as $menu) {        
             if($current_url."/" == $menu->url){    
               ?>
               <li><a href="<?php echo $menu->url; ?> "class="active"><?php echo $menu->title; ?></a></li>
+
               <?php 
             }else{
               ?>
@@ -45,38 +37,62 @@ get_header(vibe_get_header());
       ?>
     </ul>
       </div>
-      <header class="section-header">
-          <h2 class="semi_medium-title">
-            <?php
-              if(is_month()){
-                  single_month_title(' ');
-              }elseif(is_year()){
-                  echo get_the_time('Y');
-              }else if(is_category()){
-                  echo single_cat_title();
-              }else if(is_tag()){
-                   single_tag_title();
-              }else if(is_tax()){
-                  single_term_title();
-              }else{
-                  post_type_archive_title();
-              }
-            ?>
-          </h2>
-          <h5><?php echo term_description(); ?></h5>
-      </header>
-      <div class="content-left">
+      <div class="pagetitle">
+      <h1>
+        <?php
+          if(is_month()){
+              single_month_title(' ');
+          }elseif(is_year()){
+              echo get_the_time('Y');
+          }else if(is_category()){
+              echo single_cat_title();
+          }else if(is_tag()){
+               single_tag_title();
+          }else if(is_tax()){
+              single_term_title();
+          }else{
+              post_type_archive_title();
+          }
+        ?>
+      </h1>
+      <h5><?php echo term_description(); ?></h5>
+      </div>
+    </div>
+
+   <!--  <?php $count=12;foreach ($menuitems as $key => $menu) { 
+   
+  ?> -->
+      <div class="col-sm-12 col-md-9 mrg content-left" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
         <div class="content">
         <?php
-          if ( have_posts() ) : while ( have_posts() ) : the_post();
+        $args = array(
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'category_name' => $menu->title,
+          'posts_per_page' => 7,
+        );
 
-          $check = apply_filters('wplms_archive',false);
+        $Query = new WP_Query( $args );
+        if ($Query->have_posts()) :
+        
+        endif;
+          if ($Query->have_posts() ) : while ($Query->have_posts() ) : $Query->the_post();?>
+          
+          <?php $check = apply_filters('wplms_archive',false);
           
           if(empty($check) && function_exists('vibe_get_option')){
               $default_archive = vibe_get_option('default_archive');
               if(!empty($default_archive)){
-                  get_template_part('content',$default_archive);
+                /* if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    ?>
+                    <a href="<?php the_permalink(); ?>"> 
+                      <img src="<?php echo $featured_image; ?>" class="img-fluid">
+                    </a>
+                <?php*/  get_template_part('content',$default_archive);
               }else{
+               
                  get_template_part('content','default');
               }
           }
@@ -88,7 +104,9 @@ get_header(vibe_get_header());
         ?>
       </div>
       </div>
-      <div class="content-right mrg">
+<!-- <?php }?> -->
+
+      <div class="col-sm-12 col-md-3 content-right mrg">
         <div class="category_topAD">
           <?php
             if ( is_active_sidebar( 'instructor_banner' ) ) :
@@ -102,7 +120,7 @@ get_header(vibe_get_header());
           ?>
           
         <div class="sidebar">
-          <h3>Most Popular</h3>
+          <h3>Popular on HTSchool</h3>
             <?php if (have_posts()) : $counter = 0; while (have_posts()) : the_post();
                 if ($counter <= 5) {
               ?>
@@ -134,6 +152,10 @@ get_header(vibe_get_header());
           </div>
       </div>
       
+    
+    
+    </div>
+  </div>
 </section>
 <?php
 

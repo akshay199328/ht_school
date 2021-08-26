@@ -505,7 +505,7 @@ if($bannerCount == 1){
 
 <section class="section-wrapper school">
   <div class="section-copy">
-    <h2 class="section-title">Our Partners Schools</h2>
+    <h2 class="section-title">Our Partner Schools</h2>
     <div class="owl-carousel owl-theme school_slider">
       <?php
         $args1 = array(

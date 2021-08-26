@@ -285,7 +285,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   ?>
 
     <?php if($menu->title == 'Infographics'){?>
-  <section class="home-section infographics" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
+  <section class="home-section infographics articles" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
     <div class="home-copy">
       <header class="section-header">
         <h2 class="semi_medium-title">Infographics</h2>
@@ -339,7 +339,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
    
   ?>
      <?php if($menu->title == 'Videos'){ ?>
-  <section class="home-section videos" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
+  <section class="home-section videos articles" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
     <div class="home-copy">
          
       <header class="section-header">

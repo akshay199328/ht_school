@@ -4758,9 +4758,7 @@ function codeathon_logout(){
   if($codeathon_logout == 1){
 
     wp_logout();
-    wp_destroy_current_session();
-    wp_clear_auth_cookie();
-    session_destroy();
+
     $response['status'] = 1;
 
   }else{

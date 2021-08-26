@@ -1432,7 +1432,11 @@ jQuery(document).ready(function(){
             stopVideo1();
           });
 
-          $(".vibebp-logout").click(function(){
+          jQuery(document).on("click", ".vibebp-logout", function(e){
+
+            e.preventDefault();
+            localStorage.clear();
+            sessionStorage.clear();
 
             jQuery.ajax({
                   type : "POST",

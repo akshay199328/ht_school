@@ -23,7 +23,7 @@ if($page_name=="index.php"){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <!-- <script type='text/javascript' src='<?php //echo get_bloginfo('url'); ?>/wp-content/plugins/vibebp/assets/js/profile.js?ver=1.5.3.6' id='vibebpprofile-js'></script> -->
-    <title>Codeathone Dashboard, HT School</title>
+    <title>Code-a-thon Dashboard, HT School</title>
   </head>
   <body class="<?=$page_classes?> dashbaord_body">
     <div class="fixed_header">

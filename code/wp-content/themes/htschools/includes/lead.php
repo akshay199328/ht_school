@@ -58,7 +58,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg" href="<?php echo bloginfo('template_url')?>/assets/images/favicon.svg"/>
 
-    <title>Code A Thon - HT School</title>
+    <title>Code-a-thon - HT School</title>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

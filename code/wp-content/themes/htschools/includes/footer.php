@@ -1397,38 +1397,20 @@ jQuery(document).ready(function(){
               $('.stepli3').addClass('completed');
           });
 
-          function stopVideo() {
-            var $frame = $('iframe#videolinklearning');
+          $(".vibebp-logout").click(function(){
 
-            // saves the current iframe source
-            var vidsrc = $frame.attr('src');
+            jQuery.ajax({
+                  type : "POST",
+                  dataType : "json",
+                  url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                  data : {"action": "codeathon_logout",codeathon_logout : 1},
+                  success: function(response) {
+                      if(response.status == 1){
+                        window.location.assign("<?php echo get_bloginfo('url'); ?>");
+                      }
+                  }
+              });
 
-            // sets the source to nothing, stopping the video
-            $frame.attr('src', '');
-
-            // sets it back to the correct link so that it reloads immediately on the next window open
-            $frame.attr('src', vidsrc);
-          }
-
-          $('#video1-popup-learning').on('hidden.bs.modal', function(e) {
-            stopVideo();
-          });
-
-          function stopVideo1() {
-            var $frame = $('iframe#videolink');
-
-            // saves the current iframe source
-            var vidsrc = $frame.attr('src');
-
-            // sets the source to nothing, stopping the video
-            $frame.attr('src', '');
-
-            // sets it back to the correct link so that it reloads immediately on the next window open
-            $frame.attr('src', vidsrc);
-          }
-
-          $('#video1-popup').on('hidden.bs.modal', function(e) {
-            stopVideo1();
           });
 
      </script>

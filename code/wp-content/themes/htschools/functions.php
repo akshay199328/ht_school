@@ -4742,10 +4742,35 @@ function get_footer_gtm_code(){
 }
 
 
-
-
 add_action('woocommerce_add_to_cart', 'woo_custom_cookie');
 function woo_custom_cookie() {
      setcookie('LtpaToken2', 'true', time() + 86400, '/'); // expire in a day
+
+}
+
+add_action("wp_ajax_codeathon_logout", "codeathon_logout");
+add_action( 'wp_ajax_nopriv_codeathon_logout', 'codeathon_logout' );
+
+function codeathon_logout(){
+
+  $codeathon_logout = $_REQUEST['codeathon_logout'];
+
+  if($codeathon_logout == 1){
+
+    wp_logout();
+    wp_destroy_current_session();
+    wp_clear_auth_cookie();
+    session_destroy();
+    $response['status'] = 1;
+
+  }else{
+
+    $response['status'] = 0;
+
+  }
+  
+  echo json_encode($response); 
+
+  exit;
 
 }

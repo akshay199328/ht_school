@@ -6282,7 +6282,7 @@
             })))) : "", $a("div", {
                 dangerouslySetInnerHTML: {
                     __html: s.content
-                },className:"incourse custom_incourse_list",
+                },className:" custom_incourse_list",
                 ref: e => {
                     e && !t && n(e)
                 }

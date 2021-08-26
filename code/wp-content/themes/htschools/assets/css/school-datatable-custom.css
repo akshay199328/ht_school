@@ -1,0 +1,58 @@
+.custom_datatable {
+	padding: 15px;
+}
+.custom_datatable span{
+	width: unset;
+}
+.custom_datatable input[type=search], .wp-core-ui select {
+	line-height: 1;
+}
+.wp-core-ui select {
+	width: 50px;
+}
+.custom_datatable td {
+	border-bottom: 1px solid #ccc;
+}
+.table-search {
+	font-weight: normal;
+}
+.datatable-fix {
+	width: 100%;
+	min-width: 100% !important;
+	margin-left: 0;
+}
+
+.datatable-fix .vibe-reports-sidebar {
+	margin-left: 0;
+	width: 24%;
+}
+
+.datatable-fix .vibe-reports-main {
+	float: left;
+	width: 70%;
+	margin-left: 25px;
+	min-width: 72%;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+ .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+ .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active
+ {
+    display:none;
+ }
+
+ img {
+    height: 50px;
+    /* max-width: 100%; */
+    width: 51px;
+}
+
+.dataTables_wrapper .dt-buttons {
+  float:none;  
+  text-align:right;
+}
+
+.sch select {
+    
+    border: 2!important;
+    font-size: 18px;
+}

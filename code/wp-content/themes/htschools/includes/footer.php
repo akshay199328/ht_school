@@ -1432,7 +1432,7 @@ jQuery(document).ready(function(){
             stopVideo1();
           });
 
-          jQuery(document).on("click", ".vibebp-logout", function(e){
+          jQuery(document).on("click", ".codeathonLogout", function(e){
 
             e.preventDefault();
             localStorage.clear();

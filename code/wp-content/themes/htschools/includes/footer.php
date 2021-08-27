@@ -1453,7 +1453,16 @@ jQuery(document).ready(function(){
           });
 
      </script>
-
+     <script type="text/javascript">
+       window.onload = function () {
+            var avtar = $('.avatar-150').attr('src');
+            setTimeout(function(){ 
+              if(avtar == 'http://wplms.io/demos/demo10/wp-content/themes/wplms/assets/images/avatar.jpg'){
+                $(".avatar-150").attr("src", "<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg");
+              }
+            }, 3000);
+        };
+     </script>
      <script type="text/javascript">
        jQuery(document).ready(function(){
          jQuery('.add_to_wishlist_codeathon').click(function(e){

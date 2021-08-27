@@ -4,6 +4,9 @@ if($page_name=="index.php"){
     $page_classes=" home-page";
 }
 
+$user = wp_get_current_user();
+$userIdentifier = $user->ID;
+
 ?>
 
 <!doctype html>
@@ -46,17 +49,14 @@ if($page_name=="index.php"){
                 <div class="account">
                     <a href="<?php echo get_bloginfo('url'); ?>/code-a-thon" class="register"><span class="caption">Home</span></a>
                     <a href="#!" class="ms-3 profile-click1">
-                        <img loading="lazy" src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">
+                        <img loading="lazy" src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">
                     </a>
                     <a href="#!" class="ms-3 profile-click" style="display: none;">
-                        <?php 
-                            $n=vbp_current_user_notification_count(); 
-                            if($n != 0){
-                                echo ((isset($n) && $n)?'<em></em>':''); 
-                                bp_loggedin_user_avatar( 'type=full' ); 
-                            }else{
-                                echo '<img loading="lazy" src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">';
-                            }
+                        <?php if(bp_core_fetch_avatar(array('item_id' => $userIdentifier)) != ''){
+                                bp_loggedin_user_avatar( 'type=full' );
+                              }else{
+                                echo '<img src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg">';
+                              }
                         ?>
                     </a>
                     <ul class="profile-menu">

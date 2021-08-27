@@ -111,15 +111,12 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
                     <img loading="lazy" src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">
                 </a>
                 <a href="#!" class="ms-3 profile-click" style="display: none;">
-                    <?php 
-                        $n=vbp_current_user_notification_count(); 
-                        if($n != 0){
-                            echo ((isset($n) && $n)?'<em></em>':''); 
-                            bp_loggedin_user_avatar( 'type=full' ); 
-                        }else{
-                            echo '<img loading="lazy" src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">';
-                        }
-                    ?>
+                <?php if(bp_core_fetch_avatar(array('item_id' => $userIdentifier)) != ''){
+                        bp_loggedin_user_avatar( 'type=full' );
+                      }else{
+                        echo '<img src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg">';
+                      }
+                ?>
                 </a>
                 <ul class="profile-menu home-profile-menu">
                     <button class="home-button">
@@ -180,18 +177,14 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
                     <a href="<?php echo get_bloginfo('url'); ?>/event-dashboard" class="register dashboard"><span class="caption">Dashboard</span></a>
                 <?php } ?>
                 <a href="#!" class="ms-3 profile-click" style="display: none;">
-                    <?php 
-                        $n=vbp_current_user_notification_count(); 
-                        if($n != 0){
-                            echo ((isset($n) && $n)?'<em></em>':''); 
-                            bp_loggedin_user_avatar( 'type=full' ); 
-                        }else{
-                            echo '<img loading="lazy" src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg" class="avatar user-3001-avatar avatar-300 photo" width="50" height="50" alt="">';
-                        }
+                    <?php if(bp_core_fetch_avatar(array('item_id' => $userIdentifier)) != ''){
+                            bp_loggedin_user_avatar( 'type=full' );
+                          }else{
+                            echo '<img src="'.get_bloginfo('template_url').'/assets/images/avatar.jpg">';
+                          }
                     ?>
                 </a>
                 <ul class="profile-menu">
-
                     <li>
                             <a href="<?php bp_loggedin_user_link(); ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17.187" height="19.643" viewBox="0 0 17.187 19.643">

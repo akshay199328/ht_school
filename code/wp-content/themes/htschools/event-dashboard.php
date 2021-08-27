@@ -1462,7 +1462,7 @@ div#ui-datepicker-div{
                                     <span class="text"> Upload your school ID card and<span class="block"></span> get 50 points instantly!</span>
                                     <span id="errSchoolIDMsg"></span>
                                     <input type="hidden" id="skip_dashboard" name="skip_dashboard" value="1">
-                                    <button type="button" class="skip-button skipDashboard2" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button>
+                                    <!-- <button type="button" class="skip-button skipDashboard2" id="skipDashboard" style="cursor: pointer;">Skip to Dashboard</button> -->
                                 </div>
                             </div>
                             <div class="float-end">

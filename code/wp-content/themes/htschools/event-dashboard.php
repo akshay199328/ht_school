@@ -996,7 +996,7 @@ div#ui-datepicker-div{
 </section>
 <section class="section-wrapper about" id="About_Partners">
   <div class="section-copy">
-    <h2 class="section-title">About Our Partners</h2>
+    <h2 class="section-title">PARTNERS</h2>
     <div class="owl-carousel owl-theme about_slider">
       <?php
         $args1 = array(
@@ -1028,7 +1028,26 @@ div#ui-datepicker-div{
 </section>
     <section class="section-wrapper partners dashboard_partner">
         <div class="section-copy">
-            <h2 class="section-title">Our Partners Logo</h2>
+            <h2 class="section-title">Our Partners</h2>
+            <ul class="static-slider">
+      <?php
+        $args1 = array(
+          'post_type' => 'event_our_partners_l',
+          'post_status' => 'publish',
+          'orderby' => 'publish_date',
+          'order' => 'DESC',        
+          'nopaging' => true
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+          $custom_fields = get_post_custom();
+          $image_url = wp_get_attachment_url($custom_fields['upload_image'][0]);
+      ?>
+      <li><img src="<?php echo $image_url; ?>"></li>
+      <?php endwhile;endif; ?>
+    </ul>
+            <?php /*
             <div class="owl-carousel owl-theme partners_slider">
             <?php
                 $args1 = array(
@@ -1048,7 +1067,7 @@ div#ui-datepicker-div{
                     <span class="logo"><img src="<?php echo $image_url; ?>"></span>
                 </div>
             <?php endwhile;endif; ?>
-            </div>
+            </div> */ ?>
         </div>
     </section>
 

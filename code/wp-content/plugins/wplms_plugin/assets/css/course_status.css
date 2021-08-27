@@ -948,6 +948,12 @@
     font-weight: 500!important;
     padding-top: 20px;
 }
+.course_status .custom_incourse_list{
+        margin: 0!important;
+    padding-top: 20px;
+    border-top: 1px dotted #707070;
+    justify-content: flex-end!important;
+}
 .course_status .custom_incourse_list ul,
 .course_status .custom_incourse_list ol,
 .course_content .course_content_content ol,
@@ -967,7 +973,7 @@
 .course_status .custom_incourse_list ul li{
     color: #000
 }
-.course_status .custom_incourse_list{justify-content: flex-end!important;}
+
 .course_status .quiz_content li,
 .course_status .custom_incourse_list li{
     padding-left: 20px;
@@ -4432,6 +4438,8 @@ a.button.is-primary {
 .result-share .toggle-share ul {
     margin: 0;
     padding: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
     
 }
 .result-share li{

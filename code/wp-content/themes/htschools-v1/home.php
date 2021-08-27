@@ -269,135 +269,9 @@ get_header(vibe_get_header());
     </div>
   </section>
 
-  <!-- ======= Latest News Section ======= -->
-  <section id="" class="latest-news home_latest_news">
-    <div class="container">
-      <div class="row gx-0">
-        <div class="col-sm-12">
-          <div class="header-heading">
-            <h2>Editor's Desk</h2>
-            <a href="<?php echo get_home_url();?>/editorsdesk" class="large-button">All Articles</a>
-          </div>
-        </div>
-        <?php
-        $args = array(
-          'post_type' => 'post',
-          'post_status' => 'publish',
-          //'category_name' => 'Expert','Interview','Featured',
-          'posts_per_page' => 10,
-          'order'=>'DESC',
-          'orderby' => 'publish_date',
-        );
-        $Query = new WP_Query( $args );
-        if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-          if( $Query->current_post == 0 ) {
-            ?>
-            <div class="col-sm-12 col-lg-5 homeDetails-left">
-              <div class="details-left">
-               
-              <?php if ( has_post_thumbnail() ) {
-                $featured_image = get_the_post_thumbnail_url();
+<!--------------------------- CODE TO DO -------------------------------->
 
-              ?>
-
-              <img alt="featured image" title="featured image" src="<?php echo $featured_image; ?>" class="img-fluid" height="auto" width="auto">
-            <?php } ?>
-              <br/>
-              <div class="news-date">
-                <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-              </div>
-              <div class="link">
-                <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-              </div>
-            
-              <?php } if( $Query->current_post == 1 ) {?>
-              
-            </div>
-            <div class="details-middle">
-                <ul class="">
-                  <li>
-                    <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                    <div class="link">
-                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-          </div>
-        <?php  } endwhile; endif;?>
-        <div class="col-sm-12 col-lg-7 home_news-leftspacing">
-          <div class="col-sm-12 col-lg-6 mrg">
-            <div class="details-middle">
-              <ul class="">
-                <?php  if ($Query->have_posts()) : $counter = 0; while ($Query->have_posts()) : $Query->the_post();
-                  if ($counter <= 5) :
-                  if( $Query->current_post != 0 &&  $Query->current_post != 1 && $Query->current_post <=10) {
-                    ?>
-                    <li>
-                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                      <div class="link">
-                        <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                      </div>
-                    </li>
-                    <?php
-                  }
-                endif; $counter++; endwhile; endif; ?>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-12 col-lg-6 mrg newsRight_sect">
-            <div class="details-middle">
-              <ul class="">
-                <?php if ($Query->have_posts()) : $counter1 = 0; while ($Query->have_posts()) : $Query->the_post();
-                  if ($counter1 > 6) :
-                  if( $Query->current_post != 0 &&  $Query->current_post != 1) {
-                    ?>
-                    <li>
-                      <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                      <div class="link">
-                        <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                      </div>
-                    </li>
-                    <?php
-                  }
-                endif; $counter1++; endwhile; endif; ?>
-              </ul>
-            </div>
-          </div>
-          <!-- <div class="col-sm-12 col-lg-6 mrg">
-              <div class="details-middle">
-                <div class="popularNew-heading">
-                  <h5>Popular on<br/>HT School News</h5>
-                </div>
-                <ul>
-                    <?php
-                        //query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&category_name=Expert&posts_per_page=4');
-                        query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=4');
-                        if (have_posts()) : while (have_posts()) : the_post();
-                        ?>
-                            <li>
-                                <p><strong><?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                                <div class="link">
-                                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </div>
-                            </li>
-                        <?php
-                        endwhile; endif;
-                        wp_reset_query();
-                    ?>
-                </ul>
-              </div>
-            </div> -->
-          </div>
-          <div class="col-lg-12 center">
-            <?php
-            if ( is_active_sidebar( 'homepage-footer-banner' ) ) : ?>
-              <?php dynamic_sidebar( 'homepage-footer-banner' ); ?>
-            <?php endif; ?>
-          </div>
-        </div>
-      </div>
-          <section class="home-section about-htschool">
+<section class="home-section about-htschool">
         <div class="copy">
             <h2 class="large-title">About HT School</h2>
             <p>Unveiling HT School, India’s smartest education initiative from the pioneering media group, Hindustan Times Join the HT School bandwagon to supplement your child’s academic excellence with real-life skills and the competitive edge that will set them up for success.</p>
@@ -405,7 +279,7 @@ get_header(vibe_get_header());
         <div class="logo-wrapper">
             <div class="logo">
                 <div class="column">
-                    <img src="<?php echo bloginfo('template_url')?>assets/images/about/career-mate.jpg" alt="Career Mate">
+                    <img src="images/about-us/career-mate.jpg" alt="Career Mate">
                     <a class="view-all" href="#!">Career Mate</a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="6.165" height="74.246" viewBox="0 0 6.165 74.246"><path id="Path_39321" data-name="Path 39321" d="M1091.286,1950.1c-1.048-.067-2.038-.13-2.843-.131q-1.712,0-3.423-.005-1.817,0-3.634,0-2.573,0-5.144.023a.823.823,0,0,0-.83.839.878.878,0,0,0,.868.892c2,.021,4.124.03,6.682.03q2.879,0,5.759-.01,2.661-.008,5.325-.011c.406,0,1.006.054,1.7.116.919.083,1.96.177,2.907.177a4.736,4.736,0,0,0,2.46-.459,10.06,10.06,0,0,0,1.371-1.155c.894-.84,1.908-1.793,2.817-1.793a1.213,1.213,0,0,1,.372.057c.471.15.926.316,1.378.48a12.334,12.334,0,0,0,4.3.987c.581,0,1.162,0,1.744-.007.621,0,1.243-.007,1.865-.007a60,60,0,0,1,6.285.263,110.423,110.423,0,0,1,14.306,2.752.763.763,0,0,0,.179.022.8.8,0,0,0,.666-.377c.78-1.161,2.242-1.726,4.469-1.726a31.051,31.051,0,0,1,6.382.937l.462.1.171-.108c.252-.159.507-.316.762-.465l1.017-.592-1.136-.307a15.137,15.137,0,0,0-2.8-.557c-.582-.042-1.2-.116-1.851-.194a28.2,28.2,0,0,0-3.358-.27,8.557,8.557,0,0,0-2.787.4,5.749,5.749,0,0,0-2.147,1.225.967.967,0,0,1-.618.149,10.361,10.361,0,0,1-2.677-.613c-.388-.125-.724-.233-.98-.291a71.783,71.783,0,0,0-11.245-1.8c-1.216-.075-2.412-.107-3.568-.138a33.786,33.786,0,0,1-9.7-1.21,6.642,6.642,0,0,0-1.953-.332,2.765,2.765,0,0,0-2.419,1.105c-1.014,1.485-3.255,2.176-7.053,2.176C1093.979,1950.272,1092.548,1950.18,1091.286,1950.1Z" transform="translate(1953.155 -1075.412) rotate(90)" fill="#171724"/></svg>
                 </div>
@@ -427,6 +301,98 @@ get_header(vibe_get_header());
             </div>
         </div>
     </section>
+
+<!-- ======= Latest News Section ======= -->
+<?php
+$menu_name = 'news-menu'; //menu slug
+$locations = get_nav_menu_locations();
+$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+?>
+<section class="home-section editor_desk">
+  <div class="home-copy">
+    <header class="section-header">
+      <h2 class="large-title">Editor’s Desk</h2>
+        <a class="view-all" href="#!">View More</a>
+      </header>
+      <div class="nav-tabs-wrapper">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation"><a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li>
+            
+            <?php foreach ($menuitems as $menu) {?>
+              <li id="<?php echo $menu->ID; ?>" class="nav-item" role="presentation" data-scroll="<?php echo $menu->ID; ?>"><a class="nav-link" id="all-tab" data-toggle="tab" href="<?php echo $menu->url; ?>" role="tab" aria-controls="all" aria-selected="true" data-id="<?php echo $menu->ID; ?>"><?php echo $menu->title; ?></a></li>        
+            <?php } ?>           
+        </ul>
+      </div>
+
+      <?php
+    $args = array(
+      'post_type' => 'post',
+      'post_status' => 'publish',
+      'posts_per_page' => 6,
+      'order'=>'DESC',
+    );
+    $Query = new WP_Query( $args );
+    if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+      if( $Query->current_post == 0 ) { ?>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+            <div class="articles">
+              <div class="featured">
+                <div class="image">
+                  <?php if ( has_post_thumbnail() ) {
+                    $featured_image = get_the_post_thumbnail_url(); } ?>
+                  <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>"></a>
+                </div>
+                <span class="date-time"><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></span>
+                  <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a></h2>
+                  <p>A<?php echo get_the_title() ?></p>
+              </div>
+              <?php } endwhile; endif;?>
+
+              <div class="img-artlce">
+                <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                          if( $Query->current_post != 0 ) {
+                  ?>
+                <div class="column">
+                  <div class="image">
+                    <?php if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    ?>
+                    <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>"></a></div>
+                    <div class="copy">
+                      <span class="date-time"><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></span>
+                        <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a></h2>
+                    </div>
+                </div>
+                <?php } endwhile; endif; ?>                       
+              </div>
+              
+              <div class="link-article">
+                <ul>
+                  <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                          if( $Query->current_post != 0 ) {
+                  ?>
+                  <li>
+                    <span class="date-time"><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></span>
+                      <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a></h2>
+                  </li> 
+                  <?php } endwhile; endif; ?>                               
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="acting" role="tabpanel" aria-labelledby="acting-tab">Acting</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">fdsfsd</div>
+      </div>
+    </div>
+  </section>
+
+<!------------------------------- CODE TO DO -------------------------------->
+
+  <!-- ======= Latest News Section ======= -->
+  <section id="" class="latest-news home_latest_news">            
     <!-- ======= Testimonials Section ======= -->
         <div class="container testimonials" data-aos="fade-up">
 
@@ -446,7 +412,7 @@ get_header(vibe_get_header());
 
           // print_r(get_post_custom());
               if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
-                print_r(get_post_custom());
+                //print_r(get_post_custom());
                 $custom_fields = get_post_custom();
                 $url = wp_get_attachment_url($custom_fields['image'][0]);
                 ?>

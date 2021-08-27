@@ -1029,6 +1029,7 @@ div#ui-datepicker-div{
     <section class="section-wrapper partners dashboard_partner">
         <div class="section-copy">
             <h2 class="section-title">Our Partners</h2>
+            <div class="static-slider-wrapper">
             <ul class="static-slider">
       <?php
         $args1 = array(
@@ -1047,6 +1048,7 @@ div#ui-datepicker-div{
       <li><img src="<?php echo $image_url; ?>"></li>
       <?php endwhile;endif; ?>
     </ul>
+    </div>
             <?php /*
             <div class="owl-carousel owl-theme partners_slider">
             <?php

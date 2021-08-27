@@ -1,12 +1,14 @@
 /*global $f:false */
 $(document).ready(function(){
-
+$("body.page-template-event-dashboard").addClass("bodyloader");
+$("body.page-template-event-dashboard").addClass("pageloader1");
   $('span.vibebp_name').css('display','none');
+  
   setTimeout(function(){
       $('span.vibebp_name').css('display','block');
-      
+      $("body").removeClass("bodyloader");
   }, 
-  2000);
+8000);
 
   $('.woocommerce-error .eventcart').parent().show();
 
@@ -211,7 +213,8 @@ if($(window).width() >= 768) {
 
       $('.mobile-slider, .course-listslider, .left_tab, .learning-copy .logos').addClass('owl-carousel');
       $('.mobile-slider, .course-listslider, .left_tab, .learning-copy .logos').addClass('owl-theme');
-      
+      $('.parent-mobile-slider').addClass('owl-carousel');
+      $('.parent-mobile-slider').addClass('owl-theme');
       
       $('.left_tab li').addClass('item');
       $('.mobile-slider').addClass('responsive_slider');
@@ -235,12 +238,23 @@ if($(window).width() >= 768) {
         nav: false,
         dots:false
       })
+      $('.parent-mobile-slider').owlCarousel({
+                loop: false,
+                margin: 20,
+                responsiveClass: true,
+                autoplay: true,
+                autoplayTimeout:5000,
+                autoplayHoverPause: true,
+                nav: false,
+                items: 1,
+                dots:false
+              })
     }
     $('.responsive_slider').owlCarousel({
         margin:10,
         loop: false,
         autoWidth: true,
-        items: 2,
+        items: 1,
         nav: false,
         dots:false
       });

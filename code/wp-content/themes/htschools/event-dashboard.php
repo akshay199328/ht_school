@@ -1707,7 +1707,7 @@ div#ui-datepicker-div{
                     </div>
                     <div class="column">
                         <span class="rating"><?php echo getQuizPoints($userID,'chapter_points',$courseID)?><span>/<?php echo getQuizPointsTypeCount('chapter',$courseID)?></span></span>
-                        <span class="copy">Chapter Quiz Attempted</span>
+                        <span class="copy">Chapter Quizzes Attempted</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
                               <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">

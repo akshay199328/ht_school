@@ -571,7 +571,7 @@ $course_progress = empty($progress)?0:intval($progress);
 .ui-autocomplete {
     z-index: 9999!important;
     background: #fff;
-    width: 19%!important;
+    width: 20%!important;
     height: 250px;
     overflow-y: auto;
     border: 1px solid #ddd;

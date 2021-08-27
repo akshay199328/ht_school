@@ -1289,7 +1289,7 @@ jQuery(document).ready(function(){
                var userid = "<?php echo $current_user->id; ?>";
                var form_data = new FormData();                  
                form_data.append("file", file_data);
-               
+
                $.ajax({
                     url: "<?php echo get_bloginfo('template_url'); ?>/uploads.php",
                     type: "POST",
@@ -1319,6 +1319,7 @@ jQuery(document).ready(function(){
                $("#profileimage").html('');
                $('#profile-add').show();
                $('#inputfile').show();
+               document.getElementById('inputfile').value= null;
           });
           
 

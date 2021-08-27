@@ -617,7 +617,7 @@ div#ui-datepicker-div{
                             <div id="pop" class="pop_mock">
                                 <ul>
                                     <li>There will be two mock tests available for students to attempt before the qualifier. These mock tests will help the students prepare for the actual qualifier.</li>
-                                    <li>To reach the qualifiers, a student needs to complete all the Videos, Video Quizzes, chapter Quizzes and Course Quizzes.</li>
+                                    <li>To reach the qualifier, a student needs to complete all the Videos, Video Quizzes, chapter Quizzes and Course Quizzes.</li>
                                 </ul>
                             </div>
                         </div>
@@ -635,7 +635,7 @@ div#ui-datepicker-div{
                             </svg>
                             <div id="pop" class="pop_qualifier">
                                 <ul>
-                                    <li>To reach the qualifiers, a student needs to complete all the Videos, Video Quizzes, chapter Quizzes and Course Quizzes.</li>
+                                    <li>To reach the qualifier, a student needs to complete all the Videos, Video Quizzes, chapter Quizzes and Course Quizzes.</li>
                                 </ul>
                             </div>
                         </div>
@@ -735,7 +735,11 @@ div#ui-datepicker-div{
                                 </div>
                             </div>
                             <div class="details_footer">
+                              <?php if($countunit > 1){ ?>
+                                <span class="head">Total Chapters: <?php echo $countunit; ?></span>
+                              <?php }else{ ?>
                                 <span class="head">Total Chapter: <?php echo $countunit; ?></span>
+                              <?php } ?>
                                 <div class="tab_scroll">
                                 <?php 
                                   foreach($course_units as $lesson_units){ 
@@ -797,12 +801,12 @@ div#ui-datepicker-div{
                                     </span>
                                 </div>
                                 <div class="board-button">
-                                    <button type="button" class="earn-points-btn">VIEW POINTS DETAILS</button>
+                                    <button type="button" class="earn-points-btn">VIEW POINT DETAILS</button>
                                 </div>
                             </div>
                             <div class="earn-points">
                                 <div class="pull-left">
-                                    <h6>Earn points</h6>
+                                    <h6>Earn Points</h6>
                                 </div>
                                 <div class="board-button">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#refer-popup">REFERRALS</button>
@@ -1078,7 +1082,7 @@ div#ui-datepicker-div{
                 </div>
                 <div class="pull-right">
                     <div class="share-option">
-                        <h6>Share code on</h6>
+                        <h6>Share code</h6>
                         <ul>
                             <li>
                                 <a href="https://api.whatsapp.com//send?text=Hey! My referral code is <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>. Please use this referral code to register at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Also earn points for your successful registration! Learn. Participate. Win" target="_blank">
@@ -1119,7 +1123,7 @@ div#ui-datepicker-div{
             </div>
             <div class="refer-note">
                 <h5>Invite your Friends</h5>
-                <p>Type email addressed of your friends separated with comma.</p>
+                <p>Type email addresses of your friends, separated by a comma.</p>
                 <textarea id="refer_email"></textarea>
                 <button type="button" class="send-button" id="send_invitation">Send Invitations</button>
             </div>
@@ -1640,7 +1644,7 @@ div#ui-datepicker-div{
                     </div>
                     <div class="column">
                         <span class="rating"><?php echo getQuizPoints($userID,'video_points',$courseID)?><span>/<?php echo getQuizPointsTypeCount('video',$courseID)?></span></span>
-                        <span class="copy">Videos Quiz Attempt</span>
+                        <span class="copy">Video Quizzes Attempted</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
                               <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">
@@ -1653,7 +1657,7 @@ div#ui-datepicker-div{
                     </div>
                     <div class="column">
                         <span class="rating"><?php echo getQuizPoints($userID,'chapter_points',$courseID)?><span>/<?php echo getQuizPointsTypeCount('chapter',$courseID)?></span></span>
-                        <span class="copy">Chapter Quiz Taken</span>
+                        <span class="copy">Chapter Quiz Attempted</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
                               <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">
@@ -1666,7 +1670,7 @@ div#ui-datepicker-div{
                     </div>
                     <div class="column">
                         <span class="rating"><?php echo getQuizPoints($userID,'course_points',$courseID)?><span>/<?php echo getQuizPointsTypeCount('course',$courseID)?></span></span>
-                        <span class="copy">Course Quiz Attempt</span>
+                        <span class="copy">Course Quiz Attempted</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
                               <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">
@@ -1684,7 +1688,7 @@ div#ui-datepicker-div{
                 </div>
                 <div class="points engagement">
                     <div class="column">
-                        <span class="copy">Social Sharing</span>
+                        <span class="copy">Social Media Sharing</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
                               <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">
@@ -1696,7 +1700,7 @@ div#ui-datepicker-div{
                         </span>
                     </div>
                     <div class="column">
-                        <span class="copy">Login Daily</span>
+                        <span class="copy">Daily Login</span>
                         <span class="number">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1.239 1.239">
                               <g id="Group_15992" data-name="Group 15992" transform="translate(-1216 -475)">
@@ -1769,23 +1773,23 @@ div#ui-datepicker-div{
                 </div>
                 <div class="modal-body">
                     <ul>
-                        <li>Points will be rewarded for every student interaction. They are divided into 2 types.
+                        <li>Points will be awarded for every student interaction. They are divided into two types.
                             <ul>
-                                <li>Engagement Points
+                                <li>Engagement Points:
                                     <ul>
                                         <li>Registration – On successful registration</li>
                                         <li>Payment – On successful payment</li>
                                         <li>Referral Registration – On successfully registration using your referral code</li>
-                                        <li>Upload School ID – On successfully uploading School ID to your profile</li>
-                                        <li>Upload Photo – On successfully uploading photograph to your profile</li>
+                                        <li>School ID Upload – On successfully uploading your School ID to your profile</li>
+                                        <li>Photo Upload - On successfully uploading your photograph to your profile</li>
                                         <li>Social Sharing – For every Social sharing</li>
                                         <li>Everyday Login – For Regular login on the Codeathon website</li>
                                         <li>Project upload – On successfully uploading project file</li>
                                     </ul>
                                 </li>
-                                <li>Intellectual Points
+                                <li>Intellectual Points:
                                     <ul>
-                                        <li>Video Watch –On watching video lectures</li>
+                                        <li>Video Watch – On watching video lectures</li>
                                         <li>Video Quiz – Score obtained on video quizzes</li>
                                         <li>Chapter Quiz – Score obtained on Chapter quizzes</li>
                                         <li>Course Quiz – Score obtained on Course quizzes</li>
@@ -1795,7 +1799,7 @@ div#ui-datepicker-div{
                             </ul>
                             <li>A student will qualify for the Codeathon Finale on the basis of the points they have acquired during the entire program.</li>
                             <li>The top 100 students from each zone and each category will be selected based on their performance in the qualifier and the total score.</li>
-                            <li>The finalists will be chosen based on their overall performance and points collected till the end of qualifiers.</li>
+                            <li>The finalists will be chosen based on their overall performance and points collected till the end of the qualifiers.</li>
                             <li>Details of the point system will be provided to each student through their personal dashboard.</li>
                         </li>
                     </ul>
@@ -1834,16 +1838,16 @@ jQuery(document).ready(function(){
       </div>
       <div class="modal-body">
         <ul>
-            <li>The course content will comprise of the following elements:
+            <li>The course content will comprise the following elements:
                 <ol>
-                    <li>Multiple Chapters</li>
-                    <li>Video Content: These will be self-paced learning modules (Video and Text contents)</li>
-                    <li>Video Quizzes: These will appear once the student completes a video</li>
-                    <li>Chapter Quizzes: These will appear at the end of every chapter</li>
-                    <li>Course Quiz: This will appear at the end of the course</li>
+                    <li>Multiple Chapters: The course is divided into multiple chapters.</li>
+                    <li>Video Content: These will be self-paced learning modules (Video and Text content).</li>
+                    <li>Video Quizzes: These will appear once the student completes a video.</li>
+                    <li>Chapter Quizzes: These will appear at the end of every chapter.</li>
+                    <li>Course Quiz: This will appear at the end of the course.</li>
                 </ol>
             </li>
-            <li>To reach the qualifiers, a student needs to complete all the Videos, Video Quizzes, chapter Quizzes and Course Quizzes.</li>
+            <li>To reach the Qualifiers, a student needs to complete all the Videos, Video Quizzes, Chapter Quizzes and the Course Quiz.</li>
         </ul>
       </div>
       

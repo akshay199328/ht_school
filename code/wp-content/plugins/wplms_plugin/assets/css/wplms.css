@@ -948,7 +948,6 @@
     font-weight: 500!important;
     padding-top: 20px;
 }
-
 .course_status .custom_incourse_list ul,
 .course_status .custom_incourse_list ol,
 .course_content .course_content_content ol,
@@ -961,6 +960,7 @@
     width: 100%;
     flex-direction: column;
     align-content: flex-start;
+    margin-bottom: 20px;
 }
 
 .course_content .course_content_content ol li,
@@ -4432,6 +4432,8 @@ a.button.is-primary {
 .result-share .toggle-share ul {
     margin: 0;
     padding: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
     
 }
 .result-share li{
@@ -4720,7 +4722,7 @@ a.button.is-primary {
         height:auto;background-position: 47px 33%;
     }
     .course_status .reviewpopup_wrapper .reviewpopup_content .reviewform .review_heading{    padding: 0px 60px 40px 42px;}
-    .ui-widget.ui-widget-content{width: 96%!important;left: 2%!important;}
+    .ui-widget.ui-widget-content{width: 87%!important;left: 7%!important;}
     .ui-datepicker .ui-datepicker-header{    width: 100%;}
 
 }

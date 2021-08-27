@@ -59,22 +59,16 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
     <link rel="icon" type="image/svg" href="<?php echo bloginfo('template_url')?>/assets/images/favicon.svg"/>
 
     <title>Code-a-thon - HT School</title>
-
+       <meta name="description" content="HT Codeathon is a Coding Olympiad for kids in grades 4 to 9 that intends to highlight the importance of coding for the younger generation by helping them to improve their analytical reasoning, logical thinking, and problem-solving skills."/>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MXXRRC3');</script>
+    })(window,document,'script','dataLayer','GTM-MVTH49L');</script>
     <!-- End Google Tag Manager -->
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m,n){i.moengage_object=r;t={};q=function(f){return function(){(i.moengage_q=i.moengage_q||[]).push({f:f,a:arguments})}};f=['track_event','add_user_attribute','add_first_name','add_last_name','add_email','add_mobile','add_user_name','add_gender','add_birthday','destroy_session','add_unique_user_id','moe_events','call_web_push','track','location_type_attribute'],h={onsite:["getData","registerCallback"]};for(k in f){t[f[k]]=q(f[k])}for(k in h)for(l in h[k]){null==t[k]&&(t[k]={}),t[k][h[k][l]]=q(k+"."+h[k][l])}a=s.createElement(o);m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);i.moe=i.moe||function(){n=arguments[0];return t};a.onload=function(){if(n){i[r]=moe(n)}}})(window,document,'script','https://cdn.moengage.com/webpush/moe_webSdk.min.latest.js','Moengage')
 
-      Moengage = moe({
-        app_id:"5G83B74ZQGQUARJAI23JB9JY_DEBUG",
-        debug_logs: 1
-      });
-    </script>
+   
   </head>
   <style type="text/css">
       
@@ -209,7 +203,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
                                 <svg id="Group_15304" data-name="Group 15304" xmlns="http://www.w3.org/2000/svg" width="18.006" height="19.643" viewBox="0 0 18.006 19.643">
                                     <path id="Path_719" data-name="Path 719" d="M30.586,21.256A9,9,0,1,1,18.2,13.017a.7.7,0,0,1,.921.341.683.683,0,0,1-.345.909l-.057.022a7.483,7.483,0,0,0-4.188,9.792,7.646,7.646,0,0,0,9.918,4.134,7.483,7.483,0,0,0,4.188-9.791,7.565,7.565,0,0,0-4.188-4.135.684.684,0,0,1-.424-.876.7.7,0,0,1,.887-.419l.057.022A8.84,8.84,0,0,1,30.586,21.256Zm-9-.824a.691.691,0,0,0,.7-.687V11.187a.7.7,0,0,0-1.391,0v8.559A.691.691,0,0,0,21.583,20.432Z" transform="translate(-12.58 -10.5)" fill="#848484"/>
                                 </svg>
-                                Logout 
+                                Logout  
                             </a>
                         </li>
                 </ul>

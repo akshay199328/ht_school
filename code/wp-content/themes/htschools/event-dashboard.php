@@ -646,7 +646,7 @@ div#ui-datepicker-div{
                             <div id="pop" class="pop_mock">
                                 <ul>
                                     <li>There will be two mock tests available for students to attempt before the qualifier. These mock tests will help the students prepare for the actual qualifier.</li>
-                                    <li>To reach the qualifier, a student needs to complete all the Videos, Video Quizzes, chapter Quizzes and Course Quizzes.</li>
+                                    <li>To reach the qualifier, a student needs to complete all the Videos, Video Quizzes, Chapter Quizzes and Course Quizzes.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1132,7 +1132,7 @@ div#ui-datepicker-div{
                 </div>
                 <div class="pull-right">
                     <div class="share-option">
-                        <h6>Share code</h6>
+                        <h6>Share code:</h6>
                         <ul>
                             <li>
                                 <a href="https://api.whatsapp.com//send?text=Hey! My referral code is <?php echo get_home_url().'/?mref='.do_shortcode('[mycred_affiliate_id]'); ?>. Please use this referral code to register at www.htcodeathon.com and participate in one of India's biggest coding olympiads. Also earn points for your successful registration! Learn. Participate. Win" target="_blank">

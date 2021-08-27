@@ -978,7 +978,7 @@ div#ui-datepicker-div{
                                                         <?php foreach($user_rank_list as $user_rank_data){ ?>
                                                         <tr>
                                                             <td><?php echo $user_rank_data->rank?></td>
-                                                            <td><?php echo get_display_name($user_rank_data->user_id);?></td>
+                                                            <td><?php echo get_user_meta($user_rank_data->user_id,'first_name',true); ?> <?php echo get_user_meta($user_rank_data->user_id,'last_name',true); ?></td>
                                                             <td class="numbers"><?php echo $user_rank_data->points ?></td>
                                                         </tr>
                                                         <?php }?>
@@ -996,7 +996,7 @@ div#ui-datepicker-div{
                                                         <?php foreach($user_rank_list_school as $user_rank_data){ ?>
                                                         <tr>
                                                             <td><?php echo $user_rank_data->rank?></td>
-                                                            <td><?php echo get_display_name($user_rank_data->user_id);?></td>
+                                                            <td><?php echo get_user_meta($user_rank_data->user_id,'first_name',true); ?> <?php echo get_user_meta($user_rank_data->user_id,'last_name',true); ?></td>
                                                             <td class="numbers"><?php echo $user_rank_data->points ?></td>
                                                         </tr>
                                                         <?php }?>

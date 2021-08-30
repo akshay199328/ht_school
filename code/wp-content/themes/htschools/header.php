@@ -30,6 +30,26 @@ $page_id     = get_the_ID();
    if(user_id == 0){
     sessionStorage.clear();
    }
+
+   jQuery(document).on("click", ".codeathonLogout", function(e){
+
+      e.preventDefault();
+      localStorage.clear();
+      sessionStorage.clear();
+
+      jQuery.ajax({
+            type : "POST",
+            dataType : "json",
+            url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+            data : {"action": "codeathon_logout",codeathon_logout : 1},
+            success: function(response) {
+                if(response.status == 1){
+                  window.location.assign("<?php echo get_bloginfo('url'); ?>");
+                }
+            }
+        });
+
+    });
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

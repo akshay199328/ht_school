@@ -813,7 +813,10 @@ jQuery(document).ready(function(){
                      var lastName = $('#user_lastname').val();
                      var dob = $('#user_dob').val();
                      var filter = /^(?!0+$)\d{8,}$/;
+                     var regex = /^[A-Za-z]+$/;
                      var isValid = true;
+
+                     alert(firstName);
 
                      if(mobNum == '' || mobNum == undefined){
                          $("#errMobileMsg").text('Please enter mobile number');
@@ -827,13 +830,27 @@ jQuery(document).ready(function(){
                      } 
 
                      if(firstName == '' || firstName == undefined){
-                         $("#errFirstName").text("Please enter first name");
-                         isValid = false;
+                        $("#errFirstName").text("Please enter first name");
+                        setTimeout(function(){ $("#errFirstName").html(''); }, 5000);
+                        isValid = false;
+                     }else if (!regex.test(firstName)) {
+                        $("#errFirstName").text("Please enter only alphabets");
+                        setTimeout(function(){ $("#errFirstName").html(''); }, 5000);
+                        isValid = false;
+                     }else{
+
                      }
 
                      if(lastName == '' || lastName == undefined){
                          $("#errLastName").text("Please enter last name");
+                         setTimeout(function(){ $("#errLastName").html(''); }, 5000);
                          isValid = false;
+                     }else if (!regex.test(lastName)) {
+                        $("#errLastName").text("Please enter only alphabets");
+                        setTimeout(function(){ $("#errLastName").html(''); }, 5000);
+                        isValid = false;
+                     }else{
+
                      }
 
                      if(dob == '' || dob == undefined){

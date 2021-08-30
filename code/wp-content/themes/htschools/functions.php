@@ -4348,7 +4348,7 @@ function refer_email_submit(){
   );
   if($result){
     $response['status'] = 1;
-    $response['message'] = 'Invitation send successfully';
+    $response['message'] = 'Invitations sent successfully';
   }
   echo json_encode($response); exit;
 }

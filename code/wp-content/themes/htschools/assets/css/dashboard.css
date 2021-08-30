@@ -277,12 +277,9 @@ a:hover {
     display: flex;
     align-items: center;
     border-bottom: 0;
-    pointer-events: none;
+
 }
-.dahboard_tab .top-tab li:before{
-    /*content:'';
-    pointer-events: none;*/
-}
+
 .dahboard_tab .top-tab li .nav-link {
     background: #93adcd;
     color: #ffffff87;
@@ -297,21 +294,25 @@ a:hover {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    pointer-events: none;
+    cursor: default;
 }
 
-.dahboard_tab .top-tab li:hover {
-    pointer-events: fill
+.dahboard_tab .top-tab li:hover .nav-link {
+    pointer-events: fill;
+    cursor: pointer;
 }
-/*.dahboard_tab .top-tab li:focus,
+.dahboard_tab .top-tab li:focus,
 .dahboard_tab .top-tab li button.nav-link:focus,
 .dahboard_tab .top-tab li button.nav-link:visited,
 .dahboard_tab .top-tab li:focus button.nav-link,
 .dahboard_tab .top-tab li:focus button.nav-link:focus,
 .dahboard_tab .top-tab li:visited button.nav-link,
 .dahboard_tab .top-tab li:visited button.nav-link:visited {
-    pointer-events: none
-}*/
+    pointer-events: none;
+    cursor: default;
+}
 
 .dahboard_tab .top-tab li .nav-link:before {
     content: '';
@@ -445,7 +446,7 @@ a:hover {
     top: 44px
 }
 
-.dahboard_tab .nav-item:hover .nav-link .info-pop #pop {
+.dahboard_tab .nav-link .info-pop:hover #pop {
     display: block;
     visibility: visible;
     opacity: 1

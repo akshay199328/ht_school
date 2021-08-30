@@ -19,10 +19,17 @@ $page_id     = get_the_ID();
   <?php 
   }
 
-    wp_head();
+  wp_head();
+
+  $user = wp_get_current_user();
+  $userIdentifier = $user->ID;
 ?>
 <script type="text/javascript">
    var site_url = '<?php bloginfo('url'); ?>';
+   var user_id = '<?php echo $userIdentifier; ?>';
+   if(user_id == 0){
+    sessionStorage.clear();
+   }
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

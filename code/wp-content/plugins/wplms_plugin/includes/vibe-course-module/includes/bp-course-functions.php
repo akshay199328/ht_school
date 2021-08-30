@@ -411,7 +411,13 @@
               $next_unit =  $course_curriculum[$key];
             }
         }
-
+      }
+      $course_curriculum = ht_course_get_full_course_curriculum($course);
+      $get_last_unit_id =end($course_curriculum);
+      $last_unit_id = $get_last_unit_id['id'];
+      $last_unit = 0;
+      if($last_unit_id == $item_id){
+        $last_unit = 1;
       }
       $return['partial_marking'] = !empty($quiz_partial_marks)?$quiz_partial_marks:0;
       $return['negative_marking'] = !empty($quiz_negative_marking)?$quiz_negative_marking:0;
@@ -424,6 +430,7 @@
       $return['quiz_attempt_2_points'] = !empty($quiz_attempt_2_points)?intval($quiz_attempt_2_points):0;
       $return['quiz_attempt_3_points'] = !empty($quiz_attempt_3_points)?intval($quiz_attempt_3_points):0;
       $return['next_unit'] = $next_unit;
+      $return['last_unit'] = $last_unit;
       $event_quiz_type = get_post_meta($item_id,'vibe_event_quiz_type',true);
       global $wpdb;
       $table_name = "ht_mycred_log";

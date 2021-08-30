@@ -1051,7 +1051,7 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 				$is_profile_complete = 1;
 			}*/
 			$is_event = get_post_meta($course_id,'vibe_course_event',true);
-			if($is_event ==1){
+			if($is_event == 1){
 				$is_profile_complete = 1;
 			}
 			else if($dob!='' && $user_gender != '' && $user_mobile != '' && $user_school != '' ){
@@ -1245,7 +1245,8 @@ if ( ! class_exists( 'BP_Course_Rest_Student_Controller' ) ) {
 							'is_live_course' => $is_live_course,
 							'live_course_starts_in_days' => $live_course_starts_in_days,
 							'is_live_course_start' => $is_live_course_start,
-							'is_event_course' => $is_event_course 
+							'is_event_course' => $is_event_course,
+							'live_course_starts_in' => $live_course_starts_in 
 						);
 						$return['course'] = $_course_data;
 						$return['text'] = $statuses[$status];

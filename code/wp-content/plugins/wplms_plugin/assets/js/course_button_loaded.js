@@ -3996,12 +3996,17 @@
                         body: JSON.stringify(s)
                     }).then(e => e.json()).then(e => {
                         if (e) {
-                               jQuery('.attempt-number').text(e.meta.retakes);
+                                jQuery('.attempt-number').text(e.meta.retakes);
+                                jQuery('#hide-share').addClass('hide-share');
                             if(e.submitted != undefined && e.submitted == true && e.quiz_points > 0){
                                 jQuery('.right-info').removeClass('show-right-info');
                                 jQuery('.result-show').text('PASSED');
                                 jQuery('#result-display').removeClass("failed");
                                 jQuery('#result-display').addClass("pass");
+                                if(e.event_quiz_type != 'video'){
+                                    jQuery('#hide-share').removeClass('hide-share');
+                                    jQuery('#hide-share').addClass('share result-share');
+                                }
                             }
                             else if(e.meta.retakes == 0 && e.submitted == true && e.is_event_type == 1 && e.quiz_points == 0){
                                 jQuery('.right-info').addClass('show-right-info');
@@ -4023,8 +4028,6 @@
                             // else{
                             //     jQuery('.right-info').removeClass('show-right-info');
                             // }
-                            console.log(e.submitted);
-                            console.log(e);
                             if (S(null), e.meta && e.meta.questions) {
                                 let t = 0,
                                     s = 0;
@@ -4153,11 +4156,15 @@
                                 jQuery('.next_unit_button').removeClass('disabled');
                                 jQuery('#retake-quiz').removeClass('hide-retake');
                                 jQuery('#retake-quiz').addClass('button');
-                                jQuery('#hide-share').removeClass('hide-share');
-                                jQuery('#hide-share').addClass('share result-share');
+                                if(t.event_quiz_type != 'video'){
+                                    jQuery('#hide-share').removeClass('hide-share');
+                                    jQuery('#hide-share').addClass('share result-share');
+                                }
                             }
                             else{
                                 jQuery('.right-info').addClass('show-right-info');
+                                jQuery('#hide-share').removeClass('share result-share');
+                                jQuery('#hide-share').addClass('hide-share');
 
                             }
                             //jQuery('.right-info').addClass('show-right-info');
@@ -4469,7 +4476,7 @@
                 onClick: () => {
                     document.getElementById("navigate_unit").click(); 
                 }
-            },"Next Unit") : t.next_unit == null && t.is_event_type == 1 ? Rt("span", {
+            },"Next Unit") : t.last_unit == 1 && t.is_event_type == 1 ? Rt("span", {
                 className: "button next_unit_button",
                 onClick: () => {
                     window.location.href = window.wplms_course_data.home_url + '/event-dashboard'; 
@@ -7377,7 +7384,7 @@
                         dangerouslySetInnerHTML: {
                             __html: m.courseitems[W + 1].title
                         }
-                    })) : sr("div", {
+                    })) : m.is_event_type == 1 ? '' : sr("div", {
                         className: "finish_course"
                     }, sr("a", {
                         className: "button is-primary is-fullwidth",

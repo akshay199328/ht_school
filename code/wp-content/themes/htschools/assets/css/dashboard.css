@@ -277,8 +277,12 @@ a:hover {
     display: flex;
     align-items: center;
     border-bottom: 0;
+    pointer-events: none;
 }
-
+.dahboard_tab .top-tab li:before{
+    /*content:'';
+    pointer-events: none;*/
+}
 .dahboard_tab .top-tab li .nav-link {
     background: #93adcd;
     color: #ffffff87;
@@ -289,17 +293,17 @@ a:hover {
     width: 100%;
     border: 0;
     border-radius: 0;
-    pointer-events: none;
+    /*pointer-events: none;*/
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center
 }
 
-.dahboard_tab .top-tab li:hover button.nav-link {
+.dahboard_tab .top-tab li:hover {
     pointer-events: fill
 }
-
+/*.dahboard_tab .top-tab li:focus,
 .dahboard_tab .top-tab li button.nav-link:focus,
 .dahboard_tab .top-tab li button.nav-link:visited,
 .dahboard_tab .top-tab li:focus button.nav-link,
@@ -307,7 +311,7 @@ a:hover {
 .dahboard_tab .top-tab li:visited button.nav-link,
 .dahboard_tab .top-tab li:visited button.nav-link:visited {
     pointer-events: none
-}
+}*/
 
 .dahboard_tab .top-tab li .nav-link:before {
     content: '';
@@ -441,7 +445,7 @@ a:hover {
     top: 44px
 }
 
-.dahboard_tab .nav-link .info-pop:hover #pop {
+.dahboard_tab .nav-item:hover .nav-link .info-pop #pop {
     display: block;
     visibility: visible;
     opacity: 1
@@ -490,13 +494,14 @@ a:hover {
 
 .leftcontent_tab:after {
     content: "";
+    display: none;
     height: 83px;
     max-width: 73px;
     background-image: url(../images/tab-after.png);
     background-repeat: no-repeat;
     background-position: left;
     background-size: 100% 100%;
-    display: inline-block;
+    /*display: inline-block;*/
     position: absolute;
     left: -85px;
     z-index: 10;
@@ -666,7 +671,8 @@ a:hover {
     display: inline-block;
     width: auto;
     border: none;
-    box-shadow: none !important
+    box-shadow: none !important;
+    text-transform: uppercase;
 }
 
 .practice_btn.btn {
@@ -2265,9 +2271,13 @@ button[disabled=disabled].next-button {
     }
 
     .leader_board .pull-right h6 {
-        margin-top: 12px
+        margin: 7px 0px 5px 0px;
     }
-
+    .leader_board .pull-right h6 .rank{
+        top: -2px;
+        position: relative;
+    }
+    .leader_board .rank-people{margin-top: 140px;}
     .leader_board .rank-people .rank-one {
         max-width: 60px
     }
@@ -2289,11 +2299,16 @@ button[disabled=disabled].next-button {
     }
 
     .details_footer .list .pull-left,
+    .leader_board .pull-left,
     .leader_board .pull-right {
         float: left;
         width: 100%
     }
-
+    .leader_board .pull-left,
+    .leader_board .pull-right{
+        text-align: center;
+    }
+    .leader_board .pull-right h6 p span{text-align: left;}
     .details_footer:after {
         left: -128px;
         background-size: 65%
@@ -2391,7 +2406,9 @@ button[disabled=disabled].next-button {
 
     .leftcontent_tab {
         border-radius: 0;
-        border: 0
+        border: 0;
+        margin: 0px -15px;
+        width: 106%;
     }
 
     .details_footer,
@@ -2407,7 +2424,7 @@ button[disabled=disabled].next-button {
     .leader_board,
     .points_board {
         margin-left: 0;
-        margin: 30px 11px 0
+        margin: 30px 0px 0
     }
 
     .details_footer:after,

@@ -184,7 +184,7 @@ $pageSlug = trim($uri, '/');
    $(window).on('load', function () {
         $('body').addClass('home');
         $("#header-scroll").removeClass("small");
-        <?php if($profileStatus == 1){ ?>
+        <?php if($profileStatus == 0){ ?>
           $('#profile-popup').addClass("show in");
           $('body').addClass('modal-open');
         <?php }else{ ?>

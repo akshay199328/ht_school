@@ -634,7 +634,7 @@ div#ui-datepicker-div{
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="mock-tab" data-bs-toggle="tab" data-bs-target="#mock" type="button" role="tab" aria-controls="mock" aria-selected="false">
+                    <button class="nav-link disabled" id="mock-tab" data-bs-toggle="tab" data-bs-target="#mock" type="button" role="tab" aria-controls="mock" aria-selected="false">
                         <svg  class="lock" xmlns="http://www.w3.org/2000/svg" width="17.126" height="22.53" viewBox="0 0 17.126 22.53">
                             <path id="Shape_928" data-name="Shape 928" d="M3267.128,358.12h-.038V355.43h-.035a1.971,1.971,0,0,0,0-.2,6.7,6.7,0,0,0-6.917-6.233,6.842,6.842,0,0,0-6.44,6.931v2.19h-.167a1.769,1.769,0,0,0-1.765,1.781v9.843a1.769,1.769,0,0,0,1.765,1.781h13.6a1.769,1.769,0,0,0,1.765-1.781V359.9A1.769,1.769,0,0,0,3267.128,358.12Zm-10.5-2.238a3.878,3.878,0,0,1,3.411-3.9,3.776,3.776,0,0,1,4.1,3.346c0,.033.01.111.02.221v2.571h-7.534Zm4.794,9.387a.358.358,0,0,0-.167.361V367.8a.751.751,0,0,1-.406.722.829.829,0,0,1-1.241-.722v-2.166a.342.342,0,0,0-.167-.337,1.674,1.674,0,0,1,1.264-3.008,1.691,1.691,0,0,1,1.383,1.636A1.6,1.6,0,0,1,3261.427,365.268Z" transform="translate(-3251.767 -348.995)" fill="#004ba6" opacity="0.502"/>
                         </svg>
@@ -653,7 +653,7 @@ div#ui-datepicker-div{
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="qualifier-tab" data-bs-toggle="tab" data-bs-target="#qualifier" type="button" role="tab" aria-controls="qualifier" aria-selected="false">
+                    <button class="nav-link disabled" id="qualifier-tab" data-bs-toggle="tab" data-bs-target="#qualifier" type="button" role="tab" aria-controls="qualifier" aria-selected="false">
                        <svg  class="lock" xmlns="http://www.w3.org/2000/svg" width="17.126" height="22.53" viewBox="0 0 17.126 22.53">
                             <path id="Shape_928" data-name="Shape 928" d="M3267.128,358.12h-.038V355.43h-.035a1.971,1.971,0,0,0,0-.2,6.7,6.7,0,0,0-6.917-6.233,6.842,6.842,0,0,0-6.44,6.931v2.19h-.167a1.769,1.769,0,0,0-1.765,1.781v9.843a1.769,1.769,0,0,0,1.765,1.781h13.6a1.769,1.769,0,0,0,1.765-1.781V359.9A1.769,1.769,0,0,0,3267.128,358.12Zm-10.5-2.238a3.878,3.878,0,0,1,3.411-3.9,3.776,3.776,0,0,1,4.1,3.346c0,.033.01.111.02.221v2.571h-7.534Zm4.794,9.387a.358.358,0,0,0-.167.361V367.8a.751.751,0,0,1-.406.722.829.829,0,0,1-1.241-.722v-2.166a.342.342,0,0,0-.167-.337,1.674,1.674,0,0,1,1.264-3.008,1.691,1.691,0,0,1,1.383,1.636A1.6,1.6,0,0,1,3261.427,365.268Z" transform="translate(-3251.767 -348.995)" fill="#004ba6" opacity="0.502"/>
                         </svg>
@@ -671,7 +671,7 @@ div#ui-datepicker-div{
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                    <button class="nav-link disabled" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
                         <svg  class="lock" xmlns="http://www.w3.org/2000/svg" width="17.126" height="22.53" viewBox="0 0 17.126 22.53">
                             <path id="Shape_928" data-name="Shape 928" d="M3267.128,358.12h-.038V355.43h-.035a1.971,1.971,0,0,0,0-.2,6.7,6.7,0,0,0-6.917-6.233,6.842,6.842,0,0,0-6.44,6.931v2.19h-.167a1.769,1.769,0,0,0-1.765,1.781v9.843a1.769,1.769,0,0,0,1.765,1.781h13.6a1.769,1.769,0,0,0,1.765-1.781V359.9A1.769,1.769,0,0,0,3267.128,358.12Zm-10.5-2.238a3.878,3.878,0,0,1,3.411-3.9,3.776,3.776,0,0,1,4.1,3.346c0,.033.01.111.02.221v2.571h-7.534Zm4.794,9.387a.358.358,0,0,0-.167.361V367.8a.751.751,0,0,1-.406.722.829.829,0,0,1-1.241-.722v-2.166a.342.342,0,0,0-.167-.337,1.674,1.674,0,0,1,1.264-3.008,1.691,1.691,0,0,1,1.383,1.636A1.6,1.6,0,0,1,3261.427,365.268Z" transform="translate(-3251.767 -348.995)" fill="#004ba6" opacity="0.502"/>
                         </svg>

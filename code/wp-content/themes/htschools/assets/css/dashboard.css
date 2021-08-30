@@ -295,11 +295,11 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
-    cursor: default;
+    /*pointer-events: none;*/
+    /*cursor: default;*/
 }
 
-.dahboard_tab .top-tab li:hover .nav-link {
+.dahboard_tab .top-tab li:hover .nav-link.disabled {
     pointer-events: fill;
     cursor: pointer;
 }

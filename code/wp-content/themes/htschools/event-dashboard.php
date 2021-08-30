@@ -928,7 +928,14 @@ div#ui-datepicker-div{
                                 </div>
                             </div>
                             <div class="rank-people">
-
+                                <?php 
+                                  $first_rank_fname_len = strlen(get_user_meta($first_rank,'first_name',true));
+                                  $second_rank_fname_len = strlen(get_user_meta($second_rank,'first_name',true));
+                                  $third_rank_fname_len = strlen(get_user_meta($third_rank,'first_name',true));
+                                  $first_rank_lname_len = strlen(get_user_meta($first_rank,'last_name',true));
+                                  $second_rank_lname_len = strlen(get_user_meta($second_rank,'last_name',true));
+                                  $third_rank_lname_len = strlen(get_user_meta($third_rank,'last_name',true));
+                                ?>
                                 <span class="rank-two">
                                     <figure>
                                       <?php if(bp_core_fetch_avatar(array('item_id' => $second_rank)) != ''){
@@ -937,7 +944,16 @@ div#ui-datepicker-div{
                                         <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg">
                                       <?php } ?>
                                     </figure>
-                                    <p class="name"><?php echo get_display_name($second_rank);?></p>
+                                    <?php if($second_rank_fname_len > 8){ ?>
+                                      <p class="name"><?php echo substr(get_user_meta($second_rank,'first_name',true),0,8); ?>...</p>
+                                    <?php }else{ ?>
+                                      <p class="name"><?php echo get_user_meta($second_rank,'first_name',true); ?></p>
+                                    <?php } ?>
+                                    <?php if($second_rank_lname_len > 8){ ?>
+                                      <p class="name"><?php echo substr(get_user_meta($second_rank,'last_name',true),0,8); ?>...</p>
+                                    <?php }else{ ?>
+                                      <p class="name"><?php echo get_user_meta($second_rank,'last_name',true); ?></p>
+                                    <?php } ?>
                                 </span>
                                 <span class="rank-one">
                                     <figure>
@@ -947,7 +963,16 @@ div#ui-datepicker-div{
                                         <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg">
                                       <?php } ?>
                                     </figure>
-                                    <p class="name"><?php echo get_display_name($first_rank);?></p>
+                                    <?php if($first_rank_fname_len > 8){ ?>
+                                      <p class="name"><?php echo substr(get_user_meta($first_rank,'first_name',true),0,8); ?>...</p>
+                                    <?php }else{ ?>
+                                      <p class="name"><?php echo get_user_meta($first_rank,'first_name',true); ?></p>
+                                    <?php } ?>
+                                    <?php if($first_rank_lname_len > 8){ ?>
+                                      <p class="name"><?php echo substr(get_user_meta($first_rank,'last_name',true),0,8); ?>...</p>
+                                    <?php }else{ ?>
+                                      <p class="name"><?php echo get_user_meta($first_rank,'last_name',true); ?></p>
+                                    <?php } ?>
                                 </span>
                                 <span class="rank-three">
                                     <figure>
@@ -957,7 +982,16 @@ div#ui-datepicker-div{
                                         <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg">
                                       <?php } ?>
                                     </figure>
-                                    <p class="name"><?php echo get_display_name($third_rank);?></p>
+                                    <?php if($third_rank_fname_len > 8){ ?>
+                                      <p class="name"><?php echo substr(get_user_meta($third_rank,'first_name',true),0,8); ?>...</p>
+                                    <?php }else{ ?>
+                                      <p class="name"><?php echo get_user_meta($third_rank,'first_name',true); ?></p>
+                                    <?php } ?>
+                                    <?php if($third_rank_lname_len > 8){ ?>
+                                      <p class="name"><?php echo substr(get_user_meta($third_rank,'last_name',true),0,8); ?>...</p>
+                                    <?php }else{ ?>
+                                      <p class="name"><?php echo get_user_meta($third_rank,'last_name',true); ?></p>
+                                    <?php } ?>
                                 </span>
                             </div>
                             <div class="board-list">

@@ -4471,7 +4471,7 @@
             }, gn("a", {
                 className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
             }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "",
-            t.next_unit != null ? Rt("span", {
+            t.next_unit != null || last_unit == 0 ? Rt("span", {
                 className: t.meta.retakes != 0 && t.quiz_points == 0 && t.is_event_type ==1 ? "button next_unit_button disabled" : "button next_unit_button",
                 onClick: () => {
                     document.getElementById("navigate_unit").click(); 

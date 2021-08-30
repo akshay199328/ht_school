@@ -4758,6 +4758,8 @@ function codeathon_logout(){
   if($codeathon_logout == 1){
 
     wp_logout();
+    session_destroy();
+    setcookie('LtpaToken2', '', time() - 3600);
 
     $response['status'] = 1;
 

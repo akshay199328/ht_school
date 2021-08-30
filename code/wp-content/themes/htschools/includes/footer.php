@@ -816,8 +816,6 @@ jQuery(document).ready(function(){
                      var regex = /^[A-Za-z]+$/;
                      var isValid = true;
 
-                     alert(firstName);
-
                      if(mobNum == '' || mobNum == undefined){
                          $("#errMobileMsg").text('Please enter mobile number');
                          isValid = false;

@@ -1215,14 +1215,14 @@ div#ui-datepicker-div{
                                             <div class="list">
                                                 <div class="form-group">
                                                     <label class="form-label">First Name*</label>
-                                                    <input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname">
+                                                    <input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $currentUser->user_firstname; ?>" id="user_firstname" onkeypress="return blockSpecialChar(event)">
                                                     <span id="errFirstName"></span>
                                                 </div>
                                             </div>
                                             <div class="list">
                                                 <div class="form-group">
                                                     <label class="form-label">Last Name*</label>
-                                                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname">
+                                                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $currentUser->user_lastname; ?>" id="user_lastname" onkeypress="return blockSpecialChar(event)">
                                                     <span id="errLastName"></span>
                                                 </div>
                                             </div>

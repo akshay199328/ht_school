@@ -184,7 +184,7 @@ $pageSlug = trim($uri, '/');
    $(window).on('load', function () {
         $('body').addClass('home');
         $("#header-scroll").removeClass("small");
-        <?php if($profileStatus == 0){ ?>
+        <?php if($profileStatus == 1){ ?>
           $('#profile-popup').addClass("show in");
           $('body').addClass('modal-open');
         <?php }else{ ?>
@@ -536,6 +536,12 @@ jQuery(document).ready(function(){
       $(".earn-points-btn").click(function () {
         $("body").toggleClass('earn-opened');
       });
+
+      function blockSpecialChar(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+      }
 
       $("#user_firstname").keypress(function(e) {
        var keyCode = e.keyCode || e.which;

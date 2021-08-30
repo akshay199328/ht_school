@@ -169,7 +169,13 @@ $pageSlug = trim($uri, '/');
           
      });
     </script>
+    <script type="text/javascript" src="https://gromo.github.io/jquery.scrollbar/jquery.scrollbar.js"></script>
     <script type="text/javascript">
+
+        jQuery(document).ready(function(){
+            jQuery('.scrollbar-dynamic').scrollbar();
+        });
+
         jQuery(document).ready(function($){
   var li_width = 0;
   $('.static-slider li').each(function() {

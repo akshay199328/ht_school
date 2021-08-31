@@ -7296,7 +7296,7 @@
         }), sr("span", null, window.wplms_course_data.translations.leave_rating)) : "", m && m.courseitems && m.courseitems.length ? sr("div", {
             className: "unit_prevnext"
         },sr("div", {
-            className: "complete_current_unit",
+            className: "comppete_current_unit",
             id:"complete_current_unit",
             onClick: () => {
                 se();

@@ -206,11 +206,12 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
             </div>
 
             <div class="right-side">
-                <a href="#!" class="cart">
+                <!-- <a href="#!" class="cart">
                     <span class="total">10</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25"><g id="Group_15698" data-name="Group 15698" transform="translate(-970 -26.458)"> <g id="Group_15651" data-name="Group 15651" transform="translate(971 27.458)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.877l5.87,17.555h13.838" transform="translate(11952.5 -9580.5)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h22.9l-4.449,10.313h-14.859" transform="translate(11903.602 -9607.27)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(8.975 20.39)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.805" cy="1.805" r="1.805" stroke="none"/> <circle cx="1.805" cy="1.805" r="0.805" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(19.747 20.39)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.805" cy="1.805" r="1.805" stroke="none"/> <circle cx="1.805" cy="1.805" r="0.805" fill="none"/> </g> </g> </g>
                     </svg>
-                </a>
+                </a> -->
+                <?php do_action('woocommerce_add_to_cart_fragments'); ?>
                 <!-- <a class="login" href="#!">Login</a> -->
                 <div class="dropdown profile">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://randomuser.me/api/portraits/men/43.jpg" alt="User Name"></a>

@@ -26,8 +26,6 @@ get_header(vibe_get_header());
         'orderby' => 'publish_date',
         'order' => 'DESC',        
         'nopaging' => true
-
-
       );
       $Query1 = new WP_Query( $args1 );
       

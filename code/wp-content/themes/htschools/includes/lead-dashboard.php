@@ -32,7 +32,7 @@ $userIdentifier = $user->ID;
     <div class="fixed_header">
         <header class="header-wrapper">
             <span class="codeathon">
-                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/codeathon.svg">
+                    <a href="#"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/codeathon.svg"></a>
                 </span>
                 <div class="group-logos">
                     <div class="column">

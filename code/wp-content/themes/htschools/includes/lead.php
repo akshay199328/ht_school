@@ -77,7 +77,7 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
     <div class="fixed_header fixed_wrapper">
     <header class="header-wrapper">
             <span class="codeathon">
-                <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/codeathon.svg">
+                <a href="#"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/codeathon.svg"></a>
             </span>
             <div class="group-logos">
                 <div class="column">

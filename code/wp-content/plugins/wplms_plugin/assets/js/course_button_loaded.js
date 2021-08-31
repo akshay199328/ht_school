@@ -3997,13 +3997,18 @@
                     }).then(e => e.json()).then(e => {
                         if (e) {
                                 jQuery('.attempt-number').text(e.meta.retakes);
+                                jQuery('#hide-share').removeClass('share result-share'); 
                                 jQuery('#hide-share').addClass('hide-share');
+                            if(e.quiz_points > 0){
+                                jQuery('#hide-share').removeClass('hide-share');
+                                jQuery('#hide-share').addClass('share result-share'); 
+                            }
                             if(e.submitted != undefined && e.submitted == true && e.quiz_points > 0){
                                 jQuery('.right-info').removeClass('show-right-info');
                                 jQuery('.result-show').text('PASSED');
                                 jQuery('#result-display').removeClass("failed");
                                 jQuery('#result-display').addClass("pass");
-                                if(e.event_quiz_type != 'video'){
+                                if(e.event_quiz_type != 'video' && e.quiz_points > 0){
                                     jQuery('#hide-share').removeClass('hide-share');
                                     jQuery('#hide-share').addClass('share result-share');
                                 }
@@ -4022,6 +4027,7 @@
                                 jQuery('#result-display').removeClass("failed");
                                 jQuery('#result-display').addClass("pass");
                             }
+                            
                             // if(e.meta.retakes > 0){
                             //     jQuery('.right-info').addClass('show-right-info');
                             // }
@@ -4428,7 +4434,7 @@
                 }
             },"Review Quiz Questions"), Rt("span", {
                 id:'hide-share',
-                className: t.meta.retakes == 0 && t.event_quiz_type !='video'  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
+                className: t.meta.retakes == 0 && t.event_quiz_type !='video' && t.quiz_points > 0  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
             },gn("h6",{
                 onClick: () => {
                 jQuery(".toggle-share").slideToggle();
@@ -6670,6 +6676,7 @@
                                         })
                                     }).then(e => e.json()).then(e => {
                                         if(e.status == true){ 
+                                        jQuery("#complete_current_unit").trigger('click');
                                             var prev_creds = jQuery('.point-number').text();
                                             var total_creds = parseInt(prev_creds) + parseInt(e.points);
                                             jQuery('.point-number').text(total_creds);
@@ -7288,7 +7295,12 @@
             className: "vicon vicon-star"
         }), sr("span", null, window.wplms_course_data.translations.leave_rating)) : "", m && m.courseitems && m.courseitems.length ? sr("div", {
             className: "unit_prevnext"
-        }, sr("div", {
+        },sr("div", {
+            className: "complete_current_unit",
+            id:"complete_current_unit",
+            onClick: () => {
+                se();
+            }}), sr("div", {
             className: "unit_prev navigate_unit",
             onClick: () => {
                 Z("prev")
@@ -7299,6 +7311,7 @@
             className: "unit_next navigate_unit",
             id:"navigate_unit",
             onClick: () => {
+               
                 if(m.lock == 0){
                     se();
                 }

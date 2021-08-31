@@ -3081,6 +3081,7 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				}
 				$pp = array();
 				$ss = array();
+				$ww = array();
 				foreach ($results as $key => $value) {
 					if( $value['raw']['usercorrect'] == 1){
 						$pp[] = $value['raw']['usercorrect'];
@@ -3134,6 +3135,9 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
                 }
                 else if($event_quiz_type == 'video'){
                 	$quiz_correct_points_credit = count($pp) * $post['quiz_attempt1_points'];
+                	if(count($ww) > 0){
+
+                	}
                 	$quiz_incorrect_points_credit = count($ww) * $quiz_attempt_wrong_1;
                 	$quiz_points_credit = $quiz_correct_points_credit + $quiz_incorrect_points_credit;
                 	global $wpdb;

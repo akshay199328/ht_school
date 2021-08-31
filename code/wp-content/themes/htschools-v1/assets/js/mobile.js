@@ -1,4 +1,33 @@
-  $(window).scroll(function() {
+
+    // jQuery(document).ready(function($){
+    //  let slider = $('.course_slider');
+    //  slider.each(function () {
+    //  $(this).owlCarousel({
+    //      nav: true,
+    //      loop:false,
+    //      dots: false,
+    //      pagination: false,
+    //      margin: 25,
+    //      autoHeight: false,
+    //      stagePadding: 50,
+    //      responsive:{
+    //          0:{
+    //              items: 1,
+    //              stagePadding: 0,
+    //              margin: 30,
+    //          },
+    //          767:{
+    //              items: 3,
+    //              stagePadding: 25,
+    //          },
+    //          1000:{
+    //              items: 3,
+    //          }
+    //      }
+    //      });
+    //  });
+    // });
+    $(window).scroll(function() {
         var scroll = $(window).scrollTop();
         if (scroll >= 10) {
             $("body").addClass("header_fixed");
@@ -6,13 +35,47 @@
             $("body").removeClass("header_fixed");
         }
     });
-  $(document).ready(function(){
-    $(".home-button").click(function () {
+    $(document).ready(function(){
+        $(".overlay").click(function(){
+            $("body").removeClass("shared");
+        });
+        $(".sharing").click(function () {
+            $("body").toggleClass('shared');
+        });
+        $(".filter-button").click(function () {
+            $("body").toggleClass('filterOpened');
+        });
+        $(".home-button").click(function () {
             $("body").toggleClass('menuOpened');
         });
         $(".overlay").click(function(){
-      $("body").removeClass("menuOpened");
-      });
+        $("body").removeClass("menuOpened");
+        });
+        // $('.nav-tabs-wrapper .nav-tabs').owlCarousel({
+        //     navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
+        //     margin:0,
+        //     loop:false,
+        //     nav:true,
+        //     dots:false,
+        //     mouseDrag:false,
+        //     smartSpeed:1200,
+        //     autoWidth:true,
+        //     autoplay:true,
+        //     autoplayHoverPause:true,
+        //     merge:true,
+        //     responsive : {
+        //         320 : {
+        //             dots:true,
+        //         },
+        //         768 : {
+        //         },
+        //         1024 : {
+        //         },
+        //         1400 : {
+                    
+        //         },
+        //     }
+        // });
         $('.course_listing_slider').owlCarousel({
             navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:0,
@@ -38,8 +101,8 @@
                 }
             }
         });
-    $('.home_slider').owlCarousel({
-      navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
+        $('.home_slider').owlCarousel({
+            navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:0,
             loop:false,
             nav:true,
@@ -63,10 +126,10 @@
             }
         });
         $('.course_slider').owlCarousel({
-          navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
+            navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:30,
             loop:true,
-            nav:false,
+            nav:true,
             dots:false,
             mouseDrag:false,
             stagePadding: 100,
@@ -125,8 +188,8 @@
             }
         });
         $('.categories_slider').owlCarousel({
-          navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
-          items:6.5,
+            navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
+            items:6.5,
             loop:true,
             nav:true,
             dots:false,
@@ -147,60 +210,4 @@
                 }
             }
         });
-
-        
-  });
-$(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
-    if (scroll >= 160) {
-        $("body .featured_tablist").addClass('sticky-nav');
-    } else {
-        $("body .featured_tablist").removeClass('sticky-nav');
-    }
-})
-
-
-if($(window).width() <= 767) {
-  // alert(1234);
-    $(window).scroll(function() {    
-        
-    // alert("HELLO")
-    $('.tablist.left_tab').addClass('owl-carousel');
-    $('.tablist.left_tab').addClass('owl-theme');
-    $('.tablist.left_tab li.news-li').addClass('item');
-    $('.tablist.left_tab').owlCarousel({
-        margin: 0,
-        loop: false,
-        autoWidth: true,
-        items: 4,
-        nav: false,
-        dots:false
     });
-});
-
-}
-
-$(window).scroll(function() {
-    var windscroll = $(window).scrollTop();
-    if (windscroll >= 100) {
-
-        $('.articles').each(function(index,e) {
-            if ($(this).position().top <= windscroll + 200) {
-              var id = $(this).attr('id');
-                if(id != 'All'){
-                  $('.news-li.active').removeClass('active');
-                  $('.news-li[data-scroll="' + id + '"]').addClass('active');
-                }
-                else{
-                  $('.news-li.active').removeClass('active');
-                  $('.news-li[data-scroll="' + id + '"]').addClass('active');
-                }
-            }
-        });
-
-    } else {
-        
-        $('ul li:first').addClass('active');
-    }
-
-}).scroll();

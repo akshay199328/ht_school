@@ -1117,10 +1117,13 @@ a:hover {
 
 .leader_board .rank-people .rank-three,
 .leader_board .rank-people .rank-two {
-    max-width: 60px;
+    max-width: 80px;
     position: relative;
     margin-right: 25px;
-    z-index: 9
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .leader_board .rank-people .rank-one {
@@ -1158,19 +1161,22 @@ a:hover {
     top: 0;
     display: block;
     min-width: 28px;
-    height: 84px;
+    height: 100%;
     z-index: -1
 }
-
+.leader_board .rank-people .rank-three figure,
+.leader_board .rank-people .rank-two figure{
+    width: 60px;
+}
 .leader_board .rank-people .rank-two:before {
     content: '';
     background: url(../images/2.png) no-repeat;
     position: absolute;
-    left: -21px;
+    left: -15px;
     top: 0;
     display: block;
     min-width: 28px;
-    height: 84px;
+    height: 100%;
     z-index: -1
 }
 
@@ -1182,7 +1188,7 @@ a:hover {
     top: 0;
     display: block;
     min-width: 28px;
-    height: 84px;
+    height: 100%;
     z-index: -1
 }
 
@@ -2077,12 +2083,32 @@ button[disabled=disabled].next-button {
     }
 }
 
-@media screen and (max-width:2560px) and (min-width:1901px) {
+@media screen and (max-width:2560px) and (min-width:2401px) {
     .leftcontent_tab:before {
         left: -58%
     }
 }
-
+@media screen and (max-width:2400px) and (min-width:2301px) {
+    .leftcontent_tab:before {
+        left: -94%
+    }
+    .details_footer:after{left: -90%;}
+}
+@media screen and (max-width:2300px) and (min-width:2201px) {
+    .leftcontent_tab:before {
+        left: -94%
+    }
+}
+@media screen and (max-width:2200px) and (min-width:2101px) {
+    .leftcontent_tab:before {left: -73% }
+    .details_footer:after{left: -90%;}
+}
+@media screen and (max-width:2100px) and (min-width:1901px) {
+    .leftcontent_tab:before {
+        left: -64%
+    }
+    .details_footer:after{left: -82%;}
+}
 @media screen and (max-width:1900px) and (min-width:1801px) {
     .leftcontent_tab:before {
         left: -50%
@@ -2105,7 +2131,7 @@ button[disabled=disabled].next-button {
     }
 
     .details_footer:after {
-        left: -64%
+        left: -112px;height: 160px; max-width: 730px;
     }
 }
 
@@ -2146,8 +2172,8 @@ button[disabled=disabled].next-button {
     }
 
     .leftcontent_tab:before {
-        left: -13%;
-        max-width: 50px
+        left: -17%;
+        max-width: 50px;
     }
 
     .details_footer:after {
@@ -2285,18 +2311,20 @@ button[disabled=disabled].next-button {
 
     .leader_board .rank-people .rank-three,
     .leader_board .rank-people .rank-two {
-        max-width: 45px
+        /*max-width: 45px*/
     }
 
     .leader_board .rank-people figure img {
         max-width: 100%
     }
-
-    .leader_board .rank-people .rank-one:before,
+    .leader_board .rank-people .rank-one:before{
+        background-size: 70% 100%;
+        left: -13px;
+    }
     .leader_board .rank-people .rank-three:before,
     .leader_board .rank-people .rank-two:before {
-        background-size: 65%;
-        left: -12px
+        /*background-size: 65%;*/
+        left: -20px
     }
 
     .details_footer .list .pull-left,

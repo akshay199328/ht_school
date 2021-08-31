@@ -1533,7 +1533,7 @@ body.menuOpened .navigation-wrapper {
     display: flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    justify-content: flex-start;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     -webkit-box-flex: 1;
@@ -1541,7 +1541,7 @@ body.menuOpened .navigation-wrapper {
     flex: 1;
     padding: 0 20px;
     -ms-flex-line-pack: start;
-    align-content: flex-start
+    align-content: flex-start;
 }
 
 .home-section.editor_desk .articles .img-artlce .column {

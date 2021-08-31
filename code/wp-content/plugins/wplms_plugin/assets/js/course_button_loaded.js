@@ -3703,7 +3703,8 @@
         })))), t.submitted && t.next_unit != null ? jt("div", {
             className: "next_unit_button",
             onClick: () => {
-                document.getElementById("navigate_unit").click(); 
+                jQuery("#complete_current_unit").trigger('click');
+                //document.getElementById("navigate_unit").click(); 
             } 
         },"Next Unit") : "") : ""
     };
@@ -4480,6 +4481,7 @@
             t.next_unit != null || t.last_unit == 0 ? Rt("span", {
                 className: t.meta.retakes != 0 && t.quiz_points == 0 && t.is_event_type ==1 ? "button next_unit_button disabled" : "button next_unit_button",
                 onClick: () => {
+                    alert("test");
                     jQuery("#complete_current_unit").trigger('click');
                     // document.getElementById("complete_current_unit").click(); 
                     // document.getElementById("navigate_unit").click(); 
@@ -7302,6 +7304,7 @@
             id:"complete_current_unit",
             onClick: () => {
                 se();
+                Z("next");
             }}), sr("div", {
             className: "unit_prev navigate_unit",
             onClick: () => {

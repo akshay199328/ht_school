@@ -4480,7 +4480,7 @@
             t.next_unit != null || t.last_unit == 0 ? Rt("span", {
                 className: t.meta.retakes != 0 && t.quiz_points == 0 && t.is_event_type ==1 ? "button next_unit_button disabled" : "button next_unit_button",
                 onClick: () => {
-                    document.getElementById("navigate_unit").click(); 
+                    document.getElementById("complete_current_unit").click(); 
                 }
             },"Next Unit") : t.last_unit == 1 && t.is_event_type == 1 ? Rt("span", {
                 className: "button next_unit_button",
@@ -7296,7 +7296,7 @@
         }), sr("span", null, window.wplms_course_data.translations.leave_rating)) : "", m && m.courseitems && m.courseitems.length ? sr("div", {
             className: "unit_prevnext"
         },sr("div", {
-            className: "comppete_current_unit",
+            className: "complete_current_unit",
             id:"complete_current_unit",
             onClick: () => {
                 se();
@@ -7311,7 +7311,6 @@
             className: "unit_next navigate_unit",
             id:"navigate_unit",
             onClick: () => {
-               
                 if(m.lock == 0){
                     se();
                 }

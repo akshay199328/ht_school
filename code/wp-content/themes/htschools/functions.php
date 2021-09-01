@@ -4379,7 +4379,7 @@ function social_share_points(){
     $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM $my_cred_table WHERE ref='".$ref."' AND user_id = '".$user_id."'");
     $creds_json = json_decode( json_encode($sql), true);
     $creds_total = $creds_json[0]['total_creds'];  
-    
+    $data = '';
     if ( $count >= $limit_per_day && $creds_total <= 200){
       $response['message'] = 'Points will be added only once a day';
     }
@@ -4387,7 +4387,7 @@ function social_share_points(){
       $response['message'] = 'Maximum point limit reached';
     }
     else{
-      $results = add_points($ref,'0',$user_id,$creds,$now,$entry);
+      $results = add_points($ref,'0',$user_id,$creds,$now,$entry,$data);
       if($results == 1){
         $response['message'] = 'Points added successfully';
       }
@@ -4450,9 +4450,9 @@ function pre_register_users_points(){
 
   $userid_json = json_decode( json_encode($sql1), true);
   $userid = $userid_json[0]['user_id'];
-
+  $data = '';
   if($userid < 1){
-    $results = add_points('registration',$referal_userid,$user_id,$creds,$now,$entry);
+    $results = add_points('registration',$referal_userid,$user_id,$creds,$now,$entry,$data);
   }
 }
 add_action("wp_ajax_platform_onboarding_points", "platform_onboarding_points");
@@ -4480,8 +4480,9 @@ function platform_onboarding_points(){
   $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE user_id='".$user_id."' AND ref = '".$ref_key."'");
   $userid_json = json_decode( json_encode($sql1), true);
   $userid = $userid_json[0]['user_id'];
+  $data = '';
   if($user_id && $userid == 0){
-    $results = add_points($ref_key,$referal_userid,$user_id,$creds,$now,$entry);
+    $results = add_points($ref_key,$referal_userid,$user_id,$creds,$now,$entry,$data);
   }else{
     $response['message'] = 'Points will be added only once';
   }

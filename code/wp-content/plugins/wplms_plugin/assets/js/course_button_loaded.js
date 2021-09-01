@@ -4149,8 +4149,8 @@
                                 });
                                 document.dispatchEvent(r)
                             }
+                            jQuery("#complete_current_unit").trigger('click');
                             if(t.quiz_points_credit > 0){
-                                jQuery("#complete_current_unit").trigger('click');
                                 var prev_creds = jQuery('.point-number').text();
                                 var total_creds = parseInt(prev_creds) + parseInt(t.quiz_points_credit);
                                 jQuery('.point-number').text(total_creds);

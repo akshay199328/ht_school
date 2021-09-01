@@ -1291,9 +1291,14 @@
                 className: n
             }, wp.element.createElement("div", {
                 className: "usermenu_content"
-            }, wp.element.createElement("span", {
-                className: "divider"
-            }), a.length ? a.map((function(e) {
+            }, wp.element.createElement("div", {
+                className: "user"
+            },wp.element.createElement("div", {
+                className: "profile_img"
+            }), wp.element.createElement("div", {
+                className: "detail"
+            })
+            ), a.length ? a.map((function(e) {
                 return wp.element.createElement("a", {
                     href: c.profile_link + "#component=" + e.css_id,
                     className: e.classes.join(" "),

@@ -4000,7 +4000,7 @@
                                 jQuery('.attempt-number').text(e.meta.retakes);
                                 jQuery('#hide-share').removeClass('share result-share'); 
                                 jQuery('#hide-share').addClass('hide-share');
-                            if(e.quiz_points > 0){
+                            if(e.quiz_points > 0 && e.event_quiz_type != 'video'){
                                 jQuery('#hide-share').removeClass('hide-share');
                                 jQuery('#hide-share').addClass('share result-share'); 
                             }
@@ -4147,6 +4147,7 @@
                                 document.dispatchEvent(r)
                             }
                             if(t.quiz_points_credit > 0){
+                                jQuery("#complete_current_unit").trigger('click');
                                 var prev_creds = jQuery('.point-number').text();
                                 var total_creds = parseInt(prev_creds) + parseInt(t.quiz_points_credit);
                                 jQuery('.point-number').text(total_creds);
@@ -4163,7 +4164,10 @@
                                 jQuery('.next_unit_button').removeClass('disabled');
                                 jQuery('#retake-quiz').removeClass('hide-retake');
                                 jQuery('#retake-quiz').addClass('button');
-                                if(t.event_quiz_type != 'video'){
+                                if(t.event_quiz_type == 'video'){
+                                    jQuery('#hide-share').addClass('hide-share');
+                                    jQuery('#hide-share').removeClass('share result-share');
+                                }else{
                                     jQuery('#hide-share').removeClass('hide-share');
                                     jQuery('#hide-share').addClass('share result-share');
                                 }
@@ -4433,7 +4437,7 @@
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"), Rt("span", {
+            },"Review Quiz Questions"), t.event_quiz_type !='video' && t.is_event_type ? Rt("span", {
                 id:'hide-share',
                 className: t.meta.retakes == 0 && t.event_quiz_type !='video' && t.quiz_points > 0  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
             },gn("h6",{
@@ -4459,7 +4463,7 @@
             },gn("a", {
                 className: "share-facebook",
             href: "https://www.facebook.com/sharer/sharer.php?text="+t.share_quiz_content+"",
-            target: "_blank"}))))))), Rt("div", {
+            target: "_blank"}))))) : '')), Rt("div", {
                 className: "buttons_wrapper pull-right"
             }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
                 className: "quiz_retake",
@@ -6612,6 +6616,10 @@
                                 token: Y.token
                             })
                         }).then(e => e.json()).then(s => {
+                            console.log(s.unit_type);
+                            if(s.unit_type == "text-document"){
+                                jQuery("#complete_current_unit").trigger('click');
+                            }
                             if (J(null), s) {
                                 n.courseitems[t].content = s.content, n.courseitems[t].meta = s.meta;
                                 let o = 1;
@@ -7320,7 +7328,10 @@
             className: "unit_next navigate_unit",
             id:"navigate_unit",
             onClick: () => {
-                if(m.lock == 0){
+                if(m.lock == 1 && m.is_event_type != 1){
+                    se();
+                }
+                else if(m.lock == 0){
                     se();
                 }
                 Z("next");

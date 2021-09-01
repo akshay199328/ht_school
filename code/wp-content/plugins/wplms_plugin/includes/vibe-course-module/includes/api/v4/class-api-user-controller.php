@@ -1713,11 +1713,9 @@ if ( ! class_exists( 'BP_Course_New_Rest_User_Controller' ) ) {
 				$version =  bp_course_get_setting( 'app_version', 'api','number' );
 			}
 			$item = get_post($item_id);
-			$return = array('title'=>$item->post_title,'instructor_id'=>$item->post_author,"live_course_start_date" => $live_course_start_date);
+			$unit_type = get_post_meta($item_id,'vibe_type',true);
+			$return = array('title'=>$item->post_title,'instructor_id'=>$item->post_author,"live_course_start_date" => $live_course_start_date,'unit_type' =>$unit_type);
 			$meta=array('access'=>0);
-
-			
-			
 
 			$is_new_editor = get_post_meta($item_id,'raw',true);
 			if(!empty($is_new_editor)){

@@ -547,19 +547,33 @@ if($user_rank){
     $user_rank_list_school = $leaderboard_result;
 }
 
-$resultsRank = $wpdb->get_row("SELECT count(rel.meta_key) as totalCount
-          FROM ht_posts AS posts 
-          LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id 
-          LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = rel.meta_key
-          WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND xprofile.value = '$user_zone' AND xprofile.field_id = '$zonePriID' AND posts.ID='".$courseID."' ");
+$resultsRank = $wpdb->get_row("SELECT count(umeta.user_id) as totalCount
+          FROM ht_usermeta AS umeta
+          LEFT JOIN ht_posts AS posts ON umeta.meta_key = posts.ID
+          LEFT JOIN ht_users AS users ON users.Id = umeta.user_id
+          LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = umeta.user_id
+          WHERE   posts.post_type     = 'course'
+          AND     posts.post_status   = 'publish'
+          AND posts.ID = '$courseID'
+          AND xprofile.value = '$user_zone' 
+          AND xprofile.field_id = '$zonePriID' 
+          AND     umeta.meta_key REGEXP '^[0-9]+$'
+          ORDER BY umeta.user_id DESC");
 $totalRank = $resultsRank->totalCount;
 
 
-$resultsRank2 = $wpdb->get_row("SELECT count(rel.meta_key) as totalCount
-          FROM ht_posts AS posts 
-          LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id 
-          LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = rel.meta_key
-          WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND xprofile.value = '$school_id' AND xprofile.field_id = '$schoolPriID' AND posts.ID='".$courseID."' ");
+$resultsRank2 = $wpdb->get_row("SELECT count(umeta.user_id) as totalCount
+          FROM ht_usermeta AS umeta
+          LEFT JOIN ht_posts AS posts ON umeta.meta_key = posts.ID
+          LEFT JOIN ht_users AS users ON users.Id = umeta.user_id
+          LEFT JOIN ht_bp_xprofile_data AS xprofile ON xprofile.user_id = umeta.user_id
+          WHERE   posts.post_type     = 'course'
+          AND     posts.post_status   = 'publish'
+          AND posts.ID = '$courseID'
+          AND xprofile.value = '$school_id' 
+          AND xprofile.field_id = '$schoolPriID' 
+          AND     umeta.meta_key REGEXP '^[0-9]+$'
+          ORDER BY umeta.user_id DESC");
 $totalRank2 = $resultsRank2->totalCount;
 
 $progress = bp_course_get_user_progress($userID,$courseID);
@@ -604,7 +618,10 @@ div#ui-datepicker-div{
     margin-bottom: 15px;
     margin-top: 5px;
     }
-</style>
+    ul.typeahead.dropdown-menu{
+      width: 100%
+    }
+</style>  
 <section class="dashboard-wrapper">
     <div class="container">
         <!-- <div class="notice-board">

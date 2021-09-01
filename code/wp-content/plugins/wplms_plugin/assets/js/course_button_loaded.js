@@ -3997,6 +3997,9 @@
                         body: JSON.stringify(s)
                     }).then(e => e.json()).then(e => {
                         if (e) {
+                            if(e.submitted && e.submitted == true){
+                                jQuery("#complete_current_unit").trigger('click');
+                            }
                                 jQuery('.attempt-number').text(e.meta.retakes);
                                 jQuery('#hide-share').removeClass('share result-share'); 
                                 jQuery('#hide-share').addClass('hide-share');

@@ -4606,6 +4606,44 @@ $other_school_name = $_REQUEST['check_school_other'];
 }
 
 
+add_action("wp_ajax_get_school_id", "get_school_id");
+add_action( 'wp_ajax_nopriv_get_school_id', 'get_school_id' );
+
+function get_school_id(){
+
+  $get_school = $_REQUEST['get_school_id'];
+
+  global $wpdb;
+ // $user_id = get_current_user_id();
+
+  $result_id = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
+  LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
+      FROM ht_users INNER JOIN ht_usermeta
+  ON ht_users.ID = ht_usermeta.user_id
+      WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name LIKE '" . $get_school . "%' ORDER BY ht_users.user_nicename");
+  $get_school_id = $result_id[0]->ID;
+  
+  if($get_school_id != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $get_school_id
+    );
+
+    $response['status'] = 1;
+
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $get_school_id
+    );
+
+    $response['status'] = 0;
+  }
+  
+  echo json_encode($response); 
+  exit;
+}
+
 add_action("wp_ajax_skip_dashboard_submit", "skip_dashboard_submit");
 add_action( 'wp_ajax_nopriv_skip_dashboard_submit', 'skip_dashboard_submit' );
 

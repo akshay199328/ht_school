@@ -1281,6 +1281,20 @@ jQuery(document).ready(function(){
               var school = $(this).text();
               $('.typeahead').hide();
 
+              if(school != ""){
+                jQuery.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                    data : {"action": "get_school_id",get_school_id : school},
+                    success: function(response) {
+                        if(response.status == 1){
+                          jQuery("#user_school").val(response.response);
+                        }
+                    }
+                });
+              }
+
           });
 
          /*$("#user_school_other1").on("change", function (event, ui) {

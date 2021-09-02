@@ -203,7 +203,6 @@ $pageSlug = trim($uri, '/');
         $('.profile-click img').prop({alt:'',width:'50',height:'50'});
   });
 
-
 //scrollspy
 $(window).on('scroll', function () {
    var sections = $('section')

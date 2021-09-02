@@ -1759,6 +1759,7 @@ function get_schools(){
     echo json_encode($response); exit;
 }
 
+
 function get_schools_old(){
     global $wpdb;
 

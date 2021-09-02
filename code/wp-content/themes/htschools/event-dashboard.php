@@ -1382,7 +1382,7 @@ div#ui-datepicker-div{
                                             <div class="form-group">
                                                 <label class="form-label">Other School Name</label>
                                                 <div>
-                                                    <input type="text" class="form-control" id="user_school_other1" name="user_school_other" placeholder="Please enter others school name" value="" >                                         
+                                                    <input type="text" class="form-control" id="user_school_other1" name="user_school_other" placeholder="Please enter others school name" value="" >         
                                                     <span id="errotherSchoolMsg"></span>
                                                 </div>
                                             </div>

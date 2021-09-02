@@ -258,7 +258,7 @@ if (count($schoolCountResult) > 0) {
 }
 ?>
     <head>
-   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+   <!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/> -->
         <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri() .
             "/assets/css/school-datatable-custom.css"; ?>"/>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() .
@@ -271,67 +271,98 @@ if (count($schoolCountResult) > 0) {
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.js"></script>
       
 </head>
-<div>
-    
-<?php bp_displayed_user_avatar("type=full"); ?>
+<div class="school_studTotal">
+    <div class="container">
+        <div class="total-left">
+            <span class="icon">
+                <?php bp_displayed_user_avatar("type=full"); ?>
+            </span>
+            <span class="school-name_total">
+                <h4><?php echo $sName; ?></h4>
+                <h3>Registered Students</h3>
+            </span>
+            
+        </div>
+        <div class="total-right">
+            <ul>
+                <li>
+                    <span class="number"><?php echo $total_stud; ?></span>
+                    <h6>Total Enrolled Count </h6>
+                </li>
+                <li>
+                    <span class="number"><?php echo $total_active; ?></span>
+                    <h6>Total Active Students </h6>
+                </li>
+                <li>
+                    <span class="number"><?php echo $total_inactive; ?></span>
+                    <h6>Total Inactive Students </h6>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
-<h1><?php echo $sName; ?></h1>
-<h1>Registered Students</h1>
-<h4><?php echo $total_stud; ?></h4>
-<h3>Total Enrolled Count </h3>
-<h4><?php echo $total_active; ?></h4>
-<h3>Total Active Students </h3>
-<h4><?php echo $total_inactive; ?></h4>
-<h3>Total Inactive Students </h3>
-
-    <div id="poststuff" class="vibe-reports-wrap datatable-fix">
-        
+<div id="poststuff" class="vibe-reports-wrap datatable-fix">
+    <div class="container">
         <div class="vibe-reports-main">
             <div class="postbox course_info">
                 <div class="custom_datatable" id='dt'>
-                    <input type="text" id="myInputTextField" placeholder="Search Students">
-                     <input type="checkbox" id="maxTemp27"> Progress less than 100%
-                    <table id="datatable" class="pagination-links" style="width:100%">
-                        <select class="sch" id="dropdown1">
-    <option value="">All Classes</option>
-    <option value="-">-</option>
-    <option value="k1">k1</option>
-    <option value="k2">k2</option>
-    <option value="1st">1st</option>
-    <option value="2nd">2nd</option>
-    <option value="3rd">3rd</option>
-    <option value="4th">4th</option>
-    <option value="5th">5th</option>
-    <option value="6th">6th</option>
-    <option value="7th">7th</option>
-    <option value="8th">8th</option>
-    <option value="9th">9th</option>
-    <option value="10th">10th</option>
-    <option value="11th">11th</option>
-    <option value="12th">12th</option>
-</select>
- <select class="sch" id="dropdown2">
- <option value="">Active/Inactive</option>
-  <option value="enable">Active</option>
-  <option value="inactive">Inactive</option>
-</select>
-
+                    <div class="post-top">
+                        <div class="postbox_left">
+                            <input type="text" id="myInputTextField" placeholder="Search Students">
+                        </div>
+                        <div class="postbox_right">
+                            <div class="cutom-checkbox">
+                                <label class="checkbox">Progress less than 100%
+                                    <input type="checkbox" id="maxTemp27">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <!-- <input type="checkbox" id="maxTemp27"> Progress less than 100% -->
+                            <div class="select-class">
+                                <span class="title">Class :</span>
+                                <select class="sch" id="dropdown1">
+                                    <option value="">All Classes</option>
+                                    <option value="-">-</option>
+                                    <option value="k1">k1</option>
+                                    <option value="k2">k2</option>
+                                    <option value="1st">1st</option>
+                                    <option value="2nd">2nd</option>
+                                    <option value="3rd">3rd</option>
+                                    <option value="4th">4th</option>
+                                    <option value="5th">5th</option>
+                                    <option value="6th">6th</option>
+                                    <option value="7th">7th</option>
+                                    <option value="8th">8th</option>
+                                    <option value="9th">9th</option>
+                                    <option value="10th">10th</option>
+                                    <option value="11th">11th</option>
+                                    <option value="12th">12th</option>
+                                </select>
+                            </div>
+                            <div class="select-sort">
+                                <!-- <span class="title">Sort by :</span> -->
+                                <select class="sch" id="dropdown2">
+                                    <option value="">Active/Inactive</option>
+                                    <option value="enable">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="datatable" class="" style="width:100%">
                         <thead>
-                           
-                            <tr>
-                                <th>No.</th>
-                                <th>Name</th>
-                                <th>Class</th>
-                                <th>School</th>
-                                <th>Course</th>
-                                <th style="display: none;">Status</th>
-                                <th>Score</th>
-                               
-                            </tr>
-
-                        </thead>
-                        <tbody>
-                            <?php
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th class='mobile_hide'>Class</th>
+                            <th class='mobile_hide'>School</th>
+                            <th class='mobile_hide'>Course</th>
+                            <th style="display: none;">Status</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                             $i = 1;
                             foreach ($school_data as $info) {
                                 $today = date("Y-m-d") . " 00:00:00";
@@ -346,16 +377,21 @@ if (count($schoolCountResult) > 0) {
 
                                 echo "<tr>";
                                 echo "<td>" . $i++ . "</td>";
-                                echo "<td>" . $info["user"] . "</td>";
-                                echo "<td>" .
+                                echo "<td>" . $info["user"] ."<span class='mobile_view'>".
+                                    ($info["grade"] ? $info["grade"] : "-") ."</span>"."<span class='mobile_view'>".
+                                    ($info["school"]
+                                        ? $info["school"]
+                                        : "n/a") ."</span>"."<span class='mobile_view'>".
+                                    $info["course"]."</span></td>";
+                                echo "<td class='mobile_hide'>" .
                                     ($info["grade"] ? $info["grade"] : "-") .
                                     "</td>";
-                                echo "<td>" .
+                                echo "<td class='mobile_hide'>" .
                                     ($info["school"]
                                         ? $info["school"]
                                         : "n/a") .
                                     "</td>";
-                                echo "<td>" . $info["course"] . "</td>";
+                                echo "<td class='mobile_hide'>" . $info["course"] . "</td>";
                                 echo '<td style="display: none;">' .
                                     $status .
                                     "</td>";
@@ -368,21 +404,19 @@ if (count($schoolCountResult) > 0) {
                             ?>
                         </tbody>
                     </table>
-
+                
                     <script>
-  
-        /* Initialization of datatable */
-        $(document).ready(function() {
-    $('#datatable').DataTable( {} );
-} );
-    </script>
-                    
+                        /* Initialization of datatable */
+                        $(document).ready(function() {
+                            $('#datatable').DataTable( {} );
+                        } );
+                    </script>
 
                 </div>
-
             </div>
         </div>
     </div>
+</div>   
 
 <?php
 vibe_include_template("profile/bottom.php");

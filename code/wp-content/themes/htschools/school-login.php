@@ -10,8 +10,14 @@ if(isset($_SERVER['HTTP_REFERER'])){
  */
 global $bp;
 
+ global $current_user;
+get_currentuserinfo();
+ $email=$current_user->user_email; 
+ $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" .$email . "'");
+  $username = $users[0]->user_nicename;
+
 if(is_user_logged_in()){
-    wp_redirect(bp_loggedin_user_domain());
+    wp_redirect($parent = get_site_url().'/members-directory/'.$username.'/school_dashboard/');
     exit();
 }
 

@@ -23,6 +23,13 @@ $page_id     = get_the_ID();
 
   $user = wp_get_current_user();
   $userIdentifier = $user->ID;
+  global $current_user;
+        get_currentuserinfo();
+         $email=$current_user->user_email; 
+         $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" .$email . "'");
+          $username = $users[0]->user_nicename;
+        $current_page = $current_url="https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $parent_page = get_bloginfo('url').'/members-directory/'.$username.'/school_dashboard/';
 ?>
 <script type="text/javascript">
    var site_url = '<?php bloginfo('url'); ?>';

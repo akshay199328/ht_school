@@ -1,3 +1,14 @@
+<?php 
+global $wpdb;
+				$current_user = wp_get_current_user();
+				 $email=$current_user->user_email; 
+				 $users = $wpdb->get_results("SELECT user_nicename FROM ht_users WHERE user_email='" .$email . "'");
+				  $username = $users[0]->user_nicename;
+				$current_page = $current_url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+				$parent_page = get_bloginfo('url').'/members-directory/'.$username.'/school_dashboard/';
+				
+				?>
+
 <style type="text/css">
 	.edit-profile-link {
 		float: right;
@@ -48,10 +59,27 @@
 	    		</div>
 	    	</div>
 		</div>
-		<div class="grey-background">
-	    <div class="<?php echo vibe_get_container(); ?>">
+		
+
+			<?php 
+				
+				if ($current_page == $parent_page) { ?>
+					<div class="">
+	    <div class="school-dashboard">
+	    	
+	        <div class="">	
+	        	<div class="">
+					<div class="padder dashboard_accountinfo">
+					
+			<?php	}else {?>
+				<div class="grey-background">
+		  <div class="<?php echo vibe_get_container(); ?>">
 	    	
 	        <div class="row">	
-				<div class="col-md-12">
+	        	<div class="col-md-12">
 					<div class="padder dashboard_accountinfo">
+
+		<?php } ?>
+				
 						
+

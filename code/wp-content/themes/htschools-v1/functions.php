@@ -263,7 +263,7 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
   if(!is_admin()){
     if ( !is_page_template('event-dashboard.php')){
     }
-    //wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css?v=1.1' );
+    wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css?v=1.1' );
       wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css?v=1.1' );
       //wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css?v=1.1');
     //wp_enqueue_style( 'wplms-customizer-css-v1', get_template_directory_uri(). '/style-v1.css?v=1.1' );
@@ -4327,7 +4327,7 @@ function social_share_points(){
     echo json_encode($response); exit;
 }
 
-function referal_product_points(){
+function referal_product_points($courseID){
   global $wpdb;
   $table_name = "ht_mycred_log";
   if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
@@ -4342,10 +4342,10 @@ function referal_product_points(){
     'message' => 'Failed to add points'
   );
   $now = current_time('timestamp');
-  $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
+  $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE ref_id='".$user_id."' AND ref = 'signup_referral' and ctype ='mycred_engagement'");
   $referal_userid_json = json_decode( json_encode($sql1), true);
   $referal_userid = $referal_userid_json[0]['user_id'];
-  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM $my_cred_table WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
+  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM $my_cred_table WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral' and ctype ='mycred_engagement'");
   $referal_total_userid_json = json_decode( json_encode($sql2), true);
   $referal_total_userid_count = $referal_total_userid_json[0]['user_count'];
   if($referal_total_userid_count <= 9){
@@ -4357,7 +4357,7 @@ function referal_product_points(){
 
   $entry = "Points for referring a new member whenever they purchase event course";
   if($referal_userid){
-    $results = add_points('referral_registration_payment',$user_id,$referal_userid,$creds,$now,$entry);
+    $results = add_points('referral_registration_payment',$user_id,$referal_userid,$creds,$now,$entry,$courseID);
   }
   if($results == 1){
     $response['message'] = 'Points added successfully';
@@ -4454,7 +4454,7 @@ function video_watched_points(){
   echo json_encode($response); exit;
 }
 
-function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
+function add_points($ref,$ref_id,$user_id,$creds,$now,$entry,$data){
   global $wpdb;
   $table_name = "ht_mycred_log";
   if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {

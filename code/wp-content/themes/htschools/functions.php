@@ -1540,15 +1540,17 @@ function save_custom_profile(){
         xprofile_set_field_data('Division', $user_id, trim($_REQUEST['division']));
 
         if($_REQUEST['user_state'] != ''){
-          $north_zone = array("Assam", "Bihar", "Chhattisgarh", "Haryana", "Himachal Pradesh", "Jammu and kashmir", "Jharkhand", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Delhi", "Odisha", "Punjab", "Rajasthan", "Tripura", "Tripura", "Uttarakhand", "West bengal");
+          $north_zone = array("assam", "bihar", "chhattisgarh", "haryana", "himachal pradesh", "jammu and kashmir", "jharkhand", "manipur", "meghalaya", "mizoram", "nagaland", "delhi", "odisha", "punjab", "rajasthan", "tripura", "uttarakhand", "west bengal", "chandigarh", "sikkim", "uttar pradesh");
 
-          $south_zone = array("Andaman and nicobar", "Andhra pradesh", "Arunachal pradesh", "Dadra and nagar haveli", "Goa", "Gujarat", "Karnataka", "Kerala", "Madhya pradesh", "Maharashtra", "Puducherry", "Tamil nadu", "Telangana");
+          $south_zone = array("andaman and nicobar", "andhra pradesh", "arunachal pradesh", "dadra and nagar haveli", "goa", "gujarat", "karnataka", "kerala", "madhya pradesh", "maharashtra", "puducherry", "tamil nadu", "telangana", "daman and diu", "lakshadweep");
 
-          if (in_array(trim($_REQUEST['user_state']), $north_zone)){
+          $statename = strtolower($_REQUEST['user_state']);
+
+          if (in_array(trim($statename), $north_zone)){
             $zone='north';
           }
 
-          if (in_array(trim($_REQUEST['user_state']), $south_zone)){
+          if (in_array(trim($statename), $south_zone)){
             $zone='south';
           }
 
@@ -1700,7 +1702,7 @@ function get_countries(){
 LOWER(SUBSTRING(country_name,2))) AS country_name  FROM " . $wpdb->prefix . "country_master WHERE country_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
     foreach ($results as $data) {
         $row = array();
-        $row['label'] = $data->country_name;
+        $response[] = $data->country_name;
         $row['value'] = $data->country_id;
 
         $response[] = $row;

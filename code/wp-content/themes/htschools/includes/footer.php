@@ -147,6 +147,7 @@ $pageSlug = trim($uri, '/');
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="<?php echo get_bloginfo('template_url'); ?>/assets/js/scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script> 
     <script>window.noZensmooth = true</script>
     <link rel='stylesheet' id='acf-datepicker-css'  href='<?php echo get_bloginfo('url'); ?>/wp-content/plugins/advanced-custom-fields/assets/inc/datepicker/jquery-ui.min.css?ver=1.11.4' type='text/css' media='all' />
 
@@ -1131,6 +1132,40 @@ jQuery(document).ready(function(){
           });
 
 
+          //var subjects = ['PHP', 'MySQL', 'SQL', 'PostgreSQL', 'HTML', 'CSS', 'HTML5', 'CSS3', 'JSON'];   
+          //$('#user_country_data1').typeahead({source: subjects});
+
+          /*$('#user_country_data1').typeahead({
+            source: function(query, result){
+              $.ajax({
+                 url: countryUrl,
+                 method:"POST",
+                 data:{"action": "get_countries", term: query.term},
+                 dataType:"json",
+                 success:function(data){
+                 result($.map(data, function(item){
+
+                    return item;
+                
+                 }));
+                }
+              })
+             },
+             minLength: 2,
+             autoSelect: false
+          });*/
+
+
+          /*$('#user_country_data1').typeahead({  
+              source:  function (query, process) {  
+              return $.get("action": "get_countries", { query: query }, function (data) {  
+                      console.log(data);  
+                      data = $.parseJSON(data);  
+                      return process(data);  
+                  });  
+              }  
+          });*/
+
           /*var stateUrl = '<?php //echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_states';
 
           $( "#user_state1" ).autocomplete({
@@ -1155,7 +1190,7 @@ jQuery(document).ready(function(){
           });*/
 
 
-          var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
+          /*var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
 
           $( "#user_state1" ).autocomplete({
             source: function (request, response) {
@@ -1176,7 +1211,7 @@ jQuery(document).ready(function(){
               event.preventDefault();
               $("#user_state1").val(ui.item.label);
             },
-          });
+          });*/
 
           var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
 

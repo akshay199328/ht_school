@@ -579,6 +579,10 @@ $totalRank2 = $resultsRank2->totalCount;
 $progress = bp_course_get_user_progress($userID,$courseID);
 $course_progress = empty($progress)?0:intval($progress);
 
+
+$resultsState = $wpdb->get_results("SELECT CONCAT(UPPER(SUBSTRING(state_name,1,1)),
+  LOWER(SUBSTRING(state_name,2)) ) as state_name FROM `ht_state_master` WHERE `country_id` = '1' order by `state_name` asc");
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}
@@ -1386,9 +1390,12 @@ div#ui-datepicker-div{
                                         <div class="list">
                                             <div class="form-group">
                                                 <label class="form-label">Country*</label>
-                                                <div class="input-group input-search">
-                                                    <input type="text" class="form-control" id="user_country_data1" name="user_country_data" placeholder="Country" value="<?php echo $country_name; ?>">
-                                                    <input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
+                                                <div class="input-group input-dropdown">
+                                                  <select class="form-control" name="user_country_data" id="user_country_data1">
+                                                      <option value="India" selected="selected">India</option>
+                                                  </select>
+                                                    <!-- <input type="text" class="form-control" id="user_country_data1" name="user_country_data" placeholder="Country" value="<?php //echo $country_name; ?>"> -->
+                                                    <input type="hidden" id="user_country" name="user_country" value="1">
                                                 </div>
                                                 <span id="errCountryMsg"></span>
                                             </div>
@@ -1396,8 +1403,18 @@ div#ui-datepicker-div{
                                         <div class="list">
                                             <div class="form-group">
                                                 <label class="form-label">State*</label>
-                                                <div class="input-group input-search">
-                                                    <input type="text" class="form-control" id="user_state1" name="user_state" placeholder="" value="<?php echo $user_state; ?>" autocomplete="off">
+                                                <div class="input-group input-dropdown">
+                                                  <select class="form-control" name="user_state" id="user_state1">
+                                                    <option value="">Select State</option>
+                                                    <?php
+                                                      foreach($resultsState as $rowState){ 
+                                                        $state_name = $rowState->state_name; 
+                                                        echo '<option value="'.$state_name.'"'; if($state_name == $user_state){ echo ' selected="selected"'; }
+                                                        echo '>'.$state_name.'</option>';
+                                                      }
+                                                    ?>
+                                                  </select>
+                                                    <!-- <input type="text" class="form-control" id="user_state1" name="user_state" placeholder="" value="<?php //echo $user_state; ?>" autocomplete="off"> -->
                                                 </div>
                                                 <span id="errSteMsg"></span>
                                             </div>

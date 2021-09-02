@@ -625,6 +625,10 @@ div#ui-datepicker-div{
     ul.typeahead.dropdown-menu{
       width: 100%
     }
+    .typeahead li a {
+        padding: 9px 12px;
+        white-space: normal;
+    }
 </style>  
 <section class="dashboard-wrapper">
     <div class="container">

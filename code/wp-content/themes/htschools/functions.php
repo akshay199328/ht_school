@@ -1778,6 +1778,33 @@ function get_schools_old(){
     echo json_encode($response); exit;
 }
 
+
+add_action("wp_ajax_get_schools_new", "get_schools_new");
+add_action( 'wp_ajax_nopriv_get_schools_new', 'get_schools_new' );
+
+function get_schools_new(){
+    global $wpdb;
+
+    $response = array();
+    $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
+  LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
+      FROM ht_users INNER JOIN ht_usermeta
+  ON ht_users.ID = ht_usermeta.user_id
+      WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name LIKE '" . esc_attr($_REQUEST['term']) . "%' ORDER BY ht_users.user_nicename");
+
+
+    foreach ($results as $data) {
+      $row = array();
+      $row['label'] = $data->display_name;
+      $row['value'] = $data->ID;
+
+      //$response[] = $row;
+      $response[] = $data->display_name;
+    }
+    echo json_encode($response); exit;
+}
+
+
 add_action("wp_ajax_get_states", "get_states");
 add_action( 'wp_ajax_nopriv_get_states', 'get_states' );
 

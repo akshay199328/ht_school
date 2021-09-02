@@ -1107,7 +1107,7 @@ jQuery(document).ready(function(){
           window.selectedCountry = "<?php echo $user_country; ?>";
           var countryUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
 
-          $( "#user_country_data1" ).autocomplete({
+          /*$( "#user_country_data1" ).autocomplete({
               source: function (request, response) {
                $.ajax({
                 dataType: "json",
@@ -1128,7 +1128,7 @@ jQuery(document).ready(function(){
               $("#user_country").val(ui.item.label);
               window.selectedCountry = ui.item.label;
             },
-          });
+          });*/
 
 
           //var subjects = ['PHP', 'MySQL', 'SQL', 'PostgreSQL', 'HTML', 'CSS', 'HTML5', 'CSS3', 'JSON'];   
@@ -1230,7 +1230,7 @@ jQuery(document).ready(function(){
 
           var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
 
-          $( "#user_school_data1" ).autocomplete({
+          /*$( "#user_school_data1" ).autocomplete({
             source: function (request, response) {
                $.ajax({
                 dataType: "json",
@@ -1254,6 +1254,33 @@ jQuery(document).ready(function(){
             response: function(event, ui){
               ui.content.push({value:"Others", label:"Others"});
             }
+          });*/
+
+
+          $('#user_school_data1').typeahead({
+            source: function(query, result){
+              $.ajax({
+                 url: schoolUrl,
+                 method:"POST",
+                 data:{"action": "get_schools_new", term: query.term},
+                 dataType:"json",
+                 success:function(data){
+                 result($.map(data, function(item){
+
+                    return item;
+                
+                 }));
+                }
+              })
+             },
+             minLength: 2,
+          });
+
+          $('body').on('click', '.dropdown-item', function(){   
+
+              var school = $(this).text();
+              $('.typeahead').hide();
+
           });
 
          /*$("#user_school_other1").on("change", function (event, ui) {

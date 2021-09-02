@@ -1291,9 +1291,19 @@
                 className: n
             }, wp.element.createElement("div", {
                 className: "usermenu_content"
-            }, wp.element.createElement("span", {
-                className: "divider"
-            }), a.length ? a.map((function(e) {
+            }, wp.element.createElement("div", {
+                className: "user"
+            },wp.element.createElement("div", {
+                className: "profile_img"
+            },wp.element.createElement("img", {
+                src: c.avatar,
+                alt: c.displayname
+            })), wp.element.createElement("div", {
+                className: "detail"
+            },wp.element.createElement("span", {
+                className: "name"
+            }, c.first_name + ' ' + c.last_name))
+            ), a.length ? a.map((function(e) {
                 return wp.element.createElement("a", {
                     href: c.profile_link + "#component=" + e.css_id,
                     className: e.classes.join(" "),
@@ -1585,9 +1595,7 @@
             }, wp.element.createElement("img", {
                 src: o.avatar,
                 alt: o.displayname
-            }),wp.element.createElement("span", {
-                className: "vibebp_name"
-            }, o.first_name + ' ' + o.last_name)), m ? wp.element.createElement(ee, {
+            })), m ? wp.element.createElement(ee, {
                 logout: function() {
                     if ("undefined" != typeof firebase && firebase && firebase.hasOwnProperty("database") && window.vibebp.settings.firebase_config && window.vibebp.settings.session_lock && firebase.auth().currentUser) {
                         var e = new CustomEvent("userLogout", {

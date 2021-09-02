@@ -525,8 +525,8 @@ body {
         padding: 15px 0
     }
 }
-
-.header-wrapper .header-copy .right-side .profile .dropdown-menu {
+.user_menu.active:after{display: none !important;}
+.header-wrapper .header-copy .right-side .profile .dropdown-menu{
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all .3s ease-in-out;
@@ -545,30 +545,66 @@ body {
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.16);
     border: none
 }
-
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .dropdown-item {
+.loggedin_user_div .user_menu {
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
+    display: none;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    /*display: inline-block;*/
+    right: 0;
+    left: auto;
+    padding:0!important;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transform-origin: top right;
+    transform-origin: top right;
+    padding: 0;
+    width: 240px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0px 15px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.16);
+    border: none;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+}
+.loggedin_user_div .user_menu.user_active{display: block}
+.header-wrapper .header-copy .usermenu_content a {
     padding: 17px 20px;
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    color: #212529!important;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
     border-left: 6px solid transparent;
     -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out
+    transition: all .5s ease-in-out;
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .dropdown-item svg {
+.header-wrapper .header-copy .usermenu_content a svg {
     margin-right: 11px
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .dropdown-item:hover {
+.header-wrapper .header-copy .usermenu_content a:hover {
     background-color: #F1F2F2;
     color: #000;
-    border-left-color: #385DD9
+    border-left-color: #385DD9;
+    font-weight: 600;
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .dropdown-item:last-child {
+.header-wrapper .header-copy .usermenu_content a:last-child {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user {
+.header-wrapper .header-copy .usermenu_content .user {
     border-bottom: 1px solid #BBBBBB;
     padding: 10px;
     display: -webkit-box;
@@ -579,19 +615,19 @@ body {
     align-items: center
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user img {
+.header-wrapper .header-copy .usermenu_content .user img {
     width: 50px;
     height: 50px;
     margin-right: 10px;
     border-radius: 40px
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user .detail .name {
+.header-wrapper .header-copy .usermenu_content .user .detail .name {
     font-size: 18px;
     font-weight: 600
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user .detail .status {
+.header-wrapper .header-copy .usermenu_content .user .detail .status {
     font-size: 12px;
     color: #8A8A8A;
     margin-top: 5px;

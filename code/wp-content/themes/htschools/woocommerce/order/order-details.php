@@ -107,7 +107,7 @@ if ( $show_downloads ) {
 
 <script>
 var course_namevalue = document.getElementById("course_name").value;
-var course_price = document.getElementById("wooorderid").value;
+var course_price = document.getElementById("course_price").value;
 dataLayer.push({ 
 'coursename': course_namevalue,
 'course_price': course_price }); 

@@ -4381,7 +4381,7 @@ function social_share_points(){
     $sql = $wpdb->get_results("SELECT SUM(creds) as total_creds FROM $my_cred_table WHERE ref='".$ref."' AND user_id = '".$user_id."'");
     $creds_json = json_decode( json_encode($sql), true);
     $creds_total = $creds_json[0]['total_creds'];  
-    
+    $data = '';
     if ( $count >= $limit_per_day && $creds_total <= 200){
       $response['message'] = 'Points will be added only once a day';
     }
@@ -4389,7 +4389,7 @@ function social_share_points(){
       $response['message'] = 'Maximum point limit reached';
     }
     else{
-      $results = add_points($ref,'0',$user_id,$creds,$now,$entry);
+      $results = add_points($ref,'0',$user_id,$creds,$now,$entry,$data);
       if($results == 1){
         $response['message'] = 'Points added successfully';
       }
@@ -4397,7 +4397,7 @@ function social_share_points(){
     echo json_encode($response); exit;
 }
 
-function referal_product_points(){
+function referal_product_points($courseID){
   global $wpdb;
   $table_name = "ht_mycred_log";
   if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
@@ -4412,10 +4412,10 @@ function referal_product_points(){
     'message' => 'Failed to add points'
   );
   $now = current_time('timestamp');
-  $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE ref_id='".$user_id."' AND ref = 'signup_referral'");
+  $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE ref_id='".$user_id."' AND ref = 'signup_referral' and ctype ='mycred_engagement'");
   $referal_userid_json = json_decode( json_encode($sql1), true);
   $referal_userid = $referal_userid_json[0]['user_id'];
-  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM $my_cred_table WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral'");
+  $sql2 = $wpdb->get_results("SELECT count(user_id) as user_count FROM $my_cred_table WHERE user_id = '".$referal_userid."' AND ref = 'signup_referral' and ctype ='mycred_engagement'");
   $referal_total_userid_json = json_decode( json_encode($sql2), true);
   $referal_total_userid_count = $referal_total_userid_json[0]['user_count'];
   if($referal_total_userid_count <= 9){
@@ -4427,7 +4427,7 @@ function referal_product_points(){
 
   $entry = "Points for referring a new member whenever they purchase event course";
   if($referal_userid){
-    $results = add_points('referral_registration_payment',$user_id,$referal_userid,$creds,$now,$entry);
+    $results = add_points('referral_registration_payment',$user_id,$referal_userid,$creds,$now,$entry,$courseID);
   }
   if($results == 1){
     $response['message'] = 'Points added successfully';
@@ -4452,9 +4452,9 @@ function pre_register_users_points(){
 
   $userid_json = json_decode( json_encode($sql1), true);
   $userid = $userid_json[0]['user_id'];
-
+  $data = '';
   if($userid < 1){
-    $results = add_points('registration',$referal_userid,$user_id,$creds,$now,$entry);
+    $results = add_points('registration',$referal_userid,$user_id,$creds,$now,$entry,$data);
   }
 }
 add_action("wp_ajax_platform_onboarding_points", "platform_onboarding_points");
@@ -4482,8 +4482,9 @@ function platform_onboarding_points(){
   $sql1 = $wpdb->get_results("SELECT user_id FROM $my_cred_table WHERE user_id='".$user_id."' AND ref = '".$ref_key."'");
   $userid_json = json_decode( json_encode($sql1), true);
   $userid = $userid_json[0]['user_id'];
+  $data = '';
   if($user_id && $userid == 0){
-    $results = add_points($ref_key,$referal_userid,$user_id,$creds,$now,$entry);
+    $results = add_points($ref_key,$referal_userid,$user_id,$creds,$now,$entry,$data);
   }else{
     $response['message'] = 'Points will be added only once';
   }
@@ -4524,7 +4525,7 @@ function video_watched_points(){
   echo json_encode($response); exit;
 }
 
-function add_points($ref,$ref_id,$user_id,$creds,$now,$entry){
+function add_points($ref,$ref_id,$user_id,$creds,$now,$entry,$data){
   global $wpdb;
   $table_name = "ht_mycred_log";
   if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {

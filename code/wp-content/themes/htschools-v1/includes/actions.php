@@ -747,6 +747,7 @@ class WPLMS_Actions{
 	    		var suser = sessionStorage.getItem('bp_user');
 
 				jQuery(document).on("click", ".loggedin_user_div", function(){
+					// alert("test");
 					jQuery('.user_menu').is(":visible") ? jQuery('.user_menu').hide() : jQuery('.user_menu').show();
 					jQuery('.user_menu').is(":visible") ? jQuery('.user_active').parent('.loggedin_user_div').removeClass('active') : jQuery('.user_active').parent('.loggedin_user_div').addClass('active')
 				});
@@ -790,7 +791,7 @@ class WPLMS_Actions{
     				var user = JSON.parse(suser);	
     				
     				if(Object.keys(user).length){
-	    				document.querySelector('.vibebp-login').innerHTML='<div class="loggedin_user_div"><a class="loggedin_user" data-id="1"><img src="'+user.avatar+'"><span class="vibebp_name">'+user.display_name+'</span></a><div class="user_menu active"><div class="usermenu_content"><a href="/members-directory/'+user.user_nicename+'">Profile </a></div><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon"></span>Logout </a></div></div>';
+	    				document.querySelector('.vibebp-login').innerHTML='<div class="loggedin_user_div"><a class="loggedin_user" data-id="1"><img src="'+user.avatar+'"></a><div class="user_menu active"><div class="usermenu_content"><a href="/members-directory/'+user.user_nicename+'">Profile </a></div><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon"></span>Logout </a></div></div>';
 
 
 	    				<?php 

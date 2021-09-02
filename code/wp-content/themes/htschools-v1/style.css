@@ -551,7 +551,7 @@ body {
     display: none;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    display: inline-block;
+    /*display: inline-block;*/
     right: 0;
     left: auto;
     padding:0!important;
@@ -599,12 +599,12 @@ body {
     font-weight: 600;
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .dropdown-item:last-child {
+.header-wrapper .header-copy .usermenu_content a:last-child {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user {
+.header-wrapper .header-copy .usermenu_content .user {
     border-bottom: 1px solid #BBBBBB;
     padding: 10px;
     display: -webkit-box;
@@ -615,19 +615,19 @@ body {
     align-items: center
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user img {
+.header-wrapper .header-copy .usermenu_content .user img {
     width: 50px;
     height: 50px;
     margin-right: 10px;
     border-radius: 40px
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user .detail .name {
+.header-wrapper .header-copy .usermenu_content .user .detail .name {
     font-size: 18px;
     font-weight: 600
 }
 
-.header-wrapper .header-copy .right-side .profile .dropdown-menu .user .detail .status {
+.header-wrapper .header-copy .usermenu_content .user .detail .status {
     font-size: 12px;
     color: #8A8A8A;
     margin-top: 5px;

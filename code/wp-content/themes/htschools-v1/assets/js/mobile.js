@@ -211,3 +211,39 @@
             }
         });
     });
+
+if($(window).width() <= 767) {
+    $('.featured_tablist .tablist').addClass('owl-carousel');
+    $('.featured_tablist .tablist').addClass('owl-theme');
+    $('.featured_tablist .tablist li').addClass('item');
+    $('.featured_tablist .tablist').owlCarousel({
+        margin: 0,
+        loop: true,
+        autoWidth: true,
+        mouseDrag:true,
+        items: 2,
+        nav: false,
+        dots:false,
+        autoplay: false
+    }) 
+    
+
+}
+if($(window).width() >= 768) {
+  // alert(1234);
+  $(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 160) {
+        $(".featured_tablist").addClass('sticky-nav');
+        // $(".featured_tablist").css({ "transition" : "all 0.5s"});
+        // $(".featured_tablist .left_tab").css({ "padding": "20px 0px", "width":"1050px", "margin":"0px auto"});
+
+    } else {
+      $(".featured_tablist").removeClass('sticky-nav');
+        // $(".featured_tablist").css({ "position": "relative", "width":"100%", "margin":"0px", "left":"0", "right":"0", "top":"0", "background":"transparent", "padding" : "10px 0px 0px 0px!important"});
+        // $(".featured_tablist .left_tab").css({ "padding": "0px 0px", "width":"100%", "margin":"0px"});
+    }
+});
+
+}

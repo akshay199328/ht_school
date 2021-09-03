@@ -57,7 +57,7 @@ ol.breadcrumbs li a {
 
 ol.breadcrumbs li a span{color: #5A5A5A;}
 .top-section.home-section.editor_desk {
-    padding: 0 110px;    margin-top: 10px;
+    padding: 0 2%;    margin-top: 10px;
 }
 #All.home-section.editor_desk {
     padding-top: 0;
@@ -88,7 +88,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     width: 100%;
     left: 0;
     right: 0;
-    padding: 20px 100px;
+    padding: 20px 2%;
     height: 80px;
 }
 .tablist {
@@ -149,7 +149,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .home-section.editor_desk.remove-leftpadding .articles{background: #F6F7F7;}
 .home-section.editor_desk.remove-leftpadding .articles:nth-child(2n+2){background: #fff;}
 .home-padding{
-    padding:50px 100px;
+    padding:50px 2%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -195,7 +195,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     .home-section {padding: 20px 35px!important;} 
     .remove-leftpadding{padding: 0px 0px!important;}
     .home-padding {padding: 50px 35px;}
-    .top-section.home-section.editor_desk{padding: 0px 35px!important;}
+    .top-section.home-section.editor_desk{padding: 0px 2%!important;}
 }
 @media (max-width: 1024px){
     .header-wrapper .header-copy {padding: 0 20px!important;}
@@ -204,7 +204,10 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     .home-padding {padding: 50px 20px;}
     .top-section.home-section.editor_desk{padding: 0px 20px!important;}
 }
-
+@media (max-width: 1024px) and (orientation: portrait), (max-width: 768px) and (orientation: landscape){
+    .home-section.editor_desk .articles .featured{    width: 40.5%;}
+    .home-section.editor_desk .articles .link-article {width: 100%;}
+}
 @media (max-width: 767px) and (orientation: portrait), (max-width: 767px) and (orientation: landscape){
     .home-section.editor_desk .articles .featured {margin-bottom: 25px;}
     .home-section.editor_desk .articles .featured,
@@ -223,6 +226,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     .home-section.editor_desk .articles .img-artlce .column:last-child{margin-bottom: 0px;}
     .home-padding {padding: 28px 20px;}
     .home-section .home-copy .section-header{padding-right: 0px;padding-left: 0;}
+    .home-section.editor_desk .img-artlce .copy{padding-left: 20px;display: flex;flex-direction: column;}
 }
 
 

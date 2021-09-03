@@ -658,7 +658,7 @@ class WPLMS_Course_Component_Init{
                 'rating' => _x('Rate this course','','wplms'),
                 'your_review' => _x('Your Review','','wplms'),
                 'skip_review_and_finish_course'=>_x('Skip review and finish course','','wplms'),
-                'submit_review_and_finish_course' => _x('Submit Review and finish course','','wplms'),
+                'submit_review_and_finish_course' => _x('Submit Review and Finish Course','','wplms'),
                 'assignments' => _x('Assignments','','wplms'),
                 'marks_obtained' => _x('Marks Obtained','','wplms'),
                 'uploaded' => _x('Uploaded','','wplms'),

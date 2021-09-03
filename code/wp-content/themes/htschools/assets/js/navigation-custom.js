@@ -10,7 +10,6 @@ $(document).ready(function(){
       $('.border-menu').removeClass('bi bi-bars').addClass('bi bi-close'); // Agregamos el icono X
       $('.navegacion .menu-back').css({'left':'-455px'}); // Ocultamos el Menu
       $('.navegacion .menu').css({'left':'0px'}); // Mostramos el menu
-      $('body').css({'overflow-y':'auto'});
 
     } else{
 
@@ -53,6 +52,7 @@ $(document).ready(function(){
     $('.close-navigation').next().css({'left':'0'}); // Ocultamos el submenu
     $('.close-navigation').parent().css({'left':'-455px'}); // Ocultamos el submenu
     $('.navegacion').removeClass('add-width'); 
+    $('body').css({'overflow-y':'auto'});
 
   });
 
@@ -60,6 +60,7 @@ $(document).ready(function(){
     $('.close-navigation').parent().css({'left':'-455px'}); // Ocultamos el submenu
     $('.close-navigation').parent().parent().css({'left':'-455px'}); // Ocultamos el submenu
     $('.navegacion').removeClass('add-width'); 
+    $('body').css({'overflow-y':'auto'});
   });
 
 });

@@ -40,19 +40,23 @@ $userIdentifier = $user->ID;
                         <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/speed.png">
                     </div>
                 </div>
-            <div class="header-right">
-                <span class="ht-total-points">
-                    <span class="total_point">Total<span class="break">Points</span> </span>
-                    <span class="points">
-                        <div id="pop" class="pop_mock">
-                            <p>Refresh page to see latest points</p>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20.228" height="20.229" viewBox="0 0 20.228 20.229">
-                            <path id="Path_1536" data-name="Path 1536" d="M636.645-195a10.114,10.114,0,0,0-10.114,10.115,10.114,10.114,0,0,0,10.114,10.114,10.114,10.114,0,0,0,10.114-10.114A10.115,10.115,0,0,0,636.645-195Zm6.553,9.42-2.616,2.552.622,3.595a.911.911,0,0,1-.366.887.894.894,0,0,1-.961.072l-3.228-1.7-3.229,1.7a.908.908,0,0,1-.969-.072.928.928,0,0,1-.366-.887l.622-3.595-2.615-2.552a.9.9,0,0,1-.229-.933.913.913,0,0,1,.741-.622l3.6-.53,1.619-3.265a.944.944,0,0,1,1.637,0l1.619,3.265,3.6.53a.913.913,0,0,1,.741.622A.906.906,0,0,1,643.2-185.58Z" transform="translate(-626.531 195)" fill="#ffcd35"/>
-                        </svg>
-                        1055
+                <div class="ht-points">
+                    <span class="ht-total-points">
+                        <span class="total_point">Total<span class="break">Points</span> </span>
+                        <span class="points">
+                            <div id="pop" class="pop_mock">
+                                <p>Refresh page to see latest points</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20.228" height="20.229" viewBox="0 0 20.228 20.229">
+                                <path id="Path_1536" data-name="Path 1536" d="M636.645-195a10.114,10.114,0,0,0-10.114,10.115,10.114,10.114,0,0,0,10.114,10.114,10.114,10.114,0,0,0,10.114-10.114A10.115,10.115,0,0,0,636.645-195Zm6.553,9.42-2.616,2.552.622,3.595a.911.911,0,0,1-.366.887.894.894,0,0,1-.961.072l-3.228-1.7-3.229,1.7a.908.908,0,0,1-.969-.072.928.928,0,0,1-.366-.887l.622-3.595-2.615-2.552a.9.9,0,0,1-.229-.933.913.913,0,0,1,.741-.622l3.6-.53,1.619-3.265a.944.944,0,0,1,1.637,0l1.619,3.265,3.6.53a.913.913,0,0,1,.741.622A.906.906,0,0,1,643.2-185.58Z" transform="translate(-626.531 195)" fill="#ffcd35"/>
+                            </svg>
+                            1055
+                        </span>
                     </span>
-                </span>
+                </div>
+                
+            <div class="header-right">
+                
                 <span class="ht-school">
                     <a href="<?php echo get_bloginfo('url'); ?>" class="register">
                         <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/ht-school.svg">

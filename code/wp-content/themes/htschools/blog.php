@@ -129,14 +129,16 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   </div>
 </section>
 
-<div class="wrapper">
-<section class="latest-news">
+<div class="home-section editor_desk">
+<section class="home-copy">
 
 <?php $count=12;foreach ($menuitems as $key => $menu) { ?>
-
-  <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="latest-news">
-    <div class="container">
-      <?php
+<div class="section-header">
+        <h2 class="large-title"><?php echo $menu->title; ?></h2 >
+        <a class="view-all" href="#!">View More</a>
+      </div>
+  <div id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>" class="articles">
+    <?php
         $args = array(
         'post_type' => 'post',
         'post_status' => 'publish',
@@ -146,62 +148,59 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       $Query = new WP_Query( $args );
       if ($Query->have_posts()) :
       ?>
-      <div class="featured_headeing">
-        <h1><?php echo $menu->title; ?></h1>
-
-      </div>
+      
       <?php
       endif;
       if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
         if( $Query->current_post == 0 ) {
           ?>
-          <div class="col-sm-12 col-lg-5 mrg">
-            <div class="details-left">
-
+          <div class="featured">
+              <div class="image">
               <?php if ( has_post_thumbnail() ) {
                 $featured_image = get_the_post_thumbnail_url();
               }
               ?>
 
               <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
-              <div class="news-date">
-                <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-              </div>
-
-              <div class="link">
-                <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-              </div>
             </div>
-          </div>
+              <span class="date-time"><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
+              </span>
+
+              <h2 class="article-title">
+                <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+              </h2>
+            </div>
         <?php } endwhile; endif;?>
-        <div class="col-sm-12 col-lg-7 Interview_blog mrg">
-          <div class="col-sm-12 col-lg-6 mrg">
-            <div class="details-middle devide">
-              <ul class="">
+        <div class="img-artlce">
+           
                 <?php if ($Query->have_posts()) : $counter = 0; while ($Query->have_posts()) : $Query->the_post();
-                  if ($counter <= 3) :
+                  if ($counter <= 2) :
                   if( $Query->current_post != 0 ){
                   ?>
-                  <li>
-                    <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                    <div class="link">
-                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                  <div class="column">
+                    <div class="image">
+                        <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
                     </div>
-                  </li>
+                    <div class="copy">
+                        <span class="date-time">
+                          <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
+                            
+                        </span>
+                        <h2 class="article-title">
+                          <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                        </h2>
+                    </div>
+                  </div>
                   <?php
                   }
                 endif; $counter++; endwhile; endif; ?>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-12 col-lg-6 mrg newsRight_sect">
-            <div class="details-middle devide">
-              <ul class="">
+          <div class="column">
                 <?php if ($Query->have_posts()) : $counter1 = 0; while ($Query->have_posts()) : $Query->the_post();
-                  if ($counter1 > 3) :
-                  if( $Query->current_post != 0 ){
+                  if ($counter1 > 2) :
+                  if( $Query->current_post != 0 && $counter1 <= 4){
                   ?>
                   <li>
+                    <a href="<?php the_permalink(); ?>"> <img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
                     <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
                     <div class="link">
                       <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
@@ -210,10 +209,32 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                   <?php
                   }
                 endif; $counter1++; endwhile; endif; ?>
-              </ul>
-            </div>
-          </div>
+              </div>
         </div>
+        <div class="link-article">
+                            <ul>
+                                <li>
+                                    <span class="date-time">JUL 07, 2021 16:00</span>
+                                    <h2 class="article-title"><a href="#!">Game-Based Learning: How it makes kids smarter</a></h2>
+                                </li>
+                                <li>
+                                    <span class="date-time">JUL 07, 2021 16:00</span>
+                                    <h2 class="article-title"><a href="#!">How artificial intelligence is transforming classrooms</a></h2>
+                                </li>
+                                <li>
+                                    <span class="date-time">JUL 07, 2021 16:00</span>
+                                    <h2 class="article-title"><a href="#!">Is bacteria linked to the way babies experience fear?</a></h2>
+                                </li>
+                                <li>
+                                    <span class="date-time">JUL 07, 2021 16:00</span>
+                                    <h2 class="article-title"><a href="#!">Will 2021 see more Indian students opting to study abroad?</a></h2>
+                                </li>
+                                <li>
+                                    <span class="date-time">JUL 07, 2021 16:00</span>
+                                    <h2 class="article-title"><a href="#!">Do you pass on your anxiety to your kids? Here’s how to stop it</a></h2>
+                                </li>
+                            </ul>
+                        </div>
         <?php if ($Query->have_posts() && ($key % 2 == 1)) :?>
           <div class="col-lg-12 center">
             <?php /*
@@ -229,7 +250,6 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             </div>
           </div>
         <?php $count++; endif;?>
-      </div>
     </div>
   <?php } ?>
   </section>

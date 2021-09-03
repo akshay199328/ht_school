@@ -310,6 +310,15 @@ input#myInputTextField::-webkit-input-placeholder {
     background-position: 94%;
     top: 0px;
 }
+
+.dataTables_wrapper .dt-button.btn:not(:disabled):not(.disabled).active, 
+.dataTables_wrapper .dt-button.btn:not(:disabled):not(.disabled):active{
+    background: url(../images/download.svg) no-repeat right center;
+    border: 1px solid #000 !important;
+    color: #000;
+    box-shadow: none!important;
+    background-position: 94%;
+}
 .dataTables_wrapper .dt-button span {
     color: #000;
     font-size: 15px;

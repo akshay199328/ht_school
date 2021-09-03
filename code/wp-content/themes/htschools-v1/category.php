@@ -2,16 +2,22 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
-  <div class="innerheader-space"></div>
-<section class="news-listing grey-background">
-  <div class="<?php echo vibe_get_container(); ?>">
-    <div class="">
-    <div class="breadcrumbs background-breadcrumbs">
-      <?php vibe_breadcrumbs(); ?>  
+<section class="top-section home-section editor_desk" >
+  <?php do_action('wplms_before_title'); ?>
+  <div class="home-copy">
+    <div class="pagetitle breadcrumbs background-breadcrumbs">
+          <?php
+          $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
+          if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
+            vibe_breadcrumbs();
+          ?>
     </div>
-    <div class="course-tablist">
-      <div class="featured_tablist">
-        <ul class="tablist left_tab">
+  </div>
+</section>
+
+<section id="All" class="home-section editor_desk">
+  <div class="featured_tablist">
+    <ul class="tablist left_tab">
       <?php
           $menu_name = 'news-menu'; //menu slug
           $locations = get_nav_menu_locations();
@@ -36,9 +42,9 @@ get_header(vibe_get_header());
           }
       ?>
     </ul>
-      </div>
-      <div class="pagetitle">
-      <h1>
+  </div>
+  <div class="section-header">
+      <h2 class="semi_medium-title">
         <?php
           if(is_month()){
               single_month_title(' ');
@@ -54,16 +60,15 @@ get_header(vibe_get_header());
               post_type_archive_title();
           }
         ?>
-      </h1>
+      </h2>
       <h5><?php echo term_description(); ?></h5>
       </div>
-    </div>
 
    <!--  <?php $count=12;foreach ($menuitems as $key => $menu) { 
    
   ?> -->
-      <div class="col-sm-12 col-md-9 mrg content-left" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
-        <div class="content">
+<div class="content-left">
+    <div class="course-wrapper" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
         <?php
         $args = array(
           'post_type' => 'post',
@@ -103,23 +108,11 @@ get_header(vibe_get_header());
           posts_pagination();
         ?>
       </div>
-      </div>
+    </div>
+      
 <!-- <?php }?> -->
-
-      <div class="col-sm-12 col-md-3 content-right mrg">
-        <div class="category_topAD">
-          <?php
-            if ( is_active_sidebar( 'instructor_banner' ) ) :
-                dynamic_sidebar( 'instructor_banner' );      
-            endif;
-          ?>
-        </div>
-        <?php
-          query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=4');
-          if (have_posts()){
-          ?>
-          
-        <div class="sidebar">
+<div class="content-right">
+    <div class="sidebar">
           <h3>Popular on HTSchool</h3>
             <?php if (have_posts()) : $counter = 0; while (have_posts()) : the_post();
                 if ($counter <= 5) {
@@ -141,6 +134,21 @@ get_header(vibe_get_header());
                     if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
                     <?php endif; ?>
           </div>
+  </div>
+      <div class="col-sm-12 col-md-3 content-right mrg">
+        <div class="category_topAD">
+          <?php
+            if ( is_active_sidebar( 'instructor_banner' ) ) :
+                dynamic_sidebar( 'instructor_banner' );      
+            endif;
+          ?>
+        </div>
+        <?php
+          query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=4');
+          if (have_posts()){
+          ?>
+          
+        
         <?php } ?>
           <div class="category_bottomAD">
             <?php
@@ -153,9 +161,6 @@ get_header(vibe_get_header());
       </div>
       
     
-    
-    </div>
-  </div>
 </section>
 <?php
 

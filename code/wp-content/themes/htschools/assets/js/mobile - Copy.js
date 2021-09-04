@@ -1,13 +1,52 @@
+/*global $f:false */
 $(document).ready(function()
 {
   $('span.vibebp_name').css('display','none');
   setTimeout(function()
     {
-        $('span.vibebp_name').css('display','block');
+      $('span.vibebp_name').css('display','block');
+      
     }, 
     2000);
 });
+$('.woocommerce-error .eventcart').parent().show();
+// $(document).ready(function(){
 
+//     var iframe = document.querySelector('iframe');
+//     var player = new Vimeo.Player(iframe);
+//      var currentPos, percentage, vdoEndTym = "";
+//      var vdo_play = "";
+//     // vdo_play = setInterval(function ()
+//     // {
+//         player.on('timeupdate', function (getAll)
+//         {
+//             currentPos = getAll.seconds; //get currentime
+//             vdoEndTym = getAll.duration; //get video duration
+//             percentage = (getAll.percent * 100)+"%";
+//             console.log('currentPos: ' + currentPos);
+//             console.log('percentage: ' + percentage);
+//             console.log('vdoEndTym: ' + vdoEndTym);
+//         });
+//         player.on('ended', function ()
+//         {
+//           console.log("finished");
+//           $.ajax({
+//             type : "POST",
+//             dataType : "json",
+//             url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=video_watched_points",
+//             success: function(response) {
+//                  console.log(response);
+//             }
+//           });
+//             //clearInterval(vdo_play);
+//         });
+//     // }, 1000);
+
+//     // player.on('ended', function() {
+//     //     console.log('Finished.');
+//     // });
+
+// });
 $(window).on('scroll', function() { 
     if ($(window).scrollTop() >= $( 
     '.footer-check .heading').offset().top + $('.footer-check .heading'). 

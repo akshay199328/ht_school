@@ -35,17 +35,19 @@
   /**
    * Navbar links active state on scroll
    */
-  let navbarlinks = select('.fixedmenu-tabs .scrollto', true)
+  let navbarlinks = select('.fixedmenu-tabs .scrollto, .fixed_wrapper .navigation-wrapper .scrollto', true);
+  // let navbarlinks = select('.fixed_wrapper .navigation-wrapper .scrollto', true)
   const navbarlinksActive = () => {
-    let position = window.scrollY + 200
+    let position = window.scrollY + 50
     navbarlinks.forEach(navbarlink => {
       if (!navbarlink.hash) return
       let section = select(navbarlink.hash)
       if (!section) return
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
+          navbarlink.classList.add('active');
+          
       } else {
-        navbarlink.classList.remove('active')
+        navbarlink.classList.remove('active');
       }
     })
   }

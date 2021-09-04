@@ -43,6 +43,32 @@ get_header(vibe_get_header());
       ?>
     </ul>
   </div>
+  
+  <div class="section-header">
+      <h2 class="semi_medium-title">
+        <?php
+          if(is_month()){
+              single_month_title(' ');
+          }elseif(is_year()){
+              echo get_the_time('Y');
+          }else if(is_category()){
+              echo single_cat_title();
+          }else if(is_tag()){
+               single_tag_title();
+          }else if(is_tax()){
+              single_term_title();
+          }else{
+              post_type_archive_title();
+          }
+        ?>
+      </h2>
+      <h5><?php echo term_description(); ?></h5>
+      </div>
+
+   <!--  <?php $count=12;foreach ($menuitems as $key => $menu) { 
+   
+  ?> -->
+<div class="">
   <div class="top_article">
     <div class="column">
     <div class="course-card">
@@ -109,31 +135,6 @@ get_header(vibe_get_header());
     </div>
 </div>
   </div>
-  <div class="section-header">
-      <h2 class="semi_medium-title">
-        <?php
-          if(is_month()){
-              single_month_title(' ');
-          }elseif(is_year()){
-              echo get_the_time('Y');
-          }else if(is_category()){
-              echo single_cat_title();
-          }else if(is_tag()){
-               single_tag_title();
-          }else if(is_tax()){
-              single_term_title();
-          }else{
-              post_type_archive_title();
-          }
-        ?>
-      </h2>
-      <h5><?php echo term_description(); ?></h5>
-      </div>
-
-   <!--  <?php $count=12;foreach ($menuitems as $key => $menu) { 
-   
-  ?> -->
-<div class="">
     <div class="course-wrapper" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
         <?php
         $args = array(

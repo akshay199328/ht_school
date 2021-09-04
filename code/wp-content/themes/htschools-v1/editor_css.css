@@ -255,3 +255,15 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     /* width: 372.5px; */
     float: left;
 }
+.top_article .course-card {
+    width: 100%;
+    display: flex;
+    min-height: auto;
+}
+.top_article .course-card .image {
+    width: 90%;
+}
+.top_article .course-copy .excerpt.thumb h3 {
+    line-height: 40px;
+    font-size: 34px;
+}

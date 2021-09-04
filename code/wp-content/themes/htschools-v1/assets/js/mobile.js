@@ -1,32 +1,5 @@
 
-    // jQuery(document).ready(function($){
-    //  let slider = $('.course_slider');
-    //  slider.each(function () {
-    //  $(this).owlCarousel({
-    //      nav: true,
-    //      loop:false,
-    //      dots: false,
-    //      pagination: false,
-    //      margin: 25,
-    //      autoHeight: false,
-    //      stagePadding: 50,
-    //      responsive:{
-    //          0:{
-    //              items: 1,
-    //              stagePadding: 0,
-    //              margin: 30,
-    //          },
-    //          767:{
-    //              items: 3,
-    //              stagePadding: 25,
-    //          },
-    //          1000:{
-    //              items: 3,
-    //          }
-    //      }
-    //      });
-    //  });
-    // });
+    
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
         if (scroll >= 10) {
@@ -51,31 +24,7 @@
         $(".overlay").click(function(){
         $("body").removeClass("menuOpened");
         });
-        // $('.nav-tabs-wrapper .nav-tabs').owlCarousel({
-        //     navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
-        //     margin:0,
-        //     loop:false,
-        //     nav:true,
-        //     dots:false,
-        //     mouseDrag:false,
-        //     smartSpeed:1200,
-        //     autoWidth:true,
-        //     autoplay:true,
-        //     autoplayHoverPause:true,
-        //     merge:true,
-        //     responsive : {
-        //         320 : {
-        //             dots:true,
-        //         },
-        //         768 : {
-        //         },
-        //         1024 : {
-        //         },
-        //         1400 : {
-                    
-        //         },
-        //     }
-        // });
+        
         $('.course_listing_slider').owlCarousel({
             navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:0,
@@ -229,6 +178,33 @@ if($(window).width() <= 767) {
     
 
 }
+$(window).scroll(function() {
+    var windscroll = $(window).scrollTop();
+    if (windscroll >= 100) {
+        $('.editor_desk').each(function(index,e) {
+            if ($(this).position().top <= windscroll + 130) {
+              var id = $(this).attr('id');
+                //$('news-li').eq(e).addClass('active');
+                if(id != 'All'){
+                  $('.news-li.active').removeClass('active');
+                  $('.news-li[data-scroll="' + id + '"]').addClass('active');
+                }
+                else{
+                  $('.news-li.active').removeClass('active');
+                  $('.news-li[data-scroll="' + id + '"]').addClass('active');
+                }
+                //$(".news-li[data-id=" + $(this).attr('id') + "]").addClass("active");
+            }
+        });
+
+    } else {
+
+        //$('ul li.active').removeClass('active');
+        
+        $('ul li:first').addClass('active');
+    }
+
+}).scroll();
 if($(window).width() >= 768) {
   // alert(1234);
   $(window).scroll(function() {    

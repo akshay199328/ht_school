@@ -71,8 +71,8 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 }
 .home-section.infographics .section-header,
 .home-section.videos .section-header {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 .featured_tablist {
     margin: 0px 0px 20px 0px !important;
@@ -216,11 +216,12 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     .home-section {padding: 20px 20px!important;} 
     .remove-leftpadding{padding: 0px 0px!important;}
     .home-padding {padding: 50px 20px;}
+    .home-section.infographics .section-header, .home-section.videos .section-header {padding-left: 0;padding-right: 0;}
     .top-section.home-section.editor_desk{padding: 0px 20px!important;}
 }
 @media (max-width: 1024px) and (orientation: portrait), (max-width: 768px) and (orientation: landscape){
     .home-section.editor_desk .articles .featured{    width: 40.5%;}
-    .home-section.editor_desk .articles .link-article {width: 100%;}
+    .home-section.editor_desk .articles .link-article {width: 100%;padding-top: 20px !important;}
 }
 @media (max-width: 767px) and (orientation: portrait), (max-width: 767px) and (orientation: landscape){
     .home-section.editor_desk .articles .featured {margin-bottom: 25px;}

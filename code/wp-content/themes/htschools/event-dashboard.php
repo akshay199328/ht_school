@@ -157,84 +157,6 @@ $parts = explode("/", $link);
 $viemocode = end($parts);
 
 
-function earnPointsOnboarding($userID,$earnFrom){
-
-    global $wpdb;
-    $table_name = "ht_mycred_log";
-    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-        $my_cred_table = 'ht_mycred_log';
-    }else{
-        $my_cred_table = 'ht_myCRED_log';
-    }
-
-    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_engagement'");
-    foreach($results as $row){ 
-        $points = $row->points; 
-    }
-
-    if($points != ''){
-        return $points;
-    }else{
-        return 0;
-    }
-
-}
-
-function earnPointsLogReg($userID,$earnFrom){
-
-    global $wpdb;
-    $table_name = "ht_mycred_log";
-    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-        $my_cred_table = 'ht_mycred_log';
-    }else{
-        $my_cred_table = 'ht_myCRED_log';
-    }
-
-    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_engagement'");
-    foreach($results as $row){ 
-        $points = $row->points; 
-    }
-
-    if($points != ''){
-        return $points;
-    }else{
-        return 0;
-    }
-
-}
-
-function earnPointsVideo($userID,$earnFrom,$courseID){
-
-    global $wpdb;
-    $table_name = "ht_mycred_log";
-    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-        $my_cred_table = 'ht_mycred_log';
-    }else{
-        $my_cred_table = 'ht_myCRED_log';
-    }
-
-    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `data` = '$courseID' AND `ctype` = 'mycred_intellectual'");
-    foreach($results as $row){ 
-        $points = $row->points; 
-    }
-
-    if($points != ''){
-        return $points;
-    }else{
-        return 0;
-    }
-
-}
-
-
-$learning_points = earnPointsVideo($userID,'video_watched',$courseID)+earnPointsVideo($userID,'chapter_points',$courseID)+earnPointsVideo($userID,'video_points',$courseID)+earnPointsVideo($userID,'course_points',$courseID);
-
-$onboarding_points = earnPointsOnboarding($userID,'platform_onboarding_step1')+earnPointsOnboarding($userID,'platform_onboarding_step2')+earnPointsOnboarding($userID,'platform_onboarding_step3');
-
-$engagement_points = earnPointsLogReg($userID,'social_sharing')+earnPointsLogReg($userID,'logging_in')+earnPointsLogReg($userID,'registration')+earnPointsLogReg($userID,'referral_registration_payment')+$onboarding_points;
-
-$total_points = $learning_points+$engagement_points;
-
 function getQuizPointsTypeCount($quiz_type,$courseID){
     $course_curriculum = bp_course_get_full_course_curriculum($courseID);
       $quiz_arr = array();
@@ -845,15 +767,15 @@ div#ui-datepicker-div{
                                 <div class="pull-left">
                                     <h6>Points</h6>
                                 </div>
-                                <div class="pull-right">
+                                <!-- <div class="pull-right">
                                     <span class="total_point">Total<span class="break">Points</span> </span>
                                     <span class="points">
                                         <div id="pop" class="pop_mock">
                                             <p>Refresh page to see latest points</p>
                                         </div>
-                                        <?php echo $total_points; ?>
+                                        <?php //echo $total_points; ?>
                                     </span>
-                                </div>
+                                </div> -->
                                 <div class="board-button">
                                     <button type="button" class="earn-points-btn">VIEW POINT DETAILS</button>
                                 </div>

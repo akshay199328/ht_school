@@ -1556,6 +1556,33 @@ function save_custom_profile(){
 
           xprofile_set_field_data('Zone', $user_id, trim($zone));
 
+
+          /*// Event State
+          $resultsState = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Event State'");
+          foreach($resultsState as $rowState){ 
+              $statePriID = $rowState->id; 
+          }
+
+          $resultsScount = $wpdb->get_row("SELECT count(id) as statecount FROM `ht_bp_xprofile_data` WHERE `user_id` = '$user_id' and `field_id` = '$statePriID'");
+          $statecount = $resultsScount->statecount;
+
+          if($statecount == 0){
+            xprofile_set_field_data('Event State', $user_id, trim($_REQUEST['user_state']));
+          }
+
+          //Event Zone
+          $resultsZone = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Event Zone'");
+          foreach($resultsZone as $rowZone){ 
+              $zonePriID = $rowZone->id; 
+          }
+
+          $resultsZcount = $wpdb->get_row("SELECT count(id) as zonecount FROM `ht_bp_xprofile_data` WHERE `user_id` = '$user_id' and `field_id` = '$zonePriID'");
+          $zonecount = $resultsZcount->zonecount;
+
+          if($zonecount == 0){
+            xprofile_set_field_data('Event Zone', $user_id, trim($zone));
+          }*/
+
         }
 
         $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );  

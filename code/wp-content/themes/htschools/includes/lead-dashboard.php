@@ -7,6 +7,84 @@ if($page_name=="index.php"){
 $user = wp_get_current_user();
 $userIdentifier = $user->ID;
 
+function earnPointsOnboarding($userID,$earnFrom){
+
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+        $my_cred_table = 'ht_mycred_log';
+    }else{
+        $my_cred_table = 'ht_myCRED_log';
+    }
+
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_engagement'");
+    foreach($results as $row){ 
+        $points = $row->points; 
+    }
+
+    if($points != ''){
+        return $points;
+    }else{
+        return 0;
+    }
+
+}
+
+function earnPointsLogReg($userID,$earnFrom){
+
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+        $my_cred_table = 'ht_mycred_log';
+    }else{
+        $my_cred_table = 'ht_myCRED_log';
+    }
+
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `ctype` = 'mycred_engagement'");
+    foreach($results as $row){ 
+        $points = $row->points; 
+    }
+
+    if($points != ''){
+        return $points;
+    }else{
+        return 0;
+    }
+
+}
+
+function earnPointsVideo($userID,$earnFrom,$courseID){
+
+    global $wpdb;
+    $table_name = "ht_mycred_log";
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
+        $my_cred_table = 'ht_mycred_log';
+    }else{
+        $my_cred_table = 'ht_myCRED_log';
+    }
+
+    $results = $wpdb->get_results("SELECT SUM(creds) as points FROM `$my_cred_table` WHERE `user_id` = '$userID' AND `ref` = '$earnFrom' AND `data` = '$courseID' AND `ctype` = 'mycred_intellectual'");
+    foreach($results as $row){ 
+        $points = $row->points; 
+    }
+
+    if($points != ''){
+        return $points;
+    }else{
+        return 0;
+    }
+
+}
+
+
+$learning_points = earnPointsVideo($userID,'video_watched',$courseID)+earnPointsVideo($userID,'chapter_points',$courseID)+earnPointsVideo($userID,'video_points',$courseID)+earnPointsVideo($userID,'course_points',$courseID);
+
+$onboarding_points = earnPointsOnboarding($userID,'platform_onboarding_step1')+earnPointsOnboarding($userID,'platform_onboarding_step2')+earnPointsOnboarding($userID,'platform_onboarding_step3');
+
+$engagement_points = earnPointsLogReg($userID,'social_sharing')+earnPointsLogReg($userID,'logging_in')+earnPointsLogReg($userID,'registration')+earnPointsLogReg($userID,'referral_registration_payment')+$onboarding_points;
+
+$total_points = $learning_points+$engagement_points;
+
 ?>
 
 <!doctype html>
@@ -50,7 +128,7 @@ $userIdentifier = $user->ID;
                             <svg xmlns="http://www.w3.org/2000/svg" width="20.228" height="20.229" viewBox="0 0 20.228 20.229">
                                 <path id="Path_1536" data-name="Path 1536" d="M636.645-195a10.114,10.114,0,0,0-10.114,10.115,10.114,10.114,0,0,0,10.114,10.114,10.114,10.114,0,0,0,10.114-10.114A10.115,10.115,0,0,0,636.645-195Zm6.553,9.42-2.616,2.552.622,3.595a.911.911,0,0,1-.366.887.894.894,0,0,1-.961.072l-3.228-1.7-3.229,1.7a.908.908,0,0,1-.969-.072.928.928,0,0,1-.366-.887l.622-3.595-2.615-2.552a.9.9,0,0,1-.229-.933.913.913,0,0,1,.741-.622l3.6-.53,1.619-3.265a.944.944,0,0,1,1.637,0l1.619,3.265,3.6.53a.913.913,0,0,1,.741.622A.906.906,0,0,1,643.2-185.58Z" transform="translate(-626.531 195)" fill="#ffcd35"/>
                             </svg>
-                            1055
+                            <?php echo $total_points; ?>
                         </span>
                     </span>
                 </div>

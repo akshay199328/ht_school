@@ -84,6 +84,10 @@ $purchase_status = $course_status11+$course_status22+$course_status33;
                     <span class="title">POWERED BY</span>
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/speed.png">
                 </div>
+                <div class="column">
+                    <span class="title">Coding for Cause</span>
+                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/ibm.png">
+                </div>
             </div>
         <div class="header-right">
             <span class="ht-school">

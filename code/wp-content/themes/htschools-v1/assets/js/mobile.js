@@ -182,7 +182,7 @@ if($(window).width() <= 767) {
 $(window).scroll(function() {
     var windscroll = $(window).scrollTop();
     if (windscroll >= 100) {
-        $('.editor_desk').each(function(index,e) {
+        $('.articles').each(function(index,e) {
             if ($(this).position().top <= windscroll + 130) {
               var id = $(this).attr('id');
                 //$('news-li').eq(e).addClass('active');

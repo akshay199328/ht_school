@@ -283,78 +283,150 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   <div class="home-copy">
     <header class="section-header">
       <h2 class="large-title">Editor’s Desk</h2>
-        <a class="view-all" href="#!">View More</a>
+        <a class="view-all" href="<?php echo bloginfo('url')?>/editorsdesk" target="_blank">View More</a>
       </header>
+     <!--  <li class="nav-item" role="presentation"><a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li> -->
+      <?php 
+      $editor_all_tab_menu = '';
+      $editor_all_tab_content = '';
+      $args_news = array(
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'posts_per_page' => 10,
+          'order'=>'DESC',
+          'orderby' => 'publish_date',
+        );
+      $Query_news = new WP_Query( $args_news );
+
+      $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news-category" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
+      $editor_all_tab_content .= '
+        <div class="tab-pane fade show active" id="all-news-category" role="tabpanel" aria-labelledby="all-news-category"><div class="articles">';
+           if ($Query_news->have_posts()) : 
+
+          while ($Query_news->have_posts()) : $Query_news->the_post();
+          if( $Query_news->current_post == 0 ) {
+      $editor_all_tab_content .= '
+              <div class="featured">
+                <div class="image">';
+                  if ( has_post_thumbnail() ) {
+                    $featured_image = get_the_post_thumbnail_url(); } 
+                  $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a>
+                </div>
+                <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  <p>'.get_the_title().'</p>
+              </div>';
+              } endwhile; endif;
+
+          $editor_all_tab_content .= '<div class="img-artlce">';
+                if ($Query_news->have_posts()) : while ($Query_news->have_posts()) : $Query_news->the_post();
+                if( $Query_news->current_post >= 1 &&  $Query_news->current_post <= 4) {
+                  
+                $editor_all_tab_content .= '<div class="column">
+                  <div class="image">';
+                    if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    
+                    $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a></div>
+                    <div class="copy">
+                      <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                    </div>
+                </div>';
+                } endwhile; endif;  
+              $editor_all_tab_content .= '</div><div class="link-article">
+                <ul>';
+                  if ($Query_news->have_posts()) : while ($Query_news->have_posts()) : $Query_news->the_post();
+                          if( $Query_news->current_post >= 5 && $Query_news->current_post <= 9) {
+                  
+                  $editor_all_tab_content .= '<li>
+                    <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  </li>'; 
+                  } endwhile; endif;                                
+                $editor_all_tab_content .= '</ul>
+            </div></div></div>';
+      foreach ($menuitems as $menu) {
+        $editor_all_tab_menu .= '<li id='.$menu->ID.' class="nav-item" role="presentation" data-scroll='.$menu->ID.'><a class="nav-link" id="all-tab" data-toggle="tab" href="#'.$menu->title.'" role="tab" aria-controls="all" aria-selected="true" data-id='.$menu->ID.'>'.$menu->title.'</a></li>';  
+        $args = array(
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'category_name' => $menu->title,
+          'posts_per_page' => 10,
+          'order'=>'DESC',
+          'orderby' => 'publish_date',
+        );
+        $Query = new WP_Query( $args );
+        $editor_all_tab_content .='<div class="tab-pane fade show" id="'.$menu->title.'" role="tabpanel" aria-labelledby="all-'.$menu->title.'">
+            <div class="articles">';
+        if ($Query->have_posts()) : 
+
+          while ($Query->have_posts()) : $Query->the_post();
+          if( $Query->current_post == 0 ) {
+      $editor_all_tab_content .= '
+              <div class="featured">
+                <div class="image">';
+                  if ( has_post_thumbnail() ) {
+                    $featured_image = get_the_post_thumbnail_url(); } 
+                  $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a>
+                </div>
+                <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  <p>'.get_the_title().'</p>
+              </div>';
+              } endwhile; endif;
+
+          $editor_all_tab_content .= '<div class="img-artlce">';
+                if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                if( $Query->current_post >= 1 &&  $Query->current_post <= 4) {
+                  
+                $editor_all_tab_content .= '<div class="column">
+                  <div class="image">';
+                    if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    
+                    $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a></div>
+                    <div class="copy">
+                      <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                    </div>
+                </div>';
+                } endwhile; endif;  
+              $editor_all_tab_content .= '</div><div class="link-article">
+                <ul>';
+                  if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                          if( $Query->current_post >= 5 && $Query->current_post <= 9) {
+                  
+                  $editor_all_tab_content .= '<li>
+                    <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  </li>'; 
+                  } endwhile; endif;                                
+                $editor_all_tab_content .= '</ul>
+            </div></div></div>';
+
+      } 
+
+
+
+
+      ?> 
       <div class="nav-tabs-wrapper">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation"><a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li>
-            
-            <?php foreach ($menuitems as $menu) {?>
-              <li id="<?php echo $menu->ID; ?>" class="nav-item" role="presentation" data-scroll="<?php echo $menu->ID; ?>"><a class="nav-link" id="all-tab" data-toggle="tab" href="<?php echo $menu->url; ?>" role="tab" aria-controls="all" aria-selected="true" data-id="<?php echo $menu->ID; ?>"><?php echo $menu->title; ?></a></li>        
-            <?php } ?>           
+          
+            <?php echo $editor_all_tab_menu;?>
+                      
         </ul>
       </div>
 
-      <?php
-    $args = array(
-      'post_type' => 'post',
-      'post_status' => 'publish',
-      'posts_per_page' => 6,
-      'order'=>'DESC',
-    );
-    $Query = new WP_Query( $args );
-    if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-      if( $Query->current_post == 0 ) { ?>
+     
+          
         <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-            <div class="articles">
-              <div class="featured">
-                <div class="image">
-                  <?php if ( has_post_thumbnail() ) {
-                    $featured_image = get_the_post_thumbnail_url(); } ?>
-                  <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>"></a>
-                </div>
-                <span class="date-time"><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></span>
-                  <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a></h2>
-                  <p>A<?php echo get_the_title() ?></p>
-              </div>
-              <?php } endwhile; endif;?>
-
-              <div class="img-artlce">
-                <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                          if( $Query->current_post != 0 ) {
-                  ?>
-                <div class="column">
-                  <div class="image">
-                    <?php if ( has_post_thumbnail() ) {
-                      $featured_image = get_the_post_thumbnail_url();
-                    }
-                    ?>
-                    <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>"></a></div>
-                    <div class="copy">
-                      <span class="date-time"><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></span>
-                        <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a></h2>
-                    </div>
-                </div>
-                <?php } endwhile; endif; ?>                       
-              </div>
-              
-              <div class="link-article">
-                <ul>
-                  <?php if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                          if( $Query->current_post != 0 ) {
-                  ?>
-                  <li>
-                    <span class="date-time"><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></span>
-                      <h2 class="article-title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a></h2>
-                  </li> 
-                  <?php } endwhile; endif; ?>                               
-                </ul>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="acting" role="tabpanel" aria-labelledby="acting-tab">Acting</div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">fdsfsd</div>
+           <?php
+           echo $editor_all_tab_content;
+     ?>
       </div>
     </div>
   </section>
@@ -362,7 +434,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       <div class="home-copy">
         <header class="section-header">
           <h2 class="large-title">All Our Courses</h2>
-          <a class="view-all" href="<?php echo bloginfo('url')?>/all-courses">View All</a>
+          <a class="view-all" href="<?php echo bloginfo('url')?>/all-courses" target="_blank">View All</a>
         </header>
         <div class="nav-tabs-wrapper">
           <?php
@@ -662,8 +734,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
   </main><!-- End #main -->
   <script type="text/javascript">
     jQuery('#all-course-tab').click(function(){
-      alert("test");
-      jQuery('.tab-pane fade show active in').removeClass('active show in');
+      jQuery('#myTabContent .tab-pane').removeClass('active');
       jQuery('#all').addClass('tab-pane fade show active in');
     });
   </script>

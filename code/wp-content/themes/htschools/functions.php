@@ -2187,7 +2187,7 @@ function get_course_score()
     global $post, $wpdb;
     $course_id = $_POST['course_id'];
     $user = wp_get_current_user();
-    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY CAST(rel.meta_value as unsigned) DESC"));
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT DISTINCT meta.user_id,posts.ID AS id, rel.meta_value AS score FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE   posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY CAST(rel.meta_value as unsigned) DESC"));
     $result = $wpdb->get_results($query);
     if ($wpdb->num_rows <= 0)
     {
@@ -2419,6 +2419,7 @@ function get_user_rank()
     }
 }
 
+
 add_action('wp_ajax_nopriv_get_course_rank', 'get_course_rank');
 add_action('wp_ajax_get_course_rank', 'get_course_rank');
 
@@ -2427,7 +2428,7 @@ function get_course_rank()
      global $post, $wpdb;
     $course_id = $_POST['course_id'];
     $user = wp_get_current_user();
-    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT posts.post_title AS course,rel.meta_key AS user_id, rel.meta_value AS score,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY CAST(rel.meta_value as unsigned) DESC"));
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT DISTINCT meta.user_id,posts.ID AS id, rel.meta_value AS score FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE   posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.ID='" . $course_id . "' ORDER BY CAST(rel.meta_value as unsigned) DESC"));
     $result = $wpdb->get_results($query);
     if ($wpdb->num_rows <= 0)
     {
@@ -2484,7 +2485,8 @@ function get_rank()
     {
         $my_cred_table = 'ht_myCRED_log';
     }
-    $sql = "SELECT posts.post_title AS course,rel.meta_key AS user_id, posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND rel.meta_key REGEXP '^[0-9]+$' AND posts.post_status = 'publish' AND posts.ID='" . $course_id . "' ";
+    $sql = "SELECT posts.ID AS id,meta.user_id FROM ht_posts AS posts LEFT JOIN ht_usermeta AS meta ON posts.ID = meta.meta_key
+ WHERE   posts.post_type   = 'course' AND   posts.post_status   = 'publish' AND  posts.ID='" . $course_id . "' ";
     $results = $wpdb->get_results($sql);
     foreach ($results as $key1 => $v)
     {

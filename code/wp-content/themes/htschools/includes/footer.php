@@ -876,7 +876,6 @@ jQuery(document).ready(function(){
                  });
 
                  
-
                  $('body').on('click', '#saveStep1', function(){
 
                      if(validation_step1() != true){

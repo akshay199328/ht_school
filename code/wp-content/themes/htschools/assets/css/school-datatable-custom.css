@@ -124,6 +124,7 @@
     font-weight: normal!important;
     color: #000000;
     line-height: 19px;
+    text-align: center;
 }
 .post-top {
     display: flex;
@@ -135,7 +136,7 @@
     align-items: center;
 }
 .postbox_right {
-    width: 69%;
+    width: 75%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -242,7 +243,7 @@ input#myInputTextField::-webkit-input-placeholder {
     padding: 0;
     margin-right: 15px;
     -webkit-appearance: none;
-    width: 175px;
+    width: 195px;
     height: 37px;
     outline: 0;
     color: currentColor!important;
@@ -369,10 +370,10 @@ input#myInputTextField::-webkit-input-placeholder {
 .postbox.course_info .dataTables_wrapper table tbody td {
     font-size: 17px;
     font-weight: bold;
-    line-height: 60px;
+    line-height: 22px;
     color: #000;
     border: 0;
-    padding: 10px 5px;
+    padding: 25px 5px;
 }
 .mobile_view{display: none!important;}
 .postbox.course_info .dataTables_wrapper .dataTables_paginate {
@@ -438,6 +439,16 @@ input#myInputTextField::-webkit-input-placeholder {
  {
     display:none!important;
  }
+@media (max-width: 1366px) and (min-width: 768px){
+    .postbox_left {width: 26%;}
+    .postbox_right {width: 75%;}
+}
+@media (max-width: 1023px) and (min-width: 768px){
+    .select-sort, .select-class{margin-right: 8px;width: 170px;}
+    .select-sort{width: 135px;}
+    .dataTables_wrapper .dt-button span{display: none}
+    .dataTables_wrapper .dt-button{width: 31px;background-position: center;}
+}
 @media (max-width: 767px) and (orientation: portrait), (max-width: 767px) and (orientation: landscape){
     .school_studTotal, .school_studTotal .container {flex-direction: column;}
     .total-left, .total-right{width: 100%;}
@@ -451,12 +462,12 @@ input#myInputTextField::-webkit-input-placeholder {
     .post-top {display: flex;flex-direction: column;}
     .postbox_left {width: 100%;}
     .postbox_right{display: block;width: 100%;}
-    .select-sort, .select-class{width: 50%;margin-right: 10px;float: left;}
+    .select-sort, .select-class{width: 43%;margin-right: 10px;float: left;}
     .select-sort .title, .select-class .title, .custom_datatable select{font-size: 12px;padding: 5px 5px;}
     .custom_datatable select{font-size: 12px;padding: 5px 15px 5px 5px;}
     .select-sort .title, .select-class .title{padding-left: 5px;}
-    .select-sort {width: 115px;}
-    .dataTables_wrapper .dt-button{background-position: center;width: 31px;}
+    /*.select-sort {width: 115px;}*/
+    .dataTables_wrapper .dt-button{background-position: center;width: auto;}
     .dataTables_wrapper .dt-button span{display: none;}
     .cutom-checkbox .checkbox {margin: 20px 0px;padding-left: 30px;}
     .dataTables_wrapper { position: relative;}
@@ -467,4 +478,7 @@ input#myInputTextField::-webkit-input-placeholder {
     .postbox.course_info .dataTables_wrapper thead{height: 35px;}
     .postbox.course_info .dataTables_wrapper table tbody tr:after{    width: 64px;}
     .dataTables_wrapper .dt-buttons{top: -37px;}
+}
+@media (max-width: 380px) and (orientation: portrait), (max-width: 380px) and (orientation: landscape){
+    .dataTables_wrapper .dt-buttons{position: relative;top: 0px;margin-bottom: 20px;}
 }

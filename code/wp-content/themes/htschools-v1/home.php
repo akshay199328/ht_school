@@ -197,12 +197,14 @@ get_header(vibe_get_header());
                   <a href="#!">
                   <svg class="bookmark filled" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"/></svg>
                   </a>
-                  <a href="#share!" class="sharing" data-toggle="modal" data-target="#open_share_<?php echo $courseID;?>">
+                  <a href="#share!" data-toggle="modal" data-target="#open_share_<?php echo $courseID;?>" >
                   <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                   </a>
                 </div>
               </footer>
               <div class="sharing-course modal" id="open_share_<?php echo $courseID;?>">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
                 <button class="sharing close-button" type="submit"></button>
                 <div class="course-list">
                     <h4 class="title">Share This Course</h4>
@@ -215,14 +217,14 @@ get_header(vibe_get_header());
                             </div>
                             <h3 class="course-title"><?php echo $post->title?></h3>
                             <div class="footer">
-                                <?php the_course_price(); ?>
+                                <span class="price">₹800</span><span class="gst">+ GST</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="course-share">
                     <div class="copy">
-                        <input type="text" name="" value="<?php echo $courseslug;?>" readonly>
+                        <input type="text" name="" value="https://htschool.hindustantimes.com/course/business-boss/" readonly>
                         <button class="button" type="submit">Copy</button>
                     </div>
                     <div class="social">
@@ -241,6 +243,8 @@ get_header(vibe_get_header());
                     </div>
 
                 </div>
+              </div>
+              </div>
               </div>
             </div>
           </div>
@@ -279,188 +283,6 @@ get_header(vibe_get_header());
     </div>
   </section>
 
-<!--------------------------- CODE TO DO -------------------------------->
-
-<section class="home-section about-htschool">
-        <div class="copy">
-          <?php
-        $args1 = array(
-          'post_type' => 'about_ht_school',
-          'post_status' => 'publish',
-        );
-        $Query1 = new WP_Query( $args1 );
-        
-        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
-          $custom_fields = get_post_custom();
-        ?>
-            <h2 class="large-title"><?php echo the_title();?></h2>
-            <?php echo the_content(); ?>
-        </div>
-        
-        <?php echo $custom_fields['about_ht_school'][0];
-      endwhile; endif;
-        ?>
-        
-    </section>
-
-<!-- ======= Latest News Section ======= -->
-<?php
-$menu_name = 'news-menu'; //menu slug
-$locations = get_nav_menu_locations();
-$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-?>
-<section class="home-section editor_desk">
-  <div class="home-copy">
-    <header class="section-header">
-      <h2 class="large-title">Editor’s Desk</h2>
-        <a class="view-all" href="<?php echo bloginfo('url')?>/editorsdesk" target="_blank">View More</a>
-      </header>
-     <!--  <li class="nav-item" role="presentation"><a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li> -->
-      <?php 
-      $editor_all_tab_menu = '';
-      $editor_all_tab_content = '';
-      $args_news = array(
-          'post_type' => 'post',
-          'post_status' => 'publish',
-          'posts_per_page' => 10,
-          'order'=>'DESC',
-          'orderby' => 'publish_date',
-        );
-      $Query_news = new WP_Query( $args_news );
-
-      $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news-category" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
-      $editor_all_tab_content .= '
-        <div class="tab-pane fade show active" id="all-news-category" role="tabpanel" aria-labelledby="all-news-category"><div class="articles">';
-           if ($Query_news->have_posts()) : 
-
-          while ($Query_news->have_posts()) : $Query_news->the_post();
-          if( $Query_news->current_post == 0 ) {
-      $editor_all_tab_content .= '
-              <div class="featured">
-                <div class="image">';
-                  if ( has_post_thumbnail() ) {
-                    $featured_image = get_the_post_thumbnail_url(); } 
-                  $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a>
-                </div>
-                <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
-                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
-                  <p>'.get_the_title().'</p>
-              </div>';
-              } endwhile; endif;
-
-          $editor_all_tab_content .= '<div class="img-artlce">';
-                if ($Query_news->have_posts()) : while ($Query_news->have_posts()) : $Query_news->the_post();
-                if( $Query_news->current_post >= 1 &&  $Query_news->current_post <= 4) {
-                  
-                $editor_all_tab_content .= '<div class="column">
-                  <div class="image">';
-                    if ( has_post_thumbnail() ) {
-                      $featured_image = get_the_post_thumbnail_url();
-                    }
-                    
-                    $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a></div>
-                    <div class="copy">
-                      <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
-                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
-                    </div>
-                </div>';
-                } endwhile; endif;  
-              $editor_all_tab_content .= '</div><div class="link-article">
-                <ul>';
-                  if ($Query_news->have_posts()) : while ($Query_news->have_posts()) : $Query_news->the_post();
-                          if( $Query_news->current_post >= 5 && $Query_news->current_post <= 9) {
-                  
-                  $editor_all_tab_content .= '<li>
-                    <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
-                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
-                  </li>'; 
-                  } endwhile; endif;                                
-                $editor_all_tab_content .= '</ul>
-            </div></div></div>';
-      foreach ($menuitems as $menu) {
-        $editor_all_tab_menu .= '<li id='.$menu->ID.' class="nav-item" role="presentation" data-scroll='.$menu->ID.'><a class="nav-link" id="all-tab" data-toggle="tab" href="#category_'.$menu->ID.'" role="tab" aria-controls="all" aria-selected="true" data-id='.$menu->ID.'>'.$menu->title.'</a></li>';  
-        $args = array(
-          'post_type' => 'post',
-          'post_status' => 'publish',
-          'category_name' => $menu->title,
-          'posts_per_page' => 10,
-          'order'=>'DESC',
-          'orderby' => 'publish_date',
-        );
-        $Query = new WP_Query( $args );
-        $editor_all_tab_content .='<div class="tab-pane fade show" id="category_'.$menu->ID.'" role="tabpanel" aria-labelledby="all-'.$menu->title.'">
-            <div class="articles">';
-        if ($Query->have_posts()) : 
-
-          while ($Query->have_posts()) : $Query->the_post();
-          if( $Query->current_post == 0 ) {
-      $editor_all_tab_content .= '
-              <div class="featured">
-                <div class="image">';
-                  if ( has_post_thumbnail() ) {
-                    $featured_image = get_the_post_thumbnail_url(); } 
-                  $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a>
-                </div>
-                <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
-                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
-                  <p>'.get_the_title().'</p>
-              </div>';
-              } endwhile; endif;
-
-          $editor_all_tab_content .= '<div class="img-artlce">';
-                if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                if( $Query->current_post >= 1 &&  $Query->current_post <= 4) {
-                  
-                $editor_all_tab_content .= '<div class="column">
-                  <div class="image">';
-                    if ( has_post_thumbnail() ) {
-                      $featured_image = get_the_post_thumbnail_url();
-                    }
-                    
-                    $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a></div>
-                    <div class="copy">
-                      <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
-                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
-                    </div>
-                </div>';
-                } endwhile; endif;  
-              $editor_all_tab_content .= '</div><div class="link-article">
-                <ul>';
-                  if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
-                          if( $Query->current_post >= 5 && $Query->current_post <= 9) {
-                  
-                  $editor_all_tab_content .= '<li>
-                    <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
-                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
-                  </li>'; 
-                  } endwhile; endif;                                
-                $editor_all_tab_content .= '</ul>
-            </div></div></div>';
-
-      } 
-
-
-
-
-      ?> 
-      <div class="nav-tabs-wrapper">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          
-            <?php echo $editor_all_tab_menu;?>
-                      
-        </ul>
-      </div>
-
-     
-          
-        <div class="tab-content" id="myTabContent">
-           <?php
-           echo $editor_all_tab_content;
-     ?>
-      </div>
-    </div>
-  </section>
   <section class="home-section all-courses">
       <div class="home-copy">
         <header class="section-header">
@@ -540,7 +362,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                 <figure class="image"><img alt="International Graded Guitar Exam Course" src="'. $image_url.'"></figure>
                 <div class="course-copy">
                   <header class="course-header">
-                    <a class="category" href="#">'.$category_array[0]->term_id.'</a>
+                    <a class="category" href="#">'.$category_array[0]->name.'</a>
                     <span class="badge '.$badge_class.'">'.$course_type.'</span>
                   </header>
                   <h2 class="course-title"><a href="'.get_permalink($post->ID).'">'. $post->post_title.'</a></h2>
@@ -557,7 +379,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                       <a href="#bookmark!">
                       <svg class="bookmark filled" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"/></svg>
                       </a>
-                      <a href="#share!" class="sharing" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
+                      <a href="#share!" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
                       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                       </a>
                     </div>
@@ -580,8 +402,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                 </div>
               </div>
             </div>';
-            $tab_content .= '<div class="sharing-course modal" id="open_share_'.$courseID.'">
-        <button class="sharing close-button" type="submit"></button>
+            $tab_content .= '<div class="sharing-course modal fade" id="open_share_'.$courseID.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+        <button class="close-button" type="submit"></button>
         <div class="course-list">
             <h4 class="title">Share This Course</h4>
             <div class="list">
@@ -618,7 +442,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                     <a class="a2a_button_telegram"></a>
               </div>
             </div>
-
+            </div>
+            </div>
         </div>
     </div>';
 
@@ -633,9 +458,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             
             
           $tab_menu .= '
-           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#course_category_'.$term->term_id.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
+           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#'.$term->name.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
           ';
-          $tab_content .= '<div class="tab-pane fade show" id="course_category_'.$term->term_id.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
+          $tab_content .= '<div class="tab-pane fade show" id="'.$term->name.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
           ';
         
             $tab_content .='<div class="course-wrapper">';
@@ -733,7 +558,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                       <a href="#bookmark!">
                         <svg class="bookmark filled" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"/></svg>
                       </a>
-                      <a href="#share!" class="sharing" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
+                      <a href="#share!" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
                       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                       </a>
                     </div>
@@ -752,8 +577,10 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                   <input type="hidden" id="wishlisted_course_'.$courseID.'" value="0">
                 </div>
               </div>
-            </div><div class="sharing-course modal" id="open_share_'.$courseID.'">
-        <button class="sharing close-button" type="submit"></button>
+            </div><div class="sharing-course modal fade" id="open_share_'.$courseID.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+        <button class="close-button" type="submit"></button>
         <div class="course-list">
             <h4 class="title">Share This Course</h4>
             <div class="list">
@@ -789,8 +616,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                     <a class="a2a_button_telegram"></a>
               </div>
             </div>
-
         </div>
+    </div>
+    </div>
     </div>';
                 
                 
@@ -821,6 +649,198 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
       </div>
     </section>
+
+<!--------------------------- CODE TO DO -------------------------------->
+
+<section class="home-section about-htschool">
+        <div class="copy">
+            <h2 class="large-title">About HT School</h2>
+            <p>Unveiling HT School, India’s smartest education initiative from the pioneering media group, Hindustan Times Join the HT School bandwagon to supplement your child’s academic excellence with real-life skills and the competitive edge that will set them up for success.</p>
+        </div>
+        <div class="logo-wrapper">
+            <div class="logo">
+                <div class="column">
+                    <img src="<?php echo bloginfo('template_url')?>/assets/images/about/career-mate.jpg" alt="Career Mate">
+                    <a class="view-all" href="#!">Career Mate</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6.165" height="74.246" viewBox="0 0 6.165 74.246"><path id="Path_39321" data-name="Path 39321" d="M1091.286,1950.1c-1.048-.067-2.038-.13-2.843-.131q-1.712,0-3.423-.005-1.817,0-3.634,0-2.573,0-5.144.023a.823.823,0,0,0-.83.839.878.878,0,0,0,.868.892c2,.021,4.124.03,6.682.03q2.879,0,5.759-.01,2.661-.008,5.325-.011c.406,0,1.006.054,1.7.116.919.083,1.96.177,2.907.177a4.736,4.736,0,0,0,2.46-.459,10.06,10.06,0,0,0,1.371-1.155c.894-.84,1.908-1.793,2.817-1.793a1.213,1.213,0,0,1,.372.057c.471.15.926.316,1.378.48a12.334,12.334,0,0,0,4.3.987c.581,0,1.162,0,1.744-.007.621,0,1.243-.007,1.865-.007a60,60,0,0,1,6.285.263,110.423,110.423,0,0,1,14.306,2.752.763.763,0,0,0,.179.022.8.8,0,0,0,.666-.377c.78-1.161,2.242-1.726,4.469-1.726a31.051,31.051,0,0,1,6.382.937l.462.1.171-.108c.252-.159.507-.316.762-.465l1.017-.592-1.136-.307a15.137,15.137,0,0,0-2.8-.557c-.582-.042-1.2-.116-1.851-.194a28.2,28.2,0,0,0-3.358-.27,8.557,8.557,0,0,0-2.787.4,5.749,5.749,0,0,0-2.147,1.225.967.967,0,0,1-.618.149,10.361,10.361,0,0,1-2.677-.613c-.388-.125-.724-.233-.98-.291a71.783,71.783,0,0,0-11.245-1.8c-1.216-.075-2.412-.107-3.568-.138a33.786,33.786,0,0,1-9.7-1.21,6.642,6.642,0,0,0-1.953-.332,2.765,2.765,0,0,0-2.419,1.105c-1.014,1.485-3.255,2.176-7.053,2.176C1093.979,1950.272,1092.548,1950.18,1091.286,1950.1Z" transform="translate(1953.155 -1075.412) rotate(90)" fill="#171724"/></svg>
+                </div>
+                <div class="column">
+                    <img src="<?php echo bloginfo('template_url')?>/assets/images/about/olympiad.jpg" alt="Olympiad 2021">
+                    <a class="view-all" href="#!">Olympiad 2021</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6.165" height="74.246" viewBox="0 0 6.165 74.246"><path id="Path_39321" data-name="Path 39321" d="M1091.286,1950.1c-1.048-.067-2.038-.13-2.843-.131q-1.712,0-3.423-.005-1.817,0-3.634,0-2.573,0-5.144.023a.823.823,0,0,0-.83.839.878.878,0,0,0,.868.892c2,.021,4.124.03,6.682.03q2.879,0,5.759-.01,2.661-.008,5.325-.011c.406,0,1.006.054,1.7.116.919.083,1.96.177,2.907.177a4.736,4.736,0,0,0,2.46-.459,10.06,10.06,0,0,0,1.371-1.155c.894-.84,1.908-1.793,2.817-1.793a1.213,1.213,0,0,1,.372.057c.471.15.926.316,1.378.48a12.334,12.334,0,0,0,4.3.987c.581,0,1.162,0,1.744-.007.621,0,1.243-.007,1.865-.007a60,60,0,0,1,6.285.263,110.423,110.423,0,0,1,14.306,2.752.763.763,0,0,0,.179.022.8.8,0,0,0,.666-.377c.78-1.161,2.242-1.726,4.469-1.726a31.051,31.051,0,0,1,6.382.937l.462.1.171-.108c.252-.159.507-.316.762-.465l1.017-.592-1.136-.307a15.137,15.137,0,0,0-2.8-.557c-.582-.042-1.2-.116-1.851-.194a28.2,28.2,0,0,0-3.358-.27,8.557,8.557,0,0,0-2.787.4,5.749,5.749,0,0,0-2.147,1.225.967.967,0,0,1-.618.149,10.361,10.361,0,0,1-2.677-.613c-.388-.125-.724-.233-.98-.291a71.783,71.783,0,0,0-11.245-1.8c-1.216-.075-2.412-.107-3.568-.138a33.786,33.786,0,0,1-9.7-1.21,6.642,6.642,0,0,0-1.953-.332,2.765,2.765,0,0,0-2.419,1.105c-1.014,1.485-3.255,2.176-7.053,2.176C1093.979,1950.272,1092.548,1950.18,1091.286,1950.1Z" transform="translate(1953.155 -1075.412) rotate(90)" fill="#171724"/></svg>
+                </div>
+                <div class="column">
+                    <img src="<?php echo bloginfo('template_url')?>/assets/images/about/codeathon.jpg" alt="Code A Thon">
+                    <a class="view-all" href="#!">Code A Thon</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6.165" height="74.246" viewBox="0 0 6.165 74.246"><path id="Path_39321" data-name="Path 39321" d="M1091.286,1950.1c-1.048-.067-2.038-.13-2.843-.131q-1.712,0-3.423-.005-1.817,0-3.634,0-2.573,0-5.144.023a.823.823,0,0,0-.83.839.878.878,0,0,0,.868.892c2,.021,4.124.03,6.682.03q2.879,0,5.759-.01,2.661-.008,5.325-.011c.406,0,1.006.054,1.7.116.919.083,1.96.177,2.907.177a4.736,4.736,0,0,0,2.46-.459,10.06,10.06,0,0,0,1.371-1.155c.894-.84,1.908-1.793,2.817-1.793a1.213,1.213,0,0,1,.372.057c.471.15.926.316,1.378.48a12.334,12.334,0,0,0,4.3.987c.581,0,1.162,0,1.744-.007.621,0,1.243-.007,1.865-.007a60,60,0,0,1,6.285.263,110.423,110.423,0,0,1,14.306,2.752.763.763,0,0,0,.179.022.8.8,0,0,0,.666-.377c.78-1.161,2.242-1.726,4.469-1.726a31.051,31.051,0,0,1,6.382.937l.462.1.171-.108c.252-.159.507-.316.762-.465l1.017-.592-1.136-.307a15.137,15.137,0,0,0-2.8-.557c-.582-.042-1.2-.116-1.851-.194a28.2,28.2,0,0,0-3.358-.27,8.557,8.557,0,0,0-2.787.4,5.749,5.749,0,0,0-2.147,1.225.967.967,0,0,1-.618.149,10.361,10.361,0,0,1-2.677-.613c-.388-.125-.724-.233-.98-.291a71.783,71.783,0,0,0-11.245-1.8c-1.216-.075-2.412-.107-3.568-.138a33.786,33.786,0,0,1-9.7-1.21,6.642,6.642,0,0,0-1.953-.332,2.765,2.765,0,0,0-2.419,1.105c-1.014,1.485-3.255,2.176-7.053,2.176C1093.979,1950.272,1092.548,1950.18,1091.286,1950.1Z" transform="translate(1953.155 -1075.412) rotate(90)" fill="#171724"/></svg>
+                </div>
+                <div class="column">
+                    <img src="<?php echo bloginfo('template_url')?>/assets/images/about/scholarship.jpg" alt="Scholarship">
+                    <a class="view-all" href="#!">Scholarship</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ======= Latest News Section ======= -->
+<?php
+$menu_name = 'news-menu'; //menu slug
+$locations = get_nav_menu_locations();
+$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+?>
+<section class="home-section editor_desk">
+  <div class="home-copy">
+    <header class="section-header">
+      <h2 class="large-title">Editor’s Desk</h2>
+        <a class="view-all" href="<?php echo bloginfo('url')?>/editorsdesk" target="_blank">View More</a>
+      </header>
+     <!--  <li class="nav-item" role="presentation"><a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li> -->
+      <?php 
+      $editor_all_tab_menu = '';
+      $editor_all_tab_content = '';
+      $args_news = array(
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'posts_per_page' => 10,
+          'order'=>'DESC',
+          'orderby' => 'publish_date',
+        );
+      $Query_news = new WP_Query( $args_news );
+
+      $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news-category" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
+      $editor_all_tab_content .= '
+        <div class="tab-pane fade show active" id="all-news-category" role="tabpanel" aria-labelledby="all-news-category"><div class="articles">';
+           if ($Query_news->have_posts()) : 
+
+          while ($Query_news->have_posts()) : $Query_news->the_post();
+          if( $Query_news->current_post == 0 ) {
+      $editor_all_tab_content .= '
+              <div class="featured">
+                <div class="image">';
+                  if ( has_post_thumbnail() ) {
+                    $featured_image = get_the_post_thumbnail_url(); } 
+                  $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a>
+                </div>
+                <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  <p>'.get_the_title().'</p>
+              </div>';
+              } endwhile; endif;
+
+          $editor_all_tab_content .= '<div class="img-artlce">';
+                if ($Query_news->have_posts()) : while ($Query_news->have_posts()) : $Query_news->the_post();
+                if( $Query_news->current_post >= 1 &&  $Query_news->current_post <= 4) {
+                  
+                $editor_all_tab_content .= '<div class="column">
+                  <div class="image">';
+                    if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    
+                    $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a></div>
+                    <div class="copy">
+                      <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                    </div>
+                </div>';
+                } endwhile; endif;  
+              $editor_all_tab_content .= '</div><div class="link-article">
+                <ul>';
+                  if ($Query_news->have_posts()) : while ($Query_news->have_posts()) : $Query_news->the_post();
+                          if( $Query_news->current_post >= 5 && $Query_news->current_post <= 9) {
+                  
+                  $editor_all_tab_content .= '<li>
+                    <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  </li>'; 
+                  } endwhile; endif;                                
+                $editor_all_tab_content .= '</ul>
+            </div></div></div>';
+      foreach ($menuitems as $menu) {
+        $editor_all_tab_menu .= '<li id='.$menu->ID.' class="nav-item" role="presentation" data-scroll='.$menu->ID.'><a class="nav-link" id="all-tab" data-toggle="tab" href="#'.$menu->title.'" role="tab" aria-controls="all" aria-selected="true" data-id='.$menu->ID.'>'.$menu->title.'</a></li>';  
+        $args = array(
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'category_name' => $menu->title,
+          'posts_per_page' => 10,
+          'order'=>'DESC',
+          'orderby' => 'publish_date',
+        );
+        $Query = new WP_Query( $args );
+        $editor_all_tab_content .='<div class="tab-pane fade show" id="'.$menu->title.'" role="tabpanel" aria-labelledby="all-'.$menu->title.'">
+            <div class="articles">';
+        if ($Query->have_posts()) : 
+
+          while ($Query->have_posts()) : $Query->the_post();
+          if( $Query->current_post == 0 ) {
+      $editor_all_tab_content .= '
+              <div class="featured">
+                <div class="image">';
+                  if ( has_post_thumbnail() ) {
+                    $featured_image = get_the_post_thumbnail_url(); } 
+                  $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a>
+                </div>
+                <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  <p>'.get_the_title().'</p>
+              </div>';
+              } endwhile; endif;
+
+          $editor_all_tab_content .= '<div class="img-artlce">';
+                if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                if( $Query->current_post >= 1 &&  $Query->current_post <= 4) {
+                  
+                $editor_all_tab_content .= '<div class="column">
+                  <div class="image">';
+                    if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    
+                    $editor_all_tab_content .= '<a href='.post_permalink().'><img src='.$featured_image.'></a></div>
+                    <div class="copy">
+                      <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                    </div>
+                </div>';
+                } endwhile; endif;  
+              $editor_all_tab_content .= '</div><div class="link-article">
+                <ul>';
+                  if ($Query->have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+                          if( $Query->current_post >= 5 && $Query->current_post <= 9) {
+                  
+                  $editor_all_tab_content .= '<li>
+                    <span class="date-time">'.strtoupper(get_post_meta(get_the_ID(), 'news_location', true)).' '.get_the_date('M d, Y H:i').'</span>
+                  <h2 class="article-title"><a href='.post_permalink().'>'.get_the_title().'</a></h2>
+                  </li>'; 
+                  } endwhile; endif;                                
+                $editor_all_tab_content .= '</ul>
+            </div></div></div>';
+
+      } 
+
+
+
+
+      ?> 
+      <div class="nav-tabs-wrapper">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          
+            <?php echo $editor_all_tab_menu;?>
+                      
+        </ul>
+      </div>
+
+     
+          
+        <div class="tab-content" id="myTabContent">
+           <?php
+           echo $editor_all_tab_content;
+     ?>
+      </div>
+    </div>
+  </section>
 
     <section class="home-section student-testimonials">
       <div class="home-copy">
@@ -870,12 +890,12 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
   </section>
   </main><!-- End #main -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     jQuery('#all-course-tab').click(function(){
       jQuery('#myTabContent .tab-pane').removeClass('active');
       jQuery('#all').addClass('tab-pane fade show active in');
     });
-  </script>
+  </script> -->
   <?php
   get_footer(vibe_get_footer());
   ?>

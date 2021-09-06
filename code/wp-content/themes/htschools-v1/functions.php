@@ -264,12 +264,12 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     if ( !is_page_template('event-dashboard.php')){
     }
     //wp_enqueue_style( 'wplms-custom', get_template_directory_uri(). '/custom.css?v=1.1' );
-      wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css?v=1.1' );
       //wp_enqueue_style( 'wplms-responsive', get_template_directory_uri(). '/assets/css/responsive.css?v=1.1');
     //wp_enqueue_style( 'wplms-customizer-css-v1', get_template_directory_uri(). '/style-v1.css?v=1.1' );
-      wp_enqueue_style( 'wplms-editor-css-v1', get_template_directory_uri(). '/editor_css.css?v=1.1' );
+    wp_enqueue_style( 'wplms-editor-css-v1', get_template_directory_uri(). '/editor_css.css?v=1.1' );
     wp_enqueue_style( 'wplms-bootstrap-icons', get_template_directory_uri(). '/assets/vendor/bootstrap-icons/bootstrap-icons.css?v=1.1' );
     wp_enqueue_style( 'wplms-bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css?v=1.1' );
+    wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css?v=1.1' );
     wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css?v=1.1' );
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
     // wp_enqueue_script( 'wplms-froogaloop2', '//f.vimeocdn.com/js/froogaloop2.min.js', '', '', true );
@@ -1011,15 +1011,16 @@ function my_header_add_to_cart_fragment( $fragments ) {
 
     ob_start();
     $count = WC()->cart->cart_contents_count;
-    ?><li><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
-      <img alt="View your shopping cart" src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg">
+    ?><a class="cart-contents cart" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+      <!-- <img alt="View your shopping cart" src="<?php echo get_bloginfo('template_url');?>/assets/images/cart.svg"> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25"><g id="Group_15698" data-name="Group 15698" transform="translate(-970 -26.458)"> <g id="Group_15651" data-name="Group 15651" transform="translate(971 27.458)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.877l5.87,17.555h13.838" transform="translate(11952.5 -9580.5)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h22.9l-4.449,10.313h-14.859" transform="translate(11903.602 -9607.27)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(8.975 20.39)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.805" cy="1.805" r="1.805" stroke="none"/> <circle cx="1.805" cy="1.805" r="0.805" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(19.747 20.39)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.805" cy="1.805" r="1.805" stroke="none"/> <circle cx="1.805" cy="1.805" r="0.805" fill="none"/> </g> </g> </g></svg>
       <?php
     if ( $count > 0 ) {
         ?>
-        <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
+        <span class="total"><?php echo esc_html( $count ); ?></span>
         <?php
     }
-        ?></a></li><?php
+        ?></a><?php
 
     //$fragments['a.cart-contents'] = ob_get_clean();
 

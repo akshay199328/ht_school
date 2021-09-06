@@ -79,7 +79,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     /*position: sticky;
     top: 91px;
     z-index: 99;*/
-    background: #fff;
+    /*background: #fff;*/
 }
 .featured_tablist.sticky-nav {
     position: fixed;
@@ -90,6 +90,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     right: 0;
     padding: 20px 2%;
     height: 80px;
+    background: #fff;
 }
 .tablist {
     margin: 0px 0 60px 0;
@@ -143,7 +144,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 }
 .home-section.infographics .semi_medium-title{ color:#000;}
 .home-section.videos .semi_medium-title{color:#fff!important;}
-.page-template-blog .view-all {border: 2px solid #000;color:#000!important;}
+.page-template-blog .view-all, .page-template-blog .view-all:hover {border-radius: 10px;background:transparent;border: 2px solid #000;color:#000!important;}
 .home-section.videos .view-all {border: 2px solid #fff;color:#fff!important;}
 .remove-leftpadding{padding: 0px 0px;padding-bottom: 0px !important;}
 .home-section.editor_desk.remove-leftpadding .articles{background: #F6F7F7;}
@@ -246,6 +247,9 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 
 
 /*----Editor listing CSS : Start----*/
+.editor_desk_listing{
+    display: flex;
+}
 .content-left{
     width: 73%;
     float: left;
@@ -260,6 +264,8 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     width: 100%;
     display: flex;
     min-height: auto;
+    box-shadow: 0 2px 32px rgb(41 71 94 / 8%);
+    border-radius: 8px;
 }
 .top_article .course-card .image {
     width: 90%;

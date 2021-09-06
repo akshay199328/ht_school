@@ -1,3 +1,6 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+</style>
 .pagesidebar{display: none;}
 a{
     color: #0C5ACC!important;
@@ -57,7 +60,7 @@ ol.breadcrumbs li a {
 
 ol.breadcrumbs li a span{color: #5A5A5A;}
 .top-section.home-section.editor_desk {
-    padding: 0 2%;    margin-top: 10px;
+    padding: 0 2.5%;    margin-top: 10px;
 }
 #All.home-section.editor_desk {
     padding-top: 0;
@@ -68,6 +71,9 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     box-shadow: none;
     display: flex;
     width: 100%;
+}
+.home-section.editor_desk .section-header {
+    margin-bottom: 30px;
 }
 .home-section.infographics .section-header,
 .home-section.videos .section-header {
@@ -93,7 +99,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     background: #fff;
 }
 .tablist {
-    margin: 0px 0 60px 0;
+    margin: 0px 0 45px 0;
     padding: 0;
 }
 .featured_tablist li.active {
@@ -119,6 +125,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     font-weight: 500;
     padding: .5rem .5rem;
 }
+.home-section.editor_desk .articles .img-artlce{justify-content: flex-start!important;}
 .home-section.infographics{
     background-color: #F6F7F7;
     color: #FFF;
@@ -172,11 +179,11 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .home-section.videos .semi_medium-title{color:#fff!important;}
 .page-template-blog .view-all, .page-template-blog .view-all:hover {border-radius: 10px;background:transparent;border: 2px solid #000;color:#000!important;}
 .home-section.videos .view-all {border: 2px solid #fff;color:#fff!important;}
-.remove-leftpadding{padding: 0px 0px;padding-bottom: 0px !important;}
+.remove-leftpadding{padding: 0px 0px!important;padding-bottom: 0px !important;}
 .home-section.editor_desk.remove-leftpadding .articles{background: #F6F7F7;}
 .home-section.editor_desk.remove-leftpadding .articles:nth-child(2n+2){background: #fff;}
 .home-padding{
-    padding:50px 2%;
+    padding:50px 2.5%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -226,6 +233,24 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+.full-advertisement .adwork_text {
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    display: block;
+    color: #777;
+    font-size: 10px;
+    line-height: 16px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .course-card{min-height: 325px;}
 @media (min-width: 768px){
@@ -281,12 +306,19 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .content-left{
     width: 73%;
     float: left;
-    padding-right: 90px;
+    padding-right: 59px;
 }
 .content-right{
     width: 27%;
     /* width: 372.5px; */
     float: left;
+}
+.top_article {
+    margin-bottom: 30px;
+    padding-right: 31px
+}
+.content-left .course-wrapper .column {
+    padding: 0px;padding-right: 31px;
 }
 .top_article .course-card {
     width: 100%;
@@ -302,3 +334,23 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     line-height: 40px;
     font-size: 34px;
 }
+@media (max-width: 2048px){
+    .content-left .course-wrapper .column {
+        width: 33.33%!important;
+    }
+}
+@media (max-width: 1024px) and (orientation: landscape){
+    .content-left .course-wrapper .column {
+        width: 50%!important;
+    }
+}
+@media (max-width: 768px) and (orientation: portrait){
+    .content-left, .content-right {width: 100%;padding-right: 0px;}
+    .content-left .course-wrapper .column {
+        width: 100%!important;
+        padding: 0 15px;
+    }
+}
+
+
+

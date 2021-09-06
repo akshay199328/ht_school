@@ -37,7 +37,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
 
 <!-- ======= Featured ======= -->
-
+<style>
+  .pagesidebar{display: none;}
+</style>
 <section id="All" class="home-section editor_desk articles">
   <div class="featured_tablist mrg">
         <ul class="tablist left_tab">

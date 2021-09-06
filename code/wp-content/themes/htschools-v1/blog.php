@@ -362,7 +362,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               <div class="course-card">
                 <figure class="video">
                   <img src="<?php echo $url;?>">
-                  <a class="play" href="#!"><span class="time">3:20</span></a>
+                  <a class="play" href="#!"><!-- <span class="time">3:20</span> --></a>
                 </figure>
                 <div class="course-copy">
                   <h2 class="course-title"><a href="#!"><?php echo the_content(); ?></a></h2>

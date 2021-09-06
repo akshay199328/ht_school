@@ -1129,6 +1129,7 @@ border: 1px solid deepskyblue;
       </div>
     </div>
   </div>
+
 <!-- modal -->
 
 <?php do_action('woocommerce_check_and_trigger_signup_tag'); ?>

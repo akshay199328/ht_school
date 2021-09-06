@@ -458,9 +458,9 @@ get_header(vibe_get_header());
             
             
           $tab_menu .= '
-           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#'.$term->name.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
+           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#course_cat_'.$term->term_id.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
           ';
-          $tab_content .= '<div class="tab-pane fade show" id="'.$term->name.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
+          $tab_content .= '<div class="tab-pane fade show" id="course_cat_'.$term->term_id.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
           ';
         
             $tab_content .='<div class="course-wrapper">';
@@ -759,7 +759,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                 $editor_all_tab_content .= '</ul>
             </div></div></div>';
       foreach ($menuitems as $menu) {
-        $editor_all_tab_menu .= '<li id='.$menu->ID.' class="nav-item" role="presentation" data-scroll='.$menu->ID.'><a class="nav-link" id="all-tab" data-toggle="tab" href="#'.$menu->title.'" role="tab" aria-controls="all" aria-selected="true" data-id='.$menu->ID.'>'.$menu->title.'</a></li>';  
+        $editor_all_tab_menu .= '<li id='.$menu->ID.' class="nav-item" role="presentation" data-scroll='.$menu->ID.'><a class="nav-link" id="all-tab" data-toggle="tab" href="#news_category_'.$menu->ID.'" role="tab" aria-controls="all" aria-selected="true" data-id='.$menu->ID.'>'.$menu->title.'</a></li>';  
         $args = array(
           'post_type' => 'post',
           'post_status' => 'publish',
@@ -769,7 +769,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
           'orderby' => 'publish_date',
         );
         $Query = new WP_Query( $args );
-        $editor_all_tab_content .='<div class="tab-pane fade show" id="'.$menu->title.'" role="tabpanel" aria-labelledby="all-'.$menu->title.'">
+        $editor_all_tab_content .='<div class="tab-pane fade show" id="news_category_'.$menu->ID.'" role="tabpanel" aria-labelledby="all-'.$menu->title.'">
             <div class="articles">';
         if ($Query->have_posts()) : 
 

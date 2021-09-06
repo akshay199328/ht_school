@@ -219,11 +219,15 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                 <ul class="dropdown profile">
 
                     <?php
+                    // if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
+                    //     echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a class="dropdown-toggle" href="'.get_bloginfo('url').'/login-register" rel="nofollow" >
+                    //       <span class="icon"><img src="'.get_bloginfo('template_url').'/assets/images/login-profile.svg" alt="Login Profile" title="Login Profile"/></span>
+                    //       <span class="text">'.__('Login','vibe').'</span>
+                    //       </a>').'</li>';
+                    //     do_action('wp_head_wplms_login');
+                    // }else{
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
-                        echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a class="dropdown-toggle" href="'.get_bloginfo('url').'/login-register" rel="nofollow" >
-                          <span class="icon"><img src="'.get_bloginfo('template_url').'/assets/images/login-profile.svg" alt="Login Profile" title="Login Profile"/></span>
-                          <span class="text">'.__('Login','vibe').'</span>
-                          </a>').'</li>';
+                        echo '<li class="vibebp-login">'.apply_filters('wplms_login_trigger','<a class="login" href="'.get_bloginfo('url').'/login-register">'.__('Login','vibe').'</a>').'</li>';
                         do_action('wp_head_wplms_login');
                     }else{
 

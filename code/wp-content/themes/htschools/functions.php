@@ -1828,6 +1828,7 @@ function get_schools_new(){
       //$response[] = $row;
       $response[] = $data->display_name;
     }
+
     echo json_encode($response); exit;
 }
 

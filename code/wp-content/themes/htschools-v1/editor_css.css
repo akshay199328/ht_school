@@ -135,6 +135,32 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     padding-right: 0;
     padding-top: 55px;
     padding-bottom: 113px; 
+    border-bottom: 1px solid #707070;
+}
+.videos .course-card .video .play {
+    position: absolute;
+    bottom: 28%;
+    left: 40%;
+    width: auto;
+    color: #fff!important;
+}
+.videos .course-card .video .play:before{
+    width: 60px;
+    content: "\f04b";
+    height: 60px;
+    display: inline-block;
+    border: 2px solid #FFF;
+    border-radius: 100%;
+    font-family: "FontAwesome";
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 .semi_medium-title{
     font-size: 40px;
@@ -249,6 +275,8 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 /*----Editor listing CSS : Start----*/
 .editor_desk_listing{
     display: flex;
+    padding-top: 20px!important;
+    background-color: #FAFAFA !important;
 }
 .content-left{
     width: 73%;

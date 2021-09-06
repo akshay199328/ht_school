@@ -294,8 +294,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <div class="owl-carousel owl-theme student_slider">
           <?php
             $args1 = array(
-              'post_type' => 'Infographics',
+              'post_type' => 'post',
               'post_status' => 'publish',
+              'category_name' => 'Infographics',
             );
             $Query1 = new WP_Query( $args1 );
             
@@ -349,8 +350,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       <div class="owl-carousel owl-theme student_slider">
         <?php
             $args1 = array(
-              'post_type' => 'Videos',
+              'post_type' => 'post',
               'post_status' => 'publish',
+              'category_name' => 'Videos',
             );
             $Query1 = new WP_Query( $args1 );
         

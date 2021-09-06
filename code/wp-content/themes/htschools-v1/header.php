@@ -56,11 +56,12 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
 
 </head>
 <body <?php body_class(); ?>>
-<div id="global" class="global">
+<!-- <div id="global" class="global"> -->
     <?php
         get_template_part('mobile','sidebar');
     ?>
-    <div class="pusher">
+    <span class="overlay"></span>
+    <!-- Push -->
         <?php
             $fix=vibe_get_option('header_fix');
         ?>
@@ -82,7 +83,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
             <?php
                 }
             else{?>
-                <a href="<?php echo vibe_site_url(); ?>" class="logo d-flex align-items-center"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
+                <a href="<?php echo vibe_site_url(); ?>" class="logo"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
 
             <?php }
                 }
@@ -179,7 +180,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                     if(is_user_logged_in()){
                       foreach ($logged_in_menuitems as $loggedin_menu) {
                       $current_logged_in = ( $_SERVER['REQUEST_URI'] == parse_url( $loggedin_menu->url, PHP_URL_PATH ) ) ? 'active' : '';
-                        echo '<li class="my-course ' . $current_logged_in . '"><a href="' . $loggedin_menu->url . '">'.$loggedin_menu->title.'</a></li>';
+                        echo '<li class="my-course ' . $current_logged_in . '"><a href="' . $loggedin_menu->url . '" class="link">'.$loggedin_menu->title.'</a></li>';
                     }
                       }
                     else{
@@ -215,7 +216,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                 <?php do_action('woocommerce_add_to_cart_fragments'); ?>
                 <!-- <a class="login" href="#!">Login</a> -->
                 
-                <div class="dropdown profile">
+                <ul class="dropdown profile">
 
                     <?php
                     if(function_exists('is_wplms_4_0') && is_wplms_4_0()){
@@ -236,7 +237,10 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                     <?php
                     else :
                         ?>
-                            <li><a href="<?php get_bloginfo('url')?>/login-register" class="vbplogin dropdown-toggle"><?php _e('Login','vibe'); ?></a></li>
+                            <li>
+                              
+                              <a href="<?php get_bloginfo('url')?>/login-register" class="vbplogin dropdown-toggle"><?php _e('Login','vibe'); ?></a>
+                            </li>
                             <li><?php
                                 $enable_signup = apply_filters('wplms_enable_signup',0);
                                 if ( $enable_signup ) :
@@ -248,7 +252,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                     endif;
                 }}
                 ?>
-                </div>
+                </ul>
             </div>
         </div>
     </header>

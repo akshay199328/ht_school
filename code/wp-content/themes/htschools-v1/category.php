@@ -2,22 +2,15 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
-<section class="top-section home-section editor_desk" >
-  <?php do_action('wplms_before_title'); ?>
-  <div class="home-copy">
-    <div class="pagetitle breadcrumbs background-breadcrumbs">
-          <?php
-          $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
-          if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
-            vibe_breadcrumbs();
-          ?>
+<section class="home-section editor_desk editor_desk_listing">
+  <div class="">
+    <div class="">
+    <div class="breadcrumbs background-breadcrumbs">
+      <?php vibe_breadcrumbs(); ?>  
     </div>
-  </div>
-</section>
-
-<section id="All" class="home-section editor_desk">
-  <div class="featured_tablist">
-    <ul class="tablist left_tab">
+    <div class="course-tablist">
+      <div class="featured_tablist">
+        <ul class="tablist left_tab">
       <?php
           $menu_name = 'news-menu'; //menu slug
           $locations = get_nav_menu_locations();
@@ -28,24 +21,22 @@ get_header(vibe_get_header());
           ?>
           <li><a href="<?php echo get_site_url(); ?>/editorsdesk">Latest</a></li>
           <?php
-          foreach ($menuitems as $menu) {        
+          foreach ($menuitems as $menu) {  
             if($current_url."/" == $menu->url){    
               ?>
-              <li><a href="<?php echo $menu->url; ?> "class="active"><?php echo $menu->title; ?></a></li>
-
+              <li class="active"><a href="<?php echo $menu->url; ?>" ><?php echo $menu->title; ?></a></li>
               <?php 
             }else{
               ?>
-              <li><a href="<?php echo $menu->url; ?>" ><?php echo $menu->title; ?></a></li>
+              <li><a href="<?php echo $menu->url; ?> "><?php echo $menu->title; ?></a></li>
               <?php
             }
           }
       ?>
     </ul>
-  </div>
-  
-  <div class="section-header">
-      <h2 class="semi_medium-title">
+      </div>
+      <div class="pagetitle">
+      <h1>
         <?php
           if(is_month()){
               single_month_title(' ');
@@ -61,15 +52,12 @@ get_header(vibe_get_header());
               post_type_archive_title();
           }
         ?>
-      </h2>
+      </h1>
       <h5><?php echo term_description(); ?></h5>
       </div>
-
-   <!--  <?php $count=12;foreach ($menuitems as $key => $menu) { 
-   
-  ?> -->
-<div class="">
-  <div class="top_article">
+    </div>
+      <div class="content-left">
+        <div class="top_article">
     <div class="column">
     <div class="course-card">
         <figure class="image">
@@ -135,36 +123,17 @@ get_header(vibe_get_header());
     </div>
 </div>
   </div>
-    <div class="course-wrapper" id="<?php echo $menu->ID; ?>" data-anchor="<?php echo $menu->ID; ?>">
+        <div class="course-wrapper">
         <?php
-        $args = array(
-          'post_type' => 'post',
-          'post_status' => 'publish',
-          'category_name' => $menu->title,
-          'posts_per_page' => 7,
-        );
+          if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-        $Query = new WP_Query( $args );
-        if ($Query->have_posts()) :
-        
-        endif;
-          if ($Query->have_posts() ) : while ($Query->have_posts() ) : $Query->the_post();?>
-          
-          <?php $check = apply_filters('wplms_archive',false);
+          $check = apply_filters('wplms_archive',false);
           
           if(empty($check) && function_exists('vibe_get_option')){
               $default_archive = vibe_get_option('default_archive');
               if(!empty($default_archive)){
-                /* if ( has_post_thumbnail() ) {
-                      $featured_image = get_the_post_thumbnail_url();
-                    }
-                    ?>
-                    <a href="<?php the_permalink(); ?>"> 
-                      <img src="<?php echo $featured_image; ?>" class="img-fluid">
-                    </a>
-                <?php*/  get_template_part('content',$default_archive);
+                  get_template_part('content',$default_archive);
               }else{
-               
                  get_template_part('content','default');
               }
           }
@@ -175,12 +144,22 @@ get_header(vibe_get_header());
           posts_pagination();
         ?>
       </div>
-    </div>
-      
-<!-- <?php }?> -->
-<div class="content-right">
-    <div class="sidebar">
-          <h3>Popular on HTSchool</h3>
+      </div>
+      <div class="link-article content-right">
+        <div class="category_topAD">
+          <?php
+            if ( is_active_sidebar( 'instructor_banner' ) ) :
+                dynamic_sidebar( 'instructor_banner' );      
+            endif;
+          ?>
+        </div>
+        <?php
+          query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=4');
+          if (have_posts()){
+          ?>
+          
+        <div class="sidebar">
+          <h3>Most Popular</h3>
             <?php if (have_posts()) : $counter = 0; while (have_posts()) : the_post();
                 if ($counter <= 5) {
               ?>
@@ -201,21 +180,6 @@ get_header(vibe_get_header());
                     if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
                     <?php endif; ?>
           </div>
-  </div>
-      <div class="col-sm-12 col-md-3 content-right mrg">
-        <div class="category_topAD">
-          <?php
-            if ( is_active_sidebar( 'instructor_banner' ) ) :
-                dynamic_sidebar( 'instructor_banner' );      
-            endif;
-          ?>
-        </div>
-        <?php
-          query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC&posts_per_page=4');
-          if (have_posts()){
-          ?>
-          
-        
         <?php } ?>
           <div class="category_bottomAD">
             <?php
@@ -228,6 +192,9 @@ get_header(vibe_get_header());
       </div>
       
     
+    
+    </div>
+  </div>
 </section>
 <?php
 

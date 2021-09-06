@@ -107,32 +107,33 @@
         $('.student_slider').owlCarousel({
             navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:30,
-            loop:true,
+            loop:false,
             nav:false,
             dots:false,
+            items:6,
             mouseDrag:false,
             stagePadding: 100,
             smartSpeed:600,
             autoWidth:true,
             autoplay:true,
-            center:true,
+            /*center:true,*/
             autoplayHoverPause:true,
             merge:true,
             responsive : {
                 0 : {
-                    items:1,
+                    items:1
                 },
                 480 : {
-                    items:1,
+                    items:1
                 },
                 1024 : {
-                    items:3.3,
+                    items:3.3
                 },
                 1400 : {
-                    items:5.3,
+                    items:5.3
                 },
                 2500 : {
-                    items:6,
+                    items:6
                 }
             }
         });
@@ -181,7 +182,7 @@ if($(window).width() <= 767) {
 $(window).scroll(function() {
     var windscroll = $(window).scrollTop();
     if (windscroll >= 100) {
-        $('.editor_desk').each(function(index,e) {
+        $('.articles').each(function(index,e) {
             if ($(this).position().top <= windscroll + 130) {
               var id = $(this).attr('id');
                 //$('news-li').eq(e).addClass('active');

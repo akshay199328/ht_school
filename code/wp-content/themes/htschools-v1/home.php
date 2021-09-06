@@ -540,7 +540,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                 <figure class="image"><img alt="International Graded Guitar Exam Course" src="'. $image_url.'"></figure>
                 <div class="course-copy">
                   <header class="course-header">
-                    <a class="category" href="#">'.$category_array[0]->name.'</a>
+                    <a class="category" href="#">'.$category_array[0]->term_id.'</a>
                     <span class="badge '.$badge_class.'">'.$course_type.'</span>
                   </header>
                   <h2 class="course-title"><a href="'.get_permalink($post->ID).'">'. $post->post_title.'</a></h2>
@@ -633,9 +633,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             
             
           $tab_menu .= '
-           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#'.$term->name.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
+           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#course_category_'.$term->term_id.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
           ';
-          $tab_content .= '<div class="tab-pane fade show" id="'.$term->name.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
+          $tab_content .= '<div class="tab-pane fade show" id="course_category_'.$term->term_id.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
           ';
         
             $tab_content .='<div class="course-wrapper">';

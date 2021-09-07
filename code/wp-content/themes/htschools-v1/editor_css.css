@@ -345,6 +345,9 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     line-height: 40px;
     font-size: 34px;
 }
+.top_article .course-copy .excerpt.thumb h3 a{
+    color: #0C5ACC;
+}
 .top_article .course-copy .excerpt.thumb p {
     font-size: 18px;
     line-height: 27px;
@@ -357,6 +360,9 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     font-size: 20px;
     line-height: 26px;
     /* color: #000000; */
+}
+.course-wrapper .course-copy .excerpt.thumb h3 a{
+    color: #0C5ACC;
 }
 .course-wrapper .course-copy .excerpt.thumb p {
     font-size: 16px;

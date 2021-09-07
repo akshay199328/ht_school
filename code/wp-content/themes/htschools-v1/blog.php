@@ -369,6 +369,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                   <a class="play" href="#!"><!-- <span class="time">3:20</span> --></a>
                 </figure>
                 <div class="course-copy">
+                  <span class="date-time">
+                            <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
+                          </span>
                   <h2 class="course-title"><a href="#!"><?php echo the_content(); ?></a></h2>
                   
                 </div>

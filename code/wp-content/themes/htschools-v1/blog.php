@@ -370,19 +370,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                 </figure>
                 <div class="course-copy">
                   <h2 class="course-title"><a href="#!"><?php echo the_content(); ?></a></h2>
-                  <footer class="course-footer">
-                    <div class="left">
-                      <div class="profile">
-                        <span class="name"><?php echo $custom_fields['vibe_testimonial_author_name'][0] ?></span>
-                        <span class="position"><?php echo $custom_fields['vibe_testimonial_author_designation'][0] ?></span>
-                      </div>
-                    </div>
-                    <div class="right">
-                      <a href="#!">
-                        <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
-                      </a>
-                    </div>
-                  </footer>
+                  
                 </div>
               </div>
             </div>

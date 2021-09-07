@@ -85,8 +85,8 @@ $post = get_post($post_id);
                             $url = "/login-register";
                             ?>
                                <a href="<?php echo get_site_url().$url; ?>">
-                                        <i class="bookmark-remove" title="Bookmark this article"></i>
-                                    </a>
+                                    <i class="bookmark-remove" title="Bookmark this article"></i>
+                                </a>
                             <?php
                         }
                     ?>

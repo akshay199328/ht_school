@@ -309,7 +309,18 @@ get_header(vibe_get_header());
           $tab_content = '';
           $i = 0;
           $all_courses_settings .= '';
-          
+          $user = wp_get_current_user();
+          $users_courses = array();
+          if(isset($user->ID) && $user->ID > 0)
+          {
+            $userIdentifier = $user->ID;
+            $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$user->ID));
+              $result = $wpdb->get_results($courses_with_types);
+
+              foreach($result as $course){
+                $users_courses[]=$course->id;
+              }
+          }
           $args_all_courses = array(
             'post_type' => 'course',
             'post_status' => 'publish',
@@ -323,6 +334,9 @@ get_header(vibe_get_header());
             $custom_fields = get_post_custom(); 
             ob_start();
           the_course_price();
+          if (in_array($post->ID, $users_courses)){
+            the_course_button();
+          }
           $all_courses_settings .= ob_get_clean();
            // echo "<pre>";print_r($custom_fields);echo "</pre>";
             $duration = $custom_fields['vibe_validity'][0];
@@ -558,6 +572,9 @@ get_header(vibe_get_header());
                       <span class="price">';
                     ob_start();
                     the_course_price();
+                    if (in_array($post->ID, $users_courses)){
+                      the_course_button();
+                    }
                     $output_settings .= ob_get_clean();
                     $tab_content .= $output_settings; 
                     $tab_content .='</span>

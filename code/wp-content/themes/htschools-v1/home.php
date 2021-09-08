@@ -171,6 +171,17 @@ get_header(vibe_get_header());
             if ( has_post_thumbnail() ) {
                 $image_url = get_the_post_thumbnail_url();
               }
+            $pid=get_post_meta($courseID,'vibe_product',true);
+            $pid=apply_filters('wplms_course_product_id',$pid,$courseID,0);
+
+            if(is_numeric($pid) && bp_course_get_post_type($pid) == 'product'){
+              $pid=get_permalink($pid);
+              $check=vibe_get_option('direct_checkout');
+              $check =intval($check);
+              if(isset($check) &&  $check){
+                $pid .= '?redirect';
+              }
+            }
           ?>
 
         <div class="item">
@@ -191,7 +202,7 @@ get_header(vibe_get_header());
                   <span class="price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></span>
                 </div>
                 <div class="right">
-                  <a href="#!">
+                  <a href='<?php echo $pid;?>'>
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
                   </a>
                   <?php
@@ -381,7 +392,17 @@ get_header(vibe_get_header());
               if ( has_post_thumbnail() ) {
                   $image_url = get_the_post_thumbnail_url();
                 }
-                
+                $pid=get_post_meta($courseID,'vibe_product',true);
+                $pid=apply_filters('wplms_course_product_id',$pid,$courseID,0);
+
+                if(is_numeric($pid) && bp_course_get_post_type($pid) == 'product'){
+                  $pid=get_permalink($pid);
+                  $check=vibe_get_option('direct_checkout');
+                  $check =intval($check);
+                  if(isset($check) &&  $check){
+                    $pid .= '?redirect';
+                  }
+                }
                   $tab_content .= '<div class="column" data-id='.$post->ID.'>
               <div class="course-card">
                 <figure class="image"><img alt="International Graded Guitar Exam Course" src="'. $image_url.'"></figure>
@@ -398,7 +419,7 @@ get_header(vibe_get_header());
                   $tab_content .='</span>
                     </div>
                     <div class="right">
-                      <a href="#cart!">
+                      <a href="'.$pid.'">
                       <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
                       </a>
                       <a href="#bookmark!">
@@ -580,7 +601,7 @@ get_header(vibe_get_header());
                     $tab_content .='</span>
                     </div>
                     <div class="right">
-                      <a href="#cart!">
+                      <a href="'.$pid.'">
                       <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
                       </a>
                       <a href="#bookmark!">

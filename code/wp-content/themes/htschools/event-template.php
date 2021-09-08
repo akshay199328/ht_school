@@ -111,7 +111,7 @@ if($bannerCount == 1){
                 </button>
             </div>
             <div class="modal-body">
-                <div class="scrollbar-dynamic">
+                <div class="">
                 <?php echo $about_popup; ?>
                 </div>
             </div>

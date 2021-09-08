@@ -48,15 +48,22 @@ get_header(vibe_get_header());
       
         $user = wp_get_current_user();
         $userIdentifier = "";
-
+        $users_courses = array();
         if(isset($user->ID) && $user->ID > 0)
         {
           $userIdentifier = $user->ID;
+          $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$user->ID));
+            $result = $wpdb->get_results($courses_with_types);
+
+            foreach($result as $course){
+              $users_courses[]=$course->id;
+            }
         }
         else if(isset($_COOKIE['PHPSESSID']))
         {
           $userIdentifier = $_COOKIE['PHPSESSID'];
         }
+
         $featured_args_course = array(
           'post_type' => 'course',
           'post_status' => 'publish',
@@ -176,6 +183,10 @@ get_header(vibe_get_header());
               </header>
               <h2 class="course-title"><a href="<?php echo get_permalink($post->ID);?>"><?php echo bp_course_title(); ?></a></h2>
               <footer class="course-footer">
+                <?php if (in_array($post->ID, $users_courses)){
+                  the_course_button(); 
+                }
+                ?>
                 <div class="left">
                   <span class="price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></span>
                 </div>
@@ -298,7 +309,18 @@ get_header(vibe_get_header());
           $tab_content = '';
           $i = 0;
           $all_courses_settings .= '';
-          
+          $user = wp_get_current_user();
+          $users_courses = array();
+          if(isset($user->ID) && $user->ID > 0)
+          {
+            $userIdentifier = $user->ID;
+            $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$user->ID));
+              $result = $wpdb->get_results($courses_with_types);
+
+              foreach($result as $course){
+                $users_courses[]=$course->id;
+              }
+          }
           $args_all_courses = array(
             'post_type' => 'course',
             'post_status' => 'publish',
@@ -312,6 +334,9 @@ get_header(vibe_get_header());
             $custom_fields = get_post_custom(); 
             ob_start();
           the_course_price();
+          if (in_array($post->ID, $users_courses)){
+            the_course_button();
+          }
           $all_courses_settings .= ob_get_clean();
            // echo "<pre>";print_r($custom_fields);echo "</pre>";
             $duration = $custom_fields['vibe_validity'][0];
@@ -458,9 +483,9 @@ get_header(vibe_get_header());
             
             
           $tab_menu .= '
-           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#'.$term->name.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
+           <li class="nav-item" role="presentation"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#course_cat_'.$term->term_id.'" role="tab" aria-controls="contact" aria-selected="false">'.$term->name.'</a></li>
           ';
-          $tab_content .= '<div class="tab-pane fade show" id="'.$term->name.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
+          $tab_content .= '<div class="tab-pane fade show" id="course_cat_'.$term->term_id.'" role="tabpanel" aria-labelledby="'.$term->name.'-tab">
           ';
         
             $tab_content .='<div class="course-wrapper">';
@@ -547,6 +572,9 @@ get_header(vibe_get_header());
                       <span class="price">';
                     ob_start();
                     the_course_price();
+                    if (in_array($post->ID, $users_courses)){
+                      the_course_button();
+                    }
                     $output_settings .= ob_get_clean();
                     $tab_content .= $output_settings; 
                     $tab_content .='</span>
@@ -759,7 +787,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                 $editor_all_tab_content .= '</ul>
             </div></div></div>';
       foreach ($menuitems as $menu) {
-        $editor_all_tab_menu .= '<li id='.$menu->ID.' class="nav-item" role="presentation" data-scroll='.$menu->ID.'><a class="nav-link" id="all-tab" data-toggle="tab" href="#'.$menu->title.'" role="tab" aria-controls="all" aria-selected="true" data-id='.$menu->ID.'>'.$menu->title.'</a></li>';  
+        $editor_all_tab_menu .= '<li id='.$menu->ID.' class="nav-item" role="presentation" data-scroll='.$menu->ID.'><a class="nav-link" id="all-tab" data-toggle="tab" href="#news_category_'.$menu->ID.'" role="tab" aria-controls="all" aria-selected="true" data-id='.$menu->ID.'>'.$menu->title.'</a></li>';  
         $args = array(
           'post_type' => 'post',
           'post_status' => 'publish',
@@ -769,7 +797,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
           'orderby' => 'publish_date',
         );
         $Query = new WP_Query( $args );
-        $editor_all_tab_content .='<div class="tab-pane fade show" id="'.$menu->title.'" role="tabpanel" aria-labelledby="all-'.$menu->title.'">
+        $editor_all_tab_content .='<div class="tab-pane fade show" id="news_category_'.$menu->ID.'" role="tabpanel" aria-labelledby="all-'.$menu->title.'">
             <div class="articles">';
         if ($Query->have_posts()) : 
 

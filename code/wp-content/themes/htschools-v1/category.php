@@ -35,25 +35,25 @@ get_header(vibe_get_header());
       ?>
     </ul>
       </div>
-      <div class="pagetitle">
-      <h1>
-        <?php
-          if(is_month()){
-              single_month_title(' ');
-          }elseif(is_year()){
-              echo get_the_time('Y');
-          }else if(is_category()){
-              echo single_cat_title();
-          }else if(is_tag()){
-               single_tag_title();
-          }else if(is_tax()){
-              single_term_title();
-          }else{
-              post_type_archive_title();
-          }
-        ?>
-      </h1>
-      <h5><?php echo term_description(); ?></h5>
+      <div class="section-header">
+          <h2 class="semi_medium-title">
+            <?php
+              if(is_month()){
+                  single_month_title(' ');
+              }elseif(is_year()){
+                  echo get_the_time('Y');
+              }else if(is_category()){
+                  echo single_cat_title();
+              }else if(is_tag()){
+                   single_tag_title();
+              }else if(is_tax()){
+                  single_term_title();
+              }else{
+                  post_type_archive_title();
+              }
+            ?>
+          </h2>
+          <!-- <h5><?php echo term_description(); ?></h5> -->
       </div>
     </div>
       <div class="content-left">
@@ -102,14 +102,15 @@ get_header(vibe_get_header());
                         }else{
                             $url = "/login-register";
                             ?>
-                               <li>
-                                    <a href="<?php echo get_site_url().$url; ?>">
-                                        <i class="bookmark-remove" title="Bookmark this article"></i>
-                                    </a>
-                                </li>
+                               <a href="<?php echo get_site_url().$url; ?>">
+                                    <i class="bookmark-remove" title="Bookmark this article"></i>
+                                </a>
                             <?php
                         }
                     ?>
+                    <a href="#bookmark!">
+                        <svg class="bookmark" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"></path></svg>
+                    </a>
                     <a href="<?php echo get_bloginfo('template_url');?>" class="hover_share">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4">
                             <g id="Group_21136" data-name="Group 21136" transform="translate(0.205 0.2)" style="isolation: isolate">
@@ -158,17 +159,24 @@ get_header(vibe_get_header());
           if (have_posts()){
           ?>
           
-        <div class="sidebar">
+        <div class="link-article">
           <h3>Most Popular</h3>
+          <ul>
             <?php if (have_posts()) : $counter = 0; while (have_posts()) : the_post();
                 if ($counter <= 5) {
               ?>
-              <div class="list" >
-                  <div class="date"><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></div>
-                  <div class="link">
+              
+                
+              
+              <li>
+                  <span class="date-time">
+                    <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
+                      
+                  </span>
+                  <h2 class="article-title">
                       <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                  </div>
-                </div>
+                  </h2>
+              </li>
 
               <?php 
                   }
@@ -179,6 +187,7 @@ get_header(vibe_get_header());
                     $sidebar = apply_filters('wplms_sidebar','mainsidebar');
                     if ( !function_exists('dynamic_sidebar')|| !dynamic_sidebar($sidebar) ) : ?>
                     <?php endif; ?>
+              </ul>
           </div>
         <?php } ?>
           <div class="category_bottomAD">

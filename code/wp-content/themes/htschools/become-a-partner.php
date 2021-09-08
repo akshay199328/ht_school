@@ -27,6 +27,16 @@ if(have_posts()):while(have_posts()):the_post();
 
 </section>
 
+<?php $args = array(
+        'post_type' => 'attachment',
+        'post_mime_type' =>'image',
+        'post_status' => 'inherit',        
+        'orderby' => 'DESC'
+    );
+
+$query_images = new WP_Query( $args );
+    $images = array();    
+?>
 <section class="section popular-wrapper school-wrapper">
           <div class="section-copy">
             <div class="school-listing">
@@ -58,58 +68,32 @@ if(have_posts()):while(have_posts()):the_post();
                         </select>
                       </form>-->
                   </div>
-                  <div class="courses-wrapper">
-                      <div class="column">
-                          <a href="#!" class="course-hero"><img src="https://www.prokerala.com/education/imgs/logo/school/ryan-international-school.jpg"></a>
-                          <div class="course-copy">
-                          <h3 class="course-title"><a href="#!">Ryan International School</a></h3>
-                            <a class="black-button" href="#!">Explore Now</a>
-                          </div>
-                      </div>
-                      <div class="column">
-                          <a href="#!" class="course-hero"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Oxford-University-Circlet.svg"></a>
-                          <div class="course-copy">
-                          <h3 class="course-title"><a href="#!">Oxford University, in Oxford, England, United Kingdom.</a></h3>
-                            <a class="black-button" href="#!">Explore Now</a>
-                          </div>
-                      </div>
-                      <div class="column">
-                          <a href="#!" class="course-hero"><img src="https://i.pinimg.com/originals/72/6a/30/726a303f6704bc2f24401db85e65f984.png"></a>
-                          <div class="course-copy">
-                          <h3 class="course-title"><a href="#!">Harvard University, Research University in Cambridge</a></h3>
-                            <a class="black-button" href="#!">Explore Now</a>
-                          </div>
-                      </div>
-                  </div>
 
                   <div class="courses-wrapper">
+                  <?php 
+                      foreach ( $query_images->posts as $image) {
+                              $post_image_url= $image->guid;
+                      ?>
                       <div class="column">
-                          <a href="#!" class="course-hero"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Stanford_University_seal_2003.svg/1200px-Stanford_University_seal_2003.svg.png"></a>
+                          <a href="#!" class="course-hero"><img src="<?php echo $post_image_url; ?>"></a>
                           <div class="course-copy">
-                          <h3 class="course-title"><a href="#!">Stanford University, Private Research University in Stanford</a></h3>
-                            <a class="black-button" href="#!">Explore Now</a>
+                          <h3 class="course-title"><a href="#!"><?php echo $image->post_title; ?></a></h3>
+                            <a class="black-button" href="#!"></a>
                           </div>
                       </div>
-                      <div class="column">
-                          <a href="#!" class="course-hero"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Boston_University_seal.svg/1200px-Boston_University_seal.svg.png"></a>
-                          <div class="course-copy">
-                          <h3 class="course-title"><a href="#!">Boston University is a Private Research University in Boston</a></h3>
-                            <a class="black-button" href="#!">Explore Now</a>
-                          </div>
-                      </div>
-                      
+                  <?php }?>                
                   </div>
               </div>
 
             <div class="partner-form">
                   
-                  <?php the_content(); ?>
-                  
-                  <?php
-          
-                  endwhile;
-                  endif;
-                  ?>
+              <?php the_content(); ?>
+              
+              <?php
+      
+              endwhile;
+              endif;
+              ?>
               </div>
     </div>
 </section>

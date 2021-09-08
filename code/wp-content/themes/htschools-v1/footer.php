@@ -67,8 +67,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
     </div>
 </div>
-<!--</div>END PUSHER -->
-<!-- </div>END MAIN -->
+</div><!--END PUSHER -->
+ </div><!--END MAIN -->
 	<!-- SCRIPTS -->
 <?php
 wp_footer(); 

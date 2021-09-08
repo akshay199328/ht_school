@@ -61,29 +61,6 @@ function leadeboardList($courseID,$zone){
           $user_rank[] = $leaderboard_result[$key]->rank;
         }
     }
-    /*if($user_rank){
-        
-        $current_user_rank = implode($user_rank);
-        $prev_rank = $current_user_rank - 4;
-        $next_rank = $current_user_rank + 5;
-
-        $prev_rank_array = array();
-        $next_rank_array = array();
-        foreach($leaderboard_result as $key => $v)
-        {
-            if($leaderboard_result[$key]->rank <= $current_user_rank && $leaderboard_result[$key]->rank >= $prev_rank){
-          $prev_rank_array[] = $v;
-        }
-        if($leaderboard_result[$key]->rank > $current_user_rank && $leaderboard_result[$key]->rank <= $next_rank){
-          $next_rank_array[] = $v;
-        }
-        //$leaderboard_result[$key]['flag'] = 1;
-        }
-        $user_rank_list = array_merge($prev_rank_array,$next_rank_array);
-    }
-    else{
-        $user_rank_list = $leaderboard_result;
-    }*/
 
     foreach($leaderboard_result as $user_rank_data){
 

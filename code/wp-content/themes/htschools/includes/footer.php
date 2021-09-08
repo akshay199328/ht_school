@@ -1499,7 +1499,23 @@ jQuery(document).ready(function(){
               $('.stepli3').addClass('completed');
           });
 
-
+          $("#zone").click(function(){
+              var zone = $(this).val();
+              if(zone == 1){
+                $(this).val(0);
+                $('.southlist').hide();
+                $('.northlist').show();
+                $(".north").css("color", "#F760A0");
+                $(".south").css("color", "#CDCDCD");
+              }else{
+                $(this).val(1);
+                $('.northlist').hide();
+                $('.southlist').show();
+                $(".north").css("color", "#CDCDCD");
+                $(".south").css("color", "#F760A0");
+              }
+          });
+          
           function stopVideo() {
             var $frame = $('iframe#videolinklearning');
 
@@ -1559,6 +1575,18 @@ jQuery(document).ready(function(){
        window.onload = function () {
             var avtar = $('.avatar-150').attr('src');
             setTimeout(function(){ 
+              $('.northlist img').each(function(index, value){
+                const link = this.src;
+                if(link == 'http://wplms.io/demos/demo10/wp-content/themes/wplms/assets/images/avatar.jpg'){
+                  $(this).attr("src", "<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg");
+                }
+              });
+              $('.southlist img').each(function(index, value){
+                const link = this.src;
+                if(link == 'http://wplms.io/demos/demo10/wp-content/themes/wplms/assets/images/avatar.jpg'){
+                  $(this).attr("src", "<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg");
+                }
+              });
               if(avtar == 'http://wplms.io/demos/demo10/wp-content/themes/wplms/assets/images/avatar.jpg'){
                 $(".avatar-150").attr("src", "<?php echo get_bloginfo('template_url'); ?>/assets/images/avatar.jpg");
               }

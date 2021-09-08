@@ -272,13 +272,13 @@ foreach($leaderboard_result as $key1 => $rank)
 
 $user_rank = array();
 
-    foreach($leaderboard_result as $key => $csm)
-    {
-       
-        if($leaderboard_result[$key]->user_id == $userID){
-          $user_rank[] = $leaderboard_result[$key]->rank;
-        }
+foreach($leaderboard_result as $key => $csm)
+{
+   
+    if($leaderboard_result[$key]->user_id == $userID){
+      $user_rank[] = $leaderboard_result[$key]->rank;
     }
+}
 if($user_rank){
     
     $current_user_rank = implode($user_rank);

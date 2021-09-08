@@ -6,6 +6,7 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 include("includes/lead.php");
+include("includes/leaderboard.php");
 
 function DB_Tables_Rows(){
 
@@ -363,10 +364,10 @@ if($bannerCount == 1){
                     <button class="nav-link" id="classes3-tab" data-bs-toggle="tab" data-bs-target="#classes3" type="button" role="tab" aria-controls="classes3" aria-selected="false"><span>Classes</span> <span>VIII - IX</span></button>
                 </div>
                 <div class="radio-wrapper">
-                    <label for="zone">
-                        <span class="north">North Zone</span>
-                    <input type="checkbox" name="" id="zone">
-                    <span class="south">South Zone</span>
+                    <label for="">
+                      <span class="north" style="color: #F760A0;">North Zone</span>
+                      <input type="checkbox" name="zone" id="zone" value="0">
+                      <span class="south">South Zone</span>
                     </label>
                 </div>
             </div>
@@ -378,196 +379,46 @@ if($bannerCount == 1){
                         <li class="zone">Zone</li>
                         <li class="points">Points Earned</li>
                     </ul>
-                    <ul>
-                        <li>
-                            <span class="serial-number">1</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Ishaan joshi</span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ST.THOMAS ENGLISH MEDIUM SCHOOL</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">1387</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">2</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Agastya Jha</span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ORCHIDS THE INTERNATIONAL SCHOOL - SEAWOODS</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">34343</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">3</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Sana Bedi </span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">THE GATEWAY SCHOOL OF MUMBAI</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">67567</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">4</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Yash Malhotra</span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ORCHIDS THE INTERNATIONAL SCHOOL - SEAWOODS</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">4562</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">5</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Vishal Pandey</span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ORCHIDS THE INTERNATIONAL SCHOOL - SEAWOODS</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">North</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">6</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Vishal Pandey</span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ORCHIDS THE INTERNATIONAL SCHOOL - SEAWOODS</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">North</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">7</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Vishal Pandey</span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ORCHIDS THE INTERNATIONAL SCHOOL - SEAWOODS</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">North</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">8</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Rakesh Bandhopadhyay </span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ORCHIDS THE INTERNATIONAL SCHOOL - SEAWOODS</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">North</div>
-                        </li>
-                        <li>
-                            <span class="serial-number">9</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                                <div class="copy">
-                                    <span class="name">Vishal Pandey</span>
-                                    <span class="school">Ishaan Joshi</span>
-                                </div>
-                            </div>
-                            <div class="school-profile">
-                                <img src="https://uilogos.co/img/logomark/earth.png">
-                                <div class="copy">
-                                    <span class="school">ORCHIDS THE INTERNATIONAL SCHOOL - SEAWOODS</span>
-                                </div>
-                            </div>
-                            <div class="zone">North</div>
-                            <div class="points">North</div>
-                        </li>
+                    <ul class="northlist">
+                      <?php leadeboardList($course_1,'north'); ?>
+                    </ul>
+                    <ul class="southlist" style="display: none;">
+                      <?php leadeboardList($course_1,'south'); ?>
                     </ul>
                 </div>
                 <div class="tab-pane fade" id="classes2" role="tabpanel" aria-labelledby="classes2-tab">
-                    <ul>
-                        <li>
-                            <span class="serial-number">1</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                            </div>
-                        </li>
+                    <ul class="heading">
+                        <li class="student-name">Student Name</li>
+                        <li class="student-school">School or Institute</li>
+                        <li class="zone">Zone</li>
+                        <li class="points">Points Earned</li>
+                    </ul>
+                    <ul class="northlist">
+                      <?php leadeboardList($course_2,'north'); ?>
+                    </ul>
+                    <ul class="southlist" style="display: none;">
+                      <?php leadeboardList($course_2,'south'); ?>
                     </ul>
                 </div>
                 <div class="tab-pane fade" id="classes3" role="tabpanel" aria-labelledby="classes3-tab">
-                    <ul>
-                        <li>
-                            <span class="serial-number">1</span>
-                            <div class="student-profile">
-                                <img src="https://randomuser.me/api/portraits/women/8.jpg">
-                            </div>
-                        </li>
+                    <ul class="heading">
+                        <li class="student-name">Student Name</li>
+                        <li class="student-school">School or Institute</li>
+                        <li class="zone">Zone</li>
+                        <li class="points">Points Earned</li>
+                    </ul>
+                    <ul class="northlist">
+                      <?php leadeboardList($course_3,'north'); ?>
+                    </ul>
+                    <ul class="southlist" style="display: none;">
+                      <?php leadeboardList($course_3,'south'); ?>
                     </ul>
                 </div>
             </div>
         </div>
-        <div>
+        <!-- <div>
             <a class="dell-button" href="#!">Dell Dashboard</a>
-        </div>
+        </div> -->
         <span class="circle"></span>
     </div>
     <span class="green"></span>

@@ -4578,11 +4578,27 @@ code {
     width: auto !important;
 }
 
-.scroll-wrapper>.scroll-content::-webkit-scrollbar {
+/*.scroll-wrapper>.scroll-content::-webkit-scrollbar {
     height: 0;
     width: 0;
+*/}
+.scroll-wrapper>.scroll-content::-webkit-scrollbar-track
+{
+    border-radius: 8px;
+    background-color: #F5F5F5;
 }
 
+.scroll-wrapper>.scroll-content::-webkit-scrollbar
+{
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+.scroll-wrapper>.scroll-content::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #555;
+}
 .scroll-element {
     display: none;
 }

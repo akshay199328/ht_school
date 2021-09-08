@@ -48,15 +48,22 @@ get_header(vibe_get_header());
       
         $user = wp_get_current_user();
         $userIdentifier = "";
-
+        $users_courses = array();
         if(isset($user->ID) && $user->ID > 0)
         {
           $userIdentifier = $user->ID;
+          $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$user->ID));
+            $result = $wpdb->get_results($courses_with_types);
+
+            foreach($result as $course){
+              $users_courses[]=$course->id;
+            }
         }
         else if(isset($_COOKIE['PHPSESSID']))
         {
           $userIdentifier = $_COOKIE['PHPSESSID'];
         }
+
         $featured_args_course = array(
           'post_type' => 'course',
           'post_status' => 'publish',
@@ -176,6 +183,10 @@ get_header(vibe_get_header());
               </header>
               <h2 class="course-title"><a href="<?php echo get_permalink($post->ID);?>"><?php echo bp_course_title(); ?></a></h2>
               <footer class="course-footer">
+                <?php if (in_array($post->ID, $users_courses)){
+                  the_course_button(); 
+                }
+                ?>
                 <div class="left">
                   <span class="price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></span>
                 </div>

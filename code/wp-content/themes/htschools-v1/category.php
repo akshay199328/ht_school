@@ -159,7 +159,7 @@ get_header(vibe_get_header());
           if (have_posts()){
           ?>
           
-        <div class="link-article">
+        <div class="sidebar">
           <h3>Most Popular</h3>
           <ul>
             <?php if (have_posts()) : $counter = 0; while (have_posts()) : the_post();

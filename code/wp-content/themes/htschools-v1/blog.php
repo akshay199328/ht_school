@@ -303,13 +303,19 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             $Query1 = new WP_Query( $args1 );
             
             if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
-              $custom_fields = get_post_custom();
-              $url = wp_get_attachment_url($custom_fields['image'][0]); 
+              if( $Query->current_post != 0 ) {
+            //  $custom_fields = get_post_custom();
+            //  $url = wp_get_attachment_url($custom_fields['image'][0]); 
           ?>
           <div class="item">
             <div class="course-card">
               <figure class="video">
-                <img src="<?php echo $url;?>">
+                <?php if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    ?>
+                <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+                <!-- <img src="<?php echo $url;?>"> -->
                   <!-- <a class="play" href="#!"><span class="time">3:20</span></a> -->
               </figure>
               <div class="course-copy">
@@ -330,7 +336,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               </div>
             </div>
             <?php
-              endwhile; endif;
+             } endwhile; endif;
             ?> 
         </div>
         </div>
@@ -359,14 +365,21 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
             $Query1 = new WP_Query( $args1 );
         
             if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
-              $custom_fields = get_post_custom();
-              $url = wp_get_attachment_url($custom_fields['image'][0]); 
+              if( $Query->current_post != 0 ) {
+              //$custom_fields = get_post_custom();
+             // $url = wp_get_attachment_url($custom_fields['image'][0]); 
             ?>
             <div class="item">
               <div class="course-card">
                 <figure class="video">
-                  <img src="<?php echo $url;?>">
-                  <a class="play" href="#!"><!-- <span class="time">3:20</span> --></a>
+                  <?php if ( has_post_thumbnail() ) {
+                      $featured_image = get_the_post_thumbnail_url();
+                    }
+                    ?>
+                <a href="#!"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+
+                  <!-- <img src="<?php echo $url;?>">
+                  <a class="play" href="#!"> --><!-- <span class="time">3:20</span> --></a>
                 </figure>
                 <div class="course-copy">
                   <span class="date-time">
@@ -378,7 +391,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
               </div>
             </div>
           <?php
-            endwhile; endif;
+           } endwhile; endif;
           ?> 
         </div>
           </div>

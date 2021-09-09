@@ -46,7 +46,9 @@ $post = get_post($post_id);
             <div class="featured">
                 <a href="<?php echo get_permalink(); ?>">
                     <img src="<?php echo $featured_image; ?>" /> 
+
                 </a>
+                <a class="play" href="#!"></a>
             </div>
         </figure>
         <div class="course-copy">
@@ -59,7 +61,7 @@ $post = get_post($post_id);
                     </div>
                     <h3>
                         <a href="<?php echo get_permalink(); ?>">
-                            <?php echo get_the_title(); ?>
+                            <?php echo wp_trim_words( get_the_title(), 5); ?>
                         </a>
                     </h3>
                     <div class="cats">
@@ -69,7 +71,7 @@ $post = get_post($post_id);
                             ?>
                         </ul>
                     </div>
-                    <p><?php echo wp_trim_words( get_the_excerpt(), 30); ?></p>
+                    <p><?php echo wp_trim_words( get_the_excerpt(), 15); ?></p>
                 </div>
             </div>
             <footer class="course-footer">

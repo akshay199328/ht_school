@@ -314,6 +314,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     padding-top: 20px!important;
     background-color: #FAFAFA !important;
 }
+
 .content-left{
     width: 73%;
     float: left;
@@ -451,6 +452,71 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .pagination_arrow, .page-num{width:auto!important;}
 .pagination_arrow.next{margin-right: 7px}
 .pagination_arrow.prev{margin-left: 7px}
+
+
+
+/*-------Video listing CSS--------*/
+.category.category-videos .editor_desk_listing, 
+.category.category-videos .featured_tablist.sticky-nav{background: #000!important}
+.category.category-videos .breadcrumbs li:after,
+.category.category-videos .breadcrumbs li,
+.category.category-videos ol.breadcrumbs li a,
+.category.category-videos ol.breadcrumbs li a span,
+.category.category-videos .semi_medium-title,
+.category.category-videos .article-title a, 
+.category.category-videos .article-title a:hover,
+.category.category-videos .featured_tablist li.active a, 
+.category.category-videos .featured_tablist li:hover.active a{color: #fff!important;}
+.category.category-videos .featured_tablist li a {color: #8E8E8E!important;}
+.category.category-videos figure.image {
+    position: relative;
+}
+figure.image .play{display: none;}
+
+.category.category-videos .play{
+    display: block;
+    position: absolute;
+    bottom: 28%;
+    left: 40%;
+    width: auto;
+    color: #fff;
+}
+.category.category-videos .play:before {
+    width: 60px;
+    content: "\f04b";
+    height: 60px;
+    display: inline-block;
+    border: 1px solid #FFF;
+    border-radius: 100%;
+    font-family: "FontAwesome";
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+/*----------Video listing page CSS-----------*/
+.video_listing{
+    display: flex;
+    flex-direction: column;
+    background-color: #605C5D!important;
+    padding-top: 20px!important;
+}
+
+.video_listing .breadcrumbs li:after,
+.video_listing .breadcrumbs li,
+.video_listing ol.breadcrumbs li a,
+.video_listing ol.breadcrumbs li a span,
+.video_listing .semi_medium-title,
+.video_listing .article-title a, 
+.video_listing .article-title a:hover,
+.category-videos .link-article h3{color: #fff!important;}
 @media (max-width: 2048px){
     .content-left .course-wrapper .column {
         width: 33.33%!important;

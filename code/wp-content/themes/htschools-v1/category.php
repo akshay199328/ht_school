@@ -65,6 +65,7 @@ get_header(vibe_get_header());
                 <a href="<?php echo get_permalink(); ?>">
                     <img src="<?php echo $featured_image; ?>" /> 
                 </a>
+                <a class="play" href="#!"></a>
             </div>
         </figure>
         <div class="course-copy">

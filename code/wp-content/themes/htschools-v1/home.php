@@ -224,7 +224,11 @@ get_header(vibe_get_header());
                   </a>
                 </div>
               </footer>
-              <div class="sharing-course modal" id="open_share_<?php echo $courseID;?>">
+              
+            </div>
+          </div>
+        </div>
+        <div class="sharing-course modal fade" id="open_share_<?php echo $courseID;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                 <button class="sharing close-button" type="submit"></button>
@@ -246,7 +250,7 @@ get_header(vibe_get_header());
                 </div>
                 <div class="course-share">
                     <div class="copy">
-                        <input type="text" name="" value="https://htschool.hindustantimes.com/course/business-boss/" readonly>
+                        <input type="text" name="" value="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" readonly>
                         <button class="button" type="submit">Copy</button>
                     </div>
                     <div class="social">
@@ -268,10 +272,6 @@ get_header(vibe_get_header());
               </div>
               </div>
               </div>
-            </div>
-          </div>
-        </div>
-        
         <?php }} ?>
       </div>
     </div>
@@ -787,7 +787,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 
       $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
       $editor_all_tab_content .= '
-        <div class="tab-pane fade show active" id="all-news-category" role="tabpanel" aria-labelledby="all-news"><div class="articles">';
+        <div class="tab-pane fade show active" id="all-news" role="tabpanel" aria-labelledby="all-news-category"><div class="articles">';
            if ($Query_news->have_posts()) : 
 
           while ($Query_news->have_posts()) : $Query_news->the_post();
@@ -955,7 +955,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                     <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                     </a>
                   </div>
-                  <div class="sharing-course modal fade" id="open_share_<?php echo $counter;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="sharing-course modal fade" id="open_share_<?php echo $counter;?>">
                   <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                   <button class="sharing close-button" type="submit"></button>

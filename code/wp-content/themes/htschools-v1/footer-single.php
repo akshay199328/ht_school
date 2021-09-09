@@ -1136,22 +1136,22 @@ border: 1px solid deepskyblue;
             <div class="course-list">
                 <h4 class="title">Share This Course</h4>
                 <div class="list">
-                    <figure class="image"><a href="#!"><img src="<?php echo $image_url;?>"></a></figure>
+                    <figure class="image"><a href="#!"><img src="<?php echo $image_url;?>" id="editor_image"></a></figure>
                     <div class="course-detail">
                         <div class="header">
                             <a class="category" href="#!"></a>
-                            <span class="badge <?php echo $badge_class?>"><?php echo $course_type?></span>
+                            <span id="editor_category"></span>
                         </div>
-                        <h3 class="course-title"><?php echo $post->title?></h3>
+                        <h3 class="course-title" id="editor_title"></h3>
                         <div class="footer">
-                            <span class="price">₹800</span><span class="gst">+ GST</span>
+                            <span class="price" id="editor_date"></span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="course-share">
                 <div class="copy">
-                    <input type="text" name="" value="https://htschool.hindustantimes.com/course/business-boss/" readonly>
+                    <input type="text" name="" value="" id="editor_url" readonly>
                     <button class="button" type="submit">Copy</button>
                 </div>
                 <div class="social">
@@ -1159,14 +1159,15 @@ border: 1px solid deepskyblue;
                     <a href="#!" class="twitter"></a>
                     <a href="#!" class="pinterest"></a>
                     <a href="#!" class="whatsapp"></a> -->
-                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>" data-id="<?php echo $post->ID;?>">
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="share_data" data-a2a-url="http://localhost/Htschools-git/code/course/live-course-product" data-a2a-title="Live Course Product - Ht Schools" data-id="1774">
                         <a class="a2a_button_facebook"></a>
                         <a class="a2a_button_twitter"></a>
                         <a class="a2a_button_pinterest"></a>
                         <a class="a2a_button_google_gmail"></a>
                         <a class="a2a_button_whatsapp"></a>
                         <a class="a2a_button_telegram"></a>
-                  </div>
+                    </div>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
                 </div>
 
             </div>
@@ -1754,6 +1755,23 @@ border: 1px solid deepskyblue;
 			window.location.href = cart_url + "?add-to-cart=" + variation_id;
 		}
 	})
+    jQuery('#editor_share').click(function(){
+        var editors_id = $(this).data("id");
+        var editors_name = jQuery("#editors_name_" + editors_id).val();
+        var editors_image = jQuery("#editors_image_" + editors_id).val();
+        var editors_category = jQuery("#editors_category_" + editors_id).val();
+        var editors_postdate = jQuery("#editors_postdate_" + editors_id).val();
+        var editors_url = jQuery("#editors_url_" + editors_id).val();
+        
+        jQuery('#editor_image').attr('src',editors_image);
+        jQuery('#editor_category').text(editors_category);
+        jQuery('#editor_title').text(editors_name);
+        jQuery('#editor_date').text(editors_postdate);
+        jQuery('#editor_url').val(editors_url);
+        jQuery('#share_data').attr('data-a2a-url',editors_url);
+        jQuery('#share_data').attr('data-a2a-title',editors_name + '-' +editors_url);
+        jQuery('#share_data').attr('data-id',editors_id);
+    })
 </script>
 
 <?php

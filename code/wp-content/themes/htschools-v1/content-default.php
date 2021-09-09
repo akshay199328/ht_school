@@ -77,24 +77,16 @@ $post = get_post($post_id);
             <footer class="course-footer">
                 <div class="right">
                     <?php
-                        if(is_user_logged_in()){
-                            ?>
-                                <a href="#" style="list-style-type: none;">
-                                    <?php wpfp_post_link(); ?>
-                                </a>
-                            <?php 
-                        }else{
-                            $url = "/login-register";
-                            ?>
-                               <a href="<?php echo get_site_url().$url; ?>">
-                                    <i class="bookmark-remove" title="Bookmark this article"></i>
-                                </a>
-                            <?php
-                        }
+                   if(is_user_logged_in()){
                     ?>
-                    <a href="#bookmark!">
-                        <svg class="bookmark" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"></path></svg>
-                    </a>
+                    <?php wpfp_course_link(); ?>
+                  <?php }else{
+                    $url = "/login-register";
+                    ?>
+                    <a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a>
+                    <?php
+                  }
+                  ?>
                     <a href="<?php echo get_bloginfo('template_url');?>" class="hover_share">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4">
                             <g id="Group_21136" data-name="Group 21136" transform="translate(0.205 0.2)" style="isolation: isolate">

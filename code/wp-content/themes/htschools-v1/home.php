@@ -239,7 +239,7 @@ get_header(vibe_get_header());
                             </div>
                             <h3 class="course-title"><?php echo $post->title?></h3>
                             <div class="footer">
-                                <span class="price">₹800</span><span class="gst">+ GST</span>
+                                <span class="price"><?php the_course_price();?></span><span class="gst">+ GST</span>
                             </div>
                         </div>
                     </div>
@@ -320,6 +320,8 @@ get_header(vibe_get_header());
           $tab_content = '';
           $i = 0;
           $all_courses_settings .= '';
+          $category_button_settings .= '';
+          $bookmark_settings .= '';
           $user = wp_get_current_user();
           $users_courses = array();
           if(isset($user->ID) && $user->ID > 0)
@@ -344,11 +346,16 @@ get_header(vibe_get_header());
             global $post;
             $custom_fields = get_post_custom(); 
             ob_start();
+            if (in_array($post->ID, $users_courses)){
+              the_course_button();
+            }
+            $category_button_settings .= ob_get_clean();
+            ob_start();
           the_course_price();
-          if (in_array($post->ID, $users_courses)){
-            the_course_button();
-          }
           $all_courses_settings .= ob_get_clean();
+          ob_start();
+          wpfp_course_link();
+          $bookmark_settings .= ob_get_clean();
            // echo "<pre>";print_r($custom_fields);echo "</pre>";
             $duration = $custom_fields['vibe_validity'][0];
             $course_type="";
@@ -412,8 +419,9 @@ get_header(vibe_get_header());
                     <span class="badge '.$badge_class.'">'.$course_type.'</span>
                   </header>
                   <h2 class="course-title"><a href="'.get_permalink($post->ID).'">'. $post->post_title.'</a></h2>
-                  <footer class="course-footer">
-                    <div class="left">
+                  <footer class="course-footer">';
+                  $tab_content .= $category_button_settings;
+                  $tab_content .= '<div class="left">
                       <span class="price">';
                   $tab_content .= $all_courses_settings;
                   $tab_content .='</span>
@@ -421,10 +429,17 @@ get_header(vibe_get_header());
                     <div class="right">
                       <a href="'.$pid.'">
                       <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
-                      </a>
-                      <a href="#bookmark!">
-                      <svg class="bookmark filled" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"/></svg>
-                      </a>
+                      </a>';
+
+                    if(is_user_logged_in()){
+                     $tab_content .= $bookmark_settings;
+                    }
+                    else{
+                      $url = "/login-register";
+                      $tab_content .='<a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a>';
+                    }
+                  
+                      $tab_content .='
                       <a href="#share!" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
                       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                       </a>
@@ -494,10 +509,14 @@ get_header(vibe_get_header());
     </div>';
 
             $all_courses_settings = '';
+            $category_button_settings = '';
             endwhile;
             endif;
           $tab_content .= '</div></div>';   
           $output_settings .= ''; 
+          $button_output_settings .= ''; 
+          $bookmark_output_settings .= ''; 
+
           foreach($course_category_terms as $term){
             $thumbnail_id = get_term_meta($term->term_id,'course_cat_thumbnail_id',true);
             $cat_img = wp_get_attachment_image($thumbnail_id);
@@ -577,7 +596,9 @@ get_header(vibe_get_header());
               if ( has_post_thumbnail() ) {
                   $image_url = get_the_post_thumbnail_url();
                 }
-                
+                ob_start();
+          wpfp_course_link();
+          $bookmark_settings .= ob_get_clean();
                 
                   $tab_content .= '<div class="column">
               <div class="course-card">
@@ -588,14 +609,16 @@ get_header(vibe_get_header());
                     <span class="badge '.$badge_class.'">'.$course_type.'</span>
                   </header>
                   <h2 class="course-title"><a href="'.get_permalink($post->ID).'">'. $post->post_title.'</a></h2>
-                  <footer class="course-footer">
-                    <div class="left">
-                      <span class="price">';
+                  <footer class="course-footer">';
                     ob_start();
-                    the_course_price();
                     if (in_array($post->ID, $users_courses)){
                       the_course_button();
                     }
+                    $button_output_settings .= ob_get_clean();
+                    $tab_content .= '<div class="left">
+                      <span class="price">';
+                    ob_start();
+                    the_course_price();
                     $output_settings .= ob_get_clean();
                     $tab_content .= $output_settings; 
                     $tab_content .='</span>
@@ -603,11 +626,9 @@ get_header(vibe_get_header());
                     <div class="right">
                       <a href="'.$pid.'">
                       <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
-                      </a>
-                      <a href="#bookmark!">
-                        <svg class="bookmark filled" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"/></svg>
-                      </a>
-                      <a href="#share!" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
+                      </a>';
+                      $tab_content .= $bookmark_settings;
+                      $tab_content .= '<a href="#share!" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
                       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                       </a>
                     </div>
@@ -641,7 +662,10 @@ get_header(vibe_get_header());
                     </div>
                     <h3 class="course-title">'.$post->post_title.'</h3>
                     <div class="footer">
-                        <span class="price">₹800</span><span class="gst">+ GST</span>
+                        <span class="price">';
+                        $tab_content .= $output_settings;
+
+                        $tab_content .='</span>
                     </div>
                 </div>
             </div>
@@ -672,6 +696,7 @@ get_header(vibe_get_header());
                 
                 
              $output_settings = '';
+             $button_output_settings = '';
             endwhile;
             endif;
             $tab_content .= '</div></div>';
@@ -758,9 +783,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         );
       $Query_news = new WP_Query( $args_news );
 
-      $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news-category" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
+      $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
       $editor_all_tab_content .= '
-        <div class="tab-pane fade show active" id="all-news-category" role="tabpanel" aria-labelledby="all-news-category"><div class="articles">';
+        <div class="tab-pane fade show active" id="all-news-category" role="tabpanel" aria-labelledby="all-news"><div class="articles">';
            if ($Query_news->have_posts()) : 
 
           while ($Query_news->have_posts()) : $Query_news->the_post();
@@ -904,7 +929,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
           'post_status' => 'publish',
         );
         $Query1 = new WP_Query( $args1 );
-        
+        $counter = 0;
         if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
           $custom_fields = get_post_custom();
         ?>
@@ -924,19 +949,65 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                     </div>
                   </div>
                   <div class="right">
-                    <a href="#!">
+                    <a href="#!" class="sharing" data-toggle="modal" data-target="#open_share_<?php echo $counter;?>">
                     <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                     </a>
                   </div>
+                  <div class="sharing-course modal" id="open_share_<?php echo $counter;?>">
+                  <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                  <button class="sharing close-button" type="submit"></button>
+                  <div class="course-list">
+                      <h4 class="title">Share This Testimonial</h4>
+                      <div class="list">
+                          <figure class="image"><a href="#!"><img src="<?php echo get_the_post_thumbnail_url(); ?>"></a></figure>
+                          <div class="course-detail">
+                              <!-- <div class="header">
+                                  <a class="category" href="#!"></a>
+                                  <span class="badge <?php echo $badge_class?>"><?php echo $course_type?></span>
+                              </div> -->
+                              <h3 class="course-title"><?php echo $custom_fields['vibe_testimonial_author_name'][0] ?></h3>
+                              <div class="footer">
+                                  <!-- <span class="price">₹800</span><span class="gst">+ GST</span> -->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="course-share">
+                      <div class="copy">
+                          <input type="text" name="" value="https://htschool.hindustantimes.com/course/business-boss/" readonly>
+                          <button class="button" type="submit">Copy</button>
+                      </div>
+                      <div class="social">
+                          <!-- <a href="#!" class="facebook"></a>
+                          <a href="#!" class="twitter"></a>
+                          <a href="#!" class="pinterest"></a>
+                          <a href="#!" class="whatsapp"></a> -->
+                          <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="" data-a2a-title="" data-id="">
+                              <a class="a2a_button_facebook"></a>
+                              <a class="a2a_button_twitter"></a>
+                              <a class="a2a_button_pinterest"></a>
+                              <a class="a2a_button_google_gmail"></a>
+                              <a class="a2a_button_whatsapp"></a>
+                              <a class="a2a_button_telegram"></a>
+                        </div>
+                      </div>
+
+                  </div>
+                </div>
+                </div>
+              </div>
                 </footer>
               </div>
             </div>
           </div>
         <?php
+        $counter++;
           endwhile; endif;
         ?> 
         </div>
       </div>
+      
   </section>
   </main><!-- End #main -->
   <!-- <script type="text/javascript">

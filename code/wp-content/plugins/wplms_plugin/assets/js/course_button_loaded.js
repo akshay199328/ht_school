@@ -4149,7 +4149,7 @@
                                 });
                                 document.dispatchEvent(r)
                             }
-                            jQuery("#complete_current_unit").trigger('click');
+                                jQuery("#complete_current_unit").trigger('click');
                             if(t.quiz_points_credit > 0){
                                 var prev_creds = jQuery('.point-number').text();
                                 var total_creds = parseInt(prev_creds) + parseInt(t.quiz_points_credit);
@@ -6689,8 +6689,8 @@
                                             token: d.token
                                         })
                                     }).then(e => e.json()).then(e => {
-                                        if(e.status == true){ 
                                         jQuery("#complete_current_unit").trigger('click');
+                                        if(e.status == true){ 
                                             var prev_creds = jQuery('.point-number').text();
                                             var total_creds = parseInt(prev_creds) + parseInt(e.points);
                                             jQuery('.point-number').text(total_creds);

@@ -3386,19 +3386,19 @@ body.menuOpened {
     scrollbar-color: #CBCBCB #F0F0F0; /* thumb and track color */
     scrollbar-width: thin;
 }
-.modal-body {
+.about-popup .modal-body {
     scrollbar-color: #CBCBCB #F0F0F0; /* thumb and track color */
     scrollbar-width: thin;
 }
-.modal-body::-webkit-scrollbar {
+.about-popup .modal-body::-webkit-scrollbar {
   width: 7px;
 }
 
-.modal-body::-webkit-scrollbar-track {
+.about-popup .modal-body::-webkit-scrollbar-track {
   background: #F0F0F0;
 }
 
-.modal-body::-webkit-scrollbar-thumb {
+.about-popup .modal-body::-webkit-scrollbar-thumb {
   background: #CBCBCB;
 }
 .about-popup .modal-body .sub-title {

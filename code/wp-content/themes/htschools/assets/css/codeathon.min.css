@@ -3386,10 +3386,6 @@ body.menuOpened {
     scrollbar-color: #CBCBCB #F0F0F0; /* thumb and track color */
     scrollbar-width: thin;
 }
-.about-popup .modal-body {
-    scrollbar-color: #CBCBCB #F0F0F0; /* thumb and track color */
-    scrollbar-width: thin;
-}
 .about-popup .modal-body::-webkit-scrollbar {
   width: 7px;
 }

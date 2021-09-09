@@ -9,12 +9,12 @@
         }
     });
     $(document).ready(function(){
-        $(".overlay").click(function(){
+        /*$(".overlay").click(function(){
             $("body").removeClass("shared");
-        });
-        $(".sharing").click(function () {
+        });*/
+        /*$(".sharing").click(function () {
             $("body").toggleClass('shared');
-        });
+        });*/
         $(".filter-button").click(function () {
             $("body").toggleClass('filterOpened');
         });

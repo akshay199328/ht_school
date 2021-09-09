@@ -1129,7 +1129,50 @@ border: 1px solid deepskyblue;
       </div>
     </div>
   </div>
+  <div class="sharing-course modal fade" id="open_editor_share" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button class="sharing close-button" type="submit"></button>
+            <div class="course-list">
+                <h4 class="title">Share This Course</h4>
+                <div class="list">
+                    <figure class="image"><a href="#!"><img src="<?php echo $image_url;?>"></a></figure>
+                    <div class="course-detail">
+                        <div class="header">
+                            <a class="category" href="#!"></a>
+                            <span class="badge <?php echo $badge_class?>"><?php echo $course_type?></span>
+                        </div>
+                        <h3 class="course-title"><?php echo $post->title?></h3>
+                        <div class="footer">
+                            <span class="price">₹800</span><span class="gst">+ GST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="course-share">
+                <div class="copy">
+                    <input type="text" name="" value="https://htschool.hindustantimes.com/course/business-boss/" readonly>
+                    <button class="button" type="submit">Copy</button>
+                </div>
+                <div class="social">
+                    <!-- <a href="#!" class="facebook"></a>
+                    <a href="#!" class="twitter"></a>
+                    <a href="#!" class="pinterest"></a>
+                    <a href="#!" class="whatsapp"></a> -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>" data-id="<?php echo $post->ID;?>">
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_pinterest"></a>
+                        <a class="a2a_button_google_gmail"></a>
+                        <a class="a2a_button_whatsapp"></a>
+                        <a class="a2a_button_telegram"></a>
+                  </div>
+                </div>
 
+            </div>
+          </div>
+      </div>
+</div>
 <!-- modal -->
 
 <?php do_action('woocommerce_check_and_trigger_signup_tag'); ?>

@@ -510,6 +510,7 @@ get_header(vibe_get_header());
 
             $all_courses_settings = '';
             $category_button_settings = '';
+            $bookmark_settings = '';
             endwhile;
             endif;
           $tab_content .= '</div></div>';   
@@ -697,6 +698,7 @@ get_header(vibe_get_header());
                 
              $output_settings = '';
              $button_output_settings = '';
+             $bookmark_output_settings = '';
             endwhile;
             endif;
             $tab_content .= '</div></div>';

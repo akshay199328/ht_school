@@ -84,7 +84,7 @@
             stagePadding: 100,
             smartSpeed:1200,
             autoWidth:true,
-            autoplay:true,
+            autoplay:false,
             autoplayHoverPause:true,
             merge:true,
             center:true,

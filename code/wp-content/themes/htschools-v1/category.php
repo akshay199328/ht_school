@@ -126,7 +126,7 @@ get_header(vibe_get_header());
                     <?php
                   }
                   ?>
-                    <a href="" class="hover_share" data-toggle="modal" data-target="#open_editor_share" id="editor_share" data-id="<?php echo get_the_ID();?>">
+                    <a href="" class="hover_share editor_share" data-toggle="modal" data-target="#open_editor_share" id="editor_share" data-id="<?php echo get_the_ID();?>">
                       <input type="hidden" id="editors_id_<?php echo get_the_ID();?>" value="<?php echo get_the_ID();?>" data-id="<?php echo get_the_ID();?>">
                       <input type="hidden" id="editors_name_<?php echo get_the_ID();?>" value="<?php echo get_the_title();?>">
                       <input type="hidden" id="editors_image_<?php echo get_the_ID();?>" value="<?php echo $featured_image;?>">

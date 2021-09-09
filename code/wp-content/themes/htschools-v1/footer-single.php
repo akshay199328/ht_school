@@ -1755,7 +1755,7 @@ border: 1px solid deepskyblue;
 			window.location.href = cart_url + "?add-to-cart=" + variation_id;
 		}
 	})
-    jQuery('#editor_share').click(function(){
+    jQuery('.editor_share').click(function(){
         var editors_id = $(this).data("id");
         var editors_name = jQuery("#editors_name_" + editors_id).val();
         var editors_image = jQuery("#editors_image_" + editors_id).val();

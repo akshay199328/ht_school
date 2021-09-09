@@ -272,14 +272,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
 
             wp_nav_menu( $args );
         ?>
-            <!-- <li><a href="#!">Home</a></li>
-            <li><a href="#!">Explore Courses</a></li>
-            <li><a href="#!">Editor's Desk</a></li>
-            <li><a href="#!">About HT School</a></li>
-            <li><a href="#!">Career Mate</a></li>
-            <li><a href="#!">Code A thon</a></li>
-            <li><a href="#!">Scholarship</a></li>
-            <li><a href="#!">Olympiad</a></li> -->
+        <!-- <li class="responsive">hello</li> -->
         </ul>
         
         <ul class="bottom">
@@ -294,12 +287,6 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                }
             ?>
         </ul>
-           <!--  <li><a href="#!">Contact Us</a></li>
-            <li><a href="#!">Cookie Policy</a></li>
-            <li><a href="#!">Privacy Policy</a></li>
-            <li><a href="#!">Terms of Use</a></li>
-            <li><a href="#!">Product Terms and Conditions</a></li>
-        </ul> -->
     </div>
         <div id="close-navigation-header">
 

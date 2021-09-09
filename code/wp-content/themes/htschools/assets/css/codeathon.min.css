@@ -3381,10 +3381,26 @@ body.menuOpened {
     font-weight: 300;
     max-height: 70vh;
     overflow-y: scroll;
-        overflow: auto;
+    overflow: auto;
     flex-grow: 1;
+    scrollbar-color: #CBCBCB #F0F0F0; /* thumb and track color */
+    scrollbar-width: thin;
+}
+.modal-body {
+    scrollbar-color: #CBCBCB #F0F0F0; /* thumb and track color */
+    scrollbar-width: thin;
+}
+.modal-body::-webkit-scrollbar {
+  width: 7px;
 }
 
+.modal-body::-webkit-scrollbar-track {
+  background: #F0F0F0;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #CBCBCB;
+}
 .about-popup .modal-body .sub-title {
     color: #b788e6;
     font-size: 18px;
@@ -4580,30 +4596,7 @@ code {
     width: auto !important;
 }
 
-/*.scroll-wrapper>.scroll-content::-webkit-scrollbar {
-    height: 0;
-    width: 0;
-*/}
-.about-popup .modal-body::-webkit-scrollbar-track,
-.about-popup .modal-body::-moz-scrollbar-track
-{
-    border-radius: 8px;
-    background-color: #F5F5F5;
-}
 
-.about-popup .modal-body::-webkit-scrollbar, 
-.about-popup .modal-body::-moz-scrollbar
-{
-    width: 7px;
-    background-color: #f5f5f5;
-}
-
-.about-popup .modal-body::-webkit-scrollbar-thumb,
-.about-popup .modal-body::-moz-scrollbar-thumb
-{
-    border-radius: 0px;
-    background-color: #CBCBCB;
-}
 .scroll-element {
     display: none;
 }

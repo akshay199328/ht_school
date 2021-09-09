@@ -4584,19 +4584,22 @@ code {
     height: 0;
     width: 0;
 */}
-.about-popup .modal-body::-webkit-scrollbar-track
+.about-popup .modal-body::-webkit-scrollbar-track,
+.about-popup .modal-body::-moz-scrollbar-track
 {
     border-radius: 8px;
     background-color: #F5F5F5;
 }
 
-.about-popup .modal-body::-webkit-scrollbar
+.about-popup .modal-body::-webkit-scrollbar, 
+.about-popup .modal-body::-moz-scrollbar
 {
     width: 7px;
     background-color: #f5f5f5;
 }
 
-.about-popup .modal-body::-webkit-scrollbar-thumb
+.about-popup .modal-body::-webkit-scrollbar-thumb,
+.about-popup .modal-body::-moz-scrollbar-thumb
 {
     border-radius: 0px;
     background-color: #CBCBCB;

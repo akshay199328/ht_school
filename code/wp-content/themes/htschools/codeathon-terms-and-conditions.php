@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div class="section-wrapper terms-conditions">
 	<div class="section-copy">
-		<h2 class="section-title">Terms and Conditions</h2>
+		<h2 class="section-title">HT Code-a-thon Terms and Conditions</h2>
 		<?php echo $codeathon_tnc; ?>
 	</div>
 </div>

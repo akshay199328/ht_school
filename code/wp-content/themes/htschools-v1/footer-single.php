@@ -1134,9 +1134,9 @@ border: 1px solid deepskyblue;
         <div class="modal-content">
             <button class="sharing close-button" type="submit"></button>
             <div class="course-list">
-                <h4 class="title">Share This Course</h4>
+                <h4 class="title">Share This Article</h4>
                 <div class="list">
-                    <figure class="image"><a href="#!"><img src="<?php echo $image_url;?>" id="editor_image"></a></figure>
+                    <figure class="image"><a href="#!"><img src="" id="editor_image"></a></figure>
                     <div class="course-detail">
                         <div class="header">
                             <a class="category" href="#!"></a>
@@ -1159,7 +1159,53 @@ border: 1px solid deepskyblue;
                     <a href="#!" class="twitter"></a>
                     <a href="#!" class="pinterest"></a>
                     <a href="#!" class="whatsapp"></a> -->
-                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="share_data" data-a2a-url="http://localhost/Htschools-git/code/course/live-course-product" data-a2a-title="Live Course Product - Ht Schools" data-id="1774">
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="share_data" data-a2a-url="" data-a2a-title="" data-id="">
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_pinterest"></a>
+                        <a class="a2a_button_google_gmail"></a>
+                        <a class="a2a_button_whatsapp"></a>
+                        <a class="a2a_button_telegram"></a>
+                    </div>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                </div>
+
+            </div>
+          </div>
+      </div>
+</div>
+
+<div class="sharing-course modal fade" id="open_testimonial_share" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button class="sharing close-button" type="submit"></button>
+            <div class="course-list">
+                <h4 class="title">Share This Testimonial</h4>
+                <div class="list">
+                    <figure class="image"><a href="#!"><img src="" id="testimonial_image"></a></figure>
+                    <div class="course-detail">
+                        <div class="header">
+                            <a class="category" href="#!"></a>
+                            <span id="testimonial_title"></span>
+                        </div>
+                        <h3 class="course-title" id="testimonial_name"></h3>
+                        <div class="footer">
+                            <span class="price" id="testimonial_designation"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="course-share">
+                <div class="copy">
+                    <input type="text" name="" value="" id="testimonial_url" readonly>
+                    <button class="button" type="submit">Copy</button>
+                </div>
+                <div class="social">
+                    <!-- <a href="#!" class="facebook"></a>
+                    <a href="#!" class="twitter"></a>
+                    <a href="#!" class="pinterest"></a>
+                    <a href="#!" class="whatsapp"></a> -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="testimonial_share_data" data-a2a-url="" data-a2a-title="" data-id="">
                         <a class="a2a_button_facebook"></a>
                         <a class="a2a_button_twitter"></a>
                         <a class="a2a_button_pinterest"></a>
@@ -1771,6 +1817,24 @@ border: 1px solid deepskyblue;
         jQuery('#share_data').attr('data-a2a-url',editors_url);
         jQuery('#share_data').attr('data-a2a-title',editors_name + '-' +editors_url);
         jQuery('#share_data').attr('data-id',editors_id);
+    })
+
+    jQuery('.testimonial_share').click(function(){
+        var testimonial_id = $(this).data("id");
+        var testimonial_title = jQuery("#testimonial_title_" + testimonial_id).val();
+        var testimonial_name = jQuery("#testimonial_name_" + testimonial_id).val();
+        var testimonial_image = jQuery("#testimonial_image_" + testimonial_id).val();
+        var testimonial_designation = jQuery("#testimonial_designation_" + testimonial_id).val();
+        var testimonial_url = jQuery("#testimonial_url_" + testimonial_id).val();
+        
+        jQuery('#testimonial_image').attr('src',testimonial_image);
+        jQuery('#testimonial_designation').text(testimonial_designation);
+        jQuery('#testimonial_title').html(testimonial_title);
+        jQuery('#testimonial_name').text(testimonial_name);
+        jQuery('#testimonial_url').val(testimonial_url);
+        jQuery('#testimonial_share_data').attr('data-a2a-url',testimonial_url);
+        jQuery('#testimonial_share_data').attr('data-a2a-title',testimonial_name + '-' +testimonial_url);
+        jQuery('#testimonial_share_data').attr('data-id',testimonial_id);
     })
 </script>
 

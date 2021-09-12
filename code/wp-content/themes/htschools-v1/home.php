@@ -203,9 +203,12 @@ get_header(vibe_get_header());
                 </div>
                 <div class="right">
                   <a href='<?php echo $pid;?>'>
+                <?php if (!in_array($post->ID, $users_courses)){ ?>
+                
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
                   </a>
                   <?php
+                  }
                    if(is_user_logged_in()){
                     ?>
                     <?php wpfp_course_link(); ?>
@@ -426,11 +429,12 @@ get_header(vibe_get_header());
                   $tab_content .= $all_courses_settings;
                   $tab_content .='</span>
                     </div>
-                    <div class="right">
-                      <a href="'.$pid.'">
+                    <div class="right">';
+                    if (!in_array($post->ID, $users_courses)){
+                      $tab_content .='<a href="'.$pid.'">
                       <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
                       </a>';
-
+                    }
                     if(is_user_logged_in()){
                      $tab_content .= $bookmark_settings;
                     }
@@ -617,19 +621,22 @@ get_header(vibe_get_header());
                       the_course_button();
                     }
                     $button_output_settings .= ob_get_clean();
-                    $tab_content .= '<div class="left">
-                      <span class="price">';
+                    $tab_content .= '<div class="left">';
+                    $tab_content .= $button_output_settings;
+
+                    $tab_content .= '<span class="price">';
                     ob_start();
                     the_course_price();
                     $output_settings .= ob_get_clean();
                     $tab_content .= $output_settings; 
                     $tab_content .='</span>
                     </div>
-                    <div class="right">
-                      <a href="'.$pid.'">
+                    <div class="right">';
+                    if (!in_array($post->ID, $users_courses)){
+                      $tab_content .='<a href="'.$pid.'">
                       <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
                       </a>';
-
+                      }
                       $tab_content .= $bookmark_output_settings;
                       $tab_content .= '<a href="#share!" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
                       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
@@ -953,54 +960,16 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                     </div>
                   </div>
                   <div class="right">
-                    <a href="#!" data-toggle="modal" data-target="#open_share_<?php echo $counter;?>">
+                    <a href="" class="hover_share testimonial_share" data-toggle="modal" data-target="#open_testimonial_share" data-id="<?php echo get_the_ID();?>">
+                      <input type="hidden" id="testimonial_id_<?php echo get_the_ID();?>" value="<?php echo get_the_ID();?>" data-id="<?php echo get_the_ID();?>">
+                      <input type="hidden" id="testimonial_title_<?php echo get_the_ID();?>" value="<?php echo the_content(); ?>">
+                      <input type="hidden" id="testimonial_name_<?php echo get_the_ID();?>" value="<?php echo $custom_fields['vibe_testimonial_author_name'][0] ?>">
+                      <input type="hidden" id="testimonial_image_<?php echo get_the_ID();?>" value="<?php echo get_the_post_thumbnail_url(); ?>">
+                      <input type="hidden" id="testimonial_designation_<?php echo get_the_ID();?>" value="<?php echo $custom_fields['vibe_testimonial_author_designation'][0] ?>">
+                      <input type="hidden" id="testimonial_url_<?php echo get_the_ID();?>" value="<?php echo get_permalink(); ?>">
                     <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                     </a>
                   </div>
-                  <div class="sharing-course modal fade" id="open_share_<?php echo $counter;?>">
-                  <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                  <button class="sharing close-button" type="submit"></button>
-                  <div class="course-list">
-                      <h4 class="title">Share This Testimonial</h4>
-                      <div class="list">
-                          <figure class="image"><a href="#!"><img src="<?php echo get_the_post_thumbnail_url(); ?>"></a></figure>
-                          <div class="course-detail">
-                              <!-- <div class="header">
-                                  <a class="category" href="#!"></a>
-                                  <span class="badge <?php echo $badge_class?>"><?php echo $course_type?></span>
-                              </div> -->
-                              <h3 class="course-title"><?php echo $custom_fields['vibe_testimonial_author_name'][0] ?></h3>
-                              <div class="footer">
-                                  <!-- <span class="price">₹800</span><span class="gst">+ GST</span> -->
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="course-share">
-                      <div class="copy">
-                          <input type="text" name="" value="https://htschool.hindustantimes.com/course/business-boss/" readonly>
-                          <button class="button" type="submit">Copy</button>
-                      </div>
-                      <div class="social">
-                          <!-- <a href="#!" class="facebook"></a>
-                          <a href="#!" class="twitter"></a>
-                          <a href="#!" class="pinterest"></a>
-                          <a href="#!" class="whatsapp"></a> -->
-                          <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="" data-a2a-title="" data-id="">
-                              <a class="a2a_button_facebook"></a>
-                              <a class="a2a_button_twitter"></a>
-                              <a class="a2a_button_pinterest"></a>
-                              <a class="a2a_button_google_gmail"></a>
-                              <a class="a2a_button_whatsapp"></a>
-                              <a class="a2a_button_telegram"></a>
-                        </div>
-                      </div>
-
-                  </div>
-                </div>
-                </div>
-              </div>
                 </footer>
               </div>
             </div>

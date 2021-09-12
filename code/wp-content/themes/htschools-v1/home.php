@@ -234,7 +234,8 @@ get_header(vibe_get_header());
         <div class="sharing-course modal fade" id="open_share_<?php echo $courseID;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                <button class="sharing close-button" type="submit"></button>
+                <!-- <button class="sharing close-button" type="submit"></button> -->
+                <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close"></button>
                 <div class="course-list">
                     <h4 class="title">Share This Course</h4>
                     <div class="list">
@@ -246,16 +247,17 @@ get_header(vibe_get_header());
                             </div>
                             <h3 class="course-title"><?php echo $post->title?></h3>
                             <div class="footer">
-                                <span class="price"><?php the_course_price();?></span><span class="gst">+ GST</span>
+                                <span class="price"><?php the_course_price();?></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="course-share">
                     <div class="copy">
-                        <input type="text" name="" value="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" readonly>
-                        <button class="button" type="submit">Copy</button>
+                        <input type="text" name="" value="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" id="popular_course_link" class="copyUrl" readonly>
+                        <button class="button" type="submit" onclick="copyFunction('popular_course_link','popular_success_msg')">Copy</button>
                     </div>
+                    <p class="success_msg" id="popular_success_msg"></p>
                     <div class="social">
                         <!-- <a href="#!" class="facebook"></a>
                         <a href="#!" class="twitter"></a>
@@ -470,7 +472,7 @@ get_header(vibe_get_header());
             $tab_content .= '<div class="sharing-course modal fade" id="open_share_'.$courseID.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-        <button class="close-button" type="submit"></button>
+        <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close"></button>
         <div class="course-list">
             <h4 class="title">Share This Course</h4>
             <div class="list">
@@ -490,10 +492,10 @@ get_header(vibe_get_header());
         </div>
         <div class="course-share">
             <div class="copy">
-                <input type="text" name="" value="'.$courseslug.'" class="copyUrl" readonly>
-                <button class="button" type="submit" onclick="copyFunction()">Copy</button>
+                <input type="text" name="" value="'.$courseslug.'" class="copyText" readonly>
+                <button class="button" type="submit" onclick="copyUrl()">Copy</button>
             </div>
-            <p class="success_msg"></p>
+            <p class="successMsg"></p>
             <div class="social">
                 <!-- <a href="#!" class="facebook"></a>
                 <a href="#!" class="twitter"></a>
@@ -661,7 +663,7 @@ get_header(vibe_get_header());
             </div><div class="sharing-course modal fade" id="open_share_'.$courseID.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-        <button class="close-button" type="submit"></button>
+        <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close"></button>
         <div class="course-list">
             <h4 class="title">Share This Course</h4>
             <div class="list">
@@ -683,10 +685,10 @@ get_header(vibe_get_header());
         </div>
         <div class="course-share">
             <div class="copy">
-                <input type="text" name="" value="'.$courseslug.'" readonly>
-                <button class="button" type="submit" onclick="copyFunction()">Copy</button>
+                <input type="text" name="" value="'.$courseslug.'" class="copyText" readonly>
+                <button class="button" type="submit" onclick="copyUrl()">Copy</button>
             </div>
-            <p class="success_msg"></p>
+            <p class="successMsg"></p>
             <div class="social">
                 <!-- <a href="#!" class="facebook"></a>
                 <a href="#!" class="twitter"></a>

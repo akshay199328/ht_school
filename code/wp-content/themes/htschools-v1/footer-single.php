@@ -1132,7 +1132,8 @@ border: 1px solid deepskyblue;
   <div class="sharing-course modal fade" id="open_editor_share" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <button class="sharing close-button" type="submit"></button>
+            <!-- <button class="sharing close-button" type="submit"></button> -->
+            <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close"></button>
             <div class="course-list">
                 <h4 class="title">Share This Article</h4>
                 <div class="list">
@@ -1152,9 +1153,9 @@ border: 1px solid deepskyblue;
             <div class="course-share">
                 <div class="copy">
                     <input type="text" name="" value="" id="editor_url" class="copyUrl" readonly>
-                    <button class="button" type="submit" onclick="copyFunction()">Copy</button>
+                    <button class="button" type="submit" onclick="copyFunction('editor_url','editor_success_msg')">Copy</button>
                 </div>
-                <p class="success_msg"></p>
+                <p class="success_msg" id="editor_success_msg"></p>
                 <div class="social">
                     <!-- <a href="#!" class="facebook"></a>
                     <a href="#!" class="twitter"></a>
@@ -1179,7 +1180,10 @@ border: 1px solid deepskyblue;
 <div class="sharing-course modal fade" id="open_testimonial_share" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <button class="sharing close-button" type="submit"></button>
+           <!--  <button class="sharing close-button" type="submit"></button> -->
+            <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close">
+          
+        </button>
             <div class="course-list">
                 <h4 class="title">Share This Testimonial</h4>
                 <div class="list">
@@ -1199,9 +1203,9 @@ border: 1px solid deepskyblue;
             <div class="course-share">
                 <div class="copy">
                     <input type="text" name="" value="" id="testimonial_url" class="copyUrl" readonly>
-                    <button class="button" type="submit" onclick="copyFunction()">Copy</button>
+                    <button class="button" type="submit" onclick="copyFunction('testimonial_url','testimonial_success_msg')">Copy</button>
                 </div>
-                <p class="success_msg"></p>
+                <p class="success_msg" id="testimonial_success_msg"></p>
                 <div class="social">
                     <!-- <a href="#!" class="facebook"></a>
                     <a href="#!" class="twitter"></a>
@@ -1839,13 +1843,21 @@ border: 1px solid deepskyblue;
         jQuery('#testimonial_share_data').attr('data-a2a-title',testimonial_name + '-' +testimonial_url);
         jQuery('#testimonial_share_data').attr('data-id',testimonial_id);
     })
-    function copyFunction() {
-        var copyText = document.getElementsByClassName("copyUrl");
+    function copyFunction(id,msgId) {
+        var copyText = document.getElementById(id);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        document.getElementById(msgId).innerHTML = "Link Copied Successfully";
+        setTimeout(function(){ $("#" + msgId).html(''); }, 5000);
+    }
+    function copyUrl() {
+        var copyText = document.getElementsByClassName('copyText');
         copyText[0].select();
         copyText[0].setSelectionRange(0, 99999)
         document.execCommand("copy");
-        document.getElementsByClassName("success_msg")[0].innerHTML = "Referral Code Copied Successfully";
-        setTimeout(function(){ $(".success_msg").html(''); }, 5000);
+        document.getElementsByClassName('successMsg')[0].innerHTML = "Link Copied Successfully";
+        setTimeout(function(){ $(".successMsg").html(''); }, 5000);
     }
 </script>
 

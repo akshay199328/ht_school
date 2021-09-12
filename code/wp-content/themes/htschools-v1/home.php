@@ -490,9 +490,10 @@ get_header(vibe_get_header());
         </div>
         <div class="course-share">
             <div class="copy">
-                <input type="text" name="" value="'.$courseslug.'" readonly>
-                <button class="button" type="submit">Copy</button>
+                <input type="text" name="" value="'.$courseslug.'" class="copyUrl" readonly>
+                <button class="button" type="submit" onclick="copyFunction()">Copy</button>
             </div>
+            <p class="success_msg"></p>
             <div class="social">
                 <!-- <a href="#!" class="facebook"></a>
                 <a href="#!" class="twitter"></a>
@@ -683,8 +684,9 @@ get_header(vibe_get_header());
         <div class="course-share">
             <div class="copy">
                 <input type="text" name="" value="'.$courseslug.'" readonly>
-                <button class="button" type="submit">Copy</button>
+                <button class="button" type="submit" onclick="copyFunction()">Copy</button>
             </div>
+            <p class="success_msg"></p>
             <div class="social">
                 <!-- <a href="#!" class="facebook"></a>
                 <a href="#!" class="twitter"></a>

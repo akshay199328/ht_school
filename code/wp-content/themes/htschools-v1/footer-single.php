@@ -1151,9 +1151,10 @@ border: 1px solid deepskyblue;
             </div>
             <div class="course-share">
                 <div class="copy">
-                    <input type="text" name="" value="" id="editor_url" readonly>
-                    <button class="button" type="submit">Copy</button>
+                    <input type="text" name="" value="" id="editor_url" class="copyUrl" readonly>
+                    <button class="button" type="submit" onclick="copyFunction()">Copy</button>
                 </div>
+                <p class="success_msg"></p>
                 <div class="social">
                     <!-- <a href="#!" class="facebook"></a>
                     <a href="#!" class="twitter"></a>
@@ -1197,9 +1198,10 @@ border: 1px solid deepskyblue;
             </div>
             <div class="course-share">
                 <div class="copy">
-                    <input type="text" name="" value="" id="testimonial_url" readonly>
-                    <button class="button" type="submit">Copy</button>
+                    <input type="text" name="" value="" id="testimonial_url" class="copyUrl" readonly>
+                    <button class="button" type="submit" onclick="copyFunction()">Copy</button>
                 </div>
+                <p class="success_msg"></p>
                 <div class="social">
                     <!-- <a href="#!" class="facebook"></a>
                     <a href="#!" class="twitter"></a>
@@ -1801,6 +1803,7 @@ border: 1px solid deepskyblue;
 			window.location.href = cart_url + "?add-to-cart=" + variation_id;
 		}
 	})
+    
     jQuery('.editor_share').click(function(){
         var editors_id = $(this).data("id");
         var editors_name = jQuery("#editors_name_" + editors_id).val();
@@ -1836,6 +1839,14 @@ border: 1px solid deepskyblue;
         jQuery('#testimonial_share_data').attr('data-a2a-title',testimonial_name + '-' +testimonial_url);
         jQuery('#testimonial_share_data').attr('data-id',testimonial_id);
     })
+    function copyFunction() {
+        var copyText = document.getElementsByClassName("copyUrl");
+        copyText[0].select();
+        copyText[0].setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        document.getElementsByClassName("success_msg")[0].innerHTML = "Referral Code Copied Successfully";
+        setTimeout(function(){ $(".success_msg").html(''); }, 5000);
+    }
 </script>
 
 <?php

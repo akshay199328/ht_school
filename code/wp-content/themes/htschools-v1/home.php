@@ -342,6 +342,7 @@ get_header(vibe_get_header());
           $args_all_courses = array(
             'post_type' => 'course',
             'post_status' => 'publish',
+            'nopaging' => true
           );  
           
           $all_course = new WP_Query( $args_all_courses );
@@ -541,6 +542,7 @@ get_header(vibe_get_header());
             $args_category_course = array(
                 'post_type' => 'course',
                 'post_status' => 'publish',
+                'nopaging' => true,
                 'tax_query' => array(
                   array(
                       'taxonomy' => 'course-cat',

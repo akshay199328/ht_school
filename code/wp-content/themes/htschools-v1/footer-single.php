@@ -1206,20 +1206,13 @@ border: 1px solid deepskyblue;
                     <button class="button" type="submit" onclick="copyFunction('testimonial_url','testimonial_success_msg')">Copy</button>
                 </div>
                 <p class="success_msg" id="testimonial_success_msg"></p>
-                <div class="social">
+                <div class="social" id="testimonial_share_data">
                     <!-- <a href="#!" class="facebook"></a>
                     <a href="#!" class="twitter"></a>
                     <a href="#!" class="pinterest"></a>
                     <a href="#!" class="whatsapp"></a> -->
-                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="testimonial_share_data" data-a2a-url="" data-a2a-title="" data-id="">
-                        <a class="a2a_button_facebook"></a>
-                        <a class="a2a_button_twitter"></a>
-                        <a class="a2a_button_pinterest"></a>
-                        <a class="a2a_button_google_gmail"></a>
-                        <a class="a2a_button_whatsapp"></a>
-                        <a class="a2a_button_telegram"></a>
-                    </div>
-                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    
+                    
                 </div>
 
             </div>
@@ -1227,7 +1220,6 @@ border: 1px solid deepskyblue;
       </div>
 </div>
 <!-- modal -->
-
 <?php do_action('woocommerce_check_and_trigger_signup_tag'); ?>
 <?php if(isset($_SESSION['sign_up_data']))
 { ?>
@@ -1815,7 +1807,6 @@ border: 1px solid deepskyblue;
         var editors_category = jQuery("#editors_category_" + editors_id).val();
         var editors_postdate = jQuery("#editors_postdate_" + editors_id).val();
         var editors_url = jQuery("#editors_url_" + editors_id).val();
-        
         jQuery('#editor_image').attr('src',editors_image);
         jQuery('#editor_category').text(editors_category);
         jQuery('#editor_title').text(editors_name);
@@ -1839,10 +1830,12 @@ border: 1px solid deepskyblue;
         jQuery('#testimonial_title').html(testimonial_title);
         jQuery('#testimonial_name').text(testimonial_name);
         jQuery('#testimonial_url').val(testimonial_url);
-        jQuery('#testimonial_share_data').attr('data-a2a-url',testimonial_url);
-        jQuery('#testimonial_share_data').attr('data-a2a-title',testimonial_name + '-' +testimonial_url);
-        jQuery('#testimonial_share_data').attr('data-id',testimonial_id);
-    })
+        jQuery('#testimonial_share_data').html('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="testimonial_share_data" data-a2a-url="'+testimonial_url+'" data-a2a-title="'+testimonial_title+'" data-id="'+testimonial_id+'"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_pinterest"></a><a class="a2a_button_google_gmail"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_telegram"></a></div>');
+         var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "https://static.addtoany.com/menu/page.js";
+        jQuery('#testimonial_share_data').append(s);
+        })
     function copyFunction(id,msgId) {
         var copyText = document.getElementById(id);
         copyText.select();

@@ -1156,20 +1156,12 @@ border: 1px solid deepskyblue;
                     <button class="button" type="submit" onclick="copyFunction('editor_url','editor_success_msg')">Copy</button>
                 </div>
                 <p class="success_msg" id="editor_success_msg"></p>
-                <div class="social">
+                <div class="social" id="share_data">
                     <!-- <a href="#!" class="facebook"></a>
                     <a href="#!" class="twitter"></a>
                     <a href="#!" class="pinterest"></a>
                     <a href="#!" class="whatsapp"></a> -->
-                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="share_data" data-a2a-url="" data-a2a-title="" data-id="">
-                        <a class="a2a_button_facebook"></a>
-                        <a class="a2a_button_twitter"></a>
-                        <a class="a2a_button_pinterest"></a>
-                        <a class="a2a_button_google_gmail"></a>
-                        <a class="a2a_button_whatsapp"></a>
-                        <a class="a2a_button_telegram"></a>
-                    </div>
-                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    
                 </div>
 
             </div>
@@ -1211,8 +1203,7 @@ border: 1px solid deepskyblue;
                     <a href="#!" class="twitter"></a>
                     <a href="#!" class="pinterest"></a>
                     <a href="#!" class="whatsapp"></a> -->
-                    
-                    
+  
                 </div>
 
             </div>
@@ -1812,9 +1803,11 @@ border: 1px solid deepskyblue;
         jQuery('#editor_title').text(editors_name);
         jQuery('#editor_date').text(editors_postdate);
         jQuery('#editor_url').val(editors_url);
-        jQuery('#share_data').attr('data-a2a-url',editors_url);
-        jQuery('#share_data').attr('data-a2a-title',editors_name + '-' +editors_url);
-        jQuery('#share_data').attr('data-id',editors_id);
+        jQuery('#share_data').html('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="testimonial_share_data" data-a2a-url="'+editors_url+'" data-a2a-title="'+editors_name+'" data-id="'+editors_id+'"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_pinterest"></a><a class="a2a_button_google_gmail"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_telegram"></a></div>');
+         var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "https://static.addtoany.com/menu/page.js";
+        jQuery('#testimonial_share_data').append(s);
     })
 
     jQuery('.testimonial_share').click(function(){

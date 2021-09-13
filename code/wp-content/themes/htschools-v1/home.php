@@ -414,7 +414,7 @@ get_header(vibe_get_header());
                     }
                     else{
                       $url = "/login-register";
-                      $tab_content .='<a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a>';
+                      $tab_content .='<a href="'.get_site_url().$url.'"><i class="add-wishlist" title="Add to Wishlist"></i></a>';
                     }
                   
                       $tab_content .='

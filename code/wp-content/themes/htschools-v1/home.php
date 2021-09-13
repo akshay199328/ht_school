@@ -198,7 +198,7 @@ get_header(vibe_get_header());
                   the_course_button(); 
                 }
                 ?>
-                <div class="left">
+                <div class="left" id="course_price_share_<?php echo $post->ID;?>">
                   <span class="price" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></span>
                 </div>
                 <div class="right">

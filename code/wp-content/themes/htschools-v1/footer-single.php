@@ -1227,8 +1227,7 @@ border: 1px solid deepskyblue;
                             
                         </div>
                         <h3 class="course-title" id="course_name"></h3>
-                        <div class="footer">
-                            <span class="price" id="course_price"></span>
+                        <div class="footer" id="course_price">
                         </div>
                     </div>
                 </div>
@@ -1879,9 +1878,11 @@ border: 1px solid deepskyblue;
         var course_url = jQuery("#course_url_" + course_id).val();
         var course_type = jQuery("#course_type_" + course_id).val();
         var course_badge = jQuery("#course_badge_" + course_id).val();
+        var course_price_share = $('#course_price_share_' + course_id).html();
         
         jQuery('#course_image').attr('src',course_image);
         jQuery('#course_name').text(course_name);
+        jQuery('#course_price').html(course_price_share);
         jQuery('#cat_header').html('<a class="category" id="course_category" href="#!"></a><span class="badge '+course_badge+'">'+course_type+'</span>');
         jQuery('#course_url').val(course_url);
         jQuery('#course_share_data').html('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="testimonial_share_data" data-a2a-url="'+course_url+'" data-a2a-title="'+course_name+'" data-id="'+course_id+'"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_pinterest"></a><a class="a2a_button_google_gmail"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_telegram"></a></div>');

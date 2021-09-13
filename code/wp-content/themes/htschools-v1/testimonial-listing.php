@@ -32,20 +32,22 @@ get_header(vibe_get_header());
       <div class="content-left">
         <div class="course-wrapper">
           <?php
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
               $args1 = array(
                 'post_type' => 'testimonials',
                 'post_status' => 'publish',
                 'order'=>'DESC',
                 'orderby' => 'post_date',
+                'paged'=>$paged
               );
-              $Query1 = new WP_Query( $args1 );
+              $wp_query = new WP_Query( $args1 );
 
               $i=0; 
-              if ($Query1->have_posts())
+              if ($wp_query->have_posts())
                {
-                    while ($Query1->have_posts()) 
+                    while ($wp_query->have_posts()) 
                     {
-                         $Query1->the_post();
+                         $wp_query->the_post();
                 
                
                          $custom_fields = get_post_custom();

@@ -173,7 +173,10 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                   if($menu->title == 'Menu'){
                   $home= 'Home';
                   $home_url= get_bloginfo('url');
-                    echo '<li class="' . $current . ' "><a href ="'.$home_url.'" class="link">' . $home . '</a></li>';
+                    echo '<li ><a href ="'.$home_url.'" class="link">' . $home . '</a></li>';
+                  }
+                  else if($menu->title == 'ePaper'){
+                    echo '<li ><a href ="'.$menu->url.'" class="link">' . $menu->title . '</a></li>';
                   }
                   else{
                   if($post_slug != 'login-register'){

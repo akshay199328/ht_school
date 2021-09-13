@@ -40,6 +40,7 @@ get_header(vibe_get_header());
                 'orderby' => 'post_date',
                 'paged'=>$paged
               );
+              
               $wp_query = new WP_Query( $args1 );
 
               $i=0; 

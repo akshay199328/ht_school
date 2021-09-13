@@ -900,7 +900,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       <div class="home-copy">
         <header class="section-header">
             <h2 class="large-title">Student Testimonials</h2>
-            <a class="view-all" href="#!">View More</a>
+            <a class="view-all" href="<?php echo bloginfo('url')?>/testimonial-listing" target="_blank">View More</a>
         </header>
       <div class="owl-carousel owl-theme student_slider">
         <?php

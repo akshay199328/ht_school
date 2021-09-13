@@ -1909,6 +1909,9 @@ border: 1px solid deepskyblue;
         document.getElementsByClassName('successMsg')[0].innerHTML = "Link Copied Successfully";
         setTimeout(function(){ $(".successMsg").html(''); }, 5000);
     }
+    jQuery('.close-button').click(function(){
+        jQuery("#myModal").modal('hide');
+    })
 </script>
 
 <?php

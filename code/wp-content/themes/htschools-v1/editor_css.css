@@ -382,9 +382,11 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     color: #0C5ACC;
 }
 .top_article .course-copy .excerpt.thumb p {
-    font-size: 18px;
-    line-height: 27px;
-    color: #000000;
+    font-size: 18px!important;
+    line-height: 27px!important;
+    color: #000000!important;
+    display: block!important;
+    overflow: visible!important;
 }
 .top_article .course-card .course-copy{
     width: 54%;
@@ -392,7 +394,12 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .course-wrapper .course-copy .excerpt.thumb h3 {
     font-size: 20px;
     line-height: 26px;
-    /* color: #000000; */
+     color: #0C5ACC; 
+     /*overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;*/
 }
 .course-wrapper .course-copy .excerpt.thumb h3 a{
     color: #0C5ACC;
@@ -401,6 +408,11 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     font-size: 16px;
     line-height: 22px;
     color: #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
 }
 .course-card .course-copy .course-footer{
     flex-direction: column!important;
@@ -533,22 +545,88 @@ figure.image .play{display: none;}
 }
 
 
-/*----------Video listing page CSS-----------*/
-.video_listing{
+/*----------Testimonial listing page CSS-----------*/
+.testimonial_listing{
     display: flex;
     flex-direction: column;
     background-color: #605C5D!important;
     padding-top: 20px!important;
 }
 
-.video_listing .breadcrumbs li:after,
-.video_listing .breadcrumbs li,
-.video_listing ol.breadcrumbs li a,
-.video_listing ol.breadcrumbs li a span,
-.video_listing .semi_medium-title,
-.video_listing .article-title a, 
-.video_listing .article-title a:hover,
-.category-videos .link-article h3{color: #fff!important;}
+.testimonial_listing .breadcrumbs li:after,
+.testimonial_listing .breadcrumbs li,
+.testimonial_listing ol.breadcrumbs li a,
+.testimonial_listing ol.breadcrumbs li a span,
+.testimonial_listing .semi_medium-title,
+.testimonial_listing .article-title a, 
+.testimonial_listing .article-title a:hover,
+.category-videos .link-article h3, 
+.category-videos .date-time{color: #fff!important;}
+.page-template-testimonial-listing .course-wrapper .course-copy .excerpt.thumb h3 {
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000; 
+}
+.page-template-testimonial-listing .course-wrapper .course-copy .excerpt.thumb h3 a{
+    color: #000000; 
+}
+
+.content-left .course-wrapper .top_article .column {
+    width: 100%!important;
+    padding-right: 0;
+    margin-bottom: 0;
+}
+
+
+.testimonial_detail h5{
+    font-size: 15px;
+    line-height: 23px;
+    color: #000000;
+    margin: 19px 0 5px 0;
+}
+.testimonial_detail h6{
+    font-size: 15px;
+    line-height: 23px;
+    color: #000000;
+    font-weight: normal;
+}
+.testimonial_listing .course-card .image{position: relative;/*display: flex;align-items: center;*/}
+.testimonial_listing .play {
+    display: block!important;
+    position: absolute;
+    bottom: 28%;
+    left: 40%;
+    width: auto;
+    color: #fff;
+}
+.testimonial_listing .play:before {
+    width: 74.08px;
+    content: "\f04b";
+    height: 54.05px;
+    display: inline-block;
+    border: 1px solid #FFF;
+    border-radius: 30px;
+    font-family: "FontAwesome";
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    box-shadow: 0px 3px 6px hsl(0deg 0% 0% / 60%);
+}
+.testimonial_listing .play .time {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: normal;
+    margin-left: 7px;
+}
+.testimonial_listing .top_article .play{
+    bottom: 50%;
+}
 @media (max-width: 2048px){
     .content-left .course-wrapper .column {
         width: 33.33%!important;

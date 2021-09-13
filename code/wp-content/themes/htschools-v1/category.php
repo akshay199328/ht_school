@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
 <section class="home-section editor_desk editor_desk_listing">
-  <div class="">
+  <div class="" style="width:100%">
     <div class="">
     <div class="breadcrumbs background-breadcrumbs">
       <?php vibe_breadcrumbs(); ?>  

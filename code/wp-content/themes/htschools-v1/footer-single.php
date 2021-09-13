@@ -1210,6 +1210,47 @@ border: 1px solid deepskyblue;
           </div>
       </div>
 </div>
+
+<div class="sharing-course modal fade" id="open_popular_share" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+           <!--  <button class="sharing close-button" type="submit"></button> -->
+            <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close">
+          
+        </button>
+            <div class="course-list">
+                <h4 class="title">Share This Course</h4>
+                <div class="list">
+                    <figure class="image"><a href="#!"><img src="" id="course_image"></a></figure>
+                    <div class="course-detail">
+                        <div class="header" id="cat_header">
+                            
+                        </div>
+                        <h3 class="course-title" id="course_name"></h3>
+                        <div class="footer">
+                            <span class="price" id="course_price"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="course-share">
+                <div class="copy">
+                    <input type="text" name="" value="" id="course_url" class="copyUrl" readonly>
+                    <button class="button" type="submit" onclick="copyFunction('course_url','course_success_msg')">Copy</button>
+                </div>
+                <p class="success_msg" id="course_success_msg"></p>
+                <div class="social" id="course_share_data">
+                    <!-- <a href="#!" class="facebook"></a>
+                    <a href="#!" class="twitter"></a>
+                    <a href="#!" class="pinterest"></a>
+                    <a href="#!" class="whatsapp"></a> -->
+  
+                </div>
+
+            </div>
+          </div>
+      </div>
+</div>
 <!-- modal -->
 <?php do_action('woocommerce_check_and_trigger_signup_tag'); ?>
 <?php if(isset($_SESSION['sign_up_data']))
@@ -1829,6 +1870,27 @@ border: 1px solid deepskyblue;
         s.src = "https://static.addtoany.com/menu/page.js";
         jQuery('#testimonial_share_data').append(s);
         })
+    
+    jQuery('.course_share').click(function(){
+        var course_id = jQuery(this).data("id");
+        var course_name = jQuery("#course_name_" + course_id).val();
+        var course_image = jQuery("#course_image_" + course_id).val();
+        var course_category = jQuery("#course_category_" + course_id).val();
+        var course_url = jQuery("#course_url_" + course_id).val();
+        var course_type = jQuery("#course_type_" + course_id).val();
+        var course_badge = jQuery("#course_badge_" + course_id).val();
+        
+        jQuery('#course_image').attr('src',course_image);
+        jQuery('#course_name').text(course_name);
+        jQuery('#cat_header').html('<a class="category" id="course_category" href="#!"></a><span class="badge '+course_badge+'">'+course_type+'</span>');
+        jQuery('#course_url').val(course_url);
+        jQuery('#course_share_data').html('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="testimonial_share_data" data-a2a-url="'+course_url+'" data-a2a-title="'+course_name+'" data-id="'+course_id+'"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_pinterest"></a><a class="a2a_button_google_gmail"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_telegram"></a></div>');
+         var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "https://static.addtoany.com/menu/page.js";
+        jQuery('#testimonial_share_data').append(s);
+    })
+
     function copyFunction(id,msgId) {
         var copyText = document.getElementById(id);
         copyText.select();
@@ -1837,6 +1899,7 @@ border: 1px solid deepskyblue;
         document.getElementById(msgId).innerHTML = "Link Copied Successfully";
         setTimeout(function(){ $("#" + msgId).html(''); }, 5000);
     }
+
     function copyUrl() {
         var copyText = document.getElementsByClassName('copyText');
         copyText[0].select();

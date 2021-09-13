@@ -4873,3 +4873,177 @@ function codeathon_logout(){
   exit;
 
 }
+
+
+/*-------------------------------------------------------------------*/
+add_action("wp_ajax_save_response_form", "save_response_form");
+add_action( 'wp_ajax_nopriv_save_response_form', 'save_response_form' );
+function save_response_form(){
+    global $wpdb;
+    $current_user_id = get_current_user_id();
+    
+    $student_data = array();
+
+    $student_data = $_REQUEST['response_form'];
+    $student_email_id = $student_data[0];
+    $student_first_name = $student_data[1];
+    $student_last_name = $student_data[2];
+    $student_mobile_no = $student_data[3];
+    $parent_name = $student_data[4];
+    $parent_email_address = $student_data[5];
+    $parent_mobile_no = $student_data[6];
+    $gender = $student_data[7];
+    $student_school_name = $student_data[8];
+    $school_address = $student_data[9];
+    $city = $student_data[10];
+    $standard = $student_data[11];
+    $course_of_interest = $student_data[12];
+    $interest_of_workshop = $student_data[13];
+    $course_of_interest = 'AI';
+    $interest_of_workshop = 'Yes';
+    $user_id = $current_user_id;
+
+    $result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `user_id`=". esc_attr($user_id) ."");
+    
+    if(count($result_id) == 0){
+      $school_response_form_insert = $wpdb->prepare("INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`) VALUES ('".$student_email_id."', '".$student_first_name."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."')");
+
+      $wpdb->query($school_response_form_insert);
+      $student_data_id = $wpdb->insert_id;
+    }/*else{      
+      $school_response_form_update =$wpdb->query( $wpdb->prepare("UPDATE `ht_school_response_data` SET `student_email`='".$student_email_id."',`student_first_name`='".$student_first_name."',`student_last_name`='".$student_last_name."',`student_contact_no`='".$student_mobile_no."',`parent_name`='".$parent_name."',`parent_email`='".$parent_email_address."',`parent_contact_no`='".$parent_mobile_no."',`gender`='".$gender."',`school_name`='".$student_school_name."',`school_address`='".$school_address."',`standard`='".$standard."',`course_of_interest`='".$course_of_interest."',`interest_of_workshop`='".$interest_of_workshop."',`city`='".$city."' WHERE `user_id`='".$user_id."'"));
+
+    //  $wpdb->query($school_response_form_update);
+     // $student_data_id = $wpdb->id;
+      print_r($school_response_form_update);
+
+      /*elseif($student_data_id != ''){
+    $response = array(
+      'status' => 2,
+      'response' => $succes_message
+    );
+    $response['status'] = 2;
+    $succes_message = "response is updated!";     
+  }}*/
+    
+  $response=array();
+  if($student_data_id != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $succes_message
+    );
+    $response['status'] = 1;
+    $succes_message = "response is submitted successfully!";     
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $succes_message
+    );
+    $response['status'] = 0;
+    $succes_message = "response is submitted failed!";     
+  } 
+  //echo json_encode($response); 
+    echo $succes_message;
+  exit;
+}
+
+add_action("wp_ajax_check_email_Address", "check_email_Address");
+add_action( 'wp_ajax_nopriv_check_email_Address', 'check_email_Address' );
+
+function check_email_Address(){
+$check_email_id = $_REQUEST['check_email_Address'];
+
+  global $wpdb;
+  $user_id = get_current_user_id();
+
+  $result_id = $wpdb->get_results("SELECT DISTINCT student_email FROM ht_school_response_data WHERE user_id = '" . esc_attr($user_id) . "'");
+  $get_existing_id = $result_id[0]->student_email;
+  
+  if($get_existing_id != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $get_existing_id
+    );
+
+    $response['status'] = 1;
+
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $get_existing_id
+    );
+
+    $response['status'] = 0;
+  }
+  
+  echo json_encode($response); 
+  exit;
+}
+
+add_action("wp_ajax_check_parent_email_Address", "check_parent_email_Address");
+add_action( 'wp_ajax_nopriv_check_parent_email_Address', 'check_parent_email_Address' );
+
+function check_parent_email_Address(){
+$check_email_id = $_REQUEST['check_parent_email_Address'];
+
+  global $wpdb;
+  $user_id = get_current_user_id();
+
+  $result_id = $wpdb->get_results("SELECT DISTINCT parent_email FROM ht_school_response_data WHERE user_id = '" . esc_attr($user_id) . "'");
+  $get_existing_id = $result_id[0]->parent_email;
+  
+  if($get_existing_id != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $get_existing_id
+    );
+
+    $response['status'] = 1;
+
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $get_existing_id
+    );
+
+    $response['status'] = 0;
+  }
+  
+  echo json_encode($response); 
+  exit;
+}
+
+add_action("wp_ajax_check_check_parent_contact_number", "check_parent_contact_number");
+add_action( 'wp_ajax_nopriv_check_parent_contact_number', 'check_parent_contact_number' );
+
+function check_parent_contact_number(){
+$check_parent_contact_number = $_REQUEST['check_parent_contact_number'];
+
+  global $wpdb;
+  $user_id = get_current_user_id();
+
+  $result_id = $wpdb->get_results("SELECT DISTINCT parent_contact_no FROM ht_school_response_data WHERE user_id = '" . esc_attr($user_id) . "'");
+  $get_parent_contact_no = $result_id[0]->parent_contact_no;
+  
+  if($get_parent_contact_no != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $get_parent_contact_no
+    );
+
+    $response['status'] = 1;
+
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $get_parent_contact_no
+    );
+
+    $response['status'] = 0;
+  }
+  
+  echo json_encode($response); 
+  exit;
+}
+
+/*--------------------------------------------------------------------*/

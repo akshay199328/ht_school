@@ -187,7 +187,7 @@ get_header(vibe_get_header());
 
         <div class="item">
           <div class="course-card">
-            <figure class="image"><img alt="<?php echo $post->post_title; ?>" src="<?php echo $image_url;?>"></figure>
+            <figure class="image"><a href="<?php echo get_permalink($post->ID);?>"><img alt="<?php echo $post->post_title; ?>" src="<?php echo $image_url;?>"></a></figure>
             <div class="course-copy">
               <header class="course-header">
                 <a class="category" href="<?php echo get_permalink($post->ID);?>"><?php echo $category_array[0]->name; ?></a>
@@ -389,7 +389,7 @@ get_header(vibe_get_header());
                 $coming_soon = get_post_meta($courseID,'vibe_coming_soon',true);
                   $tab_content .= '<div class="column" data-id='.$post->ID.'>
               <div class="course-card">
-                <figure class="image"><img alt="International Graded Guitar Exam Course" src="'. $image_url.'"></figure>
+                <figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'. $post->post_title.'" src="'. $image_url.'"></a></figure>
                 <div class="course-copy">
                   <header class="course-header">
                     <a class="category" href="#">'.$category_array[0]->name.'</a>
@@ -448,7 +448,7 @@ get_header(vibe_get_header());
         <div class="course-list">
             <h4 class="title">Share This Course</h4>
             <div class="list">
-                <figure class="image"><a href="#!"><img src="'. $image_url.'"></a></figure>
+                <figure class="image"><a href="'. get_permalink($post->ID).'"><img src="'. $image_url.'" alt="'.$post->post_title.'"></a></figure>
                 <div class="course-detail">
                     <div class="header">
                         <a class="category" href="#!"></a>
@@ -584,7 +584,7 @@ get_header(vibe_get_header());
                 
                   $tab_content .= '<div class="column">
               <div class="course-card">
-                <figure class="image"><img alt="International Graded Guitar Exam Course" src="'. $image_url.'"></figure>
+                <figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'.$post->post_title.'" src="'. $image_url.'"></a></figure>
                 <div class="course-copy">
                   <header class="course-header">
                     <a class="category" href="#">'.$category_array[0]->name.'</a>
@@ -640,7 +640,7 @@ get_header(vibe_get_header());
         <div class="course-list">
             <h4 class="title">Share This Course</h4>
             <div class="list">
-                <figure class="image"><a href="#!"><img src="'. $image_url.'"></a></figure>
+                <figure class="image"><a href="'.$courseslug.'"><img src="'. $image_url.'" alt="'.$post->post_title.'"></a></figure>
                 <div class="course-detail">
                     <div class="header">
                         <a class="category" href="#!"></a>

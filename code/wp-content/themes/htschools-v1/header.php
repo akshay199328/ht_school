@@ -173,7 +173,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                   if($menu->title == 'Menu'){
                   $home= 'Home';
                   $home_url= get_bloginfo('url');
-                    echo '<li ><a href ="'.$home_url.'" class="link">' . $home . '</a></li>';
+                    echo '<li class="home"><a href ="'.$home_url.'" class="link">' . $home . '</a></li>';
                   }
                   else if($menu->title == 'ePaper'){
                     echo '<li ><a href ="'.$menu->url.'" class="link">' . $menu->title . '</a></li>';
@@ -187,7 +187,7 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                     }
                       }
                     else{
-                      echo '<li class="' . $current . '"><a href="' . $menu->url . '" class="link">'.$menu->title.'</a></li>';
+                      echo '<li class="my-course ' . $current . '"><a href="' . $menu->url . '" class="link">'.$menu->title.'</a></li>';
                     }
                   }
                }}

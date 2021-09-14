@@ -38,6 +38,7 @@ get_header(vibe_get_header());
                 'post_status' => 'publish',
                 'order'=>'DESC',
                 'orderby' => 'post_date',
+                'posts_per_page' => 1,
                 'paged'=>$paged
               );
               

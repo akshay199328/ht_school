@@ -2736,11 +2736,29 @@ function posts_pagination() {
     echo '<div class="pagination"><ul>' . "\n";
 
     if ( $paged != 1 )
-        echo '<li class="page-num page-num-first pagination_arrow prev"><a href='.get_pagenum_link(1).'>'.__('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-prev.svg>').' </a></li>';
+        echo '<li class="page-num page-num-first pagination_arrow prev"><a href='.get_pagenum_link(1).'>'.__('<svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="9.414" viewBox="0 0 9.414 9.414">
+  <g id="Group_15601" data-name="Group 15601" transform="translate(-328.293 -1920.793)">
+    <g id="Group_15598" data-name="Group 15598" transform="translate(381.5 1572) rotate(90)">
+      <line id="Line_61" data-name="Line 61" x2="4" y2="4" transform="translate(349.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+      <line id="Line_62" data-name="Line 62" x1="4" y2="4" transform="translate(353.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+    </g>
+    <g id="Group_15600" data-name="Group 15600" transform="translate(385.5 1572) rotate(90)">
+      <line id="Line_61-2" data-name="Line 61" x2="4" y2="4" transform="translate(349.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+      <line id="Line_62-2" data-name="Line 62" x1="4" y2="4" transform="translate(353.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+').' </a></li>';
 
     /** Previous Post Link */
     if ( get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg>') )
-        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-prev.svg class="angle-prev">') );
+        printf( '<li class="pagination_arrow prev">%s</li>' . "\n", get_previous_posts_link('<svg xmlns="http://www.w3.org/2000/svg" width="5.414" height="9.414" viewBox="0 0 5.414 9.414">
+  <g id="Group_360" data-name="Group 360" transform="translate(53.207 -348.793) rotate(90)">
+    <line id="Line_61" data-name="Line 61" x2="4" y2="4" transform="translate(349.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+    <line id="Line_62" data-name="Line 62" x1="4" y2="4" transform="translate(353.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+  </g>
+</svg>
+') );
 
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
@@ -2771,9 +2789,28 @@ function posts_pagination() {
 
     /** Next Post Link */
     if ( get_next_posts_link('<img  src='.get_bloginfo('template_url').'/assets/images/page-next.svg>') )
-        printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg class="angle-next">') );
+        /*printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<img src='.get_bloginfo('template_url').'/assets/images/page-next.svg class="angle-next">') );*/
+      printf( '<li class="pagination_arrow next">%s</li>' . "\n", get_next_posts_link('<svg xmlns="http://www.w3.org/2000/svg" width="5.414" height="9.414" viewBox="0 0 5.414 9.414">
+  <g id="Group_361" data-name="Group 361" transform="translate(-47.793 358.207) rotate(-90)">
+    <line id="Line_61" data-name="Line 61" x2="4" y2="4" transform="translate(349.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+    <line id="Line_62" data-name="Line 62" x1="4" y2="4" transform="translate(353.5 48.5)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+  </g>
+</svg>
+') );
     if ( $paged != $max )
-        echo '<li class="page-num page-num-last"><a href='.get_pagenum_link($max).'> '.__('<img src='.get_bloginfo('template_url').'/assets/images/double_arrow-next.svg>').'</a></li>';
+        echo '<li class="page-num page-num-last"><a href='.get_pagenum_link($max).'> '.__('<svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="9.414" viewBox="0 0 9.414 9.414">
+  <g id="Group_15602" data-name="Group 15602" transform="translate(0.707 0.707)">
+    <g id="Group_15598" data-name="Group 15598" transform="translate(8) rotate(90)">
+      <line id="Line_61" data-name="Line 61" y1="4" x2="4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+      <line id="Line_62" data-name="Line 62" x1="4" y1="4" transform="translate(4 0)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+    </g>
+    <g id="Group_15600" data-name="Group 15600" transform="translate(4) rotate(90)">
+      <line id="Line_61-2" data-name="Line 61" y1="4" x2="4" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+      <line id="Line_62-2" data-name="Line 62" x1="4" y1="4" transform="translate(4 0)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+').'</a></li>';
 
     echo '</ul></div>' . "\n";
 

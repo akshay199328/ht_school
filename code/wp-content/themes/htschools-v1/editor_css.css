@@ -359,7 +359,8 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 }
 .top_article {
     margin-bottom: 30px;
-    padding-right: 31px
+    padding-right: 31px;
+    width: 100%;
 }
 .content-left .course-wrapper .column {
     padding: 0px;padding-right: 31px;
@@ -491,14 +492,16 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     line-height: 23px;
     color: #000;
 }
-.pagination ul li.active{background: #385DD9;}
+.pagination line{stroke: #000000;}
+.pagination ul li.active{background: #385DD9;font-weight: 700;}
 .pagination ul li.active a{color: #fff;}
 .pagination_arrow, .page-num{width:auto!important;}
 .pagination_arrow.next{margin-right: 7px}
 .pagination_arrow.prev{margin-left: 7px}
-
-
-
+.pagination ul li a:hover{box-shadow: none!important;}
+.testimonial_listing .pagination line{stroke: #fff;}
+.testimonial_listing .pagination ul li.active{background: #ffffff;}
+.testimonial_listing .pagination ul li.active a{color: #385DD9!important;}
 /*-------Video listing CSS--------*/
 .category.category-videos .editor_desk_listing, 
 .category.category-videos .featured_tablist.sticky-nav{background: #000!important}
@@ -561,7 +564,8 @@ figure.image .play{display: none;}
 .testimonial_listing .article-title a, 
 .testimonial_listing .article-title a:hover,
 .category-videos .link-article h3, 
-.category-videos .date-time{color: #fff!important;}
+.category-videos .date-time,
+.testimonial_listing .pagination ul li a{color: #fff!important;}
 .page-template-testimonial-listing .course-wrapper .course-copy .excerpt.thumb h3 {
     font-size: 18px;
     line-height: 22px;

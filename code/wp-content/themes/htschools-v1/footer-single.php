@@ -1282,6 +1282,11 @@ border: 1px solid deepskyblue;
 		jQuery("input[name='age']:checkbox").prop('checked',false);
 	})
 
+    jQuery('.close-tag').click(function(){
+        var val = jQuery(this).data('id');
+        jQuery('input:checkbox[value="' + val + '"]').trigger('click');
+    })
+
 	jQuery( ".epaper a" ).click(function() {
 	  let ePaperViewedMoegObj = {
 			"User identifier"	: parseInt(jQuery("#user_identifier").val()),
@@ -1919,7 +1924,8 @@ border: 1px solid deepskyblue;
         setTimeout(function(){ $(".successMsg").html(''); }, 5000);
     }
     jQuery('.close-button').click(function(){
-        jQuery("#myModal").modal('hide');
+        jQuery(".modal").modal('hide');
+        jQuery("#open_testimonial_share").modal('hide');
     })
 </script>
 

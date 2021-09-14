@@ -371,6 +371,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     min-height: auto;
     box-shadow: 0 2px 32px rgb(41 71 94 / 8%);
     border-radius: 8px;
+    min-height: 476px;
 }
 .top_article .course-card .image {
     width: 90%;
@@ -632,6 +633,9 @@ figure.image .play{display: none;}
 }
 .testimonial_listing .top_article .play{
     bottom: 50%;
+}
+.testimonial_listing .top_article .play:before{
+    width: 65px;height: 65px;border-radius: 100%;
 }
 @media (max-width: 2048px){
     .content-left .course-wrapper .column {

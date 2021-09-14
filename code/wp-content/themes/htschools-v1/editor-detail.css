@@ -1,0 +1,27 @@
+.editor_topdata {
+    background: #fff;
+    box-shadow: 0px 5px 18px hsl(0deg 0% 0% / 10%);
+}
+.editor_detail{
+	padding: 0px 2.5% 20px 2.5%;
+	display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.editor_topdata .editor_detail h1{
+	font-size: 24px;
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0;
+}
+.editor_detail p{
+	margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 18px;
+}
+.editor_detail a{margin-right: 15px;}
+.editor_detail a:last-child{margin-right: 0px;}

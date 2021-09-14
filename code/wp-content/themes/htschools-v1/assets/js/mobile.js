@@ -108,7 +108,7 @@
             navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
             margin:30,
             loop:false,
-            nav:false,
+            nav:true,
             dots:false,
             items:6,
             mouseDrag:false,

@@ -571,7 +571,7 @@ figure.image .play{display: none;}
     color: #000000; 
 }
 .testimonial_listing .course-wrapper{
-        flex-direction: column;
+        /*flex-direction: column;*/
 }
 .content-left .course-wrapper .top_article .column {
     width: 100%!important;

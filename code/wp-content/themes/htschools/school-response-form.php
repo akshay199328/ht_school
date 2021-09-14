@@ -211,25 +211,7 @@ if(have_posts()):while(have_posts()):the_post();
     return isValid;
   });
   
- /*$("#standard").change(function(){
-      var standard = $(#standard option:selected).val();
-      if(standard == "")
-      {
-      $("#standard").html("Please select Standard");
-      return false;
-      }
-  });
-
-  $("#GenderDropDown").change(function(){
-      var gender = $(#GenderDropDown option:selected).val();
-      if(gender == "")
-      {
-      $("#GenderDropDown").html("Please select Gender");
-      return false;
-      }
-  });*/
-
-/*------------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS--------------*/
+/*------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS------------*/
 
     jQuery("#emailAddress").on("change", function (event, ui) {
         var check_email_id = $("#emailAddress").val();
@@ -239,7 +221,7 @@ if(have_posts()):while(have_posts()):the_post();
               type : "POST",
               dataType : "json",
               url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-              data : {"action": "check_email_Address",check_email_Address : check_email_id},
+              data : {"action": "check_email_Address",check_student_email : check_email_id},
               success: function(response) {           
                   if(response.status == 1){
                     jQuery("#errstudentEmailMsg").text('This email id is already exists!');
@@ -258,7 +240,7 @@ if(have_posts()):while(have_posts()):the_post();
               type : "POST",
               dataType : "json",
               url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-              data : {"action": "check_parent_email_Address",check_parent_email_Address : check_parent_email_id},
+              data : {"action": "check_parent_email_Address",check_parent_email : check_parent_email_id},
               success: function(response) {           
                   if(response.status == 1){
                     jQuery("#errparentEmailMsg").text('This email id is already exists!');
@@ -269,7 +251,7 @@ if(have_posts()):while(have_posts()):the_post();
         }
     });
 
-    /*jQuery("#mobileNumber").on("change", function (event, ui) {
+    jQuery("#mobileNumber").on("change", function (event, ui) {
         var check_student_mobile_number = $("#mobileNumber").val();
 
         if(check_student_mobile_number != ""){
@@ -277,7 +259,7 @@ if(have_posts()):while(have_posts()):the_post();
               type : "POST",
               dataType : "json",
               url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-              data : {"action": "check_student_mobile_number",check_student_mobile_number : check_student_mobile_number},
+              data : {"action": "check_student_mobile_number",check_mobile_number : check_student_mobile_number},
               success: function(response) {           
                   if(response.status == 1){
                     jQuery("#errstudentEmailMsg").text('This contact number is already exists!');
@@ -296,7 +278,7 @@ if(have_posts()):while(have_posts()):the_post();
               type : "POST",
               dataType : "json",
               url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-              data : {"action": "check_parent_mobile_number",check_parent_mobile_number : check_parent_mobile_number},
+              data : {"action": "check_parent_mobile_number",check_parent_contact : check_parent_mobile_number},
               success: function(response) {           
                   if(response.status == 1){
                     jQuery("#errparentMobileMsg").text('This contact number is already exists!');
@@ -305,13 +287,14 @@ if(have_posts()):while(have_posts()):the_post();
               }
           });
         }
-    });*/
+    });
 
-/*------------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS--------------*/
+/*-----------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS--------------*/
 
 jQuery('.wpcf7-submit').click(function(e){
+  
   var contact_form_id = jQuery("input[name='_wpcf7']").val();    
-var arr = new Array();
+  var arr = new Array();
     arr.push(jQuery("#emailAddress").val());
     arr.push(jQuery("#studentfirstName").val());
     arr.push(jQuery("#studentlastName").val());
@@ -319,31 +302,36 @@ var arr = new Array();
     arr.push(jQuery("#parentName").val());
     arr.push(jQuery("#parentemailAddress").val());
     arr.push(jQuery("#parentmobileNumber").val());
-    arr.push(jQuery("#GenderDropDown").val());
+    arr.push(jQuery("input[name='pick-gender']:checked").val());
     arr.push(jQuery("#schoolName").val());
     arr.push(jQuery("#schoolAddress").val());
     arr.push(jQuery("#city").val());
-    arr.push(jQuery("#standard").val());  
-    
-      $.ajax({
-          type: 'POST',
-          url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-          data: {"action": "save_response_form", response_form: arr },
-          success: function(response) {
-            var response = response.replace('<pre></pre>','');
-            alert(response);
-                  
-          }
-      });
+    arr.push(jQuery("#standard").val());
+    arr.push(jQuery("input[name='course-of-interest']:checked").val());  
+    arr.push(jQuery("input[name='interest-of-workshop']:checked").val());
+
+    if(jQuery("#emailAddress").val() !='' && jQuery("#studentfirstName").val() !='' && jQuery("#studentlastName").val() !='' && jQuery("#mobileNumber").val() !='' && jQuery("#parentName").val() !='' && jQuery("#parentemailAddress").val() !='' && jQuery("#parentmobileNumber").val() !='' && jQuery("input[name='pick-gender']:checked").val() !='' && jQuery("#schoolName").val() !='' && jQuery("#schoolAddress").val() !='' && jQuery("#city").val() !='' && jQuery("#standard").val() !='' && jQuery("input[name='course-of-interest']:checked").val() !='' && jQuery("input[name='interest-of-workshop']:checked").val() !='' ){
+        $.ajax({
+              type: 'POST',
+              url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+              data: {"action": "save_response_form", response_form: arr },
+              success: function(response) {
+                var response = response.replace('<pre></pre>','');
+                alert(response);                
+              }
+        });
+      }
   });
     
   jQuery('.wpcf7-form-control').click(function(){ 
     
+    jQuery("#errstudentEmailMsg").html("");
     jQuery("#errstudentfirstNameMsg").html("");
     jQuery("#errstudentlastNameMsg").html("");
     jQuery("#errMobileMsg").text(""); 
     jQuery('#errparentNameMsg').html("");    
     jQuery("#errparentMobileMsg").text("");
+    jQuery("#errparentEmailMsg").html("");
     jQuery("#errgenderMsg").text("");
     jQuery("#errschoolNameMsg").html(""); 
     jQuery('#errschoolAddressMsg').html("");
@@ -420,7 +408,7 @@ var arr = new Array();
            }*/
        
            //google.maps.event.addDomListener(window, 'load', initialize);
-         //  setTimeout(initialize, 2000);
+         //  setTimeout(initialize, 2000); onClick="window.location.href = '<?php echo bloginfo('url');?>'"
 
 </script>
 
@@ -436,7 +424,7 @@ get_footer(vibe_get_footer());
             <img src="<?php echo bloginfo('template_url').'/assets/images/logo_popup_web.svg'?>" class="modal-img"/>
            <h2 class="contact-title"> Thank you for getting in touch!</h2>            
           </div>          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="window.location.href = '<?php echo bloginfo('url');?>'">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
             <span>&times;</span>
           </button>
       </div>

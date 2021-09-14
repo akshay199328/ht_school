@@ -1329,6 +1329,15 @@ border: 1px solid deepskyblue;
   jQuery('#sort_by').change(function(){
 	applyFilter();
   });
+  jQuery('.age').click(function(){
+    applyFilter();
+  });
+  jQuery('.sessions').click(function(){
+    applyFilter();
+  });
+  jQuery('.category').click(function(){
+    applyFilter();
+  });
 
   function applyFilter() {
 	var form_data = {};

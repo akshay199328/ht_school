@@ -164,7 +164,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         <!-- <?php if($menu->title != 'Infographics' && $menu->title != 'Videos'){?> -->
 
         <h2 class="semi_medium-title"><?php echo $menu->title;?></h2 >
-        <a class="view-all" href="#!">View More</a>
+        <a class="view-all" href="<?php echo $menu->url; ?>" target="_blank">View More</a>
       </div>
         <?php
           $args = array(

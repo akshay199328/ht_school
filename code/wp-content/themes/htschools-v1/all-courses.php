@@ -46,6 +46,7 @@ get_header(vibe_get_header());
   <?php endwhile;endif; ?>
 </div>
     <?php 
+        $user = wp_get_current_user();
         $session_array = array(array("name"=>"1 - 10 Sessions",
           "value"=>"1,10"),
           array("name"=>"11 - 20 Sessions",
@@ -303,37 +304,69 @@ get_header(vibe_get_header());
                 </div>
             </div>
             <div class="filter-tags" id="filter-tags">
-                <span class="tag">21 - 30 Sessions<button class="close" type="submit"></button></span>
-                <span class="tag">21 - 30 Sessions<button class="close" type="submit"></button></span>
-                <span class="tag">Artificial Intelligence<button class="close" type="submit"></button></span>
-                <span class="tag">Voice Protection<button class="close" type="submit"></button></span>
+                <?php 
+                    foreach($age_array as $age){
+                    if( $age_selected_array && in_array( $age['value'], $age_selected_array ) ){
+                ?>
+                <span class="tag"><?php echo $age['name']?><button class="close close-tag" type="submit" data-id="<?php echo $age['value']?>"></button></span>
+                <?php }} ?>
+                <?php 
+                    if( isset($_GET['sort_by']) ){
+                ?>
+                <span class="tag"><?php echo $_GET['sort_by'];?><button class="close close-tag" type="submit" ></button></span>
+                <?php } 
+                foreach($session_array as $sessions){
+                    if( $session_selected_array && in_array( $sessions['value'], $session_selected_array ) ){
+                ?>
+                <span class="tag"><?php echo $sessions['name']?><button class="close close-tag" type="submit" data-id="<?php echo $sessions['value']?>"></button></span>
+            <?php }}
+                foreach($course_category as $category){
+                    if(in_array($category['term_id'],$selected_category)){
+             ?>
+             <span class="tag"><?php echo $category['name']?><button class="close close-tag" type="submit" data-id="<?php echo $category['term_id'];?>"></button></span>
+            <?php }} ?>
             </div>
             <div class="course-wrapper">
                 <?php
-                    if(isset($_GET['sort_by']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['category'])){
-                    $args=array('post_type' => 'course','post_status' => 'publish','posts_per_page' => 16,'paged' => $paged);
-          
+                    $users_courses = array();
+                    if(isset($user->ID) && $user->ID > 0)
+                    {
+                      $userIdentifier = $user->ID;
+                      $courses_with_types = apply_filters('wplms_usermeta_direct_query',$wpdb->prepare("SELECT posts.ID as id FROM {$wpdb->posts} AS posts LEFT JOIN {$wpdb->usermeta} AS meta ON posts.ID = meta.meta_key WHERE   posts.post_type   = %s AND   posts.post_status   = %s AND   meta.user_id   = %d",'course','publish',$user->ID));
+                        $result = $wpdb->get_results($courses_with_types);
+
+                        foreach($result as $course){
+                          $users_courses[]=$course->id;
+                        }
+                    }
+                    $sql = "";
+                    $sql .= "SELECT ht_posts.ID FROM ht_posts ";
+                    $sql .= "INNER JOIN ht_postmeta ON ht_posts.ID = ht_postmeta.post_id ";
+                    $sql .= "WHERE ht_posts.post_type = 'course' AND ht_posts.post_status = 'publish' ";
+                    
+                    if(empty($_GET['sort_by']) && empty($_GET['session']) && empty($_GET['age']) && empty($_GET['category'])){
+                    
                     $sort_by = $_GET;
-                      $filter = $sort_by['sort_by'];
-                      switch($filter){
-                        case 'popular':
-                          $args['orderby'] = 'meta_value_num';
-                          $args['meta_key'] = 'vibe_students';
-                        break;
-                        case 'newest':
-                          $args['orderby'] = 'date';
-                        break;
-                        case 'rated':
-                          $args['orderby'] = 'meta_value_num';
-                          $args['meta_key'] = 'average_rating';
-                        break;
-                      }
-                    $sortby_query = new WP_Query( $args );
+                    $filter = $sort_by['sort_by'];
+                    if($filter == 'rated'){
+                        $sql .= "AND ht_postmeta.meta_key = 'average_rating' ";
+                        $sql .= "GROUP BY ht_posts.ID ";
+                        $sql .= "ORDER BY ht_postmeta.meta_value DESC LIMIT 0, 16";
+                    }
+                    else if($filter == 'popular'){
+                        $sql .= "AND ht_postmeta.meta_key = 'vibe_students' ";
+                        $sql .= "GROUP BY ht_posts.ID ";
+                        $sql .= "ORDER BY ht_postmeta.meta_value DESC LIMIT 0, 16";
+                    }
+                    else if($filter == 'newest'){
+                        $sql .= "ORDER BY ht_posts.post_date DESC LIMIT 0, 16";
+                    }
+                    $course_query = $wpdb->get_results($sql);
                     $allcourse_id = array();
-                    if ($sortby_query->have_posts()) : while ($sortby_query->have_posts()) : $sortby_query->the_post();
-                      $allcourse_id[] = $post->ID;
-                    endwhile;
-                    endif;
+                    foreach($course_query as $course){
+                      $allcourse_id[]=$course->ID;
+                    }
+                    
                     $args_all_course = array(
                       'post_type' => 'course',
                       'post_status' => 'publish',
@@ -346,6 +379,48 @@ get_header(vibe_get_header());
                       }
                     endwhile;
                     endif;
+                    
+                    //echo "Last SQL-Query: {$wp_query->request}";
+                  }
+                  if(isset($_GET['session'])){
+                    $sessions_filter = explode(",",$_GET['session']);
+                    $firstEle = $sessions_filter[0];
+                    $lastEle = $sessions_filter[count($sessions_filter) - 1];
+                    if($lastEle == 31){
+                      $first_value = $firstEle;
+                      $second_value = "500";
+                    }
+                    else{
+                      $first_value = $firstEle;
+                      $second_value = $lastEle;
+                    }
+                    $session_filter_value = explode(",",$filter_value);
+                    $sql .= "AND ht_postmeta.meta_key = 'vibe_course_sessions' ";
+                    $sql .= " AND CAST(ht_postmeta.meta_value AS SIGNED) BETWEEN ".$first_value." AND ".$second_value." ";
+                    echo $sql;
+                    $course_query = $wpdb->get_results($sql);
+                    $allcourse_id = array();
+                    foreach($course_query as $course){
+                      $allcourse_id[]=$course->ID;
+                    }
+                  }
+                  if(isset($_GET['category'])){
+                    $category_filter = explode(",",$_GET['category']);
+                    $args = array(
+                        'post_type' => 'course',
+                        'posts_per_page'=>16,
+                        'paged'=>$paged,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'course-cat',
+                                'field'    => 'term_id',
+                                'terms'    => $category_filter
+                            )
+                        ),
+                    );
+                    $wp_query = new WP_Query( $args );
+                    //echo "Last SQL-Query: {$wp_query->request}";
+                  }
                     $args_all_course = array(
                       'post_type'=>'course',
                       'post__in'=>$allcourse_id,
@@ -354,8 +429,6 @@ get_header(vibe_get_header());
                       'orderby' => 'post__in',
                     );   
                     $wp_query = new WP_Query( $args_all_course );
-                    //echo "Last SQL-Query: {$wp_query->request}";
-                  }
                   if(!empty($wp_query)){
                     $i=0;
                     if ($wp_query->have_posts()){
@@ -391,7 +464,7 @@ get_header(vibe_get_header());
                         $courseID = $post->ID;
                       $courseslug=get_the_permalink($courseID);
                       $usersFavorites = wpfp_get_users_favorites();
-                      $user = wp_get_current_user();
+                      
                       $userIdentifier = "";
 
                       if(!is_array($usersFavorites)) $usersFavorites = array();
@@ -418,6 +491,17 @@ get_header(vibe_get_header());
                         if ( has_post_thumbnail() ) {
                             $image_url = get_the_post_thumbnail_url();
                         }
+                        $pid=get_post_meta($courseID,'vibe_product',true);
+                        $pid=apply_filters('wplms_course_product_id',$pid,$courseID,0);
+
+                        if(is_numeric($pid) && bp_course_get_post_type($pid) == 'product'){
+                          $pid=get_permalink($pid);
+                          $check=vibe_get_option('direct_checkout');
+                          $check =intval($check);
+                          if(isset($check) &&  $check){
+                            $pid .= '?redirect';
+                          }
+                        }
                     ?>
                     
                     <div class="column">
@@ -431,16 +515,28 @@ get_header(vibe_get_header());
                                 <h2 class="course-title"><a href="#!"><?php echo bp_course_title(); ?></a></h2>
                                 <footer class="course-footer">
                                     <div class="left">
-                                        <?php the_course_button();?>
+                                        <?php if (in_array($post->ID, $users_courses)){
+                                            the_course_button(); 
+                                        }?>
                                         <?php the_course_price();?>
                                     </div>
                                     <div class="right">
-                                        <a href="#!">
+                                        <?php if (!in_array($post->ID, $users_courses) && $coming_soon != 'S'){?>
+                                        <a href="<?php echo $pid;?>">
                                             <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
                                         </a>
-                                        <a href="#!">
-                                            <svg class="bookmark filled" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"/></svg>
-                                        </a>
+                                        <?php 
+                                          }
+                                           if(is_user_logged_in()){
+                                            ?>
+                                            <?php wpfp_course_link(); ?>
+                                          <?php }else{
+                                            $url = "/login-register";
+                                            ?>
+                                            <a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a>
+                                            <?php
+                                          }
+                                          ?>
                                         <a href="#!" class="sharing">
                                             <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                                         </a>

@@ -291,7 +291,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     <div class="home-copy">
       <header class="section-header">
         <h2 class="semi_medium-title">Infographics</h2>
-          <a class="view-all" href="#!">View More</a>
+          <a class="view-all" href="<?php echo $menu->url; ?>" target="_blank">View More</a>
       </header>
         <div class="owl-carousel owl-theme student_slider">
           <?php
@@ -353,7 +353,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
          
       <header class="section-header">
         <h2 class="semi_medium-title">Videos</h2>
-          <a class="view-all" href="#!">View More</a>
+          <a class="view-all" href="<?php echo $menu->url; ?>" target="_blank">View More</a>
       </header>
       <div class="owl-carousel owl-theme student_slider">
         <?php

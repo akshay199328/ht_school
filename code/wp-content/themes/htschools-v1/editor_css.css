@@ -11,6 +11,13 @@ a{
     text-shadow: none;
     text-decoration: none;
 }
+.modal.show {
+    -webkit-transform: none!important;
+    transform: none!important;
+}
+body.modal-open {
+	padding-right: 0;
+}
 .header-wrapper{box-shadow:none!important;}
 #header_mobile_logo{display: block;}
 #header_logo{display: none;}
@@ -466,6 +473,12 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .course-card .course-copy .course-title{height: auto!important}
  .link-article .sidebar h3{margin-bottom: 25px;}
 .link-article .sidebar ul li{padding-right: 30px;}
+.owl-carousel .owl-prev {
+    left: 0!important;
+}
+.owl-carousel .owl-next {
+    right: 0!important;
+}
 /*-----Pagination CSS------*/
 .pagination {
     flex-direction: row;
@@ -499,10 +512,14 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .pagination_arrow, .page-num{width:auto!important;}
 .pagination_arrow.next{margin-right: 7px}
 .pagination_arrow.prev{margin-left: 7px}
+.category.category-videos .pagination ul li a{color: #fff!important;}
 .pagination ul li a:hover{box-shadow: none!important;}
-.testimonial_listing .pagination line{stroke: #fff;}
-.testimonial_listing .pagination ul li.active{background: #ffffff;}
-.testimonial_listing .pagination ul li.active a{color: #385DD9!important;}
+.testimonial_listing .pagination line,
+.category.category-videos .pagination line{stroke: #fff;}
+.testimonial_listing .pagination ul li.active,
+.category.category-videos .pagination ul li.active{background: #ffffff;}
+.category.category-videos .pagination ul li.active a,
+.category.category-videos .pagination ul li.active a{color: #385DD9!important;}
 /*-------Video listing CSS--------*/
 .category.category-videos .editor_desk_listing, 
 .category.category-videos .featured_tablist.sticky-nav{background: #000!important}
@@ -590,6 +607,7 @@ figure.image .play{display: none;}
     line-height: 23px;
     color: #000000;
     margin: 19px 0 5px 0;
+    font-weight: bold;
 }
 .testimonial_detail h6{
     font-size: 15px;
@@ -638,6 +656,18 @@ figure.image .play{display: none;}
 }
 .testimonial_listing .top_article .play:before{
     /*width: 65px;height: 65px;border-radius: 100%;*/
+}
+.modal .testimonial_title p{
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+.testimonial_listing .modal .testimonial_designation {
+    font-size: 15px!important;
+    line-height: 23px;
+    color: #000000;
+    font-weight: normal;
+    margin: 0;
 }
 @media (max-width: 2048px){
     .content-left .course-wrapper .column {

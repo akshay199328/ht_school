@@ -78,7 +78,9 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     box-shadow: none;
     display: flex;
     width: 100%;
+    
 }
+.home-section.videos.articles .home-copy .section-header{padding-right: 2.5%!important;}
 .home-section.editor_desk .section-header {
     margin-bottom: 30px;
 }
@@ -168,7 +170,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .home-section.infographics{
     background-color: #F6F7F7;
     color: #FFF;
-    padding-left: 0;
+    padding-left: 2.5%;
     padding-right: 0;
     padding-top: 55px!important;
     padding-bottom: 113px!important;
@@ -178,7 +180,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     background-color: #000!important;
     color: #FFF;
     padding-left: 0;
-    padding-right: 0;
+    padding-right: 0!important;
     padding-top: 55px!important;
     padding-bottom: 113px!important; 
     border-bottom: 1px solid #707070;
@@ -477,7 +479,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     left: 0!important;
 }
 .owl-carousel .owl-next {
-    right: 0!important;
+    /*right: 0!important;*/
 }
 /*-----Pagination CSS------*/
 .pagination {
@@ -506,20 +508,23 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     line-height: 23px;
     color: #000;
 }
+
 .pagination line{stroke: #000000;}
 .pagination ul li.active{background: #385DD9;font-weight: 700;}
 .pagination ul li.active a{color: #fff;}
 .pagination_arrow, .page-num{width:auto!important;}
 .pagination_arrow.next{margin-right: 7px}
 .pagination_arrow.prev{margin-left: 7px}
-.category.category-videos .pagination ul li a{color: #fff!important;}
+.category.category-videos .pagination ul li a,
+.testimonial_listing .pagination ul li a{color: #fff!important;}
 .pagination ul li a:hover{box-shadow: none!important;}
 .testimonial_listing .pagination line,
 .category.category-videos .pagination line{stroke: #fff;}
 .testimonial_listing .pagination ul li.active,
 .category.category-videos .pagination ul li.active{background: #ffffff;}
 .category.category-videos .pagination ul li.active a,
-.category.category-videos .pagination ul li.active a{color: #385DD9!important;}
+.category.category-videos .pagination ul li.active a,
+.testimonial_listing .pagination ul li.active a{color: #385DD9!important;}
 /*-------Video listing CSS--------*/
 .category.category-videos .editor_desk_listing, 
 .category.category-videos .featured_tablist.sticky-nav{background: #000!important}
@@ -582,8 +587,7 @@ figure.image .play{display: none;}
 .testimonial_listing .article-title a, 
 .testimonial_listing .article-title a:hover,
 .category-videos .link-article h3, 
-.category-videos .date-time,
-.testimonial_listing .pagination ul li a{color: #fff!important;}
+.category-videos .date-time{color: #fff!important;}
 .page-template-testimonial-listing .course-wrapper .course-copy .excerpt.thumb h3 {
     font-size: 18px;
     line-height: 22px;
@@ -657,12 +661,12 @@ figure.image .play{display: none;}
 .testimonial_listing .top_article .play:before{
     /*width: 65px;height: 65px;border-radius: 100%;*/
 }
-.modal .testimonial_title p{
+.modal #testimonial_title p{
     font-size: 16px;
     line-height: 22px;
     color: #000000;
 }
-.testimonial_listing .modal .testimonial_designation {
+.modal #testimonial_designation {
     font-size: 15px!important;
     line-height: 23px;
     color: #000000;

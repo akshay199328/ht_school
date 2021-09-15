@@ -205,7 +205,7 @@ $topics = wp_get_post_tags(get_the_ID());
               echo wp_trim_words( $sub_title, 18, NULL )
               ?>
           </div> 
-          <img src="<?php echo $featured_image; ?>">
+          <img src="<?php echo $featured_image; ?>" class="img-fluid">
           <?php if(get_post_meta(get_the_ID(), 'image_caption', true)){?>
           <p class="newsdetail_caption"><?php echo get_post_meta(get_the_ID(), 'image_caption', true); ?>
           <?php } else{?>
@@ -231,12 +231,14 @@ $topics = wp_get_post_tags(get_the_ID());
               }*/
             ?>
           </p>
+          <div class="advertisement center">
+              <img src="/images/ad.png" />
+          </div>
           <div class="topic_details">
               <?php
               if ( is_active_sidebar( 'story-footer-banner' ) ) : ?>
                 <?php dynamic_sidebar( 'story-footer-banner' ); ?>      
               <?php endif; ?>
-              <br>
               <?php $tagsCount = count($topics);
               if($tagsCount > 0 ){
                 ?>
@@ -324,60 +326,96 @@ $topics = wp_get_post_tags(get_the_ID());
     $my_query = new WP_Query($args);
     if ($my_query->have_posts()){
   ?>
-<div class="releted_news_section">
-  <div class="container">
+<div class="home-section related-news articles">
+  <div class="home-copy">
     
-    <div class="col-sm-12 col-md-9 mrg">
-        <div class="related_post details">
-          <?php
-                     // print_r($my_query);
-            //echo "<pre>";print_r($my_query);exit;
-            echo '<h2>Related News</h2>';
-            ?>
-            <div class="col-sm-12 col-md-6 mrg">
-              <div class="details-middle devide">
-                <ul class="">
-                  <?php 
+    <div class="">
+        <div class="">
+        <header class="section-header">
+            <h2 class="semi_medium-title">Related News</h2>
+        </header>
+            <div class="owl-carousel owl-theme student_slider">
+              <div class="item">
+                <?php 
                   $counter = 0; while ($my_query->have_posts()) : $my_query->the_post();
                   if ($counter <= 2) :
                                         // if( $Query->current_post != 0 ) { 
                     ?>
-                        <li>
-                          <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                          <div class="link">
-                            <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                        <div class="course-card">
+                          <figure class="video">
+                            <?php if ( has_post_thumbnail() ) {
+                                  $featured_image = get_the_post_thumbnail_url();
+                                }
+                                ?>
+                            <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+                            <!-- <img src="<?php echo $url;?>"> -->
+                              <!-- <a class="play" href="#!"><span class="time">3:20</span></a> -->
+                          </figure>
+                          <div class="course-copy">
+                            <footer class="course-footer">
+                              <div class="left">
+                                
+                                <div class="copy">
+                                    <span class="date-time">
+                                      <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
+                                    </span>
+                                    <h2 class="article-title">
+                                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                                    </h2>
+                                  </div>
+                              </div>
+                            </footer>
                           </div>
-                        </li>
+                        </div>
                     <?php 
                     endif; $counter++;
                      endwhile;               // }
                
                 ?>
-              </ul>
               <?php wp_reset_query();  ?>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6 mrg">
-              <div class="details-middle devide">
-                <ul class="">
+          <div class="">
+              <div class="">
+               
+
                   <?php 
                   $counter1 = 0;
                   while ($my_query->have_posts()) : $my_query->the_post();
                     if ($counter1 > 2) :
                                         // if( $Query->current_post != 0 ) { 
                     ?>
-                        <li>
-                          <p><strong><?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?></strong></p>
-                          <div class="link">
-                            <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                        <div class="course-card">
+                          <figure class="video">
+                            <?php if ( has_post_thumbnail() ) {
+                                  $featured_image = get_the_post_thumbnail_url();
+                                }
+                                ?>
+                            <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+                            <!-- <img src="<?php echo $url;?>"> -->
+                              <!-- <a class="play" href="#!"><span class="time">3:20</span></a> -->
+                          </figure>
+                          <div class="course-copy">
+                            <footer class="course-footer">
+                              <div class="left">
+                                
+                                <div class="copy">
+                                    <span class="date-time">
+                                      <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
+                                    </span>
+                                    <h2 class="article-title">
+                                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                                    </h2>
+                                  </div>
+                              </div>
+                            </footer>
                           </div>
-                        </li>
+                        </div>
                     <?php 
                     endif; $counter1++;
                      endwhile;               // }
                
                 ?>
-              </ul>
               <?php wp_reset_query();  ?>
             </div>
           </div>    
@@ -391,8 +429,6 @@ $topics = wp_get_post_tags(get_the_ID());
           <?php endif; ?>
       </div>
     </div>
-  </div>
-</div>
   </div>
 </div>
 <?php }}?>          <!-- releted news -->

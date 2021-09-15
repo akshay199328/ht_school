@@ -315,7 +315,7 @@ $topics = wp_get_post_tags(get_the_ID());
 <!-- releted news -->
 <?php $tags = wp_get_post_tags(get_the_ID());
   if ($tags) {
-
+    print($tags);
     foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
                 $args=array(
                 'tag__in' => $tag_ids,
@@ -324,6 +324,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 );
 
     $my_query = new WP_Query($args);
+    print_r($args);
     if ($my_query->have_posts()){
   ?>
 <div class="home-section related-news articles">
@@ -337,9 +338,7 @@ $topics = wp_get_post_tags(get_the_ID());
             <div class="owl-carousel owl-theme student_slider">
               <div class="item">
                 <?php 
-                  $counter = 0; while ($my_query->have_posts()) : $my_query->the_post();
-                  if ($counter <= 2) :
-                                        // if( $Query->current_post != 0 ) { 
+                  while ($my_query->have_posts()) : $my_query->the_post();
                     ?>
                         <div class="course-card">
                           <figure class="video">
@@ -368,57 +367,14 @@ $topics = wp_get_post_tags(get_the_ID());
                           </div>
                         </div>
                     <?php 
-                    endif; $counter++;
+                   
                      endwhile;               // }
                
                 ?>
               <?php wp_reset_query();  ?>
             </div>
           </div>
-          <div class="">
-              <div class="">
-               
-
-                  <?php 
-                  $counter1 = 0;
-                  while ($my_query->have_posts()) : $my_query->the_post();
-                    if ($counter1 > 2) :
-                                        // if( $Query->current_post != 0 ) { 
-                    ?>
-                        <div class="course-card">
-                          <figure class="video">
-                            <?php if ( has_post_thumbnail() ) {
-                                  $featured_image = get_the_post_thumbnail_url();
-                                }
-                                ?>
-                            <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
-                            <!-- <img src="<?php echo $url;?>"> -->
-                              <!-- <a class="play" href="#!"><span class="time">3:20</span></a> -->
-                          </figure>
-                          <div class="course-copy">
-                            <footer class="course-footer">
-                              <div class="left">
-                                
-                                <div class="copy">
-                                    <span class="date-time">
-                                      <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
-                                    </span>
-                                    <h2 class="article-title">
-                                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                                    </h2>
-                                  </div>
-                              </div>
-                            </footer>
-                          </div>
-                        </div>
-                    <?php 
-                    endif; $counter1++;
-                     endwhile;               // }
-               
-                ?>
-              <?php wp_reset_query();  ?>
-            </div>
-          </div>    
+            
       </div>
     </div>
     <div class="col-sm-12 col-md-3 mrg">

@@ -691,7 +691,7 @@ figure.image .play{display: none;}
     .top_article .course-card .image{width:100%;}
     .content-left .course-wrapper .column .course-card{min-height: 100%;display: flex; padding: 10px; }
     .course-card .image{width: 28%;}
-    .content-left .course-card .course-copy{    width: 72%;}
+    .content-left .course-card .course-copy{    width:100%;}
     .content-left .course-wrapper .column {width: 100%!important;padding: 0;margin-bottom: 25px;}
     .top_article .course-card{    flex-direction: column;}
     .top_article .course-copy .excerpt.thumb h3 {line-height: 20px;font-size: 16px;}

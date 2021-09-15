@@ -57,6 +57,7 @@
     line-height: 37px;
     font-weight: 500;
     margin-bottom: 15px;
+    color: #000;
 }
 p.newsdetail_caption {
     line-height: 23px !important;
@@ -85,7 +86,7 @@ p.newsdetail_caption {
     font-weight: normal;
     line-height: 26px;
     color: #000;
-    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
 .editor_detail .content-left img {
     width: 100%;
@@ -113,4 +114,8 @@ p.newsdetail_caption {
 .editor_detail .content-left .advertisement.center {
     padding-bottom: 35px;
     display: flex;
+}
+@media (max-width: 768px) and (orientation: portrait){
+    .editor-details_page h1{margin-bottom: 15px;font-size: 34px;line-height: 35px;}
+    .editor_detail .editor_socio p{    margin-bottom: 20px;}
 }

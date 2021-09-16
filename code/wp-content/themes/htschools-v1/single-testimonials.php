@@ -197,11 +197,11 @@ if ( has_post_thumbnail() ) {
           </div>
         </div>
         <div class="border_text">
-             <!--  <?php $post_excerpt = get_post_meta(get_the_ID(),'vibe_subtitle',true);
-              echo wp_trim_words( $post_excerpt, 18, NULL )
-              ?> -->
-              <?php echo $post_excerpt ?>
-              In this session, experts talk about ways to help children boost social skills through remote classes. 
+               <!-- <?php $sub_title = get_post_meta(get_the_ID(),'vibe_subtitle',true);
+              echo wp_trim_words( $sub_title, 18, NULL )
+              ?>  -->
+              <?php echo $post_excerpt; ?> 
+              <!-- In this session, experts talk about ways to help children boost social skills through remote classes. --> 
           </div> 
       </div>
       <div class="content-left testimonial-content">

@@ -1325,6 +1325,11 @@
             }), "My profile"
             //window.vibebp.translations.profile
             ),wp.element.createElement("a", {
+                href: c.profile_link + '/dashboard'
+            }, wp.element.createElement("span", {
+                className: "dashboard_icon"
+            }), "Dashboard"
+            ),wp.element.createElement("a", {
                 href: c.profile_link + '/preference'
             }, wp.element.createElement("span", {
                 className: "preference_icon"

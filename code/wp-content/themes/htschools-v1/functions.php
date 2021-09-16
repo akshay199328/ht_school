@@ -276,7 +276,7 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
       wp_enqueue_style( 'wplms-editor-css-v1', get_template_directory_uri(). '/editor_css.css?v=1.1' );
       wp_enqueue_style( 'wplms-editor-detail-css-v1', get_template_directory_uri(). '/editor-detail.css?v=1.1' );
     }
-    if ( !is_page_template('all-courses.php')){
+    if (is_page_template('all-courses.php')){
       wp_enqueue_style( 'wplms-course-css-v1', get_template_directory_uri(). '/course_css.css?v=1.1' );
     } 
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
@@ -4892,3 +4892,159 @@ $check_parent_contact_number = $_REQUEST['check_parent_contact_number'];
 }
 
 /*--------------------------------------------------------------------*/
+
+function more_post_ajax(){
+
+    $ppp = (isset($_POST["ppp"])) ? $_POST["ppp"] : 1;
+    $paged = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
+    
+    $category_filter = explode(",",$_GET['category']);
+    $args = array(
+        'suppress_filters' => true,
+        'post_type' => 'course',
+        'posts_per_page'=>$ppp,
+        'paged'=>$paged,
+        'order'=>'DESC',
+        'orderby' => 'publish_date',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'course-cat',
+                'field'    => 'term_id',
+                'terms'    => 159
+            )
+        ),
+    );
+    $wp_query = new WP_Query( $args );
+
+    if ($wp_query -> have_posts()) :  while ($wp_query -> have_posts()) : $wp_query -> the_post();
+      global $post;
+      $custom_fields = get_post_custom();
+      $duration = $custom_fields['vibe_validity'][0];
+      $course_type="";
+        $course_type = $custom_fields['vibe_course_type'][0];
+
+        $str1="LIVE CLASSES";
+        $str2="BLENDED";
+        $str3="SELF-PACED";
+    
+        if(strcmp($str2, $course_type)==0){
+           $badge_class = "blue";
+        }
+        elseif(strcmp($str3, $course_type)==0){
+           $badge_class = "green";
+        }
+        elseif(strcmp($str1, $course_type)==0){
+           $badge_class = "red";
+        }
+        else{
+          $badge_class = "";
+        } 
+      $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
+      $session = $custom_fields['vibe_course_sessions'][0];
+      $age_limit = $custom_fields['vibe_course_age_group'][0];
+      $category_array = get_the_terms( $post->ID, 'course-cat');
+      $excerpt = get_post_field('post_excerpt', $post->ID);
+        $courseID = $post->ID;
+      $courseslug=get_the_permalink($courseID);
+      $usersFavorites = wpfp_get_users_favorites();
+      
+      $userIdentifier = "";
+
+      if(!is_array($usersFavorites)) $usersFavorites = array();
+
+      if(isset($user->ID) && $user->ID > 0)
+      {
+        $userIdentifier = $user->ID;
+      }
+      else if(isset($_COOKIE['PHPSESSID']))
+      {
+        $userIdentifier = $_COOKIE['PHPSESSID'];
+      }
+      $coursePartner = "";
+
+        $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
+        if ($cb_course_id) {
+          $coursePartner = "Celebrity School";
+        }
+
+        $aiws_course_id = get_post_meta($courseID,'aiws_program_id',true);
+        if ($aiws_course_id) {
+          $coursePartner = "AIWS";
+        }
+        if ( has_post_thumbnail() ) {
+            $image_url = get_the_post_thumbnail_url();
+        }
+        $pid=get_post_meta($courseID,'vibe_product',true);
+        $pid=apply_filters('wplms_course_product_id',$pid,$courseID,0);
+
+        if(is_numeric($pid) && bp_course_get_post_type($pid) == 'product'){
+          $pid=get_permalink($pid);
+          $check=vibe_get_option('direct_checkout');
+          $check =intval($check);
+          if(isset($check) &&  $check){
+            $pid .= '?redirect';
+          }
+        }
+        ob_start();
+wpfp_course_link();
+$bookmark_output_settings .= ob_get_clean();
+$tab_content = '';
+$tab_content .= '<div class="column">
+<div class="course-card">
+<figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'.$post->post_title.'" src="'. $image_url.'"></a></figure>
+<div class="course-copy">
+  <header class="course-header">
+    <a class="category" href="#">'.$category_array[0]->name.'</a>
+    <span class="badge '.$badge_class.'">'.$course_type.'</span>
+  </header>
+  <h2 class="course-title"><a href="'.get_permalink($post->ID).'">'. $post->post_title.'</a></h2>
+  <footer class="course-footer">';
+    ob_start();
+    //if (in_array($post->ID, $users_courses)){
+      the_course_button();
+    //}
+    $button_output_settings .= ob_get_clean();
+    $tab_content .= '<div class="left">';
+    $tab_content .= $button_output_settings;
+
+    $tab_content .= '<span class="price">';
+    ob_start();
+    the_course_price();
+    $output_settings .= ob_get_clean();
+    $tab_content .= $output_settings; 
+    $tab_content .='</span>
+    </div>
+    <div class="right">';
+    if (!in_array($post->ID, $users_courses) && $coming_soon != 'S'){
+      $tab_content .='<a href="'.$pid.'">
+      <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
+      </a>';
+      }
+      $tab_content .= $bookmark_output_settings;
+      $tab_content .= '<a href="#share!" data-toggle="modal" data-target="#open_tab_share_'.$courseID.'" >
+      <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
+      </a>
+    </div>
+  </footer>
+  <input type="hidden" id="course_name_'.$courseID.'" value="'.$post->post_title.'">
+  <input type="hidden" id="course_url_'.$courseID.'" value="'.$courseslug.'">
+  <input type="hidden" id="course_category_'.$courseID.'" value="'.$category_array[0]->name.'">
+  <input type="hidden" id="course_partner_'.$courseID.'" value="'.$coursePartner.'">
+  <input type="hidden" id="category_id_'.$courseID.'" value="'.$category_array[0]->term_id.'">
+  <input type="hidden" id="course_id_'.$courseID.'" value="'.$courseID.'">
+  <input type="hidden" id="course_price_'.$courseID.'" value="0">
+  <input type="hidden" id="course_tax_'.$courseID.'" value="0">
+  <input type="hidden" id="age_group_'.$courseID.'" value="'.$age_limit.'">
+  <input type="hidden" id="course_duration_'.$courseID.'" value="'. get_post_meta($courseID, "vibe_validity", true).'">
+  <input type="hidden" id="session_duration_'.$courseID.'" value="'. get_post_meta($courseID, "vibe_course_session_length", true).'">
+  <input type="hidden" id="wishlisted_course_'.$courseID.'" value="0">
+</div>
+</div>';
+    endwhile;
+    endif;
+    
+    echo $tab_content;
+}
+
+add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax');
+add_action('wp_ajax_more_post_ajax', 'more_post_ajax');

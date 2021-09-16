@@ -314,22 +314,7 @@ $topics = wp_get_post_tags(get_the_ID());
     </div>
 
 <!-- releted news -->
-<?php $tags = wp_get_post_tags(get_the_ID());
-  if ($tags) {
-    print($tags);
-    foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-                $args=array(
-                'tag__in' => $tag_ids,
-                'post__not_in' => array($post->ID),
-                'posts_per_page'=>6, 
-                );
 
-    $my_query = new WP_Query($args);
-    
-    if ($my_query->have_posts()){
-  ?>
-
-<?php }}?>          <!-- releted news -->
 
   
 
@@ -385,7 +370,7 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
                 </span>
                 <h2 class="course-title">
                   <a href="#!">
-                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                    <p>Maslow’s Hierarchy Of Needs: Here Is What Parents Need To Know</p>
                   </a>
                 </h2>
               </div>
@@ -403,7 +388,7 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
                 </span>
                 <h2 class="course-title">
                   <a href="#!">
-                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                    <p>Why Do Horses Doze Off While On Their Feet?</p>
                   </a>
                 </h2>
               </div>
@@ -421,7 +406,7 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
                 </span>
                 <h2 class="course-title">
                   <a href="#!">
-                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                    <p>Here’s Why Autistic People Find It Harder To Identify Angry Facial Expressions</p>
                   </a>
                 </h2>
               </div>
@@ -439,7 +424,7 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
                 </span>
                 <h2 class="course-title">
                   <a href="#!">
-                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                    <p>How A Drone Army Is Rising To Tackle Ocean Plastics</p>
                   </a>
                 </h2>
               </div>
@@ -457,7 +442,7 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
                 </span>
                 <h2 class="course-title">
                   <a href="#!">
-                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                    <p>How A Drone Army Is Rising To Tackle Ocean Plastics</p>
                   </a>
                 </h2>
               </div>

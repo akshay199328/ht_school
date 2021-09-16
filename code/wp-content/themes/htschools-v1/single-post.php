@@ -205,8 +205,10 @@ $topics = wp_get_post_tags(get_the_ID());
           </div> 
       </div>
       <div class="content-left">
+          <div class="details-image">
+            <img src="<?php echo $featured_image; ?>" class="img-fluid">
+          </div>
           
-          <img src="<?php echo $featured_image; ?>" class="img-fluid">
           <?php if(get_post_meta(get_the_ID(), 'image_caption', true)){?>
           <p class="newsdetail_caption"><?php echo get_post_meta(get_the_ID(), 'image_caption', true); ?>
           <?php } else{?>
@@ -310,8 +312,8 @@ $topics = wp_get_post_tags(get_the_ID());
              ?>
           </div>
       </div>
-      </div>
     </div>
+</div>
 
 <!-- releted news -->
 

@@ -42,6 +42,7 @@ body{letter-spacing: normal;}
     /*border-bottom: 1px solid #000;
     margin-bottom: 28px;
     padding-bottom: 10px;*/
+    width: 100%;
 }
 .editor-details_page h1 {
     color: #000000;
@@ -170,4 +171,5 @@ p.newsdetail_caption {
     .topic_details ul li{font-size: 10px!important;line-height: 16px!important;}
     .editor_detail .content-left p {font-size: 16px;line-height: 20px}
     p.newsdetail_caption {font-size: 14px!important;line-height: 14px !important;}
+    .editor_detail .content-left iframe{width: 100%}
 }

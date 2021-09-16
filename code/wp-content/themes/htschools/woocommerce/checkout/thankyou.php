@@ -267,7 +267,10 @@ defined( 'ABSPATH' ) || exit;
 							"items"	: moengageItemList,
 						}
 					};
-
+					for (var i = 0; i < allItemsList.length; i++) {
+						purchaseCompletedDetailMoegObj["course_name_"+(i+1)] = allItemsList[i]["item_name"];
+						purchaseCompletedDetailMoegObj["course_id_"+(i+1)] = parseInt(allItemsList[i]["item_id"]);
+					}
 					let purchaseCompletedSummaryMoegObj = {
 						"Total count of items"	: "<?php echo $totalItemsCount; ?>",
 						"Total amount paid"		: "<?php echo $orderTotal; ?>",

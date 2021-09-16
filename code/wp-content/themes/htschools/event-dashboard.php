@@ -55,7 +55,7 @@ $user_gender = get_profile_data('Gender');
 $user_country = get_profile_data('Country');
 $user_state = get_profile_data('State');
 $user_city = get_profile_data('City');
-$user_zone = get_profile_data('Zone');
+$user_zone = get_profile_data('Event Zone');
 $school_id = get_profile_data('Linked School');
 
 $user_school_name = "";
@@ -179,7 +179,7 @@ if($progressVal != ''){
 
 
 
-$resultsZone = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Zone'");
+$resultsZone = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Event Zone'");
 foreach($resultsZone as $rowZone){ 
     $zonePriID = $rowZone->id; 
 }

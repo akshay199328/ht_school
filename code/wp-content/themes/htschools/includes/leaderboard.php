@@ -12,7 +12,7 @@ function leadeboardList($courseID,$zone){
     }
 
 
-    $resultsZone = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Zone'");
+    $resultsZone = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Event Zone'");
     foreach($resultsZone as $rowZone){ 
         $zonePriID = $rowZone->id; 
     }

@@ -107,5 +107,4 @@ function leadeboardList($courseID,$zone){
     }
 
 }
-
 ?>

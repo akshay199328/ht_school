@@ -325,69 +325,10 @@ $topics = wp_get_post_tags(get_the_ID());
                 );
 
     $my_query = new WP_Query($args);
-    print_r($args);
+    
     if ($my_query->have_posts()){
   ?>
-<div class="home-section related-news articles">
-  <div class="home-copy">
-    
-    <div class="">
-        <div class="">
-        <header class="section-header">
-            <h2 class="semi_medium-title">Related News</h2>
-        </header>
-            <div class="owl-carousel owl-theme student_slider">
-              <div class="item">
-                <?php 
-                  while ($my_query->have_posts()) : $my_query->the_post();
-                    ?>
-                        <div class="course-card">
-                          <figure class="video">
-                            <?php if ( has_post_thumbnail() ) {
-                                  $featured_image = get_the_post_thumbnail_url();
-                                }
-                                ?>
-                            <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
-                            <!-- <img src="<?php echo $url;?>"> -->
-                              <!-- <a class="play" href="#!"><span class="time">3:20</span></a> -->
-                          </figure>
-                          <div class="course-copy">
-                            <footer class="course-footer">
-                              <div class="left">
-                                
-                                <div class="copy">
-                                    <span class="date-time">
-                                      <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
-                                    </span>
-                                    <h2 class="article-title">
-                                      <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
-                                    </h2>
-                                  </div>
-                              </div>
-                            </footer>
-                          </div>
-                        </div>
-                    <?php 
-                   
-                     endwhile;               // }
-               
-                ?>
-              <?php wp_reset_query();  ?>
-            </div>
-          </div>
-            
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-3 mrg">
-      <div class="atwork_img">
-          <?php
-          if ( is_active_sidebar( 'banner-3' ) ) : ?>
-            <?php dynamic_sidebar( 'banner-3' ); ?>      
-          <?php endif; ?>
-      </div>
-    </div>
-  </div>
-</div>
+
 <?php }}?>          <!-- releted news -->
 
   
@@ -426,7 +367,143 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
 //End Main content of the post
 ?>
 
+<section class="home-section related-news">
+      <div class="home-copy">
+            <header class="section-header">
+                <h2 class="semi_medium-title">Related News</h2>
+            </header>
+        <div class="owl-carousel owl-theme student_slider">
+          <div class="item">
+            <div class="course-card">
+              <figure class="video">
+                  <img alt="Studnet Testimonials 1" src="https://images.unsplash.com/photo-1603140841883-07975d34dd9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
+                  
+              </figure>
+              <div class="course-copy">
+                <span class="date-time">
+                  MUMBAI Mar 30, 2021 18:42                          
+                </span>
+                <h2 class="course-title">
+                  <a href="#!">
+                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  </a>
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="course-card">
+              <figure class="video">
+                            <img alt="Studnet Testimonials 2" src="https://images.unsplash.com/photo-1510025092510-371a97295106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80">
+                            
+                        </figure>
+              <div class="course-copy">
+                <span class="date-time">
+                  MUMBAI Mar 30, 2021 18:42                          
+                </span>
+                <h2 class="course-title">
+                  <a href="#!">
+                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  </a>
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="course-card">
+              <figure class="video">
+                            <img alt="Studnet Testimonials 3" src="https://images.unsplash.com/photo-1584697964328-b1e7f63dca95?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
+                            
+                        </figure>
+              <div class="course-copy">
+                <span class="date-time">
+                  MUMBAI Mar 30, 2021 18:42                          
+                </span>
+                <h2 class="course-title">
+                  <a href="#!">
+                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  </a>
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="course-card">
+              <figure class="video">
+                            <img alt="Studnet Testimonials 4" src="https://images.unsplash.com/photo-1536337005238-94b997371b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
+                            
+                        </figure>
+              <div class="course-copy">
+                <span class="date-time">
+                  MUMBAI Mar 30, 2021 18:42                          
+                </span>
+                <h2 class="course-title">
+                  <a href="#!">
+                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  </a>
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="course-card">
+              <figure class="video">
+                            <img alt="Studnet Testimonials 5" src="https://images.unsplash.com/photo-1510025092510-371a97295106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80">
+                            
+                        </figure>
+              <div class="course-copy">
+                <span class="date-time">
+                  MUMBAI Mar 30, 2021 18:42                          
+                </span>
+                <h2 class="course-title">
+                  <a href="#!">
+                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  </a>
+                </h2>
+              </div>
+          </div>
+          </div>
+          
+          <div class="item">
+            <div class="course-card">
+              <figure class="video">
+                            <img alt="Studnet Testimonials 6" src="https://images.unsplash.com/photo-1602541975161-6ee3b0829adb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
+                           
+                        </figure>
+              <div class="course-copy">
+                <span class="date-time">
+                  MUMBAI Mar 30, 2021 18:42                          
+                </span>
+                <h2 class="course-title">
+                  <a href="#!">
+                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  </a>
+                </h2>
+              </div>
+            </div>
+          </div>
 
+                <div class="item">
+                    <div class="course-card">
+                        <figure class="video">
+                            <img alt="Studnet Testimonials 7" src="https://images.unsplash.com/photo-1537402006040-bb6fb35ef422?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80">
+                            
+                        </figure>
+                        <div class="course-copy">
+                <span class="date-time">
+                  MUMBAI Mar 30, 2021 18:42                          
+                </span>
+                <h2 class="course-title">
+                  <a href="#!">
+                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  </a>
+                </h2>
+              </div>
+                    </div>
+                </div>
+        </div>
+      </div>
+    </section>
 
 
 

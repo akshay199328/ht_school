@@ -130,6 +130,10 @@ p.newsdetail_caption {
     padding-bottom: 35px;
     display: flex;
 }
+.home-section.related-news{background-color: #FAFAFA;}
+.home-section.related-news .course-card{box-shadow: none;border-radius: 0px;}
+.home-section.related-news .course-card .course-copy {padding: 15px 0px;}
+.home-section.related-news .course-card .video img{border-radius: 8px;}
 @media (max-width: 1600px){
     .editor-details_page h1{font-size: 40px;line-height: 50px;}
     .editor_topdata .editor_detail h1 {font-size: 22px;}

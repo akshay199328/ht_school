@@ -165,6 +165,46 @@ p.newsdetail_caption {
 /*----------Testimonial detail page : CSS-------------*/
 .testimonial-content.content-left {width: 100%;}
 
+
+/*-------Video Detail Page : CSS-------*/
+.editor_topdata,
+.editor-details_page,
+.home-section.related-news
+{background: #000!important;margin-top: 0;}
+.videos-details .editor_topdata,
+.videos-details .editor_topdata .editor_detail h1,
+.videos-details .editor_detail p,
+.videos-details .editor-details_page h1,
+.videos-details .editor_detail .content-left p,
+.videos-details .topic_details h2,
+.videos-details .editor_detail .content-left ul li,
+.videos-details .semi_medium-title,
+.videos-details .link-article .sidebar h3,
+.videos-details .date-time,
+.videos-details .topic_details ul li a,
+.videos-details .article-title a, 
+.article-title a:hover
+{color: #fff!important}
+.videos-details .topic_details ul li, 
+.videos-details .link-article ul li{border-color: #fff;}
+.videos-details .home-section.related-news .course-card .course-copy {
+    padding: 15px 18px;
+}
+.videos-details .home-section.related-news .course-card {
+    box-shadow: none;
+    border-radius: 8px 8px;
+}
+.videos-details .editor_detail .pull-right svg path,
+.videos-details .editor_detail .pull-right svg rect{stroke: rgb(255 255 255);}
+.videos-details .editor_detail .pull-right svg #Path_39334,
+.videos-details .editor_detail .pull-right svg #Path_39331,
+.videos-details .editor_detail .pull-right svg #Path_39332,
+.videos-details .editor_detail .pull-right svg #Path_39336,
+.videos-details .editor_detail .pull-right svg #Path_39338,
+.videos-details .editor_detail .pull-right svg #Path_39679,
+.videos-details .editor_detail .pull-right svg #Path_39333,
+.videos-details .editor_detail .pull-right svg #Path_39337{fill: rgb(255 255 255);}
+.videos-details {fill: rgb(0 0 0);}
 @media (max-width: 1600px){
     .editor-details_page h1{font-size: 40px;line-height: 50px;}
     .editor_topdata .editor_detail h1 {font-size: 22px;}

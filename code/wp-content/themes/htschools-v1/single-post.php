@@ -135,7 +135,7 @@ $topics = wp_get_post_tags(get_the_ID());
               </p>
           </div>
           <div class="pull-right">
-            <a href="#!">
+            <a href="#!" class="icon-bookmark">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20919" data-name="Group 20919" transform="translate(-1511.75 -411.75)">
                     <path id="Path_39339" data-name="Path 39339" d="M867.548,402.337h14v17l-7-6.458-7,6.458Z" transform="translate(655.952 19.163)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -143,7 +143,7 @@ $topics = wp_get_post_tags(get_the_ID());
                   </g>
               </svg>
             </a>
-            <a href="#!">
+            <a href="#!" class="icon-facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20915" data-name="Group 20915" transform="translate(0.25 0.25)">
                     <rect id="Rectangle_4659" data-name="Rectangle 4659" width="35" height="35" rx="17.5" transform="translate(0.5 0.5)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
@@ -151,7 +151,7 @@ $topics = wp_get_post_tags(get_the_ID());
                   </g>
               </svg>
             </a>
-            <a href="#!">
+            <a href="#!" class="icon-twitter">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20912" data-name="Group 20912" transform="translate(0.75 0.75)">
                     <path id="Path_39330" data-name="Path 39330" d="M277.616,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,277.616,163.505Z" transform="translate(-260.116 -128.505)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
@@ -160,7 +160,7 @@ $topics = wp_get_post_tags(get_the_ID());
               </svg>
 
             </a>
-            <a href="#!">
+            <a href="#!" class="icon-google">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20914" data-name="Group 20914" transform="translate(0.573 0.75)">
                   <rect id="Rectangle_4658" data-name="Rectangle 4658" width="35" height="35" rx="17.5" transform="translate(0.177 0)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
@@ -172,7 +172,7 @@ $topics = wp_get_post_tags(get_the_ID());
               </svg>
 
             </a>
-            <a href="#!">
+            <a href="#!" class="icon-insta">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_21451" data-name="Group 21451" transform="translate(0.75 0.75)">
                   <path id="Path_39335" data-name="Path 39335" d="M444.19,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,444.19,163.505Z" transform="translate(-426.69 -128.505)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
@@ -185,7 +185,7 @@ $topics = wp_get_post_tags(get_the_ID());
               </svg>
 
             </a>
-            <a href="#!">
+            <a href="#!" class="icon-attachment">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20917" data-name="Group 20917" transform="translate(0.25 0.25)">
                   <path id="Path_39335" data-name="Path 39335" d="M444.19,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,444.19,163.505Z" transform="translate(-426.19 -128.005)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>

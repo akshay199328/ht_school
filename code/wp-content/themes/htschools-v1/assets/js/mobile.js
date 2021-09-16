@@ -162,7 +162,7 @@
         });
     });
 
-if($(window).width() <= 767) {
+if($(window).width() <= 768) {
     $('.featured_tablist .tablist').addClass('owl-carousel');
     $('.featured_tablist .tablist').addClass('owl-theme');
     $('.featured_tablist .tablist li').addClass('item');

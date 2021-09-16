@@ -289,7 +289,7 @@ get_header(vibe_get_header());
             </div>
             <div class="filter-footer">
                 <button type="submit">Cancel</button>
-                <button type="submit">Apply</button>
+                <button type="submit" id="apply_filters">Apply</button>
             </div>
         </div>
         <div class="all-courses">
@@ -297,6 +297,7 @@ get_header(vibe_get_header());
                 <h3 class="all-courses-title">All Our Courses</h3>
                 <div class="sort">
                     Sort by : <select id="sort_by">
+                        <option value="">Select</option>
                         <option value="popular" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "popular") echo 'selected="selected"';?>>Most Popular</option>
                         <option value="rated" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "rated") echo 'selected="selected"';?>>Highest Rated</option>
                         <option value="newest" <?php if(isset($_GET['sort_by']) && $_GET['sort_by'] == "newest") echo 'selected="selected"';?>>Newly Added</option>
@@ -313,7 +314,7 @@ get_header(vibe_get_header());
                 <?php 
                     if( isset($_GET['sort_by']) ){
                 ?>
-                <span class="tag"><?php echo $_GET['sort_by'];?><button class="close close-tag" type="submit" ></button></span>
+                <span class="tag"><?php echo $_GET['sort_by'];?><button class="close" id="close-sort-tag" type="submit" ></button></span>
                 <?php } 
                 foreach($session_array as $sessions){
                     if( $session_selected_array && in_array( $sessions['value'], $session_selected_array ) ){
@@ -326,7 +327,7 @@ get_header(vibe_get_header());
              <span class="tag"><?php echo $category['name']?><button class="close close-tag" type="submit" data-id="<?php echo $category['term_id'];?>"></button></span>
             <?php }} ?>
             </div>
-            <div class="course-wrapper">
+            <div class="course-wrapper" id="course-wrapper">
                 <?php
                     $users_courses = array();
                     if(isset($user->ID) && $user->ID > 0)
@@ -432,6 +433,8 @@ get_header(vibe_get_header());
                     $args_all_course = array(
                       'post_type' => 'course',
                       'post_status' => 'publish',
+                      'order'=>'DESC',
+                        'orderby' => 'publish_date',
                       'nopaging' => true
                     );   
                     $all_course = new WP_Query( $args_all_course );
@@ -456,8 +459,10 @@ get_header(vibe_get_header());
                     $category_filter = explode(",",$_GET['category']);
                     $args = array(
                         'post_type' => 'course',
-                        'posts_per_page'=>16,
+                        'posts_per_page'=>1,
                         'paged'=>$paged,
+                        'order'=>'DESC',
+                        'orderby' => 'publish_date',
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'course-cat',
@@ -478,6 +483,8 @@ get_header(vibe_get_header());
                         'post_type' => 'course',
                         'posts_per_page'=>16,
                         'paged'=>$paged,
+                        'order'=>'DESC',
+                        'orderby' => 'publish_date',
                         'tax_query' => array(
                           array(
                               'taxonomy' => 'course-cat',
@@ -1048,10 +1055,41 @@ get_header(vibe_get_header());
                       $wp_query = new WP_Query($query_args);
                     }
                     }
-                  if(!empty($wp_query)){
+                    $filter_courses_id = array();
+                    $i = 0;
+                    if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
+                        global $post;
+                        $featured = get_post_meta($post->ID,'featured',true);
+                        $filter_courses_id[$i]['course_id'] = $post->ID;
+                        if($featured == 1){
+                            $filter_courses_id[$i]['featured']= 1;
+                        }
+                        else{
+                            $filter_courses_id[$i]['featured']= 0;
+                        }
+                        $i++;
+                    endwhile;
+                    endif;
+                    $price = array_column($filter_courses_id, 'featured');
+                    $test = array_multisort($price, SORT_DESC, $filter_courses_id);
+                    $sort_courses = array();
+                    
+                    foreach($filter_courses_id as $subKey => $courses){
+                        $sort_courses[] = $courses['course_id'];
+                    }
+                    $query_args = apply_filters('wplms_mycourses',array(
+                      'post_type'=>'course',
+                      'post__in'=>$sort_courses,
+                      'posts_per_page'=>16,
+                      'post_status' => 'publish',
+                      'orderby' => 'post__in', 
+                      'paged'=>$paged
+                    ));
+                    $wp_query_new = new WP_Query($query_args);
+                  if(!empty($query_args)){
                     $i=0;
-                    if ($wp_query->have_posts()){
-                    while ($wp_query->have_posts()) : $wp_query->the_post();
+                    if ($wp_query_new->have_posts()){
+                    while ($wp_query_new->have_posts()) : $wp_query_new->the_post();
                     if(get_post_type() == 'course'){
                         global $post;
                       $custom_fields = get_post_custom();
@@ -1133,7 +1171,7 @@ get_header(vibe_get_header());
                                 </header>
                                 <h2 class="course-title"><a href="#!"><?php echo bp_course_title(); ?></a></h2>
                                 <footer class="course-footer">
-                                    <div class="left">
+                                    <div class="left" id="course_price_share_<?php echo $post->ID;?>">
                                         <?php if (in_array($post->ID, $users_courses)){
                                             the_course_button(); 
                                         }?>
@@ -1156,13 +1194,27 @@ get_header(vibe_get_header());
                                             <?php
                                           }
                                           ?>
-                                        <a href="#!" class="sharing">
+                                        <a href="#share!" class="course_share" data-toggle="modal" data-target="#open_popular_share" data-id="<?php echo $courseID;?>">
                                             <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                                         </a>
                                     </div>
                                 </footer>
+
                             </div>
                         </div>
+                        <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $post->post_title;?>">
+                        <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
+                        <input type="hidden" id="course_image_<?php echo $courseID;?>" value="<?php echo $image_url;?>">
+                        <input type="hidden" id="course_category_<?php echo $courseID;?>" value="<?php echo $category_array[0]->name;?>">
+                        <input type="hidden" id="course_partner_<?php echo $courseID;?>" value="<?php echo $coursePartner;?>">
+                        <input type="hidden" id="category_id_<?php echo $courseID;?>" value="<?php echo $category_array[0]->term_id;?>">
+                        <input type="hidden" id="course_id_<?php echo $courseID;?>" value="<?php echo $courseID;?>">
+                        <input type="hidden" id="course_price_<?php echo $courseID;?>" value="0">
+                        <input type="hidden" id="course_tax_<?php echo $courseID;?>" value="0">
+                        <input type="hidden" id="age_group_<?php echo $courseID;?>" value="<?php echo $age_limit;?>">
+                        <input type="hidden" id="course_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_validity", true);?>">
+                        <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
+                        <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
                     </div>
                 <?php }else{
                   ?>
@@ -1178,11 +1230,48 @@ get_header(vibe_get_header());
                     <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
                   </div>
                 <?php }} ?>
+                <div id="more_posts">Load More</div>
             </div>
         </div>
     </div>
 </main>
- 
+ <script type="text/javascript">
+     var ppp = 1; // Post per page
+    var cat = 34;
+    var pageNumber = 1;
+
+
+function load_posts(){
+    pageNumber++;
+    var str = '&cat=' + cat + '&pageNumber=' + pageNumber + '&ppp=' + ppp + '&action=more_post_ajax';
+    jQuery.ajax({
+        type: "POST",
+        dataType: "html",
+        url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+        data: {"action": "more_post_ajax",pageNumber : pageNumber,ppp:ppp},
+        success: function(data){
+            console.log(data);
+            var jQuerydata = jQuery(data);
+            if(jQuerydata.length){
+                jQuery("#course-wrapper").append(jQuerydata);
+                jQuery("#more_posts").attr("disabled",false);
+            } else{
+                jQuery("#more_posts").attr("disabled",true);
+            }
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            jQueryloader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+        }
+
+    });
+    return false;
+}
+
+jQuery("#more_posts").on("click",function(){ // When btn is pressed.
+    jQuery("#more_posts").attr("disabled",true); // Disable the button, temp.
+    load_posts();
+});
+ </script>
 <?php
 get_footer(vibe_get_footer());
 ?>

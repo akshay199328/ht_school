@@ -579,8 +579,8 @@ get_header(vibe_get_header());
                   $image_url = get_the_post_thumbnail_url();
                 }
                 ob_start();
-          wpfp_course_link();
-          $bookmark_output_settings .= ob_get_clean();
+                wpfp_course_link();
+                $bookmark_output_settings .= ob_get_clean();
                 
                   $tab_content .= '<div class="column">
               <div class="course-card">
@@ -755,12 +755,12 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       $editor_all_tab_menu = '';
       $editor_all_tab_content = '';
       $args_news = array(
-          'post_type' => 'post',
-          'post_status' => 'publish',
-          'posts_per_page' => 10,
-          'order'=>'DESC',
-          'orderby' => 'publish_date',
-        );
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => 10,
+        'order'=>'DESC',
+        'orderby' => 'publish_date',
+      );
       $Query_news = new WP_Query( $args_news );
 
       $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';

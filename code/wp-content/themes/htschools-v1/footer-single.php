@@ -1286,6 +1286,10 @@ border: 1px solid deepskyblue;
         var val = jQuery(this).data('id');
         jQuery('input:checkbox[value="' + val + '"]').trigger('click');
     })
+    jQuery('#close-sort-tag').click(function(){
+        var val = jQuery(this).data('id');
+        jQuery('#sort_by').val('').trigger('change');
+    })
 
 	jQuery( ".epaper a" ).click(function() {
 	  let ePaperViewedMoegObj = {
@@ -1335,13 +1339,19 @@ border: 1px solid deepskyblue;
 	applyFilter();
   });
   jQuery('.age').click(function(){
-    applyFilter();
+    if(window.innerWidth > 768){
+        applyFilter();
+    }
   });
   jQuery('.sessions').click(function(){
-    applyFilter();
+    if(window.innerWidth > 768){
+        applyFilter();
+    }
   });
   jQuery('.category').click(function(){
-    applyFilter();
+    if(window.innerWidth > 768){
+        applyFilter();
+    }
   });
 
   function applyFilter() {
@@ -1363,7 +1373,7 @@ border: 1px solid deepskyblue;
 	});
 
 	var sort_by = jQuery("#sort_by").val();
-
+    
 	if(temp1.length > 0)  form_data.category = temp1.join(",");
 	if(temp2.length > 0)  form_data.session = temp2.join(",");
 	if(temp3.length > 0)  form_data.age = temp3.join(",");

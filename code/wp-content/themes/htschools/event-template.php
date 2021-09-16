@@ -354,7 +354,7 @@ if($bannerCount == 1){
                 <span class="powered">Powered By</span>
                 <h3 class="section-title">Leaderboard</h3>
             </div>
-            <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/leaderboard/dell.jpg">
+            <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/leaderboard/speed-labs.png">
         </div>
         <div class="student_list">
             <div class="student-header">

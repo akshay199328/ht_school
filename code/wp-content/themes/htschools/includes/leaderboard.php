@@ -98,6 +98,10 @@ function leadeboardList($courseID,$zone){
                     <div class="points">'.$user_rank_data->points.'</div>
                 </li>';
 
+        }else{
+
+            break;
+            
         }
         
     }

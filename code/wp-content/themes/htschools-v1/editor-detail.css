@@ -96,10 +96,15 @@ p.newsdetail_caption {
 }
 .editor_detail .content-left iframe {
     margin: 0px auto;
-    display: flex;
+    display: inline-block;
     align-items: center;
     padding-bottom: 30px;
+    width: 80%;
+    height: 680px;
+    border-radius: 8px;
+
 }
+.editor_detail .content-left p iframe{padding-bottom: 0px!important;}
 .editor_detail .content-left iframe .ytp-large-play-button {
     border: 2px solid #fff;
     border-radius: 100%;
@@ -155,6 +160,11 @@ p.newsdetail_caption {
 .home-section.related-news .course-card{box-shadow: none;border-radius: 0px;}
 .home-section.related-news .course-card .course-copy {padding: 15px 0px;}
 .home-section.related-news .course-card .video img{border-radius: 8px;}
+
+
+/*----------Testimonial detail page : CSS-------------*/
+.testimonial-content.content-left {width: 100%;}
+
 @media (max-width: 1600px){
     .editor-details_page h1{font-size: 40px;line-height: 50px;}
     .editor_topdata .editor_detail h1 {font-size: 22px;}

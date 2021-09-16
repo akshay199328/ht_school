@@ -216,11 +216,11 @@ https://www.youtube.com/embed/yBo10BCif2Y
 
 -->
             <!-- <img src="<?php echo $featured_image; ?>"> -->
-                <?php if(get_post_meta(get_the_ID(), 'image_caption', true)){?>
+            <!--     <?php if(get_post_meta(get_the_ID(), 'image_caption', true)){?>
             <p class="newsdetail_caption"><?php echo get_post_meta(get_the_ID(), 'image_caption', true); ?>
                 <?php } else{?>
             <p class="newsdetail_caption"><?php echo the_post_thumbnail_caption(); ?>
-                <?php }?>
+                <?php }?> -->
 
           <p><?php 
                $post_content = get_post_field('post_content', $post->ID);

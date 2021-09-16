@@ -213,7 +213,11 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .videos .course-card {
     min-height: auto;
 }
-.videos .course-card .course-title p, .videos .course-card .course-title .sortDec{    
+.videos .course-card .course-title p, 
+.videos .course-card .course-title .sortDec,
+.related-news h2.course-title, 
+.related-news h2.course-title a,
+.related-news h2.course-title p{    
     font-weight: bold;
     font-size: 18px;
     line-height: 26px;

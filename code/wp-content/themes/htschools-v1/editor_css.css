@@ -630,9 +630,9 @@ figure.image .play{display: none;}
     color: #fff!important;
 }
 .testimonial_listing .play:before {
-    width: 65px;
+    width: 60px;
     content: "\f04b";
-    height: 65px;
+    height: 60px;
     display: inline-block;
     border: 1px solid #FFF;
     border-radius: 30px;

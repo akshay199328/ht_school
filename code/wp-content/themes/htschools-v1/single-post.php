@@ -127,8 +127,8 @@ $topics = wp_get_post_tags(get_the_ID());
 <div class="editor-details_page">
     <div class="editor_detail">
       <div class="editor_header">
-        <h1><?php the_title(); ?></h1>
         <div class="editor_socio">
+          <h1><?php the_title(); ?></h1>
           <div class="pull-left">
               <p>By <strong><?php echo $postCreatorName;; ?>,</strong>
                   <span class="post_date"><?php echo $postDate; ?></span>
@@ -198,13 +198,14 @@ $topics = wp_get_post_tags(get_the_ID());
             </a>
           </div>
         </div>
-      </div>
-      <div class="content-left">
-          <div class="border_text">
+        <div class="border_text">
               <?php $sub_title = get_post_meta(get_the_ID(),'vibe_subtitle',true);
               echo wp_trim_words( $sub_title, 18, NULL )
               ?>
           </div> 
+      </div>
+      <div class="content-left">
+          
           <img src="<?php echo $featured_image; ?>" class="img-fluid">
           <?php if(get_post_meta(get_the_ID(), 'image_caption', true)){?>
           <p class="newsdetail_caption"><?php echo get_post_meta(get_the_ID(), 'image_caption', true); ?>

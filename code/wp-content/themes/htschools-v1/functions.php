@@ -5005,7 +5005,7 @@ $tab_content .= '<div class="column">
     //}
     $button_output_settings .= ob_get_clean();
     $tab_content .= '<div class="left">';
-    $tab_content .= $button_output_settings;
+    $tab_content .= '<div class="the_course_button" data-id="907"><span class="the_course_button"><span><button class="course_button full progress_key_2 button_cource_id_907">Continue Course</button></span></span></div>';
 
     $tab_content .= '<span class="price">';
     ob_start();

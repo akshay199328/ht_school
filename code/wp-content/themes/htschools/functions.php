@@ -1935,6 +1935,7 @@ function setSocialLoginData($socialType)
     }
 
     $tb_meta = get_user_meta($currentUserID, 'interest', true);
+    $last_active = get_user_meta($currentUserID, 'wc_last_active', true);
     if($tb_meta){    
       $tag_array = array();
       $get_user_interest = $wpdb->get_results("SELECT name FROM ht_terms WHERE term_id IN (" . implode(',', $tb_meta) . ")");
@@ -1976,7 +1977,7 @@ function setSocialLoginData($socialType)
                 "Session source"  => "",
                 "Timestamp"       => date('c', time()),
                 "UTM tags"        => "",
-                "Last login on"   => "",
+                "Last login on"   => $last_active,
                 "Login type"      => $socialType,
             ),
             "moengage_type" => "Logged_In",
@@ -3330,6 +3331,7 @@ function ht_social_login(){
                 do_action( 'wp_login', $user->user_login, $user);
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
+                $userData->last_active = date('d-m-Y H:i:s',get_user_meta($user->ID, 'wc_last_active', true));
              //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
 

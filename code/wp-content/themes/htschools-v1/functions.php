@@ -628,6 +628,7 @@ function reg_verify_otp(){
                 do_action( 'wp_login', $user->user_login, $user);
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
+                $userData->last_active = date('d-m-Y H:i:s',get_user_meta($user->ID, 'wc_last_active', true));
              //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
             }else{
@@ -1812,7 +1813,7 @@ function setSocialLoginData($socialType)
       }
       $area_of_interest = implode(",", $area_of_interest);
     }
-
+        $last_active = get_user_meta($currentUserID, 'wc_last_active', true);
         /*$registerTime = 0;
         $result = $wpdb->get_results("SELECT TIMESTAMPDIFF(MINUTE, user_registered, NOW()) AS diff FROM ht_users WHERE ID = '" . $currentUserID . "'");
 
@@ -1842,7 +1843,7 @@ function setSocialLoginData($socialType)
                 "Session source"  => "",
                 "Timestamp"       => date('c', time()),
                 "UTM tags"        => "",
-                "Last login on"   => "",
+                "Last login on"   => $last_active,
                 "Login type"      => $socialType,
             ),
             "moengage_type" => "Logged_In",

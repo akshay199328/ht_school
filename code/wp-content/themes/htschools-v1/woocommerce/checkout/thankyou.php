@@ -249,9 +249,13 @@ defined( 'ABSPATH' ) || exit;
 						"utm_tags"			: jQuery("#footer_utm_tags").val(),
 						"ecommerce"			: allItems,
 					};
-
+					
+					var currentUser = "<?php wp_get_current_user() ?>";
 					let purchaseCompletedDetailMoegObj = {
 						"User identifier"		: parseInt(jQuery("#footer_user_identifier").val()),
+						"Email ID"           : "<?php echo $currentUser->user_email;?>",
+						"First Name"            :"<?php echo $currentUser->user_firstname;?>",
+                    	"Last Name"             :"<?php echo $currentUser->user_lastname;?>",
 						"Session source"		: jQuery("#footer_session_source").val(),
 						"Timestamp"				: jQuery("#footer_timestamp").val(),
 						"UTM tags"				: jQuery("#footer_utm_tags").val(),
@@ -267,7 +271,7 @@ defined( 'ABSPATH' ) || exit;
 							"items"	: moengageItemList,
 						}
 					};
-
+					console.log(purchaseCompletedDetailMoegObj);
 					let purchaseCompletedSummaryMoegObj = {
 						"Total count of items"	: "<?php echo $totalItemsCount; ?>",
 						"Total amount paid"		: "<?php echo $orderTotal; ?>",

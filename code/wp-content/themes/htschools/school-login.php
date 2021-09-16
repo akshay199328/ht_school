@@ -749,7 +749,7 @@ jQuery(window).load(function(){
                           "Session source" : "",
                           "Timestamp"      : "<?php echo date('c', time()); ?>",
                           "UTM tags"       : "",
-                          "Last login on"  : "",
+                          "Last login on"  : user.last_active,
                           "Login type"     : "email",
                         };
 

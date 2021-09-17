@@ -449,6 +449,35 @@ $course_progress = empty($progress)?0:intval($progress);
 $resultsState = $wpdb->get_results("SELECT CONCAT(UPPER(SUBSTRING(state_name,1,1)),
   LOWER(SUBSTRING(state_name,2)) ) as state_name FROM `ht_state_master` WHERE `country_id` = '1' order by `state_name` asc");
 
+
+// Quiz status count
+$course_quiz = [];
+foreach($course_curriculum as $lesson){
+    if($lesson['type'] == 'quiz'){
+        array_push($course_quiz, $lesson);
+    }
+}
+
+$quizCompleteCount=0;
+foreach($course_quiz as $quiz_units){ 
+
+  $quizID = $quiz_units['id'];
+
+  $quiz_status = 'quiz_status'.$quizID;
+
+  $resultsQuiz = $wpdb->get_results("SELECT * FROM `ht_usermeta` WHERE `user_id` = '$userID' and `meta_key` = '$quiz_status'");
+  $meta_value = $resultsQuiz[0]->meta_value;
+
+  if($meta_value == 4){
+    $quizCompleteCount=$quizCompleteCount+1;
+  }
+
+}
+
+
+$resultsQuizTotal = $wpdb->get_results("SELECT count(id) as total_quiz_points FROM $my_cred_table WHERE user_id = '".$userID."' and data = '".$courseID."'");
+$total_quiz_points = $resultsQuizTotal[0]->total_quiz_points;
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}
@@ -641,10 +670,26 @@ div#ui-datepicker-div{
                                         <div class="details">
                                             <h4><?php echo get_the_title($courseID); ?></h4>
                                             <p><?php echo get_the_excerpt($courseID); ?></p>
-                                            <div class="resume_btn">
-                                                <?php the_course_button($courseID)?>
-                                            </div>
-                                            <!-- <button type="button" class="resume_btn btn"><a href="<?php echo get_bloginfo('url'); ?>/course/<?php echo $slug; ?>" style="color:#fff;">Resume Learning</a></button> --><button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn">Practice</button>
+                                            <?php if($quizCompleteCount >= 3){ 
+                                                    if($total_quiz_points == 0){
+                                                      echo '<div class="download" style="width: 55%; float: left; margin-right: 15px;">';
+                                                                user_certificate($courseID,$userID);
+                                                      echo '</div>
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn" style="margin-top: 10px;">Practice</button>';
+                                                    }else{
+                                                      echo '<div class="resume_btn">';
+                                                            the_course_button($courseID);
+                                                      echo '</div>
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn">Practice</button>';
+                                                    }
+                                                  }else{
+                                                    echo '<div class="resume_btn">';
+                                                            the_course_button($courseID);
+                                                    echo '</div>
+                                                          <button type="button" data-bs-toggle="modal" data-bs-target="#practice-popup" class="practice_btn btn">Practice</button>';
+                                                  }
+                                                    
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -666,7 +711,7 @@ div#ui-datepicker-div{
                                     $lessonId = get_post($lesson['id']); ?>
                                     <div class="list">
                                         <div class="col-12 col-lg-12 col-md-12 col-sm-12 mrg pull-left">
-                                            <h5 class="course_section_link"><?php echo $lesson_units['title'];?>
+                                            <h5 class="course_section_link"><?php echo $lesson_units['title'];?>?>
                                                 <!-- <span class="toggle_icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="17.218" height="9.64" viewBox="0 0 17.218 9.64">
                                                         <path id="Shape_788" data-name="Shape 788" d="M4655.289,1203.774l7.2,7.226,7.195-7.226" transform="translate(-4653.875 -1202.36)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>

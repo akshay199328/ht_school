@@ -1,5 +1,5 @@
 <?php
-require_once '../../../../wp-load.php';
+require_once 'wp-load.php';
 
 date_default_timezone_set("Asia/Kolkata");
 
@@ -110,6 +110,6 @@ $file = fopen($filePath, "a");
 fwrite($file, $content);
 fclose($file);
 
-echo json_encode($cronResult);exit;
+//echo json_encode($cronResult);exit;
 
 ?>

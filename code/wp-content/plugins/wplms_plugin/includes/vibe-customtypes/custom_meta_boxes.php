@@ -2,7 +2,6 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 function vibe_meta_box_arrays($metabox){ // References added to Pick labels for Import/Export
-
 	$prefix = 'vibe_';
 	$sidebars=$GLOBALS['wp_registered_sidebars'];
 	$sidebararray=array();

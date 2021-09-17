@@ -398,8 +398,8 @@ get_header(vibe_get_header());
                   <h2 class="course-title"><a href="'.get_permalink($post->ID).'">'. $post->post_title.'</a></h2>
                   <footer class="course-footer">';
                   $tab_content .= $category_button_settings;
-                  $tab_content .= '<div class="left">
-                      <span class="price">';
+                  $tab_content .= '<div class="left" id="course_price_share_'.$courseID.'">
+                      <span class="price" data-id="'.$courseID.'">';
                   $tab_content .= $all_courses_settings;
                   $tab_content .='</span>
                     </div>
@@ -418,13 +418,14 @@ get_header(vibe_get_header());
                     }
                   
                       $tab_content .='
-                      <a href="#share!" data-toggle="modal" data-target="#open_share_'.$courseID.'" >
+                      <a href="#share!" class="course_share" data-toggle="modal" data-target="#open_popular_share" data-id="'.$courseID.'">
                       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                       </a>
                     </div>
                   </footer>
                   <input type="hidden" class="course_id" data-id="'.$courseID.'" value="'.$courseID.'">
                   <input type="hidden" class="badge_class" data-id="'.$badge_class.'" value="'.$courseID.'">
+                  <input type="hidden" id="course_image_'.$courseID.'" value="'.$image_url.'">
                   <input type="hidden" class="course_id" data-id="'.$course_type.'" value="'.$courseID.'">
                   <input type="hidden" id="course_name_'.$courseID.'" value="'.$post->post_title.'">
                   <input type="hidden" id="course_url_'.$courseID.'" value="'.$courseslug.'">
@@ -441,51 +442,6 @@ get_header(vibe_get_header());
                 </div>
               </div>
             </div>';
-            $tab_content .= '<div class="sharing-course modal fade" id="open_share_'.$courseID.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-        <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close"></button>
-        <div class="course-list">
-            <h4 class="title">Share This Course</h4>
-            <div class="list">
-                <figure class="image"><a href="'. get_permalink($post->ID).'"><img src="'. $image_url.'" alt="'.$post->post_title.'"></a></figure>
-                <div class="course-detail">
-                    <div class="header">
-                        <a class="category" href="#!"></a>
-                        <span class="badge '.$badge_class.'">'.$course_type.'</span>
-                    </div>
-                    <h3 class="course-title">'.$post->post_title.'</h3>
-                    <div class="footer">';
-                    $tab_content .= $all_courses_settings;
-                        
-                    $tab_content .='</div>
-                </div>
-            </div>
-        </div>
-        <div class="course-share">
-            <div class="copy">
-                <input type="text" name="" value="'.$courseslug.'" class="copyText" readonly>
-                <button class="button" type="submit" onclick="copyUrl()">Copy</button>
-            </div>
-            <p class="successMsg"></p>
-            <div class="social">
-                <!-- <a href="#!" class="facebook"></a>
-                <a href="#!" class="twitter"></a>
-                <a href="#!" class="pinterest"></a>
-                <a href="#!" class="whatsapp"></a> -->
-                <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="'.get_bloginfo('url').'/course/'.$post->post_name.'" data-a2a-title="'.$post->post_title. ' - '.get_bloginfo().'" data-id="'.$post->ID.'">
-                    <a class="a2a_button_facebook"></a>
-                    <a class="a2a_button_twitter"></a>
-                    <a class="a2a_button_pinterest"></a>
-                    <a class="a2a_button_google_gmail"></a>
-                    <a class="a2a_button_whatsapp"></a>
-                    <a class="a2a_button_telegram"></a>
-              </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    </div>';
 
             $all_courses_settings = '';
             $category_button_settings = '';
@@ -597,7 +553,7 @@ get_header(vibe_get_header());
                       the_course_button();
                     }
                     $button_output_settings .= ob_get_clean();
-                    $tab_content .= '<div class="left">';
+                    $tab_content .= '<div class="left" id="course_price_share_'.$courseID.'">';
                     $tab_content .= $button_output_settings;
 
                     $tab_content .= '<span class="price">';
@@ -614,12 +570,13 @@ get_header(vibe_get_header());
                       </a>';
                       }
                       $tab_content .= $bookmark_output_settings;
-                      $tab_content .= '<a href="#share!" data-toggle="modal" data-target="#open_tab_share_'.$courseID.'" >
+                      $tab_content .= '<a href="#share!" class="course_share" data-toggle="modal" data-target="#open_popular_share" data-id="'.$courseID.'">
                       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
                       </a>
                     </div>
                   </footer>
                   <input type="hidden" id="course_name_'.$courseID.'" value="'.$post->post_title.'">
+                  <input type="hidden" id="course_image_'.$courseID.'" value="'.$image_url.'">
                   <input type="hidden" id="course_url_'.$courseID.'" value="'.$courseslug.'">
                   <input type="hidden" id="course_category_'.$courseID.'" value="'.$category_array[0]->name.'">
                   <input type="hidden" id="course_partner_'.$courseID.'" value="'.$coursePartner.'">
@@ -633,53 +590,7 @@ get_header(vibe_get_header());
                   <input type="hidden" id="wishlisted_course_'.$courseID.'" value="0">
                 </div>
               </div>
-            </div><div class="sharing-course modal fade" id="open_tab_share_'.$courseID.'" tabindex="-1" aria-labelledby="openTabModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-        <button type="button" class="close sharing close-button" data-dismiss="modal" aria-label="Close"></button>
-        <div class="course-list">
-            <h4 class="title">Share This Course</h4>
-            <div class="list">
-                <figure class="image"><a href="'.$courseslug.'"><img src="'. $image_url.'" alt="'.$post->post_title.'"></a></figure>
-                <div class="course-detail">
-                    <div class="header">
-                        <a class="category" href="#!"></a>
-                        <span class="badge '.$badge_class.'">'.$course_type.'</span>
-                    </div>
-                    <h3 class="course-title">'.$post->post_title.'</h3>
-                    <div class="footer">
-                        <span class="price">';
-                        $tab_content .= $output_settings;
-
-                        $tab_content .='</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="course-share">
-            <div class="copy">
-                <input type="text" name="" value="'.$courseslug.'" class="copyText" readonly>
-                <button class="button" type="submit" onclick="copyUrl()">Copy</button>
-            </div>
-            <p class="successMsg"></p>
-            <div class="social">
-                <!-- <a href="#!" class="facebook"></a>
-                <a href="#!" class="twitter"></a>
-                <a href="#!" class="pinterest"></a>
-                <a href="#!" class="whatsapp"></a> -->
-                <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="'.get_bloginfo('url').'/course/'.$post->post_name.'" data-a2a-title="'.$post->post_title. ' - '.get_bloginfo().'" data-id="'.$post->ID.'">
-                    <a class="a2a_button_facebook"></a>
-                    <a class="a2a_button_twitter"></a>
-                    <a class="a2a_button_pinterest"></a>
-                    <a class="a2a_button_google_gmail"></a>
-                    <a class="a2a_button_whatsapp"></a>
-                    <a class="a2a_button_telegram"></a>
-              </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>';
+            </div>';
                 
                 
              $output_settings = '';

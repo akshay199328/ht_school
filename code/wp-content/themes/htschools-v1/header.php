@@ -277,7 +277,23 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
         ?>
         <!-- <li class="responsive">hello</li> -->
         </ul>
-        
+        <div class="mobile_menu">
+          <ul>
+              <li><a href='/?s'>Search</a></li>
+              <?php if (!is_user_logged_in()){ ?>
+                <li><a href="<?php echo get_bloginfo('url').'/login-register'?>">Login</a></li>
+              <?php }else{ 
+                  /*$args = array(
+                      'theme_location'  => 'mobile-sidebar-menu',
+                  );
+
+                wp_nav_menu( $args );*/
+              ?>
+              <li><a href="<?php echo bloginfo('url').'/members-directory/'.$username.'"'?>"><span class="vicon"></span>My Profile </a></li>
+              <li><a class="vibebp-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>"><span class="vicon"></span>Logout </a></li>
+              <?php }?>
+          </ul>
+        </div>
         <ul class="bottom">
             <?php
                $menu_name = 'footer-menu'; //menu slug

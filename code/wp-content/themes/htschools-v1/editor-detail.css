@@ -167,9 +167,9 @@ p.newsdetail_caption {
 
 
 /*-------Video Detail Page : CSS-------*/
-.editor_topdata,
-.editor-details_page,
-.home-section.related-news
+.videos-details .editor_topdata,
+.videos-details .editor-details_page,
+.videos-details .home-section.related-news
 {background: #000!important;margin-top: 0;}
 .videos-details .editor_topdata,
 .videos-details .editor_topdata .editor_detail h1,

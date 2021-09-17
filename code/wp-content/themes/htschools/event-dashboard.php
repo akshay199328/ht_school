@@ -480,6 +480,13 @@ $total_quiz_points = $resultsQuizTotal[0]->total_quiz_points;
 
 //$retakes=apply_filters('wplms_quiz_retake_count',get_post_meta($item,'vibe_quiz_retakes',true),$item,$course,$user_id);
 
+
+if($quizCompleteCount >= 3){ 
+  if($total_quiz_points == 0){
+    include("includes/codeathon-certificate.php");
+  }
+}
+
 ?>
 <style type="text/css">
 .page-template-event-dashboard .pusher .header{display: none!important}

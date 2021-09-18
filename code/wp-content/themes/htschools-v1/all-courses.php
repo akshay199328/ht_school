@@ -7,7 +7,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());
 ?>
 <main id="main">
-  <section class="breadcrumbs background-breadcrumbs">
+  <!-- <section class="breadcrumbs background-breadcrumbs">
       <div class="innerheader-space"></div>
       <div class="container">
         <?php
@@ -17,7 +17,7 @@ get_header(vibe_get_header());
             }
         ?>
       </div>
-    </section>
+    </section> -->
 <div class="owl-carousel owl-theme course_listing_slider" >
   <?php
     $args1 = array(
@@ -163,7 +163,7 @@ get_header(vibe_get_header());
                 ?>
                     <label for="session<?php echo $i;?>">
                         <span><?php echo $sessions['name']?></span>
-                        <input type="checkbox" name="sessions" class="sessions" value="<?php echo $sessions['value']?>" <?php echo $session_selected;?>>
+                        <input type="checkbox" name="sessions" class="sessions" id="session<?php echo $i;?>" value="<?php echo $sessions['value']?>" <?php echo $session_selected;?>>
                     </label>
                 <?php $i++; } ?>
                 </div>
@@ -256,7 +256,7 @@ get_header(vibe_get_header());
                         $age_selected = '';
                     } 
                 ?>
-                    <label for="age<?php echo $i;?>" id="">
+                    <label for="age<?php echo $i;?>">
                         <span><?php echo $age['name']?></span>
                         <input type="checkbox" name="age" id="age" class="age" value="<?php echo $age['value']?>" <?php echo $age_selected;?>>
                     </label>
@@ -282,7 +282,7 @@ get_header(vibe_get_header());
                     ?>
                     <label for="category<?php echo $i;?>" id="">
                         <span><?php echo $category['name']?></span>
-                        <input type="checkbox" name="category" class="category" value="<?php echo $category['term_id'];?>" <?php echo $category_selected;?>>
+                        <input type="checkbox" name="category" class="category" id="category<?php echo $i;?>" value="<?php echo $category['term_id'];?>" <?php echo $category_selected;?>>
                     </label>
                     <?php $i++;}?>
                 </div>
@@ -1166,7 +1166,7 @@ get_header(vibe_get_header());
                             <figure class="image"><img alt="<?php echo $post->post_title ?>" src="<?php echo $image_url;?>"></figure>
                             <div class="course-copy">
                                 <header class="course-header">
-                                    <a class="category" href="#"></a><?php echo $category_array[0]->name;?></a>
+                                    <a class="category" href="#"><?php echo $category_array[0]->name;?></a>
                                     <span class="badge <?php echo $badge_class;?>"><?php echo $course_type;?></span>
                                 </header>
                                 <h2 class="course-title"><a href="#!"><?php echo bp_course_title(); ?></a></h2>

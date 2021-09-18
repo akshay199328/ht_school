@@ -960,6 +960,28 @@ function reg_verify_mob_otp(){
         xprofile_set_field_data('Gender', $user_id, trim($userGender));
         xprofile_set_field_data('Phone', $user_id, trim($userMobile));
 
+        if(isset($_SESSION['utm_source'])){
+
+            $utm_source = $_SESSION['utm_source'];
+            $utm_campaign = $_SESSION['utm_campaign'];
+            $utm_medium = $_SESSION['utm_medium'];
+            $event_id = $_SESSION['event_id'];
+
+            $resultsUTM = $wpdb->get_row("SELECT count(id) as utmCount FROM `ht_event_utm` WHERE `user_id` = '$user_id'");
+            $utmCount = $resultsUTM->utmCount;
+
+            if($utmCount == 0){
+
+                $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`) VALUES ('".$user_id."', '', '".$event_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW())");
+                $wpdb->query($results);
+
+                unset($_SESSION['utm_source']);
+                unset($_SESSION['utm_campaign']);
+                unset($_SESSION['utm_medium']);
+                unset($_SESSION['event_id']);
+            }
+        }
+
         $user = get_user_by( 'ID', $user_id );
         if( $user ) {
             $response['is_registered'] = 1;

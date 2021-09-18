@@ -40,6 +40,29 @@ $course_status33 = $results3->course_status33;
 
 $purchase_status = $course_status11+$course_status22+$course_status33;
 
+// UTM Storage on Database
+$phpsessid = $_COOKIE['PHPSESSID'];
+$utm_source = $_GET['utm_source'];
+$utm_campaign = $_GET['utm_campaign'];
+$utm_medium = $_GET['utm_medium'];
+
+if($utm_source != ''){
+
+    $_SESSION['utm_source'] = $utm_source;
+    $_SESSION['utm_campaign'] = $utm_campaign;
+    $_SESSION['utm_medium'] = $utm_medium;
+    $_SESSION['event_id'] = $post_id;
+
+    $resultsUTM = $wpdb->get_row("SELECT count(id) as utmCount FROM `ht_event_utm` WHERE `phpsessid` = '$phpsessid'");
+    $utmCount = $resultsUTM->utmCount;
+
+    if($utmCount == 0){
+
+        $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`) VALUES ('".$userIdentifier."', '".$phpsessid."', '".$post_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW())");
+        $wpdb->query($results);
+    }
+}
+
 ?>
 
 

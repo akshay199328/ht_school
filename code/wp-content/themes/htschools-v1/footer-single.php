@@ -1348,7 +1348,7 @@ border: 1px solid deepskyblue;
         applyFilter();
     }
   });
-  jQuery('.category').click(function(){
+  jQuery('#category_filter .category').click(function(){
     if(window.innerWidth > 768){
         applyFilter();
     }
@@ -1909,11 +1909,11 @@ border: 1px solid deepskyblue;
         jQuery('#course_price').html(course_price_share);
         jQuery('#cat_header').html('<a class="category" id="course_category" href="#!"></a><span class="badge '+course_badge+'">'+course_type+'</span>');
         jQuery('#course_url').val(course_url);
-        jQuery('#course_share_data').html('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="testimonial_share_data" data-a2a-url="'+course_url+'" data-a2a-title="'+course_name+'" data-id="'+course_id+'"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_pinterest"></a><a class="a2a_button_google_gmail"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_telegram"></a></div>');
+        jQuery('#course_share_data').html('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="course_share_data" data-a2a-url="'+course_url+'" data-a2a-title="'+course_name+'" data-id="'+course_id+'"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_pinterest"></a><a class="a2a_button_google_gmail"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_telegram"></a></div>');
          var s = document.createElement("script");
         s.type = "text/javascript";
         s.src = "https://static.addtoany.com/menu/page.js";
-        jQuery('#testimonial_share_data').append(s);
+        jQuery('#course_share_data').append(s);
     })
 
     function copyFunction(id,msgId) {

@@ -36,7 +36,7 @@ body{letter-spacing: normal;}
 .editor-details_page {
     background: #FAFAFA;
     padding: 0px 2.5% 20px 2.5%;
-    margin-top: 5px;
+    margin-top: 0px;
 }
 .editor_header{
     /*border-bottom: 1px solid #000;
@@ -51,6 +51,7 @@ body{letter-spacing: normal;}
     line-height: 80px;
     margin: 0;
     letter-spacing: normal;
+    width: 100%;
 }
 .editor_socio{
     display: flex;
@@ -62,6 +63,7 @@ body{letter-spacing: normal;}
     margin-bottom: 28px;
     padding-bottom: 10px;
 }
+
 .editor_header .border_text {
     font-size: 30px;
     line-height: 37px;
@@ -159,7 +161,7 @@ p.newsdetail_caption {
 .home-section.related-news{background-color: #FAFAFA;}
 .home-section.related-news .course-card{box-shadow: none;border-radius: 0px;}
 .home-section.related-news .course-card .course-copy {padding: 15px 0px;}
-.home-section.related-news .course-card .video img{border-radius: 8px;}
+.home-section.related-news .course-card .video img{border-radius: 8px 8px 0px 0px;}
 
 
 /*----------Testimonial detail page : CSS-------------*/
@@ -183,7 +185,8 @@ p.newsdetail_caption {
 .videos-details .date-time,
 .videos-details .topic_details ul li a,
 .videos-details .article-title a, 
-.article-title a:hover
+.videos-details .article-title a:hover,
+.videos-details .editor_header .border_text
 {color: #fff!important}
 .videos-details .topic_details ul li, 
 .videos-details .link-article ul li{border-color: #fff;}
@@ -205,6 +208,50 @@ p.newsdetail_caption {
 .videos-details .editor_detail .pull-right svg #Path_39333,
 .videos-details .editor_detail .pull-right svg #Path_39337{fill: rgb(255 255 255);}
 .videos-details {fill: rgb(0 0 0);}
+
+
+
+.editor_socio.sticky-nav{
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    left: 0;
+    padding: 0 2.5%;
+    box-shadow: 0px 13px 18px hsl(0deg 0% 0% / 10%);
+    border: 0;
+    z-index: 11;
+}
+.videos-details .editor_socio.sticky-nav{
+    background: #fff;
+    
+}
+.editor_socio.sticky-nav h1{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 29px;
+    margin: 0;
+    color: #000!important;
+}
+.editor_socio.sticky-nav p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #000!important;
+    letter-spacing: normal;
+
+}
+.videos-details .editor_socio.sticky-nav .pull-right svg path,
+.videos-details .editor_socio.sticky-nav .pull-right svg rect{stroke: rgb(0 0 0);}
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39334,
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39331,
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39332,
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39336,
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39338,
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39679,
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39333,
+.videos-details .editor_socio.sticky-nav .pull-right svg #Path_39337{fill: rgb(0 0 0);}
 @media (max-width: 1600px){
     .editor-details_page h1{font-size: 40px;line-height: 50px;}
     .editor_topdata .editor_detail h1 {font-size: 22px;}
@@ -212,6 +259,8 @@ p.newsdetail_caption {
 }
 @media (max-width: 768px) and (orientation: portrait){
     .editor-details_page h1{margin-bottom: 15px;font-size: 34px;line-height: 35px;}
+    .editor_socio.sticky-nav{margin-top: -1px;}
+    .editor_socio.sticky-nav h1{font-size: 14px;line-height: 20px;}
     .editor_topdata .editor_detail h1 {font-size: 14px;line-height: 20px;margin-bottom: 15px;}
     .editor_topdata .editor_detail p {  display: none;}
     .editor_topdata .editor_detail{justify-content: center;}
@@ -222,4 +271,6 @@ p.newsdetail_caption {
     .editor_detail .content-left p {font-size: 16px;line-height: 20px}
     p.newsdetail_caption {font-size: 14px!important;line-height: 14px !important;}
     .editor_detail .content-left iframe{width: 100%}
+    .editor_socio  .pull-right {width: 100%; text-align: center;}
+    .videos-details .editor_socio{border-bottom: 1px solid #fff;}
 }

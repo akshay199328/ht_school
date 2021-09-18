@@ -313,7 +313,17 @@ if ( !is_page_template('event-dashboard.php')){
                       
                       ?>
                          
-                         <li class="epaper"><a href="<?php echo $menu->url; ?>" target="_blank"><span class="icon"><img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
+                          <li class="epaper">
+                           <?php if (is_user_logged_in()){ ?>
+                               <a href="<?php echo $menu->url; ?>" target="_blank">
+
+                                <?php }else{ ?>
+
+                                    <a href="<?php echo get_bloginfo('url').'/login-register'?>">
+
+                                  <?php }  ?>
+
+                                <span class="icon">ff<img alt='e-paper' title='e-paper' src="<?php bloginfo('template_url'); ?>/assets/images/ePaper-icon.svg"/></span><span class="text"><?php echo $menu->title; ?></span></a></li>
 
                      <?php }
                      echo "</ul>";

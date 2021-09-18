@@ -70,7 +70,7 @@ get_header(vibe_get_header());
                             <a href="<?php echo get_permalink(); ?>">
                                 <img alt="testimonial" title="testimonial" src="<?php echo get_the_post_thumbnail_url(); ?>" class="testimonial-img img-fluid" alt="" >
                             </a>
-                            <a class="play" href="#!"></a>
+                            <a class="play" href="<?php echo get_permalink(); ?>"></a>
                         </div>
                     </figure>
                     <div class="course-copy">

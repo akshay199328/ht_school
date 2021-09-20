@@ -342,7 +342,7 @@ get_header(vibe_get_header());
           $query_args = array(
             'post_type'=>'course',
             'post__in'=>$sort_courses,
-            'posts_per_page'=>2,
+            'posts_per_page'=>16,
             'post_status' => 'publish',
             'orderby' => 'post__in', 
             'paged'=>$paged
@@ -420,12 +420,12 @@ get_header(vibe_get_header());
                   }
                 }
                 $coming_soon = get_post_meta($courseID,'vibe_coming_soon',true);
-                if($courseID == $sort_courses[1] && count($sort_courses) > 2 ){
+                if($courseID == $sort_courses[15] && count($sort_courses) > 16 ){
                     $add_class = 'load-more';
                 }
                   $tab_content .= '<div class="column" data-id='.$post->ID.'>
               <div class="course-card '.$add_class.' ">';
-              if($courseID == $sort_courses[1] && count($sort_courses) > 2){ 
+              if($courseID == $sort_courses[15] && count($sort_courses) > 16){ 
               $tab_content .= '<a class="load-more" href="#!" id="more_posts">Load More</a>';
               }
               $tab_content .= '<figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'. $post->post_title.'" src="'. $image_url.'"></a></figure>
@@ -463,9 +463,9 @@ get_header(vibe_get_header());
                     </div>
                   </footer>
                   <input type="hidden" class="course_id" data-id="'.$courseID.'" value="'.$courseID.'">
-                  <input type="hidden" class="badge_class" data-id="'.$badge_class.'" value="'.$courseID.'">
+                  <input type="hidden" class="badge_class" data-id="'.$courseID.'" value="'.$badge_class.'">
                   <input type="hidden" id="course_image_'.$courseID.'" value="'.$image_url.'">
-                  <input type="hidden" class="course_id" data-id="'.$course_type.'" value="'.$courseID.'">
+                  <input type="hidden" class="course_id" data-id="'.$courseID.'" value="'.$course_type.'">
                   <input type="hidden" id="course_name_'.$courseID.'" value="'.$post->post_title.'">
                   <input type="hidden" id="course_url_'.$courseID.'" value="'.$courseslug.'">
                   <input type="hidden" id="course_category_'.$courseID.'" value="'.$category_array[0]->name.'">
@@ -904,7 +904,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
   </section>
   <script type="text/javascript">
-     var ppp = 2; // Post per page
+     var ppp = 4; // Post per page
     var category = '<?php echo isset($_GET['category']) ? $_GET['category'] : ''?>';
     var sort_by = '<?php echo isset($_GET['sort_by']) ? $_GET['sort_by'] : '' ?>';
     var session = '<?php echo isset($_GET['session']) ? $_GET['session'] : '' ?>';

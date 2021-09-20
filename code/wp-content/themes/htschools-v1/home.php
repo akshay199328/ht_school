@@ -314,11 +314,44 @@ get_header(vibe_get_header());
             'post_status' => 'publish',
             'nopaging' => true
           );  
-          
           $all_course = new WP_Query( $args_all_courses );
-          $tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-course-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li>';
-          $tab_content .= '<div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-course-tab"><div class="course-wrapper">';
+          $i = 0;
           if ($all_course->have_posts()) : while ($all_course->have_posts()) : $all_course->the_post();
+              global $post;
+              
+            if(!in_array($post->ID, $users_courses)){
+                $featured = get_post_meta($post->ID,'featured',true);
+                $filter_courses_id[$i]['course_id'] = $post->ID;
+                if($featured == 1){
+                    $filter_courses_id[$i]['featured']= 1;
+                }
+                else{
+                    $filter_courses_id[$i]['featured']= 0;
+                }
+            }
+            $i++;
+          endwhile;
+          endif;
+          $sort_array = array_column($filter_courses_id, 'featured');
+          array_multisort($sort_array, SORT_DESC, $filter_courses_id);
+          $sort_courses = array();
+          
+          foreach($filter_courses_id as $subKey => $courses){
+              $sort_courses[] = $courses['course_id'];
+          }
+          $query_args = array(
+            'post_type'=>'course',
+            'post__in'=>$sort_courses,
+            'posts_per_page'=>2,
+            'post_status' => 'publish',
+            'orderby' => 'post__in', 
+            'paged'=>$paged
+          );
+          
+          $wp_query_new = new WP_Query($query_args);
+          $tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-course-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li>';
+          $tab_content .= '<div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-course-tab"><div class="course-wrapper" id="course-wrapper">';
+          if ($wp_query_new->have_posts()) : while ($wp_query_new->have_posts()) : $wp_query_new->the_post();
             global $post;
             $custom_fields = get_post_custom(); 
             ob_start();
@@ -387,9 +420,15 @@ get_header(vibe_get_header());
                   }
                 }
                 $coming_soon = get_post_meta($courseID,'vibe_coming_soon',true);
+                if($courseID == $sort_courses[1] && count($sort_courses) > 2 ){
+                    $add_class = 'load-more';
+                }
                   $tab_content .= '<div class="column" data-id='.$post->ID.'>
-              <div class="course-card">
-                <figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'. $post->post_title.'" src="'. $image_url.'"></a></figure>
+              <div class="course-card '.$add_class.' ">';
+              if($courseID == $sort_courses[1] && count($sort_courses) > 2){ 
+              $tab_content .= '<a class="load-more" href="#!" id="more_posts">Load More</a>';
+              }
+              $tab_content .= '<figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'. $post->post_title.'" src="'. $image_url.'"></a></figure>
                 <div class="course-copy">
                   <header class="course-header">
                     <a class="category" href="#">'.$category_array[0]->name.'</a>
@@ -862,6 +901,50 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
       
   </section>
+  <script type="text/javascript">
+     var ppp = 2; // Post per page
+    var category = '<?php echo isset($_GET['category']) ? $_GET['category'] : ''?>';
+    var sort_by = '<?php echo isset($_GET['sort_by']) ? $_GET['sort_by'] : '' ?>';
+    var session = '<?php echo isset($_GET['session']) ? $_GET['session'] : '' ?>';
+    var age = '<?php echo isset($_GET['age']) ? $_GET['age'] : '' ?>';
+    var sort_courses = '<?php echo json_encode($sort_courses); ?>'
+    var pageNumber = 1;
+    
+function load_posts(){
+    pageNumber++;
+   
+    jQuery.ajax({
+        type: "POST",
+        dataType: "html",
+        url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+        data: {"action": "show_more_post_ajax",pageNumber : pageNumber,ppp:ppp,category:category,sort_by:sort_by,session:session,age:age,sort_courses:sort_courses},
+        success: function(data){
+            var jQuerydata = jQuery(data);
+            if(jQuerydata.length){
+                jQuery("#course-wrapper").append(jQuerydata);
+                jQuery('.course-card').removeClass('load-more');
+                jQuery('#more_posts').remove();
+                jQuery("#more_posts").on("click",function(){ // When btn is pressed.
+                    load_posts();
+                });
+            } else{
+                jQuery("#more_posts").attr("disabled",true);
+            }
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+        }
+
+    });
+    return false;
+}
+
+jQuery("#more_posts").on("click",function(){ // When btn is pressed.
+    jQuery("#more_posts").attr("disabled",true); // Disable the button, temp.
+    load_posts();
+});
+</script>
   </main><!-- End #main -->
   <!-- <script type="text/javascript">
     jQuery('#all-course-tab').click(function(){

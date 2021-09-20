@@ -77,15 +77,9 @@ if(in_array($currentSlug, $allowAdsPageList)) require_once('google-ads.php');
                     $url = apply_filters('wplms_logo_url',VIBE_URL.'/assets/images/logo.png','header');
                     if(!empty($url)){
             ?>
-            <?php if ( is_page_template('all-courses.php') || is_page_template('my-course.php') ) { ?>
-                <a href="<?php echo vibe_site_url(); ?>" class="homeicon"><img src="<?php $logo_top = vibe_get_option('headertop_logo'); echo isset($logo_top)?$logo_top:apply_filters('wplms_logo_url',VIBE_URL.'/images/logo.png'); ?>" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
-
-            <?php
-                }
-            else{?>
                 <a href="<?php echo vibe_site_url(); ?>" class="logo"><img src="<?php  echo vibe_sanitizer($url,'url'); ?>" width="100" height="48" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>" /></a>
 
-            <?php }
+            <?php 
                 }
             ?>
             <!-- <a class="logo" href="index.html">

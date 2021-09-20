@@ -18,6 +18,9 @@
         $(".filter-button").click(function () {
             $("body").toggleClass('filterOpened');
         });
+        $("#cancel_filters").click(function () {
+            $("body").toggleClass('filterOpened');
+        });
         $(".home-button").click(function () {
             $("body").toggleClass('menuOpened');
         });

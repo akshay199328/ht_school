@@ -288,7 +288,7 @@ get_header(vibe_get_header());
                 </div>
             </div>
             <div class="filter-footer">
-                <button type="submit">Cancel</button>
+                <button type="submit" id="cancel_filters">Cancel</button>
                 <button type="submit" id="apply_filters">Apply</button>
             </div>
         </div>

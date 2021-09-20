@@ -1083,7 +1083,7 @@ get_header(vibe_get_header());
                     $query_args = array(
                       'post_type'=>'course',
                       'post__in'=>$sort_courses,
-                      'posts_per_page'=>16,
+                      'posts_per_page'=>2,
                       'post_status' => 'publish',
                       'orderby' => 'post__in', 
                       'paged'=>$paged
@@ -1253,7 +1253,7 @@ get_header(vibe_get_header());
     </div>
 </main>
  <script type="text/javascript">
-     var ppp = 16; // Post per page
+     var ppp = 2; // Post per page
     var category = '<?php echo isset($_GET['category']) ? $_GET['category'] : ''?>';
     var sort_by = '<?php echo isset($_GET['sort_by']) ? $_GET['sort_by'] : '' ?>';
     var session = '<?php echo isset($_GET['session']) ? $_GET['session'] : '' ?>';

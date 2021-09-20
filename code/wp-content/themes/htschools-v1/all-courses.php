@@ -1177,7 +1177,7 @@ get_header(vibe_get_header());
                             <figure class="image"><img alt="<?php echo $post->post_title ?>" src="<?php echo $image_url;?>"></figure>
                             <div class="course-copy">
                                 <header class="course-header">
-                                    <a class="category" href="#"></a><?php echo $category_array[0]->name;?></a>
+                                    <a class="category" href="#"><?php echo $category_array[0]->name;?></a>
                                     <span class="badge <?php echo $badge_class;?>"><?php echo $course_type;?></span>
                                 </header>
                                 <h2 class="course-title"><a href="#!"><?php echo bp_course_title(); ?></a></h2>

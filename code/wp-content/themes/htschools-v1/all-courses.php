@@ -1250,7 +1250,7 @@ get_header(vibe_get_header());
                 <!-- <div id="more_posts">Load More</div> -->
             </div>
         </div>
-        <div class="loader" id="show-loader" style="display: none;">
+        <div class="loader" id="show-loader" style="opacity:0;visibility: hidden;">
             <div class="dots"></div>
         </div>
     </div>
@@ -1265,7 +1265,7 @@ get_header(vibe_get_header());
     var pageNumber = 1;
     
 function load_posts(){
-    jQuery('#show-loader').css('display','block');
+    jQuery('#show-loader').css({"opacity": 1, "visibility": "visible"});
     pageNumber++;
    
     jQuery.ajax({
@@ -1279,7 +1279,7 @@ function load_posts(){
                 jQuery("#course-wrapper").append(jQuerydata);
                 jQuery('.course-card').removeClass('load-more');
                 jQuery('#more_posts').remove();
-                jQuery('#show-loader').css('display','none');
+                jQuery('#show-loader').css({"opacity": 1, "visibility": "visible"});
                 jQuery("#more_posts").on("click",function(){ // When btn is pressed.
                     load_posts();
                 });

@@ -1279,7 +1279,7 @@ function load_posts(){
                 jQuery("#course-wrapper").append(jQuerydata);
                 jQuery('.course-card').removeClass('load-more');
                 jQuery('#more_posts').remove();
-                jQuery('#show-loader').css({"opacity": 1, "visibility": "visible"});
+                jQuery('#show-loader').css({"opacity": 0, "visibility": "hidden"});
                 jQuery("#more_posts").on("click",function(){ // When btn is pressed.
                     load_posts();
                 });

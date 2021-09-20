@@ -1276,9 +1276,10 @@ function load_posts(){
         success: function(data){
             var jQuerydata = jQuery(data);
             if(jQuerydata.length){
-                jQuery("#course-wrapper").append(jQuerydata);
                 jQuery('.course-card').removeClass('load-more');
                 jQuery('#more_posts').remove();
+                jQuery('.course-card').removeAttr('id');
+                jQuery("#course-wrapper").append(jQuerydata);
                 jQuery('#show-loader').css({"opacity": 0, "visibility": "hidden"});
                 jQuery("#more_posts").on("click",function(){ // When btn is pressed.
                     load_posts();

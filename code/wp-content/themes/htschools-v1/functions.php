@@ -5161,10 +5161,10 @@ function show_more_post_ajax(){
 wpfp_course_link();
 $bookmark_output_settings .= ob_get_clean();
 if($paged < $page_count && $courseID == $courses_id[1]){
-  $b = " load-more";
+  $b = "course-card-more";
 }
 $tab_content .= '<div class="column">';
-$tab_content .= '<div class="course-card '.$b.' " id="course-card-more">';
+$tab_content .= '<div class="course-card '.$b.' " id="'.$b.'">';
 if($paged < $page_count && $courseID == $courses_id[1]){
     $tab_content .= '<a class="load-more" href="#!" id="more_posts">Load More</a>';
   }

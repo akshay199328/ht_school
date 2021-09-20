@@ -1071,6 +1071,7 @@ get_header(vibe_get_header());
                         $i++;
                     endwhile;
                     endif;
+                    
                     $sort_array = array_column($filter_courses_id, 'featured');
                     array_multisort($sort_array, SORT_DESC, $filter_courses_id);
                     $sort_courses = array();
@@ -1089,7 +1090,8 @@ get_header(vibe_get_header());
                     );
                     
                     $wp_query_new = new WP_Query($query_args);
-                  if(!empty($wp_query_new)){
+                    
+                  if(!empty($wp_query_new) && !empty($sort_courses)){
                     $i=0;
                     if ($wp_query_new->have_posts()){
                     while ($wp_query_new->have_posts()) : $wp_query_new->the_post();
@@ -1238,7 +1240,13 @@ get_header(vibe_get_header());
                     <p>No courses that match the selected filters! Please reset filters and try again.</p>
                     <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
                   </div>
-                <?php }} ?>
+                <?php }}else{?>
+                  <div class="no-data">
+                    <img src="<?php echo bloginfo('template_url')?>/assets/images/nofilter-icon.png">
+                    <p>No courses that match the selected filters! Please reset filters and try again.</p>
+                    <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
+                  </div>
+                <?php } ?>
                 <!-- <div id="more_posts">Load More</div> -->
             </div>
         </div>

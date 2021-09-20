@@ -899,7 +899,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         ?> 
         </div>
       </div>
-      
+      <div class="loader" id="show-loader" style="display: none;">
+        <div class="dots"></div>
+      </div>
   </section>
   <script type="text/javascript">
      var ppp = 2; // Post per page
@@ -911,6 +913,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
     var pageNumber = 1;
     
 function load_posts(){
+    jQuery('#show-loader').css('display','block');
     pageNumber++;
    
     jQuery.ajax({
@@ -924,6 +927,7 @@ function load_posts(){
                 jQuery("#course-wrapper").append(jQuerydata);
                 jQuery('.course-card').removeClass('load-more');
                 jQuery('#more_posts').remove();
+                jQuery('#show-loader').css('display','none');
                 jQuery("#more_posts").on("click",function(){ // When btn is pressed.
                     load_posts();
                 });

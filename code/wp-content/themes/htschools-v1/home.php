@@ -904,7 +904,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       </div>
   </section>
   <script type="text/javascript">
-     var ppp = 4; // Post per page
+     var ppp = 16; // Post per page
     var category = '<?php echo isset($_GET['category']) ? $_GET['category'] : ''?>';
     var sort_by = '<?php echo isset($_GET['sort_by']) ? $_GET['sort_by'] : '' ?>';
     var session = '<?php echo isset($_GET['session']) ? $_GET['session'] : '' ?>';

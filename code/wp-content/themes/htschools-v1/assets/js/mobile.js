@@ -168,10 +168,10 @@ if($(window).width() <= 768) {
     $('.featured_tablist .tablist li').addClass('item');
     $('.featured_tablist .tablist').owlCarousel({
         margin: 0,
-        loop: true,
+        loop: false,
         autoWidth: true,
         mouseDrag:true,
-        items: 2,
+        items: 2.5,
         nav: false,
         dots:false,
         autoplay: false

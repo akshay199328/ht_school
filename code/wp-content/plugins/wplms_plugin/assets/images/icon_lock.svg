@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="23" viewBox="0 0 18 23">
   <g id="Group_15850" data-name="Group 15850" transform="translate(4570.415 -3616.044)">
     <g id="Group_15851" data-name="Group 15851" transform="translate(-4569.915 3616.544)">
-      <ellipse id="Ellipse_1809" data-name="Ellipse 1809" cx="7.5" cy="7.136" rx="7.5" ry="7.136" transform="translate(0 4.728)" fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
-      <g id="Group_15850-2" data-name="Group 15850" transform="translate(6.126 9.346)">
+      <ellipse id="Ellipse_1809" data-name="Ellipse 1809" cx="8.5" cy="8.636" rx="8.5" ry="8.636" transform="translate(0 4.728)" fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+      <g id="Group_15850-2" data-name="Group 15850" transform="translate(7.126 11.348)">
         <circle id="Ellipse_1810" data-name="Ellipse 1810" cx="1.373" cy="1.373" r="1.373" transform="translate(0 0)" fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
         <line id="Line_630" data-name="Line 630" y2="2.208" transform="translate(1.347 2.792)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
       </g>
-      <path id="Path_30346" data-name="Path 30346" d="M-37.045,7.413s-.816-5.494,4.391-5.817c5.381.377,4.455,5.817,4.455,5.817" transform="translate(40.117 -1.596)" fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Path_30346" data-name="Path 30346" d="M-37.035,7.413s-1-5.494,5.372-5.817c6.583.377,5.45,5.817,5.45,5.817" transform="translate(40.117 -1.596)" fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
     </g>
   </g>
 </svg>

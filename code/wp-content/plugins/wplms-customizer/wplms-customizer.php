@@ -739,3 +739,17 @@ function practice_popup($field1){
   return $field1;
    
 }
+
+//added by Komal Borse  Date- 16/9/2021
+add_filter('wplms_course_metabox','course_level');
+function course_level($field1){
+  $prefix = 'vibe_';
+  $field1[]=array( // Text Input
+  'label' => __('Level','vibe-course-level'), // <label>
+  'desc'  => __('Level','vibe-course-level'), // description
+  'id'    => $prefix.'level', // field id and name
+  'type'  => 'text' // type of field
+                       );
+  return $field1;
+   
+}

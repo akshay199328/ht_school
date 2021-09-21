@@ -68,9 +68,19 @@ if ( has_post_thumbnail() ) {
               <p>By <strong><?php echo $postCreatorName;; ?>,</strong>
                   <span class="post_date"><?php echo $postDate; ?></span>
               </p>
-          </div>
+          </div>         
           <div class="pull-right">
-            <a href="#!" class="icon-bookmark">
+
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/testimonial/<?php the_title();?>" data-a2a-title="<?php echo the_title(). ' - '.get_bloginfo(); ?>" data-id="<?php echo $blog->ID;?>">
+
+            <?php
+             if(is_user_logged_in()){
+              ?>
+              <?php wpfp_course_link(); ?>
+            <?php }else{
+              $url = "/login-register";
+            ?>
+            <a href="<?php echo get_site_url().$url; ?>" class="icon-bookmark"><i class="add-wishlist" title="Add to Wishlist"></i>
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20919" data-name="Group 20919" transform="translate(-1511.75 -411.75)">
                     <path id="Path_39339" data-name="Path 39339" d="M867.548,402.337h14v17l-7-6.458-7,6.458Z" transform="translate(655.952 19.163)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -78,24 +88,23 @@ if ( has_post_thumbnail() ) {
                   </g>
               </svg>
             </a>
-            <a href="#!" class="icon-facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+            <?php } ?>
+
+            <!-- <div class="display_icon">   -->            
+              
+                <a class="a2a_button_facebook icon-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20915" data-name="Group 20915" transform="translate(0.25 0.25)">
                     <rect id="Rectangle_4659" data-name="Rectangle 4659" width="35" height="35" rx="17.5" transform="translate(0.5 0.5)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                     <path id="Path_39334" data-name="Path 39334" d="M386.946,154.033h4.362v-9.077h3.044l.325-3.039h-3.368v-1.731c0-.717.173-1,1.008-1h2.361v-3.154h-3.021c-3.246,0-4.71,1.188-4.71,3.461v2.423h-2.27v3.077h2.27Z" transform="translate(-371.676 -127.033)" fill="#222221"/>
                   </g>
-              </svg>
-            </a>
-            <a href="#!" class="icon-twitter">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+              </svg></a>
+                <a class="a2a_button_twitter icon-twitter"><svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20912" data-name="Group 20912" transform="translate(0.75 0.75)">
                     <path id="Path_39330" data-name="Path 39330" d="M277.616,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,277.616,163.505Z" transform="translate(-260.116 -128.505)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                     <path id="Path_39331" data-name="Path 39331" d="M269.007,152.755a10.86,10.86,0,0,0,16.715-9.679,7.757,7.757,0,0,0,1.905-1.984,7.6,7.6,0,0,1-2.194.6,3.835,3.835,0,0,0,1.679-2.121,7.649,7.649,0,0,1-2.425.93,3.823,3.823,0,0,0-6.51,3.5,10.829,10.829,0,0,1-7.873-4,3.844,3.844,0,0,0,1.182,5.117,3.8,3.8,0,0,1-1.731-.48,3.835,3.835,0,0,0,3.064,3.807,3.812,3.812,0,0,1-1.724.064,3.823,3.823,0,0,0,3.568,2.662A7.664,7.664,0,0,1,269.007,152.755Z" transform="translate(-260.817 -129.386)" fill="#222221"/>
                   </g>
-              </svg>
-            </a>
-            <a href="#!" class="icon-google">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+              </svg></a>                
+                <a class="a2a_button_google_gmail icon-google"><svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20914" data-name="Group 20914" transform="translate(0.573 0.75)">
                   <rect id="Rectangle_4658" data-name="Rectangle 4658" width="35" height="35" rx="17.5" transform="translate(0.177 0)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                   <g id="Group_20913" data-name="Group 20913" transform="translate(5.159 9.881)">
@@ -103,10 +112,8 @@ if ( has_post_thumbnail() ) {
                     <path id="Path_39333" data-name="Path 39333" d="M347.651,146.881h-2.924v-2.924h-1.865v2.924h-2.924v1.865h2.924v2.924h1.865v-2.924h2.924Z" transform="translate(-322.976 -139.638)" fill="#222221"/>
                   </g>
                 </g>
-              </svg>
-            </a>
-            <a href="#!" class="icon-insta">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+              </svg></a>
+                <a class="a2a_button_instagram icon-insta"><svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_21451" data-name="Group 21451" transform="translate(0.75 0.75)">
                   <path id="Path_39335" data-name="Path 39335" d="M444.19,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,444.19,163.505Z" transform="translate(-426.69 -128.505)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                   <g id="Group_20916" data-name="Group 20916" transform="translate(7.888 7.888)">
@@ -115,8 +122,10 @@ if ( has_post_thumbnail() ) {
                     <path id="Path_39338" data-name="Path 39338" d="M452.345,141.867a1.153,1.153,0,1,1-1.153-1.153,1.153,1.153,0,0,1,1.153,1.153" transform="translate(-436.449 -137.386)" fill="#222221"/>
                   </g>
                 </g>
-              </svg>
-            </a>
+              </svg></a>
+                              
+            <!-- </div> -->
+           
             <a href="#!" class="icon-attachment">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20917" data-name="Group 20917" transform="translate(0.25 0.25)">
@@ -127,6 +136,8 @@ if ( has_post_thumbnail() ) {
                 </g>
               </svg>
             </a>
+</div><script async src="https://static.addtoany.com/menu/page.js"></script>
+
           </div>
         </div>
         <div class="border_text">
@@ -143,11 +154,7 @@ if ( has_post_thumbnail() ) {
            <?php  echo the_field('video_link'); ?>
         <!-- <?php echo $testimonial_video_link;?> -->
 
-<!-- <?php echo $testimonial_video_link;?> 
-        
-https://www.youtube.com/embed/yBo10BCif2Y
 
--->
             <!-- <img src="<?php echo $featured_image; ?>"> -->
             <!--     <?php if(get_post_meta(get_the_ID(), 'image_caption', true)){?>
             <p class="newsdetail_caption"><?php echo get_post_meta(get_the_ID(), 'image_caption', true); ?>

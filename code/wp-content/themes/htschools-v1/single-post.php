@@ -64,7 +64,16 @@ $topics = wp_get_post_tags(get_the_ID());
               </p>
           </div>
           <div class="pull-right">
-            <a href="#!" class="icon-bookmark">
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/course/<?php echo $post->post_name;?>" data-a2a-title="<?php echo $post->post_title. ' - '.get_bloginfo(); ?>" data-id="<?php echo $post->ID;?>">
+
+            <?php
+             if(is_user_logged_in()){
+              ?>
+              <?php wpfp_course_link(); ?>
+            <?php }else{
+              $url = "/login-register";
+            ?>
+            <a href="<?php echo get_site_url().$url; ?>" class="icon-bookmark"><i class="add-wishlist" title="Add to Wishlist"></i>
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20919" data-name="Group 20919" transform="translate(-1511.75 -411.75)">
                     <path id="Path_39339" data-name="Path 39339" d="M867.548,402.337h14v17l-7-6.458-7,6.458Z" transform="translate(655.952 19.163)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -72,25 +81,26 @@ $topics = wp_get_post_tags(get_the_ID());
                   </g>
               </svg>
             </a>
-            <a href="#!" class="icon-facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+            <?php } ?>                                    
+              
+            <a class="a2a_button_facebook icon-facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20915" data-name="Group 20915" transform="translate(0.25 0.25)">
                     <rect id="Rectangle_4659" data-name="Rectangle 4659" width="35" height="35" rx="17.5" transform="translate(0.5 0.5)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                     <path id="Path_39334" data-name="Path 39334" d="M386.946,154.033h4.362v-9.077h3.044l.325-3.039h-3.368v-1.731c0-.717.173-1,1.008-1h2.361v-3.154h-3.021c-3.246,0-4.71,1.188-4.71,3.461v2.423h-2.27v3.077h2.27Z" transform="translate(-371.676 -127.033)" fill="#222221"/>
                   </g>
               </svg>
             </a>
-            <a href="#!" class="icon-twitter">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+            <a class="a2a_button_twitter icon-twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20912" data-name="Group 20912" transform="translate(0.75 0.75)">
                     <path id="Path_39330" data-name="Path 39330" d="M277.616,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,277.616,163.505Z" transform="translate(-260.116 -128.505)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                     <path id="Path_39331" data-name="Path 39331" d="M269.007,152.755a10.86,10.86,0,0,0,16.715-9.679,7.757,7.757,0,0,0,1.905-1.984,7.6,7.6,0,0,1-2.194.6,3.835,3.835,0,0,0,1.679-2.121,7.649,7.649,0,0,1-2.425.93,3.823,3.823,0,0,0-6.51,3.5,10.829,10.829,0,0,1-7.873-4,3.844,3.844,0,0,0,1.182,5.117,3.8,3.8,0,0,1-1.731-.48,3.835,3.835,0,0,0,3.064,3.807,3.812,3.812,0,0,1-1.724.064,3.823,3.823,0,0,0,3.568,2.662A7.664,7.664,0,0,1,269.007,152.755Z" transform="translate(-260.817 -129.386)" fill="#222221"/>
                   </g>
               </svg>
-
             </a>
-            <a href="#!" class="icon-google">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+            <a class="a2a_button_google_gmail icon-google">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20914" data-name="Group 20914" transform="translate(0.573 0.75)">
                   <rect id="Rectangle_4658" data-name="Rectangle 4658" width="35" height="35" rx="17.5" transform="translate(0.177 0)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                   <g id="Group_20913" data-name="Group 20913" transform="translate(5.159 9.881)">
@@ -99,10 +109,9 @@ $topics = wp_get_post_tags(get_the_ID());
                   </g>
                 </g>
               </svg>
-
             </a>
-            <a href="#!" class="icon-insta">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
+            <a class="a2a_button_instagram icon-insta">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_21451" data-name="Group 21451" transform="translate(0.75 0.75)">
                   <path id="Path_39335" data-name="Path 39335" d="M444.19,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,444.19,163.505Z" transform="translate(-426.69 -128.505)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
                   <g id="Group_20916" data-name="Group 20916" transform="translate(7.888 7.888)">
@@ -112,8 +121,8 @@ $topics = wp_get_post_tags(get_the_ID());
                   </g>
                 </g>
               </svg>
+            </a>                                    
 
-            </a>
             <a href="#!" class="icon-attachment">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20917" data-name="Group 20917" transform="translate(0.25 0.25)">
@@ -125,6 +134,9 @@ $topics = wp_get_post_tags(get_the_ID());
               </svg>
 
             </a>
+
+</div><script async src="https://static.addtoany.com/menu/page.js"></script>
+
           </div>
         </div>
         <div class="border_text">
@@ -246,10 +258,6 @@ $topics = wp_get_post_tags(get_the_ID());
 
 <!-- releted news -->
 
-
-  
-
-
 <?php
 $page_for_posts = get_option('page_for_posts');
 $blog = get_post($page_for_posts);   
@@ -285,138 +293,57 @@ $location = strtoupper(get_post_meta(get_the_ID(), 'news_location', true));
 
 <section class="home-section related-news">
       <div class="home-copy">
-            <header class="section-header">
-                <h2 class="semi_medium-title">Related News</h2>
-            </header>
+        <header class="section-header">
+            <h2 class="semi_medium-title">Related News</h2>
+        </header>
         <div class="owl-carousel owl-theme student_slider">
           <div class="item">
             <div class="course-card">
               <figure class="video">
-                  <img alt="Studnet Testimonials 1" src="https://images.unsplash.com/photo-1603140841883-07975d34dd9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
-                  
+                  <img alt="Studnet Testimonials 1" src="https://images.unsplash.com/photo-1603140841883-07975d34dd9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">    
               </figure>
+              <?php 
+                  $counter = 0; while ($my_query->have_posts()) : $my_query->the_post();
+                  if ($counter <= 2) : 
+                    ?>
               <div class="course-copy">
                 <span class="date-time">
-                  MUMBAI Mar 30, 2021 18:42                          
+                  <?php echo $location;?> <?php $postDate; ?>                          
                 </span>
                 <h2 class="course-title">
-                  <a href="#!">
-                    <p>Maslow’s Hierarchy Of Needs: Here Is What Parents Need To Know</p>
+                  <a href="<?php the_permalink(); ?>">
+                    <p><?php echo get_the_title() ?></p>
                   </a>
                 </h2>
               </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="course-card">
-              <figure class="video">
-                            <img alt="Studnet Testimonials 2" src="https://images.unsplash.com/photo-1510025092510-371a97295106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80">
-                            
-                        </figure>
-              <div class="course-copy">
-                <span class="date-time">
-                  MUMBAI Mar 30, 2021 18:42                          
-                </span>
-                <h2 class="course-title">
-                  <a href="#!">
-                    <p>Why Do Horses Doze Off While On Their Feet?</p>
-                  </a>
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="course-card">
-              <figure class="video">
-                            <img alt="Studnet Testimonials 3" src="https://images.unsplash.com/photo-1584697964328-b1e7f63dca95?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
-                            
-                        </figure>
-              <div class="course-copy">
-                <span class="date-time">
-                  MUMBAI Mar 30, 2021 18:42                          
-                </span>
-                <h2 class="course-title">
-                  <a href="#!">
-                    <p>Here’s Why Autistic People Find It Harder To Identify Angry Facial Expressions</p>
-                  </a>
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="course-card">
-              <figure class="video">
-                            <img alt="Studnet Testimonials 4" src="https://images.unsplash.com/photo-1536337005238-94b997371b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
-                            
-                        </figure>
-              <div class="course-copy">
-                <span class="date-time">
-                  MUMBAI Mar 30, 2021 18:42                          
-                </span>
-                <h2 class="course-title">
-                  <a href="#!">
-                    <p>How A Drone Army Is Rising To Tackle Ocean Plastics</p>
-                  </a>
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="course-card">
-              <figure class="video">
-                            <img alt="Studnet Testimonials 5" src="https://images.unsplash.com/photo-1510025092510-371a97295106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80">
-                            
-                        </figure>
-              <div class="course-copy">
-                <span class="date-time">
-                  MUMBAI Mar 30, 2021 18:42                          
-                </span>
-                <h2 class="course-title">
-                  <a href="#!">
-                    <p>How A Drone Army Is Rising To Tackle Ocean Plastics</p>
-                  </a>
-                </h2>
-              </div>
-          </div>
-          </div>
-          
-          <div class="item">
-            <div class="course-card">
-              <figure class="video">
-                            <img alt="Studnet Testimonials 6" src="https://images.unsplash.com/photo-1602541975161-6ee3b0829adb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80">
-                           
-                        </figure>
-              <div class="course-copy">
-                <span class="date-time">
-                  MUMBAI Mar 30, 2021 18:42                          
-                </span>
-                <h2 class="course-title">
-                  <a href="#!">
-                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
-                  </a>
-                </h2>
-              </div>
+              <?php endif; $counter++; endwhile; ?>
             </div>
           </div>
 
-                <div class="item">
-                    <div class="course-card">
-                        <figure class="video">
-                            <img alt="Studnet Testimonials 7" src="https://images.unsplash.com/photo-1537402006040-bb6fb35ef422?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80">
-                            
-                        </figure>
-                        <div class="course-copy">
+          <div class="item">
+            <div class="course-card">
+              <figure class="video">
+                  <img alt="Studnet Testimonials 2" src="https://images.unsplash.com/photo-1510025092510-371a97295106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80">
+                  
+              </figure>
+              <?php 
+                  $counter1 = 0;
+                  while ($my_query->have_posts()) : $my_query->the_post();
+                    if ($counter1 > 2) : ?>
+              <div class="course-copy">
                 <span class="date-time">
-                  MUMBAI Mar 30, 2021 18:42                          
+                  <?php echo $location;?> <?php $postDate; ?>                          
                 </span>
                 <h2 class="course-title">
-                  <a href="#!">
-                    <p>Simrat of SMGS, Meera Bagh, shines in Fotografia contest</p>
+                  <a href="<?php the_permalink(); ?>">
+                    <p><?php echo get_the_title() ?></p>
                   </a>
                 </h2>
               </div>
-                    </div>
-                </div>
+              <?php endif; $counter1++; endwhile; ?>
+            </div>
+          </div> 
+                          
         </div>
       </div>
     </section>

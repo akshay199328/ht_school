@@ -98,7 +98,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .featured_tablist.sticky-nav {
     position: fixed;
     top: 100px;
-    z-index: 99;
+    z-index: 1;
     width: 100%;
     left: 0;
     right: 0;

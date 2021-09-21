@@ -346,7 +346,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     .home-section.editor_desk .articles .featured .article-title{margin-bottom: 0px;}
     .tablist {margin: 0px 0 0px 0;}
     .featured_tablist li{font-size: 12px;}
-    .featured_tablist li.active {border-bottom: 4px solid #5694FF!important;}
+    .featured_tablist li.active {    line-height: 36px;}
     .top-section.home-section.editor_desk {margin-top: 30px;}
     #All.home-section.editor_desk {padding-top: 0!important;}
     .semi_medium-title {font-size: 20px;}

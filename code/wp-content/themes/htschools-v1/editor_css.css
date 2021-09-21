@@ -421,11 +421,14 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .top_article .course-card .course-copy{
     width: 54%;
     position: relative;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .top_article .course-card .course-footer {
-    position: absolute;
+    /*position: absolute;
     bottom: 30px;
-    right: 18px;
+    right: 18px;*/
 }
 .course-wrapper .course-copy .excerpt.thumb h3 {
     font-size: 20px;
@@ -741,6 +744,8 @@ figure.image .play{display: none;}
     .top_article .course-card .course-footer {position: relative;bottom: 0; right: 0;}
     .featured_tablist li a{padding-left: 0px;}
 }
-
+@media (max-width: 375px) and (orientation: portrait){
+    .testimonial_listing .play{    bottom: 12%;}
+}
 
 

@@ -5102,7 +5102,7 @@ $course_id = $_REQUEST['course_id'];
       if($lesson['type'] == 'section')
       {
         $j=0;
-        $curriculumSessionData.= "<br/>[I]=>[".$i."]";
+        //$curriculumSessionData.= "<br/>[I]=>[".$i."]";
         if($i>0)
         {
            $curriculumSessionData.= "</ul>";
@@ -5114,7 +5114,7 @@ $course_id = $_REQUEST['course_id'];
       } 
       else if($lesson['type'] == 'unit')
       {
-          $curriculumSessionData.= "<br/>[I][J]=>[".$i."][".$j."]";
+         // $curriculumSessionData.= "<br/>[I][J]=>[".$i."][".$j."]";
           if($j==0)
           {
               $curriculumSessionData.= "<ul class='sessions'> ";   

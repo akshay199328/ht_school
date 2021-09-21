@@ -4440,34 +4440,8 @@
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"), t.event_quiz_type !='video' && t.is_event_type ? Rt("span", {
-                id:'hide-share',
-                className: t.meta.retakes == 0 && t.event_quiz_type !='video' && t.quiz_points > 0  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
-            },gn("h6",{
-                onClick: () => {
-                jQuery(".toggle-share").slideToggle();
-            }
-            }, null,"Share"),gn("div", {
-                className: "toggle-share ",
-
-            },gn("ul", {
-                className: "button-test"
-            },gn("p", null,"Share with your Friends"),
-            gn("li",{
-            },gn("a", {
-                className: "share-whatsapp",
-            href: "https://api.whatsapp.com//send?text="+t.share_quiz_content+"",
-            target: "_blank"})), gn("li",{
-                    
-            },gn("a", {
-                className: "share-twitter",
-            href: "https://twitter.com/intent/tweet?text="+t.share_quiz_content+"",
-            target: "_blank"})), gn("li",{
-            },gn("a", {
-                className: "share-facebook",
-            href: "https://www.facebook.com/sharer/sharer.php?text="+t.share_quiz_content+"",
-            target: "_blank"}))))) : '')), Rt("div", {
-                className: "buttons_wrapper pull-right"
+            },"Review Quiz Questions"), Rt("span", {
+                className: ""
             }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
                 className: "quiz_retake",
                 onClick: () => (a("retake"), void fetch(window.wplms_course_data.api_url + "/user/coursestatus/retake_single_quiz/" + e.quizid, {
@@ -4497,7 +4471,33 @@
                 onClick: () => {
                     window.location.href = window.wplms_course_data.home_url + '/event-dashboard'; 
                 }
-            },"Go to Dashboard") : '')) : '', gn("div", {
+            },"Go to Dashboard") : ''), t.event_quiz_type !='video' && t.is_event_type ? Rt("span", {
+                id:'hide-share',
+                className: t.meta.retakes == 0 && t.event_quiz_type !='video' && t.quiz_points > 0  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
+            },gn("h6",{
+                onClick: () => {
+                jQuery(".toggle-share").slideToggle();
+            }
+            }, null,"Share"),gn("div", {
+                className: "toggle-share ",
+
+            },gn("ul", {
+                className: "button-test"
+            },gn("p", null,"Share with your Friends"),
+            gn("li",{
+            },gn("a", {
+                className: "share-whatsapp",
+            href: "https://api.whatsapp.com//send?text="+t.share_quiz_content+"",
+            target: "_blank"})), gn("li",{
+                    
+            },gn("a", {
+                className: "share-twitter",
+            href: "https://twitter.com/intent/tweet?text="+t.share_quiz_content+"",
+            target: "_blank"})), gn("li",{
+            },gn("a", {
+                className: "share-facebook",
+            href: "https://www.facebook.com/sharer/sharer.php?text="+t.share_quiz_content+"",
+            target: "_blank"}))))) : ''))) : '', gn("div", {
                 className: U
             }, gn("div", {
                 id: "ajaxloader",
@@ -7267,7 +7267,7 @@
             style: {
                 width: c.user_progress + "%"
             }
-        })), sr("span", null, c.user_progress, "%"))) : "", sr(P, null)), sr("div", {
+        })), sr("span", null, c.user_progress, "%", ' complete'))) : "", sr(P, null)), sr("div", {
             className: "course_content"
         }, sr("div", {
             className: "course_content_header"

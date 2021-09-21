@@ -267,6 +267,7 @@ a:not([href]):not([tabindex]) {
     align-items: center;
     justify-content: center;
 }
+.plyr__control svg {fill: #fff;}
 .course_status .reviewpopup_wrapper,
 .course_status .course_instructions_wrapper {
     position: fixed;
@@ -1039,10 +1040,9 @@ h3 {
     color: #000;
 }
 .after_start{
-    /*border: 0!important;
-    padding: 0px!important;
-    padding-bottom: 0!important;*/
-    margin-bottom: 25px;
+    margin-bottom: 0;
+    padding: 0!important;
+    box-shadow: 0px 0px 0px rgb(41 71 94 / 13%)!important;
 }
 .course_status .quiz_content h1 {
     font-size: 21px;
@@ -1315,14 +1315,15 @@ ol, ul {
     font-weight: normal;
 }
 .download_button{
-    border: 1px solid #9E9E9E;
+    border: 2px solid #000;
     background: url('../../assets/images/download.svg') no-repeat 89% 50%;
     padding: 15px 20px;
     color: #000;
     font-size: 12px;
     line-height: 16px;
     font-weight: bold;
-    width: 200px
+    width: 200px;
+    border-radius: 8px;
 }
 .download_button:after{
     content: 'Download Attachment';
@@ -2308,15 +2309,18 @@ border-bottom: 1px solid #E8E8E8;
     background: #FE3030!important;
     border-color: #FE3030!important;
     color: #fff!important;
+    font-weight: 700!important;
 }
 .quiz_pagination_wrapper>.button.correct {
     background: #D7F5CB!important;
     border-color: #8AE963!important;
+    font-weight: 700!important;
 }
 .quiz_pagination_wrapper>.button.incorrect {
     background: #FF9898!important;
     border-color: #FC5656!important;
     color: #000!important;
+    font-weight: 700!important;
 }
 .course_status .incourse .quiz_pagination_wrapper>.button.ques_link {
     width: auto;
@@ -2581,7 +2585,7 @@ border-bottom: 1px solid #E8E8E8;
     padding: 16px 20px;
     color: #000000;
     background-color: var(--sidebar);
-    border-radius: 2px;
+    border-radius: 4px;
     float: left;
     width: 100%;
     font-size: 18px;
@@ -3083,7 +3087,8 @@ border-bottom: 1px solid #E8E8E8;
         display: flex;
     flex: 0 0 0px;
     max-width: initial;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    justify-content: flex-end;
     margin-bottom: 1.5rem;
     flex: 1;
     z-index: 9;
@@ -3098,7 +3103,8 @@ border-bottom: 1px solid #E8E8E8;
     border-radius: 5px;
     transition: 0.5s all;
     top: 18px !important;
-    background-color: transparent !important
+    background-color: transparent !important;
+
 }
 
 .course_status .incourse .incoursequiz_details>div {
@@ -3452,14 +3458,15 @@ border-bottom: 1px solid #E8E8E8;
 }
 .course_status .incourse .incourse_quiz_button a {
     text-align: center;
-    width: auto;
+    /*width: auto;*/
+    min-width: 160px;
     /* margin: 0 0 0 5px; */
     background: #fff;
     font-weight: 600;
     color: #000000;
     font-size: 13px;
     line-height: 20px;
-    padding: 12px 35px;
+    padding: 12px 5px;
     cursor: pointer;
     height: auto;
     letter-spacing: 1.92px;
@@ -4119,7 +4126,7 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 a.button.is-primary {
-    -text-align: center;
+    text-align: center;
     width: auto;
     background: #fff;
     font-weight: 600;
@@ -4136,14 +4143,16 @@ a.button.is-primary {
     border-radius: 8px;
 }
 .course_status .incourse .pagination_merge{
-        display: flex;
-    background: #D5EBFF;
+    display: flex;
+    background: #F7F7F7;
     width: 100%;
     padding: 0px 17px;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: space-evenly;
+    border-radius: 8px;
+    align-items: center;
     
 }
 .course_status .incourse .pagination_merge.submitted {
@@ -4156,7 +4165,7 @@ a.button.is-primary {
 }
 .pagination_pagetext{
     text-align: left;
-    line-height: 45px;
+    line-height: 18px;
     font-size: 12px;
     color: #000;
     font-weight: 500;
@@ -4170,11 +4179,12 @@ a.button.is-primary {
 .prev_btn, .prev_btn i,
 .next_btn, .next_btn i {
     line-height: 19px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     font-family: 'Poppins'!important;
     color: #000;
     cursor: pointer;
+    letter-spacing: 0.64px;
 }
 .prev_btn i:before,
 .next_btn i:before{
@@ -4365,6 +4375,7 @@ a.button.is-primary {
     padding: 0px;
     padding-bottom: 30px;
     position: relative;
+    border-radius: 8px;
 }
 .exampleModalPopup .modal-header, .submitpopup_wrapper .modal-header{
     max-width: 100%;
@@ -4492,10 +4503,10 @@ a.button.is-primary {
     padding-top: 14px;
 }
 .exampleModalPopup .header-info h2, .submitpopup_wrapper .submitheading {
-    font-size: 30px;
-    line-height: 34px;
+    font-size: 26px;
+    line-height: 45px;
     color: #000000;
-    font-weight: bold;
+    font-weight: 700;
 }
 .exampleModalPopup .header-info h6 {
     margin: 0px;
@@ -4553,9 +4564,8 @@ a.button.is-primary {
     margin-right: 12px;
 }
 .submitpopup_wrapper .confirmpopup_content{
-    min-width: 30%;
-    max-width: 30%;
-    border-radius: 0px;
+    min-width: 44%;
+    max-width: 44%;
     padding-bottom: 0;
 }
 .submitpopup_wrapper .confirmpopup_content .header-close{
@@ -4601,16 +4611,16 @@ a.button.is-primary {
     display: block;
 }
 .quiz-text .text {
-    font-size: 22px;
+    font-size: 26px;
     line-height: 30px;
-    font-weight: normal;
+    font-weight: 400;
     color: #000;
 }
 .score {
     padding-right: 20px;
-    font-size: 30px;
-    line-height: 36px;
-    font-weight: 600;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 700;
     color: #000;
 }
 .score .question-attempt {
@@ -4637,13 +4647,19 @@ a.button.is-primary {
     line-height: 20px;
     font-weight: 600;
     border-radius: 8px;
-    border: 2px solid #000;
-    background: transparent;
-    color: #000;
+        border: 2px solid #000;
+    background: #fff!important;
+    color: #000!important;
     height: auto;
     letter-spacing: 1.92px;
     font-family: Poppins;
     text-transform: uppercase;
+
+}
+.submitpopup_wrapper .submit_button{
+    border: 2px solid #2070D8!important;
+    background: #2070D8!important;
+    color: #fff!important;
 
 }
 .submit_button.disabled {
@@ -4732,7 +4748,11 @@ a.button.is-primary {
     color: #ffffff!important;
     border: 2px solid #2070d8!important;
 }
-.show_result .buttons_wrapper .next_unit_button{margin-left: 17px;}
+.show_result .buttons_wrapper .next_unit_button{
+    margin-left: 17px;
+    background: #2070D8!important;
+    color: #fff!important;
+}
 .show_result .buttons_wrapper .next_unit_button.disabled{
     opacity: .5;
     pointer-events: none;
@@ -4828,9 +4848,17 @@ a.button.is-primary {
      padding: 12px 5px!important;
     min-width: 135px;
     text-align: center;
+    background: #ffffff!important;
+    color: #000000!important;
+    border: 2px solid #000000!important;
 }
 .show_result .buttons_wrapper{
     padding: 30px 30px 30px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 .show_result .buttons_wrapper.pull-right  {
     padding: 20px 0px;
@@ -4904,6 +4932,19 @@ a.button.is-primary {
 @media screen and (max-width:1366px) and (min-width:1024px){
     .submitpopup_wrapper .confirmpopup_content {
         max-width: 42%;
+    }
+}
+@media screen and (max-width:1366px) and (min-width:1200px){
+    .course_status .course_timeline {flex: 0 0 420px;}
+}
+@media screen and (max-width:1199px) and (min-width:1025px){
+    .course_status .course_timeline {flex: 0 0 400px;}
+    .show_result .buttons_wrapper {padding: 50px 30px 30px 0px;}
+    .quiz_result_icon.failed {
+        background: url('../../assets/images/quiz-submit-failed.svg')'no-repeat top right;
+        height: 140px;
+        background-size: 85% 85%;
+        width: 30%;
     }
 }
 @media screen and (max-width:1024px) and (min-width:900px){
@@ -5039,9 +5080,7 @@ a.button.is-primary {
 
     .course_status .quiz_content,
     .show_quiz_result {
-        border: 0;
-        padding: 0px;
-        padding-bottom: 0px;
+        border: 0!important;
     }
     .course_status .incourse .quiz_questions_content .quiz_content ol li {
         margin-bottom: 5px;
@@ -5058,6 +5097,13 @@ a.button.is-primary {
         margin-left: 20px;
         padding-top: 10px;
     }
+    .show_result .buttons_wrapper .button, 
+    .next_unit_button,
+    .show_result .buttons_wrapper span{
+        width: 100%;
+    }
+    .show_result .buttons_wrapper #retake-quiz{    margin-bottom: 20px;}
+    .buttons_wrapper .button, .next_unit_button{font-size: 10px;line-height: 16px;}
 }
 @media screen and (max-width:767px){
 
@@ -5160,7 +5206,7 @@ a.button.is-primary {
     .right_icon:after {
         height: 107.41px;
         background-size: 107.41px 107.41px;
-        top: -26px;
+        top: -49px;
     }
     .buttons_wrapper .button,
     .next_unit_button {
@@ -5204,8 +5250,10 @@ a.button.is-primary {
         font-size: 12px;
         line-height: 25px;
     }
+    
 }
 @media (max-width: 767px) and (orientation: portrait) {
+
     .course_status .incourse .pagination_merge.submitted .button i {
         font-size: 12px;
         line-height: 33px;

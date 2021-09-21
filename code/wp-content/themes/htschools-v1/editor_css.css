@@ -231,7 +231,12 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 }
 .home-section.infographics .semi_medium-title{ color:#000;}
 .home-section.videos .semi_medium-title{color:#fff!important;}
-.page-template-blog .view-all, .page-template-blog .view-all:hover {border-radius: 10px;background:transparent;border: 2px solid #000;color:#000!important;}
+.page-template-blog .view-all{border-radius: 10px;background:transparent;border: 2px solid #000;color:#000!important;}
+.page-template-blog .view-all:hover {
+    color: #FFF!important;
+    background-color: #2070D8;
+    border-color: #2070D8;
+}
 .home-section.videos .view-all {border: 2px solid #fff;color:#fff!important;}
 .remove-leftpadding{padding: 0px 0px!important;padding-bottom: 0px !important;}
 .home-section.editor_desk.remove-leftpadding .articles{background: #F6F7F7;}
@@ -713,13 +718,16 @@ figure.image .play{display: none;}
     .content-right,
     .top_article {width: 100%;padding-right: 0px;}
     .top_article .course-card .course-copy{width: 100%;}
-    .top_article .course-card .image{width:100%;}
+    .top_article .course-card .image{width:100%;height: 250px;}
     .content-left .course-wrapper .column .course-card{min-height: 100%;display: flex; padding: 10px; }
     .course-card .image{width: 45%;height: 100px;}
-    .course-card .image img{height: auto;border-radius: 4px;}
-    .category.category-videos .play{left: 30%;}
-    .category.category-videos .play:before {width: 40px;height: 40px;}
-    .category.category-videos .top_article .play{left: 40%;}
+    .course-card .image img{height: 100%;border-radius: 4px;}
+    .category.category-videos .play,
+    .testimonial_listing .play{left: 30%;}
+    .category.category-videos .play:before,
+    .testimonial_listing .play:before {width: 40px;height: 40px;}
+    .category.category-videos .top_article .play,
+    .testimonial_listing .top_article .play{left: 40%;}
     .content-left .course-card .course-copy{    width:100%;}
     .content-left .course-wrapper .column {width: 100%!important;padding: 0;margin-bottom: 25px;}
     .top_article .course-card{flex-direction: column;min-height: auto;}
@@ -729,7 +737,7 @@ figure.image .play{display: none;}
     .link-article h3{font-size: 20px;line-height: 26px;/*height: 57px;overflow: hidden;*/}
     .article-title{line-height: 20px;font-size: 16px;}
     .course-wrapper .course-copy .excerpt.thumb p{font-size: 14px;line-height: 18px;/*height: 47px;overflow: hidden;*/}
-    .top_article .course-card .featured {height: 180px;}
+    .top_article .course-card .featured {height: 250px;}
     .top_article .course-card .course-footer {position: relative;bottom: 0; right: 0;}
     .featured_tablist li a{padding-left: 0px;}
 }

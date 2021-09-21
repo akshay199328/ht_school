@@ -4756,39 +4756,38 @@ function save_response_form(){
 
       $wpdb->query($school_response_form_insert);
       $student_data_id = $wpdb->insert_id;
-    }/*else{      
+    }else{      
       $school_response_form_update =$wpdb->query( $wpdb->prepare("UPDATE `ht_school_response_data` SET `student_email`='".$student_email_id."',`student_first_name`='".$student_first_name."',`student_last_name`='".$student_last_name."',`student_contact_no`='".$student_mobile_no."',`parent_name`='".$parent_name."',`parent_email`='".$parent_email_address."',`parent_contact_no`='".$parent_mobile_no."',`gender`='".$gender."',`school_name`='".$student_school_name."',`school_address`='".$school_address."',`standard`='".$standard."',`course_of_interest`='".$course_of_interest."',`interest_of_workshop`='".$interest_of_workshop."',`city`='".$city."' WHERE `user_id`='".$user_id."'"));
 
-    //  $wpdb->query($school_response_form_update);
-     // $student_data_id = $wpdb->id;
-      print_r($school_response_form_update);
-
-      /*elseif($student_data_id != ''){
-    $response = array(
-      'status' => 2,
-      'response' => $succes_message
-    );
-    $response['status'] = 2;
-    $succes_message = "response is updated!";     
-  }}*/
+      $wpdb->query($school_response_form_update);
+                      
+  }
     
   $response=array();
-  if($student_data_id != ''){
+  if($flag == 1){
     $response = array(
       'status' => 1,
       'response' => $succes_message
     );
     $response['status'] = 1;
     $succes_message = "response is submitted successfully!";     
-  }else{
+  }elseif($flag == 2){
+    $response = array(
+      'status' => 2,
+      'response' => $succes_message
+    );
+    $response['status'] = 2;
+    $succes_message = "response is updated successfully!";     
+  }
+  else{
     $response = array(
       'status' => 0,
       'response' => $succes_message
     );
     $response['status'] = 0;
     $succes_message = "response is submitted failed!";     
-  } 
-  //echo json_encode($response); 
+  }
+  
     echo $succes_message;
   exit;
 }

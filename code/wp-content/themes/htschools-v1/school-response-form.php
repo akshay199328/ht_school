@@ -210,26 +210,8 @@ if(have_posts()):while(have_posts()):the_post();
     }
     return isValid;
   });
-  
- /*$("#standard").change(function(){
-      var standard = $(#standard option:selected).val();
-      if(standard == "")
-      {
-      $("#standard").html("Please select Standard");
-      return false;
-      }
-  });
 
-  $("#GenderDropDown").change(function(){
-      var gender = $(#GenderDropDown option:selected).val();
-      if(gender == "")
-      {
-      $("#GenderDropDown").html("Please select Gender");
-      return false;
-      }
-  });*/
-
-/*------------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS--------------*/
+/*------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS-----------*/
 
     jQuery("#emailAddress").on("change", function (event, ui) {
         var check_email_id = $("#emailAddress").val();
@@ -269,7 +251,26 @@ if(have_posts()):while(have_posts()):the_post();
         }
     });
 
-    /*jQuery("#mobileNumber").on("change", function (event, ui) {
+    jQuery("#parentmobileNumber").on("change", function (event, ui) {
+        var check_parent_mobile_number = $("#parentmobileNumber").val();
+
+        if(check_parent_mobile_number != ""){
+          jQuery.ajax({
+              type : "POST",
+              dataType : "json",
+              url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+              data : {"action": "check_parent_mobile_number",check_parent_mobile : check_parent_mobile_number},
+              success: function(response) {           
+                  if(response.status == 1){
+                    jQuery("#errparentMobileMsg").text('This contact number is already exists!');
+                    jQuery("#parentmobileNumber").val('');
+                  }
+              }
+          });
+        }
+    });
+
+    jQuery("#mobileNumber").on("change", function (event, ui) {
         var check_student_mobile_number = $("#mobileNumber").val();
 
         if(check_student_mobile_number != ""){
@@ -277,7 +278,7 @@ if(have_posts()):while(have_posts()):the_post();
               type : "POST",
               dataType : "json",
               url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-              data : {"action": "check_student_mobile_number",check_student_mobile_number : check_student_mobile_number},
+              data : {"action": "check_student_mobile_number",check_student_mobile : check_student_mobile_number},
               success: function(response) {           
                   if(response.status == 1){
                     jQuery("#errstudentEmailMsg").text('This contact number is already exists!');
@@ -288,26 +289,7 @@ if(have_posts()):while(have_posts()):the_post();
         }
     });
 
-    jQuery("#parentmobileNumber").on("change", function (event, ui) {
-        var check_parent_mobile_number = $("#parentmobileNumber").val();
-
-        if(check_parent_mobile_number != ""){
-          jQuery.ajax({
-              type : "POST",
-              dataType : "json",
-              url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-              data : {"action": "check_parent_mobile_number",check_parent_mobile_number : check_parent_mobile_number},
-              success: function(response) {           
-                  if(response.status == 1){
-                    jQuery("#errparentMobileMsg").text('This contact number is already exists!');
-                    jQuery("#parentmobileNumber").val('');
-                  }
-              }
-          });
-        }
-    });*/
-
-/*------------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS--------------*/
+/*-------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS------------*/
 
 jQuery('.wpcf7-submit').click(function(e){
   var contact_form_id = jQuery("input[name='_wpcf7']").val();    
@@ -325,6 +307,7 @@ var arr = new Array();
     arr.push(jQuery("#city").val());
     arr.push(jQuery("#standard").val());  
     
+    if(jQuery("#emailAddress").val() !='' && jQuery("#studentfirstName").val() !='' && jQuery("#studentlastName").val() !='' && jQuery("#mobileNumber").val() !='' && jQuery("#parentName").val() !='' && jQuery("#parentemailAddress").val() !='' && jQuery("#parentmobileNumber").val() !='' && jQuery("input[name='pick-gender']:checked").val() !='' && jQuery("#schoolName").val() !='' && jQuery("#schoolAddress").val() !='' && jQuery("#city").val() !='' && jQuery("#standard").val() !='' && jQuery("input[name='course-of-interest']:checked").val() !='' && jQuery("input[name='interest-of-workshop']:checked").val() !='' ){
       $.ajax({
           type: 'POST',
           url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
@@ -335,6 +318,7 @@ var arr = new Array();
                   
           }
       });
+    }
   });
     
   jQuery('.wpcf7-form-control').click(function(){ 

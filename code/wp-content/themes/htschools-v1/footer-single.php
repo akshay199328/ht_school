@@ -1280,6 +1280,8 @@ border: 1px solid deepskyblue;
 		jQuery("input[name='category']:checkbox").prop('checked',false);
 		jQuery("input[name='sessions']:checkbox").prop('checked',false);
 		jQuery("input[name='age']:checkbox").prop('checked',false);
+        var current_url = site_url+'/courses/'.split('?')[0];
+        window.location.href = current_url;
 	})
 
     jQuery('.close-tag').click(function(){

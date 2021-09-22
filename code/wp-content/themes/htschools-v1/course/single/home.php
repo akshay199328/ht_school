@@ -224,21 +224,19 @@ else if($videoType=="vimeo")
                <!--  <p class="ratings">Ratings</p> -->
 
                 <?php
-                   if(is_user_logged_in()){
-                    
+                   if(is_user_logged_in())
+                   {
                      wpfp_course_link(); 
-                   }else{
-                    $url = "/login-register";
-                    ?>
-                   <!--  <li style="list-style-type: none;"><a href="<?php //echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> -->
-
-                   <a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a>
-
-                   <button class="wishlist added" type="button"><a href="<?php echo get_site_url().$url; ?>">Add to Wishlist </a></button>
-                  <!--  <button class="wishlist added" type="button">Add to Wishlist</button> -->
-                    <?php
-                  }
-                  ?>
+                   }
+                   else
+                   {
+                     $url = "/login-register";
+                ?>                   
+                      <button class="wishlist added" type="button" onclick="location.href = '<?php echo get_site_url().$url; ?>';">Add to Wishlist</button>
+                <?php
+                   }
+                ?>
+                 
                 <!-- <button class="wishlist added" type="button">Add to Wishlist</button> -->
             </div>
             <div class="detail-card-wrapper">
@@ -405,7 +403,7 @@ else if($videoType=="vimeo")
                 <li><a href="#overview" class="overview">Overview</a></li>
                 <li><a href="#objectives" class="objectives">Objectives</a></li>
                 <li><a href="#curriculum" class="curriculum">Curriculum</a></li>
-                <li><a href="#instructor" class="instructor">instructor</a></li>
+                <li><a href="#instructor" class="instructor">Instructor</a></li>
                <!--  <li><a href="#reviews" class="reviews">Reviews</a></li> -->
             </ul>
         </div>

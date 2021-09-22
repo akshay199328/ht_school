@@ -26,13 +26,16 @@ if(class_exists('WPLMS_tips')){
 
 ?>
 
-<div id="curriculam_section">
+
 <?php
 do_action('wplms_course_curriculum_section',$id);
 
 $course_curriculum = ht_course_get_full_course_curriculum($id); 
 
 if(!empty($course_curriculum)){
+?>
+<div id="curriculam_section">
+   <?php  
 	//print_r($course_curriculum);
 		 //echo "<pre>";print_r($course_curriculum); //exit;
 	$countlesson=count($course_curriculum);
@@ -112,7 +115,9 @@ if(!empty($course_curriculum)){
         echo "</ul>";
     }
    }
-
+   ?>
+   </div>  
+<?php
     if($countunit>=$session_limit)
     {
   ?>  
@@ -123,10 +128,7 @@ if(!empty($course_curriculum)){
         <input type="hidden" id="sessionLimit" value="<?php echo $session_limit; ?>">
         <input type="hidden" id="courseID" value="<?php echo $id; ?>">
     </div>
-<?php } ?>
-  </div>  
-<?php
-
+<?php } 
 }
 else{
 	?>
@@ -140,7 +142,7 @@ else{
     window.onbeforeunload = null;
     (function($) {
 $(".load-more").on("click", function (event, ui) {
-    // alert("btnname");
+     
         var courseID = $("#courseID").val();
         var sessionLimit = $("#sessionLimit").val();   
         var sessionCount = $("#sessionCount").val();           
@@ -155,8 +157,8 @@ $(".load-more").on("click", function (event, ui) {
 
         }
         else if(btnName=='Hide')
-         {
-           var totalDisplaySession = parseInt(sessionLimit) - parseInt(loadSessionCount);
+        {
+           var totalDisplaySession = parseInt(sessionCount) - parseInt(loadSessionCount);
         }    
 //alert("totalDisplaySession"+totalDisplaySession); 
 
@@ -171,7 +173,16 @@ $(".load-more").on("click", function (event, ui) {
                 },
               success: function(response) {           
                   if(response.status == 1){
-                    jQuery("#curriculam_section").html(response.response);                   
+                    jQuery("#curriculam_section").html(response.response);  
+                      if(btnName=='Load More')
+                      {       
+                        $(".load-more").text("Hide");
+                      }
+                      else if(btnName=='Hide')
+                      {       
+                        $(".load-more").text("Load More");
+                      }
+
                   }
               }
           });

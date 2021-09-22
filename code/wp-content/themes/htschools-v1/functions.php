@@ -5146,7 +5146,7 @@ $course_id = $_REQUEST['course_id'];
                 <i class='".$lesson['icon']."'></i>  
                 
                 <div class='copy'>
-                    <span class='session'>Session <?php echo $counter + 1; ?> / <?php echo $countunit; ?></span>
+                    <span class='session'>Session ".($counter+1)."/".$countunit."</span>
                     <p>".$lesson['title']."</p>
                 </div>
                 <div class='time'>
@@ -5163,7 +5163,7 @@ $course_id = $_REQUEST['course_id'];
         $curriculumSessionData.= "</ul>";
       }
     }
-   if($countunit>$session_limit)
+   /*if($countunit>$session_limit)
     {
       $btnName = "Load More";
     }
@@ -5178,7 +5178,7 @@ $course_id = $_REQUEST['course_id'];
     <input type='hidden' id='sessionLimit' value='".$session_limit."'>
     <input type='hidden' id='courseID' value='".$id."'>        
     </div>";
-    
+    */
    
   $response = array(
       'status' => 1,

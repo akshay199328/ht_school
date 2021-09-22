@@ -18,54 +18,15 @@
 .page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .wpcf7-radio .wpcf7-list-item label [type=radio]:checked:before{border:1px solid #385DD9;background-color:#385DD9;color:#FFF}
 .page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio{display:flex;flex-wrap:wrap;border:none !important;}
 .page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio .wpcf7-list-item{width:50%}
-.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio{display:inline-flex;flex-wrap:wrap;background-color:gray;max-width:150px}
+.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio{display:inline-flex;flex-wrap:wrap;background-color:#F8F8F8;max-width:150px;padding:2px !important;border:1px solid #BEBEBE;}
 .page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item{margin-top:0;width:50%}
-.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item .wpcf7-list-item-label{position:relative;margin-left:0;line-height:1;}
+.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item .wpcf7-list-item-label{position:relative;margin-left:0;display:block;line-height:41px;font-size:15px}
 .page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item label{padding-left:0;text-align:center;}
-.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item label [type=radio]:before{height:41px;width:72px;border-radius:0;content:""}
-.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item label [type=radio]:checked:before{background-color:#0C5ACC;}
+.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item label [type=radio]:before{content:"";display:none;}
+.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item [type=radio]:checked+span{background-color:#0C5ACC;color:#FFF;}
+.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item [type=radio]:not(:checked)+span{}
+/*.page-template-school-response-form-php .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio .wpcf7-list-item label [type=radio]:checked:before{background-color:#0C5ACC;}*/
 @media (max-width:480px){
 	.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner{background-image:none;}
 	.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p{flex:0 0 100%;}
 }
-
-
-/*.page-template-school-response-form{background-color:#F9F9F9;}
-.page-template-school-response-form .header{background-color:#D5EBFF !important;height:81px !important;}
-.page-template-school-response-form .partner-copy{background-image:url("assets/images/response.jpg");background-repeat: no-repeat;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner{background-image:none;background-image:url("assets/images/response-bg.jpg");}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper{max-width:670px}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form{display:flex;justify-content:space-between;flex-wrap:wrap;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p{flex:0 0 46%;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p #errstudentEmailMsg{margin-top: -23px;display: block;margin-bottom: 10px;color:#e34c44}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .title{font-size:18px;font-weight:600;display:block;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .paragraph{font-size:16px;display:block;margin-bottom:15px}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender{border:1px solid red;display:inline-flex;flex-wrap:wrap;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-radio{border:1px solid red;padding:0 !important;background-color:#F8F8F8;line-height:1;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender input{
-    position: absolute;
-    left: -30px;
-    margin:0;
-}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-list-item{margin-left:0;position:relative;overflow:hidden;vertical-align:middle;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-list-item .wpcf7-list-item-label{line-height:45px;padding:0 15px;display:block;position:relative;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-list-item [type=radio]:before{position:absolute;content:"";left:0;top:0;bottom:0;right:0;border:1px solid blue;left:30px;width: 88px;height: 48px;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender .wpcf7-list-item [type=radio]:checked:before{border:1px solid red;background-color:blue;color:#FFF;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender [type=radio]:not(:checked)+span{border:1px solid red;background-color:transparent;content:"";}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .pick-gender input[type=radio]:checked{border:1px solid blue;background-color:#0C5ACC;color:#FFF;}
-
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .course-of-interest .wpcf7-radio{display:flex;flex-direction:column;flex-wrap:wrap;border-bottom:0 !important;padding-bottom:0 !important}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .course-of-interest .wpcf7-radio .wpcf7-list-item{margin-left:0;margin-bottom:7px}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .course-of-interest .wpcf7-radio .wpcf7-list-item .wpcf7-list-item-label{font-size:18px;font-weight:500;color:#000}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio{display:block;padding:0;border:none !important;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio .wpcf7-list-item{margin-left:0;width:95px;font-weight:500;color:#000}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio .wpcf7-list-item span:before{content:"";height:18px;width:18px;background-color:#F7F7F7;border:1px solid #9999;display:inline-block;border-radius:50px;margin-right:10px;vertical-align:middle;}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio .wpcf7-list-item [type=radio]{position:absolute;opacity:0}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio .wpcf7-list-item [type=radio]:not(:checked)+span{}
-.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p .interest-of-workshop .wpcf7-radio .wpcf7-list-item [type=radio]:checked+span:before{background-color:#385DD9}
-
-@media (max-width:480px){
-	.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner{background-image:none;}
-	.page-template-school-response-form .partner-wrapper .partner-copy .vc_column-inner .wpb_wrapper .wpcf7-form p{flex:0 0 100%;}
-}
-*/

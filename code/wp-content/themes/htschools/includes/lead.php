@@ -111,6 +111,10 @@ if($utm_source != ''){
                     <span class="title">Coding for Cause</span>
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/ibm.png">
                 </div>
+                <div class="column">
+                    <span class="title">Featured Partner</span>
+                    <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/intel.png">
+                </div>
             </div>
         <div class="header-right">
             <span class="ht-school">

@@ -32,7 +32,6 @@ if(have_posts()):while(have_posts()):the_post();
         endwhile;
         endif;
         ?>
-
 </section>
 
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
@@ -212,7 +211,6 @@ if(have_posts()):while(have_posts()):the_post();
   });
   
 /*------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS------------*/
-
     jQuery("#emailAddress").on("change", function (event, ui) {
         var check_email_id = $("#emailAddress").val();
 
@@ -290,7 +288,6 @@ if(have_posts()):while(have_posts()):the_post();
     });
 
 /*-----------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS--------------*/
-
 jQuery('.wpcf7-submit').click(function(e){
   
   var contact_form_id = jQuery("input[name='_wpcf7']").val();    

@@ -4909,7 +4909,6 @@ function save_response_form(){
     $student_data = array();
 
     $student_data = $_REQUEST['response_form'];
-   // print_r($student_data);
     $student_email_id = $student_data[0];
     $student_first_name = $student_data[1];
     $student_last_name = $student_data[2];
@@ -4923,37 +4922,25 @@ function save_response_form(){
     $city = $student_data[10];
     $standard = $student_data[11];
     $course_of_interest = $student_data[12];
-    $interest_of_workshop = $student_data[13]; 
+    $interest_of_workshop = $student_data[13];
+    $course_of_interest = 'AI';
+    $interest_of_workshop = 'Yes';
     $user_id = $current_user_id;
 
     $result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `user_id`=". esc_attr($user_id) ."");
-
+    
     if(count($result_id) == 0){
-      $flag = 1;
-      $school_response_form_insert = $wpdb->prepare("INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`) VALUES ('".$student_email_id."', '".$student_first_name."', '".$student_last_name."',".$student_mobile_no.",'".$parent_name."', '".$parent_email_address."',".$parent_mobile_no.",'".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."',".$user_id.", '".$city."')");
+      $school_response_form_insert = $wpdb->prepare("INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`) VALUES ('".$student_email_id."', '".$student_first_name."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."')");
 
       $wpdb->query($school_response_form_insert);
       $student_data_id = $wpdb->insert_id;
-    }else{   
-      $flag = 2;
-      
-/*  $wpdb->update('table_name', array('student_email' => $student_email_id ,'student_first_name' => $student_first_name ,
-      'student_last_name' => $student_last_name , 
-      'student_contact_no' => $student_mobile_no , 
-      'parent_name' => $parent_name , 
-      'parent_email' => $parent_email_address , 
-      'parent_contact_no' => $parent_mobile_no , 
-      'gender' => $gender , 'school_name' => $student_school_name , 
-      'school_address' => $school_address , 
-      'standard' => $standard , 
-      'course_of_interest' => $course_of_interest , 
-      'interest_of_workshop' => $interest_of_workshop, array('user_id' => $user_id)));*/      
-
-      $school_response_form_update = $wpdb->prepare("UPDATE `ht_school_response_data` SET `student_email`='".$student_email_id."',`student_first_name`='".$student_first_name."',`student_last_name`='".$student_last_name."',`student_contact_no`=".$student_mobile_no.",`parent_name`='".$parent_name."',`parent_email`='".$parent_email_address."',`parent_contact_no`=".$parent_mobile_no.",`gender`='".$gender."',`school_name`='".$student_school_name."',`school_address`='".$school_address."',`standard`='".$standard."',`course_of_interest`='".$course_of_interest."',`interest_of_workshop`='".$interest_of_workshop."',`city`='".$city."' WHERE `user_id`=".$user_id."");
+    }else{      
+      $school_response_form_update =$wpdb->query( $wpdb->prepare("UPDATE `ht_school_response_data` SET `student_email`='".$student_email_id."',`student_first_name`='".$student_first_name."',`student_last_name`='".$student_last_name."',`student_contact_no`='".$student_mobile_no."',`parent_name`='".$parent_name."',`parent_email`='".$parent_email_address."',`parent_contact_no`='".$parent_mobile_no."',`gender`='".$gender."',`school_name`='".$student_school_name."',`school_address`='".$school_address."',`standard`='".$standard."',`course_of_interest`='".$course_of_interest."',`interest_of_workshop`='".$interest_of_workshop."',`city`='".$city."' WHERE `user_id`='".$user_id."'"));
 
       $wpdb->query($school_response_form_update);
-    }
-
+                      
+  }
+    
   $response=array();
   if($flag == 1){
     $response = array(
@@ -4961,23 +4948,24 @@ function save_response_form(){
       'response' => $succes_message
     );
     $response['status'] = 1;
-    $succes_message = "Response is submitted successfully";     
-  }elseif($flag ==2){
+    $succes_message = "response is submitted successfully!";     
+  }elseif($flag == 2){
     $response = array(
       'status' => 2,
       'response' => $succes_message
     );
     $response['status'] = 2;
-    $succes_message = "Response is updated successfully";
-  }else{
+    $succes_message = "response is updated successfully!";     
+  }
+  else{
     $response = array(
       'status' => 0,
       'response' => $succes_message
     );
     $response['status'] = 0;
-    $succes_message = "Response is submitted failed";     
-  } 
-
+    $succes_message = "response is submitted failed!";     
+  }
+  
     echo $succes_message;
   exit;
 }
@@ -5113,6 +5101,4 @@ $check_parent_contact_number = $_REQUEST['check_parent_contact'];
   echo json_encode($response); 
   exit;
 }
-
-
 /*--------------------------------------------------------------------*/

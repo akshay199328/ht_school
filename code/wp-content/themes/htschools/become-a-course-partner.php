@@ -21,10 +21,8 @@ if(have_posts()):while(have_posts()):the_post();
           <ol class="breadcrumbs">
             <li><a href="#"><span>Home</span></a></li><li class="current"><span>Become a Course partner</span></li>
           </ol>
-             <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
           <?php
               the_content();
-
            ?>
         </div>
         <?php
@@ -32,7 +30,6 @@ if(have_posts()):while(have_posts()):the_post();
         endwhile;
         endif;
         ?>
-
 </section>
 <!-- <?php
   $protocol = is_ssl() ? 'https' : 'http';
@@ -46,6 +43,7 @@ if(have_posts()):while(have_posts()):the_post();
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type='text/javascript'>
+
   jQuery("#phoneNumber").keypress(function(e) {
     var mobNum = jQuery(this).val();
       if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -83,7 +81,6 @@ if(have_posts()):while(have_posts()):the_post();
       else{
         jQuery("#errPinCode").text('');
       }
-
   });
 
   jQuery("#pincode").on("blur", function(){
@@ -141,25 +138,10 @@ if(have_posts()):while(have_posts()):the_post();
     }
 })
 
-/*var maxWords = 100;
-jQuery('#yourMessage').keypress(function() {
-var $this, wordcount;
-$this = $(this);
-wordcount = $this.val().split(/\b[\s,\.-:;]).length;
-if (wordcount > maxWords) {
-    jQuery('#errYourMessage').text("You can only have 400 words.");
-    return false;
-} else {
-    jQuery('#errYourMessage').text("");
-}
-});*/
-
-  jQuery('.wpcf7-form-control').click(function(){
-    jQuery("#errPhoneMsg").text("");
+  jQuery('.wpcf7-form-control').click(function(){    
     jQuery("#errFirstNameMsg").html("");
     jQuery("#errLastNameMsg").html("");
-    //jQuery("#errPinCode").text(""); 
-   // jQuery('#errYourMessage').text("");
+    jQuery("#errPhoneMsg").text("");
   })
   let baseUrl = "<?php echo get_home_url(); ?>";
   var contact_form_id = jQuery("input[name='_wpcf7']").val();

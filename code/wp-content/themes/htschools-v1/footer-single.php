@@ -1340,12 +1340,12 @@ border: 1px solid deepskyblue;
   jQuery('#sort_by').change(function(){
 	applyFilter();
   });
-  jQuery('.age').click(function(){
+  jQuery('#age_filter .age').click(function(){
     if(window.innerWidth > 768){
         applyFilter();
     }
   });
-  jQuery('.sessions').click(function(){
+  jQuery('#session_filter .sessions').click(function(){
     if(window.innerWidth > 768){
         applyFilter();
     }

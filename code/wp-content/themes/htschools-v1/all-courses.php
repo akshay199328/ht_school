@@ -341,7 +341,25 @@ get_header(vibe_get_header());
                           $users_courses[]=$course->id;
                         }
                     }
+                  $featured_args_course = array(
+                    'post_type' => 'course',
+                    'post_status' => 'publish',
+                    'meta_query'  => array(
+                    'relation'  => 'AND',
+                    'nopaging' => true,
+                    array(
+                      'key'   =>'featured',
+                      'value'   => 1,
+                      'compare' => '='
+                      )
+                    )
+                  );
+                  $featured_query_course = new WP_Query( $featured_args_course );
                   $course_id = array();
+                  if ($featured_query_course->have_posts()) : while ($featured_query_course->have_posts()) : $featured_query_course->the_post();
+                    $course_id[] = $post->ID;
+                  endwhile;
+                  endif;
                   $args_all_course = array(
                     'post_type' => 'course',
                     'post_status' => 'publish',

@@ -4756,38 +4756,39 @@ function save_response_form(){
 
       $wpdb->query($school_response_form_insert);
       $student_data_id = $wpdb->insert_id;
-    }else{      
+    }/*else{      
       $school_response_form_update =$wpdb->query( $wpdb->prepare("UPDATE `ht_school_response_data` SET `student_email`='".$student_email_id."',`student_first_name`='".$student_first_name."',`student_last_name`='".$student_last_name."',`student_contact_no`='".$student_mobile_no."',`parent_name`='".$parent_name."',`parent_email`='".$parent_email_address."',`parent_contact_no`='".$parent_mobile_no."',`gender`='".$gender."',`school_name`='".$student_school_name."',`school_address`='".$school_address."',`standard`='".$standard."',`course_of_interest`='".$course_of_interest."',`interest_of_workshop`='".$interest_of_workshop."',`city`='".$city."' WHERE `user_id`='".$user_id."'"));
 
-      $wpdb->query($school_response_form_update);
-                      
-  }
+    //  $wpdb->query($school_response_form_update);
+     // $student_data_id = $wpdb->id;
+      print_r($school_response_form_update);
+
+      /*elseif($student_data_id != ''){
+    $response = array(
+      'status' => 2,
+      'response' => $succes_message
+    );
+    $response['status'] = 2;
+    $succes_message = "response is updated!";     
+  }}*/
     
   $response=array();
-  if($flag == 1){
+  if($student_data_id != ''){
     $response = array(
       'status' => 1,
       'response' => $succes_message
     );
     $response['status'] = 1;
     $succes_message = "response is submitted successfully!";     
-  }elseif($flag == 2){
-    $response = array(
-      'status' => 2,
-      'response' => $succes_message
-    );
-    $response['status'] = 2;
-    $succes_message = "response is updated successfully!";     
-  }
-  else{
+  }else{
     $response = array(
       'status' => 0,
       'response' => $succes_message
     );
     $response['status'] = 0;
     $succes_message = "response is submitted failed!";     
-  }
-  
+  } 
+  //echo json_encode($response); 
     echo $succes_message;
   exit;
 }
@@ -4893,30 +4894,46 @@ $check_parent_contact_number = $_REQUEST['check_parent_contact_number'];
 
 /*--------------------------------------------------------------------*/
 
-function more_post_ajax(){
+add_filter('body_class','add_category_to_single');
+  function add_category_to_single($classes) {
+    if (is_single() ) {
+      global $post;
+      foreach((get_the_category($post->ID)) as $category) {
+        // add category slug to the $classes array
+        $classes[] = $category->category_nicename."-details";
+      }
+    }
+    // return the $classes array
+    return $classes;
+  }
 
-    $ppp = (isset($_POST["ppp"])) ? $_POST["ppp"] : 1;
-    $paged = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
+function show_more_post_ajax(){
+  $ppp = (isset($_POST["ppp"])) ? $_POST["ppp"] : 1;
+  $paged = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
+  $sort_courses = json_decode($_POST['sort_courses'], TRUE);
+  global $post;
+  $course_count = count($sort_courses);
+  $page_count = round($course_count/2);
+  $query_args = apply_filters('wplms_mycourses',array(
+    'post_type'=>'course',
+    'post__in'=>$sort_courses,
+    'posts_per_page'=>$ppp,
+    'post_status' => 'publish',
+    'orderby' => 'post__in', 
+    'paged'=>$paged
+  ));
+
+  
+  $wp_query_new = new WP_Query($query_args);
+  $courses_id = array();
+
+  if ($wp_query_new->have_posts()) : while ($wp_query_new->have_posts()) : $wp_query_new->the_post();
+      $courses_id[] = $post->ID;
     
-    $category_filter = explode(",",$_GET['category']);
-    $args = array(
-        'suppress_filters' => true,
-        'post_type' => 'course',
-        'posts_per_page'=>$ppp,
-        'paged'=>$paged,
-        'order'=>'DESC',
-        'orderby' => 'publish_date',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'course-cat',
-                'field'    => 'term_id',
-                'terms'    => 159
-            )
-        ),
-    );
-    $wp_query = new WP_Query( $args );
-
-    if ($wp_query -> have_posts()) :  while ($wp_query -> have_posts()) : $wp_query -> the_post();
+  endwhile;
+  endif;
+  $tab_content = '';
+  if ($wp_query_new -> have_posts()) :  while ($wp_query_new -> have_posts()) : $wp_query_new -> the_post();
       global $post;
       $custom_fields = get_post_custom();
       $duration = $custom_fields['vibe_validity'][0];
@@ -4988,10 +5005,16 @@ function more_post_ajax(){
         ob_start();
 wpfp_course_link();
 $bookmark_output_settings .= ob_get_clean();
-$tab_content = '';
-$tab_content .= '<div class="column">
-<div class="course-card">
-<figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'.$post->post_title.'" src="'. $image_url.'"></a></figure>
+if($paged < $page_count && $courseID == $courses_id[16]){
+  $b = "load-more";
+}
+$tab_content .= '<div class="column">';
+$tab_content .= '<div class="course-card '.$b.' " >';
+if($paged < $page_count && $courseID == $courses_id[16]){
+    $tab_content .= '<a class="load-more" href="#!" id="more_posts">Load More</a>';
+  }
+
+$tab_content .= '<figure class="image"><a href="'. get_permalink($post->ID).'"><img alt="'.$post->post_title.'" src="'. $image_url.'"></a></figure>
 <div class="course-copy">
   <header class="course-header">
     <a class="category" href="#">'.$category_array[0]->name.'</a>
@@ -4999,14 +5022,7 @@ $tab_content .= '<div class="column">
   </header>
   <h2 class="course-title"><a href="'.get_permalink($post->ID).'">'. $post->post_title.'</a></h2>
   <footer class="course-footer">';
-    ob_start();
-    //if (in_array($post->ID, $users_courses)){
-      the_course_button();
-    //}
-    $button_output_settings .= ob_get_clean();
     $tab_content .= '<div class="left">';
-    $tab_content .= '<div class="the_course_button" data-id="907"><span class="the_course_button"><span><button class="course_button full progress_key_2 button_cource_id_907">Continue Course</button></span></span></div>';
-
     $tab_content .= '<span class="price">';
     ob_start();
     the_course_price();
@@ -5020,8 +5036,13 @@ $tab_content .= '<div class="column">
       <svg class="cart" xmlns="http://www.w3.org/2000/svg" width="26" height="21.587" viewBox="0 0 26 21.587"> <g id="Group_20746" data-name="Group 20746" transform="translate(1 1)"> <g id="Group_15651" data-name="Group 15651" transform="translate(0 0)"> <path id="Path_30160" data-name="Path 30160" d="M-11952.5,9580.5h3.393l5.136,15.36h12.108" transform="translate(11952.5 -9580.5)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Path_30161" data-name="Path 30161" d="M-11898.5,9610.5h20.038l-3.893,9.023h-13" transform="translate(11902.465 -9607.673)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <g id="Ellipse_440" data-name="Ellipse 440" transform="translate(7.67 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> <g id="Ellipse_441" data-name="Ellipse 441" transform="translate(16.874 17.428)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"> <circle cx="1.579" cy="1.579" r="1.579" stroke="none"/> <circle cx="1.579" cy="1.579" r="0.579" fill="none"/> </g> </g> </g> </svg>
       </a>';
       }
-      $tab_content .= $bookmark_output_settings;
-      $tab_content .= '<a href="#share!" data-toggle="modal" data-target="#open_tab_share_'.$courseID.'" >
+      if(is_user_logged_in()){
+        $tab_content .= $bookmark_output_settings;
+      }else{
+        $url = "/login-register";
+        $tab_content .= '<a href="'.get_site_url().$url.'"><i class="add-wishlist" title="Add to Wishlist"></i></a>';
+      }
+      $tab_content .= '<a href="#share!" class="course_share" data-toggle="modal" data-target="#open_popular_share" data-id="'.$courseID.'">
       <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"/> </g> </svg>
       </a>
     </div>
@@ -5039,130 +5060,14 @@ $tab_content .= '<div class="column">
   <input type="hidden" id="session_duration_'.$courseID.'" value="'. get_post_meta($courseID, "vibe_course_session_length", true).'">
   <input type="hidden" id="wishlisted_course_'.$courseID.'" value="0">
 </div>
+</div>
 </div>';
+$output_settings = '';
+$bookmark_output_settings = '';
     endwhile;
     endif;
     
     echo $tab_content;
 }
-
-add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax');
-add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
-add_filter('body_class','add_category_to_single');
-  function add_category_to_single($classes) {
-    if (is_single() ) {
-      global $post;
-      foreach((get_the_category($post->ID)) as $category) {
-        // add category slug to the $classes array
-        $classes[] = $category->category_nicename."-details";
-      }
-    }
-    // return the $classes array
-    return $classes;
-  }
-
-
-/* AJAX Function to load more Sessions */  
-add_action("wp_ajax_load_more_curriculum_sessions", "load_more_curriculum_sessions");
-add_action( 'wp_ajax_nopriv_load_more_curriculum_sessions', 'load_more_curriculum_sessions' );
-
-function load_more_curriculum_sessions(){
-$total_display_session = $_REQUEST['total_display_session'];
-$course_id = $_REQUEST['course_id'];
-
-  global $wpdb;
- 
- $curriculumSessionData ="";
-
- //do_action('wplms_course_curriculum_section',$course_id);
- $course_curriculum = ht_course_get_full_course_curriculum($course_id); 
-
-
-  //print_r($course_curriculum);
-     //echo "<pre>";print_r($course_curriculum); //exit;
-  $countlesson=count($course_curriculum);
-  $counter=0;  
-  $session_limit = $total_display_session;
-
-  $course_units = [];
-  foreach($course_curriculum as $lesson){
-    if($lesson['type'] == 'unit'){
-      array_push($course_units, $lesson);
-    }
-  }
-  $countunit=count($course_units);
-
-  $i=0;
-  
-  foreach($course_curriculum as $lesson)
-  {
-    if($counter<$session_limit)
-    { 
-      if($lesson['type'] == 'section')
-      {
-        $j=0;
-        //$curriculumSessionData.= "<br/>[I]=>[".$i."]";
-        if($i>0)
-        {
-           $curriculumSessionData.= "</ul>";
-        }
-    
-        $curriculumSessionData.= "<h3 class='small-title'>".$lesson['title']."</h3>";
-    
-        $i++; 
-      } 
-      else if($lesson['type'] == 'unit')
-      {
-         // $curriculumSessionData.= "<br/>[I][J]=>[".$i."][".$j."]";
-          if($j==0)
-          {
-              $curriculumSessionData.= "<ul class='sessions'> ";   
-          } 
-           $curriculumSessionData.= "<li>
-                <div class='icon'>
-                    <svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'>
-                    <g id='Group_20982' data-name='Group 20982' transform='translate(-647 -2080)'>
-                      <g id='Ellipse_567' data-name='Ellipse 567' transform='translate(647 2080)' fill='none' stroke='#2070d8' stroke-width='2'>
-                        <circle cx='18' cy='18' r='18' stroke='none'></circle>
-                        <circle cx='18' cy='18' r='17' fill='none'></circle>
-                      </g>
-
-                      <path id='Path_39340' data-name='Path 39340' d='M433.236,385.414l-7.225,4.064a1,1,0,0,1-1.5-.833v-8.129a1,1,0,0,1,1.5-.833l7.225,4.064A.948.948,0,0,1,433.236,385.414Z' transform='translate(236.322 1713.862)' fill='#2070d8'></path>
-                    </g>
-                  </svg>
-                </div>
-                <i class='".$lesson['icon']."'></i>  
-                
-                <div class='copy'>
-                    <span class='session'>Session <?php echo $counter + 1; ?> / <?php echo $countunit; ?></span>
-                    <p>".$lesson['title']."</p>
-                </div>
-                <div class='time'>
-                    <span>".vibe_sanitizer($lesson['duration'])."</span>
-                </div>
-            </li>";
-      
-              $counter++;
-               $j++;
-        } 
-      }
-    }
-   if($countunit>=$session_limit)
-    {
-        $curriculumSessionData.="<div class='view-all-wrapper'>
-        <a class='view-all load-more' href='#!'>Load More</a>
-        <input type='hidden' id='row' value='0'>
-        <input type='hidden' id='all' value='".$countunit."'>
-        </div>";
-    }
-
-   
-
-  $response = array(
-      'status' => 1,
-      'response' => $curriculumSessionData
-  );
-  
-  echo json_encode($response); 
-  exit;
-}
+add_action('wp_ajax_nopriv_show_more_post_ajax', 'show_more_post_ajax');
+add_action('wp_ajax_show_more_post_ajax', 'show_more_post_ajax');

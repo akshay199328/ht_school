@@ -1234,54 +1234,6 @@ get_header(vibe_get_header());
         </div>
     </div>
 </main>
- <script type="text/javascript">
-     var ppp = 16; // Post per page
-    var category = '<?php echo isset($_GET['category']) ? $_GET['category'] : ''?>';
-    var sort_by = '<?php echo isset($_GET['sort_by']) ? $_GET['sort_by'] : '' ?>';
-    var session = '<?php echo isset($_GET['session']) ? $_GET['session'] : '' ?>';
-    var age = '<?php echo isset($_GET['age']) ? $_GET['age'] : '' ?>';
-    var sort_courses = '<?php echo json_encode($sort_courses); ?>'
-    var pageNumber = 1;
-    
-function load_posts(){
-    jQuery('#show-loader').css({"opacity": 1, "visibility": "visible"});
-    pageNumber++;
-   
-    jQuery.ajax({
-        type: "POST",
-        dataType: "html",
-        url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
-        data: {"action": "show_more_post_ajax",pageNumber : pageNumber,ppp:ppp,category:category,sort_by:sort_by,session:session,age:age,sort_courses:sort_courses},
-        success: function(data){
-            var jQuerydata = jQuery(data);
-            if(jQuerydata.length){
-                jQuery('.course-card').removeClass('load-more');
-                jQuery('#more_posts').remove();
-                jQuery('.course-card').removeAttr('id');
-                jQuery("#course-wrapper").append(jQuerydata);
-                jQuery('#show-loader').css({"opacity": 0, "visibility": "hidden"});
-                jQuery("#more_posts").on("click",function(){ // When btn is pressed.
-                    load_posts();
-                });
-            } else{
-                jQuery("#more_posts").attr("disabled",true);
-            }
-        },
-        error : function(jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-            console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
-        }
-
-    });
-    return false;
-}
-
-jQuery("#more_posts").on("click",function(){ // When btn is pressed.
-    jQuery("#more_posts").attr("disabled",true); // Disable the button, temp.
-    load_posts();
-});
-
- </script>
 <?php
 get_footer(vibe_get_footer());
 ?>

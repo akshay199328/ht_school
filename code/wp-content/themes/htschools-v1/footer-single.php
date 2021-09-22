@@ -1939,6 +1939,68 @@ border: 1px solid deepskyblue;
         jQuery(".modal").modal('hide');
         jQuery("#open_testimonial_share").modal('hide');
     })
+    var ppp = 16; // Post per page
+    var sort_courses = '<?php echo json_encode($sort_courses); ?>'
+    var pageNumber = 1;
+    
+function load_posts(){
+    jQuery('#show-loader').css({"opacity": 1, "visibility": "visible"});
+    pageNumber++;
+   
+    jQuery.ajax({
+        type: "POST",
+        dataType: "html",
+        url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+        data: {"action": "show_more_post_ajax",pageNumber : pageNumber,ppp:ppp,sort_courses:sort_courses},
+        success: function(data){
+            var jQuerydata = jQuery(data);
+            if(jQuerydata.length){
+                jQuery('.course-card').removeClass('load-more');
+                jQuery('#more_posts').remove();
+                jQuery('.course-card').removeAttr('id');
+                jQuery("#course-wrapper").append(jQuerydata);
+                jQuery('#show-loader').css({"opacity": 0, "visibility": "hidden"});
+                jQuery("#more_posts").on("click",function(){ // When btn is pressed.
+                    load_posts();
+                });
+                jQuery('.course_share').click(function(){
+        var course_id = jQuery(this).data("id");
+        var course_name = jQuery("#course_name_" + course_id).val();
+        var course_image = jQuery("#course_image_" + course_id).val();
+        var course_category = jQuery("#course_category_" + course_id).val();
+        var course_url = jQuery("#course_url_" + course_id).val();
+        var course_type = jQuery("#course_type_" + course_id).val();
+        var course_badge = jQuery("#course_badge_" + course_id).val();
+        var course_price_share = $('#course_price_share_' + course_id).html();
+        
+        jQuery('#course_image').attr('src',course_image);
+        jQuery('#course_name').text(course_name);
+        jQuery('#course_price').html(course_price_share);
+        jQuery('#cat_header').html('<a class="category" id="course_category" href="#!"></a><span class="badge '+course_badge+'">'+course_type+'</span>');
+        jQuery('#course_url').val(course_url);
+        jQuery('#course_share_data').html('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="course_share_data" data-a2a-url="'+course_url+'" data-a2a-title="'+course_name+'" data-id="'+course_id+'"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_pinterest"></a><a class="a2a_button_google_gmail"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_telegram"></a></div>');
+         var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "https://static.addtoany.com/menu/page.js";
+        jQuery('#course_share_data').append(s);
+    })
+            } else{
+                jQuery("#more_posts").attr("disabled",true);
+            }
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+        }
+
+    });
+    return false;
+}
+
+jQuery("#more_posts").on("click",function(){ // When btn is pressed.
+    jQuery("#more_posts").attr("disabled",true); // Disable the button, temp.
+    load_posts();
+});
 </script>
 
 <?php

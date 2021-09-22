@@ -107,6 +107,10 @@ if(!empty($course_curriculum)){
 		 $j++;
 	  }	
 	}
+    else
+    {
+        echo "</ul>";
+    }
    }
 
     if($countunit>=$session_limit)
@@ -132,15 +136,29 @@ else{
 ?>
 
 <script type="text/javascript">
+    //alert( $(".load-more").html());
     window.onbeforeunload = null;
     (function($) {
 $(".load-more").on("click", function (event, ui) {
+    // alert("btnname");
         var courseID = $("#courseID").val();
         var sessionLimit = $("#sessionLimit").val();   
         var sessionCount = $("#sessionCount").val();           
         var loadSessionCount = 3;
-        var totalDisplaySession = parseInt(sessionLimit) + parseInt(loadSessionCount);
-//alert("totalDisplaySession"+totalDisplaySession);
+
+        var btnName = $(".load-more").html();
+        //alert("btnname"+$(".load-more").html());
+
+        if(btnName=='Load More')
+        {
+           var totalDisplaySession = parseInt(sessionLimit) + parseInt(loadSessionCount);
+
+        }
+        else if(btnName=='Hide')
+         {
+           var totalDisplaySession = parseInt(sessionLimit) - parseInt(loadSessionCount);
+        }    
+//alert("totalDisplaySession"+totalDisplaySession); 
 
         if(totalDisplaySession != ""){
           jQuery.ajax({
@@ -148,6 +166,9 @@ $(".load-more").on("click", function (event, ui) {
               dataType : "json",
               url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
               data : {"action": "load_more_curriculum_sessions",total_display_session : totalDisplaySession,course_id : courseID},
+              beforeSend:function(){
+                    $(".load-more").text("Loading...");
+                },
               success: function(response) {           
                   if(response.status == 1){
                     jQuery("#curriculam_section").html(response.response);                   

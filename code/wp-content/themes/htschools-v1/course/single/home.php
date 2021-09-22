@@ -24,6 +24,61 @@ do_action('wplms_course_curriculum_section',$id);
 
 $course_curriculum = ht_course_get_full_course_curriculum($id); 
 //print_r($course_curriculum);
+
+/*======================================*/
+
+function extractVideoID($url){
+   
+   if(preg_match('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $url, $video))
+   {
+     $videoType = "youtube";
+     $videoId = $video[7];
+   }
+   else if (preg_match('#(?:https?://)?(?:www.)?(?:player.)?vimeo.com/(?:[a-z]*/)*([0-9]{6,11})[?]?.*#', $url, $m)) 
+    {
+        $videoType = "vimeo";
+        $videoId = $m[1];       
+    }
+    return $videoType."-".$videoId;
+}
+ 
+function getYouTubeThumbnailImage($video_id) {
+    return "https://i3.ytimg.com/vi/$video_id/hqdefault.jpg"; //pass 0,1,2,3 for different sizes like 0.jpg, 1.jpg
+}
+ 
+function getVimeoThumb($id)
+{
+    $arr_vimeo = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$id.php"));
+    //return $arr_vimeo[0]['thumbnail_small']; // returns small thumbnail
+    //return $arr_vimeo[0]['thumbnail_medium']; // returns medium thumbnail
+    return $arr_vimeo[0]['thumbnail_large']; // returns large thumbnail
+}
+
+//$video_url = "https://youtu.be/pbekOEr0Wo0";
+//$video_url = "https://vimeo.com/76979871";
+
+$video_url = get_post_meta($post->ID,'vibe_trailer_link',true);
+$video_info = extractVideoID($video_url);
+$vInfo = explode("-",$video_info);
+$videoType = $vInfo[0];
+$video_id = $vInfo[1];
+
+if($videoType=="youtube")
+{
+    $thumbnail =  getYouTubeThumbnailImage($video_id);
+}
+else if($videoType=="vimeo")
+{
+    $thumbnail =  getVimeoThumb($video_id);
+}
+
+
+//echo "video_url = ".$video_url."<br/>videoType = ".$videoType."<br>thumbnail =".$thumbnail; 
+//exit;
+//return $videoType."-".$thumbnail;
+/*======================================*/
+
+
 ?>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <div class="course-detail">
@@ -68,7 +123,8 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
           ?>
 
         <a href="#!" class="bg-wrapper">
-            <img src="https://i.pinimg.com/originals/1a/2a/1b/1a2a1b471c5990dc8a4b91d57c8f940c.jpg" class="bg">
+            <!-- <img src="https://i.pinimg.com/originals/1a/2a/1b/1a2a1b471c5990dc8a4b91d57c8f940c.jpg" class="bg"> -->
+            <img src="<?php echo $thumbnail;?>" class="bg">
         </a>
         <div class="detail">
             <div class="copy">
@@ -165,29 +221,42 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                       $trailer_link = get_post_meta($post->ID,'vibe_trailer_link',true);
                     ?>
                 
-                <p class="ratings">Ratings</p>
+               <!--  <p class="ratings">Ratings</p> -->
 
                 <?php
                    if(is_user_logged_in()){
-                    ?>
-                    <li style="list-style-type: none;"><?php wpfp_course_link(); ?></li>
-                  <?php }else{
+                    
+                     wpfp_course_link(); 
+                   }else{
                     $url = "/login-register";
                     ?>
                    <!--  <li style="list-style-type: none;"><a href="<?php //echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a></li> -->
 
+                   <a href="<?php echo get_site_url().$url; ?>"><i class="add-wishlist" title="Add to Wishlist"></i></a>
+
                    <button class="wishlist added" type="button"><a href="<?php echo get_site_url().$url; ?>">Add to Wishlist </a></button>
+                  <!--  <button class="wishlist added" type="button">Add to Wishlist</button> -->
                     <?php
                   }
                   ?>
-                <button class="wishlist added" type="button">Add to Wishlist</button>
+                <!-- <button class="wishlist added" type="button">Add to Wishlist</button> -->
             </div>
             <div class="detail-card-wrapper">
                 <div class="detail-card">
-                    <a class="video-image" href="#Videos">
-                        <img src="https://i.pinimg.com/originals/1a/2a/1b/1a2a1b471c5990dc8a4b91d57c8f940c.jpg" class="thumbnail">
+                  <div id ="thumbnailImage">
+                    <a class="video-image" >
+                        <!-- <img src="https://i.pinimg.com/originals/1a/2a/1b/1a2a1b471c5990dc8a4b91d57c8f940c.jpg" class="thumbnail">
+                        <span class="play"></span> -->
+                        <img src="<?php echo $thumbnail; ?>" class="thumbnail">
                         <span class="play"></span>
                     </a>
+                  </div>
+                  <!-- <input type="hidden" name="video_type" id="video_type" value="<?php echo $videoType ;?>">
+                  <input type="hidden" name="video_thumbnail" id="video_thumbnail" value="<?php echo $thumbnail;?>">
+                  <input type="hidden" name="video_url" id="video_url" value="<?php echo $video_url;?>"> -->
+
+                    <div class="video-ad" id="videoFrame" style="display: none;"><iframe allowfullscreen="allowfullscreen" width="100%" height="240" src="<?php echo get_post_meta($post->ID,'vibe_trailer_link',true) ;?>"></iframe></div>
+
                     <div class="content">
                         <div class="bar">                          
                             <div class="left"><span class="pricing" data-id="<?php echo $post->ID;?>"><?php the_course_price(); ?></span><!-- <span class="gst">+ GST</span> --></div>
@@ -337,7 +406,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 <li><a href="#objectives" class="objectives">Objectives</a></li>
                 <li><a href="#curriculum" class="curriculum">Curriculum</a></li>
                 <li><a href="#instructor" class="instructor">instructor</a></li>
-                <li><a href="#reviews" class="reviews">Reviews</a></li>
+               <!--  <li><a href="#reviews" class="reviews">Reviews</a></li> -->
             </ul>
         </div>
         <section class="section-wrapper overview" id="overview">
@@ -365,11 +434,11 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                    
                     <ul>
                       <?php echo get_the_term_list_search(get_the_ID(),'course-tag'); ?>
-                        <li><a href="#!Breath">Breath</a></li>
+                        <!-- <li><a href="#!Breath">Breath</a></li>
                         <li><a href="#!MicrophoneControl">Microphone Control</a></li>
                         <li><a href="#!Riyaz">Riyaz</a></li>
                         <li><a href="#!VocalTechniques">Vocal Techniques</a></li>
-                        <li><a href="#!VoiceProtection">Voice Protection</a></li>
+                        <li><a href="#!VoiceProtection">Voice Protection</a></li> -->
                     </ul>
                 </div>
             <?php endif;?>
@@ -388,159 +457,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
             <h2 class="medium-title">Curriculum</h2>
             <!-- <h3 class="small-title">Section 1 : Introduction</h3> -->
             
-                <?php locate_template( array( 'course/single/curriculum_new.php'  ), true );?>
-             
-           <!--  <ul class="sessions">
-                <li>
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-                        <g id="Group_20982" data-name="Group 20982" transform="translate(-647 -2080)">
-                          <g id="Ellipse_567" data-name="Ellipse 567" transform="translate(647 2080)" fill="none" stroke="#2070d8" stroke-width="2">
-                            <circle cx="18" cy="18" r="18" stroke="none"></circle>
-                            <circle cx="18" cy="18" r="17" fill="none"></circle>
-                          </g>
-                          <path id="Path_39340" data-name="Path 39340" d="M433.236,385.414l-7.225,4.064a1,1,0,0,1-1.5-.833v-8.129a1,1,0,0,1,1.5-.833l7.225,4.064A.948.948,0,0,1,433.236,385.414Z" transform="translate(236.322 1713.862)" fill="#2070d8"></path>
-                        </g>
-                      </svg>
-                    </div>
-                    <div class="copy">
-                        <span class="session">Session 1 / 33</span>
-                        <p>Choreography Journey</p>
-                    </div>
-                    <div class="time">
-                        <span>
-                        <svg id="Group_20983" data-name="Group 20983" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                        <path id="Path_39390" data-name="Path 39390" d="M10.036,0A10,10,0,1,1,0,10.036,10.041,10.041,0,0,1,10.036,0Zm0,1.236a8.764,8.764,0,1,0,8.727,8.8A8.784,8.784,0,0,0,10.036,1.236Z" fill="gray"></path>
-                        <path id="Path_39391" data-name="Path 39391" d="M129,52.655a.619.619,0,1,1,1.236,0v5.236l3.2,1.964a.605.605,0,0,1-.655,1.018l-3.418-2.109a.547.547,0,0,1-.364-.509Z" transform="translate(-119.618 -48.218)" fill="gray"></path>
-                      </svg>10 minutes</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-                        <path id="Path_39392" data-name="Path 39392" d="M20.1,28.5v2.049a.9.9,0,0,0,.9.9h2.174a.9.9,0,0,0,.9-.9V28.5a.9.9,0,0,0-.9-.9H21a.9.9,0,0,0-.9.9m6.8-7.9a4.819,4.819,0,0,0,.975-3.176c0-3.676-2.526-4.874-5.425-4.874-3.049,0-5.324,1.649-5.324,4.874v.65a.922.922,0,0,0,.925.925h2.1a.938.938,0,0,0,.924-.925v-.65A1.4,1.4,0,0,1,22.45,15.85c1.251,0,1.476.824,1.476,1.75a2.084,2.084,0,0,1-.5,1.6l-2.45,2.526a2.89,2.89,0,0,0-.826,2.348V25.1a.885.885,0,0,0,.874.874H23.15a.868.868,0,0,0,.875-.874v-.525a1.86,1.86,0,0,1,.425-1.4Zm11.8,1.9a16.11,16.11,0,0,1-2.732,8.993l-.244.368,1.93,5.793-5.8-1.93-.368.246A16.2,16.2,0,1,1,38.7,22.5m1.8,0a18.011,18.011,0,1,0-8.38,15.208L40.5,40.5l-2.79-8.378A17.907,17.907,0,0,0,40.5,22.5" transform="translate(-4.5 -4.5)" fill="#2070d8"></path>
-                       </svg>
-                    </div>
-                    <div class="copy">
-                        <span class="session">Session 2 / 33</span>
-                        <p>Basic and Advanced Female Steps Used in Bollywood Songs Like Chikni Chameli</p>
-                    </div>
-                    <div class="time">
-                        <span>
-                        <svg id="Group_20983" data-name="Group 20983" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                        <path id="Path_39390" data-name="Path 39390" d="M10.036,0A10,10,0,1,1,0,10.036,10.041,10.041,0,0,1,10.036,0Zm0,1.236a8.764,8.764,0,1,0,8.727,8.8A8.784,8.784,0,0,0,10.036,1.236Z" fill="gray"></path>
-                        <path id="Path_39391" data-name="Path 39391" d="M129,52.655a.619.619,0,1,1,1.236,0v5.236l3.2,1.964a.605.605,0,0,1-.655,1.018l-3.418-2.109a.547.547,0,0,1-.364-.509Z" transform="translate(-119.618 -48.218)" fill="gray"></path>
-                      </svg>10 minutes</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-                      <g id="Group_20982" data-name="Group 20982" transform="translate(-647 -2080)">
-                        <g id="Ellipse_567" data-name="Ellipse 567" transform="translate(647 2080)" fill="none" stroke="#2070d8" stroke-width="2">
-                          <circle cx="18" cy="18" r="18" stroke="none"></circle>
-                          <circle cx="18" cy="18" r="17" fill="none"></circle>
-                        </g>
-                        <path id="Path_39340" data-name="Path 39340" d="M433.236,385.414l-7.225,4.064a1,1,0,0,1-1.5-.833v-8.129a1,1,0,0,1,1.5-.833l7.225,4.064A.948.948,0,0,1,433.236,385.414Z" transform="translate(236.322 1713.862)" fill="#2070d8"></path>
-                      </g>
-                    </svg>
-                  </div>
-                    <div class="copy">
-                        <span class="session">Session 3 / 33</span>
-                        <p>Choreography Journey</p>
-                    </div>
-                    <div class="time">
-                        <span>
-                        <svg id="Group_20983" data-name="Group 20983" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                        <path id="Path_39390" data-name="Path 39390" d="M10.036,0A10,10,0,1,1,0,10.036,10.041,10.041,0,0,1,10.036,0Zm0,1.236a8.764,8.764,0,1,0,8.727,8.8A8.784,8.784,0,0,0,10.036,1.236Z" fill="gray"></path>
-                        <path id="Path_39391" data-name="Path 39391" d="M129,52.655a.619.619,0,1,1,1.236,0v5.236l3.2,1.964a.605.605,0,0,1-.655,1.018l-3.418-2.109a.547.547,0,0,1-.364-.509Z" transform="translate(-119.618 -48.218)" fill="gray"></path>
-                      </svg>10 minutes</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30.4" height="38.099" viewBox="0 0 30.4 38.099">
-                        <g id="Group_20990" data-name="Group 20990" transform="translate(-89.211 -48.622)">
-                          <g id="Group_20994" data-name="Group 20994" transform="translate(94.465 53.807)">
-                            <g id="Group_20991" data-name="Group 20991" transform="translate(0 0)">
-                              <g id="Group_20990-2" data-name="Group 20990">
-                                <path id="Path_39393" data-name="Path 39393" d="M144.8,110.239v21.727c0,1.4-.2,2.912,1.1,3.867,1.012.737,2.619.5,3.8.5h13.369c1.361,0,2.714.009,4.075,0a2.706,2.706,0,0,0,2.695-1.938,4.435,4.435,0,0,0,.095-1.172V109.3c0-1.04.009-2.071,0-3.111a2.678,2.678,0,0,0-2.061-2.666,7.322,7.322,0,0,0-1.437-.066h-14.56a2.3,2.3,0,0,0-.255,0,1.31,1.31,0,0,0-.917.529l-4.444,4.415c-.4.388-.785.785-1.182,1.172a.943.943,0,0,0,1.333,1.333l5.124-5.1c.246-.246.5-.492.747-.747-.227.095-.444.189-.671.274h14.551c.709,0,1.863-.208,1.881.823.028,2.524,0,5.058,0,7.592v17.652c0,.747.047,1.513,0,2.26-.057.983-1.191.766-1.881.766H147.83a1.208,1.208,0,0,1-.936-.217,1.113,1.113,0,0,1-.217-.879V110.229A.941.941,0,0,0,144.8,110.239Z" transform="translate(-144.784 -103.456)" fill="#2070d8"></path>
-                              </g>
-                            </g>
-                            <g id="Group_20993" data-name="Group 20993" transform="translate(0.102 0.092)">
-                              <g id="Group_20992" data-name="Group 20992">
-                                <path id="Path_39394" data-name="Path 39394" d="M146.774,112.119H152.9a.961.961,0,0,0,.945-.945V105.34a.946.946,0,0,0-1.891,0v5.834l.945-.945h-6.127a.946.946,0,0,0,0,1.891Z" transform="translate(-145.862 -104.425)" fill="#2070d8"></path>
-                              </g>
-                            </g>
-                          </g>
-                          <g id="Group_20996" data-name="Group 20996" transform="translate(89.211 48.622)">
-                            <g id="Group_20995" data-name="Group 20995" transform="translate(0 0)">
-                              <path id="Path_39395" data-name="Path 39395" d="M115.6,54.728V51.57a2.961,2.961,0,0,0-.652-2.023,2.669,2.669,0,0,0-2.023-.908c-1.484-.038-2.969,0-4.453,0H93.947a8.157,8.157,0,0,0-1.664.095,3.935,3.935,0,0,0-3.063,3.829c-.019,1.257,0,2.505,0,3.763V76.88a2.839,2.839,0,0,0,1.2,2.543,3.26,3.26,0,0,0,1.9.425h3.092a.946.946,0,0,0,0-1.891H92.4c-.4,0-.823.066-1.106-.265a.835.835,0,0,1-.17-.577c-.009-1.3,0-2.6,0-3.9V53.064a3.185,3.185,0,0,1,.17-1.333,2.11,2.11,0,0,1,2.08-1.191h18.853c.369,0,.936-.085,1.239.17s.265.662.265,1.031v3.007a.937.937,0,0,0,1.872-.019Z" transform="translate(-89.211 -48.622)" fill="#2070d8"></path>
-                            </g>
-                          </g>
-                          <g id="Group_20998" data-name="Group 20998" transform="translate(98.743 69.931)">
-                            <g id="Group_20997" data-name="Group 20997" transform="translate(0 0)">
-                              <path id="Path_39396" data-name="Path 39396" d="M206.143,274h-15.2a.946.946,0,0,0,0,1.891h15.2a.946.946,0,0,0,0-1.891Z" transform="translate(-190.025 -274)" fill="#2070d8"></path>
-                            </g>
-                          </g>
-                          <g id="Group_21000" data-name="Group 21000" transform="translate(98.743 74.346)">
-                            <g id="Group_20999" data-name="Group 20999" transform="translate(0 0)">
-                              <path id="Path_39397" data-name="Path 39397" d="M206.143,320.7h-15.2a.946.946,0,0,0,0,1.891h15.2a.946.946,0,0,0,0-1.891Z" transform="translate(-190.025 -320.7)" fill="#2070d8"></path>
-                            </g>
-                          </g>
-                          <g id="Group_21002" data-name="Group 21002" transform="translate(98.743 78.903)">
-                            <g id="Group_21001" data-name="Group 21001" transform="translate(0)">
-                              <path id="Path_39398" data-name="Path 39398" d="M206.143,368.9h-15.2a.946.946,0,0,0,0,1.891h15.2a.946.946,0,0,0,0-1.891Z" transform="translate(-190.025 -368.9)" fill="#2070d8"></path>
-                            </g>
-                          </g>
-                          <g id="Group_21004" data-name="Group 21004" transform="translate(104.154 61.699)">
-                            <g id="Group_21003" data-name="Group 21003" transform="translate(0 0)">
-                              <path id="Path_39399" data-name="Path 39399" d="M251.589,190.036a1.229,1.229,0,1,1-1.3-1.22,1.246,1.246,0,0,1,1.3,1.22c.038,1.21,1.929,1.22,1.891,0a3.172,3.172,0,0,0-2.052-2.922,3.117,3.117,0,0,0-3.754,4.5,3.117,3.117,0,0,0,5.805-1.569A.946.946,0,0,0,251.589,190.036Z" transform="translate(-247.254 -186.928)" fill="#2070d8"></path>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </div>
-                    <div class="copy">
-                        <span class="session">Session 1 / 33</span>
-                        <p>Choreography Journey</p>
-                    </div>
-                    <div class="time">
-                        <span>
-                        <svg id="Group_20983" data-name="Group 20983" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                        <path id="Path_39390" data-name="Path 39390" d="M10.036,0A10,10,0,1,1,0,10.036,10.041,10.041,0,0,1,10.036,0Zm0,1.236a8.764,8.764,0,1,0,8.727,8.8A8.784,8.784,0,0,0,10.036,1.236Z" fill="gray"></path>
-                        <path id="Path_39391" data-name="Path 39391" d="M129,52.655a.619.619,0,1,1,1.236,0v5.236l3.2,1.964a.605.605,0,0,1-.655,1.018l-3.418-2.109a.547.547,0,0,1-.364-.509Z" transform="translate(-119.618 -48.218)" fill="gray"></path>
-                      </svg>10 minutes</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-                        <g id="Group_20982" data-name="Group 20982" transform="translate(-647 -2080)">
-                          <g id="Ellipse_567" data-name="Ellipse 567" transform="translate(647 2080)" fill="none" stroke="#2070d8" stroke-width="2">
-                            <circle cx="18" cy="18" r="18" stroke="none"></circle>
-                            <circle cx="18" cy="18" r="17" fill="none"></circle>
-                          </g>
-                          <path id="Path_39340" data-name="Path 39340" d="M433.236,385.414l-7.225,4.064a1,1,0,0,1-1.5-.833v-8.129a1,1,0,0,1,1.5-.833l7.225,4.064A.948.948,0,0,1,433.236,385.414Z" transform="translate(236.322 1713.862)" fill="#2070d8"></path>
-                        </g>
-                      </svg>
-                    </div>
-                    <div class="copy">
-                        <span class="session">Session 1 / 33</span>
-                        <p>Choreography Journey</p>
-                    </div>
-                    <div class="time">
-                        <span>
-                        <svg id="Group_20983" data-name="Group 20983" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                        <path id="Path_39390" data-name="Path 39390" d="M10.036,0A10,10,0,1,1,0,10.036,10.041,10.041,0,0,1,10.036,0Zm0,1.236a8.764,8.764,0,1,0,8.727,8.8A8.784,8.784,0,0,0,10.036,1.236Z" fill="gray"></path>
-                        <path id="Path_39391" data-name="Path 39391" d="M129,52.655a.619.619,0,1,1,1.236,0v5.236l3.2,1.964a.605.605,0,0,1-.655,1.018l-3.418-2.109a.547.547,0,0,1-.364-.509Z" transform="translate(-119.618 -48.218)" fill="gray"></path>
-                      </svg>10 minutes</span>
-                    </div>
-                </li>
-            </ul> -->
-           <!--  <div class="view-all-wrapper">
-                <a class="view-all" href="#!">Load More</a>
-            </div> -->
+                <?php locate_template( array( 'course/single/curriculum_new.php'  ), true );?>           
         </section>
 
         <?php
@@ -582,9 +499,12 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                 <p class="about"><?php echo $author_biographical_info; ?></p>
             </div>
         </section>
-        <section class="section-wrapper reviews" id="reviews">
+       <!--  <section class="section-wrapper reviews" id="reviews">
             <h2 class="medium-title">Reviews</h2>
-        </section>
+
+            <?php //echo "rating-->".get_post_meta($post->ID,'vibe_thumb_rating',true) ;?>
+            <?php //echo myreview_button();?>
+        </section> -->
 
 
     <!-- Related Course  Section :- -->
@@ -654,7 +574,9 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                         $category_array = get_the_terms( $post->ID, 'course-cat');
                         $durationParameter = get_post_meta($post->ID,'vibe_course_validity_parameter',true);
                         $courseID = $post->ID;
-                        $courseslug=get_site_url().'/?p='.$courseID;
+                        //$courseslug=get_site_url().'/?p='.$courseID;
+                        $courseslug=get_the_permalink($courseID);
+
                         $coursePartner = "";
                         $cb_course_id = get_post_meta($courseID,'celeb_school_course_id',true);
                         if ($cb_course_id) {
@@ -743,7 +665,7 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
                                     <!-- <a href="#bookmark!">
                                         <svg class="bookmark filled" xmlns="http://www.w3.org/2000/svg" width="17" height="21.146" viewBox="0 0 17 21.146"><path id="Path_38323" data-name="Path 38323" d="M31.409,38.413,35.5,34.368l4.091,4.045a2.083,2.083,0,0,0,2.79.074A1.773,1.773,0,0,0,43,37.147v-14.3A2.964,2.964,0,0,0,39.932,20H31.068A2.964,2.964,0,0,0,28,22.849V37.159A1.906,1.906,0,0,0,29.965,39a2.049,2.049,0,0,0,1.444-.575Z" transform="translate(-27 -19)"></path></svg>
                                     </a> -->
-                                    <a href="#share!">
+                                   <a href="#share!" class="course_share" data-toggle="modal" data-target="#open_popular_share" data-id="<?php echo $courseID;?>">
                                         <svg class="share" xmlns="http://www.w3.org/2000/svg" width="25.445" height="19.4" viewBox="0 0 25.445 19.4"> <g id="Group_20744" data-name="Group 20744" transform="translate(0.205 0.2)" style="isolation: isolate"> <path id="Path_38322" data-name="Path 38322" d="M21.417,21a.53.53,0,0,1,.275.133l9.091,8.188a.724.724,0,0,1,.1.919.626.626,0,0,1-.1.114l-9.091,8.188a.52.52,0,0,1-.8-.12.723.723,0,0,1-.118-.392V34.746a18.89,18.89,0,0,0-4.705.389,17.55,17.55,0,0,0-9.127,4.7.518.518,0,0,1-.8-.062.733.733,0,0,1-.113-.634C8.4,30.71,15.625,26.694,20.778,25.094V21.655a.618.618,0,0,1,.564-.66A.446.446,0,0,1,21.417,21Zm.5,1.985v2.6a.645.645,0,0,1-.426.634C17,27.53,10.737,30.858,7.913,37.407a19.292,19.292,0,0,1,7.964-3.562,21.972,21.972,0,0,1,5.5-.4.621.621,0,0,1,.542.655v2.589l7.6-6.848Z" transform="translate(-6.003 -20.995)" stroke-width="0.4"></path> </g> </svg>
                                     </a>
                                 </div>
@@ -779,3 +701,38 @@ $course_curriculum = ht_course_get_full_course_curriculum($id);
 endwhile; endif; 
 ?>
 <?php get_footer( vibe_get_footer() );  ?>
+
+<script type="text/javascript">
+    window.onbeforeunload = null;
+    (function($) {
+$(".video-image").on("click", function (event, ui) {
+       
+        
+//alert("video_url"+video_url);
+        $("#thumbnailImage").hide();
+        $("#videoFrame").show();
+
+        /* var video_type = $("#video_type").val();   
+        var video_thumbnail = $("#video_thumbnail").val();   
+        var video_url = $("#video_url").val(); 
+
+
+       if(video_url != ""){
+          jQuery.ajax({
+              type : "POST",
+              dataType : "json",
+              url : "<?php //echo home_url(); ?>/wp-admin/admin-ajax.php",
+              data : {"action": "display_video_iframe",video_url : video_url,course_id : courseID},
+              success: function(response) {   
+              alert("response=>"+response.response);        
+                  if(response.status == 1){
+                    jQuery("#thumbnailVideo").html(response.response);                   
+                  }
+              }
+          });
+        }*/
+      });
+
+    })( jQuery );
+</script>
+

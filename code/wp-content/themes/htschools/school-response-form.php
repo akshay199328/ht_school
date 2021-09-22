@@ -209,6 +209,18 @@ if(have_posts()):while(have_posts()):the_post();
     }
     return isValid;
   });
+
+  jQuery('.first').click( function() {
+    //alert('test');
+    jQuery(".last").removeClass("selected");
+    jQuery(".first").addClass("selected");
+   });
+
+  jQuery('.last').click( function() {
+    
+    jQuery(".first").removeClass("selected");
+    jQuery(".last").addClass("selected");
+  });
   
 /*------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS------------*/
     jQuery("#emailAddress").on("change", function (event, ui) {

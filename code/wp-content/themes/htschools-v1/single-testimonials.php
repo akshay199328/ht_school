@@ -88,9 +88,7 @@ if ( has_post_thumbnail() ) {
                   </g>
               </svg>
             </a>
-            <?php } ?>
-
-            <!-- <div class="display_icon">   -->            
+            <?php } ?>                    
               
                 <a class="a2a_button_facebook icon-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20915" data-name="Group 20915" transform="translate(0.25 0.25)">
@@ -123,10 +121,8 @@ if ( has_post_thumbnail() ) {
                   </g>
                 </g>
               </svg></a>
-                              
-            <!-- </div> -->
-           
-            <a href="#!" class="icon-attachment">
+                                  
+            <!-- <a href="#!" class="icon-attachment">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20917" data-name="Group 20917" transform="translate(0.25 0.25)">
                   <path id="Path_39335" data-name="Path 39335" d="M444.19,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,444.19,163.505Z" transform="translate(-426.19 -128.005)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
@@ -135,7 +131,7 @@ if ( has_post_thumbnail() ) {
                   </g>
                 </g>
               </svg>
-            </a>
+            </a> -->
 </div><script async src="https://static.addtoany.com/menu/page.js"></script>
 
           </div>

@@ -118,7 +118,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 </g>
               </svg>
             </a>
-            <a href="#!" class="icon-attachment">
+            <!-- <a href="#!" class="icon-attachment">
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                 <g id="Group_20917" data-name="Group 20917" transform="translate(0.25 0.25)">
                   <path id="Path_39335" data-name="Path 39335" d="M444.19,163.505h0a17.5,17.5,0,0,1-17.5-17.5h0a17.5,17.5,0,0,1,17.5-17.5h0a17.5,17.5,0,0,1,17.5,17.5h0A17.5,17.5,0,0,1,444.19,163.505Z" transform="translate(-426.19 -128.005)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>
@@ -128,7 +128,7 @@ $topics = wp_get_post_tags(get_the_ID());
                 </g>
               </svg>
 
-            </a>
+            </a> -->
           </div>
         </div>
         <div class="border_text">

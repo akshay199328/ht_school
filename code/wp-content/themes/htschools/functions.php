@@ -4883,6 +4883,7 @@ function codeathon_logout(){
     wp_logout();
     session_destroy();
     setcookie('LtpaToken2', '', time() - 3600);
+    $_SESSION['previousPageUrl'] = '';
 
     $response['status'] = 1;
 

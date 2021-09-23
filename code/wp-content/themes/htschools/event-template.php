@@ -552,7 +552,7 @@ if($bannerCount == 1){
           'post_type' => 'event_our_partners_l',
           'post_status' => 'publish',
           'orderby' => 'publish_date',
-          'order' => 'DESC',        
+          'order' => 'ASC',        
           'nopaging' => true
         );
         $Query1 = new WP_Query( $args1 );

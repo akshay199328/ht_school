@@ -279,6 +279,7 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     if (is_page_template('all-courses.php')){
       wp_enqueue_style( 'wplms-course-css-v1', get_template_directory_uri(). '/course_css.css?v=1.1' );
     } 
+    wp_enqueue_style( 'wplms-school-datatable-css-v1', get_template_directory_uri(). '/assets/css/school-datatable-custom?v=1.1' );
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
     // wp_enqueue_script( 'wplms-froogaloop2', '//f.vimeocdn.com/js/froogaloop2.min.js', '', '', true );
     wp_enqueue_script( 'wplms-player', '//player.vimeo.com/api/player.js', '', '', true );

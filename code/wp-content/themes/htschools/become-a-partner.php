@@ -27,7 +27,7 @@ if(have_posts()):while(have_posts()):the_post();
 
 </section>
 
-<?php $args = array(
+<?php /*$args = array(
         'post_type' => 'attachment',
         'post_mime_type' =>'image',
         'post_status' => 'inherit',        
@@ -35,7 +35,16 @@ if(have_posts()):while(have_posts()):the_post();
     );
 
 $query_images = new WP_Query( $args );
-    $images = array();    
+    $images = array(); */
+
+    $args1 = array(
+      'post_type' => 'school_logos',
+      'post_status' => 'publish',
+      'orderby' => 'publish_date',
+      'order' => 'DESC',      
+      'nopaging' => true
+    );
+    $Query1 = new WP_Query( $args1 );   
 ?>
 <section class="section popular-wrapper school-wrapper">
           <div class="section-copy">
@@ -44,45 +53,34 @@ $query_images = new WP_Query( $args );
                       <div class="header-copy">
                           <h3 class="medium-title">Our Partner Schools</h3>
                       </div>
-                      <!--<form class="right">
-                            <div class="search">
-                                <input class="form-control" placeholder="Search">
-                                <button type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25.707" height="25.707" viewBox="0 0 25.707 25.707">
-                                      <g id="Group_18782" data-name="Group 18782" transform="translate(-308 -1243)">
-                                        <g id="Group_15752" data-name="Group 15752" transform="translate(308 1243)">
-                                          <g id="Ellipse_31" data-name="Ellipse 31" fill="none" stroke="#000" stroke-width="2">
-                                            <circle cx="11.667" cy="11.667" r="11.667" stroke="none"/>
-                                            <circle cx="11.667" cy="11.667" r="10.667" fill="none"/>
-                                          </g>
-                                          <path id="Path_9" data-name="Path 9" d="M26,26l5.333,5.333" transform="translate(-6.333 -6.333)" fill="#fff" stroke="#000" stroke-width="2"/>
-                                        </g>
-                                      </g>
-                                    </svg>
-                                </button>
-                            </div>
-                            <select class="sort">
-                                <option selected="selected">Sort by:</option>
-                                <option>Low to Hight</option>
-                                <option>High to Low</option>
-                        </select>
-                      </form>-->
+                      
                   </div>
 
+                  <?php if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+      $custom_fields = get_post_custom();
+     // echo "<pre>"; print_r($custom_fields); echo "</pre>";
+      $school_image = wp_get_attachment_url($custom_fields['school_logo'][0]); ?>
+
                   <div class="courses-wrapper">
-                  <?php 
-                      foreach ( $query_images->posts as $image) {
-                              $post_image_url= $image->guid;
+                  <?php echo $school_image;
+                      /*foreach ( $query_images->posts as $image) {
+                              $post_image_url= $image->guid;*/
                       ?>
                       <div class="column">
-                          <a href="#!" class="course-hero"><img src="<?php echo $post_image_url; ?>"></a>
+                          <a href="#!" class="course-hero"><img src=""></a>
                           <div class="course-copy">
-                          <h3 class="course-title"><a href="#!"><?php echo $image->post_title; ?></a></h3>
+                          <h3 class="course-title"><a href="#!"><?php echo $custom_fields->title; ?></a></h3>
                             <a class="black-button" href="#!"></a>
                           </div>
                       </div>
-                  <?php }?>                
+                                 
                   </div>
+
+                  <?php
+      
+              endwhile;
+              endif;
+              ?>
               </div>
 
             <div class="partner-form">

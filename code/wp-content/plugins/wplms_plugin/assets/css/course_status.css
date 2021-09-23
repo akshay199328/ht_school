@@ -2216,6 +2216,8 @@ border-bottom: 1px solid #E8E8E8;
 .quiztimer_wrapper .react-progress-circle .ReactProgressCircle_circle {
     stroke: #385DD9;
     stroke-width: 5.5px;
+    cx: 21px;
+    cy: 21px;
 }
 .course_status li.active .ReactProgressCircle_circleBackground,
 .course_status li.active .ReactProgressCircle_circle
@@ -3626,14 +3628,13 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .course_content_content .unit_assignments {
-    background: transparent;
-    border: 1px solid #AeAeAe;
+    background: #fff;
+    border-radius: 4px;
     padding: 20px;
     margin: 45px 0px 20px;
-    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    position: relative;
+    box-shadow: 5px 0px 22px hsl(206deg 39% 26% / 18%);
 }
 
 .course_content_content .unit_assignments h3,

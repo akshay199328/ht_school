@@ -1003,7 +1003,7 @@ a:not([href]):not([tabindex]) {
 
 .course_status .quiz_content{
     border: 0;
-    padding: 20px!important;
+    padding: 20px;
     width: 100%;
     /*padding-bottom: 100px;*/
     border-radius: 4px;
@@ -1291,13 +1291,13 @@ ol, ul {
     height: 50px;display: none;
 }
 .course_status .course_content .course_content_content_wrapper .unit_attachments {
-    background: transparent;
-    border: 1px solid #AeAeAe;
+    background: white;
+    border-radius: 4px;
     padding: 20px;
     margin: 45px 0px 20px;
-    border-radius: 5px;
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 0px 22px hsl(206deg 39% 26% / 18%);
 }
 
 .course_status .course_content .course_content_content_wrapper .unit_attachments .attachment {
@@ -1309,21 +1309,22 @@ ol, ul {
     margin: 0px;
 }
 .download_options span{
-    font-size: 22px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 30px;
     color: #000;
     font-weight: normal;
 }
 .download_button{
     border: 2px solid #000;
-    background: url('../../assets/images/download.svg') no-repeat 89% 50%;
-    padding: 15px 20px;
+    background: url('../../assets/images/download.svg') no-repeat 93% 50%;
+    padding: 15px 25px;
     color: #000;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: bold;
-    width: 200px;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    width: 276px;
     border-radius: 8px;
+    letter-spacing: 1.92px;
 }
 .download_button:after{
     content: 'Download Attachment';
@@ -1906,11 +1907,7 @@ border-bottom: 1px solid #E8E8E8;
 .course_status .course_timeline>ul li.active  {
     background: #fff;
 }
-.course_status .course_timeline>ul li.active .lesson_title{
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 20px;
-}
+
 .course_status .course_timeline>ul li p {
     flex: 1;
     align-items: center;
@@ -2792,8 +2789,9 @@ border-bottom: 1px solid #E8E8E8;
     position: absolute;
     left: 50px;
     margin-top: -1px;
-    font-weight: bold;
-    font-size: 17px;
+    font-weight: 900;
+    font-size: 19px;
+    color: #5C5C5C;
 }
 
 .course_status .incourse .question_option {
@@ -2842,16 +2840,16 @@ border-bottom: 1px solid #E8E8E8;
     color: #4B4B4B;
     font-weight: normal;
     padding-left: 50px;
-    font-size: 17px;
-    line-height: 19px;
+    font-size: 18px;
+    line-height: 22px;
 }
 .course_status .incourse .question_option label {
     width: 100%;
 }
 
 .course_status .incourse .question_option label {
-    font-size: 17px;
-    line-height: 19px;
+    font-size: 18px;
+    line-height: 22px;
 }
 .radio>input[type=radio]+label {
     padding-left: 0;
@@ -2866,12 +2864,14 @@ border-bottom: 1px solid #E8E8E8;
 .checkbox, .radio {
     position: relative;
 }
-.question_option input[type=checkbox]+label:before, .question_option.radio>input[type=radio]+label:before {
+.question_option.checkbox input[type=checkbox]+label:before, 
+.question_option.radio>input[type=radio]+label:before {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 18px;
     flex: 0 0 18px;
 }
-.radio>input[type=radio]+label:before {
+.radio>input[type=radio]+label:before,
+.checkbox>input[type=checkbox]+label:before  {
     display: inline-block;
     content: "";
     border: 1px solid rgba(0, 0, 0, .4);
@@ -2883,23 +2883,23 @@ border-bottom: 1px solid #E8E8E8;
     transition: all .2s ease-in-out;
     margin-right: 8px;
 }
-.question_option.radio input[type=radio]:checked+label{
+.question_option.radio input:checked+label{
     font-weight: 500;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 22px;
     color: #000;
 }
-.question_option.radio + input[type=radio]:checked {
+.question_option + input:checked {
   background: yellow;
 }
 .question_option.radio input[type=radio]:checked+label:after,
-.question_option input[type=checkbox]:checked+label:after
+.question_option.checkbox input[type=checkbox]:checked+label:after
 {
     content: "\f272";
     display: inline-block;
-    font-family: bootstrap-icons !important;
+    font-family: bootstrap-icons;
     font-style: normal;
-    font-weight: normal !important;
+    font-weight: 900;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
@@ -2907,18 +2907,28 @@ border-bottom: 1px solid #E8E8E8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: absolute;
-    color: #FFF;
+    color: #fff;
     left: 2px;
-    top: 2px;
+    top: 3px;
     line-height: 1;
     font-size: 14px;
 }
-.question_option.radio>input[type=radio]:checked~.question_option.radio{
-
+.question_option.question_incorrect input[type=radio]:checked+label:before, 
+.question_option.question_incorrect input[type=checkbox]:checked+label:before,
+.question_option.question_correct input[type=radio]:checked+label:before, 
+.question_option.question_correct input[type=checkbox]:checked+label:before {
+    border-color: #ffffff!important;
+    background-color: #ffffff!important;
+}
+.question_option.question_incorrect input[type=radio]:checked+label:after,
+.question_option.question_incorrect input[type=checkbox]:checked+label:after,
+.question_option.question_correct input[type=radio]:checked+label:after,
+.question_option.question_correct input[type=checkbox]:checked+label:after{
+    color: #000;
 }
 
 .question_option.radio>input[type=radio]+label:before,
-.question_option input[type=checkbox]+label:before
+.question_option.checkbox>input[type=checkbox]+label:before
 {
     width: 18px;
     height: 18px;
@@ -2929,11 +2939,11 @@ border-bottom: 1px solid #E8E8E8;
     position: absolute;
     left: 0;
 }
-.question_option.radio>input[type=radio]:checked+label:before,
-.question_option input[type=checkbox]:checked+label:before
+.question_option.radio>input[type=radio]:checked+label:before, 
+.question_option.checkbox input[type=checkbox]:checked+label:before
  {
-    border-color: #000000 !important;
-    background-color: #000000 !important;
+    border-color: #385DD9;
+    background-color: #385DD9;
 }
 /*.checkbox>input[type=checkbox]:checked+label:before*/
 .course_status .incourse .question_option label li:before{
@@ -3040,12 +3050,14 @@ border-bottom: 1px solid #E8E8E8;
     border-radius: 5px;
     margin: 1rem 0;
     opacity: 0;
+    display: none;
     transition: 0.2s all
 }
 
 .course_status .incourse .quiz_questions_content .question .question_hint span.question_hint_content.show {
     transform: scale(1);
-    opacity: 1
+    opacity: 1;
+    display: block;
 }
 
 .course_status .incourse .quiz_questions_content .question .explanation {
@@ -3337,12 +3349,14 @@ border-bottom: 1px solid #E8E8E8;
     border-radius: 5px;
     margin: 1rem 0;
     opacity: 0;
+    display: none;
     transition: 0.2s all
 }
 
 .course_status .incourse span.question_hint_content.show {
     transform: scale(1);
-    opacity: 1
+    opacity: 1;
+    display: block;
 }
 
 .course_status .incourse .question_option .radio>input[type=radio]+label,
@@ -3624,11 +3638,11 @@ border-bottom: 1px solid #E8E8E8;
 
 .course_content_content .unit_assignments h3,
 .course_content_content .unit_attachments h3 {
-    font-weight: 500!important;
+    font-weight: 700;
     color: #000;
-    font-size: 24px;
-    line-height: 30px;
-    margin-bottom: 5px;
+    font-size: 21px;
+    line-height: 31px;
+    margin-bottom: 0;
 }
 
 .course_content_content .unit_assignments .assignment .assignment_heading {
@@ -4206,7 +4220,7 @@ a.button.is-primary {
     float: left;
     background: transparent;
     width: 100%;
-    height: 45px;
+    height: 48px;
     text-align: right;
     padding: 0;
     margin-top: 0px;
@@ -4570,11 +4584,12 @@ a.button.is-primary {
 }
 .submitpopup_wrapper .confirmpopup_content .header-close{
     background: url('../../assets/images/close.svg')no-repeat;
+    background-size: 100% 100%;
     position: absolute;
-    height: 10px;
+    height: 19px;
     right: 30px;
     top: 30px;
-    width: 10px;
+    width: 19px;
     cursor: pointer;
 }
 .submitpopup_wrapper .confirmpopup_content .submitheading{
@@ -4639,7 +4654,7 @@ a.button.is-primary {
     display: block;
     height: 152px;
     position: relative;
-    top: -37px;
+    top: -50px;
 }
 .buttons_wrapper .button, .next_unit_button{
     padding: 12px 50px!important;
@@ -4660,7 +4675,7 @@ a.button.is-primary {
     border: 2px solid #2070D8!important;
     background: #2070D8!important;
     color: #fff!important;
-
+    margin-top: -12px;
 }
 .submit_button.disabled {
     pointer-events: none;

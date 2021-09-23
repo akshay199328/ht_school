@@ -142,9 +142,9 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     margin: 0px 0 45px 0;
     padding: 0;
 }
-.featured_tablist li.active {
+/*.featured_tablist li.active {
     border-bottom: 2px solid transparent !important;
-}
+}*/
 .featured_tablist li {
         display: inline-block;
     color: #939393;
@@ -345,7 +345,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     .featured_tablist.sticky-nav {position: relative;top: 0;padding: 0;height: auto;}
     .home-section.editor_desk .articles .featured .article-title{margin-bottom: 0px;}
     .tablist {margin: 0px 0 0px 0;}
-    .featured_tablist li{font-size: 12px;}
+    .featured_tablist li{font-size: 12px;line-height: 36px;}
     .featured_tablist li.active {    line-height: 36px;}
     .top-section.home-section.editor_desk {margin-top: 30px;}
     #All.home-section.editor_desk {padding-top: 0!important;}
@@ -742,7 +742,8 @@ figure.image .play{display: none;}
     .course-wrapper .course-copy .excerpt.thumb p{font-size: 14px;line-height: 18px;/*height: 47px;overflow: hidden;*/}
     .top_article .course-card .featured {height: 250px;}
     .top_article .course-card .course-footer {position: relative;bottom: 0; right: 0;}
-    .featured_tablist li a{padding-left: 0px;}
+    .featured_tablist li a{padding: 0px 7px 5px;}
+    .editor_desk_listing{padding-top: 5px!important;}
 }
 @media (max-width: 375px) and (orientation: portrait){
     .testimonial_listing .play{    bottom: 12%;}

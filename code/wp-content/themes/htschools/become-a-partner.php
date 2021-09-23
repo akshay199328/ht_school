@@ -62,14 +62,14 @@ $query_images = new WP_Query( $args );
       $school_image = wp_get_attachment_url($custom_fields['school_logo'][0]); ?>
 
                   <div class="courses-wrapper">
-                  <?php echo $school_image;
+                 <!--  <?php echo $school_image;
                       /*foreach ( $query_images->posts as $image) {
                               $post_image_url= $image->guid;*/
-                      ?>
+                      ?> -->
                       <div class="column">
-                          <a href="#!" class="course-hero"><img src=""></a>
+                          <a href="#!" class="course-hero"><img src="<?php echo $school_image;?>"></a>
                           <div class="course-copy">
-                          <h3 class="course-title"><a href="#!"><?php echo $custom_fields->title; ?></a></h3>
+                          <h3 class="course-title"><a href="#!"></a><?php echo $custom_fields['school_title'][0]; ?></h3>
                             <a class="black-button" href="#!"></a>
                           </div>
                       </div>

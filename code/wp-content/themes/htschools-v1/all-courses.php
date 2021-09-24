@@ -1195,6 +1195,8 @@ get_header(vibe_get_header());
                         <input type="hidden" id="course_name_<?php echo $courseID;?>" value="<?php echo $post->post_title;?>">
                         <input type="hidden" id="course_url_<?php echo $courseID;?>" value="<?php echo $courseslug;?>">
                         <input type="hidden" id="course_image_<?php echo $courseID;?>" value="<?php echo $image_url;?>">
+                        <input type="hidden" id="course_badge_<?php echo $courseID;?>" value="<?php echo $badge_class;?>">
+                        <input type="hidden" id="course_type_<?php echo $courseID;?>" value="<?php echo $course_type;?>">
                         <input type="hidden" id="course_category_<?php echo $courseID;?>" value="<?php echo $category_array[0]->name;?>">
                         <input type="hidden" id="course_partner_<?php echo $courseID;?>" value="<?php echo $coursePartner;?>">
                         <input type="hidden" id="category_id_<?php echo $courseID;?>" value="<?php echo $category_array[0]->term_id;?>">

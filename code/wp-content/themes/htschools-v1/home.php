@@ -463,9 +463,9 @@ get_header(vibe_get_header());
                     </div>
                   </footer>
                   <input type="hidden" class="course_id" data-id="'.$courseID.'" value="'.$courseID.'">
-                  <input type="hidden" class="badge_class" data-id="'.$courseID.'" value="'.$badge_class.'">
+                  <input type="hidden" class="badge_class_'.$courseID.'" data-id="'.$courseID.'" value="'.$badge_class.'">
                   <input type="hidden" id="course_image_'.$courseID.'" value="'.$image_url.'">
-                  <input type="hidden" class="course_id" data-id="'.$courseID.'" value="'.$course_type.'">
+                  <input type="hidden" class="course_type_'.$courseID.'" data-id="'.$courseID.'" value="'.$course_type.'">
                   <input type="hidden" id="course_name_'.$courseID.'" value="'.$post->post_title.'">
                   <input type="hidden" id="course_url_'.$courseID.'" value="'.$courseslug.'">
                   <input type="hidden" id="course_category_'.$courseID.'" value="'.$category_array[0]->name.'">
@@ -620,7 +620,9 @@ get_header(vibe_get_header());
                     </div>
                   </footer>
                   <input type="hidden" id="course_name_'.$courseID.'" value="'.$post->post_title.'">
+                  <input type="hidden" class="badge_class_'.$courseID.'" data-id="'.$courseID.'" value="'.$badge_class.'">
                   <input type="hidden" id="course_image_'.$courseID.'" value="'.$image_url.'">
+                  <input type="hidden" class="course_type_'.$courseID.'" data-id="'.$courseID.'" value="'.$course_type.'">
                   <input type="hidden" id="course_url_'.$courseID.'" value="'.$courseslug.'">
                   <input type="hidden" id="course_category_'.$courseID.'" value="'.$category_array[0]->name.'">
                   <input type="hidden" id="course_partner_'.$courseID.'" value="'.$coursePartner.'">

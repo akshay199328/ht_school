@@ -1146,6 +1146,7 @@ get_header(vibe_get_header());
                         if($courseID == $sort_courses[15] && count($sort_courses) > 16  ){
                             $add_class = 'load-more';
                         }
+                        $coming_soon = get_post_meta($courseID,'vibe_coming_soon',true);
                    
                     ?>
                     <div class="column">

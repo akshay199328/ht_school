@@ -12,6 +12,13 @@ $contact_style = vibe_get_option('contact_style');
 $map_zoom = vibe_get_option('map_zoom');
 $contact_form = WPCF7_ContactForm::get_current();
 $form_id = $contact_form -> id;
+
+$user_school_name = "";
+$user_school = get_profile_data('Linked School');
+if(intval($user_school) > 0){
+  $user_school_name = get_user_by('id', $user_school)->display_name;
+}
+
 if(have_posts()):while(have_posts()):the_post();
 ?>
 <div class="innerheader-space"></div>
@@ -24,11 +31,9 @@ if(have_posts()):while(have_posts()):the_post();
              <!-- <div class="pagetitle"><h1><?php echo get_the_title(); ?></h1></div> -->
           <?php
               the_content();
-
            ?>
         </div>
-        <?php
-        
+        <?php        
         endwhile;
         endif;
         ?>
@@ -210,8 +215,7 @@ if(have_posts()):while(have_posts()):the_post();
     return isValid;
   });
 
-  jQuery('.first').click( function() {
-    //alert('test');
+  jQuery('.first').click( function() {    
     jQuery(".last").removeClass("selected");
     jQuery(".first").addClass("selected");
    });
@@ -221,7 +225,11 @@ if(have_posts()):while(have_posts()):the_post();
     jQuery(".first").removeClass("selected");
     jQuery(".last").addClass("selected");
   });
-  
+
+  jQuery('#content').on('change', function() {
+       jQuery("#content").addClass("section_contact partner-wrapper");
+  });
+
 /*------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS------------*/
     jQuery("#emailAddress").on("change", function (event, ui) {
         var check_email_id = $("#emailAddress").val();

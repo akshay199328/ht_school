@@ -56,12 +56,20 @@ $query_images = new WP_Query( $args );
                       
                   </div>
 
-                  <?php if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+
+<!-- <div class="courses-wrapper"> -->
+                  <?php $count=0; 
+
+    if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
       $custom_fields = get_post_custom();
      // echo "<pre>"; print_r($custom_fields); echo "</pre>";
-      $school_image = wp_get_attachment_url($custom_fields['school_logo'][0]); ?>
+      $school_image = wp_get_attachment_url($custom_fields['school_logo'][0]);
 
-                  <div class="courses-wrapper">
+      if($count%3 == 0){
+          ?>
+<div class="courses-wrapper">
+       
+               
                  <!--  <?php echo $school_image;
                       /*foreach ( $query_images->posts as $image) {
                               $post_image_url= $image->guid;*/
@@ -72,15 +80,41 @@ $query_images = new WP_Query( $args );
                           <h3 class="course-title"><a href="#!"></a><?php echo $custom_fields['school_title'][0]; ?></h3>
                             <a class="black-button" href="#!"></a>
                           </div>
-                      </div>
-                                 
-                  </div>
+                      </div>                                           
 
-                  <?php
-      
+                  <?php      
               endwhile;
               endif;
               ?>
+</div>
+<?php } ?>
+</div>
+
+
+              <div class="courses-wrapper">
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://www.prokerala.com/education/imgs/logo/school/ryan-international-school.jpg"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Ryan International School</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Oxford-University-Circlet.svg"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Oxford University, in Oxford, England, United Kingdom.</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+                      <div class="column">
+                          <a href="#!" class="course-hero"><img src="https://i.pinimg.com/originals/72/6a/30/726a303f6704bc2f24401db85e65f984.png"></a>
+                          <div class="course-copy">
+                          <h3 class="course-title"><a href="#!">Harvard University, Research University in Cambridge</a></h3>
+                            <a class="black-button" href="#!">Explore Now</a>
+                          </div>
+                      </div>
+              </div>
+
               </div>
 
             <div class="partner-form">

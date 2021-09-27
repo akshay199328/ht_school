@@ -225,7 +225,6 @@ if($(window).width() >= 768) {
   // alert(1234);
     $(window).scroll(function() {    
         var scroll = $(window).scrollTop();
-
         if (scroll >= 160) {
             $(".featured_tablist").addClass('sticky-nav');
         } else {

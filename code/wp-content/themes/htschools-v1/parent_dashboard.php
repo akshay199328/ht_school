@@ -134,7 +134,7 @@ while ($course_query->have_posts())
         <ul id="top_rankers">
         </ul>
       </div>
-  </div>
+</div>
  <?php } ?>    
 
 

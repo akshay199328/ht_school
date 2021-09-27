@@ -150,6 +150,7 @@ function getQuizPoints($userID,$quiz_type,$courseID){
     foreach($quiz_arr as $quiz_id){
 
       $event_quiz_type = get_post_meta($quiz_id,'vibe_event_quiz_type',true);
+      
       if($event_quiz_type == $quiz_type){
 
         $quiz_status = 'quiz_status'.$quiz_id;

@@ -408,6 +408,7 @@ else if($videoType=="vimeo")
             </ul>
         </div>
         <section class="section-wrapper overview" id="overview">
+          <div class="section-copy">
             <h2 class="medium-title">About The Course</h2>
             <p><?php   $post_content = get_post_field('post_content', $post->ID);
             echo $post_content;
@@ -440,11 +441,14 @@ else if($videoType=="vimeo")
                     </ul>
                 </div>
             <?php endif;?>
+            </div>
         </section>
          <?php if(strlen(trim(get_post_meta($post->ID,'vibe_learning_goals',true)))) : ?>
         <section class="section-wrapper objectives" id="objectives">
-            <h2 class="medium-title">Course Objectives</h2>
-             <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
+            <div class="section-copy">
+              <h2 class="medium-title">Course Objectives</h2>
+            <?php echo get_post_meta($post->ID,'vibe_learning_goals',true);?>
+            </div>
         </section>
 
          <?php endif;
@@ -452,10 +456,10 @@ else if($videoType=="vimeo")
           ?>
 
         <section class="section-wrapper curriculum" id="curriculum">
-            <h2 class="medium-title">Curriculum</h2>
-            <!-- <h3 class="small-title">Section 1 : Introduction</h3> -->
-            
-                <?php locate_template( array( 'course/single/curriculum_new.php'  ), true );?>           
+            <div class="section-copy">
+              <h2 class="medium-title">Curriculum</h2>
+              <?php locate_template( array( 'course/single/curriculum_new.php'  ), true );?>
+            </div>
         </section>
 
         <?php
@@ -485,16 +489,18 @@ else if($videoType=="vimeo")
               $author_biographical_info = $author_biographical_info;
         ?>
         <section class="section-wrapper instructor" id="instructor">
-            <h2 class="medium-title">Instructor</h2>
-            <div class="author clearfix">
-                <div class="top">
-                    <div class="image"><img src="<?php echo $author_user_profile; ?>"></div>
-                    <div>
-                    <h3 class="small-title"><?php echo $author_name; ?></h3>
-                    <span class="designation"><?php echo $author_company; ?></span>
-                    </div>
-                </div>
-                <p class="about"><?php echo $author_biographical_info; ?></p>
+            <div class="section-copy">
+              <h2 class="medium-title">Instructor</h2>
+              <div class="author clearfix">
+                  <div class="top">
+                      <div class="image"><img src="<?php echo $author_user_profile; ?>"></div>
+                      <div>
+                      <h3 class="small-title"><?php echo $author_name; ?></h3>
+                      <span class="designation"><?php echo $author_company; ?></span>
+                      </div>
+                  </div>
+                  <div class="about"><?php echo $author_biographical_info; ?></div>
+              </div>
             </div>
         </section>
        <!--  <section class="section-wrapper reviews" id="reviews">

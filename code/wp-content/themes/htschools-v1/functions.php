@@ -2336,11 +2336,11 @@ function get_course_rank()
       $first_name = get_user_meta($course->user_id, 'first_name', true);
         $last_name = get_user_meta($course->user_id, 'last_name', true);
         $rankID = $i++;
-        $response = '<li><div class="col-xs-8 col-sm-9 col-md-9 mrg"><div class="content">';
+        $response = '<li><div class="copy-content">';
         $response .= '<p>Rank ' .  $course->rank. '</p>';
         $response .= '<h5>' . $first_name.' '.$last_name . '</h5>';
         $response .= '<span class="light">' . $course->score . ' Pts</span>';
-        $response .= '</div></div><div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">';
+        $response .= '</div><div class="icon">';
         $response .= '<img src=' . get_bloginfo('template_url') . '/assets/images/gold.svg class="img-gold"/></div>';
         $response .= '</li>';
         echo $response;
@@ -2419,11 +2419,11 @@ function get_rank()
           $first_name = get_user_meta($course->user_id, 'first_name', true);
         $last_name = get_user_meta($course->user_id, 'last_name', true);
             $rankID = $i++;
-            $response = '<li><div class="col-xs-8 col-sm-9 col-md-9 mrg"><div class="content">';
+            $response = '<li><div class="copy-content">';
             $response .= '<p>Rank ' . $course->rank . '</p>';
             $response .= '<h5>' . $first_name.' '.$last_name . '</h5>';
             $response .= '<span class="light">' . $course->points . ' Pts</span>';
-            $response .= '</div></div><div class="col-xs-4 col-sm-3 col-md-3 right_img mrg">';
+            $response .= '</div><div class="icon">';
             $response .= '<img src=' . get_bloginfo('template_url') . '/assets/images/gold.svg class="img-gold"/></div>';
             $response .= '</li>';
             echo $response;

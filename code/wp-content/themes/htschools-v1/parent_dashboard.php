@@ -32,7 +32,7 @@ vibe_include_template("profile/top$profile_layout.php");
     <button class="tablinks active" id="Event" onclick="CouseEvent(event, 'Events')">Events</button>
     <button class="tablinks" id="Course" onclick="CouseEvent(event, 'Courses')">Courses</button>
 </div>
-<div id="Events" class="tabcontents Events">
+<div id="Events" class="dashboard-tabcontent">
 
   
                     <?php global $wpdb;
@@ -75,12 +75,10 @@ if(empty($course_query->have_posts())or empty($courses->course_id) ) {
                          <a href="<?php echo get_home_url();?>/code-a-thon/"><button class="empty_btn">Explore All Events</button></a>
                     </div>
 <?php } else { ?>
-<div class="col-sm-12 dashboard-info mrg">
-    <div class="col-sm-12 col-md-3 mrg">
-      <div class="left-listing">
-            <!-- <ul class="mobile-slider scroll"> -->
+<div class="left-details">
+ <!-- <ul class="mobile-slider scroll"> -->
                 
-            <ul class="mobile-slider scroll">
+            <ul class="">
 <?php
 
 global $bp, $wpdb;
@@ -93,7 +91,7 @@ while ($course_query->have_posts())
                     <li class="item edashboard-li" value="<?php echo get_the_ID(); ?>">
                         <input type="hidden" class="course_id" >
                         <a href="#">
-                            <div class="col-xs-3 col-sm-3 col-md-3 mrg">
+                            <div class="icon">
                                 <?php
     if (has_post_thumbnail())
     {
@@ -102,7 +100,7 @@ while ($course_query->have_posts())
 ?>
                              <img src="<?php echo $image_url; ?>" class="img-fluid">
                             </div>
-                            <div class="col-xs-9 col-sm-9 col-md-9 mrg">
+                            <div class="copy-detail">
                                 <!-- <h4><?php bp_course_title(); ?></h4> -->
                                 <h4><?php echo $post->post_title ?></h4>
                             </div>
@@ -111,37 +109,34 @@ while ($course_query->have_posts())
                     <?php
 } ?>
                 </ul>
-      </div>
-    </div>
-     <div class="col-sm-12 col-md-6 mrg">
-            <div class="middle-table">
-                <div id="user_rank"  class="user_rank">
-                        
-                </div>
-                <table class="table table-responsive" id="myTable">
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Participant</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data">
-                        
-                    </tbody>
-                </table>
+</div>
+    <div class="middle-table">
+        <div class="dataTables_wrapper">
+            <div id="user_rank"  class="user_rank">
+                    
             </div>
+            <table class="table table-responsive" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Participant</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+                    
+                </tbody>
+            </table>
         </div>
-    <div class="col-sm-12 col-md-3 mrg">
-      <div class="right-details">
+    </div>
+    <div class="right-details">
         <h2>Top Rankers</h2>
         <ul id="top_rankers">
         </ul>
       </div>
-    </div>
   </div>
  <?php } ?>    
-</div>
+
 
 <div id="Courses" class="tabcontents" style="display:none;">
 

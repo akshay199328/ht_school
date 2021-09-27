@@ -387,18 +387,18 @@ input#myInputTextField::-webkit-input-placeholder {
 .glyphicon-download-alt:before {
     display: none;
 }
-.postbox.course_info .dataTables_wrapper table {
+.dataTables_wrapper table {
     width: 100%;
     border-collapse: collapse;
     display: inline-table !important;
 }
-.postbox.course_info .dataTables_wrapper thead {
+.dataTables_wrapper thead {
     background: #D5EBFF;
     border-bottom: 2px solid #000;
     height: 60px;
     
 }
-.postbox.course_info .dataTables_wrapper table thead th {
+.dataTables_wrapper table thead th {
     font-size: 15px;
     font-weight: bold;
     line-height: 20px;
@@ -407,15 +407,15 @@ input#myInputTextField::-webkit-input-placeholder {
     padding: 10px 5px;
     vertical-align: middle;
 }
-.postbox.course_info .dataTables_wrapper thead, 
+.dataTables_wrapper thead, 
 .postbox.course_info .dataTables_wrapper tbody{
 
 }
-.postbox.course_info .dataTables_wrapper table tbody tr{
+.dataTables_wrapper table tbody tr{
     border-bottom: 1px dotted #707070;
     position: relative;
 }
-.postbox.course_info .dataTables_wrapper table tbody tr:after {
+.dataTables_wrapper table tbody tr:after {
     content: "";
     display: inline-block;
     width: 72px;
@@ -426,7 +426,7 @@ input#myInputTextField::-webkit-input-placeholder {
     margin-bottom: 0;
     background: #000;
 }
-.postbox.course_info .dataTables_wrapper table tbody td {
+.dataTables_wrapper table tbody td {
     font-size: 18px;
     font-weight: 500;
     line-height: 23px;
@@ -434,7 +434,7 @@ input#myInputTextField::-webkit-input-placeholder {
     border: 0;
     padding: 25px 5px;
 }
-.postbox.course_info .dataTables_wrapper table tbody td:last-child{
+.dataTables_wrapper table tbody td:last-child{
     font-weight: 700;
 }
 .mobile_view{display: none!important;}
@@ -558,10 +558,10 @@ input#myInputTextField::-webkit-input-placeholder {
     }
     .mobile_view{display: block!important;line-height: 17px;font-weight: 500;margin-top:8px;}
     .mobile_hide{display: none!important;}
-    .postbox.course_info .dataTables_wrapper table tbody td {padding: 15px 5px;font-size: 13px;font-weight: 700;line-height: 17px;}
-    .postbox.course_info .dataTables_wrapper table thead th {font-size: 11px;text-transform: uppercase;}
-    .postbox.course_info .dataTables_wrapper thead{height: 35px;}
-    .postbox.course_info .dataTables_wrapper table tbody tr:after{    width: 64px;}
+    .dataTables_wrapper table tbody td {padding: 15px 5px;font-size: 13px;font-weight: 700;line-height: 17px;}
+    .dataTables_wrapper table thead th {font-size: 11px;text-transform: uppercase;}
+    .dataTables_wrapper thead{height: 35px;}
+    .dataTables_wrapper table tbody tr:after{    width: 64px;}
     .dataTables_wrapper .dt-buttons{top: -65px;}
     .school_studTotal{margin-top: 70px;}
 }

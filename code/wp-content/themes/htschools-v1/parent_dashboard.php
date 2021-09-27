@@ -28,12 +28,9 @@ vibe_include_template("profile/top$profile_layout.php");
 
 ?>
 
-<div class="wplms-dashboard">
-    <div class="col-sm-12 col-md-3 mrg left-listing">
-    <div class="tab">
-  <button class="tablinks active" id="Event" onclick="CouseEvent(event, 'Events')">Events</button>
-  <button class="tablinks" id="Course" onclick="CouseEvent(event, 'Courses')">Courses</button>
-</div>
+<div class="dashboard-tab">
+    <button class="tablinks active" id="Event" onclick="CouseEvent(event, 'Events')">Events</button>
+    <button class="tablinks" id="Course" onclick="CouseEvent(event, 'Courses')">Courses</button>
 </div>
 <div id="Events" class="tabcontents Events">
 

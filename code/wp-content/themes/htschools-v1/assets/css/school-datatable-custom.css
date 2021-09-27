@@ -57,11 +57,13 @@ body, button, input, select, textarea{
 
 
 .school_studTotal {
+    margin-top: 100px;
     background: #385DD9;
     display: flex;
     flex-direction: column;
     min-height: 210px;
     position: relative;
+
 }
 .school-container {
     /*display: flex;*/
@@ -561,6 +563,10 @@ input#myInputTextField::-webkit-input-placeholder {
     .postbox.course_info .dataTables_wrapper thead{height: 35px;}
     .postbox.course_info .dataTables_wrapper table tbody tr:after{    width: 64px;}
     .dataTables_wrapper .dt-buttons{top: -65px;}
+    .school_studTotal{margin-top: 70px;}
+}
+@media (max-width: 480px) and (min-width: 320px){
+    .school_studTotal{margin-top: 110px;}
 }
 @media (max-width: 414px) and (min-width: 381px){
     .dataTables_wrapper .dt-buttons{

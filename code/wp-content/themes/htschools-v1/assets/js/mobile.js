@@ -14,7 +14,7 @@
         margin: 0,
         responsiveClass: true,
         autoWidth: true,
-        autoplay:false,
+        autoplay:true,
         nav: true,
         items: 4
     })

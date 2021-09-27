@@ -72,11 +72,11 @@ global $wpdb;
 					<div class="padder dashboard_accountinfo">
 					
 			<?php	}else {?>
-				<div class="grey-background">
-		  <div class="<?php echo vibe_get_container(); ?>">
+				<div class="dashboard">
+		  <div class="dashboard-container">
 	    	
-	        <div class="row">	
-	        	<div class="col-md-12">
+	        <div class="">	
+	        	<div class="">
 					<div class="padder dashboard_accountinfo">
 
 		<?php } ?>

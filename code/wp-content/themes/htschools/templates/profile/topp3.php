@@ -9,7 +9,7 @@ global $wpdb;
 				
 				?>
 
-<style type="text/css">
+<style type="text/css" >
 	.edit-profile-link {
 		float: right;
 		color: #000;

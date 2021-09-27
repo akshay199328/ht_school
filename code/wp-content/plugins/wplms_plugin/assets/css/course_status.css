@@ -5372,7 +5372,7 @@ a.button.is-primary {
     .quiz_pagination_wrapper .owl-nav button.disabled:after {
         color: rgb(0 0 0 / 40%);
     }
-    .owl-nav span {
+    .quiz_pagination_wrapper .owl-nav span {
         display: none;
     }
     .join-dialog__tabs .zmu-tabs__tab-container .zmu-tabs__tabs-list .zmu-tabs__tab-bar {

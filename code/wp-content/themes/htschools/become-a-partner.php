@@ -27,25 +27,6 @@ if(have_posts()):while(have_posts()):the_post();
 
 </section>
 
-<?php /*$args = array(
-        'post_type' => 'attachment',
-        'post_mime_type' =>'image',
-        'post_status' => 'inherit',        
-        'orderby' => 'DESC'
-    );
-
-$query_images = new WP_Query( $args );
-    $images = array(); */
-
-    $args1 = array(
-      'post_type' => 'school_logos',
-      'post_status' => 'publish',
-      'orderby' => 'publish_date',
-      'order' => 'DESC',      
-      'nopaging' => true
-    );
-    $Query1 = new WP_Query( $args1 );   
-?>
 <section class="section popular-wrapper school-wrapper">
           <div class="section-copy">
             <div class="school-listing">
@@ -53,45 +34,39 @@ $query_images = new WP_Query( $args );
                       <div class="header-copy">
                           <h3 class="medium-title">Our Partner Schools</h3>
                       </div>
-                      
+                     
                   </div>
+                   <div class="courses-wrapper">
+<?php
+        $args1 = array(
+          'post_type' => 'school_logos',
+          'post_status' => 'publish',
+          'orderby' => 'publish_date',
+          'order' => 'DESC',        
+          'nopaging' => true
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+          $custom_fields = get_post_custom();
+          $image_url = wp_get_attachment_url($custom_fields['school_logo'][0]);
+      ?>
 
-
-<!-- <div class="courses-wrapper"> -->
-                  <?php $count=0; 
-
-    if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
-      $custom_fields = get_post_custom();
-     // echo "<pre>"; print_r($custom_fields); echo "</pre>";
-      $school_image = wp_get_attachment_url($custom_fields['school_logo'][0]);
-
-      if($count%3 == 0){
-          ?>
-<div class="courses-wrapper">
-       
-               
-                 <!--  <?php echo $school_image;
-                      /*foreach ( $query_images->posts as $image) {
-                              $post_image_url= $image->guid;*/
-                      ?> -->
+                 
                       <div class="column">
-                          <a href="#!" class="course-hero"><img src="<?php echo $school_image;?>"></a>
+                          <a href="#!" class="course-hero"><img src="<?php echo $image_url; ?>"></a>
                           <div class="course-copy">
-                          <h3 class="course-title"><a href="#!"></a><?php echo $custom_fields['school_title'][0]; ?></h3>
-                            <a class="black-button" href="#!"></a>
+                          <h3 class="course-title"><a href="#!"><?php echo $custom_fields['school_title'][0]; ?></a></h3>
+                            <!-- <a class="black-button" href="#!">Explore Now</a> -->
                           </div>
-                      </div>                                           
+                      </div>
 
-                  <?php      
-              endwhile;
-              endif;
-              ?>
-</div>
-<?php } ?>
-</div>
+                 
 
+                   <?php endwhile;  endif; ?>
+ </div>
 
-              <div class="courses-wrapper">
+ <!-- <div class="courses-wrapper">
                       <div class="column">
                           <a href="#!" class="course-hero"><img src="https://www.prokerala.com/education/imgs/logo/school/ryan-international-school.jpg"></a>
                           <div class="course-copy">
@@ -113,19 +88,16 @@ $query_images = new WP_Query( $args );
                             <a class="black-button" href="#!">Explore Now</a>
                           </div>
                       </div>
+              </div> -->
               </div>
 
-              </div>
+            <?php ?>
 
             <div class="partner-form">
                   
-              <?php the_content(); ?>
-              
-              <?php
-      
-              endwhile;
-              endif;
-              ?>
+                  <?php the_content(); ?>
+                  
+                  <?php endwhile; endif; ?>
               </div>
     </div>
 </section>

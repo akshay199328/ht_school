@@ -8,6 +8,16 @@
             $("body").removeClass("header_fixed");
         }
     });
+    $('.nav-tabs-wrapper .owl-carousel').owlCarousel({
+        navText: ['<span class="arrow"></span>','<span class="arrow"></span>'],
+        loop: false,
+        margin: 0,
+        responsiveClass: true,
+        autoWidth: true,
+        autoplay:false,
+        nav: true,
+        items: 4
+    })
     $(document).ready(function(){
         /*$(".overlay").click(function(){
             $("body").removeClass("shared");
@@ -163,6 +173,8 @@
                 }
             }
         });
+
+        
     });
 
 if($(window).width() <= 768) {

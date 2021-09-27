@@ -349,7 +349,7 @@ get_header(vibe_get_header());
           );
           
           $wp_query_new = new WP_Query($query_args);
-          $tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-course-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li>';
+          $tab_menu .= '<li class="nav-item item" role="presentation"><a class="nav-link active" id="all-course-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a></li>';
           $tab_content .= '<div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-course-tab"><div class="course-wrapper" id="course-wrapper">';
           if ($wp_query_new->have_posts()) : while ($wp_query_new->have_posts()) : $wp_query_new->the_post();
             global $post;
@@ -647,7 +647,7 @@ get_header(vibe_get_header());
             $tab_content .= '</div></div>';
              $i++;
                   } ?>
-        <ul class="nav nav-tabs" id="allCoursesLinks" role="tablist">
+        <ul class="owl-carousel owl-theme nav nav-tabs" id="allCoursesLinks" role="tablist">
         
         <?php
    echo $tab_menu;
@@ -720,7 +720,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
       );
       $Query_news = new WP_Query( $args_news );
 
-      $editor_all_tab_menu .= '<li class="nav-item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
+      $editor_all_tab_menu .= '<li class="nav-item item" role="presentation"><a class="nav-link active" id="all-news-category" data-toggle="tab" href="#all-news" role="tab" aria-controls="all-news-category" aria-selected="true">All</a></li>';
       $editor_all_tab_content .= '
         <div class="tab-pane fade show active" id="all-news" role="tabpanel" aria-labelledby="all-news-category"><div class="articles">';
            if ($Query_news->have_posts()) : 

@@ -181,9 +181,9 @@ function getVideosCount($courseID){
     }
     foreach($unit_arr as $unit_id){
 
-      $event_unit_type = get_post_meta($unit_id,'vibe_event_quiz_type',true);
+      $event_unit_type = get_post_meta($unit_id,'vibe_type',true);
       
-      if($event_unit_type == 'video'){
+      if($event_unit_type == 'play'){
 
         $total_unit[] = $unit_id;
 
@@ -196,7 +196,6 @@ function getVideosCount($courseID){
       return 0;
     }
 }
-
 function getVideoPoints($userID,$courseID){
     global $wpdb;
     $table_name = "ht_mycred_log";

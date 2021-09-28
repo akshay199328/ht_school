@@ -32,49 +32,47 @@ vibe_include_template("profile/top$profile_layout.php");
     <button class="tablinks active" id="Event" onclick="CouseEvent(event, 'Events')">Events</button>
     <button class="tablinks" id="Course" onclick="CouseEvent(event, 'Courses')">Courses</button>
 </div>
-<div id="Events" class="dashboard-tabcontent">
-
-  
-                    <?php global $wpdb;
-$user = wp_get_current_user();
-$query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '" . $user->ID . "' ORDER BY rel.meta_key"));
-$result = $wpdb->get_results($query);
+<div id="Events" class="dashboard-tabcontent tabcontents Events">
+    <?php global $wpdb;
+    $user = wp_get_current_user();
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '" . $user->ID . "' ORDER BY rel.meta_key"));
+    $result = $wpdb->get_results($query);
 
 
-foreach ($result as $courses)
-{
-    $args['post__in'][] = $courses->course_id;
-}
+    foreach ($result as $courses)
+    {
+        $args['post__in'][] = $courses->course_id;
+    }
 
-//echo "<pre>"; print_r($courses); exit();
-$query_args = apply_filters('wplms_mycourses', array(
-    'post_type' => 'course',
-    'post__in' => $args['post__in'],
-    'post_status' => 'publish',
-    'order' => 'ASC',
-    'posts_per_page' => 100,
+    //echo "<pre>"; print_r($courses); exit();
+    $query_args = apply_filters('wplms_mycourses', array(
+        'post_type' => 'course',
+        'post__in' => $args['post__in'],
+        'post_status' => 'publish',
+        'order' => 'ASC',
+        'posts_per_page' => 100,
 
-    'meta_query' => array(
-        'relation' => 'AND',
-        array(
-            'key' => 'vibe_course_event',
-            'value' => '1',
-            'comapare' => '='
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'vibe_course_event',
+                'value' => '1',
+                'comapare' => '='
+            )
         )
-    )
-));
+    ));
 
 
-$course_query = new WP_Query($query_args);
-//echo "<pre>"; print_r($course_query); exit();
-if(empty($course_query->have_posts())or empty($courses->course_id) ) {
-?>
-<div class="empty_cart_div">
-                        <div class="empty_course_image"></div>
-                        <h4>Your leaderboard is not active right now. Start your Journey now!</h4>
-                        <a href="<?php echo get_home_url();?>/code-a-thon/"><button class="empty_btn">Explore All Events</button></a>
-                    </div>
-<?php } else { ?>
+    $course_query = new WP_Query($query_args);
+    //echo "<pre>"; print_r($course_query); exit();
+    if(empty($course_query->have_posts())or empty($courses->course_id) ) {
+    ?>
+    <div class="empty_cart_div">
+        <div class="empty_course_image"></div>
+        <h4>Your leaderboard is not active right now. Start your Journey now!</h4>
+        <a href="<?php echo get_home_url();?>/code-a-thon/"><button class="empty_btn">Explore All Events</button></a>
+    </div>
+    <?php } else { ?>
     <div class="left-details">
         <!-- <ul class="mobile-slider scroll"> -->
         <ul class="">
@@ -386,7 +384,7 @@ function CouseEvent(evt, CouseEventName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(CouseEventName).style.display = "block";
+  document.getElementById(CouseEventName).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 

@@ -503,13 +503,54 @@ input#myInputTextField::-webkit-input-placeholder {
  {
     display:none!important;
  }
+ @media (max-width: 1366px) and (min-width: 1200px){
+    .top-align { padding: 0px 0%;}
+    .datatable-container {padding: 0px 6%;}
+    .select-sort, .select-class, .dataTables_wrapper .dt-button{width: 170px;}
+    .dataTables_wrapper table tbody tr:after {width: 176px}
+    .total-left .school-name_total h3 {line-height: 40px;}
+    .total-left .icon {width: 200px;height: 200px;}
+}
 @media (max-width: 1366px) and (min-width: 768px){
     .postbox_left {width: 26%;}
     .postbox_right {width: 75%;}
 }
+@media (max-width: 1199px) and (min-width: 1025px){
+    
+}
+@media (max-width: 1024px) and (min-width: 768px){
+    .top-align {padding: 0px 0% 30px;}
+    .datatable-container {padding: 0px 20px;}
+    .school_studTotal { margin-top: 100px;flex-direction: column;min-height: 100%;}
+    .total-left {width: 100%;}
+    .total-left .icon {
+        width: 30%;
+        height: 200px;
+        position: relative;
+        bottom: 0;
+    }
+    .total-right {width: 100%;}
+    .total-left .school-name_total {
+        width: 69%;
+        padding-left: 0;
+    }
+    .total-right ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-top: 50px;
+    }
+    .postbox_right {width: 106%;}
+    .cutom-checkbox {padding-right: 2px;}
+    .select-sort .title, 
+    .select-class .title,
+    .custom_datatable select{
+        font-size: 12px;
+    }
+}
 @media (max-width: 1023px) and (min-width: 768px){
-    .select-sort, .select-class{margin-right: 8px;width: 170px;}
-    .select-sort{width: 135px;}
+    .select-sort, .select-class{margin-right: 5px;width: 155px;}
+    .select-sort{width: 120px;}
     .dataTables_wrapper .dt-button span{display: none}
     .dataTables_wrapper .dt-button{width: 31px;background-position: center;}
 }

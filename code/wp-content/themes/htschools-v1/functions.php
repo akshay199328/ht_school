@@ -2024,13 +2024,13 @@ function prefix_load_cat_posts()
           $last_name = get_user_meta($course->user_id, 'last_name', true);
             if ($course->user_id == $user->ID)
             {
-                $response = '<tr style="background: #D5EBFF;">';
+                $response = '<tr>';
             }
             else
             {
                 $response = '<tr>';
             }
-            $response .= '<td scope="row"><span class="circle">' . $course->rank . '</span></td>';
+            $response .= '<td scope="row" class="right-space"><span class="circle">' . $course->rank . '</span></td>';
             if ($course->user_id == $user->ID)
             {
                 $response .= '<td>' .$first_name.' '.$last_name . '</td>';
@@ -2122,13 +2122,13 @@ function get_course_score()
         $last_name = get_user_meta($course->user_id, 'last_name', true);
             if ($course->user_id == $user->ID)
             {
-                $response = '<tr style="background: #D5EBFF;">';
+                $response = '<tr>';
             }
             else
             {
                 $response = '<tr>';
             }
-            $response .= '<td scope="row"><span class="circle">' . $course->rank . '</span></td>';
+            $response .= '<td scope="row" class="right-space"><span class="circle">' . $course->rank . '</span></td>';
             if ($course->user_id == $user->ID)
             {
                 $response .= '<td>' . $first_name.' '.$last_name . '</td>';
@@ -2185,7 +2185,7 @@ function get_user_course_rank()
 
             if ($course->user_id == $user->ID)
             {
-                $response = '<tr style="background: #D5EBFF;">';
+                $response = '<tr>';
             }
             else
             {
@@ -2196,7 +2196,7 @@ function get_user_course_rank()
             {
               $rank = $key + 1;
                 $response .= '<td>My Rank- </td>';
-                $response .= '<td scope="row"><span class="circle">' .$rank . '</span></td>';
+                $response .= '<td scope="row"  class="right-space"><span class="circle">' .$rank . '</span></td>';
 
                 $response .= '<td>My Points- </td>';
                 $response .= '<td>' . $course->score . '</td>';
@@ -2277,7 +2277,7 @@ function get_user_rank()
 
             if ($course->user_id == $user->ID)
             {
-                $response = '<tr style="background: #D5EBFF;">';
+                $response = '<tr>';
             }
             else
             {
@@ -2288,7 +2288,7 @@ function get_user_rank()
             {
                 $rank = $key + 1;
                 $response .= '<td>My Rank- </td>';
-                $response .= '<td scope="row"><span class="circle">' . $course->rank . '</span></td>';
+                $response .= '<td scope="row" class="right-space"><span class="circle">' . $course->rank . '</span></td>';
 
                 $response .= '<td>My Points- </td>';
                 $response .= '<td>' . $course->points . '</td>';

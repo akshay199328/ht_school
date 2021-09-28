@@ -29,8 +29,13 @@ vibe_include_template("profile/top$profile_layout.php");
 ?>
 
 <div class="dashboard-tab">
-    <button class="tablinks active" id="Event" onclick="CouseEvent(event, 'Events')">Events</button>
-    <button class="tablinks" id="Course" onclick="CouseEvent(event, 'Courses')">Courses</button>
+    <div class="left-details">
+        <button class="tablinks active" id="Event" onclick="CouseEvent(event, 'Events')">Events</button>
+        <button class="tablinks" id="Course" onclick="CouseEvent(event, 'Courses')">Courses</button>
+    </div>
+    <div class="middle-details">
+        <span class="dashboard-heading">Dashboard</span>
+    </div>
 </div>
 <div id="Events" class="dashboard-tabcontent tabcontents Events">
     <?php global $wpdb;
@@ -134,112 +139,104 @@ vibe_include_template("profile/top$profile_layout.php");
  <?php } ?>    
 
 
-<div id="Courses" class="tabcontents" style="display:none;">
+<div id="Courses" class="tabcontents dashboard-tabcontent" style="display:none;">
+    <?php global $wpdb;
+    $user = wp_get_current_user();
+    $query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '" . $user->ID . "' ORDER BY rel.meta_key"));
+    $results = $wpdb->get_results($query);
 
-                    <?php global $wpdb;
-$user = wp_get_current_user();
-$query = apply_filters('wplms_usermeta_direct_query', $wpdb->prepare("SELECT DISTINCT posts.post_title AS course,posts.ID AS course_id FROM ht_posts AS posts LEFT JOIN ht_postmeta AS rel ON posts.ID = rel.post_id WHERE posts.post_type = 'course' AND posts.post_status = 'publish' AND rel.meta_key REGEXP '^[0-9]+$' AND rel.meta_key = '" . $user->ID . "' ORDER BY rel.meta_key"));
-$results = $wpdb->get_results($query);
 
-
-foreach ($results as $courses)
-{
-    $args['post__in'][] = $courses->course_id;
-}
-$query_args = apply_filters('wplms_mycourses', array(
-    'post_type' => 'course',
-    'post__in' => $args['post__in'],
-    'post_status' => 'publish',
-    'order' => 'ASC',
-    'posts_per_page' => 100,
-
-    'meta_query' => array(
-        'relation' => 'AND',
-        array(
-            'key' => 'vibe_course_event',
-            'value' => '0',
-            'comapare' => '='
-        )
-    )
-));
-
-$course_query = new WP_Query($query_args);
-
-//echo "<pre>"; print_r($course_query); exit();
-if(empty($course_query->have_posts())or empty($courses->course_id) ) {
-?>
-<div class="empty_cart_div">
-                        <div class="empty_course_image"></div>
-                        <h4>Your leaderboard is not active right now. Start your Journey now!</h4>
-                        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
-                    </div>
-<?php } else { ?>
-            <div class="col-sm-12 dashboard-info mrg">
-    <div class="col-sm-12 col-md-3 mrg">
-      <div class="left-listing">
-            <!-- <ul class="mobile-slider scroll"> -->
-                
-            <ul class="mobile-slider scroll">
-<?php
-global $bp, $wpdb;
-while ($course_query->have_posts())
-{
-    $course_query->the_post();
-    global $post;
-
-?>
-            <li class="item dashboard-li" value="<?php echo get_the_ID(); ?>">
-                  <input type="hidden" class="course_id" >
-                  <a href="#">
-                            <div class="col-xs-3 col-sm-3 col-md-3 mrg">
-                                <?php
-    if (has_post_thumbnail())
+    foreach ($results as $courses)
     {
-        $image_url = get_the_post_thumbnail_url();
+        $args['post__in'][] = $courses->course_id;
     }
-?>
-                             <img src="<?php echo $image_url; ?>" class="img-fluid">
-                            </div>
-                            <div class="col-xs-9 col-sm-9 col-md-9 mrg">
-                                <!-- <h4><?php bp_course_title(); ?></h4> -->
-                                <h4><?php echo $post->post_title ?></h4>
-                            </div>
-                        </a>
-                    </li>
-                    <?php
-} ?>
-                </ul>
-      </div>
+    $query_args = apply_filters('wplms_mycourses', array(
+        'post_type' => 'course',
+        'post__in' => $args['post__in'],
+        'post_status' => 'publish',
+        'order' => 'ASC',
+        'posts_per_page' => 100,
+
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'vibe_course_event',
+                'value' => '0',
+                'comapare' => '='
+            )
+        )
+    ));
+
+    $course_query = new WP_Query($query_args);
+
+    //echo "<pre>"; print_r($course_query); exit();
+    if(empty($course_query->have_posts())or empty($courses->course_id) ) {
+    ?>
+    <div class="empty_cart_div">
+        <div class="empty_course_image"></div>
+        <h4>Your leaderboard is not active right now. Start your Journey now!</h4>
+        <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore All Courses</button></a>
     </div>
-     <div class="col-sm-12 col-md-6 mrg">
-            <div class="middle-table">
-                <div id="user_ranks" class="user_rank">
-                  
-                </div>
-                <table class="table table-responsive" id="myTable">
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Participant</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody id="datas">
-                        
-                    </tbody>
-                </table>
+    <?php } else { ?>
+    <div class="left-details">
+        <!-- <ul class="mobile-slider scroll"> -->
+        <ul class="">
+            <?php
+            global $bp, $wpdb;
+            while ($course_query->have_posts())
+            {
+                $course_query->the_post();
+                global $post;
+
+            ?>
+            <li class="item dashboard-li" value="<?php echo get_the_ID(); ?>">
+                <input type="hidden" class="course_id" >
+                <a href="#">
+                    <div class="icon">
+                        <?php
+                            if (has_post_thumbnail())
+                            {
+                                $image_url = get_the_post_thumbnail_url();
+                            }
+                        ?>
+                        <img src="<?php echo $image_url; ?>" class="img-fluid">
+                    </div>
+                    <div class="copy-detail">
+                        <!-- <h4><?php bp_course_title(); ?></h4> -->
+                        <h4><?php echo $post->post_title ?></h4>
+                    </div>
+                </a>
+            </li>
+            <?php
+            } ?>
+        </ul>
+    </div>
+    <div class="middle-table">
+        <div class="dataTables_wrapper">
+            <div id="user_ranks" class="user_rank">
+              
             </div>
+            <table class="table table-responsive" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Participant</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody id="datas">
+                    
+                </tbody>
+            </table>
         </div>
-    <div class="col-sm-12 col-md-3 mrg">
-      <div class="right-details">
+    </div>
+    <div class="right-details">
         <h2>Top Rankers</h2>
         <ul id="top_ranker">
         </ul>
-      </div>
     </div>
 </div>
 <?php } ?>
-</div>
 
         
     <script type="text/javascript">

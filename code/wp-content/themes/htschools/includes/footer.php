@@ -108,6 +108,8 @@ $pageSlug = trim($uri, '/');
                     <li id="menu-item-6170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6170"><a href="<?php echo get_bloginfo('url'); ?>/contact-us/">Contact Us</a></li>
                     <li id="menu-item-6344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6344"><a href="<?php echo get_bloginfo('url'); ?>/become-a-course-partner/">Become a Course partner</a></li>
                     <!-- <li id="menu-item-6345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6345"><a href="<?php //echo get_bloginfo('url'); ?>/become-a-partner/">Become a Partner</a></li> -->
+                    <li id="menu-item-70571" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70571"><a target="_blank" rel="noopener" href="<?php echo get_bloginfo('url'); ?>/school-login/">School Login</a></li>
+                    <li id="menu-item-70595" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70595"><a target="_blank" rel="noopener" href="<?php echo get_bloginfo('url'); ?>/parent-login/">View Child's Progress</a></li>
                 </ul>
             </div>
             <div class="column">

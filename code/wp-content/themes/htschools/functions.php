@@ -1555,7 +1555,8 @@ function save_custom_profile(){
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
         xprofile_set_field_data('Phone', $user_id, trim($_REQUEST['user_mobile']));
-        xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
+        //xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
+        xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country_data']));
         xprofile_set_field_data('State', $user_id, trim($_REQUEST['user_state']));
         xprofile_set_field_data('City', $user_id, trim($_REQUEST['user_city']));
         xprofile_set_field_data('Linked School', $user_id, $schoolID);

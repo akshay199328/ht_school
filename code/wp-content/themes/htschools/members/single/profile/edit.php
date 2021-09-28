@@ -154,12 +154,14 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 				<label for="user_country_data">Country</label>
 				<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="" value="<?php echo $user_country; ?>">
 				<input type="hidden" id="user_country" name="user_country" value="<?php echo $user_country; ?>">
+				<span id="errUserCountryData"></span>
 			</div>
 
 
 			<div class="form-group profile_search">
 				<label for="user_state">State</label>
 				<input type="text" class="form-control" id="user_state" name="user_state" placeholder="" value="<?php echo $user_state; ?>">
+				<span id="errUserState"></span>
 			</div>
 
 			<div class="form-group ">
@@ -635,6 +637,48 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			    },
 			});	
 
+			/*--------------------------------------------*/
+					$("#user_country_data").keypress(function(e) {
+	       var keyCode = e.keyCode || e.which;
+
+	       $("#errUserCountryData").text("");
+
+	       //Regex for Valid Characters i.e. Alphabets.
+	       var regex = /^[a-zA-Z\s]+$/;
+
+	       //Validate TextBox value against the Regex.
+	       var isValid = regex.test(String.fromCharCode(keyCode));
+	       if (!isValid) {
+	            $("#errUserCountryData").text("Please enter only alphabets with spaces");
+	            setTimeout(function(){ $("#errUserCountryData").html(''); }, 5000);
+	       }
+
+	       return isValid;
+
+	     });
+
+	    /* $("#user_country_data").keydown(function (e) { 
+
+	       var keyCode = e.keyCode || e.which;
+
+	       $("#errUserCountryData").text("");
+
+	       //Regex for Valid Characters i.e. Alphabets and white spaces.
+	       var regex = /^[a-zA-Z\s]+$/;
+
+	       //Validate TextBox value against the Regex.
+	       var isValid = regex.test(String.fromCharCode(keyCode));
+	       if (!isValid) {
+	            $("#errUserCountryData").text("Please enter only alphabets with spaces");
+	            setTimeout(function(){ $("#errUserCountryData").html(''); }, 5000);
+	       }
+
+	       return isValid;
+
+	     });*/
+
+			/*--------------------------------------------*/
+
 			var stateUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
 
 			$( "#user_state" ).autocomplete({
@@ -657,6 +701,49 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			        $("#user_state").val(ui.item.label);
 			    },
 			});	
+
+			/*--------------------------------------------*/
+					$("#user_state").keypress(function(e) {
+	       var keyCode = e.keyCode || e.which;
+
+	       $("#errUserState").text("");
+
+	       //Regex for Valid Characters i.e. Alphabets.
+	       var regex =/^[a-zA-Z\s]+$/;
+
+	       //Validate TextBox value against the Regex.
+	       var isValid = regex.test(String.fromCharCode(keyCode));
+	       if (!isValid) {
+	            $("#errUserState").text("Please enter only alphabets with spaces");
+	            setTimeout(function(){ $("#errUserState").html(''); }, 5000);
+	       }
+
+	       return isValid;
+
+	     });
+
+	     /*$("#user_state").keydown(function (e) { 
+
+	       var keyCode = e.keyCode || e.which;
+
+	       $("#errUserState").text("");
+
+	       //Regex for Valid Characters i.e. Alphabets and white spaces.
+	       var regex = /^[a-zA-Z\s]+$/;
+
+	       //Validate TextBox value against the Regex.
+	       var isValid = regex.test(String.fromCharCode(keyCode));
+	       if (!isValid) {
+	            $("#errUserState").text("Please enter only alphabets with spaces");
+	            setTimeout(function(){ $("#errUserState").html(''); }, 5000);
+	       }
+
+	       return isValid;
+
+	     });*/
+
+			/*--------------------------------------------*/
+
 
 			$("#edit_profile_submit").click(function(e){
 				if(validation() != true){

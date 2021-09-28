@@ -147,6 +147,7 @@ function getQuizPoints($userID,$quiz_type,$courseID){
         $quiz_arr[] = $row['id'];
       }
     }
+    $quizCountNew=0;
     foreach($quiz_arr as $quiz_id){
 
       $event_quiz_type = get_post_meta($quiz_id,'vibe_event_quiz_type',true);
@@ -155,21 +156,19 @@ function getQuizPoints($userID,$quiz_type,$courseID){
 
         $quiz_status = 'quiz_status'.$quiz_id;
 
-        $sql = $wpdb->get_results("SELECT umeta_id FROM `ht_usermeta` WHERE user_id = '".$userID."' and meta_key = '".$quiz_status."' and meta_value = '4' ");
-      
-        $unit_creds_json = json_decode( json_encode($sql), true);
-        $quiz = $unit_creds_json[0]['umeta_id'];
+        $sql = $wpdb->get_row("SELECT count(umeta_id) as quizCount FROM `ht_usermeta` WHERE user_id = '".$userID."' and meta_key = '".$quiz_status."' and meta_value = '4' ");
+        $quizCount = $sql->quizCount;
 
-        $total_quiz[] = $quiz;
+        if($quizCount != 0){
+          $quizCountNew = $quizCountNew+1;
+        }
       }
 
     }
 
-    if($total_quiz){
-      return count($total_quiz);
-    }else{
-      return 0;
-    }
+    $quizCountNew=$quizCountNew;
+
+    return $quizCountNew;
 }
 
 function getVideosCount($courseID){

@@ -966,13 +966,14 @@ function reg_verify_mob_otp(){
             $utm_campaign = $_SESSION['utm_campaign'];
             $utm_medium = $_SESSION['utm_medium'];
             $event_id = $_SESSION['event_id'];
+            $gaCode = 'GA12345';
 
             $resultsUTM = $wpdb->get_row("SELECT count(id) as utmCount FROM `ht_event_utm` WHERE `user_id` = '$user_id'");
             $utmCount = $resultsUTM->utmCount;
 
             if($utmCount == 0){
 
-                $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`) VALUES ('".$user_id."', '', '".$event_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW())");
+                $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`, `ga_code`) VALUES ('".$userIdentifier."', '".$phpsessid."', '".$post_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW(), '".$gaCode."')");
                 $wpdb->query($results);
 
                 unset($_SESSION['utm_source']);

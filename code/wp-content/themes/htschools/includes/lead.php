@@ -52,13 +52,14 @@ if($utm_source != ''){
     $_SESSION['utm_campaign'] = $utm_campaign;
     $_SESSION['utm_medium'] = $utm_medium;
     $_SESSION['event_id'] = $post_id;
+    $gaCode = 'GA12345';
 
     $resultsUTM = $wpdb->get_row("SELECT count(id) as utmCount FROM `ht_event_utm` WHERE `phpsessid` = '$phpsessid'");
     $utmCount = $resultsUTM->utmCount;
 
     if($utmCount == 0){
 
-        $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`) VALUES ('".$userIdentifier."', '".$phpsessid."', '".$post_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW())");
+        $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`, `ga_code`) VALUES ('".$userIdentifier."', '".$phpsessid."', '".$post_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW(), '".$gaCode."')");
         $wpdb->query($results);
     }
 }

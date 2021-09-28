@@ -179,8 +179,24 @@ function getVideosCount($courseID){
           $unit_arr[] = $row['id'];
         }
     }
-    return count($unit_arr);
+    foreach($unit_arr as $unit_id){
+
+      $event_unit_type = get_post_meta($unit_id,'vibe_event_quiz_type',true);
+      
+      if($event_unit_type == 'video'){
+
+        $total_unit[] = $unit_id;
+
+      }
+    }
+
+    if($total_unit){
+      return count($total_unit);
+    }else{
+      return 0;
+    }
 }
+
 function getVideoPoints($userID,$courseID){
     global $wpdb;
     $table_name = "ht_mycred_log";

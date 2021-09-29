@@ -1,3 +1,6 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+</style>
 .dashboard_content{
     margin-top: 100px!important;
 }
@@ -315,7 +318,7 @@
 .dataTables_wrapper table tbody tr:after {
     content: "";
     display: inline-block;
-    width: 113px;
+    width: 25%;
     position: absolute;
     right: 0;
     bottom: -2px;
@@ -332,6 +335,15 @@
     border: 0;
     padding: 15px 5px;
     vertical-align: middle;
+}
+.dataTables_wrapper table .rank{
+    width: 15%;
+}
+.dataTables_wrapper table .participant{
+    width: 60%;
+}
+.dataTables_wrapper table .points{
+    width: 25%;
 }
 .dataTables_wrapper table tbody td:last-child{
     font-weight: 700;
@@ -430,6 +442,23 @@ body.parent_dashboard .profile-heading{
 }
 .myprofile_content .flexMenu-viewMore.flexMenu-allInPopup a[title="Open/Close Menu"]
 {display: none!important}
+.advertisement{
+    text-align: center;
+}
+.advertisement .adwork_text{
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    display: block;
+    color: #777;
+    font-size: 10px;
+    line-height: 16px;
+    font-family: opensans_regular;
+    margin-bottom: 5px;
+}
+
 @media (max-width: 1366px) and (min-width: 1280px){
     .copy-left {width: 46%;}
     .copy-left #item-header-avatar a {width: 190px;height: 190px;bottom: -60px;}
@@ -517,7 +546,7 @@ body.parent_dashboard .profile-heading{
         margin-left:0px!important;
     }
     .dashboard-tabcontent .right-details {
-        padding-left: 0px;    padding-top: 20px;
+        padding-left: 0px;padding-top: 20px;padding-bottom: 20px;
     }
     .dashboard-tab .middle-details {margin-top: 25px;}    
     .dashboard-tab .middle-details .dashboard-heading {font-size: 20px;line-height: 21px;}
@@ -562,4 +591,11 @@ body.parent_dashboard .profile-heading{
         top: 0;
     }
     .right-details li:after{display: none}
+}
+@media (max-width: 480px) and (min-width: 320px){
+    .dataTables_wrapper table {display: inherit!important;}
+    .dataTables_wrapper table thead tr:after, 
+    .dataTables_wrapper table tbody tr:after{
+        width: 22%;
+    }
 }

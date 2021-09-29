@@ -58,10 +58,10 @@ $topics = wp_get_post_tags(get_the_ID());
 
       <div class="editor_header">
         <?php
-                        $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
-                        if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
-                            vibe_breadcrumbs(); 
-                    ?>
+            $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
+            if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
+                vibe_breadcrumbs(); 
+        ?>
         <div class="editor_socio">
           <h1><?php the_title(); ?></h1>
           <div class="pull-left">
@@ -161,7 +161,7 @@ $topics = wp_get_post_tags(get_the_ID());
               $addDisplay = ob_get_contents();
               ob_end_clean();
 
-              $ad_code = '<div class="adsense">' . $addDisplay . '</div>';
+              $ad_code = '<div class="adsense advertisement">' . $addDisplay . '</div>';
               
               $post_content = $ad_code . $post_content;
 
@@ -252,7 +252,7 @@ $topics = wp_get_post_tags(get_the_ID());
       </div>
     </div>
 </div>
-
+</div>
 <!-- releted news -->
 
 

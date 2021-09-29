@@ -2030,17 +2030,17 @@ function prefix_load_cat_posts()
             {
                 $response = '<tr>';
             }
-            $response .= '<td scope="row" class="right-space"><span class="circle">' . $course->rank . '</span></td>';
+            $response .= '<td scope="row" class="right-space rank"><span class="circle">' . $course->rank . '</span></td>';
             if ($course->user_id == $user->ID)
             {
-                $response .= '<td>' .$first_name.' '.$last_name . '</td>';
+                $response .= '<td class="participant">' .$first_name.' '.$last_name . '</td>';
             }
             else
             {
 
-                $response .= '<td>' . $first_name.' '.$last_name . '</td>';
+                $response .= '<td class="participant">' . $first_name.' '.$last_name . '</td>';
             }
-            $response .= '<td>' . $course->points . '</td>';
+            $response .= '<td class="points">' . $course->points . '</td>';
             $response .= '</tr>';
             echo $response;
         }
@@ -2128,17 +2128,17 @@ function get_course_score()
             {
                 $response = '<tr>';
             }
-            $response .= '<td scope="row" class="right-space"><span class="circle">' . $course->rank . '</span></td>';
+            $response .= '<td scope="row" class="right-space rank"><span class="circle">' . $course->rank . '</span></td>';
             if ($course->user_id == $user->ID)
             {
-                $response .= '<td>' . $first_name.' '.$last_name . '</td>';
+                $response .= '<td class="participant">' . $first_name.' '.$last_name . '</td>';
             }
             else
             {
 
-                $response .= '<td>' .$first_name.' '.$last_name. '</td>';
+                $response .= '<td class="participant">' .$first_name.' '.$last_name. '</td>';
             }
-            $response .= '<td>' . $course->score . '</td>';
+            $response .= '<td class="points">' . $course->score . '</td>';
             $response .= '</tr>';
             echo $response;
         }

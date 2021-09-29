@@ -119,9 +119,9 @@ vibe_include_template("profile/top$profile_layout.php");
             <table class="table table-responsive" id="myTable">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Participant</th>
-                        <th>Points</th>
+                        <th class="rank">Rank</th>
+                        <th class="participant">Participant</th>
+                        <th class="points">Points</th>
                     </tr>
                 </thead>
                 <tbody id="data">
@@ -219,9 +219,9 @@ vibe_include_template("profile/top$profile_layout.php");
             <table class="table table-responsive" id="myTable">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Participant</th>
-                        <th>Points</th>
+                        <th class="rank">Rank</th>
+                        <th class="participant">Participant</th>
+                        <th class="points">Points</th>
                     </tr>
                 </thead>
                 <tbody id="datas">

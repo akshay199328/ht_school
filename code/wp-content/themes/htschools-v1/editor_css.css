@@ -98,7 +98,7 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
 .featured_tablist.sticky-nav {
     position: fixed;
     top: 100px;
-    z-index: 1;
+    z-index: 11;
     width: 100%;
     left: 0;
     right: 0;
@@ -288,6 +288,9 @@ ol.breadcrumbs li a span{color: #5A5A5A;}
     line-height: 16px;
     font-family: opensans_regular;
     margin-bottom: 5px;
+}
+.videos-details .adwork_text{
+    color: #fff!important;
 }
 .infographics .course-copy .course-footer .date-time {
     font-size: 11px;

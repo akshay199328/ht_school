@@ -123,9 +123,9 @@ while ($course_query->have_posts())
             <table class="table table-responsive" id="myTable">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Participant</th>
-                        <th>Points</th>
+                        <th class="rank">Rank</th>
+                        <th class="participant">Participant</th>
+                        <th class="points">Points</th>
                     </tr>
                 </thead>
                 <tbody id="data">
@@ -222,9 +222,9 @@ while ($course_query->have_posts())
             <table class="table table-responsive" id="myTable">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Participant</th>
-                        <th>Points</th>
+                        <th class="rank">Rank</th>
+                        <th class="participant">Participant</th>
+                        <th class="points">Points</th>
                     </tr>
                 </thead>
                 <tbody id="datas">

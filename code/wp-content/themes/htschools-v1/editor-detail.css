@@ -1,3 +1,6 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+</style>
 body{letter-spacing: normal;}
 .editor_topdata {
     background: #fff;
@@ -270,6 +273,7 @@ p.newsdetail_caption {
 .videos-details .editor_socio.sticky-nav .pull-right svg #Path_39337{fill: rgb(0 0 0);}
 .videos-details .editor_socio .icon-google,
 .videos-details .editor_socio .icon-insta{display: none}
+
 @media (max-width: 1600px){
     .editor-details_page h1{font-size: 40px;line-height: 50px;}
     .editor_topdata .editor_detail h1 {font-size: 22px;}

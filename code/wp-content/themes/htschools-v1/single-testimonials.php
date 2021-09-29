@@ -171,7 +171,7 @@ if ( has_post_thumbnail() ) {
                 $addDisplay = ob_get_contents();
                 ob_end_clean();
 
-                $ad_code = '<div class="adsense">' . $addDisplay . '</div>';
+                $ad_code = '<div class="adsense advertisement">' . $addDisplay . '</div>';
                                       
                 $post_content = $ad_code . $post_content;
 

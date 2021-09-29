@@ -123,7 +123,7 @@
     color: #000;
     padding:14px 25px;
     /*width: 203px;*/
-    border-radius: 0!important;
+    border-radius: 0;
     text-align: center;
 }
 .copy-right .myprofile_content .item-list-tabs .flexMenu-popup li.current a{
@@ -146,7 +146,7 @@
     border-top-left-radius: 8px!important;
     border-bottom-left-radius: 8px!important;
 }
-.flexMenu-popup li:last-child a{
+.flexMenu-popup li:nth-child(5) a{
     border-top-right-radius: 8px!important;
     border-bottom-right-radius: 8px!important;
 }
@@ -188,7 +188,8 @@
 	padding: 12px 25px;
 	border:0px;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 0px;
+    width: 49%;
 }
 .dashboard-tab button.active{
 	background: #000;
@@ -300,6 +301,9 @@
 .postbox.course_info .dataTables_wrapper tbody{
 
 }
+.dataTables_wrapper table thead tr{
+    position: relative;
+}
 .dataTables_wrapper table tbody tr{
     border-bottom: 1px dotted #707070;
     position: relative;
@@ -307,6 +311,7 @@
 .dataTables_wrapper table tbody tr:first-child {
     background: #d5ebff;
 }
+.dataTables_wrapper table thead tr:after,
 .dataTables_wrapper table tbody tr:after {
     content: "";
     display: inline-block;
@@ -318,6 +323,7 @@
     margin-bottom: 0;
     background: #000;
 }
+.dataTables_wrapper table thead tr:after{bottom: -1px;}
 .dataTables_wrapper table tbody td {
     font-size: 17px;
     font-weight: 700;
@@ -425,8 +431,13 @@ body.parent_dashboard .profile-heading{
 .myprofile_content .flexMenu-viewMore.flexMenu-allInPopup a[title="Open/Close Menu"]
 {display: none!important}
 @media (max-width: 1366px) and (min-width: 1280px){
-    .copy-left #item-header-avatar a {width: 160px;height: 160px;}
-}
+    .copy-left {width: 46%;}
+    .copy-left #item-header-avatar a {width: 190px;height: 190px;bottom: -60px;}
+    .copy-left .Profile_details {margin-left: 38%;}
+    .copy-right {width: 54%;}
+    .copy-right .myprofile_content .item-list-tabs .flexMenu-popup li {font-size: 17px;}
+    .copy-right .myprofile_content .item-list-tabs .flexMenu-popup li a{padding: 14px 15px;}
+} 
 @media (max-width: 1199px) and (min-width: 1025px){
     .copy-left{padding-left: 0;}
 }
@@ -434,6 +445,7 @@ body.parent_dashboard .profile-heading{
     .dashboard_content .dashboard_header .dashboard-container {padding: 0px 20px 30px;}
 }
 @media (max-width: 1023px) and (min-width: 320px){
+    .dashboard-tabcontent .middle-table{order: 3;}
     .copy-left { width: 100%; padding-left: 0;}
     .copy-left #item-header-avatar a {
         position: relative;

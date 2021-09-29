@@ -101,6 +101,7 @@ body, button, input, select, textarea{
     border-radius: 100%;
     position: absolute;
     bottom: -57px;
+    border: 5px solid #fff;
 }
 .total-left .icon img{
     border-radius: 100%;
@@ -342,7 +343,7 @@ input#myInputTextField::-webkit-input-placeholder {
     
 }
 .custom_datatable .select-sort select{
-    padding: 5px 23px 5px 15px;
+    padding: 5px 17px 5px 15px;
 }
 .dataTables_wrapper {
     position: initial;
@@ -418,7 +419,7 @@ input#myInputTextField::-webkit-input-placeholder {
 .dataTables_wrapper table tbody tr:after {
     content: "";
     display: inline-block;
-    width: 72px;
+    width: 120px;
     position: absolute;
     right: 0;
     bottom: -2px;
@@ -432,7 +433,11 @@ input#myInputTextField::-webkit-input-placeholder {
     line-height: 23px;
     color: #000;
     border: 0;
-    padding: 25px 5px;
+    padding: 25px 10px 25px 5px;
+}
+
+.dataTables_wrapper table tbody td:first-child{
+    text-align: center;
 }
 .dataTables_wrapper table tbody td:last-child{
     font-weight: 700;
@@ -503,11 +508,31 @@ input#myInputTextField::-webkit-input-placeholder {
  {
     display:none!important;
  }
- @media (max-width: 1366px) and (min-width: 1200px){
+@media screen and (min-width: 768px){
+    .custom_datatable .dataTables_wrapper table thead th:first-child{
+        width: 5%;
+        text-align: center;
+    }
+    .custom_datatable .dataTables_wrapper table thead th:nth-child(2){
+        width: 22%;
+    }
+    .custom_datatable .dataTables_wrapper table thead th:nth-child(3){
+        width: 15%;
+    }
+    .custom_datatable .dataTables_wrapper table thead th:nth-child(4){
+        width: 23%;
+    }
+    .custom_datatable .dataTables_wrapper table thead th:nth-child(5){
+        width: 24%;
+    }
+    .custom_datatable .dataTables_wrapper table tbody th:last-child{
+        width: 11%;
+    }
+}
+@media (max-width: 1366px) and (min-width: 1200px){
     .top-align { padding: 0px 0%;}
     .datatable-container {padding: 0px 6%;}
     .select-sort, .select-class, .dataTables_wrapper .dt-button{width: 170px;}
-    .dataTables_wrapper table tbody tr:after {width: 176px}
     .total-left .school-name_total h3 {line-height: 40px;}
     .total-left .icon {width: 200px;height: 200px;}
 }
@@ -558,6 +583,10 @@ input#myInputTextField::-webkit-input-placeholder {
     .school_studTotal, .school_studTotal .container {flex-direction: column;}
     .school_studTotal{min-height: auto;padding-bottom: 30px;}
     .total-left, .total-right{width: 100%;}
+    .total-left {
+        display: flex;
+        align-items: flex-start;
+    }
     .top-align {padding: 0px 0%;}
     .total-left .icon {width: 25%;height: auto;position: relative;bottom: 0;}
     .total-left .school-name_total {width: 70%;padding-left: 10px;}
@@ -602,12 +631,24 @@ input#myInputTextField::-webkit-input-placeholder {
     .dataTables_wrapper table tbody td {padding: 15px 5px;font-size: 13px;font-weight: 700;line-height: 17px;}
     .dataTables_wrapper table thead th {font-size: 11px;text-transform: uppercase;}
     .dataTables_wrapper thead{height: 35px;}
-    .dataTables_wrapper table tbody tr:after{    width: 64px;}
     .dataTables_wrapper .dt-buttons{top: -65px;}
     .school_studTotal{margin-top: 70px;}
+    .custom_datatable .dataTables_wrapper table tbody th:last-child{
+        width: 11%;
+    }
+}
+@media (max-width: 600px) and (min-width: 320px){
+    .dataTables_wrapper table tbody tr:after {width: 18%;}
 }
 @media (max-width: 480px) and (min-width: 320px){
     .school_studTotal{margin-top: 110px;}
+    .dataTables_wrapper table {overflow-x: scroll;display: inherit!important;}
+    .custom_datatable .dataTables_wrapper table tbody tr:after {width: 18%;}
+    .postbox.course_info .dataTables_wrapper .dataTables_paginate .paginate_button{
+        font-size: 14px;
+        width: 32px;
+        height: 32px;
+    }
 }
 @media (max-width: 414px) and (min-width: 381px){
     .dataTables_wrapper .dt-buttons{

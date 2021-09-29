@@ -55,7 +55,13 @@ $topics = wp_get_post_tags(get_the_ID());
 ?>
 <div class="editor-details_page">
     <div class="editor_detail">
+
       <div class="editor_header">
+        <?php
+                        $breadcrumbs=get_post_meta(get_the_ID(),'vibe_breadcrumbs',true);
+                        if(vibe_validate($breadcrumbs) || empty($breadcrumbs))
+                            vibe_breadcrumbs(); 
+                    ?>
         <div class="editor_socio">
           <h1><?php the_title(); ?></h1>
           <div class="pull-left">

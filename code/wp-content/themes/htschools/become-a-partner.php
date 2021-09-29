@@ -28,15 +28,15 @@ $form_id = $contact_form -> id;
 
 <section class="section popular-wrapper school-wrapper">
           <div class="section-copy">
-            <div class="school-listing" style="width: 100%;">
-                    <div class="section-head" style="width: 100%;">
+            <div class="school-listing">
+                    <div class="section-head">
                       <div class="header-copy">
                           <h3 class="medium-title">Our Partner Schools</h3>
                       </div>
                      
                   </div>
 
-                   <div class="courses-wrapper" style="width: 100%;">
+                   <div class="courses-wrapper">
 <?php
         $args1 = array(
           'post_type' => 'school_logos',
@@ -71,10 +71,12 @@ $form_id = $contact_form -> id;
             
     </div>
     <div class="partner-form">
-                  <?php if(have_posts()):while(have_posts()):the_post(); ?>
-                  <?php the_content(); ?>
-                  <?php endwhile; endif; ?>
-              </div>
+      <div class="partner-copy1">
+      <?php if(have_posts()):while(have_posts()):the_post(); ?>
+      <?php the_content(); ?>
+      <?php endwhile; endif; ?>
+      </div>
+    </div>
 </section>
 
 

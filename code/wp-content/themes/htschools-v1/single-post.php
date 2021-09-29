@@ -1,4 +1,3 @@
-bhavna code 
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(vibe_get_header());

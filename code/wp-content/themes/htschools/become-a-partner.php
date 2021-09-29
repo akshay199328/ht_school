@@ -35,7 +35,6 @@ $form_id = $contact_form -> id;
                       </div>
                      
                   </div>
-
                    <div class="courses-wrapper">
 <?php
         $args1 = array(

@@ -520,7 +520,6 @@ foreach($course_quiz as $quiz_units){
 
 }
 
-
 $resultsQuizTotal = $wpdb->get_results("SELECT count(id) as total_quiz_points FROM $my_cred_table WHERE user_id = '".$userID."' and data = '".$courseID."'");
 $total_quiz_points = $resultsQuizTotal[0]->total_quiz_points;
 

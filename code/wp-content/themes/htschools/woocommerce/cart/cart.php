@@ -277,7 +277,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 			jQuery('.woocommerce-error .eventcart').parent().parent().addClass('alert-parent');
 			jQuery('.woocommerce-error .eventcart').parent().addClass('alert-list');
-			jQuery('.woocommerce-error').attr('style', 'display: block !important');
+			jQuery('.woocommerce-error.alert-parent').attr('style', 'display: block !important');
 
 			var allItems = JSON.parse('<?php echo json_encode($dataLayerItems); ?>');
 

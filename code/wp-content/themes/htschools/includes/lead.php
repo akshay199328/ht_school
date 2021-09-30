@@ -45,6 +45,11 @@ $phpsessid = $_COOKIE['PHPSESSID'];
 $utm_source = $_GET['utm_source'];
 $utm_campaign = $_GET['utm_campaign'];
 $utm_medium = $_GET['utm_medium'];
+$gaCode = $_COOKIE['_ga'];
+
+//$CookieInfo = session_get_cookie_params();
+
+//$gaCokkie = $CookieInfo['domain'];
 
 if($utm_source != ''){
 
@@ -52,7 +57,6 @@ if($utm_source != ''){
     $_SESSION['utm_campaign'] = $utm_campaign;
     $_SESSION['utm_medium'] = $utm_medium;
     $_SESSION['event_id'] = $post_id;
-    $gaCode = 'GA12345';
 
     $resultsUTM = $wpdb->get_row("SELECT count(id) as utmCount FROM `ht_event_utm` WHERE `phpsessid` = '$phpsessid'");
     $utmCount = $resultsUTM->utmCount;
@@ -105,7 +109,7 @@ if($utm_source != ''){
             </span>
             <div class="group-logos">
                 <div class="column">
-                    <span class="title">POWERED BY</span>
+                    <span class="title">POWERED BY - <?php echo $gaCode; ?></span>
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/speed.png">
                 </div>
                 <div class="column">

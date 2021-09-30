@@ -1753,7 +1753,8 @@ function get_countries(){
 LOWER(SUBSTRING(country_name,2))) AS country_name  FROM " . $wpdb->prefix . "country_master WHERE country_name LIKE '" . esc_attr($_REQUEST['term']) . "%'" );
     foreach ($results as $data) {
         $row = array();
-        $response[] = $data->country_name;
+        //$response[] = $data->country_name;
+        $row['label'] = $data->country_name;
         $row['value'] = $data->country_id;
 
         $response[] = $row;

@@ -3703,8 +3703,8 @@
         })))), t.submitted && t.next_unit != null ? jt("div", {
             className: "next_unit_button",
             onClick: () => {
-                jQuery("#complete_current_quiz").trigger('click');
                 //document.getElementById("navigate_unit").click(); 
+                jQuery("#complete_current_quiz").trigger('click');
             } 
         },"Next Unit") : "") : ""
     };
@@ -3996,26 +3996,23 @@
                         method: "post",
                         body: JSON.stringify(s)
                     }).then(e => e.json()).then(e => {
+                        
                         if (e) {
                             if(e.submitted && e.submitted == true){
                                 jQuery("#complete_current_unit").trigger('click');
                             }
-                                jQuery('.attempt-number').text(e.meta.retakes);
+                               jQuery('.attempt-number').text(e.meta.retakes);
                                 jQuery('#hide-share').removeClass('share result-share'); 
                                 jQuery('#hide-share').addClass('hide-share');
-                            if(e.quiz_points > 0 && e.event_quiz_type != 'video'){
-                                jQuery('#hide-share').removeClass('hide-share');
-                                jQuery('#hide-share').addClass('share result-share'); 
-                            }
+                               if(e.quiz_points > 0 && e.event_quiz_type != 'video'){
+                                    jQuery('#hide-share').removeClass('hide-share');
+                                    jQuery('#hide-share').addClass('share result-share'); 
+                                }
                             if(e.submitted != undefined && e.submitted == true && e.quiz_points > 0){
                                 jQuery('.right-info').removeClass('show-right-info');
                                 jQuery('.result-show').text('PASSED');
                                 jQuery('#result-display').removeClass("failed");
                                 jQuery('#result-display').addClass("pass");
-                                if(e.event_quiz_type != 'video' && e.quiz_points > 0){
-                                    jQuery('#hide-share').removeClass('hide-share');
-                                    jQuery('#hide-share').addClass('share result-share');
-                                }
                             }
                             else if(e.meta.retakes == 0 && e.submitted == true && e.is_event_type == 1 && e.quiz_points == 0){
                                 jQuery('.right-info').addClass('show-right-info');
@@ -4031,13 +4028,14 @@
                                 jQuery('#result-display').removeClass("failed");
                                 jQuery('#result-display').addClass("pass");
                             }
-                            
                             // if(e.meta.retakes > 0){
                             //     jQuery('.right-info').addClass('show-right-info');
                             // }
                             // else{
                             //     jQuery('.right-info').removeClass('show-right-info');
                             // }
+                            console.log(e.submitted);
+                            console.log(e);
                             if (S(null), e.meta && e.meta.questions) {
                                 let t = 0,
                                     s = 0;
@@ -4149,7 +4147,7 @@
                                 });
                                 document.dispatchEvent(r)
                             }
-                                jQuery("#complete_current_unit").trigger('click');
+                            jQuery("#complete_current_unit").trigger('click');
                             if(t.quiz_points_credit > 0){
                                 var prev_creds = jQuery('.point-number').text();
                                 var total_creds = parseInt(prev_creds) + parseInt(t.quiz_points_credit);
@@ -4167,6 +4165,8 @@
                                 jQuery('.next_unit_button').removeClass('disabled');
                                 jQuery('#retake-quiz').removeClass('hide-retake');
                                 jQuery('#retake-quiz').addClass('button');
+                                jQuery('#hide-share').removeClass('hide-share');
+                                jQuery('#hide-share').addClass('share result-share');
                                 if(t.event_quiz_type == 'video'){
                                     jQuery('#hide-share').addClass('hide-share');
                                     jQuery('#hide-share').removeClass('share result-share');
@@ -4177,8 +4177,6 @@
                             }
                             else{
                                 jQuery('.right-info').addClass('show-right-info');
-                                jQuery('#hide-share').removeClass('share result-share');
-                                jQuery('#hide-share').addClass('hide-share');
 
                             }
                             //jQuery('.right-info').addClass('show-right-info');
@@ -4440,38 +4438,7 @@
                     document.getElementById('show_result').style.display = 'none';
                     document.getElementById("quiz_questions_content").classList.remove("quiz_after_submitted");
                 }
-            },"Review Quiz Questions"), Rt("span", {
-                className: ""
-            }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
-                className: "quiz_retake",
-                onClick: () => (a("retake"), void fetch(window.wplms_course_data.api_url + "/user/coursestatus/retake_single_quiz/" + e.quizid, {
-                    method: "post",
-                    body: JSON.stringify({
-                        token: k
-                    })
-                }).then(e => e.json()).then(t => {
-                    jQuery('.right-info').removeClass('show-right-info');
-                    t && (t.status ? (L(), e.hasOwnProperty("update") && e.update("retake_quiz")) : t.message && (On("vibebp").addNotification({
-                        icon: "",
-                        text: t.message
-                    }), a(!1)))
-                }))
-            }, gn("a", {
-                className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
-            }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "",
-            t.next_unit != null || t.last_unit == 0 ? Rt("span", {
-                className: t.meta.retakes != 0 && t.quiz_points == 0 && t.is_event_type ==1 ? "button next_unit_button disabled" : "button next_unit_button",
-                onClick: () => {
-                    jQuery("#complete_current_quiz").trigger('click');
-                    // document.getElementById("complete_current_unit").click(); 
-                    // document.getElementById("navigate_unit").click(); 
-                }
-            },"Next Unit") : t.last_unit == 1 && t.is_event_type == 1 ? Rt("span", {
-                className: "button next_unit_button",
-                onClick: () => {
-                    window.location.href = window.wplms_course_data.home_url + '/event-dashboard'; 
-                }
-            },"Go to Dashboard") : ''), t.event_quiz_type !='video' && t.is_event_type ? Rt("span", {
+            },"Review Quiz Questions"),t.event_quiz_type !='video' && t.is_event_type ? Rt("span", {
                 id:'hide-share',
                 className: t.meta.retakes == 0 && t.event_quiz_type !='video' && t.quiz_points > 0  ? "share result-share" : t.meta.retakes > 0 && t.quiz_points > 0 ? "share result-share" : t.meta.retakes == 0 && t.quiz_points > 0  ? "share result-share" : "hide-share"
             },gn("h6",{
@@ -4497,7 +4464,37 @@
             },gn("a", {
                 className: "share-facebook",
             href: "https://www.facebook.com/sharer/sharer.php?text="+t.share_quiz_content+"",
-            target: "_blank"}))))) : ''))) : '', gn("div", {
+            target: "_blank"}))))):'')), Rt("div", {
+                className: "buttons_wrapper pull-right"
+            }, !t.start && t.submitted && t.meta && t.meta.retakes && is_quiz_retake > 0 ? gn("div", {
+                className: "quiz_retake",
+                onClick: () => (a("retake"), void fetch(window.wplms_course_data.api_url + "/user/coursestatus/retake_single_quiz/" + e.quizid, {
+                    method: "post",
+                    body: JSON.stringify({
+                        token: k
+                    })
+                }).then(e => e.json()).then(t => {
+                    jQuery('.right-info').removeClass('show-right-info');
+                    t && (t.status ? (L(), e.hasOwnProperty("update") && e.update("retake_quiz")) : t.message && (On("vibebp").addNotification({
+                        icon: "",
+                        text: t.message
+                    }), a(!1)))
+                }))
+            }, gn("a", {
+                className: "retake" === s ? "retake_quiz button is-primary is-loading" : "retake_quiz button is-primary"
+            }, window.wplms_course_data.translations.retake), gn("strong", null, window.wplms_course_data.translations.retakes_left, " : ", t.meta.retakes)) : "",
+            t.next_unit != null || t.last_unit == 0 ? Rt("span", {
+                className: t.meta.retakes != 0 && t.quiz_points == 0 && t.is_event_type ==1 ? "button next_unit_button disabled" : "button next_unit_button",
+                onClick: () => {
+                    jQuery("#complete_current_quiz").trigger('click');
+                    //document.getElementById("navigate_unit").click(); 
+                }
+            },"Next Unit") : t.last_unit == 1 && t.is_event_type == 1 ? Rt("span", {
+                className: "button next_unit_button",
+                onClick: () => {
+                    window.location.href = window.wplms_course_data.home_url + '/event-dashboard'; 
+                }
+            },"Go to Dashboard") : '')) : '', gn("div", {
                 className: U
             }, gn("div", {
                 id: "ajaxloader",
@@ -6619,7 +6616,6 @@
                                 token: Y.token
                             })
                         }).then(e => e.json()).then(s => {
-                            console.log(s.unit_type);
                             if(s.unit_type == "text-document"){
                                 jQuery("#complete_current_unit").trigger('click');
                             }
@@ -7267,7 +7263,7 @@
             style: {
                 width: c.user_progress + "%"
             }
-        })), sr("span", null, c.user_progress, "%", ' complete'))) : "", sr(P, null)), sr("div", {
+        })), sr("span", null, c.user_progress, "%"))) : "", sr(P, null)), sr("div", {
             className: "course_content"
         }, sr("div", {
             className: "course_content_header"

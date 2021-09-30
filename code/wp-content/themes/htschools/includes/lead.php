@@ -117,7 +117,7 @@ if($utm_source != ''){
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/ibm.png">
                 </div>
                 <div class="column">
-                    <span class="title">Featured Partner</span>
+                    <span class="title">Partner</span>
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/intel.png">
                 </div>
             </div>

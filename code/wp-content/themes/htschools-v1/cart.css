@@ -1,0 +1,261 @@
+.woocommerce .woocommerce-message,
+.woocommerce .woocommerce-message a{
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: #000;
+    border-top-color: #ff5858;
+}
+body.woocommerce-cart  {
+    background: #F9F9F9;
+}
+.custom-pagetitle{
+	padding: 20px 2.5% 0px 2.5%;
+}
+.woocommerce-cart ol.breadcrumbs{
+	margin-bottom: 20px;
+}
+.custom-pagetitle h1{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 40px;
+    margin: 0;
+}
+body.woocommerce-cart .custom-pagetitle h1{display: none}
+.empty_cart_div {
+    text-align: center;
+    padding-bottom: 40px;
+}
+.empty_cart_div .cart_heading{
+   font-size: 40px;
+    font-weight: 700;
+    line-height: 40px;
+    margin: 0;
+    text-align: left;
+}
+.empty_cart_image {
+    /*background-image: url(../assets/images/empty_cart.png);*/
+    background-image:url("images/empty_cart.png")
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+}
+.empty_cart_div h4{
+	color: #385DD9;
+	font-size: 30px;
+	line-height: 46px;
+	font-weight: 700;
+    margin-top: 18px;
+}
+.empty_cart_div .semi-title{
+	color: #000000;
+	font-size: 18px;
+	line-height: 19px;
+	font-weight: 400;
+}
+.empty_cart_div .return-to-shops {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-top: 40px;
+}
+.empty_btn{
+	font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    letter-spacing: 1.92px;
+    border: 2px solid #000;
+    color: #000!important;
+    padding: 13px 43px;
+    display: block;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+.page-container {
+    padding: 0px 2.5%;
+}
+.cart-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.cart_left {
+    width: 70%;
+    background: #fff;
+    box-shadow: 0px 2px 12px rgb(41 71 94 / 10%);
+    border-radius: 8px;
+}
+.cart_left .cart_heading{
+	font-size: 22px;
+    line-height: 33px;
+    font-weight: 700;
+    background: #C7E3FD;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 15px 30px;
+}
+.cart_left .table-copy table{
+	width: 100%;
+    border-collapse: collapse;
+    display: inline-table !important;
+}
+.cart_left .table-copy {
+    padding: 20px 30px;
+}
+.cart_left .table-copy thead {
+    border-bottom: 0!important;
+}
+.cart_left .table-copy table th{
+	font-size: 14px;
+	line-height:21px;
+	font-weight: 500;
+	padding: 5px 0px 20px;
+	border: 0px;
+}
+.cart_left .table-copy table tr{
+	border-bottom: 1px dotted #707070;
+}
+.cart_left .table-copy table td{
+	font-size: 18px;
+	line-height:22px;
+	font-weight: 500;
+	border: 0px;
+	padding: 20px 0px;
+}
+.cart_left .table-copy table td a{
+	color: #000;font-weight: 500;
+}
+.product-name a {
+    padding-left: 20px;
+}
+.cart_left .table-copy table .product-remove {
+    width: 4%;padding: 0;
+}
+.woocommerce a.remove {
+    font-size: 26px;
+    height: auto; 
+    width: auto; 
+    text-align: left;
+    color: #000!important;
+    font-weight: 300!important;
+}
+.woocommerce a.remove:hover {
+    color: #000!important;
+    background: transparent;
+}
+.cart_left .table-copy table.cart .product-thumbnail {
+    width: 60px;
+    height: 60px;
+}
+.cart_left .table-copy table.cart img {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+}
+.cart_left .table-copy table .course_price {
+    font-weight: 700;
+    color: #000;
+}
+.apply_coupon{border-bottom: 0px;}
+.woocommerce-cart table.cart td.actions .coupon {
+    width: 100%;
+}
+.cart_left .table-copy table tr.apply_coupon{
+	border-bottom:0px;
+}
+.woocommerce-cart table.cart .apply_coupon td.actions .coupon .input-text{
+	max-width: 100%;
+    width: 453px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 15px 20px;
+    margin: 0 0px 0 0;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight:400;
+    color: #000;
+}
+.woocommerce-cart table.cart .apply_coupon td.actions .coupon .input-text::-webkit-input-placeholder {
+  color: #A2A0A0;
+}
+.woocommerce .cart .apply_coupon .button{
+	background: #385DD9;
+    color: #fff;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    padding: 18px 40px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    height: 100%;
+    right: 3px;
+    letter-spacing: 1.92px;
+    text-transform: uppercase;
+} 
+.cart_right{
+    width: 30%;
+    margin-left: 80px;
+    background: #fff;
+    box-shadow: 0px 2px 12px rgb(41 71 94 / 10%);
+    border-radius: 8px;
+    padding: 30px;
+}
+.cart_right .wc-proceed-to-checkout{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart_right .wc-proceed-to-checkout a {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    height: 100%;
+    right: 3px;
+    letter-spacing: 1.92px;
+    text-transform: uppercase;
+    border: 1px solid #000!important;
+    background: transparent!important;
+    color: #000!important;
+    border-radius: 8px;
+    padding: 15px 5px;
+    width: 90%;;
+    box-shadow: none!important;
+}
+.cart_right table.shop_table  {
+    border-top: 1px dotted #707070;
+    border-bottom: 1px dotted #707070;
+    margin: 33px 0px 25px;
+    padding-bottom: 20px;
+}
+.cart_right table.shop_table td,
+.cart_right table.shop_table th {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400!important;
+    border: 0px!important;
+    padding: 20px 0px 0px;
+    color: #000
+}
+.cart-subtotal td[data-title="Subtotal"],
+.order-total td[data-title="Total"] {
+    text-align: right;
+}
+.cart-subtotal td .course_price,
+.order-total td .course_price{color: #000;font-weight: 400}
+@media (max-width: 1024px){
+    .custom-pagetitle {padding: 0 20px!important;}
+}
+@media (max-width: 768px){
+	.custom-pagetitle h1 {font-size: 20px;line-height: 26px;}
+    .empty_cart_div h4 {font-size: 26px;line-height: 31px;}
+    .dark{font-size: 30px;}
+}
+@media (max-width: 480px){
+	.empty_btn{width: 100%}
+}

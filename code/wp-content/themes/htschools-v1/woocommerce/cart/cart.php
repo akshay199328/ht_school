@@ -23,8 +23,8 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 	wc_print_notices();
 
 	do_action( 'woocommerce_before_cart' ); ?>
-	<div class="row">
-			<div class="col-md-8">
+	<div class="cart-content">
+			<div class="cart_left">
 				<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 		<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
@@ -214,7 +214,7 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 
 						<?php do_action( 'woocommerce_cart_contents' ); ?>
 
-						<tr>
+						<tr class="apply_coupon">
 							<td colspan="6" class="actions coupon_td">
 
 								<?php if ( wc_coupons_enabled() ) { ?>
@@ -252,18 +252,12 @@ if(function_exists('WC') && version_compare( WC()->version, "3.8.0", ">="  )){
 			do_action( 'woocommerce_cart_collaterals' );
 			?>
 		</div>
-		<div class="col-md-4">
-			<div class="cart-collaterals">
-				<?php
-
-
+		<div class="cart_right">
+			<?php
 				if(!did_action('woocommerce_cart_totals')){
 					do_action('woocommerce_cart_totals');
 				}
-
-				?>
-
-			</div>
+			?>
 		</div>
 	</div>
 

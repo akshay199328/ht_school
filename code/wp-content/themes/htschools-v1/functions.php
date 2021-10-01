@@ -281,6 +281,8 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     } 
     wp_enqueue_style( 'wplms-school-datatable-css-v1', get_template_directory_uri(). '/assets/css/school-datatable-custom?v=1.1' );
     wp_enqueue_style( 'wplms-profile-dashboard-css-v1', get_template_directory_uri(). '/profile-dashboard.css?v=1.1' );
+    wp_enqueue_style( 'wplms-cart-page-css-v1', get_template_directory_uri(). '/cart.css?v=1.1' );
+    
     wp_enqueue_script( 'wplms-jquery', get_template_directory_uri(). '/assets/js/jquery.min.js', '', '', true );
     // wp_enqueue_script( 'wplms-froogaloop2', '//f.vimeocdn.com/js/froogaloop2.min.js', '', '', true );
     wp_enqueue_script( 'wplms-player', '//player.vimeo.com/api/player.js', '', '', true );

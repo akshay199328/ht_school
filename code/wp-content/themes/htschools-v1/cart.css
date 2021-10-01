@@ -158,7 +158,8 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     height: 55px;
     border-radius: 8px;
 }
-.cart_left .table-copy table .course_price {
+.cart_left .table-copy table .course_price,
+.cart_left .table-copy table .amount {
     font-weight: 700;
     color: #000;
 }
@@ -247,7 +248,9 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     text-align: right;
 }
 .cart-subtotal td .course_price,
-.order-total td .course_price{color: #000;font-weight: 400}
+.order-total td .course_price,
+.cart-subtotal .amount,
+.order-total .amount{color: #000;font-weight: 400}
 @media (max-width: 1024px){
     .custom-pagetitle {padding: 0 20px!important;}
 }

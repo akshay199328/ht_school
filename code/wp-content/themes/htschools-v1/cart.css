@@ -165,7 +165,7 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
 }
 .apply_coupon{border-bottom: 0px;}
 .woocommerce-cart table.cart td.actions .coupon {
-    width: 100%;
+    width: 100%;position: relative;
 }
 .cart_left .table-copy table tr.apply_coupon{
 	border-bottom:0px;
@@ -207,10 +207,16 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     border-radius: 8px;
     padding: 30px;
 }
+.cart_right h2{
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 700;
+}
 .cart_right .wc-proceed-to-checkout{
 	display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 20px;
 }
 .cart_right .wc-proceed-to-checkout a {
     font-size: 14px;
@@ -227,12 +233,17 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     padding: 15px 5px;
     width: 90%;;
     box-shadow: none!important;
+    white-space: normal;
 }
 .cart_right table.shop_table  {
+    width: 100%;
+    border-collapse: collapse;
+    display: inline-table !important;
     border-top: 1px dotted #707070;
-    border-bottom: 1px dotted #707070;
+    /*border-bottom: 1px dotted #707070;*/
     margin: 33px 0px 25px;
     padding-bottom: 20px;
+
 }
 .cart_right table.shop_table td,
 .cart_right table.shop_table th {
@@ -243,22 +254,88 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     padding: 20px 0px 0px;
     color: #000
 }
+.cart_right table tr.order-total   {
+    border-top: 1px dotted #707070;
+    padding-top: 30px;
+}
+.cart-subtotal th,
+.cart-subtotal td  {
+    padding-bottom: 20px!important;
+}
 .cart-subtotal td[data-title="Subtotal"],
 .order-total td[data-title="Total"] {
     text-align: right;
 }
 .cart-subtotal td .course_price,
 .order-total td .course_price,
-.cart-subtotal .amount,
-.order-total .amount{color: #000;font-weight: 400}
-@media (max-width: 1024px){
-    .custom-pagetitle {padding: 0 20px!important;}
+.cart-subtotal .amount{color: #000;font-weight: 400}
+.cart_right table.shop_table .order-total th,
+.order-total th,
+.order-total td,
+.order-total td .course_price,
+.order-total .amount{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700!important;
+    padding-top: 30px!important;
 }
-@media (max-width: 768px){
+@media screen and (max-width: 1024px) {
+    .custom-pagetitle, .page-container{padding: 0 20px!important;}
+    .cart_right {margin-left: 25px;}
+    .cart_right .wc-proceed-to-checkout a{width: 100%;padding: 15px 10px;}
+    .woocommerce-cart table.cart .apply_coupon td.actions .coupon .input-text {width: 60%;}
+    .woocommerce .cart .apply_coupon .button{padding: 18px 22px;}
+}
+@media screen and (max-width: 768px){
 	.custom-pagetitle h1 {font-size: 20px;line-height: 26px;}
     .empty_cart_div h4 {font-size: 26px;line-height: 31px;}
     .dark{font-size: 30px;}
 }
-@media (max-width: 480px){
+@media screen and (max-width: 767px) and (min-width: 320px){
+    .custom-pagetitle {padding: 0 20px!important;}
+    .cart-content {flex-direction: column;}
+    .cart_left {width: 100%;}
+    .cart_left .cart_heading, .cart_right h2{font-size: 20px; line-height: 26px;}
+    .cart_left .table-copy table .product-remove {width: 10%;}
+    .cart_left .table-copy table td {font-size: 14px;line-height: 15px;}
+    .cart_left .table-copy table td.product-name{padding-left: 20px;}
+    .product-name a {padding-left: 0px;}
+    .cart_left .table-copy table th {font-size: 12px;line-height: 18px;padding: 5px 0px 10px;}
+    .cart_right table.shop_table{margin: 20px 0px 20px;}
+    .cart_right table.shop_table td, .cart_right table.shop_table th {
+        font-size: 14px;
+    }
+    .cart_right table.shop_table .order-total th, .order-total th, .order-total td, .order-total td .course_price, .order-total .amount {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .woocommerce-cart table.cart .apply_coupon td.actions .coupon .input-text {
+        width: 100%;padding: 15px 40% 15px 20px;
+    }
+    .woocommerce .cart .apply_coupon .button{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 97px;
+        position: absolute;
+        right: 0;
+        padding: 18px 15px;
+        font-size: 12px;
+    }
+    .cart_right {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 30px;
+    }
+    .cart_right .wc-proceed-to-checkout a {
+        font-size: 10px;
+        line-height: 16px;
+        font-weight: 700;
+        padding: 12px 10px;
+    }
+    body.cart #title{
+        padding-top: 10px;
+    }
+}
+@media screen and (max-width: 480px){
 	.empty_btn{width: 100%}
 }

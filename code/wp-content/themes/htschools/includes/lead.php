@@ -109,7 +109,7 @@ if($utm_source != ''){
             </span>
             <div class="group-logos">
                 <div class="column">
-                    <span class="title">POWERED BY - <?php echo $gaCode; ?></span>
+                    <span class="title">POWERED BY</span>
                     <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/group-logo/speed.png">
                 </div>
                 <div class="column">

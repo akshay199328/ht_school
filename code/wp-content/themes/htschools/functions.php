@@ -5105,4 +5105,46 @@ $check_parent_contact_number = $_REQUEST['check_parent_contact'];
   echo json_encode($response); 
   exit;
 }
+
+add_action("wp_ajax_otp_email_address1", "otp_email_address1");
+add_action( 'wp_ajax_nopriv_otp_email_address1', 'otp_email_address1' );
+
+function otp_email_address1(){
+
+global $wpdb;
+ $check_otp_email = $_REQUEST['email'];
+
+ $main_result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `student_email`='". esc_attr($check_otp_email) ."'");
+
+$result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_response_email_otp` WHERE `emailaddress`='". esc_attr($check_otp_email) ."' ORDER BY otp_id DESC" );
+
+$otp  = random_int(100000, 999999);
+
+$otp_email_insert = $wpdb->prepare("INSERT INTO `ht_response_email_otp`(`emailaddress`, `otp_no`, `otp_verify`) VALUES ('".$check_otp_email."', '".$otp."', '0')");
+
+  $wpdb->query($otp_email_insert);
+
+  $inserted_otp_id = $wpdb->insert_id;
+
+  if($inserted_otp_id != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $otp
+    );
+
+    $response['status'] = 1;
+
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $otp
+    );
+
+    $response['status'] = 0;
+  }
+  
+  echo json_encode($response); 
+  exit;
+
+}
 /*--------------------------------------------------------------------*/

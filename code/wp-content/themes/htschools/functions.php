@@ -619,6 +619,9 @@ function reg_verify_otp(){
                 do_action( 'wp_login', $user->user_login, $user);
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
+                $userData->last_active = date('d-m-Y H:i:s',get_user_meta($user->ID, 'wc_last_active', true));  
+                $userData->first_name = get_user_meta($user->ID, 'first_name', true); 
+                $userData->last_name = get_user_meta($user->ID, 'last_name', true);
              //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
             }else{
@@ -1999,6 +2002,8 @@ function setSocialLoginData($socialType)
             ),
             "moengage" => array(
                 "User identifier" => $currentUserID,
+                "First Name"      =>get_user_meta($currentUserID, 'first_name', true),  
+                "Last Name"       =>get_user_meta($currentUserID, 'last_name', true),
                 "Session source"  => "",
                 "Timestamp"       => date('c', time()),
                 "UTM tags"        => "",
@@ -2575,13 +2580,13 @@ function get_rank()
     }
 }
 
-function change_woocommerce_order_number($order_id) {
-  $order = new WC_Order( $order_id );
-  $items = $order->get_items();
-  foreach ($items as $item_id => $product ) {
-    $gen_id = rand(1000,9999);
-    return $order_id = 'HTS-'.$item_id.$gen_id;
-  }
+function change_woocommerce_order_number($order_id) { 
+  $order = new WC_Order( $order_id ); 
+  $items = $order->get_items(); 
+  foreach ($items as $item_id => $product ) { 
+    //$gen_id = rand(1000,9999);  
+    return $order_id = 'HTS-'.$item_id.$product['order_id'];  
+  } 
 }
 add_filter('woocommerce_order_number', 'change_woocommerce_order_number');
 
@@ -3357,6 +3362,8 @@ function ht_social_login(){
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
                 $userData->last_active = date('d-m-Y H:i:s',get_user_meta($user->ID, 'wc_last_active', true));
+                $userData->first_name = get_user_meta($user->ID, 'first_name', true);  
+                $userData->last_name = get_user_meta($user->ID, 'last_name', true);
              //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
 

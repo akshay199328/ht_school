@@ -1,0 +1,1 @@
+<p>Hi , This is {{ $data['otp_no']}}</p>

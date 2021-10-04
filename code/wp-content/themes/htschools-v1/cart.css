@@ -284,6 +284,9 @@ body.woocommerce-checkout .custom-pagetitle h1{display: none}
     padding-top: 30px!important;
     color: #000;
 }
+.cart_totals .woocommerce-Price-currencySymbol{
+    padding-right: 5px;
+}
 /*-----CHECKOUT CSS: START------*/
 .checkout_form{
     padding: 30px;

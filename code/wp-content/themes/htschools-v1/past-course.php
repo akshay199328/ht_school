@@ -237,7 +237,8 @@ vibe_include_template("profile/top$profile_layout.php");
 					<div class="empty_cart_div">
 		                <div class="empty_course_image"></div>
 		                <h4>No courses completed as yet, but we're sure you're on your way to excellence!</h4>
-		                <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
+		                <!-- <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a> -->
+		                <a href="<?php echo get_home_url();?>/courses/" class="view-all auto">Explore Courses</a>
 		            </div>
 
 				<?php }
@@ -246,7 +247,8 @@ vibe_include_template("profile/top$profile_layout.php");
 					<div class="empty_cart_div">
 		                <div class="empty_course_image"></div>
 		                <h4>No courses completed as yet, but we're sure you're on your way to excellence!</h4>
-		                <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
+		                <!-- <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a> -->
+		                <a href="<?php echo get_home_url();?>/courses/" class="view-all auto">Explore Courses</a>
 		            </div>
 				<?php }
 

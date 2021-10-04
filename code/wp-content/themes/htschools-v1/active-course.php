@@ -143,7 +143,87 @@ vibe_include_template("profile/top$profile_layout.php");
             <input type="hidden" id="session_duration_<?php echo $courseID;?>" value="<?php echo get_post_meta($courseID, "vibe_course_session_length", true);?>">
             <input type="hidden" id="wishlisted_course_<?php echo $courseID;?>" value="<?php echo in_array($courseID, $usersFavorites) ? '1' : '0';?>">
             <div class="course-box mycourse_box">
-                <table width="100%">
+                <ul class="course_list">
+                    <li>
+                        <figure class="image">
+                            <?php bp_course_avatar(); ?>
+                        </figure>
+                        <div class="copy">
+                            <header class="course-header">
+                                <?php
+                                    $category_array = get_the_terms( $post->ID, 'course-cat');
+                                ?>
+                                <a class="category"><?php echo $category_array[0]->name; ?></a>
+                                <?php if (!empty($course_type)){ ?>                            
+                                    <span class="badge <?php echo $badge_class;?>"><?php echo $course_type; ?></span>
+                                <?php }?>
+                            </header>
+                            <h3 class="small-title"><?php bp_course_title(); ?></h3>
+                            <?php
+                                $excerpt = get_post_field('post_excerpt', $post->ID);
+                                if ( $excerpt != '' ) {
+                                    echo "<p>".wp_trim_words( $excerpt, 30, NULL )."</p>";
+                                }
+                                else{
+                                    $content = wp_trim_words( $post->post_content, 20 );
+                                    echo "<p>".esc_html( $content )."</p>";
+                                }
+                            ?>
+                            <div class="others">
+                                <div class="age">
+                                    <span class="attribute">Age Group: </span>
+                                    <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
+                                    <span class="value">—</span>
+                                    <?php } else{ ?>
+                                        <span class="value"><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></span>
+                                    <?php }?>
+                                </div>
+                                <div class="duration">
+                                    <span class="attribute">Duration: </span>
+                                    <?php if($duration == '') { ?>
+                                    <span class="value">—</span>
+                                    <?php } else{ ?>
+                                    <span class="value"><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></span>
+                                    <?php }?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="author">
+                            <div class="top">
+                                <!-- <div class="progress-wrapper">
+                                    <span class="bcopy">10% Complete</span>
+                                    <div class="bar-wrapper">
+                                        <span class="bar" style="width:10%"></span>
+                                    </div>
+                                </div> -->
+                                <?php $course_progress = empty($progress)?0:intval($progress); ?>
+                                <?php
+                                echo '<div class="course_home_progress" data-id="'.$post->ID.'"><div><span></span><span class="progress_value">'.$course_progress.' % Complete</span></div><div class="progress course_progress"><div class="bar animate stretchRight load" style="width: '.$course_progress.'%; background: #00D98E;"></div></div></div>';
+                                ?>
+                                <h6><?php the_course_price(); ?></h6>
+                                <?php the_course_button(); ?>
+                            </div>
+                            <div class="instructor">
+                                <?php
+                                    $course_id=get_the_ID();
+                                    $post_tmp = get_post($course_id);
+                                    $author_id = $post_tmp->post_author;
+                                    $author_info = get_userdata($author_id);
+                                    $author_name = get_the_author_meta( 'display_name', $author_id );
+                                    $author_url = get_the_author_meta( 'user_url', $author_id );
+                                    $author_user_profile = get_avatar_url($author_id);
+                                    $author_company = get_the_author_meta( 'last_name', $author_id );
+                                ?>
+                                <img src="<?php echo $author_user_profile; ?>" alt="Author User Profile" title="Author User Profile">
+                                <div class="info">
+                                    <span class="title">Instructor</span>
+                                    <span class="name"><?php echo $author_name; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <table width="100%">
                   <tbody>
                     <tr>
                       <td class="tableTd_left">
@@ -189,7 +269,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             <td>
                                 <p>Duration</p>
                                 <?php if($duration == '') { ?>
-                                <h6>--</h6>
+                                <h6>—</h6>
                                 <?php } else{ ?>
                                 <h6><?php if($duration != ''){echo $duration; }?><span><?php if($durationParameter != ''){echo ' '.calculate_duration($durationParameter); }?> </span></h6>
                                 <?php }?>
@@ -197,7 +277,7 @@ vibe_include_template("profile/top$profile_layout.php");
                             <td>
                                 <p>Age Group</p>
                                 <?php if(get_post_meta($post->ID,'vibe_course_age_group',true) == '') { ?>
-                                    <h6>--</h6>
+                                    <h6>—</h6>
                                 <?php } else{ ?>
                                     <h6><?php echo get_post_meta($post->ID,'vibe_course_age_group',true);?><span> yrs</span></h6>
                                 <?php }?>
@@ -261,7 +341,7 @@ vibe_include_template("profile/top$profile_layout.php");
                       </td>
                     </tr>
                   </tbody>
-                </table>
+                </table> -->
             </div>
             </div>
         <?php }?> <div class="pagination-links"><?php echo custom_pagination( $wp_query ); ?></div>
@@ -275,13 +355,15 @@ vibe_include_template("profile/top$profile_layout.php");
         <div class="empty_cart_div">
             <div class="empty_course_image"></div>
             <h4>No Courses here! You're missing out on some cool stuff!</h4>
-            <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
+            <!-- <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a> -->
+            <a href="<?php echo get_home_url();?>/courses/" class="view-all">Explore Courses</a>
         </div>
     <?php } }else{ ?>
         <div class="empty_cart_div">
             <div class="empty_course_image"></div>
             <h4>No Courses here! You're missing out on some cool stuff!</h4>
-            <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a>
+            <!-- <a href="<?php echo get_home_url();?>/courses/"><button class="empty_btn">Explore Courses</button></a> -->
+            <a href="<?php echo get_home_url();?>/courses/" class="view-all">Explore Courses</a>
         </div>
     <?php }
     ?>

@@ -2,7 +2,17 @@
   .countColor p{
     font-family: 'GT-Walsheim-Pro'!important;
   }
+.a{
+     position:fixed;
+     top:0;
+  }
+.b{
+    position:static;
+    top:auto; 
+}
 </style>
+
+
 <?php 
 /**
  * The template for displaying Course home
@@ -398,7 +408,7 @@ else if($videoType=="vimeo")
             </div>
         </div>
       </div> -->
-        <div class="section-navigation">
+        <div class="section-navigation" id="stickNavigation">
             <ul id="header-scroll">
                 <li><a href="#overview" class="overview">Overview</a></li>
                 <li><a href="#objectives" class="objectives">Objectives</a></li>
@@ -738,5 +748,20 @@ $(".video-image").on("click", function (event, ui) {
       });
 
     })( jQuery );
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(document).scroll(function () {
+        var scroll = $(this).scrollTop();
+        var topDist = $("#stickNavigation").position();
+        if (scroll > topDist.top) {
+            $('#header-scroll').addClass("a");
+             $('#header-scroll').removeClass("b");
+        } else {
+            $('#header-scroll').addClass("b");
+            $('#header-scroll').removeClass("a");
+        }
+    });
+});
 </script>
 

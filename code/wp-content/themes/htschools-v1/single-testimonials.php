@@ -76,15 +76,32 @@ if ( has_post_thumbnail() ) {
           </div>         
           <div class="pull-right">
 
+            <?php
+                        if(is_user_logged_in()){
+                            ?>
+                                <a href="#" style="list-style-type: none;">
+                                    <?php wpfp_post_link(); ?>
+                                </a>
+                            <?php 
+                        }else{
+                            $url = "/login-register";
+                            ?>
+                               <a href="<?php echo get_site_url().$url; ?>">
+                                    <i class="bookmark-remove" title="Bookmark this article"></i>
+                                </a>
+                            <?php
+                        }
+                    ?>
+ <?php
+                   if(is_user_logged_in()){
+                    ?>
+                    <?php wpfp_course_link(); ?>
+                  <?php }else{
+                    $url = "/login-register";
+                    ?>
             <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo get_bloginfo('url')?>/testimonial/<?php the_title();?>" data-a2a-title="<?php echo the_title(). ' - '.get_bloginfo(); ?>" data-id="<?php echo $blog->ID;?>">
 
-           <!--  <?php
-             if(is_user_logged_in()){
-              ?>
-              <?php wpfp_course_link(); ?>
-            <?php }else{
-              $url = "/login-register";
-            ?> -->
+          
             <a href="<?php echo get_site_url().$url; ?>" class="icon-bookmark"><i class="add-wishlist" title="Add to Wishlist"></i>
               <svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20919" data-name="Group 20919" transform="translate(-1511.75 -411.75)">
@@ -93,8 +110,9 @@ if ( has_post_thumbnail() ) {
                   </g>
               </svg>
             </a>
-            <!-- <?php } ?> -->
-              
+                  <?php
+                  }
+                  ?>        
                 <a class="a2a_button_facebook icon-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="36.5" height="36.5" viewBox="0 0 36.5 36.5">
                   <g id="Group_20915" data-name="Group 20915" transform="translate(0.25 0.25)">
                     <rect id="Rectangle_4659" data-name="Rectangle 4659" width="35" height="35" rx="17.5" transform="translate(0.5 0.5)" fill="none" stroke="#222221" stroke-miterlimit="10" stroke-width="1.5"/>

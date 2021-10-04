@@ -276,14 +276,14 @@ body.woocommerce-checkout .custom-pagetitle h1{display: none}
 .order-total th,
 .order-total td,
 .order-total td .course_price,
-.order-total .amount{
+.order-total .amount,
+.order-total .amount span{
     font-size: 18px;
     line-height: 22px;
     font-weight: 700!important;
     padding-top: 30px!important;
     color: #000;
 }
-
 /*-----CHECKOUT CSS: START------*/
 .checkout_form{
     padding: 30px;

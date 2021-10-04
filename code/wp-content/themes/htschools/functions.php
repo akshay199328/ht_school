@@ -4934,15 +4934,20 @@ function save_response_form(){
     $standard = $student_data[11];
     $course_of_interest = $student_data[12];
     $interest_of_workshop = $student_data[13];
-    $course_of_interest = 'AI';
-    $interest_of_workshop = 'Yes';
+    $studentfullName = $student_data[14];
+    $state = $student_data[15];
+    $pincode = $student_data[16];
+    // $course_of_interest = 'AI';
+    // $interest_of_workshop = 'Yes';
     $user_id = $current_user_id;
-
-    $result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `user_id`=". esc_attr($user_id) ."");
+    $result_id = array();
+    if($user_id != '' && $user_id != 0){
+      $result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `user_id`=". esc_attr($user_id) ."");
+    }
     
     if(count($result_id) == 0){
-      $school_response_form_insert = $wpdb->prepare("INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`) VALUES ('".$student_email_id."', '".$student_first_name."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."')");
-
+      $school_response_form_insert = $wpdb->prepare("INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`, `state`, `pincode`) VALUES ('".$student_email_id."', '".$studentfullName."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."','".$state."', '".$pincode."')");
+      echo "INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`, `state`, `pincode`) VALUES ('".$student_email_id."', '".$studentfullName."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."','".$state."', '".$pincode."')";
       $wpdb->query($school_response_form_insert);
       $student_data_id = $wpdb->insert_id;
     }else{      
@@ -4952,32 +4957,32 @@ function save_response_form(){
                       
   }
     
-  $response=array();
-  if($flag == 1){
-    $response = array(
-      'status' => 1,
-      'response' => $succes_message
-    );
-    $response['status'] = 1;
-    $succes_message = "response is submitted successfully!";     
-  }elseif($flag == 2){
-    $response = array(
-      'status' => 2,
-      'response' => $succes_message
-    );
-    $response['status'] = 2;
-    $succes_message = "response is updated successfully!";     
-  }
-  else{
-    $response = array(
-      'status' => 0,
-      'response' => $succes_message
-    );
-    $response['status'] = 0;
-    $succes_message = "response is submitted failed!";     
-  }
+  // $response=array();
+  // if($flag == 1){
+  //   $response = array(
+  //     'status' => 1,
+  //     'response' => $succes_message
+  //   );
+  //   $response['status'] = 1;
+  //   $succes_message = "response is submitted successfully!";     
+  // }elseif($flag == 2){
+  //   $response = array(
+  //     'status' => 2,
+  //     'response' => $succes_message
+  //   );
+  //   $response['status'] = 2;
+  //   $succes_message = "response is updated successfully!";     
+  // }
+  // else{
+  //   $response = array(
+  //     'status' => 0,
+  //     'response' => $succes_message
+  //   );
+  //   $response['status'] = 0;
+  //   $succes_message = "response is submitted failed!";     
+  // }
   
-    echo $succes_message;
+  //   echo $succes_message;
   exit;
 }
 
@@ -5009,7 +5014,7 @@ $check_email_id = $_REQUEST['check_student_email'];
 
     $response['status'] = 0;
   }
-  
+  echo $user_id;
   echo json_encode($response); 
   exit;
 }
@@ -5125,9 +5130,23 @@ global $wpdb;
 
 $result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_response_email_otp` WHERE `emailaddress`='". esc_attr($check_otp_email) ."' ORDER BY otp_id DESC" );
 
-$otp  = random_int(100000, 999999);
+$newOTP  = random_int(100000, 999999);
 
-$otp_email_insert = $wpdb->prepare("INSERT INTO `ht_response_email_otp`(`emailaddress`, `otp_no`, `otp_verify`) VALUES ('".$check_otp_email."', '".$otp."', '0')");
+$name = 'HT School';
+$fromEmail = get_option('admin_email');
+$message = "Your OTP for login or registration on Ht School is: " . $newOTP;
+$subject = "HT School | One Time Password";
+$headers = 'From: '. $fromEmail . "\r\n";
+$requestEmail = $check_otp_email;
+ob_start();
+include('email-templates/otp-confirmation.php');
+$email_content = ob_get_contents();
+ob_end_clean();
+add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+$sent = wp_mail($requestEmail, $subject, $email_content, $headers);
+remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+
+$otp_email_insert = $wpdb->prepare("INSERT INTO `ht_response_email_otp`(`emailaddress`, `otp_no`, `otp_verify`) VALUES ('".$check_otp_email."', '".$newOTP."', '0')");
 
   $wpdb->query($otp_email_insert);
 
@@ -5136,7 +5155,7 @@ $otp_email_insert = $wpdb->prepare("INSERT INTO `ht_response_email_otp`(`emailad
   if($inserted_otp_id != ''){
     $response = array(
       'status' => 1,
-      'response' => $otp
+      'response' => $newOTP
     );
 
     $response['status'] = 1;
@@ -5144,7 +5163,7 @@ $otp_email_insert = $wpdb->prepare("INSERT INTO `ht_response_email_otp`(`emailad
   }else{
     $response = array(
       'status' => 0,
-      'response' => $otp
+      'response' => $newOTP
     );
 
     $response['status'] = 0;

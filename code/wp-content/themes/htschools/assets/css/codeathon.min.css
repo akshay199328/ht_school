@@ -4941,11 +4941,13 @@ code {
 }
 .student_testimonial svg {
     position: absolute;
-    top: -2px;
-    bottom: -1px;
+    top: 0px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: 333.28px;
+    background: transparent;
+    color: transparent;
 }
 .student_testimonial svg path {
     fill: #06e88b;
@@ -5002,9 +5004,20 @@ code {
     bottom: 0;
     right: 20px;
 }
+.student_testimonial .owl-carousel .owl-nav .owl-next, 
+.student_testimonial .owl-carousel .owl-nav .owl-prev {top: 33%;}
 .student_testimonial .copy-footer {
     display: flex;
     align-items: center;
+    overflow: hidden;
+    margin-bottom: 0;
+    position: relative;
+    max-width: 333.28px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.review-content .copy-footer{
+	margin: 0;
 }
 .student_testimonial .copy-footer .icon{
 	    width: 43px;
@@ -5023,11 +5036,19 @@ code {
 }
 .student_testimonial .copy-footer .student-name h4.caption {
     font-size: 16px;
-    line-height: 16.8px;
+    line-height: 23.8px;
     font-weight: 900;
+    margin: 0;
+}
+.student_testimonial .copy-footer .student-name p {
+    font-size: 14px;
+    line-height: 16.8px;
+    font-weight: 500;
+    margin: 0;
 }
 @media (max-width: 480px){
 	.student_testimonial {padding-top: 85px;}
-	.owl-carousel .owl-nav .owl-prev, .owl-carousel .owl-nav .owl-next {bottom: 6px;}
+	.student_testimonial .owl-carousel .owl-nav .owl-next, 
+	.student_testimonial .owl-carousel .owl-nav .owl-prev{bottom: 6px;top: inherit;}
 }
 /*------Student Testimonial Css : END-------*/

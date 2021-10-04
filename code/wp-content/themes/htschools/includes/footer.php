@@ -253,7 +253,7 @@ $('.student_testimonial .testimonial').owlCarousel({
                }
           }
      });
-// jQuery('.student-review').parent().addClass('content-box');
+jQuery('.student-review').parent().parent().addClass('review-content');
 jQuery(document).ready(function(){
     $('.about_section').click(function() {
         $('html, body').animate({

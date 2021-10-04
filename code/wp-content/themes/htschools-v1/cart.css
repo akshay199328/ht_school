@@ -1,12 +1,15 @@
 .woocommerce .woocommerce-message,
-.woocommerce .woocommerce-message a{
+.woocommerce .woocommerce-message a,
+.woocommerce .woocommerce-info,
+.woocommerce .woocommerce-info a{
     font-size: 14px;
     line-height: 21px;
     font-weight: 500;
     color: #000;
     border-top-color: #ff5858;
 }
-body.woocommerce-cart  {
+body.woocommerce-cart,
+body.woocommerce-checkout  {
     background: #F9F9F9;
 }
 .custom-pagetitle{
@@ -21,7 +24,8 @@ body.woocommerce-cart  {
     line-height: 40px;
     margin: 0;
 }
-body.woocommerce-cart .custom-pagetitle h1{display: none}
+body.woocommerce-cart .custom-pagetitle h1,
+body.woocommerce-checkout .custom-pagetitle h1{display: none}
 .empty_cart_div {
     text-align: center;
     padding-bottom: 40px;
@@ -84,6 +88,7 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    padding-bottom: 50px;
 }
 .cart_left {
     width: 70%;
@@ -190,6 +195,7 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     color: #fff;
     border-radius: 0;
     border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
     padding: 18px 40px;
     font-size: 14px;
     line-height: 21px;
@@ -258,17 +264,14 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     border-top: 1px dotted #707070;
     padding-top: 30px;
 }
-.cart-subtotal th,
-.cart-subtotal td  {
+.cart_right table tr:nth-last-child(2) th,
+.cart_right table tr:nth-last-child(2) td {
     padding-bottom: 20px!important;
 }
-.cart-subtotal td[data-title="Subtotal"],
-.order-total td[data-title="Total"] {
+.cart_totals td {
     text-align: right;
 }
-.cart-subtotal td .course_price,
-.order-total td .course_price,
-.cart-subtotal .amount{color: #000;font-weight: 400}
+.cart_totals td span{color: #000;font-weight: 400}
 .cart_right table.shop_table .order-total th,
 .order-total th,
 .order-total td,
@@ -278,6 +281,12 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
     line-height: 22px;
     font-weight: 700!important;
     padding-top: 30px!important;
+    color: #000;
+}
+
+/*-----CHECKOUT CSS: START------*/
+.checkout_form{
+    padding: 30px;
 }
 @media screen and (max-width: 1024px) {
     .custom-pagetitle, .page-container{padding: 0 20px!important;}
@@ -325,6 +334,7 @@ body.woocommerce-cart .custom-pagetitle h1{display: none}
         margin-left: 0;
         width: 100%;
         margin-top: 30px;
+
     }
     .cart_right .wc-proceed-to-checkout a {
         font-size: 10px;

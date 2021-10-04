@@ -113,7 +113,7 @@
 		                                                <div class="form-group">
 		                                                    <label>State</label>
 		                                                    <select name="school_state" name="school_state" id="school_state" class="form-control" autocomplete="off" tabindex="2">
-		                                                       <option value="">Please Select</option>
+		                                                       <option value="0">Please Select</option>
 		                                                       @foreach ($states as $key => $value)
 		                                                           <option value="{{ $value->state_id }}" {{$school_data[0]->school_state == $value->state_id  ? 'selected' : ''}}>{{ $value->state_name }}</option>
 		                                                       @endforeach

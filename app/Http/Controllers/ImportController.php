@@ -42,15 +42,16 @@ class ImportController extends Controller
 
     public function fileUpload(Request $req){
         $file = $req->file('file_import');
-
         if(empty($file))
         {      
-        	return back()->withErrors('Please Upload a file of xlsx format');
+        	return back()->withErrors('Please Upload a file');
         }
         else
         {
-        	(new SchoolImport)->import($file);
-        	           
+            $import  = New SchoolImport;
+            $import->import($file); 
+            // (new SchoolImport)->import($file); 
+
         	return back()->withStatus('Excel file imported Successfully');
         }
    	}

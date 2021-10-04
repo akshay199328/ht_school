@@ -34,4 +34,6 @@ Route::group(['middleware'=>['AuthCheck']], function(){
             ->name('school_edit.school_edit');
     Route::post('/update_school/{id}', [SchoolController::class, 'update_school'])->name('update_school');
     Route::post('submit-otp-verification-form', [HomeController::class, 'postVerify'])->name('postVerify');
+    Route::get('/school_delete/{id}', [SchoolController::class, 'school_delete'])
+            ->name('school_delete.school_delete');
 });

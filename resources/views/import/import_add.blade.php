@@ -77,15 +77,19 @@
                                     </div>
                                     <div class="content"> 
                                         @if (session('status'))
+                                        <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2000)" x-show="show">
                                             <div class="alert alert-success" role="alert">
                                                 {{ session('status') }}
                                             </div>
+                                        </div>
                                         @endif
 
                                         @if($errors->any())
+                                        <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2000)" x-show="show">
                                             <div class="alert alert-danger" role="alert">
                                                 {{ implode('', $errors->all('')) }}
                                             </div>
+                                        </div>
                                         @endif
 
                                         <form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">

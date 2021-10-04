@@ -6,6 +6,7 @@ use App\Models\School;
 use App\Models\Home;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Session;
 use DB;
 
@@ -53,6 +54,16 @@ class HomeController extends Controller
                 $msg = "<b>"."A One-Time Passcode (OTP) has been sent to ".$info_email.". Please enter the OTP to verify your email"." address."."</b>";
 
                 $otp  = random_int(100000, 999999);
+
+                $to_name  = $result[0]->school_name;
+                $to_email = $info_email;
+                $data = array('body' => "Your One-Time Passcode (OTP)",'otp' => $otp);
+                Mail::send('dynamic_email_template',$data,function($message) use ($to_name,$to_email)
+                {
+                    $message->to($to_email)
+                    ->subject('One-Time Passcode (OTP)');
+                });
+
                 $rslt = DB::table('otp_table_school')->insertGetId(
                     ['otp_email' => $info_email, 'otp_no' => $otp,'otp_school_id' => $school_id,'otp_verified' => 0,'otp_expired' => 0]
                 );
@@ -122,6 +133,15 @@ class HomeController extends Controller
 
                 if($info_email == $email_ids)
                 {
+                    $to_name  = $result[0]->school_name;
+                    $to_email = $info_email;
+                    $data = array('body' => "Your One-Time Passcode (OTP)",'otp' => $otp_nos);
+                    Mail::send('dynamic_email_template',$data,function($message) use ($to_name,$to_email)
+                    {
+                        $message->to($to_email)
+                        ->subject('One-Time Passcode (OTP)');
+                    });
+                    
                     DB::table('otp_table_school')->where('otp_id', $otp_ids)->update(array('otp_verified' => 1));
 
                     $result                 = array();

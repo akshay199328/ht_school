@@ -19,6 +19,7 @@ class School extends Model
      * @var string[]
      */
     protected $fillable = [
+        'school_id',
         'school_name',
         'school_address',
         'school_district',
@@ -33,9 +34,19 @@ class School extends Model
 
     public static function get_state_data($state_name)
     {
-      $results = DB::table('state_master')->select('state_name', 'state_id')
-            ->where('state_name', 'like', '%' . $state_name . '%')
-            ->get();
+      
+      if($state_name != '')
+      {
+        $results = DB::table('state_master')->select('state_name', 'state_id')
+                 ->where('state_name', 'like', '%' . $state_name . '%')
+                 ->get(); 
+      }
+      else
+      {
+        $results = DB::table('state_master')->select('state_name', 'state_id')
+                 ->where('state_id', '=',0)
+                 ->get(); 
+      }
       // echo "<pre>";print_r($results);exit;
       return $results;
     }

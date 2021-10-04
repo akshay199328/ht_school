@@ -8,7 +8,7 @@
 <meta content="" name="keywords">
 
 <!-- Favicons -->
-<link rel="icon" type="image/png" href="https://htschool.hindustantimes.com/wp-content/themes/htschools/assets/images/favicon.svg">
+<link rel="icon" type="image/png" href="asset/img/favicon.svg">
 <link href="asset/img/apple-touch-icon.png" rel="apple-touch-icon">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">

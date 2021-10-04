@@ -37,7 +37,7 @@
                 @csrf
             <h4>OTP Verification</h4>
             <div class="content" style="text-align: center;">
-                <img src="https://htschool.hindustantimes.com/wp-content/themes/htschools/assets/images/otp-verification.png" class="img-fluid">
+                <img src="../asset/img/otp-verification.png" class="img-fluid">
                 <p id="email-otp-message"></p>
             </div>
             <div id="otp" class="flex justify-center">

@@ -75,6 +75,13 @@
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="container mt-5">
+                                        @if(session('errors'))
+                                            <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2000)" x-show="show">
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ implode('', $errors->all('')) }}
+                                                </div>
+                                            </div>
+                                        @endif
                                         <table class="table table-bordered mb-5">
                                             <thead>
                                                 <tr class="table-success">
@@ -83,6 +90,7 @@
                                                     <th scope="col">School Address</th>
                                                     <th scope="col">District</th>
                                                     <th scope="col">Edit</th>
+                                                    <th scope="col">Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -99,6 +107,9 @@
                                                         <a href="{{ route('school_edit.school_edit', ['id' => encrypt($data->school_id)]) }}" style="color:inherit;"><i class="fa fa-pencil-square-o" aria-hidden="true" style="cursor:pointer;"> </i></a>
                                                         @csrf
                                                     </td>
+                                                    <td>
+                                                        <a href="{{ route('school_delete.school_delete', ['id' => encrypt($data->school_id)]) }}" style="color:inherit;"><i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;"></i></a>                                                    </td>
+                                                    </tr>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

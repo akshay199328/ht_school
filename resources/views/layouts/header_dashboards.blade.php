@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<link rel="icon" type="image/png" href="https://htschool.hindustantimes.com/wp-content/themes/htschools/assets/images/favicon.svg">
+<link rel="icon" type="image/png" href="asset/img/favicon.svg">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>HT SCHOOL</title>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />

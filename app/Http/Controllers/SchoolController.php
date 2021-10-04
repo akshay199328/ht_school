@@ -3,11 +3,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 Use App\Models\School;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 use Session;
-use Hash;
 
 class SchoolController extends Controller
 {
@@ -108,20 +108,52 @@ class SchoolController extends Controller
                 $status          = $request->input('status');
 
                 $school_data =  [ 
-                            'school_id'       => $school_id,
-                            'school_name'     => isset($school_name) ? 
-                            $school_name : '',
-                            'school_state'    => isset($school_state) ? $school_state : '',
-                            'school_district' => isset($school_district) ? $school_district : '',
-                            'school_address'  => isset($school_address) ? $school_address  : '',
-                            'school_email_id' => isset($school_email_id) ? $school_email_id : '',
-                            'status'          => isset($status) ? $status : '',
-                          ];
+                    'school_id'       => $school_id,
+                    'school_name'     => isset($school_name) ? $school_name : '',
+                    'school_state'    => isset($school_state) ? $school_state : '',
+                    'school_district' => isset($school_district) ? $school_district : '',
+                    'school_address'  => isset($school_address) ? $school_address  : '',
+                    'school_email_id' => isset($school_email_id) ? $school_email_id : '',
+                    'status'          => isset($status) ? $status : '',
+                    'created_by'      => 1,
+                    'modified_by'     => 1,
+                    'created_date'    => date("Y-m-d H:i:s"),
+                    'modified_date'   => date("Y-m-d H:i:s"),
+                ];
 
                 DB::table('school')->where('school_id',$school_id)->update($school_data);
 
                 return redirect('school_edit/'.$id)->withStatus('Data Updated Successfully');
             }
+        }
+    }
+
+    public function school_delete($id)
+    {
+        $data = ['LoggedUserInfo'=>School::where('school_email_id','=', session::get('email'))->first()];
+        if(!empty($data['LoggedUserInfo']))
+        {
+          return back();
+        }
+        else
+        {
+          if(session()->has('email'))
+          {
+              $school_id       = decrypt($id);
+              if (!empty($school_id)) 
+              {
+                DB::delete('delete from school where school_id = ?',[$school_id]);
+                return redirect()->back()->withErrors(['msg' => 'Record deleted successfully']);;
+              } 
+              else 
+              {
+                  return view('errors.error');
+              }
+          }
+          else
+          {
+              return redirect('/auth/admin_login');
+          }
         }
     }
 }

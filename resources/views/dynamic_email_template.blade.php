@@ -1,1 +1,1 @@
-<p>Hi , This is {{ $data['otp_no']}}</p>
+<p>{{$body}} is <b>{{$otp}}</b></p>

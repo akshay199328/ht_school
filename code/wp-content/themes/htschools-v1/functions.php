@@ -273,8 +273,10 @@ add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
     wp_enqueue_style( 'wplms-customizer-css2', get_template_directory_uri(). '/style.css?v=1.1' );
     wp_enqueue_style( 'wplms-navigation', get_template_directory_uri(). '/navigation.css?v=1.1' );
     if(!is_front_page() && !is_page_template('all-courses.php')){
-      wp_enqueue_style( 'wplms-editor-css-v1', get_template_directory_uri(). '/editor_css.css?v=1.1' );
       wp_enqueue_style( 'wplms-editor-detail-css-v1', get_template_directory_uri(). '/editor-detail.css?v=1.1' );
+    }
+    if (is_category() || is_page_template('blog.php')){
+      wp_enqueue_style( 'wplms-editor-css-v1', get_template_directory_uri(). '/editor_css.css?v=1.1' );
     }
     if (is_page_template('all-courses.php')){
       wp_enqueue_style( 'wplms-course-css-v1', get_template_directory_uri(). '/course_css.css?v=1.1' );

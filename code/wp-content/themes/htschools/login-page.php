@@ -747,13 +747,15 @@ jQuery(window).load(function(){
 
                         let logInMoegObj = {
                           "User identifier": user.ID,
+                          "First Name"     : user.first_name,
+                          "Last Name"      : user.last_name,
                           "Session source" : "",
                           "Timestamp"      : "<?php echo date('c', time()); ?>",
                           "UTM tags"       : "",
                           "Last login on"  : user.last_active,
                           "Login type"     : "email",
                         };
-
+                        
                         dataLayer.push(logInObj);
                         logInMoegObj.event = "mo_Logged_In";
                         dataLayer.push(logInMoegObj);
@@ -780,9 +782,13 @@ jQuery(window).load(function(){
                           }
                         });
                         if(response.previous_page_url != ''){
-                          window.location.replace(response.previous_page_url);
+                          setTimeout(function(){
+                            window.location.replace(response.previous_page_url);
+                          },1000);
                         }else{
-                          window.location.reload();
+                          setTimeout(function(){
+                            window.location.reload();
+                          },1000);
                         }
                       }else{
                             jQuery("#reg-email-wrap").html(response.email);

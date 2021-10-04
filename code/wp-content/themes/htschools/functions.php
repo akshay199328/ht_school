@@ -619,6 +619,9 @@ function reg_verify_otp(){
                 do_action( 'wp_login', $user->user_login, $user);
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
+                $userData->last_active = date('d-m-Y H:i:s',get_user_meta($user->ID, 'wc_last_active', true));  
+                $userData->first_name = get_user_meta($user->ID, 'first_name', true); 
+                $userData->last_name = get_user_meta($user->ID, 'last_name', true);
              //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
             }else{
@@ -2007,6 +2010,8 @@ function setSocialLoginData($socialType)
             ),
             "moengage" => array(
                 "User identifier" => $currentUserID,
+                "First Name"      =>get_user_meta($currentUserID, 'first_name', true),  
+                "Last Name"       =>get_user_meta($currentUserID, 'last_name', true),
                 "Session source"  => "",
                 "Timestamp"       => date('c', time()),
                 "UTM tags"        => "",
@@ -2583,13 +2588,13 @@ function get_rank()
     }
 }
 
-function change_woocommerce_order_number($order_id) {
-  $order = new WC_Order( $order_id );
-  $items = $order->get_items();
-  foreach ($items as $item_id => $product ) {
-    $gen_id = rand(1000,9999);
-    return $order_id = 'HTS-'.$item_id.$gen_id;
-  }
+function change_woocommerce_order_number($order_id) { 
+  $order = new WC_Order( $order_id ); 
+  $items = $order->get_items(); 
+  foreach ($items as $item_id => $product ) { 
+    //$gen_id = rand(1000,9999);  
+    return $order_id = 'HTS-'.$item_id.$product['order_id'];  
+  } 
 }
 add_filter('woocommerce_order_number', 'change_woocommerce_order_number');
 
@@ -3365,6 +3370,8 @@ function ht_social_login(){
                 $userData = $user->data;
                 $userData->avatar =  get_avatar_url( $user->ID );
                 $userData->last_active = date('d-m-Y H:i:s',get_user_meta($user->ID, 'wc_last_active', true));
+                $userData->first_name = get_user_meta($user->ID, 'first_name', true);  
+                $userData->last_name = get_user_meta($user->ID, 'last_name', true);
              //   $userData->profile_link = get_edit_profile_url($user->ID);
                 $response['user'] = json_encode($userData);
 
@@ -4935,15 +4942,20 @@ function save_response_form(){
     $standard = $student_data[11];
     $course_of_interest = $student_data[12];
     $interest_of_workshop = $student_data[13];
-    $course_of_interest = 'AI';
-    $interest_of_workshop = 'Yes';
+    $studentfullName = $student_data[14];
+    $state = $student_data[15];
+    $pincode = $student_data[16];
+    // $course_of_interest = 'AI';
+    // $interest_of_workshop = 'Yes';
     $user_id = $current_user_id;
-
-    $result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `user_id`=". esc_attr($user_id) ."");
+    $result_id = array();
+    if($user_id != '' && $user_id != 0){
+      $result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `user_id`=". esc_attr($user_id) ."");
+    }
     
     if(count($result_id) == 0){
-      $school_response_form_insert = $wpdb->prepare("INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`) VALUES ('".$student_email_id."', '".$student_first_name."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."')");
-
+      $school_response_form_insert = $wpdb->prepare("INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`, `state`, `pincode`) VALUES ('".$student_email_id."', '".$studentfullName."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."','".$state."', '".$pincode."')");
+      echo "INSERT INTO ht_school_response_data (`student_email`, `student_first_name`, `student_last_name`, `student_contact_no`, `parent_name`, `parent_email`, `parent_contact_no`, `gender`, `school_name`, `school_address`, `standard`, `course_of_interest`, `interest_of_workshop`, `user_id`, `city`, `state`, `pincode`) VALUES ('".$student_email_id."', '".$studentfullName."', '".$student_last_name."','".$student_mobile_no."','".$parent_name."', '".$parent_email_address."','".$parent_mobile_no."','".$gender."','".$student_school_name."', '".$school_address."','".$standard."','".$course_of_interest."','".$interest_of_workshop."','".$user_id."', '".$city."','".$state."', '".$pincode."')";
       $wpdb->query($school_response_form_insert);
       $student_data_id = $wpdb->insert_id;
     }else{      
@@ -4953,32 +4965,32 @@ function save_response_form(){
                       
   }
     
-  $response=array();
-  if($flag == 1){
-    $response = array(
-      'status' => 1,
-      'response' => $succes_message
-    );
-    $response['status'] = 1;
-    $succes_message = "response is submitted successfully!";     
-  }elseif($flag == 2){
-    $response = array(
-      'status' => 2,
-      'response' => $succes_message
-    );
-    $response['status'] = 2;
-    $succes_message = "response is updated successfully!";     
-  }
-  else{
-    $response = array(
-      'status' => 0,
-      'response' => $succes_message
-    );
-    $response['status'] = 0;
-    $succes_message = "response is submitted failed!";     
-  }
+  // $response=array();
+  // if($flag == 1){
+  //   $response = array(
+  //     'status' => 1,
+  //     'response' => $succes_message
+  //   );
+  //   $response['status'] = 1;
+  //   $succes_message = "response is submitted successfully!";     
+  // }elseif($flag == 2){
+  //   $response = array(
+  //     'status' => 2,
+  //     'response' => $succes_message
+  //   );
+  //   $response['status'] = 2;
+  //   $succes_message = "response is updated successfully!";     
+  // }
+  // else{
+  //   $response = array(
+  //     'status' => 0,
+  //     'response' => $succes_message
+  //   );
+  //   $response['status'] = 0;
+  //   $succes_message = "response is submitted failed!";     
+  // }
   
-    echo $succes_message;
+  //   echo $succes_message;
   exit;
 }
 
@@ -5010,7 +5022,7 @@ $check_email_id = $_REQUEST['check_student_email'];
 
     $response['status'] = 0;
   }
-  
+  echo $user_id;
   echo json_encode($response); 
   exit;
 }
@@ -5112,5 +5124,61 @@ $check_parent_contact_number = $_REQUEST['check_parent_contact'];
   
   echo json_encode($response); 
   exit;
+}
+
+add_action("wp_ajax_otp_email_address1", "otp_email_address1");
+add_action( 'wp_ajax_nopriv_otp_email_address1', 'otp_email_address1' );
+
+function otp_email_address1(){
+
+global $wpdb;
+ $check_otp_email = $_REQUEST['email'];
+
+ $main_result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_school_response_data` WHERE `student_email`='". esc_attr($check_otp_email) ."'");
+
+$result_id = $wpdb->get_results("SELECT DISTINCT `id` FROM `ht_response_email_otp` WHERE `emailaddress`='". esc_attr($check_otp_email) ."' ORDER BY otp_id DESC" );
+
+$newOTP  = random_int(100000, 999999);
+
+$name = 'HT School';
+$fromEmail = get_option('admin_email');
+$message = "Your OTP for login or registration on Ht School is: " . $newOTP;
+$subject = "HT School | One Time Password";
+$headers = 'From: '. $fromEmail . "\r\n";
+$requestEmail = $check_otp_email;
+ob_start();
+include('email-templates/otp-confirmation.php');
+$email_content = ob_get_contents();
+ob_end_clean();
+add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+$sent = wp_mail($requestEmail, $subject, $email_content, $headers);
+remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+
+$otp_email_insert = $wpdb->prepare("INSERT INTO `ht_response_email_otp`(`emailaddress`, `otp_no`, `otp_verify`) VALUES ('".$check_otp_email."', '".$newOTP."', '0')");
+
+  $wpdb->query($otp_email_insert);
+
+  $inserted_otp_id = $wpdb->insert_id;
+
+  if($inserted_otp_id != ''){
+    $response = array(
+      'status' => 1,
+      'response' => $newOTP
+    );
+
+    $response['status'] = 1;
+
+  }else{
+    $response = array(
+      'status' => 0,
+      'response' => $newOTP
+    );
+
+    $response['status'] = 0;
+  }
+  
+  echo json_encode($response); 
+  exit;
+
 }
 /*--------------------------------------------------------------------*/

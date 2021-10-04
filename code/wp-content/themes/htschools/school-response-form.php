@@ -17,8 +17,12 @@ $user_school_name = "";
 $user_school = get_profile_data('Linked School');
 if(intval($user_school) > 0){
   $user_school_name = get_user_by('id', $user_school)->display_name;
-}
-
+}                                            
+$currentUserID = get_current_user_id();
+$currentUser = wp_get_current_user();
+$emailID = $currentUser->user_email;
+$firstName = $currentUser->user_firstname;
+$lastName = $currentUser->user_lastname;
 if(have_posts()):while(have_posts()):the_post();
 ?>
 <div class="innerheader-space"></div>
@@ -41,7 +45,69 @@ if(have_posts()):while(have_posts()):the_post();
 
 <script type="text/javascript" src="<?php echo vibe_sanitizer($src,'url'); ?>"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script> 
+<script language="javascript" type="text/javascript">
+// document.getElementById('EnterOTPemail').style.display = 'none';
+// document.getElementById('EnterOTPemailid').style.display = 'none';
+
+// Hide the Text field by default
+document.getElementById('EnterCourseInterest').style.display = 'none';
+document.getElementById('courseofinterest').addEventListener('click', displayTextField);
+function displayTextField() {
+  // Get the value of the currently selected radio button. 'select-a-size' is the name of the radio buttons you specify in the form builder
+  var radioText = document.querySelector('input[name="course-of-interest"]:checked').value;
+  if (radioText == 'Others') {
+    document.getElementById('EnterCourseInterest').style.display = 'block';
+  } else {
+    document.getElementById('EnterCourseInterest').style.display = 'none';
+  }
+}
+</script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function(){
+  var email = '<?php echo $emailID;?>';
+  if(email != '')
+  {
+    jQuery('#verify_otp').parent('p').hide();
+  }
+  jQuery('#emailAddress').val('<?php echo $emailID;?>');  
+  jQuery('#studentfullName').val('<?php echo $firstName.' '.$lastName ;?>');  
+
+  /*var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools';
+
+    jQuery( "#schoolName" ).autocomplete({
+        source: schoolUrl,
+        minLength: 2,
+        select: function(event, ui) {
+              event.preventDefault();
+              $("#schoolName").val(ui.item.label);              
+          },              
+    });*/
+});
+
+/*jQuery('#schoolName').on('change', function() {
+     
+     var other_val = $("#schoolName").val();
+      jQuery.ajax({
+              type : "POST",
+              dataType : "json",
+              url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=get_schools",
+              data : {check_other : other_val},
+              success: function(response) {
+            //alert(response.status);
+            alert(response.response); 
+                  
+              }
+          });
+
+  });*/
+
+</script>
+
 <script type='text/javascript'>
+
   jQuery("#MobileNumber").keypress(function(e) {
     var mobNum = jQuery(this).val();
       if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -69,11 +135,11 @@ if(have_posts()):while(have_posts()):the_post();
           return true;
         }
   });
-  
-  jQuery("#studentfirstName").keypress(function(e) {
+
+  jQuery("#studentfullName").keypress(function(e) {
     var keyCode = e.keyCode || e.which;
 
-    jQuery("#errstudentfirstNameMsg").text("");
+    jQuery("#errstudentfullNameMsg").text("");
 
     //Regex for Valid Characters i.e. Alphabets.
     var regex = /^[A-Za-z ]+$/;
@@ -81,29 +147,12 @@ if(have_posts()):while(have_posts()):the_post();
     //Validate TextBox value against the Regex.
     var isValid = regex.test(String.fromCharCode(keyCode));
     if (!isValid) {
-        jQuery("#errstudentfirstNameMsg").text("Please enter only alphabets");
-    }
-
-    return isValid;
-  });
-
-  jQuery("#studentlastName").keypress(function(e) {
-    var keyCode = e.keyCode || e.which;
-
-    jQuery("#errstudentlastNameMsg").text("");
-
-    //Regex for Valid Characters i.e. Alphabets.
-    var regex = /^[A-Za-z ]+$/;
-
-    //Validate TextBox value against the Regex.
-    var isValid = regex.test(String.fromCharCode(keyCode));
-    if (!isValid) {
-        jQuery("#errstudentlastNameMsg").text("Please enter only alphabets");
+        jQuery("#errstudentfullNameMsg").text("Please enter only alphabets");
     }
     return isValid;
   });
 
-  jQuery('#emailAddress').on('change', function() {
+  /*jQuery('#emailAddress').on('change', function() {
       var testEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
       if (testEmail.test(jQuery(this).val())){
         jQuery('#errstudentEmailMsg').text("");
@@ -111,7 +160,7 @@ if(have_posts()):while(have_posts()):the_post();
       else{
         jQuery('#errstudentEmailMsg').text("Please enter valid email address");
       }
-  });
+  });*/
 
   jQuery("#parentName").keypress(function(e) {
       var keyCode = e.keyCode || e.which;
@@ -167,22 +216,6 @@ if(have_posts()):while(have_posts()):the_post();
         }
   });
 
-  jQuery("#schoolName").keypress(function(e) {
-    var keyCode = e.keyCode || e.which;
-
-    jQuery("#errschoolNameMsg").text("");
-
-    //Regex for Valid Characters i.e. Alphabets.
-    var regex = /^[A-Za-z ]+$/;
-
-    //Validate TextBox value against the Regex.
-    var isValid = regex.test(String.fromCharCode(keyCode));
-    if (!isValid) {
-        jQuery("#errschoolNameMsg").text("Please enter only alphabets");
-    }
-    return isValid;
-  });
-
   jQuery("#schoolAddress").keypress(function(e) {
     var keyCode = e.keyCode || e.which;
 
@@ -215,6 +248,34 @@ if(have_posts()):while(have_posts()):the_post();
     return isValid;
   });
 
+   jQuery("#pincode").keypress(function(e) {
+    var mobNum = jQuery(this).val();
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        jQuery("#errpincodeMsg").text("Please enter Digits Only");
+        return false;
+      }
+      else{
+        jQuery("#errpincodeMsg").text('');
+      }
+  });
+
+  jQuery("#pincode").on("blur", function(){
+    var mobNum = jQuery('#pincode').val();
+        var filter = /^(?!0+$)\d{8,}$/;
+        if (!filter.test(mobNum)) {
+            jQuery("#errpincodeMsg").text('Not a valid number');
+            return false;
+        }
+        else if(mobNum.length!=10){
+          jQuery("#errpincodeMsg").text("Please enter 10 digit mobile number");
+            return false;
+        } 
+        else{
+          jQuery("#errpincodeMsg").text("");
+          return true;
+        }
+  }); 
+
   jQuery('.first').click( function() {    
     jQuery(".last").removeClass("selected");
     jQuery(".first").addClass("selected");
@@ -226,12 +287,109 @@ if(have_posts()):while(have_posts()):the_post();
     jQuery(".last").addClass("selected");
   });
 
-  jQuery('#content').on('change', function() {
-       jQuery("#content").addClass("section_contact partner-wrapper");
-  });
+/*-------------------------EMAIL VERIFICATION--------------------------*/
 
+jQuery("#emailAddress").on("change", function (event, ui) {
+      // alert(this.val());
+      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      if(jQuery('#emailAddress').val() == ''){
+        jQuery("#errstudentEmailMsg").html('Please enter Email Id');
+        jQuery("#errstudentEmailMsg").show();
+        return false;
+      }
+      else if(!emailReg.test(jQuery('#emailAddress').val())) 
+      {    
+          jQuery("#errstudentEmailMsg").html('Invalid email address entered.');
+          jQuery("#errstudentEmailMsg").show();
+          return false;
+      }
+      else
+      {
+          //console.log($('#emailAddress').val());
+          var email = $('#emailAddress').val();
+
+          jQuery.ajax({
+              type : "POST",
+              dataType : "json",
+              url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+              data : {"action": "reg_send_otp",email : email},
+              success: function(response) { 
+                  alert(response.response); 
+              }
+          });
+
+         /* jQuery.ajax({
+              type : "POST",
+              url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+              data : {"action": "otp_email_address1",email_address_otp : email},
+              dataType : "JSON",
+              success: function(data) { 
+               // if(response.status == 1){
+               //      alert("fgdh");
+               //    }  
+
+               var dd = data.replace('0','');
+                                        alert(dd);
+               JSON.parse(data.status);
+
+               // var data = $.parseJSON(data);
+
+               // alert(data.Content);
+               
+               // alert(resp.status);
+               // alert(resp.response);
+               // alert(resp.otp);
+               // alert(resp.otp_email);
+
+               // if(resp.status == 1){
+                
+                  // alert(resp.otpid);
+                  // alert(resp.otp);
+                  // alert(resp.otp_email);
+                
+               // }
+
+
+               // alert(resp);
+                /*var res = resp.replace('<pre></pre>','');
+                         alert(res);*/ 
+                         // JSON.parse(resp.response);
+                 /* if(response.arsp == 1)
+                  {
+                   // var otpemail = $('#otpemail').val();
+                   // var response_otp = response.otp;
+// console.log(response.otp);
+// console.log(response.otpid);
+
+//                   alert(response.otp);
+//                   alert(response.otpid);
+
+
+// jQuery("#EnterOTPemail").val() = response.otp;
+// jQuery("#EnterOTPemailid").val() = response.otpid;
+
+// alert(jQuery("#EnterOTPemail").val());
+// alert(jQuery("#EnterOTPemailid").val());
+
+                    /*if(otpemail == response_otp){
+                      jQuery("#errotpVerifyMsg").html('OTP verified.');
+                      jQuery("#errotpVerifyMsg").show();
+                      return false;
+                    }else{
+                       jQuery("#errotpVerifyMsg").html('Invalid OTP.');
+                       jQuery("#errotpVerifyMsg").show();
+                      return false;
+                    }
+                  }
+              }
+          });*/
+      }
+      
+});
+
+/*-------------------------EMAIL VERIFICATION--------------------------*/        
 /*------------DUPLICATE EMAIL ADDRESS AND CONTACT NUMBERS------------*/
-    jQuery("#emailAddress").on("change", function (event, ui) {
+    /*jQuery("#emailAddress").on("change", function (event, ui) {
         var check_email_id = $("#emailAddress").val();
 
         if(check_email_id != ""){
@@ -248,7 +406,26 @@ if(have_posts()):while(have_posts()):the_post();
               }
           });
         }
-      });
+      });*/
+    var schoolUrl = '<?php echo home_url(); ?>/wp-admin/admin-ajax.php';
+    jQuery('#user_school_data1').typeahead({
+        source: function(query, result){
+          $.ajax({
+             url: schoolUrl,
+             method:"POST",
+             data:{"action": "get_schools_new", term: query.term},
+             dataType:"json",
+             success:function(data){
+             result($.map(data, function(item){
+
+                return item;
+            
+             }));
+            }
+          })
+         },
+         minLength: 2,
+    });
 
     jQuery("#parentemailAddress").on("change", function (event, ui) {
         var check_parent_email_id = $("#parentemailAddress").val();
@@ -326,6 +503,9 @@ jQuery('.wpcf7-submit').click(function(e){
     arr.push(jQuery("#standard").val());
     arr.push(jQuery("input[name='course-of-interest']:checked").val());  
     arr.push(jQuery("input[name='interest-of-workshop']:checked").val());
+    arr.push(jQuery("#studentfullName").val());
+    arr.push(jQuery("#state").val());
+    arr.push(jQuery("#pincode").val());
 
     if(jQuery("#emailAddress").val() !='' && jQuery("#studentfirstName").val() !='' && jQuery("#studentlastName").val() !='' && jQuery("#mobileNumber").val() !='' && jQuery("#parentName").val() !='' && jQuery("#parentemailAddress").val() !='' && jQuery("#parentmobileNumber").val() !='' && jQuery("input[name='pick-gender']:checked").val() !='' && jQuery("#schoolName").val() !='' && jQuery("#schoolAddress").val() !='' && jQuery("#city").val() !='' && jQuery("#standard").val() !='' && jQuery("input[name='course-of-interest']:checked").val() !='' && jQuery("input[name='interest-of-workshop']:checked").val() !='' ){
         $.ajax({
@@ -333,8 +513,8 @@ jQuery('.wpcf7-submit').click(function(e){
               url: "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
               data: {"action": "save_response_form", response_form: arr },
               success: function(response) {
-                var response = response.replace('<pre></pre>','');
-                alert(response);                
+                //var response = response.replace('<pre></pre>','');
+                //alert(response);                
               }
         });
       }
@@ -426,7 +606,34 @@ jQuery('.wpcf7-submit').click(function(e){
        
            //google.maps.event.addDomListener(window, 'load', initialize);
          //  setTimeout(initialize, 2000); onClick="window.location.href = '<?php echo bloginfo('url');?>'"
-
+  jQuery("#verify-otp-btn").click(function(){
+          jQuery("#verify-otp-btn").html("Please wait...");
+            jQuery("#verify-otp-btn").attr("disabled", "disabled");
+            var num_1 = jQuery("input[name='num_1']").val();
+            var num_2 = jQuery("input[name='num_2']").val();
+            var num_3 = jQuery("input[name='num_3']").val();
+            var num_4 = jQuery("input[name='num_4']").val();
+            var num_5 = jQuery("input[name='num_5']").val();
+            var num_6 = jQuery("input[name='num_6']").val();
+          jQuery.ajax({
+                type : "POST",
+                dataType : "json",
+                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
+                data : {'num_1':num_1,'num_2':num_2,'num_3':num_3,'num_4':num_4,'num_5':num_5,'num_6':num_6,'screenWidth': window.screen.availWidth,'screenHeight':window.screen.availHeight, 'action':'reg_verify_otp'},
+                success: function(response) {
+                  alert(response.message);
+                  jQuery("#verify-otp-btn").html("Verify OTP");
+                    jQuery("#verify-otp-btn").removeAttr("disabled");
+                    
+                    if(response.status == 1){
+                      
+                    }
+                    else{
+                        
+                    }
+                }
+            });
+        });
 </script>
 
 <?php
@@ -446,7 +653,7 @@ get_footer(vibe_get_footer());
           </button>
       </div>
       <div class="modal-body">
-      <p>We have received your message and one of our colleagues will get in touch with you soon.</p>
+      <p>We have received your response and one of our colleagues will get in touch with you soon.</p>
         <p class="modalfooter_text">Thanks, <span>HTSchool</span></p>
     </div>
     </div>

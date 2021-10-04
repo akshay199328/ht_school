@@ -43,6 +43,35 @@ if($bannerCount == 1){
 }else{
 }
 
+
+function extractVideoID($url)
+  {
+       if(preg_match('/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/', $url, $video))
+       {
+         $videoType = "youtube";
+         $videoId = $video[7];
+       }
+       else if (preg_match('#(?:https?://)?(?:www.)?(?:player.)?vimeo.com/(?:[a-z]*/)*([0-9]{6,11})[?]?.*#', $url, $m)) 
+        {
+            $videoType = "vimeo";
+            $videoId = $m[1];       
+        }
+        return $videoType."-".$videoId;
+  }
+         
+  function getYouTubeThumbnailImage($video_id) {
+     // return "https://i3.ytimg.com/vi/$video_id/hqdefault.jpg"; //pass 0,1,2,3 for different sizes like 0.jpg, 1.jpg
+
+      return "https://img.youtube.com/vi/$video_id/maxresdefault.jpg";
+  }
+   
+  function getVimeoThumb($id)
+  {
+      $arr_vimeo = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$id.php"));
+      //return $arr_vimeo[0]['thumbnail_small']; // returns small thumbnail
+      //return $arr_vimeo[0]['thumbnail_medium']; // returns medium thumbnail
+     return $arr_vimeo[0]['thumbnail_large']; // returns large thumbnail
+  }
 ?>
 <div class="owl-carousel owl-theme home_slider <?php echo $dotBannerCount; ?>">
   <?php
@@ -340,6 +369,96 @@ if($bannerCount == 1){
     <?php echo $how_it_works; ?>
   </div>
 </section>
+
+
+<!-- Codeathon Testimonials -->
+
+
+
+
+<section class="section-wrapper videos" id="Partner_says">
+  <div class="section-copy">
+    <h2 class="section-title">Testimonials</h2>
+    <div class="owl-carousel owl-theme says_slider">
+      <?php
+        $args1 = array(
+          'post_type' => 'codeathon_testimonia',
+          'post_status' => 'publish',
+          'orderby' => 'publish_date',
+          'order' => 'DESC',        
+          'nopaging' => true
+        );
+        $Query1 = new WP_Query( $args1 );
+        
+        if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
+          $custom_fields = get_post_custom();
+          $student_name = $custom_fields['student_name'][0];
+          $profile_image = $custom_fields['profile_image'][0];
+          $school_name = $custom_fields['school_name'][0];
+          //$video_url = $custom_fields['video_url'][0];
+          //$description = $custom_fields['description'][0];
+
+          /*echo "student_name=>".$student_name ;
+          echo "profile_image=>".$profile_image ;
+          echo "school_name=>".$school_name ;
+          echo "video_url=>". $video_url ;
+          echo "description=>".$description ;*/
+
+          
+
+
+      ?>
+      <div class="item">
+        <?php if( $custom_fields['video_url'][0] != '')
+        {
+          $link = $custom_fields['video_url'][0];
+          $parts = explode("/", $link);
+          $youtubecode = end($parts);
+
+
+            $video_url = $custom_fields['video_url'][0];
+            $video_info = extractVideoID($video_url);
+            $vInfo = explode("-",$video_info);
+            $videoType = $vInfo[0];
+            $video_id = $vInfo[1];
+
+            if($videoType=="youtube")
+            {
+                $thumbnail =  getYouTubeThumbnailImage($video_id);
+            }
+            else if($videoType=="vimeo")
+            {
+                $thumbnail =  getVimeoThumb($video_id);
+            }
+          
+            //echo "=>".$thumbnail;
+            
+//exit();
+           
+
+         
+          ?>
+        <span class="image-copy">
+        <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="<?php echo $custom_fields['student_name'][0];?>" data-youtubecode="<?php echo $video_id; ?>"><img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/video-play.svg"></a>
+        <img src="<?php echo $thumbnail ;?>" class="main">
+      </span>
+    <?php } 
+        else if( $custom_fields['description'][0] != ''){
+    ?>
+    <span><?php echo $custom_fields['description'][0];?></span>
+    <?php }?>
+      <?php if($custom_fields['student_name'][0] != ''){ ?>
+        <span class="caption"><?php echo $custom_fields['student_name'][0];?></span>
+      <?php } ?>
+      </div>
+      <?php 
+        endwhile;endif; 
+      ?>
+    </div>   
+  </div>
+</section>
+<!-- Codeathon Testimonials -->
+
 
 <section class="section-wrapper leaderboard">
     <div class="section-copy">

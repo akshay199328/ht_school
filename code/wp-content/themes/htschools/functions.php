@@ -966,14 +966,14 @@ function reg_verify_mob_otp(){
             $utm_campaign = $_SESSION['utm_campaign'];
             $utm_medium = $_SESSION['utm_medium'];
             $event_id = $_SESSION['event_id'];
-            $gaCode = 'GA12345';
+            $gaCode = $_COOKIE['_ga'];
 
             $resultsUTM = $wpdb->get_row("SELECT count(id) as utmCount FROM `ht_event_utm` WHERE `user_id` = '$user_id'");
             $utmCount = $resultsUTM->utmCount;
 
             if($utmCount == 0){
 
-                $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`, `ga_code`) VALUES ('".$userIdentifier."', '".$phpsessid."', '".$post_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW(), '".$gaCode."')");
+                $results = $wpdb->prepare("INSERT INTO `ht_event_utm` (`user_id`, `phpsessid`, `event_id`, `utm_source`, `utm_campaign`, `utm_medium`, `created_date`, `ga_code`) VALUES ('".$user_id."', '".$phpsessid."', '".$event_id."', '".$utm_source."', '".$utm_campaign."', '".$utm_medium."', NOW(), '".$gaCode."')");
                 $wpdb->query($results);
 
                 unset($_SESSION['utm_source']);
@@ -1508,20 +1508,25 @@ function save_custom_profile(){
             $school_name = str_replace(',', ' ', $_REQUEST['user_school_other']);
         }
 
+
         $results = $wpdb->get_results("SELECT DISTINCT ht_users.ID, ht_users.user_nicename,CONCAT(UPPER(SUBSTRING(ht_users.display_name,1,1)),
           LOWER(SUBSTRING(ht_users.display_name,2)) ) as display_name
           FROM ht_users INNER JOIN ht_usermeta
           ON ht_users.ID = ht_usermeta.user_id
           WHERE ht_usermeta.meta_key='ht_capabilities' AND ht_usermeta.meta_value LIKE '%school%'  AND ht_users.display_name ='" . esc_attr($school_name) . "'");
-        
+
         $result_id = $wpdb->get_results("SELECT DISTINCT ID FROM ht_users WHERE display_name = '" . esc_attr($school_name) . "'");
+        
+      //  $school_name = str_replace(',', ' ', $_REQUEST['user_school_data']);
+       // $school_other_name = str_replace(',', ' ', $_REQUEST['user_school_other']);
 
         $date = date('Y-m-d H:i:s');
         if(count($results) == 0){
-          
-          $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login,
+         
+            $user_insert = $wpdb->prepare("INSERT INTO ht_users (user_login,
                 user_nicename, display_name,user_registered) VALUES ('".$school_name."', '".$school_name."', '".$school_name."','".$date."')");
-                  
+        
+          
           $wpdb->query($user_insert);
           $schoolID = $wpdb->insert_id;
           $tablename = $wpdb->prefix . "usermeta";
@@ -1532,36 +1537,43 @@ function save_custom_profile(){
 
           $sql = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (%s, %s, %s)", $userID, $userRole, $meta_value);
           $wpdb->query($sql);
-          
-          $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'first_name','".$school_name."')");
+
+              $sql1 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'first_name','".$school_name."')");
               $wpdb->query($sql1);
-         
+        
+
           $sql2 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'type','Manual')");
           $wpdb->query($sql2);
 
           $sql3 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$user_id.",'Linked School',".$schoolID.")");
           $wpdb->query($sql3);
-          
+
+          //if(empty($school_other_name)){
           $sql4 = $wpdb->prepare("INSERT INTO `$tablename` (`user_id`, `meta_key`, `meta_value`) values (".$schoolID.",'nickname','".$school_name."')");
-          $wpdb->query($sql4);          
+              $wpdb->query($sql4);
+         
         }
         else{
-            if($school_name == "Others"){
+          //$schoolID = trim($_REQUEST['user_school']);
+          if($school_name == "Others"){
                   $schoolID = trim($result_id);
             }else{
                   $schoolID = trim($_REQUEST['user_school']);
-            }          
+            }  
         }
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
         xprofile_set_field_data('Phone', $user_id, trim($_REQUEST['user_mobile']));
-        //xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
-        xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country_data']));
+        xprofile_set_field_data('Country', $user_id, trim($_REQUEST['user_country']));
         xprofile_set_field_data('State', $user_id, trim($_REQUEST['user_state']));
         xprofile_set_field_data('City', $user_id, trim($_REQUEST['user_city']));
         xprofile_set_field_data('Linked School', $user_id, $schoolID);
         xprofile_set_field_data('Grade', $user_id, trim($_REQUEST['grade']));
         xprofile_set_field_data('Division', $user_id, trim($_REQUEST['division']));
+
+        if($_REQUEST['school_card_img'] != ''){
+          xprofile_set_field_data('Image', $user_id, trim($_REQUEST['school_card_img']));
+        }
 
         if($_REQUEST['user_state'] != ''){
           $north_zone = array("assam", "bihar", "chhattisgarh", "haryana", "himachal pradesh", "jammu and kashmir", "jharkhand", "manipur", "meghalaya", "mizoram", "nagaland", "delhi", "odisha", "punjab", "rajasthan", "tripura", "uttarakhand", "west bengal", "chandigarh", "sikkim", "uttar pradesh");
@@ -1581,7 +1593,7 @@ function save_custom_profile(){
           xprofile_set_field_data('Zone', $user_id, trim($zone));
 
 
-          /*// Event State
+          // Event State
           $resultsState = $wpdb->get_results("SELECT `id` FROM `ht_bp_xprofile_fields` WHERE `name` = 'Event State'");
           foreach($resultsState as $rowState){ 
               $statePriID = $rowState->id; 
@@ -1605,20 +1617,17 @@ function save_custom_profile(){
 
           if($zonecount == 0){
             xprofile_set_field_data('Event Zone', $user_id, trim($zone));
-          }*/
+          }
 
         }
 
-        $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );  
-
-        //'school_name' => esc_attr($_REQUEST['user_school_data']),
-        //'school_id' => esc_attr($_REQUEST['user_school']),
-        if(!empty($schoolID)){
+        $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );        
+         if(!empty($schoolID)){
             $child_school_id = $schoolID;
         }else{
             $child_school_id = $_REQUEST['user_school'];
-        }      
-
+        }  
+          
         if(count($child) == 0){
           $wpdb->insert($wpdb->prefix . "parent_child_mapping", array(
               'parent_id' => 0,
@@ -1653,7 +1662,6 @@ function save_custom_profile(){
 
     echo json_encode($response); exit;
 }
-
 add_action("wp_ajax_save_child_entry", "save_child_entry");
 add_action( 'wp_ajax_nopriv_save_child_entry', 'save_child_entry' );
 

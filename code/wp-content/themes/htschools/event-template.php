@@ -393,7 +393,7 @@ function extractVideoID($url)
         if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
           $custom_fields = get_post_custom();
           $student_name = $custom_fields['student_name'][0];
-          $profile_image = $custom_fields['profile_image'][0];
+          $profile_image = wp_get_attachment_url($custom_fields['profile_image'][0]);
           $school_name = $custom_fields['school_name'][0];
           //$video_url = $custom_fields['video_url'][0];
           //$description = $custom_fields['description'][0];
@@ -425,10 +425,14 @@ function extractVideoID($url)
             if($videoType=="youtube")
             {
                 $thumbnail =  getYouTubeThumbnailImage($video_id);
+                $dataCode = 'data-youtubecode';
+                $dataTarget = '#video1-popup';
             }
             else if($videoType=="vimeo")
             {
                 $thumbnail =  getVimeoThumb($video_id);
+                $dataCode = 'data-viemocode';
+                $dataTarget = '#video1-popup-learning';
             }
           
             //echo "=>".$thumbnail;
@@ -439,7 +443,7 @@ function extractVideoID($url)
          
           ?>
         <span class="image-copy">
-        <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="#video1-popup" data-title="<?php echo $custom_fields['student_name'][0];?>" data-youtubecode="<?php echo $video_id; ?>">
+        <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="<?php echo  $dataTarget;?>" data-title="<?php echo $custom_fields['student_name'][0];?>" <?php echo $dataCode."=".$video_id; ?>>
           
           <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/video-play.svg">
         </a>
@@ -457,19 +461,17 @@ function extractVideoID($url)
         </div>
     </div>
     <?php }?>
-    <div class="copy-footer">
-      <?php if($custom_fields['student_name'][0] != ''){ ?>
+    <div class="copy-footer">    
         <span class="icon">
-            <img src="<?php echo $thumbnail ;?>" class="img-fluid">
-        </span>
+            <img src="<?php echo $profile_image;?>" class="img-fluid">
+        </span>        
         <span class="student-name">
-            <h4 class="caption"><?php echo $custom_fields['student_name'][0];?></h4>
+            <h4 class="caption"><?php echo $student_name;?></h4>
+            <p><?php echo $school_name;?></p>
         </span>  
-        
-          
-        </div>
-      </div>
-      <?php } ?>
+    </div>
+  </div>
+      
       <?php 
         endwhile;endif; 
       ?>

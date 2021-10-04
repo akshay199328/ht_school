@@ -541,7 +541,6 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 
           });
 
-
           $('#inputfile2').click(function(){
                $('#school_card_img').val('');
                $('#inputfile2').hide();

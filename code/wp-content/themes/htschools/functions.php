@@ -1564,6 +1564,7 @@ function save_custom_profile(){
                   $schoolID = trim($_REQUEST['user_school']);
             }  
         }
+        
         xprofile_set_field_data('Birthday', $user_id, trim($_REQUEST['user_dob']) . " 00:00:00");
         xprofile_set_field_data('Gender', $user_id, trim($_REQUEST['user_gender']));
         xprofile_set_field_data('Phone', $user_id, trim($_REQUEST['user_mobile']));

@@ -26,6 +26,7 @@ $user_gender = get_profile_data('Gender');
 $user_country = get_profile_data('Country');
 $user_state = get_profile_data('State');
 $user_city = get_profile_data('City');
+$school_id_card = get_profile_data('Image');
 
 $user_school_name = "";
 $user_school = get_profile_data('Linked School');
@@ -50,6 +51,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
     echo 'User ID: ' . $current_user->ID . '<br />
 */
 
+$profileType = get_profile_data('Profile Type');
 
 ?>
 <form id="profile-edit-form" name="profile-form" class="standard-form">
@@ -99,6 +101,56 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		                </div>
 		            </div>
 				</div>
+
+				<?php if($profileType == 'Parent'){ ?>
+					<div class="form-group profile_search">
+						<label for="user_school_data">School*</label>
+						<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
+						<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+						<span id="errSchoolMsg"></span>
+					</div>
+					<div style="display:none" id="other_school">
+						<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >											
+						<span id="errotherSchoolMsg"></span>
+					</div>
+
+					<div class="form-group profile_dropdown">
+		                <label for="">Grade / Standard*</label>
+		                <select name="grade" id="grade">
+		                	<option value="K1" <?php if($child[0]->grade=="K1") echo 'selected="selected"'; ?>>K1</option>
+		                	<option value="K2" <?php if($child[0]->grade=="K2") echo 'selected="selected"'; ?>>K2</option>
+		                  	<option value="1" <?php if($child[0]->grade=="1") echo 'selected="selected"'; ?>>1</option>
+		                  	<option value="2" <?php if($child[0]->grade=="2") echo 'selected="selected"'; ?>>2</option>
+		                  	<option value="3" <?php if($child[0]->grade=="3") echo 'selected="selected"'; ?>>3</option>
+		                  	<option value="4" <?php if($child[0]->grade=="4") echo 'selected="selected"'; ?>>4</option>
+		                  	<option value="5" <?php if($child[0]->grade=="5") echo 'selected="selected"'; ?>>5</option>
+		                  	<option value="6" <?php if($child[0]->grade=="6") echo 'selected="selected"'; ?>>6</option>
+		                  	<option value="7" <?php if($child[0]->grade=="7") echo 'selected="selected"'; ?>>7</option>
+		                  	<option value="8" <?php if($child[0]->grade=="8") echo 'selected="selected"'; ?>>8</option>
+		                  	<option value="9" <?php if($child[0]->grade=="9") echo 'selected="selected"'; ?>>9</option>
+		                  	<option value="10" <?php if($child[0]->grade=="10") echo 'selected="selected"'; ?>>10</option>
+		                  	<option value="11" <?php if($child[0]->grade=="11") echo 'selected="selected"'; ?>>11</option>
+		                  	<option value="12" <?php if($child[0]->grade=="12") echo 'selected="selected"'; ?>>12</option>
+		                </select>
+		            </div>
+		            <div class="form-group profile_dropdown">
+		                <label for="">Section / Division* <?php echo $child->division?></label>
+		                <select name="division" id="division">
+		                  <option value="A" <?php if($child[0]->division=="A") echo 'selected="selected"'; ?>>A</option>
+		                  <option value="B" <?php if($child[0]->division=="B") echo 'selected="selected"'; ?>>B</option>
+		                  <option value="C" <?php if($child[0]->division=="C") echo 'selected="selected"'; ?>>C</option>
+		                  <option value="D" <?php if($child[0]->division=="D") echo 'selected="selected"'; ?>>D</option>
+		                  <option value="E" <?php if($child[0]->division=="E") echo 'selected="selected"'; ?>>E</option>
+		                  <option value="F" <?php if($child[0]->division=="F") echo 'selected="selected"'; ?>>F</option>
+		                  <option value="G" <?php if($child[0]->division=="G") echo 'selected="selected"'; ?>>G</option>
+		                  <option value="H" <?php if($child[0]->division=="H") echo 'selected="selected"'; ?>>H</option>
+		                  <option value="I" <?php if($child[0]->division=="I") echo 'selected="selected"'; ?>>I</option>
+		                  <option value="J" <?php if($child[0]->division=="J") echo 'selected="selected"'; ?>>J</option>
+		                </select>
+		            </div>
+
+		        <?php } ?>
+
 				<div class="form-group profile_search">
 					<label for="user_country_data">Country</label>
 					<input type="text" class="form-control" id="user_country_data" name="user_country_data" placeholder="" value="<?php echo $user_country; ?>">
@@ -117,7 +169,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 					<label for="user_city">City</label>
 					<input type="text" class="form-control" id="user_city" name="user_city" placeholder="" value="<?php echo $user_city; ?>">
 				</div>
-				
+
 				<!-- <div class="form-group hide-acf-form">
 					<?php// acf_form( $args );?>
 				</div>
@@ -209,27 +261,26 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	}*/
 
 	</style>
-
-	<div class="col-md-4 mrg">
-		<div class="info-card">
-			<form class="standard-form">
-				<input type="hidden" name="action">
-				<h1>About your School</h1>
-				<div id="child-form" >
-					<div class="form-group profile_search">
-						<label for="user_school_data">Name of your School*</label>
-						<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
-						<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
-						<span id="errSchoolMsg"></span>
-					</div>
-					<div style="display:none" id="other_school">
-						<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >											
-						<span id="errotherSchoolMsg"></span>
-					</div>
-
-					<?php $profileType = get_profile_data('Profile Type'); 
-						if($profileType != 'Parent'){
-					?>
+<?php if($profileType == 'Parent'){ ?>
+	</form>
+<?php } ?>
+	<?php $profileType = get_profile_data('Profile Type'); 
+	  if($profileType != 'Parent'){ ?>
+		<div class="col-md-4 mrg">
+			<div class="info-card">
+				<div class="standard-form">
+					<h1>About your School</h1>
+					<div id="child-form" >
+						<div class="form-group profile_search">
+							<label for="user_school_data">Name of your School*</label>
+							<input type="text" class="form-control" id="user_school_data" name="user_school_data" placeholder="" value="<?php echo $user_school_name; ?>">
+							<input type="hidden" id="user_school" name="user_school" value="<?php echo $user_school; ?>">
+							<span id="errSchoolMsg"></span>
+						</div>
+						<div style="display:none" id="other_school">
+							<input type="text" id="user_school_other" name="user_school_other" placeholder="Please enter others school name" value="" >											
+							<span id="errotherSchoolMsg"></span>
+						</div>
 
 						<div class="form-group profile_dropdown">
 			                <label for="">Grade / Standard*</label>
@@ -265,21 +316,60 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 			                  <option value="J" <?php if($child[0]->division=="J") echo 'selected="selected"'; ?>>J</option>
 			                </select>
 			            </div>
-		        	<?php } ?>
-		        	<div class="form-group">
-						<label for="user_school_data">School ID Card*</label>
-						<div class="wrap-profile">
-							<div id="profileimage"></div>
-	                        <label class="add">Upload School ID<input type="file" id="inputfile" value=""></label>
-	                        <button type="button" id="inputfile2" style="display: none;"></button>
-	                        <input type="hidden" id="school_card_img" value="" name="school_card_img">
-                        </div>
+			        	<div class="form-group">
+							<label for="user_school_data">School ID Card</label>
+							<div class="wrap-profile">
+							<?php if($school_id_card != ''){ ?>
+								<div id="profileimage"><img src="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/avatars/<?php echo $school_id_card; ?>"></div>
+		                        <label class="add">Upload School ID<input type="file" id="inputfile" value="" style="display: none;"></label>
+		                        <button type="button" id="inputfile2"></button>
+		                        <input type="hidden" id="school_card_img" value="<?php echo $school_id_card; ?>" name="school_card_img">
+							<?php }else{ ?>
+								<div id="profileimage"></div>
+		                        <label class="add">Upload School ID<input type="file" id="inputfile" value=""></label>
+		                        <button type="button" id="inputfile2" style="display: none;"></button>
+		                        <input type="hidden" id="school_card_img" value="<?php echo $school_id_card; ?>" name="school_card_img">
+							<?php } ?>
+							</div>
+						</div>
 					</div>
 				</div>
-			</form>
+			</div>
 		</div>
-	</div>
-</form>
+	  <?php if($profileType != 'Parent'){ ?>
+		 </form>
+	  <?php } ?>
+	<?php }else{ ?>
+		<div class="col-md-4 mrg">
+			<div class="info-card">
+				<?php if(count($childrens) > 0){ ?>
+					<div class="children-list">
+						<h1>Your Child/ren</h1>
+						<?php $childIndex = 1; ?>
+						<?php foreach ($childrens as $currentRow): ?>
+							<div class="children-element">
+								<p class="child-index"><strong>CHILD <?php echo $childIndex++; ?></strong></p>
+								<p class="child-element-name"><?php echo $currentRow->child_name; ?></p>
+								<p class="child-element-school"><?php echo $currentRow->school_name; ?></p>
+								<p class="child-element-info"><strong><?php echo $currentRow->grade; ?></strong> Grade&nbsp;&nbsp;&nbsp;&nbsp; <strong><?php echo $currentRow->division; ?></strong> Division</p>
+							</div>
+						<?php endforeach ?>
+					</div>
+				<?php } ?>
+				<form class="standard-form">
+					<input type="hidden" name="action">
+					<h1>Add Your Child</h1>
+					<div class="content">
+						<p>If you're a parent and want to add your child, click Add a Child.If you're a parent and want to add your child, click <strong>Add a Child</strong>.</p>
+						<p><i>However, note that adding a child will convert your profile to that of a 'Parent' and this change cannot be reversed.</i></p>
+						<!-- <button type="button" class="btn" id="add-child-btn">Add a Child</button> -->
+						<button type="button" class="btn" data-toggle="modal" data-target="#edit-child-profile">Add a Child</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	<?php } ?>
+
 <script type="text/javascript">
 	window.onbeforeunload = null;
 	(function($) {
@@ -383,7 +473,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
                   	$("#errSchoolMsg").text("Please select school name");
                   	isValid = false;
                   }
-              
+
                   return isValid;
             }
 
@@ -532,7 +622,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 
                          $('#profile-add').hide();
                          $('#inputfile').hide();
-                         var image = '<img style="width: 200px; height: 200px; border-radius: 100%;" src="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/avatars/'+data+'">';
+                         var image = '<img src="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/avatars/'+data+'">';
                          $("#profileimage").html(image);
                          $("#school_card_img").val(data);
                          $('#inputfile2').show();
@@ -751,6 +841,21 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	                return false;
 	            }
               	else{
+
+              		var school_card_img = $('#school_card_img').val();
+
+              		if(school_card_img != ''){
+	              		jQuery.ajax({
+	                        type : "POST",
+	                        dataType : "json",
+	                        url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php?action=platform_onboarding_points",
+	                        data : {ref_key:'platform_onboarding_step3',ref_entry : 'Step 3'},
+	                        success: function(response) {
+	                             console.log(response);
+	                        }
+	                    });
+	                }
+
 					$("#edit_profile_submit").html("Please wait...");
 	                $("#edit_profile_submit").attr("disabled", "disabled");
 	                $('form#modalAjaxTrying :submit').trigger('click');
@@ -761,6 +866,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		                url : "<?php echo home_url(); ?>/wp-admin/admin-ajax.php",
 		                data : $("#profile-edit-form").serialize(),
 		                success: function(response) {
+
 		                    $("#edit_profile_submit").html("Submit");
 		                    $("#edit_profile_submit").removeAttr("disabled");
 		             		window.onbeforeunload = null;

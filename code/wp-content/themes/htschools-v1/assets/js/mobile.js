@@ -14,9 +14,9 @@
         margin: 0,
         responsiveClass: true,
         autoWidth: true,
-        autoplay:true,
+        autoplay:false,
         nav: true,
-        items: 4
+        items: 4,
     })
     $(document).ready(function(){
         /*$(".overlay").click(function(){

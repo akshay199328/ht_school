@@ -1214,19 +1214,19 @@ get_header(vibe_get_header());
                   <div class="no-data">
                     <img src="<?php echo bloginfo('template_url')?>/assets/images/nofilter-icon.png">
                     <p>No Courses That Match The Selected Filters!<br/>Please Reset Filters And Try Again.</p>
-                    <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
+                    <a href="<?php echo bloginfo('url')?>/courses" class="main-button">Reset Filters</a>
                   </div>
                 <?php }$i++; endwhile;}else{?>
                   <div class="no-data">
                     <img src="<?php echo bloginfo('template_url')?>/assets/images/nofilter-icon.png">
                     <p>No courses that match the selected filters! Please reset filters and try again.</p>
-                    <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
+                    <a href="<?php echo bloginfo('url')?>/courses" class="main-button">Reset Filters</a>
                   </div>
                 <?php }}else{?>
                   <div class="no-data">
                     <img src="<?php echo bloginfo('template_url')?>/assets/images/nofilter-icon.png">
                     <p>No courses that match the selected filters! Please reset filters and try again.</p>
-                    <a href="<?php echo bloginfo('url')?>/courses" class="black-button">Reset Filters</a>
+                    <a href="<?php echo bloginfo('url')?>/courses" class="main-button">Reset Filters</a>
                   </div>
                 <?php } ?>
                 <!-- <div id="more_posts">Load More</div> -->

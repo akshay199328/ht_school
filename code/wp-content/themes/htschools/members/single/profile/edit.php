@@ -190,7 +190,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 	    margin-top: 5px;
 	}
 
-	#inputfile2{
+	/*#inputfile2{
 		background:url(<?php echo get_bloginfo('template_url'); ?>/assets/images/file-delete.svg) no-repeat center #f10;
 		display:block;
 		background-size:22px 23px;
@@ -206,7 +206,7 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		color:transparent;
 		border:0;
 		border-radius:100%
-	}
+	}*/
 
 	</style>
 
@@ -268,10 +268,12 @@ $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_ma
 		        	<?php } ?>
 		        	<div class="form-group">
 						<label for="user_school_data">School ID Card*</label>
-						<div id="profileimage"></div>
-                        <input type="file" id="inputfile" value="">
-                        <button type="button" id="inputfile2" style="display: none;"></button>
-                        <input type="hidden" id="school_card_img" value="" name="school_card_img">
+						<div class="wrap-profile">
+							<div id="profileimage"></div>
+	                        <label class="add">Upload School ID<input type="file" id="inputfile" value=""></label>
+	                        <button type="button" id="inputfile2" style="display: none;"></button>
+	                        <input type="hidden" id="school_card_img" value="" name="school_card_img">
+                        </div>
 					</div>
 				</div>
 			</form>

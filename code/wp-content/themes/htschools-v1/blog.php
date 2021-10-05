@@ -366,7 +366,8 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
         
             if ($Query1->have_posts()) : while ($Query1->have_posts()) : $Query1->the_post();
               if( $Query->current_post != 0 ) {
-              //$custom_fields = get_post_custom();
+             // $custom_fields = get_post_custom();
+             
              // $url = wp_get_attachment_url($custom_fields['image'][0]); 
             ?>
             <div class="item">
@@ -376,7 +377,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                       $featured_image = get_the_post_thumbnail_url();
                     }
                     ?>
-                <a href="#!"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
+                <a href="<?php the_permalink(); ?>"><img src="<?php echo $featured_image; ?>" class="img-fluid"></a>
 
                   <!-- <img src="<?php echo $url;?>">
                   <a class="play" href="#!"> --><!-- <span class="time">3:20</span> --></a>
@@ -385,7 +386,7 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
                   <span class="date-time">
                             <?php echo strtoupper(get_post_meta(get_the_ID(), 'news_location', true));?> <?php echo get_the_date('M d, Y H:i'); ?>
                           </span>
-                  <h2 class="course-title"><a href="#!"><?php echo the_content(); ?></a></h2>
+                  <h2 class="course-title"><a href="<?php the_permalink(); ?>"><?php echo the_content(); ?></a></h2>
                   
                 </div>
               </div>

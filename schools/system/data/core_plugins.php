@@ -1,7 +1,0 @@
-<?php
-
-$plugins = [
-
-];
-
-return $plugins;

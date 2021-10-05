@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 23" width="22" height="23">
+	<title>delete-icon-svg</title>
+	<defs>
+		<image width="23" height="24" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAYCAYAAAARfGZ1AAAAAXNSR0IArs4c6QAAAWVJREFUSEvtVcFNw0AQnKmApAPogA4IFUAJoQKgAqAC6ACoAKiApAJcQjogqWDQnNbR2fgcOxLik5NO8tm7s3uzs2viDxe7sCVdAngbEPeW5FPJrgR+D+BuAPiS5Gxf8AeSDtRYkgz4CaAfPAzPWv529l7EbuMfA5gDWAF46cjcQReUtAZwNICCMSZrklODu3inkalvsCxk2wfuW+a+Fcn3bUEl1UXs5LkPueT7P+CSJgCeAfgmlaQbZ29dSzKN1ySv/G5I5q6+wV5JzjO5JZokqZZeBnZuVUiyqsx5OtcU5rQ0tHsATxS1W/pAS4kWa/kLQJrZkioAnhmz0PwjgBOSq9FSjDpMSHqwuSZuKjfR9pw9uwf8rfF/yHVu5+9ogGntuGsURlD7bUimBH41UWRXd5pntOlIWZZWAJsed3fq7D5w8+wAY+f7xiPbM6gIHtk7gMfvxS5K4vuH7dvAqQYDAfYy+wHZ0FQoxshcFgAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Group_15964" href="#img1" transform="matrix(1,0,0,1,0,-1)"/>
+</svg>

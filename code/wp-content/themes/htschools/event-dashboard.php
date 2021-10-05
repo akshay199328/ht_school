@@ -77,7 +77,7 @@ $profileStatus = $results2->profileStatus;
 
 $child = $wpdb->get_results( "SELECT * FROM " . $wpdb->prefix . "parent_child_mapping WHERE child_id = " . $user_id );
 
-//$courseID = 204;
+//$courseID = 961;
 
 do_action('wplms_course_curriculum_section',$courseID);
 
@@ -497,11 +497,25 @@ $resultsState = $wpdb->get_results("SELECT CONCAT(UPPER(SUBSTRING(state_name,1,1
 
 
 // Quiz status count
-$course_quiz = [];
+/*$course_quiz = [];
 foreach($course_curriculum as $lesson){
     if($lesson['type'] == 'quiz'){
+        $event_quiz_type_new = get_post_meta($lesson,'vibe_event_quiz_type',true);
         array_push($course_quiz, $lesson);
     }
+}*/
+
+$course_curriculum_new = bp_course_get_full_course_curriculum($courseID);
+$course_quiz = array();
+foreach($course_curriculum_new as $row){
+  if($row['type'] == 'quiz'){
+    $quizIDNew = $row['id'];
+    $event_quiz_type_new = get_post_meta($quizIDNew,'vibe_event_quiz_type',true);
+
+    if($event_quiz_type_new == 'course'){
+      array_push($course_quiz, $row);
+    }
+  }
 }
 
 $quizCompleteCount=0;
@@ -520,13 +534,13 @@ foreach($course_quiz as $quiz_units){
 
 }
 
-$resultsQuizTotal = $wpdb->get_results("SELECT count(id) as total_quiz_points FROM $my_cred_table WHERE user_id = '".$userID."' and data = '".$courseID."'");
+$resultsQuizTotal = $wpdb->get_results("SELECT count(id) as total_quiz_points FROM $my_cred_table WHERE user_id = '".$userID."' and data = '".$courseID."' and ref_id = '".$quizID."'");
 $total_quiz_points = $resultsQuizTotal[0]->total_quiz_points;
 
-//$retakes=apply_filters('wplms_quiz_retake_count',get_post_meta($item,'vibe_quiz_retakes',true),$item,$course,$user_id);
+$retakes=apply_filters('wplms_quiz_retake_count',get_post_meta($quizID,'vibe_quiz_retakes',true),$quizID,$courseID,$userID);
 
 
-if($quizCompleteCount >= 3){ 
+if($quizCompleteCount >= $retakes){ 
   if($total_quiz_points == 0){
     include("includes/codeathon-certificate.php");
   }
@@ -577,6 +591,9 @@ div#ui-datepicker-div{
     .typeahead li a {
         padding: 9px 12px;
         white-space: normal;
+    }
+    button.course_button.full.progress_key_2.button_cource_id_905 {
+      text-transform: unset;
     }
 </style>  
 <section class="dashboard-wrapper">
@@ -724,7 +741,7 @@ div#ui-datepicker-div{
                                         <div class="details">
                                             <h4><?php echo get_the_title($courseID); ?></h4>
                                             <p><?php echo get_the_excerpt($courseID); ?></p>
-                                            <?php if($quizCompleteCount >= 3){ 
+                                            <?php if($quizCompleteCount >= $retakes){ 
                                                     if($total_quiz_points == 0){
                                                       echo '<div class="download" style="width: 55%; float: left; margin-right: 15px;">';
                                                                 user_certificate($courseID,$userID);

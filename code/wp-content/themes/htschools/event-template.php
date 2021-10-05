@@ -427,12 +427,14 @@ function extractVideoID($url)
                 $thumbnail =  getYouTubeThumbnailImage($video_id);
                 $dataCode = 'data-youtubecode';
                 $dataTarget = '#video1-popup';
+                $anchorClass = 'play videoplay';
             }
             else if($videoType=="vimeo")
             {
                 $thumbnail =  getVimeoThumb($video_id);
                 $dataCode = 'data-viemocode';
                 $dataTarget = '#video1-popup-learning';
+                $anchorClass = 'play videoplayLearning';
             }
           
             //echo "=>".$thumbnail;
@@ -443,7 +445,7 @@ function extractVideoID($url)
          
           ?>
         <span class="image-copy">
-        <a class="play videoplay" href="#!" data-bs-toggle="modal" data-bs-target="<?php echo  $dataTarget;?>" data-title="<?php echo $custom_fields['student_name'][0];?>" <?php echo $dataCode."=".$video_id; ?>>
+        <a class="<?php echo $anchorClass;?>" href="#!" data-bs-toggle="modal" data-bs-target="<?php echo  $dataTarget;?>" data-title="<?php echo $custom_fields['student_name'][0];?>" <?php echo $dataCode."=".$video_id; ?>>
           
           <img src="<?php echo get_bloginfo('template_url'); ?>/assets/images/video-play.svg">
         </a>
